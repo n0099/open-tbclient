@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +13,52 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t54 {
+public class t54 extends v92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean A;
     public transient /* synthetic */ FieldHolder $fh;
+    public View z;
+
+    @Override // com.baidu.tieba.v92, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "console" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends m92 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(t54 t54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.m92
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.a(str);
+                if (t54.A) {
+                    Log.e("SwanGameConsoleManager", "onPageFinished");
+                }
+                u54.a();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,61 +73,106 @@ public class t54 {
                 return;
             }
         }
-        a = fs1.a;
+        A = ir1.a;
     }
 
-    public t54(JsObject jsObject) {
+    @Override // com.baidu.tieba.v92, com.baidu.tieba.dx1
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            u54.h(false);
+            this.z = null;
+            super.D();
+        }
+    }
+
+    public final void g1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b(new a(this));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t54(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        c42 F = c42.F(jsObject);
-        if (F == null) {
-            return;
+    }
+
+    @Override // com.baidu.tieba.v92, com.baidu.tieba.dx1
+    public void F(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.z = view2;
         }
-        vb3 M = vb3.M();
-        if (M == null) {
-            a(F, false, b("internal error"));
-            return;
-        }
-        try {
-            boolean m = F.m("mixWithOther", false);
-            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
-            if (a) {
-                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
+    }
+
+    @Override // com.baidu.tieba.v92, com.baidu.tieba.dx1
+    public void O(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            int visibility = r().getVisibility();
+            int i2 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            a(F, true, "setInnerAudioOption:ok");
-        } catch (Exception unused) {
-            v82.c("InnerAudioOptionApi", "set swanApp global var error");
-            a(F, false, b("internal error"));
+            if (visibility == i) {
+                return;
+            }
+            if (A) {
+                Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
+            }
+            if (z) {
+                lw2.T().m("console", o54.u(true));
+            }
+            if (this.z != null) {
+                if (z) {
+                    i2 = 4;
+                }
+                this.z.setVisibility(i2);
+            }
+            super.O(z);
         }
     }
 
-    public final void a(c42 c42Var, boolean z, String str) {
+    @Override // com.baidu.tieba.v92, com.baidu.tieba.dx1
+    public void d0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{c42Var, Boolean.valueOf(z), str}) == null) {
-            e64 e64Var = new e64();
-            e64Var.errMsg = str;
-            he4.call(c42Var, z, e64Var);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            u54.g(str, str2);
         }
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v92
+    public void e1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return String.format("setInnerAudioOption:fail %s", str);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            r().setVisibility(8);
+            r().setBackgroundColor(0);
+            u54.c();
+            g1();
+            String i = p54.m().i();
+            if (A) {
+                Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
+            }
+            loadUrl(i);
         }
-        return (String) invokeL.objValue;
     }
 }

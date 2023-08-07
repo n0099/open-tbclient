@@ -1,218 +1,228 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetRecommendTopic.TopicList;
 /* loaded from: classes8.dex */
 public class tb8 {
     public static /* synthetic */ Interceptable $ic;
+    public static tb8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public long c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public long h;
-    public int i;
-    public String j;
 
-    public tb8(String str, long j, boolean z) {
+    public tb8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static tb8 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (tb8.class) {
+                    if (a == null) {
+                        a = new tb8();
+                    }
+                }
+            }
+            return a;
+        }
+        return (tb8) invokeV.objValue;
+    }
+
+    public SQLiteStatement a(String str) {
+        InterceptResult invokeL;
+        SQLiteDatabase c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (c = sb8.c()) == null) {
+                return null;
+            }
+            try {
+                return c.compileStatement(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (SQLiteStatement) invokeL.objValue;
+    }
+
+    public void b() {
+        SQLiteDatabase c;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (c = sb8.c()) == null) {
+            return;
+        }
+        BdLog.i("begin commit transaction");
+        if (c.inTransaction()) {
+            try {
+                c.setTransactionSuccessful();
+                c.endTransaction();
+                return;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
+                BdLog.e(e.getMessage());
+                Logger.addLog("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
                 return;
             }
         }
-        this.b = str;
-        this.c = j;
-        this.a = z;
+        BdLog.e("there is no current transaction");
     }
 
-    public tb8(@NonNull TopicList topicList) {
+    public void f() {
+        SQLiteDatabase c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topicList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = sb8.c()) == null) {
+            return;
+        }
+        if (c.inTransaction()) {
+            BdLog.e("there is exist transaction");
+            return;
+        }
+        try {
+            c.beginTransaction();
+            BdLog.i("db.beginTransaction");
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
+            BdLog.e(e.getMessage());
+            Logger.addLog("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+        }
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            SQLiteDatabase c = sb8.c();
+            if (c == null) {
+                return false;
             }
-        }
-        this.a = topicList.is_video_topic.intValue() == 1;
-        this.b = topicList.topic_name;
-        this.c = topicList.topic_id.longValue();
-        this.h = topicList.discuss_num.longValue();
-        this.i = topicList.tag.intValue();
-    }
-
-    public tb8(@NonNull tbclient.GetSugTopic.TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topicList};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = topicList.is_video_topic.intValue() == 1;
-        this.b = topicList.topic_name;
-        this.c = topicList.topic_id.longValue();
-        this.h = topicList.discuss_num.longValue();
-        this.i = topicList.tag.intValue();
-        this.j = topicList.slogan;
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public Long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Long.valueOf(this.c);
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (j() && this.d) {
+            try {
+                c.execSQL(str);
                 return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                Logger.addLog("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
+                return false;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    public long insert(SQLiteStatement sQLiteStatement) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void m(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (j() && z) {
-                z2 = true;
-            } else {
-                z2 = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sQLiteStatement)) == null) {
+            if (sQLiteStatement == null) {
+                return -1L;
             }
-            this.d = z2;
+            try {
+                return sQLiteStatement.executeInsert();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                Logger.addLog("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
+                return -1L;
+            }
         }
+        return invokeL.longValue;
     }
 
-    public void n(boolean z) {
+    public boolean delete(String str, String str2, String[] strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, strArr)) == null) {
+            SQLiteDatabase c = sb8.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                if (c.delete(str, str2, strArr) <= 0) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public Cursor e(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
+            SQLiteDatabase c = sb8.c();
+            if (c == null) {
+                return null;
+            }
+            try {
+                return c.rawQuery(str, strArr);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage() + str);
+                return null;
+            }
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    public long insert(String str, String str2, ContentValues contentValues) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, contentValues)) == null) {
+            SQLiteDatabase c = sb8.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return -1L;
+            }
+            try {
+                return c.insert(str, str2, contentValues);
+            } catch (Exception e) {
+                Logger.addLog("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
+                BdLog.e(e.getMessage());
+                return -1L;
+            }
+        }
+        return invokeLLL.longValue;
+    }
+
+    public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, contentValues, str2, strArr)) == null) {
+            SQLiteDatabase c = sb8.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return c.update(str, contentValues, str2, strArr);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                Logger.addLog("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
+                return -1;
+            }
+        }
+        return invokeLLLL.intValue;
     }
 }

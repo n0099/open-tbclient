@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class a77 {
+public class a77 implements u87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b87 a;
-    public final kb7 b;
-    public boolean c;
+    public long a;
+    public long b;
+    public String c;
+    public long d;
+    public int e;
+    public boolean f;
+    public long g;
+    public long h;
+    public long i;
+    public g77 j;
+    @Nullable
+    public Object k;
+    public l57 l;
 
-    public a77(b87 data, kb7 statData, boolean z) {
+    public a77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, statData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,48 +37,15 @@ public final class a77 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(statData, "statData");
-        this.a = data;
-        this.b = statData;
-        this.c = z;
+        this.j = new g77();
     }
 
-    public /* synthetic */ a77(b87 b87Var, kb7 kb7Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(b87Var, kb7Var, (i & 4) != 0 ? true : z);
-    }
-
-    public final b87 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u87
+    public void d(@NonNull Object obj) {
+        g77 g77Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (b87) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final kb7 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (kb7) invokeV.objValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (g77Var = this.j) != null) {
+            g77Var.d(obj);
         }
     }
 }

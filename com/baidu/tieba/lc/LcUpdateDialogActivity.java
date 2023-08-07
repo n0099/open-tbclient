@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.m65;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -185,7 +185,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            m65.n("lcUpdateDialog");
+            YunDialogManager.markShowingDialogName("lcUpdateDialog");
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
             z1(bundle);
@@ -285,7 +285,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
             ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
             unregisterReceiver(this.p);
-            m65.u("lcUpdateDialog");
+            YunDialogManager.unMarkShowingDialogName("lcUpdateDialog");
             super.onDestroy();
         }
     }
@@ -296,8 +296,8 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
             if (TbSingleton.getInstance().isSplashShowing()) {
-                h29 defaultLog = DefaultLog.getInstance();
-                defaultLog.b("BaseActivity", "resume LcUpdateDialogActivity failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("BaseActivity", "resume LcUpdateDialogActivity failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
                 finish();
             }
         }

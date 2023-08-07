@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.view.BearLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,98 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public dx2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public BearLayout a;
+    public Activity b;
+    public SwanAppBearInfo c;
 
     /* loaded from: classes8.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends dx2 {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vp3 a;
+        public BearLayout.d a;
+        public boolean b;
 
-        /* renamed from: com.baidu.tieba.vp3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0516a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0516a(a aVar, Activity activity) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = activity;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean u;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    fw1 o = cv2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (vp3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        bo3 m = bo3.m();
-                        if (co3.a() && bo3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (vp3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
-                    }
-                    if (vp3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
-                    }
-                }
-            }
-        }
-
-        public a(vp3 vp3Var) {
+        public a(vp3 vp3Var, BearLayout.d dVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vp3Var};
+                Object[] objArr = {vp3Var, dVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -118,81 +53,70 @@ public class vp3 {
                     return;
                 }
             }
-            this.a = vp3Var;
+            this.a = dVar;
+            this.b = z;
         }
 
-        @Override // com.baidu.tieba.dx2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            boolean z;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                vp3 vp3Var = this.a;
-                if (vp3Var.c && activity != null && activity.getTaskId() == this.a.e) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                vp3Var.c = z;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && vp3.d) {
+                exc.printStackTrace();
+                this.a.b(exc.getMessage());
             }
         }
 
-        @Override // com.baidu.tieba.dx2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !bo3.j()) {
+            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || this.a == null) {
                 return;
             }
-            super.onActivityCreated(activity, bundle);
-            if (activity != null && activity.getIntent() != null) {
-                RunnableC0516a runnableC0516a = new RunnableC0516a(this, activity);
-                if (co3.a()) {
-                    runnableC0516a.run();
-                } else {
-                    po3.j(runnableC0516a, "moveTaskToFront");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vp3 a;
-
-        public b(vp3 vp3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vp3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vp3Var;
-        }
-
-        @Override // com.baidu.tieba.vp3.c
-        public void a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (!z) {
-                    if (this.a.c && i == 1) {
-                        this.a.c = false;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("errno");
+                if (optInt == 0) {
+                    if (this.b) {
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        if (optJSONObject != null) {
+                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
+                            if (optJSONArray != null && optJSONArray.length() > 0) {
+                                this.a.a(true);
+                            }
+                            this.a.a(false);
+                        }
+                    } else {
+                        this.a.a(true);
                     }
+                } else if (800200 == optInt) {
+                    String optString = jSONObject.optString("errmsg");
+                    BearLayout.d dVar = this.a;
+                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
                 } else {
-                    this.a.c = true;
-                    this.a.e = i;
+                    BearLayout.d dVar2 = this.a;
+                    dVar2.b("errNo:" + optInt);
                 }
-                this.a.d = z;
+            } catch (JSONException e) {
+                if (vp3.d) {
+                    e.printStackTrace();
+                    this.a.b(e.getMessage());
+                }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return response.body().string();
+                }
+                return "";
+            }
+            return (String) invokeLI.objValue;
         }
     }
 
@@ -209,43 +133,68 @@ public class vp3 {
                 return;
             }
         }
-        f = fs1.a;
+        d = ir1.a;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
-        }
-    }
-
-    public vp3(@NonNull Application application) {
+    public vp3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {application};
+            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
+        this.b = activity;
+        this.c = swanAppBearInfo;
+        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
+        this.a = bearLayout;
+        bearLayout.setVisibility(0);
+        this.a.k(activity, swanAppBearInfo, this);
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (cVar = g) != null) {
-            cVar.a(z, i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (SwanAppNetworkUtils.i(this.b)) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("type", "media");
+                linkedHashMap.put("sfrom", "searchpaws");
+                linkedHashMap.put("store", "uid_cuid");
+                linkedHashMap.put("source", "dusite_na_subbar");
+                linkedHashMap.put("third_id", this.c.bearId);
+                linkedHashMap.put("op_type", "add");
+                String b = c62.b();
+                if (TextUtils.isEmpty(b)) {
+                    return;
+                }
+                ci4.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(fu2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
+                return;
+            }
+            qa3.f(this.b, R.string.obfuscated_res_0x7f0f01cc).G();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("type", "media");
+            linkedHashMap.put("sfrom", "searchpaws");
+            linkedHashMap.put("store", "uid_cuid");
+            linkedHashMap.put("source", "dusite_na_subbar");
+            linkedHashMap.put("third_id", this.c.bearId);
+            String B = fu2.o().B();
+            if (TextUtils.isEmpty(B)) {
+                return;
+            }
+            ci4.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(fu2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
         }
     }
 }

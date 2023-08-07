@@ -6,7 +6,7 @@ public class ay {
     public static int a;
 
     public static at a(Context context) {
-        if (j.m707a()) {
+        if (j.m708a()) {
             a = 1;
             return new ax(context);
         } else if (aq.a(context)) {

@@ -5,15 +5,15 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.e47;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.ReplyContentView;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.m17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,7 +92,7 @@ public final class ReplyContentView extends AppCompatTextView {
         int i4 = this.b;
         setPadding(i3, i4, i3, i4);
         setLineSpacing(0.0f, this.d);
-        b();
+        c();
         setVisibility(8);
     }
 
@@ -100,7 +100,7 @@ public final class ReplyContentView extends AppCompatTextView {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void e(ReplyContentView this$0, SpannableStringBuilder spannableStringBuilder) {
+    public static final void f(ReplyContentView this$0, SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, spannableStringBuilder) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -116,33 +116,29 @@ public final class ReplyContentView extends AppCompatTextView {
         replyContentView.setFixedWidth(z, i);
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d85 d = d85.d(this);
-            d.x(this.g);
-            d.C(R.dimen.T_X07);
-            d.o(R.string.J_X05);
-            d.f(this.f);
+            EMManager.from(this).setTextColor(this.g).setTextSize(R.dimen.T_X07).setCorner(R.string.J_X05).setBackGroundColor(this.f);
         }
     }
 
-    public final void d(ReMsgInfo reMsgInfo) {
+    public final void e(ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reMsgInfo) == null) {
-            e47.e(getContext(), reMsgInfo.getContent(), this.c, new e47.i() { // from class: com.baidu.tieba.jm8
+            m17.e(getContext(), reMsgInfo.getContent(), this.c, new m17.i() { // from class: com.baidu.tieba.ck8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.e47.i
+                @Override // com.baidu.tieba.m17.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
-                        ReplyContentView.e(ReplyContentView.this, spannableStringBuilder);
+                        ReplyContentView.f(ReplyContentView.this, spannableStringBuilder);
                     }
                 }
             });
-            b();
+            c();
         }
     }
 
@@ -152,17 +148,17 @@ public final class ReplyContentView extends AppCompatTextView {
             Intrinsics.checkNotNullParameter(msg, "msg");
             this.f = R.color.CAM_X0206;
             this.g = R.color.CAM_X0108;
-            d(msg);
+            e(msg);
         }
     }
 
-    public final void i(ReMsgInfo msg) {
+    public final void k(ReMsgInfo msg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
             this.f = R.color.CAM_X0617;
             this.g = R.color.CAM_X0606;
-            d(msg);
+            e(msg);
         }
     }
 
@@ -170,7 +166,7 @@ public final class ReplyContentView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                getLayoutParams().width = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds608);
+                getLayoutParams().width = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds608);
             } else {
                 getLayoutParams().width = i;
             }

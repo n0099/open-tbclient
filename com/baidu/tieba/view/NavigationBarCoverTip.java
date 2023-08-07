@@ -8,12 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                zg.a().removeCallbacks(this.a.c);
+                SafeHandler.getInst().removeCallbacks(this.a.c);
                 this.a.e();
             }
         }
@@ -304,7 +304,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zg.a().removeCallbacks(this.c);
+            SafeHandler.getInst().removeCallbacks(this.c);
             clearAnimation();
             setVisibility(8);
             Activity activity = this.e;
@@ -336,7 +336,7 @@ public class NavigationBarCoverTip extends LinearLayout {
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             this.a = loadAnimation;
             loadAnimation.setAnimationListener(new b(this));
-            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100fe);
+            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010100);
             this.b = loadAnimation2;
             loadAnimation2.setAnimationListener(new c(this));
             this.c = new d(this);
@@ -353,8 +353,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            zg.a().removeCallbacks(this.c);
-            zg.a().postDelayed(this.c, i);
+            SafeHandler.getInst().removeCallbacks(this.c);
+            SafeHandler.getInst().postDelayed(this.c, i);
         }
     }
 
@@ -380,8 +380,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            zg.a().removeCallbacks(this.c);
-            zg.a().postDelayed(this.c, i);
+            SafeHandler.getInst().removeCallbacks(this.c);
+            SafeHandler.getInst().postDelayed(this.c, i);
         }
     }
 }

@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hb5;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -143,23 +143,23 @@ public class ExtraLayout extends RelativeLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_extra_item, (ViewGroup) this, true);
             TextView textView = (TextView) inflate.findViewById(R.id.extra_text);
             this.b = textView;
-            textView.setCompoundDrawablePadding(yi.g(context, R.dimen.tbds10));
+            textView.setCompoundDrawablePadding(BdUtilHelper.getDimens(context, R.dimen.tbds10));
             this.c = (TextView) inflate.findViewById(R.id.extra_tag);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            hb5 hb5Var = new hb5();
-            hb5Var.u(R.color.CAM_X0302);
-            this.a.setConfig(hb5Var);
+            x95 x95Var = new x95();
+            x95Var.u(R.color.CAM_X0302);
+            this.a.setConfig(x95Var);
             this.a.setText(getResources().getString(R.string.download_just_now));
         }
     }
 
-    public void setData(t15 t15Var) {
+    public void setData(q05 q05Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t15Var) == null) {
-            ThreadData threadData = t15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
+            ThreadData threadData = q05Var.getThreadData();
             boolean z2 = true;
             int i = 8;
             if (!TextUtils.isEmpty(threadData.extraText)) {

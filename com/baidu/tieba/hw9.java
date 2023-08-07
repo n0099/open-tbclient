@@ -1,217 +1,106 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.postsearch.PostSearchActivity;
-import com.baidu.tieba.postsearch.PostSearchListFragment;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class hw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<EncodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public PostSearchActivity a;
-    public View b;
-    public FragmentTabHost c;
-    public ViewPager.OnPageChangeListener d;
-    public PostSearchListFragment e;
-    public PostSearchListFragment f;
-    public PostSearchListFragment g;
 
-    public hw9(PostSearchActivity postSearchActivity, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {postSearchActivity, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838271, "Lcom/baidu/tieba/hw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838271, "Lcom/baidu/tieba/hw9;");
                 return;
             }
         }
-        this.a = postSearchActivity;
-        this.b = view2;
+        EnumMap enumMap = new EnumMap(EncodeHintType.class);
+        a = enumMap;
+        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) "utf-8");
+        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        a.put(EncodeHintType.MARGIN, 0);
     }
 
-    public final void a() {
+    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.H1();
-            this.f.H1();
-            this.g.H1();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
+            if (bitmap != null && bitmap2 != null) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int width2 = bitmap2.getWidth();
+                int height2 = bitmap2.getHeight();
+                float f = ((width * 1.0f) / 5.0f) / width2;
+                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                try {
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                    canvas.scale(f, f, width / 2, height / 2);
+                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
+                    canvas.save();
+                    canvas.restore();
+                    return createBitmap;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return bitmap;
         }
+        return (Bitmap) invokeLL.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public static Bitmap b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.getCurrentTabType();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return c(str, i, -16777216, -1, null);
         }
-        return invokeV.intValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    public final void b() {
+    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FragmentTabHost.c cVar = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
-            this.e = postSearchListFragment;
-            cVar.c = postSearchListFragment;
-            cVar.b = c(R.string.obfuscated_res_0x7f0f1312);
-            cVar.a = 1;
-            this.c.b(cVar);
-            FragmentTabHost.c cVar2 = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
-            this.f = postSearchListFragment2;
-            cVar2.c = postSearchListFragment2;
-            cVar2.b = c(R.string.obfuscated_res_0x7f0f1311);
-            cVar2.a = 2;
-            this.c.b(cVar2);
-            FragmentTabHost.c cVar3 = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
-            this.g = postSearchListFragment3;
-            cVar3.c = postSearchListFragment3;
-            cVar3.b = c(R.string.obfuscated_res_0x7f0f1310);
-            cVar3.a = 3;
-            this.c.b(cVar3);
-        }
-    }
-
-    public final FragmentTabIndicator c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            fragmentTabIndicator.setText(i);
-            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
-            fragmentTabIndicator.h = R.color.s_actionbar_text_color;
-            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            fragmentTabIndicator.setWidth((yi.l(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
-            return fragmentTabIndicator;
-        }
-        return (FragmentTabIndicator) invokeI.objValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0920fe)).inflate();
-            inflate.setVisibility(0);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091ce7);
-            this.c = fragmentTabHost;
-            fragmentTabHost.setup(this.a.getSupportFragmentManager());
-            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c.setShouldDrawIndicatorLine(true);
-            b();
-            this.c.k(3);
-            this.c.setCurrentTabByType(i);
-            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
-            this.c.s(TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
-            this.c.setOnPageChangeListener(this.d);
-        }
-    }
-
-    public final PostSearchListFragment e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
+            try {
+                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
+                int[] iArr = new int[i * i];
+                for (int i4 = 0; i4 < i; i4++) {
+                    for (int i5 = 0; i5 < i; i5++) {
+                        if (encode.get(i5, i4)) {
+                            iArr[(i4 * i) + i5] = i2;
+                        } else {
+                            iArr[(i4 * i) + i5] = i3;
+                        }
                     }
-                    return this.g;
                 }
-                return this.f;
-            }
-            return this.e;
-        }
-        return (PostSearchListFragment) invokeI.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            FragmentTabHost fragmentTabHost = this.c;
-            if (fragmentTabHost != null) {
-                fragmentTabHost.s(i);
-            }
-            FragmentTabHost fragmentTabHost2 = this.c;
-            if (fragmentTabHost2 != null && fragmentTabHost2.getFragmentTabWidget() != null) {
-                SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
+                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
+                return a(createBitmap, bitmap);
+            } catch (Exception unused) {
+                return null;
             }
         }
-    }
-
-    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.d = onPageChangeListener;
-            FragmentTabHost fragmentTabHost = this.c;
-            if (fragmentTabHost != null) {
-                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
-            }
-        }
-    }
-
-    public void j(boolean z) {
-        FragmentTabHost fragmentTabHost;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (fragmentTabHost = this.c) != null) {
-            if (z) {
-                fragmentTabHost.setVisibility(0);
-            } else {
-                fragmentTabHost.setVisibility(8);
-            }
-        }
-    }
-
-    public void h(int i, dw9 dw9Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), dw9Var, Boolean.valueOf(z)}) == null) {
-            j(true);
-            PostSearchListFragment e = e(i);
-            if (e != null) {
-                e.L1(dw9Var, z);
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (this.c == null) {
-                f(1);
-                return;
-            }
-            a();
-            if (this.c.getCurrentTabType() == i) {
-                PostSearchListFragment e = e(i);
-                if (e != null) {
-                    e.M1(true);
-                    return;
-                }
-                return;
-            }
-            this.c.setCurrentTabByType(i);
-        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

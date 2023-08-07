@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
 /* loaded from: classes7.dex */
-public class r23 extends p23 {
+public class r23 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,67 +28,13 @@ public class r23 extends p23 {
         }
     }
 
-    @Override // com.baidu.tieba.p23
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        boolean z;
-        Set<Integer> set;
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (p23.c) {
-                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            try {
-                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
-                if (pixel != -1 && pixel != -657931) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z && (set = this.b) != null) {
-                    Iterator<Integer> it = set.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().intValue() == pixel) {
-                                z = true;
-                                break;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                }
-                if (!z) {
-                    return false;
-                }
-                for (int i = rect.left + 1; i < rect.right - 1; i++) {
-                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
-                        if (pixel != bitmap.getPixel(i, i2)) {
-                            if (fs1.a) {
-                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
-                            }
-                            return false;
-                        }
-                    }
-                }
-                if (p23.c) {
-                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
-                }
-                return true;
-            } catch (IllegalArgumentException e) {
-                if (p23.c) {
-                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
-                    e.printStackTrace();
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            return chain.proceed(chain.request().newBuilder().header("User-Agent", SwanAppNetworkUtils.g()).build());
         }
-        return invokeLL.booleanValue;
+        return (Response) invokeL.objValue;
     }
 }

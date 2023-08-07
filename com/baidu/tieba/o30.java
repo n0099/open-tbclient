@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface o30<T> {
-    void onError(int i, Throwable th, Bundle bundle);
+public interface o30 {
+    o30 a(JSONObject jSONObject);
 
-    void onResult(T t, Bundle bundle);
+    boolean a();
+
+    void b(JSONObject jSONObject);
 }

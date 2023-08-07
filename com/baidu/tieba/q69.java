@@ -1,95 +1,162 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
+import com.baidu.tieba.personExtra.RecommendGodReqMsg;
+import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes7.dex */
-public class q69 implements yn {
+public class q69 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public sr9 b;
+    public b c;
+    public int d;
+    public boolean e;
+    public NetMessageListener f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043925, "Lcom/baidu/tieba/q69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(sr9 sr9Var, int i);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q69 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q69 q69Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q69Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948043925, "Lcom/baidu/tieba/q69;");
+            this.a = q69Var;
+        }
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
                 return;
             }
+            this.a.b = null;
+            if (responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
+                return;
+            }
+            if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
+                this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
+            } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
+                this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
+            }
+            if (this.a.b != null) {
+                q69 q69Var = this.a;
+                q69Var.d = q69Var.b.a;
+            }
+            int error = responsedMessage.getError();
+            if (error == 0 && this.a.b != null) {
+                if (ListUtils.isEmpty(this.a.b.b)) {
+                    if (this.a.e) {
+                        error = 3;
+                    } else {
+                        error = 2;
+                    }
+                }
+            } else {
+                error = 1;
+            }
+            if (this.a.c != null) {
+                this.a.c.a(this.a.b, error);
+            }
         }
-        a = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public q69(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    public q69(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUser.card_id;
-            String str2 = vipUser.total_scores_link;
-            String str3 = vipUser.speed_link;
-            String str4 = vipUser.task_scores_link;
-            vipUser.task_scores.intValue();
-            String str5 = vipUser.name;
-            vipUser.id.longValue();
-            String str6 = vipUser.portrait;
-            String str7 = vipUser.name_show;
-            String str8 = vipUser.vip_link;
-            VipInfo vipInfo = vipUser.vipInfo;
-            if (vipInfo != null) {
-                String str9 = vipInfo.icon_url;
-                vipInfo.s_time.intValue();
-                vipUser.vipInfo.e_time.intValue();
-                vipUser.now_time.intValue();
-                vipUser.vipInfo.v_status.intValue();
-                vipUser.vipInfo.v_level.intValue();
-                vipUser.vipInfo.ext_score.intValue();
-                vipUser.vipInfo.a_score.intValue();
-                vipUser.vipInfo.n_score.intValue();
+        this.d = 0;
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
+        this.f = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f);
+    }
+
+    public void j(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void i(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            this.d = i;
+            h(str);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().removeMessage(this.a);
+            MessageManager.getInstance().unRegisterListener(this.a);
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
+            recommendGodReqMsg.portrait = str;
+            if (this.d == 0) {
+                this.e = false;
+            } else {
+                this.e = true;
             }
-            dataRes.today_get_score.intValue();
-            dataRes.today_unget_score.intValue();
-            vipUpgrade.normal.intValue();
-            vipUpgrade.pay.intValue();
-            AutoPayInfo autoPayInfo = dataRes.autopay_info;
+            recommendGodReqMsg.pageNum = this.d + 1;
+            recommendGodReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
         }
     }
 }

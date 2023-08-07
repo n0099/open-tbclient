@@ -1,32 +1,53 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class uu5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile uu5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(TbPageContext<?> tbPageContext, View view2) {
-        InterceptResult invokeLL;
+    public uu5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, view2)) == null) {
-            boolean z = false;
-            if (tbPageContext == null || view2 == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            q05 layoutMode = tbPageContext.getLayoutMode();
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                z = true;
-            }
-            layoutMode.l(z);
-            tbPageContext.getLayoutMode().k(view2);
-            return true;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static uu5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (uu5.class) {
+                    if (a == null) {
+                        a = new uu5();
+                    }
+                }
+            }
+            return a;
+        }
+        return (uu5) invokeV.objValue;
+    }
+
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && intent.getData() != null && !StringUtils.isNull(intent.getData().getSchemeSpecificPart())) {
+            SharedPrefHelper.getInstance().remove("key_ad_retarget_tips_app_count_" + intent.getData().getSchemeSpecificPart());
+        }
     }
 }

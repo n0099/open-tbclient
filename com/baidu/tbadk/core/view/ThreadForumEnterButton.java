@@ -12,12 +12,14 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -27,8 +29,6 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,9 +63,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        yi.l(TbadkCoreApplication.getInst());
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,7 +101,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
             this.f = textView;
-            textView.setCompoundDrawablePadding(yi.g(this.b, R.dimen.M_W_X002));
+            textView.setCompoundDrawablePadding(BdUtilHelper.getDimens(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -143,7 +143,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 setVisibility(0);
                 f();
                 TextView textView = this.f;
-                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, "...") + this.b.getString(R.string.obfuscated_res_0x7f0f0773));
+                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, "...") + this.b.getString(R.string.obfuscated_res_0x7f0f0774));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(forum_name)) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -163,9 +163,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (this.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
                 Context context = this.b;
-                BdToast b = BdToast.b(context, context.getString(R.string.video_is_checking));
-                b.g(BdToast.ToastIcon.FAILURE);
-                b.q();
+                BdToast.makeText(context, context.getString(R.string.video_is_checking)).setIcon(BdToast.ToastIcon.FAILURE).show();
             } else if (StringUtils.isNull(this.a.getForum_name())) {
             } else {
                 view2.setTag(this.a);
@@ -201,8 +199,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 f();
-                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f0773));
-                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f0773));
+                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f0774));
+                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f0774));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(threadData.getForum_name())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -245,29 +243,15 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            d85 d = d85.d(this.f);
-            d.D(R.string.F_X01);
-            d.C(R.dimen.T_X09);
-            d.x(R.color.CAM_X0304);
-            d.e(R.string.A_X07);
-            d.o(R.string.J_X01);
-            d.m(R.dimen.L_X01);
-            d.l(R.color.CAM_X0304);
+            EMManager.from(this.f).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0304).setAlpha(R.string.A_X07).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0304);
         } else {
-            d85 d2 = d85.d(this.f);
-            d2.D(R.string.F_X01);
-            d2.C(R.dimen.T_X09);
-            d2.x(R.color.CAM_X0304);
-            d2.e(R.string.A_X07);
-            d2.o(R.string.J_X01);
-            d2.m(R.dimen.L_X02);
-            d2.l(R.color.CAM_X0304);
+            EMManager.from(this.f).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0304).setAlpha(R.string.A_X07).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304);
         }
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
-            int g = yi.g(this.b, R.dimen.T_X09);
-            this.g.setBounds(0, 0, g, g);
+            int dimens = BdUtilHelper.getDimens(this.b, R.dimen.T_X09);
+            this.g.setBounds(0, 0, dimens, dimens);
         }
         f();
     }

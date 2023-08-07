@@ -1,101 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.TypeIntrinsics;
+import kotlin.text.Regex;
+import kotlin.text.StringsKt__StringsKt;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
-public class va0 {
+public final class va0 {
     public static /* synthetic */ Interceptable $ic;
-    public static va0 d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ExecutorService b;
-    public Context c;
+    public Map<String, String> a;
+    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948233924, "Lcom/baidu/tieba/va0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948233924, "Lcom/baidu/tieba/va0;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        e = availableProcessors;
-        f = Math.max(2, Math.min(availableProcessors - 1, 4));
-        g = (e * 2) + 1;
-    }
-
-    public va0(Context context) {
+    public va0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f, g, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.b = Executors.newSingleThreadExecutor();
+        this.b = str;
     }
 
-    public static va0 a(Context context) {
+    public final Map<String, String> a() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Map<String, String> map = this.a;
+            if (map != null) {
+                if (map != null) {
+                    return TypeIntrinsics.asMutableMap(map);
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<kotlin.String, kotlin.String>");
+            }
+            this.a = new HashMap();
+            if (StringsKt__StringsKt.indexOf$default((CharSequence) this.b, (char) RFC1522Codec.SEP, 0, false, 6, (Object) null) < 0) {
+                Map<String, String> map2 = this.a;
+                if (map2 != null) {
+                    return (HashMap) map2;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+            }
+            Object[] array = new Regex("\\?").split(this.b, 0).toArray(new String[0]);
+            if (array != null) {
+                String[] strArr = (String[]) array;
+                if (strArr.length < 2) {
+                    Map<String, String> map3 = this.a;
+                    if (map3 != null) {
+                        return (HashMap) map3;
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                }
+                Object[] array2 = new Regex("&").split(strArr[1], 0).toArray(new String[0]);
+                if (array2 != null) {
+                    String[] strArr2 = (String[]) array2;
+                    if (strArr2.length == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        Map<String, String> map4 = this.a;
+                        if (map4 != null) {
+                            return (HashMap) map4;
+                        }
+                        throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                    }
+                    for (String str : strArr2) {
+                        Object[] array3 = new Regex("=").split(str, 0).toArray(new String[0]);
+                        if (array3 != null) {
+                            String[] strArr3 = (String[]) array3;
+                            if (strArr3.length >= 2) {
+                                Map<String, String> map5 = this.a;
+                                if (map5 != null) {
+                                    ((HashMap) map5).put(strArr3[0], strArr3[1]);
+                                } else {
+                                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                                }
+                            }
+                        } else {
+                            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+                        }
+                    }
+                    Map<String, String> map6 = this.a;
+                    if (map6 != null) {
+                        return (HashMap) map6;
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                }
+                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+            }
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (d == null) {
-                synchronized (va0.class) {
-                    if (d == null) {
-                        d = new va0(context);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(str)) {
+                String str2 = null;
+                try {
+                    str2 = Uri.parse(this.b).getQueryParameter(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }
-            return d;
-        }
-        return (va0) invokeL.objValue;
-    }
-
-    public void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable th) {
-                if (xa0.a) {
-                    ya0.c("TaskManager", "Exception ", th);
+                if (TextUtils.isEmpty(str2)) {
+                    return a().get(str);
                 }
+                return str2;
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 }

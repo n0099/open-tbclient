@@ -1,83 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class co6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface co6 {
+    void a(int i, a aVar);
 
-    @NonNull
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
-                    }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
-                    }
-                    return "";
-                } catch (Exception unused) {
-                    return "";
+    void b(int i, String str, a aVar);
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return "";
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String mimeTypeFromExtension;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
-            try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i != 1 && i != 2 && i != 3 && BdLog.e()) {
+                throw new IllegalArgumentException("invalid source code");
             }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i != 1 && i != 2 && i != 3 && BdLog.e()) {
+                throw new IllegalArgumentException("invalid source code");
             }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 }

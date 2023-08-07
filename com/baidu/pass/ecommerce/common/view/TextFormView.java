@@ -31,9 +31,9 @@ public class TextFormView extends FrameLayout {
 
     private void init() {
         int i;
-        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0568, (ViewGroup) this, true);
-        this.mTextView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09200e);
-        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092009);
+        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d056d, (ViewGroup) this, true);
+        this.mTextView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092025);
+        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092020);
         this.mTextView.setText(this.mTextStr);
         View view2 = this.mBottomLine;
         if (this.mIsShowBottomLine) {

@@ -1,172 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.res.Configuration;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.splashad.SplashAdView;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public abstract class mea {
+public class mea {
     public static /* synthetic */ Interceptable $ic;
+    public static mea b;
     public transient /* synthetic */ FieldHolder $fh;
-    public lea a;
-    public final String b;
-    public final int c;
-    public final long d;
-    public final String e;
-    public final int f;
+    public WeakReference<SplashAdView> a;
 
-    public abstract void a();
-
-    public abstract boolean c();
-
-    public abstract pea g(ArrayList<Integer> arrayList, String str, int i);
-
-    public mea(String str, int i, int i2, long j, String str2) {
+    public mea() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = i2;
-        this.d = j;
-        this.e = str2;
-        this.f = i;
     }
 
-    public byte[] b(RandomAccessFile randomAccessFile, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    public static mea a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
-            if (randomAccessFile != null && i >= 0) {
-                if (i == this.c) {
-                    i2 = (int) (this.d - ((i - 1) * this.f));
-                } else {
-                    i2 = this.f;
-                }
-                byte[] bArr = new byte[i2];
-                boolean z = false;
-                try {
-                    synchronized (randomAccessFile) {
-                        randomAccessFile.seek((i - 1) * this.f);
-                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
-                            z = true;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (z) {
-                    return bArr;
-                }
-            }
-            return null;
-        }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public void d(int i) {
-        lea leaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (leaVar = this.a) != null) {
-            leaVar.onProgressUpdate(i / 100.0f);
-        }
-    }
-
-    public void f(lea leaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, leaVar) == null) {
-            this.a = leaVar;
-        }
-    }
-
-    public final String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                if (optJSONObject != null) {
-                    return optJSONObject.optString("video_url");
-                }
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public pea h(RandomAccessFile randomAccessFile, int i, long j, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
-            byte[] b = b(randomAccessFile, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (b == null) {
-                pea peaVar = new pea();
-                peaVar.b = -1;
-                peaVar.c = "上传文件不存在";
-                return peaVar;
-            } else if (c()) {
-                return null;
-            } else {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-                netWork.addPostData("chunk_no", String.valueOf(i));
-                netWork.addPostData("chunk_sum", String.valueOf(this.c));
-                netWork.addPostData("chunk_size", String.valueOf(b.length));
-                netWork.addPostData("video_size", String.valueOf(this.d));
-                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
-                netWork.addPostData("video_len", String.valueOf(j));
-                netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-                netWork.addPostData("video_chunk", b);
-                netWork.addPostData("upload_id", str);
-                if (c()) {
-                    return null;
-                }
-                String postMultiNetData = netWork.postMultiNetData();
-                if (c()) {
-                    return null;
-                }
-                pea peaVar2 = new pea();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    peaVar2.a = e(postMultiNetData);
-                } else {
-                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                        peaVar2.b = netWork.getNetContext().getResponse().mServerErrorCode;
-                    } else {
-                        peaVar2.b = netWork.getNetContext().getResponse().mNetErrorCode;
-                    }
-                    peaVar2.c = netWork.getNetContext().getResponse().mErrorString;
-                }
-                return peaVar2;
+                b = new mea();
+            }
+            return b;
+        }
+        return (mea) invokeV.objValue;
+    }
+
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.a();
+        }
+    }
+
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.b();
+        }
+    }
+
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void e(MainTabActivity mainTabActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
+            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
+            this.a = new WeakReference<>(splashAdView);
+            mainTabActivity.getWindow().setFlags(1024, 1024);
+            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092250);
+            if (viewGroup != null) {
+                viewGroup.setVisibility(0);
+                viewGroup.addView(splashAdView);
             }
         }
-        return (pea) invokeCommon.objValue;
     }
 }

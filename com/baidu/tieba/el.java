@@ -1,27 +1,45 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.pms.IPmsContext;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class el extends jl {
+public class el implements IPmsContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path v;
-    public boolean w;
-    public Rect x;
-    public final Paint y;
-    public final Paint z;
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public boolean checkChannelAllow(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<String> getAutoClearChannelIdList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
 
     public el() {
         Interceptable interceptable = $ic;
@@ -33,59 +51,58 @@ public class el extends jl {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.y = new Paint();
-        this.z = new Paint();
-        this.y.setColor(-16777216);
-        this.y.setStyle(Paint.Style.FILL);
-        this.y.setAntiAlias(true);
-        this.z.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-    }
-
-    @Override // com.baidu.tieba.zk
-    public void e(Canvas canvas, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
-            canvas.save();
-            t(drawable.getBounds());
-            try {
-                canvas.clipPath(this.v);
-            } catch (Exception unused) {
-            }
-            drawable.draw(canvas);
-            canvas.restore();
         }
     }
 
-    public final void t(Rect rect) {
-        boolean z;
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<RequestParams.Channel> getLongConnectParams() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.emptyList();
         }
-        boolean z2 = true;
-        if (this.v != null && this.w == this.l.b) {
-            z = false;
-        } else {
-            z = true;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public StatisticCallback getStatisticCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new gl();
         }
-        Rect rect2 = this.x;
-        if (rect2 != null && rect2.contains(rect)) {
-            z2 = z;
+        return (StatisticCallback) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return getRegisterParams(str, "aps");
         }
-        this.w = this.l.b;
-        if (z2) {
-            this.x = rect;
-            Path path = new Path();
-            this.v = path;
-            if (this.w) {
-                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
-            } else {
-                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+        return (RequestParams) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "aps";
             }
-            this.v.close();
+            requestParams.setRunNode(str2);
+            if ("0".equals(str)) {
+                requestParams.addChannel(pk.f().d());
+                requestParams.addChannel(new bm());
+                requestParams.addChannel(new ml());
+            }
+            return requestParams;
         }
+        return (RequestParams) invokeLL.objValue;
     }
 }

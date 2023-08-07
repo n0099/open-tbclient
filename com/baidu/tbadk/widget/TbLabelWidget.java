@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -18,16 +19,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.my5;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.x9a;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,9 +56,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public TbImageView o;
     public View p;
     public b q;
-    public d85 r;
-    public d85 s;
-    public d85 t;
+    public EMManager r;
+    public EMManager s;
+    public EMManager t;
     public int u;
     public boolean v;
     public TbPageContext w;
@@ -183,11 +183,11 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public void setData(t15 t15Var) {
+    public void setData(q05 q05Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, t15Var) == null) && t15Var != null && t15Var.getThreadData() != null) {
-            ThreadData threadData = t15Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048591, this, q05Var) == null) && q05Var != null && q05Var.getThreadData() != null) {
+            ThreadData threadData = q05Var.getThreadData();
             if (threadData.getThreadRecommendInfoDataList() == null || threadData.getThreadRecommendInfoDataList().size() <= 0 || (threadRecommendInfoData = threadData.getThreadRecommendInfoDataList().get(0)) == null) {
                 return;
             }
@@ -259,7 +259,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public void n(ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, themeElement) == null) && k(themeElement)) {
-            this.n.setTextColor(dba.f(themeElement.common_color));
+            this.n.setTextColor(x9a.f(themeElement.common_color));
         }
     }
 
@@ -300,7 +300,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 this.i.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
-                this.f.N(this.d.c, 10, false);
+                this.f.startLoad(this.d.c, 10, false);
                 if (TextUtils.isEmpty(this.d.d)) {
                     this.g.setVisibility(8);
                     this.h.setVisibility(8);
@@ -319,7 +319,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                     this.j.setVisibility(8);
                 }
                 if (!StringUtils.isNull(this.d.k)) {
-                    this.o.N(this.d.k, 10, false);
+                    this.o.startLoad(this.d.k, 10, false);
                 } else {
                     this.o.setVisibility(8);
                 }
@@ -341,12 +341,12 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             this.k.setVisibility(8);
             if (!TextUtils.isEmpty(this.d.a)) {
                 this.l.setVisibility(0);
-                this.l.N(this.d.a, 10, false);
+                this.l.startLoad(this.d.a, 10, false);
             } else {
                 this.l.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.d.b) && !TextUtils.isEmpty(this.d.e)) {
-                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0773) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
+                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0774) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
             } else if (!TextUtils.isEmpty(this.d.e)) {
                 this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
             }
@@ -369,7 +369,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             return;
         }
         if (NewWebHotTopicPageSwitch.isOn() && (tbPageContext = this.w) != null) {
-            my5.f(tbPageContext, String.valueOf(j), null);
+            zv5.f(tbPageContext, String.valueOf(j), null);
         } else {
             new HotTopicActivityConfig(getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
         }
@@ -421,9 +421,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.r = d85.d(this.e);
-            this.s = d85.d(this.j);
-            this.t = d85.d(this.k);
+            this.r = EMManager.from(this.e);
+            this.s = EMManager.from(this.j);
+            this.t = EMManager.from(this.k);
         }
     }
 
@@ -464,12 +464,10 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         ThemeColorInfo themeColorInfo3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.r.o(R.string.J_X01);
+            this.r.setCorner(R.string.J_X01);
             if (this.v) {
-                d85 d85Var = this.s;
-                d85Var.o(R.string.J_X03);
-                d85Var.f(R.color.CAM_X0108);
-                this.t.x(R.color.CAM_X0108);
+                this.s.setCorner(R.string.J_X03).setBackGroundColor(R.color.CAM_X0108);
+                this.t.setTextColor(R.color.CAM_X0108);
                 int skinType = TbadkApplication.getInst().getSkinType();
                 if (skinType != this.u) {
                     this.u = skinType;
@@ -496,11 +494,8 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 }
                 return;
             }
-            this.r.f(R.color.CAM_X0209);
-            d85 d2 = d85.d(this.m);
-            d2.D(R.string.F_X01);
-            d2.C(R.dimen.T_X09);
-            d2.x(R.color.CAM_X0107);
+            this.r.setBackGroundColor(R.color.CAM_X0209);
+            EMManager.from(this.m).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0107);
         }
     }
 
@@ -508,16 +503,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (k(themeElement)) {
-                this.g.setTextColor(dba.f(themeElement.common_color));
+                this.g.setTextColor(x9a.f(themeElement.common_color));
             }
             if (k(themeElement2)) {
-                this.h.setBackgroundColor(dba.f(themeElement2.common_color));
+                this.h.setBackgroundColor(x9a.f(themeElement2.common_color));
             }
             if (k(themeElement3)) {
-                this.i.setTextColor(dba.f(themeElement3.common_color));
+                this.i.setTextColor(x9a.f(themeElement3.common_color));
             }
             if (k(themeElement4)) {
-                this.r.h(dba.f(themeElement4.common_color));
+                this.r.setBackGroundRealColor(x9a.f(themeElement4.common_color));
             }
         }
     }
@@ -561,10 +556,10 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             setUseFullScreenStyle();
-            int g = yi.g(getContext(), R.dimen.M_W_X006);
-            int g2 = yi.g(getContext(), R.dimen.M_W_X007);
+            int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006);
+            int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X007);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
-            marginLayoutParams.setMargins(g, g2, g, 0);
+            marginLayoutParams.setMargins(dimens, dimens2, dimens, 0);
             this.e.setLayoutParams(marginLayoutParams);
         }
     }

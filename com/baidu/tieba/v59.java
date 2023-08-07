@@ -1,40 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v59 extends pl1<ThirdPartWxRechargeService> {
+public class v59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public GridView a;
 
-    public v59() {
+    public v59(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923e5);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(r59 r59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new w59();
+        if (interceptable == null || interceptable.invokeL(1048576, this, r59Var) == null) {
+            this.a.setAdapter((ListAdapter) r59Var);
         }
-        return (ThirdPartWxRechargeService) invokeV.objValue;
     }
 }

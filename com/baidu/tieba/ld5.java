@@ -1,48 +1,91 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.FrsPage.DataRes;
 /* loaded from: classes6.dex */
 public class ld5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ld5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<md5> a;
 
-    public ld5() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939052, "Lcom/baidu/tieba/ld5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947939052, "Lcom/baidu/tieba/ld5;");
+                return;
+            }
+        }
+        a = new ld5(false);
+    }
+
+    public ld5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ArrayList();
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    @NonNull
+    public static ld5 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    md5 md5Var = new md5();
-                    md5Var.a(jSONObject2);
-                    this.a.add(md5Var);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            boolean z = false;
+            if (jSONObject != null) {
+                i = jSONObject.optInt("voice_room_config");
+            } else {
+                i = 0;
             }
+            if (i == 1) {
+                z = true;
+            }
+            return new ld5(z);
         }
+        return (ld5) invokeL.objValue;
+    }
+
+    @NonNull
+    public static ld5 b(@Nullable DataRes dataRes) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
+            boolean z = false;
+            if (dataRes != null) {
+                i = dataRes.voice_room_config.intValue();
+            } else {
+                i = 0;
+            }
+            if (i == 1) {
+                z = true;
+            }
+            return new ld5(z);
+        }
+        return (ld5) invokeL.objValue;
     }
 }

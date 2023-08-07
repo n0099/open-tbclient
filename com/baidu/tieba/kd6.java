@@ -2,125 +2,103 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kd6 extends wo6<bd6> {
+public class kd6 extends gf7<baa, FrsPageAlaStageViewHolder> implements zm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public HeadImageView k;
-    public TextView l;
-    public View m;
-    public bd6 n;
-    public RelativeLayout o;
+    public String l;
+    public vd6 m;
 
-    @Override // com.baidu.tieba.wo6
-    public int d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zm6
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0942 : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd6(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public kd6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = h();
-        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f091023);
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091021);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091020);
-        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f09101f);
-        this.k = headImageView;
-        headImageView.setAutoChangeStyle(true);
-        this.k.setIsRound(true);
-        this.k.setDrawBorder(true);
-        this.k.setPlaceHolder(1);
-        this.k.setBorderWidth(yi.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091022);
-        this.o.setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
-            e().a(view2, this.n);
-        }
-    }
-
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: r */
-    public void i(bd6 bd6Var) {
-        String str;
+    @Override // com.baidu.tieba.lm
+    /* renamed from: G */
+    public FrsPageAlaStageViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bd6Var) == null) && bd6Var != null) {
-            this.n = bd6Var;
-            String str2 = bd6Var.c;
-            String str3 = "";
-            if (StringUtils.isNull(str2)) {
-                if (StringUtils.isNull(bd6Var.b)) {
-                    str2 = "";
-                } else {
-                    str2 = bd6Var.b;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.c;
+            if (tbPageContext == null) {
+                return null;
             }
-            this.i.setText(str2);
-            TextView textView = this.j;
-            if (StringUtils.isNull(bd6Var.e)) {
-                str = "";
-            } else {
-                str = bd6Var.e;
-            }
-            textView.setText(str);
-            this.k.N(bd6Var.d, 10, false);
-            TextView textView2 = this.l;
-            if (!StringUtils.isNull(bd6Var.f)) {
-                str3 = bd6Var.f;
-            }
-            textView2.setText(str3);
+            vd6 vd6Var = new vd6(tbPageContext);
+            this.m = vd6Var;
+            vd6Var.a(this.l);
+            return new FrsPageAlaStageViewHolder(this.m);
         }
+        return (FrsPageAlaStageViewHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zm6
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.l = str;
+        }
+    }
+
+    public View H(int i, View view2, ViewGroup viewGroup, baa baaVar, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, baaVar, frsPageAlaStageViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) baaVar, (baa) frsPageAlaStageViewHolder);
+            if (baaVar != null) {
+                int i2 = 0;
+                FrsViewData frsViewData = this.b;
+                if (frsViewData != null) {
+                    i2 = frsViewData.getTopThreadSize();
+                }
+                vd6 vd6Var = frsPageAlaStageViewHolder.a;
+                vd6Var.x = (i + 1) - i2;
+                vd6Var.a(this.l);
+                frsPageAlaStageViewHolder.a.i(baaVar);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (baa) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        return view2;
     }
 }

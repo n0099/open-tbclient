@@ -6,7 +6,6 @@ import com.baidu.live.arch.utils.MiniCommonUrlParamUtils;
 import com.baidu.live.arch.utils.MixUriUtilKt;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.bd.BaiduIdentityService;
 import com.baidu.searchbox.live.model.net.MixNetCallback;
@@ -35,6 +34,10 @@ import kotlin.text.Charsets;
 public final class MixRequesterKt {
     public static final String SIGN_SUFFIX = "tiebaclient!!!";
     public static final String SIGN_SUFFIX2 = "CtmXzYPtdE58nCCcvqM0ectyqW3N5rfY";
+
+    public static final boolean isParamSwitchOn() {
+        return true;
+    }
 
     public static final String addCommonParameters(String str, boolean z, Map<String, String> map) {
         String fullUrl;
@@ -321,13 +324,5 @@ public final class MixRequesterKt {
             }
         }
         return hashMap;
-    }
-
-    public static final boolean isParamSwitchOn() {
-        AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
-        if (abConfigService == null) {
-            return false;
-        }
-        return abConfigService.getSwitch("live_request_param_android", false);
     }
 }

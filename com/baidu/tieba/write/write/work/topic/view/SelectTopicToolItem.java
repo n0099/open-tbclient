@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,8 +17,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.tb8;
+import com.baidu.tieba.n98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,14 +30,14 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public tb8 e;
+    public n98 e;
     public b f;
     public boolean g;
     public boolean h;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull tb8 tb8Var);
+        void a(@NonNull n98 n98Var);
     }
 
     /* loaded from: classes8.dex */
@@ -159,11 +159,11 @@ public class SelectTopicToolItem extends RelativeLayout {
         }
     }
 
-    public void c(tb8 tb8Var) {
+    public void c(n98 n98Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, tb8Var) == null) && tb8Var != null) {
-            this.e = tb8Var;
-            if (tb8Var.j()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, n98Var) == null) && n98Var != null) {
+            this.e = n98Var;
+            if (n98Var.j()) {
                 this.b.setText("#");
                 this.a.setText(this.e.e() + "#");
             } else {
@@ -174,12 +174,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        tb8 tb8Var;
-        tb8 tb8Var2;
+        n98 n98Var;
+        n98 n98Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (tb8Var2 = this.e) != null) {
-                if (tb8Var2.j()) {
+            if (!this.g && (n98Var2 = this.e) != null) {
+                if (n98Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -197,30 +197,18 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0103));
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_post_topic12, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (tb8Var = this.e) != null && tb8Var.h()) {
-                d85.d(this.a).x(R.color.CAM_X0304);
-                d85.d(this.b).x(R.color.CAM_X0304);
-                d85 d = d85.d(this.d);
-                d.o(R.string.J_X01);
-                d.m(R.dimen.L_X02);
-                d.l(R.color.CAM_X0304);
-                d.f(R.color.CAM_X0905);
+            if (!this.g && (n98Var = this.e) != null && n98Var.h()) {
+                EMManager.from(this.a).setTextColor(R.color.CAM_X0304);
+                EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
+                EMManager.from(this.d).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBackGroundColor(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                d85.d(this.a).x(R.color.CAM_X0105);
-                d85.d(this.b).x(R.color.CAM_X0105);
-                d85 d2 = d85.d(this.d);
-                d2.o(R.string.J_X01);
-                d2.m(R.dimen.L_X02);
-                d2.l(R.color.CAM_X0209);
-                d2.f(R.color.CAM_X0201);
+                EMManager.from(this.a).setTextColor(R.color.CAM_X0105);
+                EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
+                EMManager.from(this.d).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0209).setBackGroundColor(R.color.CAM_X0201);
             } else {
-                d85.d(this.a).x(R.color.CAM_X0105);
-                d85.d(this.b).x(R.color.CAM_X0105);
-                d85 d3 = d85.d(this.d);
-                d3.o(R.string.J_X01);
-                d3.m(R.dimen.L_X02);
-                d3.l(R.color.CAM_X0209);
-                d3.f(R.color.CAM_X0209);
+                EMManager.from(this.a).setTextColor(R.color.CAM_X0105);
+                EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
+                EMManager.from(this.d).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0209).setBackGroundColor(R.color.CAM_X0209);
             }
         }
     }
@@ -228,11 +216,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0894, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092656);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092658);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092657);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091601);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d089e, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09266f);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092671);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092670);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091614);
             setOnClickListener(new a(this));
             d();
         }

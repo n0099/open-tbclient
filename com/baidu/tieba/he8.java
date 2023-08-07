@@ -1,32 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import protobuf.Item;
+import com.squareup.wire.Wire;
+import java.util.Date;
+import java.util.LinkedList;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes6.dex */
-public class he8 {
+public class he8 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
 
     public he8() {
         Interceptable interceptable = $ic;
@@ -42,59 +36,42 @@ public class he8 {
         }
     }
 
-    public static he8 a(Item item) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
+                l45.e();
+                ne<byte[]> c = l45.c("tb.im_official_history");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                byte[] bArr = c.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+                if (bArr == null) {
+                    return null;
+                }
+                LinkedList linkedList = new LinkedList();
+                try {
+                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+                    if (queryHistoryMsgResIdl.data.res != null) {
+                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
+                            if (msgInfo != null) {
+                                Date date = new Date();
+                                date.setTime(msgInfo.sendTime.longValue() * 1000);
+                                bi.getDateStringMouth(date);
+                                msgInfo.type.intValue();
+                                String str = msgInfo.content;
+                                msgInfo.id.intValue();
+                                linkedList.add(aVar);
+                            }
+                        }
+                    }
+                    return new ResponseLocalHistoryMessage(linkedList);
+                } catch (Exception unused) {
+                }
             }
-            he8 he8Var = new he8();
-            he8Var.a = item.itemId;
-            he8Var.b = item.itemName;
-            he8Var.c = item.iconSize;
-            he8Var.d = item.iconUrl;
-            he8Var.e = item.tags;
-            he8Var.f = item.score;
-            he8Var.g = item.star;
-            he8Var.h = item.buttonName;
-            he8Var.i = item.buttonLink;
-            he8Var.j = item.itemAppid;
-            he8Var.k = item.categoryId;
-            he8Var.l = item.buttonLinkType;
-            he8Var.m = item.apkName;
-            he8Var.n = item.forumName;
-            he8Var.o = ApkDetailPojo.V(item.apkDetail);
-            return he8Var;
+            return null;
         }
-        return (he8) invokeL.objValue;
-    }
-
-    public static he8 b(tbclient.Item item) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            he8 he8Var = new he8();
-            he8Var.a = item.item_id;
-            he8Var.b = item.item_name;
-            he8Var.c = item.icon_size;
-            he8Var.d = item.icon_url;
-            he8Var.e = item.tags;
-            he8Var.f = item.score;
-            he8Var.g = item.star;
-            he8Var.h = item.button_name;
-            he8Var.i = item.button_link;
-            he8Var.j = item.item_appid;
-            he8Var.k = item.category_id;
-            he8Var.l = item.button_link_type;
-            he8Var.m = item.apk_name;
-            he8Var.n = item.forum_name;
-            he8Var.o = ApkDetailPojo.W(item.apk_detail);
-            return he8Var;
-        }
-        return (he8) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

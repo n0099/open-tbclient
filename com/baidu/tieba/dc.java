@@ -1,23 +1,43 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.XmlDataSource;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.squareup.wire.Message;
+import java.util.Map;
+import org.json.JSONObject;
+import org.w3c.dom.Element;
 /* loaded from: classes5.dex */
-public class dc {
+public class dc implements ec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public String c;
-    public String d;
+
+    public void onFinishSourceToObject(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        }
+    }
+
+    public void onPreObjectToSource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
 
     public dc() {
         Interceptable interceptable = $ic;
@@ -29,110 +49,154 @@ public class dc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.b = this.a + "/baidu/";
-        this.c = null;
-        this.d = null;
-        try {
-            this.c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
-    public String a(String str, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String str2;
-        String str3;
+    private boolean fillByDataSource(xc xcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (z2) {
-                if (!b()) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.b + str + "/";
-                } else {
-                    str3 = this.b;
-                }
-            } else if (z3) {
-                str2 = this.d;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.d + str + "/";
-                }
-                str3 = str2;
-            } else {
-                str2 = this.c;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.c + str + "/";
-                }
-                str3 = str2;
-            }
-            File file = new File(str3);
-            if (file.exists()) {
-                return str3;
-            }
-            if (!z || !file.mkdirs()) {
-                return null;
-            }
-            return str3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, xcVar)) == null) {
+            boolean a = xd.a(xcVar, this);
+            onFinishSourceToObject(a);
+            return a;
         }
-        return (String) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    private boolean fillInDataSource(xc xcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, xcVar)) == null) {
+            onPreObjectToSource();
+            return wd.a(this, xcVar);
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public File c(String str, String str2, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        String a;
+    public boolean fillByBundle(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (str2 == null || (a = a(str, z, z2, z3)) == null) {
-                return null;
-            }
-            return new File(a + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            return fillByDataSource(new BundleDataSource(bundle));
         }
-        return (File) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public File d(String str, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    public boolean fillByCursorObject(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            String a = a(str, z, z2, z3);
-            if (a == null) {
-                return null;
-            }
-            return new File(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
+            return fillByDataSource(new CursorDataSource(cursor));
         }
-        return (File) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void e(String str) {
+    public boolean fillByIntent(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
+            return fillByDataSource(new IntentDataSource(intent));
         }
-        this.b = this.a + "/" + str + "/";
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByJsonObject(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            return fillByDataSource(new JsonDataSource(jSONObject));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            return fillByDataSource(new MapDataSource(map));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByProtobufObject(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, message)) == null) {
+            return fillByDataSource(new ProtobufDataSource(message));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByXmlObject(Element element) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, element)) == null) {
+            return fillByDataSource(new XmlDataSource(element));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInBundle(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
+            return fillInDataSource(new BundleDataSource(bundle));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInCursorObject(ContentValues contentValues) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentValues)) == null) {
+            return fillInDataSource(new CursorDataSource(contentValues));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInIntent(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, intent)) == null) {
+            return fillInDataSource(new IntentDataSource(intent));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInJsonObject(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
+            return fillInDataSource(new JsonDataSource(jSONObject));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) {
+            return fillInDataSource(new MapDataSource(map));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInProtobufObject(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, message)) == null) {
+            return fillInDataSource(new ProtobufDataSource(message));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInXmlObject(Element element) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, element)) == null) {
+            return fillInDataSource(new XmlDataSource(element));
+        }
+        return invokeL.booleanValue;
     }
 }

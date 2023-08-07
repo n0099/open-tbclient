@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,7 +96,7 @@ public final class ShareThreadView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return xi.charSequence2String(editText.getText(), null);
+            return bi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -131,7 +131,7 @@ public final class ShareThreadView extends LinearLayout {
             } else {
                 i = 18;
             }
-            tbImageView.N(str, i, false);
+            tbImageView.startLoad(str, i, false);
         }
     }
 

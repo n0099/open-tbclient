@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import java.util.List;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes7.dex */
 public interface pg7 {
-    void onError(String str, ErrorData errorData);
-
-    void onNoData(ErrorData errorData);
-
-    void onSucc(String str, List<String> list, List<yn> list2);
+    NavigationBar o();
 }

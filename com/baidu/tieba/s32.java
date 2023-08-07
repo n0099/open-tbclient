@@ -1,104 +1,137 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import kotlinx.coroutines.DebugKt;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s32 implements r32 {
+public class s32 extends o62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, d53> a;
+    public String j;
+    public String k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100407, "Lcom/baidu/tieba/s32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            char c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != 3551) {
+                    if (hashCode != 109935) {
+                        if (hashCode == 3005871 && str.equals("auto")) {
+                            c = 0;
+                        }
+                        c = 65535;
+                    } else {
+                        if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_OFF)) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_ON)) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+                if (c != 0 && c != 1 && c != 2) {
+                    return "auto";
+                }
+                return str;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100407, "Lcom/baidu/tieba/s32;");
-                return;
-            }
+            return (String) invokeL.objValue;
         }
-        b = fs1.a;
     }
 
-    public s32() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s32(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            y72.d("Camera", "parsing CameraAttrModel occurs exception", e);
+        }
     }
 
-    @Override // com.baidu.tieba.r32
-    public void a(String str) {
+    @Override // com.baidu.tieba.o62, com.baidu.tieba.x03
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            this.j = jSONObject.optString("devicePosition", "back");
+            this.k = jSONObject.optString("flash", "auto");
         }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        d53 d53Var = new d53();
-        this.a.put(str, d53Var);
-        d53Var.i(System.currentTimeMillis());
-        d53Var.f(str);
     }
 
-    @Override // com.baidu.tieba.r32
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(String str) {
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            d53 d53Var = this.a.get(str);
-            if (d53Var == null) {
-                if (!b) {
-                    return;
-                }
-                throw new RuntimeException(str + " markEnd before markStart");
-            } else if (d53Var.d() > 0) {
-            } else {
-                d53Var.h(System.currentTimeMillis());
-                if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + d53Var.c());
-                }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + d53Var.toString());
-                    }
-                    HybridUbcFlow p = a53.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(d53Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(d53Var.d());
-                    p.F(ubcFlowEvent2);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.a(this.k);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            e13 e13Var = this.h;
+            if (e13Var == null) {
+                return 0;
             }
+            return e13Var.c();
         }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            e13 e13Var = this.h;
+            if (e13Var == null) {
+                return 0;
+            }
+            return e13Var.f();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TextUtils.equals(this.j, "front");
+        }
+        return invokeV.booleanValue;
     }
 }

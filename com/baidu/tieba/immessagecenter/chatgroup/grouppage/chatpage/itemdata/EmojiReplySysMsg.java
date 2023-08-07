@@ -3,16 +3,15 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gk8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor;
-import com.baidu.tieba.nm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -36,6 +34,8 @@ public class EmojiReplySysMsg extends BaseSysMsg {
     public String emojiPackageId;
     @SerializedName("emoji_reaction_list")
     public List<EmojiData> emojiSysDataList;
+    @SerializedName("is_local")
+    public boolean isLocal;
     @SerializedName("msg_id")
     public long oriEmojiRepliedMsgId;
     @SerializedName("msg_key")
@@ -87,6 +87,7 @@ public class EmojiReplySysMsg extends BaseSysMsg {
             if ((interceptable != null && interceptable.invokeLLL(1048576, this, op, baseMsg, jVar) != null) || baseMsg == null || (shallowClone = baseMsg.getCommonMsgField().shallowClone()) == null) {
                 return;
             }
+            shallowClone.setIsLocal(this.a.isLocal);
             if (this.a.emojiSysDataList != null && this.a.emojiSysDataList.size() > 0) {
                 EmojiReplySysMsg emojiReplySysMsg = this.a;
                 emojiReplySysMsg.updateEmojiList(baseMsg, shallowClone, emojiReplySysMsg.emojiSysDataList, jVar);
@@ -146,7 +147,7 @@ public class EmojiReplySysMsg extends BaseSysMsg {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,34 +173,31 @@ public class EmojiReplySysMsg extends BaseSysMsg {
     public void updateEmojiList(@NonNull BaseMsg baseMsg, @NonNull CommonMsgField commonMsgField, @NonNull List<EmojiData> list, @NonNull ChatMsgProcessor.j jVar) {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, baseMsg, commonMsgField, list, jVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65541, this, baseMsg, commonMsgField, list, jVar) == null) {
             if (jVar.b) {
-                Collections.reverse(list);
                 arrayList = new ArrayList(list);
             } else {
                 List<EmojiData> emojiList = baseMsg.getCommonMsgField().getEmojiList();
                 if (emojiList == null) {
-                    Collections.reverse(list);
                     arrayList = new ArrayList(list);
                 } else {
                     ArrayList arrayList2 = new ArrayList(emojiList);
                     for (EmojiData emojiData : arrayList2) {
-                        EmojiData b = nm8.b(emojiData.getContent(), list);
+                        EmojiData b = gk8.b(emojiData.getContent(), list);
                         if (b != null) {
                             emojiData.setAllNum(b.getAllNum());
                         }
                     }
                     ArrayList arrayList3 = new ArrayList();
                     for (EmojiData emojiData2 : list) {
-                        if (nm8.b(emojiData2.getContent(), arrayList2) == null) {
+                        if (gk8.b(emojiData2.getContent(), arrayList2) == null) {
                             arrayList3.add(emojiData2);
                         }
                     }
-                    Collections.reverse(arrayList3);
-                    arrayList2.addAll(0, arrayList3);
+                    arrayList2.addAll(arrayList3);
                     Iterator it = arrayList2.iterator();
                     while (it.hasNext()) {
-                        if (nm8.b(((EmojiData) it.next()).getContent(), list) == null) {
+                        if (gk8.b(((EmojiData) it.next()).getContent(), list) == null) {
                             it.remove();
                         }
                     }

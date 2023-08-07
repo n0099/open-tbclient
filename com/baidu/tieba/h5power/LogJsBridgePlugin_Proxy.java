@@ -3,12 +3,12 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.in6;
-import com.baidu.tieba.ly4;
-import com.baidu.tieba.oda;
-import com.baidu.tieba.pda;
-import com.baidu.tieba.qda;
-import com.baidu.tieba.sda;
+import com.baidu.tieba.hca;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.jca;
+import com.baidu.tieba.lca;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.pk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class LogJsBridgePlugin_Proxy extends oda {
+public class LogJsBridgePlugin_Proxy extends hca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ly4 mJsBridge;
+    public mx4 mJsBridge;
 
-    public LogJsBridgePlugin_Proxy(ly4 ly4Var) {
+    public LogJsBridgePlugin_Proxy(mx4 mx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ly4Var};
+            Object[] objArr = {mx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,79 +42,79 @@ public class LogJsBridgePlugin_Proxy extends oda {
                 return;
             }
         }
-        this.mJsBridge = ly4Var;
+        this.mJsBridge = mx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add("getPageLeaveTime");
     }
 
-    @Override // com.baidu.tieba.oda
-    public qda dispatch(WebView webView, sda sdaVar, qda qdaVar) {
+    @Override // com.baidu.tieba.hca
+    public jca dispatch(WebView webView, lca lcaVar, jca jcaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, sdaVar, qdaVar)) == null) {
-            if (qdaVar == null) {
-                qdaVar = new qda();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, lcaVar, jcaVar)) == null) {
+            if (jcaVar == null) {
+                jcaVar = new jca();
             }
-            String b = sdaVar.b();
-            JSONObject e = sdaVar.e();
+            String b = lcaVar.b();
+            JSONObject e = lcaVar.e();
             if (b.equals("log/LocalYaLog")) {
-                qdaVar.s(true);
-                qda c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
+                jcaVar.s(true);
+                jca c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
                 if (c != null) {
-                    qdaVar.y(c.f());
-                    qdaVar.u(c.b());
-                    qdaVar.o(c.a());
-                    qdaVar.x(c.e());
+                    jcaVar.y(c.f());
+                    jcaVar.u(c.b());
+                    jcaVar.o(c.a());
+                    jcaVar.x(c.e());
                 }
-                qdaVar.z(0);
+                jcaVar.z(0);
             }
-            return qdaVar;
+            return jcaVar;
         }
-        return (qda) invokeLLL.objValue;
+        return (jca) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.oda
-    public in6 getJsBridge() {
+    @Override // com.baidu.tieba.hca
+    public pk6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (in6) invokeV.objValue;
+        return (pk6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oda
-    public List<qda> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.hca
+    public List<jca> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            qda qdaVar = null;
+            jca jcaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("getPageLeaveTime")) {
-                qdaVar = this.mJsBridge.d(webView, hashMap);
+                jcaVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (qdaVar != null) {
-                qdaVar.z(0);
+            if (jcaVar != null) {
+                jcaVar.z(0);
             }
-            List<pda> list = this.mAsyncCallBackMethodList.get(str);
-            if (qdaVar != null && list != null) {
-                Iterator<pda> it = list.iterator();
-                if (!TextUtils.isEmpty(qdaVar.e())) {
+            List<ica> list = this.mAsyncCallBackMethodList.get(str);
+            if (jcaVar != null && list != null) {
+                Iterator<ica> it = list.iterator();
+                if (!TextUtils.isEmpty(jcaVar.e())) {
                     while (it.hasNext()) {
-                        pda next = it.next();
-                        if (next.b().equals(qdaVar.e())) {
-                            qda qdaVar2 = new qda();
-                            qdaVar2.w(next.a());
-                            qdaVar2.y(qdaVar.f());
-                            qdaVar2.u(qdaVar.b());
-                            qdaVar2.o(qdaVar.a());
-                            qdaVar2.A(qdaVar.l());
-                            arrayList.add(qdaVar2);
+                        ica next = it.next();
+                        if (next.b().equals(jcaVar.e())) {
+                            jca jcaVar2 = new jca();
+                            jcaVar2.w(next.a());
+                            jcaVar2.y(jcaVar.f());
+                            jcaVar2.u(jcaVar.b());
+                            jcaVar2.o(jcaVar.a());
+                            jcaVar2.A(jcaVar.l());
+                            arrayList.add(jcaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -122,14 +122,14 @@ public class LogJsBridgePlugin_Proxy extends oda {
                     }
                 } else {
                     while (it.hasNext()) {
-                        pda next2 = it.next();
-                        qda qdaVar3 = new qda();
-                        qdaVar3.w(next2.a());
-                        qdaVar3.y(qdaVar.f());
-                        qdaVar3.u(qdaVar.b());
-                        qdaVar3.o(qdaVar.a());
-                        qdaVar3.A(qdaVar.l());
-                        arrayList.add(qdaVar3);
+                        ica next2 = it.next();
+                        jca jcaVar3 = new jca();
+                        jcaVar3.w(next2.a());
+                        jcaVar3.y(jcaVar.f());
+                        jcaVar3.u(jcaVar.b());
+                        jcaVar3.o(jcaVar.a());
+                        jcaVar3.A(jcaVar.l());
+                        arrayList.add(jcaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

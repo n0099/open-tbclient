@@ -1,25 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.List;
-import org.json.JSONObject;
+import android.graphics.Canvas;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public interface ucb {
-    public static final ServiceReference a = new ServiceReference("voyager", "upload");
+public class ucb {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final Method b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, int i, tcb tcbVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948207605, "Lcom/baidu/tieba/ucb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948207605, "Lcom/baidu/tieba/ucb;");
+                return;
+            }
+        }
+        try {
+            a = ((Integer) Canvas.class.getField("MATRIX_SAVE_FLAG").get(null)).intValue();
+            b = Canvas.class.getMethod("save", Integer.TYPE);
+        } catch (Throwable th) {
+            b(th);
+            throw null;
+        }
+    }
 
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
+    public static void a(Canvas canvas, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, canvas, i) == null) {
+            try {
+                b.invoke(canvas, Integer.valueOf(i));
+            } catch (Throwable th) {
+                b(th);
+                throw null;
+            }
+        }
+    }
 
-    void c(String str, String str2, JSONObject jSONObject);
+    public static RuntimeException b(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            if (th == null) {
+                throw new NullPointerException("t");
+            }
+            c(th);
+            throw null;
+        }
+        return (RuntimeException) invokeL.objValue;
+    }
 
-    boolean d(JSONObject jSONObject);
-
-    void e(String str, String str2, tcb tcbVar);
-
-    void f();
-
-    void g(List<String> list, String str, long j, tcb tcbVar);
-
-    void retry();
+    public static <T extends Throwable> T c(Throwable th) throws Throwable {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            throw th;
+        }
+        return (T) invokeL.objValue;
+    }
 }

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.adp.idlehelp.IdleHandlerManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
@@ -18,7 +19,6 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tieba.bc;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.io.BufferedWriter;
@@ -522,7 +522,7 @@ public class SpeedStats {
         }
         boolean z = true;
         this.isMainPageStatsEnd = true;
-        bc.b().e();
+        IdleHandlerManager.getInstance().runIdleTask();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
             SmartLaunchStats.tryToFindFirstIdleTimeStamp();
@@ -615,7 +615,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        bc.b().e();
+        IdleHandlerManager.getInstance().runIdleTask();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

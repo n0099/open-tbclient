@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c65 {
+public class c65 extends r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public String d;
 
     public c65() {
         Interceptable interceptable = $ic;
@@ -29,107 +31,26 @@ public class c65 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r55
+    public void a(@NonNull Context context, @NonNull j55 j55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public c65(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, j55Var) == null) {
+            String a = j55Var.a("yun_dialogName");
+            String a2 = j55Var.a("yun_dialogUrl");
+            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
+                b(context, a2, a);
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = z;
     }
 
-    public c65(String str, String str2, boolean z, String str3) {
+    public final void b(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z), str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-        this.c = z;
-        this.d = str3;
-    }
-
-    public c65(String str, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), str2};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.c = z;
-        this.d = str2;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
+            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
+            BrowserHelper.startWebActivity(context, "", str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, false, true, true, bundle);
         }
     }
 }

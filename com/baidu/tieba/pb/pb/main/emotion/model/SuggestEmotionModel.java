@@ -7,13 +7,13 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.mk9;
+import com.baidu.tieba.fj9;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(mk9 mk9Var);
+        void a(fj9 fj9Var);
 
         void onFail(int i, String str);
     }
@@ -54,13 +54,13 @@ public class SuggestEmotionModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0445a implements Runnable {
+        public class RunnableC0439a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0445a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0439a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class SuggestEmotionModel extends BdBaseModel {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String)) {
                 return;
             }
-            zg.a().post(new RunnableC0445a(this, customResponsedMessage));
+            SafeHandler.getInst().post(new RunnableC0439a(this, customResponsedMessage));
         }
     }
 
@@ -188,7 +188,7 @@ public class SuggestEmotionModel extends BdBaseModel {
         registerListener(this.e);
     }
 
-    public void Y(String str, String str2, c cVar) {
+    public void Q(String str, String str2, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, cVar) == null) {
             this.a = cVar;

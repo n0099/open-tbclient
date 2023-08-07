@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ed6;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.ka6;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public ed6 d;
+    public ka6 d;
     public HttpMessageListener e;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(List<yn> list, boolean z, boolean z2);
+        void a(List<ym> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -44,7 +44,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -102,16 +102,16 @@ public class MyConcernTabModel extends BdBaseModel {
                     z = false;
                 }
                 if (alaLiveTabMyConcernResponse.getError() == 0 && alaLiveTabMyConcernResponse.isSuccess() && !z) {
-                    ed6 ed6Var = this.a.d;
+                    ka6 ka6Var = this.a.d;
                     if (this.a.a == 1) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
-                    ed6Var.e(alaLiveTabMyConcernResponse, z2);
+                    ka6Var.e(alaLiveTabMyConcernResponse, z2);
                     if (this.a.c != null) {
                         b bVar = this.a.c;
-                        List<yn> h = this.a.d.h();
+                        List<ym> h = this.a.d.h();
                         boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                         if (this.a.a == 1) {
                             z3 = true;
@@ -148,12 +148,12 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new ed6(this.b);
-        c0();
+        this.d = new ka6(this.b);
+        U();
         MessageManager.getInstance().registerListener(this.e);
     }
 
-    public final void Z(int i) {
+    public final void R(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
@@ -162,33 +162,33 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void d0(Class<? extends BaseCardInfo> cls) {
+    public void V(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
             this.d.j(cls);
         }
     }
 
-    public void e0(b bVar) {
+    public void W(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void a0() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Z(this.a);
+            R(this.a);
         }
     }
 
-    public void b0() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 1;
             this.d.a();
-            Z(1);
+            R(1);
         }
     }
 
@@ -202,7 +202,7 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public final void c0() {
+    public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);

@@ -1,212 +1,148 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fe {
+public abstract class fe<T> implements me<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final ge b;
 
-    public static final Object a(ArrayList<Object> arrayList, ge geVar) {
-        InterceptResult invokeLL;
-        Object a;
-        Object a2;
-        Object a3;
-        Object a4;
+    public abstract ie<T> i(String str);
+
+    public abstract void j(ie<T> ieVar);
+
+    public abstract void l(String str);
+
+    public abstract void m(String str);
+
+    public fe(ge geVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, geVar)) == null) {
-            if (arrayList != null && geVar != null) {
-                Class<?> a5 = geVar.a();
-                Type[] b = geVar.b();
-                int i = 0;
-                if (a5.isArray()) {
-                    Object newInstance = Array.newInstance(a5.getComponentType(), arrayList.size());
-                    Iterator<Object> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        Object a6 = ke.a(it.next()).a(new ge(a5.getComponentType()));
-                        if (a6 != null) {
-                            Array.set(newInstance, i, a6);
-                        }
-                        i++;
-                    }
-                    return newInstance;
-                } else if (nc.e(a5, List.class)) {
-                    List<Object> a7 = ee.a(geVar, arrayList.size());
-                    if (a7 != null) {
-                        Iterator<Object> it2 = arrayList.iterator();
-                        while (it2.hasNext()) {
-                            qd a8 = ke.a(it2.next());
-                            if (b != null && b.length >= 1 && (a4 = a8.a(new ge(b[0]))) != null) {
-                                a7.add(a4);
-                            }
-                        }
-                    }
-                    return a7;
-                } else if (nc.e(a5, Queue.class)) {
-                    Queue<Object> c = ee.c(geVar, arrayList.size());
-                    if (c != null) {
-                        Iterator<Object> it3 = arrayList.iterator();
-                        while (it3.hasNext()) {
-                            qd a9 = ke.a(it3.next());
-                            if (b != null && b.length >= 1 && (a3 = a9.a(new ge(b[0]))) != null) {
-                                c.add(a3);
-                            }
-                        }
-                    }
-                    return c;
-                } else if (nc.e(a5, Set.class)) {
-                    Set<Object> d = ee.d(geVar, arrayList.size());
-                    if (d != null) {
-                        Iterator<Object> it4 = arrayList.iterator();
-                        while (it4.hasNext()) {
-                            qd a10 = ke.a(it4.next());
-                            if (b != null && b.length >= 1 && (a2 = a10.a(new ge(b[0]))) != null) {
-                                d.add(a2);
-                            }
-                        }
-                    }
-                    return d;
-                } else if (nc.e(a5, Map.class)) {
-                    Map<String, Object> b2 = ee.b(geVar, arrayList.size());
-                    if (b2 != null) {
-                        Iterator<Object> it5 = arrayList.iterator();
-                        while (it5.hasNext()) {
-                            qd a11 = ke.a(it5.next());
-                            if (b != null && b.length >= 2) {
-                                a = a11.a(new ge(b[1]));
-                            } else {
-                                a = a11.a(new ge(String.class));
-                            }
-                            if (a != null) {
-                                b2.put(String.valueOf(i), a);
-                            }
-                            i++;
-                        }
-                    }
-                    return b2;
-                } else if (a5 == SparseArray.class) {
-                    SparseArray sparseArray = new SparseArray();
-                    Iterator<Object> it6 = arrayList.iterator();
-                    int i2 = 0;
-                    while (it6.hasNext()) {
-                        Object next = it6.next();
-                        qd a12 = ke.a(next);
-                        if (b != null && b.length >= 1 && a12.a(new ge(b[0])) != null) {
-                            sparseArray.put(i2, next);
-                        }
-                        i2++;
-                    }
-                    return sparseArray;
-                } else if (a5 == Bundle.class) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {geVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return invokeLL.objValue;
+        this.b = geVar;
+        this.a = z;
     }
 
-    public static final Object b(Object obj, ge geVar) {
+    @Override // com.baidu.tieba.me
+    public T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, geVar)) == null) {
-            if (obj == null || geVar == null || !obj.getClass().isArray()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            ie<T> k = k(str, str2);
+            if (k == null) {
                 return null;
             }
-            int length = Array.getLength(obj);
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                Object obj2 = Array.get(obj, i);
-                if (obj2 != null) {
-                    arrayList.add(obj2);
-                }
-            }
-            return a(arrayList, geVar);
+            return k.b;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static final Object c(List<Object> list, ge geVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.me
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, geVar)) == null) {
-            if (list != null && geVar != null) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (Object obj : list) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, geVar);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            l(h(str, str2));
         }
-        return invokeLL.objValue;
     }
 
-    public static final Object d(Queue<Object> queue, ge geVar) {
+    @Override // com.baidu.tieba.me
+    public ne.b<T> e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, queue, geVar)) == null) {
-            if (queue != null && geVar != null) {
-                ArrayList arrayList = new ArrayList(queue.size());
-                for (Object obj : queue) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, geVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            ie<T> k = k(str, str2);
+            if (k == null) {
+                return null;
             }
-            return null;
+            ne.b<T> bVar = new ne.b<>();
+            bVar.a = str2;
+            bVar.b = k.b;
+            long j = k.f;
+            bVar.c = k.d;
+            return bVar;
         }
-        return invokeLL.objValue;
+        return (ne.b) invokeLL.objValue;
     }
 
-    public static final Object e(Set<Object> set, ge geVar) {
+    public String h(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, set, geVar)) == null) {
-            if (set != null && geVar != null) {
-                ArrayList arrayList = new ArrayList(set.size());
-                for (Object obj : set) {
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-                return a(arrayList, geVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (this.a) {
+                return str + "@" + str2;
             }
-            return null;
+            return str2;
         }
-        return invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static final Object f(SparseArray<Object> sparseArray, ge geVar) {
+    @Override // com.baidu.tieba.me
+    public ge c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ge) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.me
+    public void f(String str, String str2, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
+            ie<T> ieVar = new ie<>();
+            ieVar.a = h(str, str2);
+            ieVar.c = str;
+            ieVar.f = j;
+            ieVar.b = t;
+            ieVar.e = System.currentTimeMillis();
+            ieVar.d = System.currentTimeMillis();
+            j(ieVar);
+        }
+    }
+
+    public ie<T> k(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sparseArray, geVar)) == null) {
-            if (sparseArray != null && geVar != null) {
-                ArrayList arrayList = new ArrayList(sparseArray.size());
-                for (int i = 0; i < sparseArray.size(); i++) {
-                    Object obj = sparseArray.get(sparseArray.keyAt(i));
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            String h = h(str, str2);
+            ie<T> i = i(h);
+            if (i == null) {
+                BdLog.isDebugMode();
+                return null;
+            } else if (i.f < System.currentTimeMillis()) {
+                m(h);
+                BdLog.isDebugMode();
+                return null;
+            } else {
+                if (this.b.a()) {
+                    i.e = System.currentTimeMillis();
+                    j(i);
                 }
-                return a(arrayList, geVar);
+                BdLog.isDebugMode();
+                return i;
             }
-            return null;
         }
-        return invokeLL.objValue;
+        return (ie) invokeLL.objValue;
     }
 }

@@ -9,18 +9,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.du6;
+import com.baidu.tieba.kr6;
+import com.baidu.tieba.ql9;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.xm9;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public TbPageContext e;
     public boolean f;
     public boolean g;
-    public du6 h;
+    public kr6 h;
     public boolean i;
 
     /* loaded from: classes7.dex */
@@ -69,9 +69,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h != null && this.a.h.i()) {
                     this.a.h.h();
-                    xm9.v("c14884");
+                    ql9.v("c14884");
                 }
-                xm9.v("c14885");
+                ql9.v("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
@@ -245,11 +245,11 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0783, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd4);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dd5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078a, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091de9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091de6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dea);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091deb);
             i();
         }
     }
@@ -259,8 +259,8 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            d85.d(this.c).x(R.color.CAM_X0302);
-            this.d.setAllCornerRound(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0302);
+            this.d.setAllCornerRound(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42));
             SkinManager.setBackgroundColorWithAlpha(this.d, R.color.CAM_X0304, 0.08f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -268,9 +268,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            du6 du6Var = new du6(this.e, this.c);
-            this.h = du6Var;
-            du6Var.L(R.drawable.ic_question_tip_arror);
+            kr6 kr6Var = new kr6(this.e, this.c);
+            this.h = kr6Var;
+            kr6Var.L(R.drawable.ic_question_tip_arror);
             this.h.x(true);
             this.h.N(true);
             this.h.l(2);
@@ -287,7 +287,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             String string = getContext().getString(R.string.pb_ask_post_first_tip);
             this.h.m(new b(this));
             this.h.S(string);
-            xm9.v("c14883");
+            ql9.v("c14883");
         }
     }
 

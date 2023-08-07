@@ -1,39 +1,116 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ViewHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class p46 {
+public class p46 implements NadAsyncRequester.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PlaceId a;
+    public String b;
+    public int c;
+    public boolean d;
+    public NadAsyncRequester e;
+    public long f;
+    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public static void a(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+    public void c(List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, str, str2, str3) == null) && tbPageContext != null && !TextUtils.isEmpty(str)) {
-            if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
-            } else if (str.equals(TbadkCoreApplication.getCurrentPortrait())) {
-                BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getString(R.string.can_not_raise_self)).q();
-            } else {
-                try {
-                    String str4 = "https://tieba.baidu.com/mo/q/hybrid-main-activity/worldcupPortrait?support_cache=1&thrown_flag_portrait=" + URLEncoder.encode(str, "utf-8");
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                        str4 = str4 + "&figure_url=" + URLEncoder.encode(str2, "utf-8") + "&background_value=" + URLEncoder.encode(str3, "utf-8");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        }
+    }
+
+    public p46(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {placeId, str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.f = 0L;
+        this.a = placeId;
+        this.b = str;
+        this.g = new WeakReference<>(aVar);
+        this.e = new NadAsyncRequester(this, this.a);
+    }
+
+    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
+    public final void a(boolean z, List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
+            IAdBaseAsyncController.a aVar = this.g.get();
+            if (z && !cy8.e(list)) {
+                f(list);
+                c(list);
+                if (aVar != null) {
+                    aVar.b(list);
+                }
+            } else if (aVar != null) {
+                aVar.b(null);
+            }
+        }
+    }
+
+    public void d(int i, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * rw9.a) {
+            return;
+        }
+        this.e.i(map, i);
+        this.f = System.currentTimeMillis();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.h();
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void f(List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            Iterator<AdvertAppInfo> it = list.iterator();
+            while (it.hasNext()) {
+                AdvertAppInfo next = it.next();
+                next.j = this.b;
+                if (ow9.l(next) && this.d) {
+                    it.remove();
+                } else {
+                    int h = next.h();
+                    if (h != 0) {
+                        az9.h(next, 0, h);
+                        it.remove();
                     }
-                    TbWebViewActivityConfig h = nx4.h(tbPageContext.getPageActivity(), "", str4, false, true, true);
-                    h.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                    h.setTranslucentAutoClose(true);
-                    h.setWebDialogName("WorldCupRaiseFlag");
-                    h.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
             }
         }

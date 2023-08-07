@@ -1,43 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes7.dex */
 public class n04 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static o04 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return o84.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948631, "Lcom/baidu/tieba/n04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947948631, "Lcom/baidu/tieba/n04;");
+                return;
+            }
         }
-        return (o04) invokeV.objValue;
+        a = new Handler(Looper.getMainLooper());
     }
 
-    @Inject
-    public static p04 b() {
-        InterceptResult invokeV;
+    public static void a(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return hv2.a();
+        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
+            a.postDelayed(runnable, j);
         }
-        return (p04) invokeV.objValue;
     }
 
-    @Inject
-    public static q04 c() {
-        InterceptResult invokeV;
+    public static void d(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new iv2();
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a.postDelayed(runnable, j);
+            } else {
+                runnable.run();
+            }
         }
-        return (q04) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            a.removeCallbacks(runnable);
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            d(runnable, 0L);
+        }
     }
 }

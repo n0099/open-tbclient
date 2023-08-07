@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface a83<T> {
-    long a();
+public interface a83 {
+    void a(JSONObject jSONObject);
 
-    String b();
-
-    boolean c();
-
-    void onEvent(@NonNull T t);
+    void onCancel();
 }

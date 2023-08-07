@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv;
-import com.baidu.tieba.dv;
-import com.baidu.tieba.it;
-import com.baidu.tieba.yr;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.cu;
+import com.baidu.tieba.hs;
+import com.baidu.tieba.xq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,20 +95,20 @@ public final class SingleBtnDialog extends a {
                     /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
-                        it b;
-                        dv d;
-                        dv d2;
+                        hs b;
+                        cu d;
+                        cu d2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            cv v = BDPTask.m.v();
+                            bu v = BDPTask.m.v();
                             if (v != null && (d2 = v.d()) != null) {
-                                d2.b(this.$data.getTaskInfoSingleKey(), yr.c.a());
+                                d2.b(this.$data.getTaskInfoSingleKey(), xq.c.a());
                             }
-                            cv v2 = BDPTask.m.v();
+                            bu v2 = BDPTask.m.v();
                             if (v2 != null && (d = v2.d()) != null) {
                                 d.a(this.$data.getTaskInfoSingleKey());
                             }
-                            cv v3 = BDPTask.m.v();
+                            bu v3 = BDPTask.m.v();
                             if (v3 != null && (b = v3.b()) != null) {
                                 b.a(this.$data.getBackBtnSchema(), 1);
                             }

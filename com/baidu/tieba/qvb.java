@@ -1,135 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.oub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class qvb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "Lifecycle";
-    public static final HashSet<WeakReference<a>> b;
-    public static AtomicInteger c;
-    public static int d;
-    public static long e;
+public abstract class qvb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public oub a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(long j);
+    public abstract void A(bub bubVar);
 
-        void b(long j);
-    }
+    public abstract void B(gub gubVar);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948106700, "Lcom/baidu/tieba/qvb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948106700, "Lcom/baidu/tieba/qvb;");
-                return;
-            }
-        }
-        b = new HashSet<>();
-        c = new AtomicInteger(0);
-        d = 0;
-        e = 0L;
-    }
+    public abstract void C(hub hubVar);
 
-    public static void a(boolean z) {
-        int i;
-        long j;
-        boolean z2;
-        String str;
+    public abstract void D(iub iubVar);
+
+    public abstract void E(int i);
+
+    public abstract void F(int i, long j);
+
+    public abstract void G();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract long g();
+
+    public abstract long h();
+
+    public abstract Object i();
+
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            int i2 = d;
-            boolean z3 = true;
-            if (z) {
-                i = 1;
-            } else {
-                i = -1;
-            }
-            d = i + i2;
-            String str2 = a;
-            TLog.h(str2, " count:" + d);
-            HashSet hashSet = new HashSet();
-            synchronized (b) {
-                j = e + 1;
-                e = j;
-                z2 = false;
-                if (d == 1 && i2 == 0) {
-                    TLog.h(a, " onForeground");
-                    if (b.isEmpty()) {
-                        c.incrementAndGet();
-                    }
-                    Iterator<WeakReference<a>> it = b.iterator();
-                    while (it.hasNext()) {
-                        hashSet.add(it.next());
-                    }
-                    z2 = true;
-                } else if (d == 0 && i2 == 1) {
-                    TLog.h(a, " onBackground");
-                    if (b.isEmpty()) {
-                        c.decrementAndGet();
-                    }
-                    Iterator<WeakReference<a>> it2 = b.iterator();
-                    while (it2.hasNext()) {
-                        hashSet.add(it2.next());
-                    }
-                } else {
-                    z3 = false;
-                }
-            }
-            if (z3) {
-                Iterator it3 = hashSet.iterator();
-                while (it3.hasNext()) {
-                    a aVar = (a) ((WeakReference) it3.next()).get();
-                    if (aVar == null) {
-                        String str3 = a;
-                        if (z2) {
-                            str = "appFront";
-                        } else {
-                            str = "appBackgroundnull ref";
-                        }
-                        TLog.h(str3, str);
-                    } else if (z2) {
-                        aVar.b(j);
-                    } else {
-                        aVar.a(j);
-                    }
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "12.1.0.34" : (String) invokeV.objValue;
     }
 
-    public static void b(a aVar) {
-        boolean z;
-        long j;
+    public abstract int k();
+
+    public abstract int l();
+
+    public abstract void m();
+
+    public abstract void n();
+
+    public abstract void o();
+
+    public abstract void p();
+
+    public abstract void q(Executor executor, oub.d dVar);
+
+    public abstract void r(long j);
+
+    public abstract void s(ttb ttbVar);
+
+    public abstract void t(ttb ttbVar);
+
+    public abstract void u(int i);
+
+    public abstract void v(int i);
+
+    public abstract void w(Executor executor, vtb vtbVar);
+
+    public abstract void x(wtb wtbVar);
+
+    public abstract void y(ytb ytbVar);
+
+    public abstract void z(aub aubVar);
+
+    public qvb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            synchronized (b) {
-                b.add(new WeakReference<>(aVar));
-                if (c.get() > 0) {
-                    z = true;
-                    j = e;
-                } else {
-                    z = false;
-                    j = 0;
-                }
-            }
-            if (z) {
-                aVar.b(j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

@@ -1,34 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.z97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppPosInfo;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class f0a {
+public final class f0a implements z97 {
     public static /* synthetic */ Interceptable $ic;
-    public static f0a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public String d;
-    public String e;
 
     public f0a() {
         Interceptable interceptable = $ic;
@@ -40,186 +25,88 @@ public class f0a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = da5.p().w("asp_shown_info", "");
     }
 
-    public static f0a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                synchronized (wda.class) {
-                    if (f == null) {
-                        f = new f0a();
-                    }
-                }
-            }
-            return f;
-        }
-        return (f0a) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.d)) {
-                f();
-            }
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            da5.p().J("asp_shown_info", this.e);
-        }
-    }
-
-    public AppPosInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AppPosInfo.Builder builder = new AppPosInfo.Builder();
-            builder.ap_mac = d();
-            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
-            builder.latitude = this.b;
-            builder.longitude = this.a;
-            builder.addr_timestamp = Long.valueOf(this.c);
-            builder.coordinate_type = "bd09ll";
-            builder.asp_shown_info = this.e;
-            MercatorModel.MercatorData e = MercatorModel.d().e();
-            if (e != null) {
-                builder.mercator_lat = e.Y();
-                builder.mercator_lon = e.Z();
-                builder.mercator_city = Integer.valueOf(e.V());
-                builder.mercator_radius = e.b0();
-                builder.mercator_time = Long.valueOf(e.c0());
-            }
-            return builder.build(false);
-        }
-        return (AppPosInfo) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AppPosInfo c = c();
-            JSONObject jSONObject = new JSONObject();
-            if (c != null) {
-                try {
-                    jSONObject.put("ap_mac", c.ap_mac);
-                    jSONObject.put("ap_connected", c.ap_connected);
-                    jSONObject.put("latitude", c.latitude);
-                    jSONObject.put("longitude", c.longitude);
-                    jSONObject.put("addr_timestamp", c.addr_timestamp);
-                    jSONObject.put("coordinate_type", c.coordinate_type);
-                    jSONObject.put("asp_shown_info", c.asp_shown_info);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
-                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
-                    jSONObject.put("mercator_province_name", c.mercator_province_name);
-                    jSONObject.put("mercator_city_name", c.mercator_city_name);
-                    jSONObject.put("mercator_district_name", c.mercator_district_name);
-                } catch (JSONException unused) {
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public AppPosInfo c() {
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AppPosInfo.Builder builder = new AppPosInfo.Builder();
-            builder.ap_mac = d();
-            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
-            String str = this.b;
-            builder.latitude = str;
-            builder.longitude = this.a;
-            if (xi.isEmpty(str) || xi.isEmpty(this.a)) {
-                String w = da5.p().w("key_last_receive_location_latitude_and_longitude", "");
-                if (!xi.isEmpty(w)) {
-                    String[] split = w.split(",");
-                    if (split.length >= 2) {
-                        builder.latitude = split[0];
-                        builder.longitude = split[1];
+            return z97.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 l57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l57Var)) == null) {
+            return z97.a.a(this, l57Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
+        if (r5.equals("video_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+        if (r5.equals("live_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
+        if (r5.equals("live_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
+        if (r5.equals("common_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
+        return "forum_reco_post_click_for_forum_head";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
+        if (r5.equals("video_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        if (r5.equals("common_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
+        return "forum_reco_post_click_for_user_head";
+     */
+    @Override // com.baidu.tieba.z97
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(l57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    break;
+                case -1617812209:
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (!GlobalBuildConfig.isDebug()) {
+                        return "";
                     }
-                }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
             }
-            builder.addr_timestamp = Long.valueOf(this.c);
-            builder.coordinate_type = "BD09LL";
-            builder.asp_shown_info = this.e;
-            MercatorModel.MercatorData e = MercatorModel.d().e();
-            if (e != null) {
-                builder.mercator_lat = e.Y();
-                builder.mercator_lon = e.Z();
-                builder.mercator_city = Integer.valueOf(e.V());
-                builder.mercator_radius = e.b0();
-                builder.mercator_time = Long.valueOf(e.c0());
-                builder.mercator_province_name = e.a0();
-                builder.mercator_city_name = e.W();
-                builder.mercator_district_name = e.X();
-            }
-            return builder.build(false);
-        }
-        return (AppPosInfo) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
-                try {
-                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
-                    if (connectionInfo != null) {
-                        this.d = connectionInfo.getBSSID();
-                    } else {
-                        this.d = "";
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.c = j;
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

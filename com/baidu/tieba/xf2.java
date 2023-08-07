@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,104 +12,147 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceRequest;
-import com.baidu.webkit.sdk.WebResourceResponse;
 import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class xf2 implements eg2 {
+public class xf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<jg2> b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static class a extends PrefetchEvent.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xf2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-291023609, "Lcom/baidu/tieba/xf2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-291023609, "Lcom/baidu/tieba/xf2$b;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(@Nullable Map<String, String> map, String str) {
+            super(map, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Map) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new xf2(null);
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948298373, "Lcom/baidu/tieba/xf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948298373, "Lcom/baidu/tieba/xf2;");
+                return;
+            }
+        }
+        l = ir1.a;
     }
 
     public xf2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
     }
 
-    public static xf2 b() {
+    public static xf2 a(ex1<?> ex1Var, PrefetchEvent prefetchEvent, ya3 ya3Var) {
+        InterceptResult invokeLLL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, ex1Var, prefetchEvent, ya3Var)) == null) {
+            if (l) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            xf2 xf2Var = new xf2();
+            xf2Var.h = ex1Var.a();
+            xf2Var.a = prefetchEvent.appPath;
+            xf2Var.b = prefetchEvent.pageUrl;
+            xf2Var.f = prefetchEvent.rootPath;
+            SwanAppConfigData Q = ya3Var.Q();
+            xf2Var.c = prefetchEvent.pageType;
+            String c = ib3.c(prefetchEvent.appPath, qo3.f(qe3.b(prefetchEvent.pageUrl)));
+            xf2Var.g = c;
+            nb3 b = nb3.b(c, Q.e);
+            xf2Var.k = b.r;
+            xf2Var.d = b.g;
+            xf2Var.e = prefetchEvent.isT7Available;
+            xf2Var.i = prefetchEvent.sConsole;
+            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
+                xf2Var.j = prefetchEvent.userActionApis;
+            }
+            if (l) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis - j) + "ms");
+            }
+            return xf2Var;
+        }
+        return (xf2) invokeLLL.objValue;
+    }
+
+    public a b() {
         InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (xf2) invokeV.objValue;
-    }
-
-    public /* synthetic */ xf2(a aVar) {
-        this();
-    }
-
-    public void a(jg2 jg2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jg2Var) == null) && jg2Var != null && !this.b.contains(jg2Var)) {
-            this.b.add(jg2Var);
-        }
-    }
-
-    @RequiresApi(api = 21)
-    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
-        InterceptResult invokeLZ;
-        Uri url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
-            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (l) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
             }
-            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
-        }
-        return (WebResourceResponse) invokeLZ.objValue;
-    }
-
-    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
-                return null;
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
+            treeMap.put("pagePath", this.b);
+            treeMap.put("pageType", this.c);
+            treeMap.put("onReachBottomDistance", this.d);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
+            treeMap.put("root", this.f);
+            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
+            w63.a(treeMap, "slave preload ready event");
+            qe3.a(this.b, treeMap);
+            treeMap.put("pageConfig", this.g);
+            if (l) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
             }
-            return new mg2(this.b, str, map, 0, z).b(str, map, z);
+            return new a(treeMap, "preload");
         }
-        return (WebResourceResponse) invokeLLZ.objValue;
+        return (a) invokeV.objValue;
     }
 }

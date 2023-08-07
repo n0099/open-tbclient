@@ -300,7 +300,7 @@ public class BottomMenuDialog extends DialogFragment {
             getDialog().requestWindowFeature(1);
             int i = 0;
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            getDialog().getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003de);
+            getDialog().getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003df);
             View inflate = layoutInflater.inflate(R.layout.bottom_menu_dialog, viewGroup);
             this.mRootView = inflate;
             inflate.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b92));

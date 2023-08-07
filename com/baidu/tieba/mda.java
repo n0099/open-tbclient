@@ -1,8 +1,23 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface mda {
-    @Deprecated
-    boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult);
+public class mda {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (MessageManager.getInstance().runTask(2001274, Boolean.class) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 }

@@ -1,119 +1,63 @@
 package com.baidu.tieba;
 
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jk4 implements dk4<wk4> {
+public class jk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final xo4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void a(@NonNull sl4 sl4Var, @Nullable List<yj4> list, @Nullable List<zj4> list2, @NonNull ti4 ti4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swan_plugin" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947886166, "Lcom/baidu/tieba/jk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, sl4Var, list, list2, ti4Var) == null) {
+            dl4 b = lk4.b(sl4Var, ti4Var);
+            if (list != null && !list.isEmpty()) {
+                lk4.a(b, cl4.h(list, ti4Var));
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947886166, "Lcom/baidu/tieba/jk4;");
-                return;
+            if (list2 != null && !list2.isEmpty()) {
+                lk4.a(b, cl4.e(list2, ti4Var));
             }
-        }
-        a = xo4.c();
-    }
-
-    public jk4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            b.e();
         }
     }
 
-    @Override // com.baidu.tieba.dk4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public static void b(tl4 tl4Var, ti4 ti4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if (interceptable == null || interceptable.invokeLL(65537, null, tl4Var, ti4Var) == null) {
+            lk4.c(tl4Var, ti4Var);
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public static void c(ul4 ul4Var, ti4 ti4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL," + NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0,token TEXT,domains TEXT," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT,app_name TEXT, UNIQUE (bundle_id,version_name));";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN " + GameGuideConfigInfo.KEY_APP_KEY + " TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_name TEXT");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperPlugin", "#inertAppKeyAndAppName error", e);
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, ul4Var, ti4Var) == null) {
+            lk4.d(ul4Var, ti4Var);
         }
     }
 
-    public final void e(SQLiteDatabase sQLiteDatabase) {
+    public static void d(vl4 vl4Var, ti4 ti4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN token TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN domains TEXT");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperPlugin", "#inertTokenAndDomains error", e);
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, vl4Var, ti4Var) == null) {
+            lk4.e(vl4Var, ti4Var);
         }
     }
 
-    @Override // com.baidu.tieba.dk4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public static void e(qn4 qn4Var, ti4 ti4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 5) {
-                            d(sQLiteDatabase);
-                        }
-                    } else {
-                        e(sQLiteDatabase);
-                    }
-                } else {
-                    sQLiteDatabase.execSQL(b());
-                }
-                i++;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, qn4Var, ti4Var) == null) {
+            lk4.f(qn4Var, ti4Var);
+        }
+    }
+
+    public static synchronized void f(List<zj4> list, ti4 ti4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, ti4Var) == null) {
+            synchronized (jk4.class) {
+                lk4.g(list, ti4Var);
             }
         }
     }

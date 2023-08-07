@@ -1,90 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dy8 extends yx8<TextMsg, dw8> {
-    public static /* synthetic */ Interceptable $ic;
+public class dy8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yx8
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947720998, "Lcom/baidu/tieba/dy8;")) == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public dy8() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yx8
-    /* renamed from: h */
-    public TextMsg e(dw8 dw8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dw8Var)) == null) {
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText((dw8Var == null || (r5 = dw8Var.c()) == null) ? "" : "");
-            return textMsg;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947720998, "Lcom/baidu/tieba/dy8;");
         }
-        return (TextMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yx8
-    /* renamed from: i */
-    public dw8 g(TextMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            dw8 dw8Var = new dw8();
-            String msgContent = sdkMsg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "sdkMsg.msgContent ?: \"\"");
-            }
-            if (!xi.isEmpty(msgContent)) {
-                try {
-                    dw8Var.e(new JSONObject(msgContent).optJSONArray("struct_data"));
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            if (dw8Var.b() == null) {
-                String text = sdkMsg.getText();
-                Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
-                dw8Var.f(text);
-            }
-            String text2 = sdkMsg.getText();
-            Intrinsics.checkNotNullExpressionValue(text2, "sdkMsg.getText()");
-            dw8Var.d(text2);
-            return dw8Var;
-        }
-        return (dw8) invokeL.objValue;
     }
 }

@@ -1,7 +1,14 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
 public interface k81 {
-    void load(String str) throws Throwable;
+    @Nullable
+    Intent a();
 
-    void loadLibrary(String str) throws Throwable;
+    @Nullable
+    String[] b();
+
+    int getMode();
 }

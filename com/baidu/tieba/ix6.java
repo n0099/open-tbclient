@@ -1,46 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.data.ItemState;
-import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.jx6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class ix6 implements jx6.a {
+public final class ix6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
+    public static Map<String, String> b;
+    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ix6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868930, "Lcom/baidu/tieba/ix6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.jx6.a
-    public void a(ov6 item, long j, ox6 displayer, iv6 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            DrawState f = item.f();
-            if (item.i().compareTo(ItemState.Measured) >= 0) {
-                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
-                f.H(true);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947868930, "Lcom/baidu/tieba/ix6;");
                 return;
             }
-            f.H(false);
         }
+        a = new HashMap();
+        b = new HashMap();
+        c = new HashMap();
+        a.put("CAM_X0906", "CAM_X0906");
+        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
+        c.put("CAM_X0906", "testMethod");
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (b.containsKey(str)) {
+                try {
+                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
+                    declaredMethod.setAccessible(true);
+                    Object invoke = declaredMethod.invoke(null, new Object[0]);
+                    if (invoke instanceof Boolean) {
+                        if (((Boolean) invoke).booleanValue()) {
+                            return a.get(str);
+                        }
+                        return str;
+                    }
+                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

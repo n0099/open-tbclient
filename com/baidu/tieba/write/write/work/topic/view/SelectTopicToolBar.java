@@ -10,16 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.tb8;
+import com.baidu.tieba.n98;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class SelectTopicToolBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView.Adapter<d> a;
-    public final List<tb8> b;
+    public final List<n98> b;
     public int c;
     public long d;
     public SelectTopicToolItem e;
@@ -70,19 +70,19 @@ public class SelectTopicToolBar extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem.b
-        public void a(@NonNull tb8 tb8Var) {
+        public void a(@NonNull n98 n98Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, tb8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, n98Var) == null) {
                 if (this.a.c == 1) {
                     z = true;
                 } else {
                     z = false;
                 }
-                tb8Var.k(z);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, tb8Var));
-                if (tb8Var.j() && this.a.c == 1) {
-                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", tb8Var.d().longValue()));
+                n98Var.k(z);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, n98Var));
+                if (n98Var.j() && this.a.c == 1) {
+                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", n98Var.d().longValue()));
                 }
             }
         }
@@ -164,7 +164,7 @@ public class SelectTopicToolBar extends LinearLayout {
         public void onBindViewHolder(@NonNull d dVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) {
-                dVar.a.c((tb8) this.a.b.get(i));
+                dVar.a.c((n98) this.a.b.get(i));
             }
         }
 
@@ -179,7 +179,7 @@ public class SelectTopicToolBar extends LinearLayout {
                 SelectTopicToolItem selectTopicToolItem = new SelectTopicToolItem(viewGroup.getContext());
                 if (this.a.c == 1) {
                     selectTopicToolItem.setFromBar(true);
-                    selectTopicToolItem.setPadding(0, yi.g(this.a.getContext(), R.dimen.M_H_X005), 0, yi.g(this.a.getContext(), R.dimen.M_H_X007));
+                    selectTopicToolItem.setPadding(0, BdUtilHelper.getDimens(this.a.getContext(), R.dimen.M_H_X005), 0, BdUtilHelper.getDimens(this.a.getContext(), R.dimen.M_H_X007));
                 }
                 selectTopicToolItem.setItemClickListener(this.a.h);
                 return new d(selectTopicToolItem);
@@ -195,9 +195,9 @@ public class SelectTopicToolBar extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
                 super.onViewAttachedToWindow(dVar);
                 int adapterPosition = dVar.getAdapterPosition();
-                tb8 tb8Var = (tb8) this.a.b.get(adapterPosition);
-                if (adapterPosition != 0 && tb8Var.j()) {
-                    TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", tb8Var.d().longValue()));
+                n98 n98Var = (n98) this.a.b.get(adapterPosition);
+                if (adapterPosition != 0 && n98Var.j()) {
+                    TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", n98Var.d().longValue()));
                 }
             }
         }
@@ -260,14 +260,14 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.d = j;
             for (int i = 0; i < this.b.size(); i++) {
-                tb8 tb8Var = this.b.get(i);
-                if (tb8Var != null) {
-                    if (j == tb8Var.d().longValue()) {
+                n98 n98Var = this.b.get(i);
+                if (n98Var != null) {
+                    if (j == n98Var.d().longValue()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    tb8Var.m(z);
+                    n98Var.m(z);
                 }
             }
             RecyclerView.Adapter<d> adapter = this.a;
@@ -351,26 +351,26 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.c = i;
             if (i == 1) {
-                this.e.setPadding(0, yi.g(getContext(), R.dimen.M_H_X005), 0, yi.g(getContext(), R.dimen.M_H_X007));
+                this.e.setPadding(0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X007));
             }
         }
     }
 
-    public void e(List<tb8> list) {
+    public void e(List<n98> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.b.clear();
             this.b.addAll(list);
             for (int i = 0; i < this.b.size(); i++) {
-                tb8 tb8Var = this.b.get(i);
-                if (tb8Var != null) {
-                    if (this.d == tb8Var.d().longValue()) {
+                n98 n98Var = this.b.get(i);
+                if (n98Var != null) {
+                    if (this.d == n98Var.d().longValue()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    tb8Var.m(z);
+                    n98Var.m(z);
                 }
             }
             this.a.notifyDataSetChanged();
@@ -411,8 +411,8 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e.d();
             this.a.notifyDataSetChanged();
-            d85.d(this.f).f(R.color.CAM_X0401);
-            d85.d(this).f(R.color.CAM_X0201);
+            EMManager.from(this.f).setBackGroundColor(R.color.CAM_X0401);
+            EMManager.from(this).setBackGroundColor(R.color.CAM_X0201);
         }
     }
 }

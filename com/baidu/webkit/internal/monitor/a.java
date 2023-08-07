@@ -6,11 +6,11 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class a {
-    public C0562a a;
+    public C0563a a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C0562a {
+    public class C0563a {
         public boolean a;
         public boolean b;
         public long c;
@@ -19,14 +19,14 @@ public final class a {
         public boolean f;
         public Map<String, Long> g;
 
-        public C0562a() {
+        public C0563a() {
             this.b = true;
             this.c = -1L;
             this.d = -1L;
             this.g = new HashMap();
         }
 
-        public /* synthetic */ C0562a(a aVar, byte b) {
+        public /* synthetic */ C0563a(a aVar, byte b) {
             this();
         }
 

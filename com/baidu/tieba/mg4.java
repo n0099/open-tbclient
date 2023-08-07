@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +16,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mg4 extends hg4<hy2> {
+public class mg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public View c;
+    public boolean d;
+    public b e;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(boolean z);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ mg4 c;
+
+        public a(mg4 mg4Var, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mg4Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = mg4Var;
+            this.a = z;
+            this.b = i;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                animator.removeAllListeners();
+                if (!this.a) {
+                    this.c.c(this.b);
+                }
+                if (this.c.e != null) {
+                    this.c.e.a(this.a);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,73 +91,83 @@ public class mg4 extends hg4<hy2> {
                 return;
             }
         }
-        boolean z = fs1.a;
+        f = po3.g(58.0f);
     }
 
-    public mg4() {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public mg4(View view2, FrameLayout frameLayout, View view3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, frameLayout, view3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = view2;
+        this.b = frameLayout;
+        this.c = view3;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            layoutParams.height = this.a.getHeight() - (i * 2);
+            this.a.setLayoutParams(layoutParams);
         }
     }
 
-    public static mg4 d() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new mg4();
-        }
-        return (mg4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hg4
-    public boolean b(Context context, hy2 hy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, hy2Var, ey2Var, vb3Var, jSONObject)) == null) {
-            return e(context, hy2Var, ey2Var, vb3Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, hy2 hy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hy2Var, ey2Var, vb3Var, jSONObject)) == null) {
-            v82.i("map", "GetRegionAction start");
-            dy1 A = ix2.T().A(hy2Var.c);
-            if (!(A instanceof by1)) {
-                v82.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.b(z);
             }
-            fh4 d = eg4.b().c((by1) A).d(hy2Var.b);
-            if (d == null) {
-                v82.c("map", "can not find map by id " + hy2Var.b);
-                return false;
+            this.d = z;
+            int i = f;
+            if (z) {
+                i = -i;
             }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            float[] fArr = new float[2];
+            if (z) {
+                fArr[0] = 0.0f;
+                fArr[1] = i;
+            } else {
+                fArr[0] = -i;
+                fArr[1] = 0.0f;
             }
-            v82.i("map", "GetRegionAction end");
-            return true;
+            float[] fArr2 = new float[2];
+            if (z) {
+                fArr2[0] = 0.0f;
+                fArr2[1] = i * 2;
+            } else {
+                fArr2[0] = (-i) * 2;
+                fArr2[1] = 0.0f;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
+            animatorSet.setDuration(200L);
+            animatorSet.start();
+            animatorSet.addListener(new a(this, z, i));
+            if (z) {
+                c(i);
+            }
         }
-        return invokeLLLLL.booleanValue;
     }
 }

@@ -1,58 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.dp2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fu1 implements kw1 {
+public class fu1 implements vw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.kw1
-    public boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public void b(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public void e(vb3 vb3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vb3Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kw1
-    public void g(vb3 vb3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vb3Var) == null) {
-        }
-    }
 
     public fu1() {
         Interceptable interceptable = $ic;
@@ -68,29 +25,39 @@ public class fu1 implements kw1 {
         }
     }
 
-    @Override // com.baidu.tieba.kw1
-    public void d(@NonNull CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.vw1
+    public void a(Context context, rp3<Boolean> rp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
-            callbackHandler.handleSchemeDispatchCallback("", "");
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, rp3Var) != null) || rp3Var == null) {
+            return;
         }
+        rp3Var.a(null);
     }
 
-    @Override // com.baidu.tieba.kw1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vw1
+    public void b(boolean z, rp3<String> rp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return context.getString(R.string.obfuscated_res_0x7f0f0189);
+        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, rp3Var) != null) || rp3Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        rp3Var.a(null);
     }
 
-    @Override // com.baidu.tieba.kw1
-    public void h(@NonNull Activity activity, String str, String str2, cp2 cp2Var, dp2.b bVar) {
+    @Override // com.baidu.tieba.vw1
+    public void c(Context context, rp3<String> rp3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, cp2Var, bVar) == null) && bVar != null) {
-            bVar.a();
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, rp3Var) != null) || rp3Var == null) {
+            return;
         }
+        rp3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.vw1
+    public void d(rp3<Integer> rp3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, rp3Var) != null) || rp3Var == null) {
+            return;
+        }
+        rp3Var.a(null);
     }
 }

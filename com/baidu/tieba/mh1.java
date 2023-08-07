@@ -1,149 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class mh1 {
-    public static /* synthetic */ Interceptable $ic;
+public class mh1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return h() + "/cps/user/recordBatch/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h() + "/cashier/calcMoney";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/cashier/channelAllInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/cashier/order/orderInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/cps/user/record/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/cashier/drmb/drmbPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (jh1.a() != 1) {
-                return "https://trade.baidu-int.com/sandbox/tradegateway";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972563, "Lcom/baidu/tieba/mh1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "https://etrade-api.baidu.com";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return h() + "/cashier/launchpayment";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return h() + "/cashier/pay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return h() + "/cashier/sdkAdaptH5QueryPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return h() + "/cashier/drmb/reqCode";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (jh1.a() != 2) {
-                return h() + "/cashier/innerChannelAllInfo";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947972563, "Lcom/baidu/tieba/mh1;");
+                return;
             }
-            return h() + "/cashier/innerChannelAllInfo";
         }
-        return (String) invokeV.objValue;
+        if (mg1.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+        }
     }
 
-    public static final String i() {
-        InterceptResult invokeV;
+    public mh1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (jh1.a() != 1) {
-                return h() + "/cashier/agreement/judgeGuideSign";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return h() + "/cashier/agreement/judgeGuideSign";
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final String k() {
-        InterceptResult invokeV;
+    public void a(hg1 hg1Var, gg1 gg1Var, fg1 fg1Var) {
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (jh1.a() != 1) {
-                return h() + "/cashier/agreement/guideApplySign";
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hg1Var, gg1Var, fg1Var) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+                for (Map.Entry<String, String> entry : hg1Var.c().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                }
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setUseCaches(false);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setReadTimeout(5000);
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry<String, String> entry2 : gg1Var.c().entrySet()) {
+                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
+                    sb.append(entry2.getKey());
+                    sb.append("=");
+                    sb.append(encode);
+                    sb.append("&");
+                }
+                byte[] bytes = sb.toString().getBytes();
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+                httpURLConnection.connect();
+                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    dataOutputStream.write(bytes);
+                    dataOutputStream.flush();
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (fg1Var != null) {
+                        if (responseCode >= 200 && responseCode <= 299) {
+                            fg1Var.c(null);
+                        } else {
+                            fg1Var.a(null, 119501, null);
+                        }
+                    }
+                    vh1.a(dataOutputStream);
+                } catch (Throwable unused) {
+                    if (fg1Var != null) {
+                        try {
+                            fg1Var.a(null, 119501, null);
+                        } catch (Throwable th) {
+                            vh1.a(dataOutputStream);
+                            throw th;
+                        }
+                    }
+                    vh1.a(dataOutputStream);
+                }
+            } catch (Throwable unused2) {
+                dataOutputStream = null;
             }
-            return h() + "/cashier/agreement/guideApplySign";
         }
-        return (String) invokeV.objValue;
     }
 }

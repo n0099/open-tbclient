@@ -3,7 +3,7 @@ package com.baidu.live.business.model.data;
 import android.text.TextUtils;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
-import com.baidu.tieba.sb0;
+import com.baidu.tieba.qa0;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,10 +128,10 @@ public class LiveFeedConfig {
                 this.minorUfoUrl = optJSONObject.optString("ufo_url");
             }
             if (z && z2) {
-                sb0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                qa0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
             }
         } else if (z && z2) {
-            String b = sb0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+            String b = qa0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
             if (!TextUtils.isEmpty(b)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(b);
@@ -149,7 +149,7 @@ public class LiveFeedConfig {
                         this.minorUfoUrl = optJSONObject2.optString("ufo_url");
                     }
                 } catch (JSONException unused) {
-                    sb0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                    qa0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                 }
             }
         }

@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx2;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,26 +15,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public final class ax2 {
+public class ax2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final Map<String, ax2> e;
+    public static final boolean c;
+    public static final ax2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public final bx2 b;
-    public final String c;
+    public final AtomicBoolean a;
+    public final List<xw2> b;
 
     /* loaded from: classes5.dex */
-    public class a implements oq3<bx2> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax2 a;
+    }
 
-        public a(ax2 ax2Var) {
+    /* loaded from: classes5.dex */
+    public class b extends gw2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ ax2 b;
+
+        public b(ax2 ax2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,55 +54,36 @@ public final class ax2 {
                     return;
                 }
             }
-            this.a = ax2Var;
+            this.b = ax2Var;
+            this.a = 0;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: c */
-        public void a(bx2 bx2Var) {
+        @Override // com.baidu.tieba.gw2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bx2Var) == null) && ax2.d) {
-                d();
-            }
-        }
-
-        public final void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && ax2.d) {
-                Log.i(str, str2);
-            }
-        }
-
-        public final synchronized void d() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                synchronized (this) {
-                    b("SwanLaunch", "\n\n\n");
-                    b("SwanLaunch", ">>>>>> SWAN Launch Log For " + this.a.c);
-                    StringBuilder sb = new StringBuilder();
-                    for (Map.Entry entry : this.a.a.entrySet()) {
-                        sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
-                    }
-                    for (bx2.b bVar : this.a.b.i()) {
-                        StringBuilder sb2 = new StringBuilder();
-                        for (String str2 : bVar.b) {
-                            sb2.append(str2);
-                            sb2.append(" ");
-                        }
-                        for (String str3 : bVar.a) {
-                            String h = this.a.b.h();
-                            if (TextUtils.isEmpty(bVar.c)) {
-                                str = h;
-                            } else {
-                                str = bVar.c;
-                            }
-                            b(str, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h, sb, sb2, str3));
-                        }
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.gw2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(ax2 ax2Var, a aVar) {
+            this(ax2Var);
         }
     }
 
@@ -111,46 +100,36 @@ public final class ax2 {
                 return;
             }
         }
-        d = fs1.a;
-        e = new HashMap();
+        c = ir1.a;
+        d = new ax2();
     }
 
-    public final oq3<bx2> c() {
+    public static ax2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (oq3) invokeV.objValue;
-    }
-
-    public bx2.b e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.d();
-        }
-        return (bx2.b) invokeV.objValue;
-    }
-
-    public synchronized ax2 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                this.b.j();
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
         }
         return (ax2) invokeV.objValue;
     }
 
-    public ax2(String str) {
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ax2() {
+        List<xw2> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -160,44 +139,59 @@ public final class ax2 {
                 return;
             }
         }
-        this.a = new HashMap();
-        bx2 bx2Var = new bx2();
-        bx2Var.g("SwanLaunch");
-        bx2Var.l(c());
-        this.b = bx2Var;
-        this.c = str;
+        this.a = new AtomicBoolean(false);
+        gk1<xw2> gk1Var = new zw2().a;
+        if (gk1Var == null) {
+            list = null;
+        } else {
+            list = gk1Var.getList();
+        }
+        this.b = list;
     }
 
-    public static ax2 d(String str) {
-        InterceptResult invokeL;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            ax2 ax2Var = e.get(str);
-            if (ax2Var == null) {
-                ax2 ax2Var2 = new ax2(str);
-                e.put(str, ax2Var2);
-                return ax2Var2;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
             }
-            return ax2Var;
         }
-        return (ax2) invokeL.objValue;
     }
 
-    public bx2.b f(String str) {
-        InterceptResult invokeL;
+    public void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.b.e(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (xw2 xw2Var : this.b) {
+                    if (current == xw2Var.b()) {
+                        xw2Var.a(true, activity);
+                    }
+                }
+            }
         }
-        return (bx2.b) invokeL.objValue;
     }
 
-    public bx2.b g(String str, String str2) {
-        InterceptResult invokeLL;
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return this.b.f(str, str2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (xw2 xw2Var : this.b) {
+                    if (current == xw2Var.b()) {
+                        xw2Var.a(false, activity);
+                    }
+                }
+            }
         }
-        return (bx2.b) invokeLL.objValue;
     }
 }

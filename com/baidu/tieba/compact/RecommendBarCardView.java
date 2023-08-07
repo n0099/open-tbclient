@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a67;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.ev6;
-import com.baidu.tieba.fc7;
 import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
+import com.baidu.tieba.i37;
+import com.baidu.tieba.ks6;
+import com.baidu.tieba.n97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\n\u001a\u00020\u000bH\u0016J\u000e\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000eR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/compact/RecommendBarCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "recommendBar", "Lcom/baidu/tieba/homepage/concern/view/RecommendBarLayout;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/card/uistate/OtherTemplateUiState;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendBarCardView extends LinearLayout implements fc7 {
+public final class RecommendBarCardView extends LinearLayout implements n97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendBarLayout a;
@@ -81,11 +81,11 @@ public final class RecommendBarCardView extends LinearLayout implements fc7 {
         } else {
             tbPageContext = null;
         }
-        if (context instanceof ev6) {
-            ev6 ev6Var = (ev6) context;
-            Activity pageActivity = ev6Var.getPageContext().getPageActivity();
+        if (context instanceof ks6) {
+            ks6 ks6Var = (ks6) context;
+            Activity pageActivity = ks6Var.getPageContext().getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "context.pageContext.pageActivity");
-            tbPageContext = ev6Var.getPageContext();
+            tbPageContext = ks6Var.getPageContext();
             context = pageActivity;
         }
         if (tbPageContext != null) {
@@ -93,20 +93,18 @@ public final class RecommendBarCardView extends LinearLayout implements fc7 {
             this.a = recommendBarLayout;
             addView(recommendBarLayout, new LinearLayout.LayoutParams(-1, -2));
         }
-        b();
+        c();
     }
 
     public /* synthetic */ RecommendBarCardView(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.fc7
-    public void b() {
+    @Override // com.baidu.tieba.n97
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d85 d = d85.d(this);
-            d.o(R.string.J_X06);
-            d.j(R.color.CAM_X0205, R.color.CAM_X0206);
+            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
             RecommendBarLayout recommendBarLayout = this.a;
             if (recommendBarLayout != null) {
                 recommendBarLayout.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
@@ -114,7 +112,7 @@ public final class RecommendBarCardView extends LinearLayout implements fc7 {
         }
     }
 
-    public final void update(a67 state) {
+    public final void update(i37 state) {
         RecommendBarLayout recommendBarLayout;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
@@ -123,7 +121,7 @@ public final class RecommendBarCardView extends LinearLayout implements fc7 {
             if ((obj instanceof RecommendBarCardModel) && (recommendBarLayout = this.a) != null) {
                 recommendBarLayout.setData((RecommendBarCardModel) obj);
             }
-            b();
+            c();
         }
     }
 }

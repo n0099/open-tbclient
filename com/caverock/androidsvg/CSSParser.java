@@ -12,7 +12,7 @@ import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.sdb;
+import com.baidu.tieba.vcb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            sdb sdbVar;
+            vcb vcbVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        sdb c = sdb.c(this.a, this.b, this.c, false);
+                        vcb c = vcb.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            sdbVar = c;
+                            vcbVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new sdb(1L, this.b);
+                                c = new vcb(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                sdbVar = sdb.c(this.a, this.b, this.c, false);
-                                if (sdbVar != null) {
-                                    this.b = sdbVar.a();
+                                vcbVar = vcb.c(this.a, this.b, this.c, false);
+                                if (vcbVar != null) {
+                                    this.b = vcbVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                sdbVar = null;
+                                vcbVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (sdbVar != null) {
-                            i4 = i * sdbVar.d();
+                        if (vcbVar != null) {
+                            i4 = i * vcbVar.d();
                         }
                         aVar = new a(d, i4);
                     }
@@ -886,7 +886,7 @@ public class CSSParser {
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final MediaType f1200tv;
+        public static final MediaType f1199tv;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -913,7 +913,7 @@ public class CSSParser {
             speech = new MediaType(WarmTipsManager.WIDGET_SPEECH_EXT_VALUE, 8);
             tty = new MediaType("tty", 9);
             MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 10);
-            f1200tv = mediaType;
+            f1199tv = mediaType;
             $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, speech, tty, mediaType};
         }
 

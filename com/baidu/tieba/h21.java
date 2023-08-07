@@ -1,125 +1,210 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.h61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes6.dex */
 public class h21 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public lx0 a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final h21 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-797142908, "Lcom/baidu/tieba/h21$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-797142908, "Lcom/baidu/tieba/h21$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771714, "Lcom/baidu/tieba/h21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new h21(null);
-        }
-    }
-
-    public h21() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947771714, "Lcom/baidu/tieba/h21;");
+                return;
             }
         }
+        a = ut0.f();
+        b = -1;
+        c = u71.a(15.0f);
     }
 
-    public static h21 c() {
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            String c2 = v61.c();
+            if (TextUtils.equals(c2, "EMUI") && b(context)) {
+                return 1;
+            }
+            if (TextUtils.equals(c2, "MIUI") && e(context)) {
+                return 1;
+            }
+            if (TextUtils.equals(c2, "OPPO") && c(context)) {
+                return 1;
+            }
+            if ((TextUtils.equals(c2, "VIVO") && d(context)) || "ONEPLUS A6000".equals(Build.MODEL)) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
+                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (a) {
+                pk0.e("VideoNotchUtils", "isNotch start");
+            }
+            if (b == -1) {
+                if (Build.VERSION.SDK_INT < 24) {
+                    b = 0;
+                } else if (b == -1) {
+                    b = a(context);
+                    pk0.e("VideoNotchUtils", "isNotch from getNotchState");
+                }
+            }
+            if (a) {
+                pk0.e("VideoNotchUtils", "isNotch end");
+            }
+            if (b != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
+                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
+            } catch (Exception e) {
+                if (!a) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(@NonNull pz0 pz0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, pz0Var) == null) && pz0Var.getContentView() != null && (pz0Var.getContentView() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) pz0Var.getContentView();
+            viewGroup.setPadding(0, 0, 0, 0);
+            viewGroup.setLayoutParams(viewGroup.getLayoutParams());
+        }
+    }
+
+    public static void i(@NonNull pz0 pz0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, pz0Var) == null) && g(pj0.b())) {
+            h(pz0Var);
+        }
+    }
+
+    public static void k(@NonNull pz0 pz0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, pz0Var) == null) && g(pj0.b())) {
+            j(pz0Var, h61.c.g(), h61.c.g());
+        }
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
+            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
+                for (int i = 0; i < 6; i++) {
+                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        return (h21) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public g21 b() {
-        InterceptResult invokeV;
+    public static void j(@NonNull pz0 pz0Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new g21();
-        }
-        return (g21) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            lx0 lx0Var = new lx0();
-            this.a = lx0Var;
-            lx0Var.registerReceiver();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a == null) {
-            e();
-        }
-    }
-
-    public /* synthetic */ h21(a aVar) {
-        this();
-    }
-
-    public void a(@NonNull su0 su0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, su0Var) == null) {
-            f();
-            v21.a("session manager bind player =>" + su0Var);
-            this.a.b(su0Var.x());
-        }
-    }
-
-    public void d(@NonNull mx0 mx0Var) {
-        lx0 lx0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mx0Var) == null) && (lx0Var = this.a) != null) {
-            lx0Var.c(mx0Var);
-        }
-    }
-
-    public void g(@NonNull su0 su0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, su0Var) == null) {
-            v21.a("session manager unbind player =>" + su0Var);
-            lx0 lx0Var = this.a;
-            if (lx0Var != null) {
-                lx0Var.d(su0Var.x());
+        if (interceptable == null || interceptable.invokeLII(65546, null, pz0Var, i, i2) == null) {
+            int max = Math.max(i, c);
+            int max2 = Math.max(i2, c);
+            if (pz0Var.getContentView() != null && (pz0Var.getContentView() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) pz0Var.getContentView();
+                viewGroup.setPadding(max, 0, max2, 0);
+                viewGroup.setLayoutParams(viewGroup.getLayoutParams());
             }
         }
     }

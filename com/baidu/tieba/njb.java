@@ -1,129 +1,49 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class njb implements PidLoaderCreator {
+public class njb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs a;
 
-    public njb(ModuleConfigKs moduleConfigKs) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = moduleConfigKs;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
-        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
-     */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public PidLoader create(Ssp.Pid pid) {
+    public static RippedAd a(AdInfo adInfo) {
         InterceptResult invokeL;
+        String str;
+        String str2;
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            char c = 0;
-            try {
-                Long.parseLong(pid.pid);
-                String str = pid.type;
-                str.hashCode();
-                switch (str.hashCode()) {
-                    case -1377301807:
-                        break;
-                    case -1291455752:
-                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1187931233:
-                        if (str.equals(FunAdType.KS_NATIVE)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1106926588:
-                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1031178769:
-                        if (str.equals(FunAdType.KS_SPLASH)) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1860126748:
-                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 2017609999:
-                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
+            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
+            RippedAd.Builder builder = new RippedAd.Builder();
+            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
+            ArrayList arrayList = null;
+            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
+                str = null;
+            } else if (adMaterialInfo.materialType == 1) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+                str2 = materialFeature.materialUrl;
+                str = materialFeature.coverUrl;
+                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adConversionInfo.h5Url).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+                return builder.build();
+            } else {
+                ArrayList arrayList2 = new ArrayList();
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
+                    arrayList2.add(materialFeature2.materialUrl);
                 }
-                switch (c) {
-                    case 0:
-                        return new ckb(pid);
-                    case 1:
-                        return new ujb(pid, this.a);
-                    case 2:
-                        return new gkb(pid);
-                    case 3:
-                        return new mkb(pid, this.a);
-                    case 4:
-                        return new pkb(pid);
-                    case 5:
-                        return new yjb(pid, this.a);
-                    case 6:
-                        return new qjb(pid);
-                    default:
-                        return null;
-                }
-            } catch (NumberFormatException unused) {
-                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
-                return null;
+                str = null;
+                arrayList = arrayList2;
             }
+            str2 = str;
+            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adConversionInfo.h5Url).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+            return builder.build();
         }
-        return (PidLoader) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

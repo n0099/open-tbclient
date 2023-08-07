@@ -1,48 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.webpanel.PanelScrollView;
-import com.baidu.nadcore.webpanel.model.AdData;
-import com.baidu.nadcore.widget.AdImageView;
+import com.baidu.nadcore.webview.activity.NadWebViewActivity;
+import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.va1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes7.dex */
-public class q91 extends PopupWindow implements w91, ViewTreeObserver.OnWindowFocusChangeListener {
+public final class q91 extends bj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public AdImageView b;
-    public ViewGroup c;
-    public n91 d;
-    public y91 e;
-    public x91 f;
+    public final String a;
+
+    @Override // com.baidu.tieba.bj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bj0
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements PanelScrollView.c {
+    public static final class a implements va1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q91 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ HashMap c;
+        public final /* synthetic */ hj0 d;
+        public final /* synthetic */ dj0 e;
 
-        public a(q91 q91Var) {
+        public a(q91 q91Var, Context context, HashMap hashMap, hj0 hj0Var, dj0 dj0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q91Var};
+                Object[] objArr = {q91Var, context, hashMap, hj0Var, dj0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,97 +71,43 @@ public class q91 extends PopupWindow implements w91, ViewTreeObserver.OnWindowFo
                 }
             }
             this.a = q91Var;
+            this.b = context;
+            this.c = hashMap;
+            this.d = hj0Var;
+            this.e = dj0Var;
         }
 
-        @Override // com.baidu.nadcore.webpanel.PanelScrollView.c
+        @Override // com.baidu.tieba.va1.b
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
-                this.a.f.e();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = 0;
+                boolean i2 = this.a.i(this.b, this.c, false);
+                String str = this.a.a;
+                ab1.a(str, "调起SDK落地页, 结果 " + i2);
+                q91 q91Var = this.a;
+                hj0 hj0Var = this.d;
+                dj0 dj0Var = this.e;
+                if (!i2) {
+                    i = 1001;
+                }
+                q91Var.c(hj0Var, dj0Var, i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.va1.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                ab1.c(this.b, "初始化失败，降级为原生打开");
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements PanelScrollView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q91 a;
-
-        public b(q91 q91Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q91Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q91Var;
-        }
-
-        @Override // com.baidu.nadcore.webpanel.PanelScrollView.d
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
-                this.a.f.c();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y91 a;
-        public final /* synthetic */ q91 b;
-
-        public c(q91 q91Var, y91 y91Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q91Var, y91Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q91Var;
-            this.a = y91Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.f != null) {
-                if (!this.a.t()) {
-                    this.b.f.b();
-                    return;
-                }
-                this.b.g();
-                this.b.b.setVisibility(8);
-                this.b.f.a();
-            }
-        }
-    }
-
-    public q91(Context context) {
+    public q91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,223 +117,98 @@ public class q91 extends PopupWindow implements w91, ViewTreeObserver.OnWindowFo
                 return;
             }
         }
-        this.c = null;
-        setFocusable(true);
-        setBackgroundDrawable(new ColorDrawable(0));
-        setAnimationStyle(R.style.obfuscated_res_0x7f1003e8);
-        setClippingEnabled(true);
-        setWidth(-1);
-        setHeight(-1);
-        setContentView(f(context, R.layout.nad_panel_pop_view));
+        this.a = "EasyBrowseInterceptor";
     }
 
-    @Override // com.baidu.tieba.w91
-    public void a(int i) {
-        ClogBuilder.Page page;
-        ClogBuilder.LogType logType;
-        x91 x91Var;
-        x91 x91Var2;
+    @Override // com.baidu.tieba.bj0
+    public boolean d(Context context, dj0 schemeModel, Map<String, Object> map, hj0 hj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.e.n() && (x91Var2 = this.f) != null) {
-                x91Var2.d();
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, hj0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            int i = 0;
+            if (!j()) {
+                ab1.c(context, "未命中新架构");
+                return false;
             }
-            if (this.e.s()) {
-                page = ClogBuilder.Page.WELFAREWEB;
-            } else {
-                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
-            }
-            if (this.e.s()) {
-                logType = ClogBuilder.LogType.REWARD_HALF_TAIL_SLIDE;
-            } else {
-                logType = ClogBuilder.LogType.NAVIDEO_POP_CLOSE;
-            }
-            fa1.b(page, logType, String.valueOf(i), "", this.e.d());
-            g();
-            if (i == 0 && (x91Var = this.f) != null) {
-                x91Var.f();
-            }
-        }
-    }
-
-    public void h(y91 y91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, y91Var) == null) {
-            this.e = y91Var;
-            n91 n91Var = new n91((Activity) this.a.getContext(), (ViewGroup) this.a);
-            this.d = n91Var;
-            n91Var.f(y91Var);
-            this.d.a(this);
-            PanelScrollView b2 = this.d.b();
-            if (b2 != null) {
-                b2.setOnGestureScrollListener(new a(this));
-                b2.setOnGestureSingleTapUpListener(new b(this));
-            }
-            l(y91Var);
-        }
-    }
-
-    public q91(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = null;
-        setFocusable(true);
-        setBackgroundDrawable(new ColorDrawable(0));
-        setAnimationStyle(R.style.obfuscated_res_0x7f1003e8);
-        setClippingEnabled(true);
-        setWidth(-1);
-        setHeight(-1);
-        setContentView(f(context, i));
-    }
-
-    public void i(@NonNull x91 x91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, x91Var) == null) {
-            this.f = x91Var;
-        }
-    }
-
-    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.e.q()) {
-            ha1.a(this.a.getContext(), this);
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                StackTraceElement[] stackTrace = new Exception().getStackTrace();
-                if (stackTrace.length >= 2 && stackTrace[1] != null && "dispatchKeyEvent".equals(stackTrace[1].getMethodName())) {
-                    if (this.e.r()) {
-                        if (this.d != null) {
-                            this.d.d("javascript:onAndroidBack()");
-                        }
-                    } else if (!this.d.g()) {
-                        a(0);
-                    }
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            r31.b((String) c31.b(d, "charge_url"));
+            int b = r91.b(context.getApplicationContext(), new a(this, context, d, hj0Var, schemeModel));
+            if (b == 0) {
+                c(hj0Var, schemeModel, 1001, false);
+                ab1.d(new IllegalStateException("web app init failed, state=" + b));
+                return false;
+            } else if (2 != b && 1 != b) {
+                if (4 == b) {
+                    ab1.c(context, "初始化失败，降级为原生打开");
+                    h(context, schemeModel, hj0Var);
+                    return true;
+                } else if (5 == b) {
+                    ab1.c(context, "低版本不支持t7，降级为原生打开");
+                    h(context, schemeModel, hj0Var);
+                    return true;
                 } else {
-                    a(0);
+                    boolean i2 = i(context, d, false);
+                    String str = this.a;
+                    ab1.a(str, "调起SDK落地页, 结果 " + i2);
+                    if (!i2) {
+                        i = 1001;
+                    }
+                    c(hj0Var, schemeModel, i, i2);
+                    return true;
                 }
-            } catch (Exception unused) {
-                a(0);
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            do0.a().a(new t91(5, this.e.a()));
-            this.d.e();
-            this.a.getViewTreeObserver().removeOnWindowFocusChangeListener(this);
-            if (this.e.m()) {
-                this.c = ha1.b(this.a.getContext(), this.c, false);
-            }
-            m91.b.c(false);
-            m91.b.b(false);
-            super.dismiss();
-            x91 x91Var = this.f;
-            if (x91Var != null) {
-                x91Var.dismiss();
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
-        }
-    }
-
-    public final View f(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
-            this.a = inflate;
-            this.b = (AdImageView) inflate.findViewById(R.id.top_right_icon);
-            return this.a;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    public void j() {
-        ClogBuilder.Page page;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.getViewTreeObserver().addOnWindowFocusChangeListener(this);
-            if (this.e.q()) {
-                ha1.a(this.a.getContext(), this);
-            }
-            View.OnTouchListener c2 = this.d.c();
-            if (c2 != null && !this.e.o()) {
-                setTouchInterceptor(c2);
-            }
-            if (this.e.m()) {
-                this.c = ha1.b(this.a.getContext(), this.c, true);
-            }
-            do0.a().a(new t91(7, this.d.b()));
-            k(this.a.getContext(), ((Activity) this.a.getContext()).getWindow().getDecorView(), 80, 0, 0);
-            m91.b.c(true);
-            m91.b.b(false);
-            if (this.e.s()) {
-                page = ClogBuilder.Page.WELFAREWEB;
             } else {
-                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
+                ab1.c(context, "正在初始化，降级为原生打开");
+                h(context, schemeModel, hj0Var);
+                return true;
             }
-            fa1.b(page, ClogBuilder.LogType.FREE_SHOW, "", "", this.e.d());
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public final void k(Context context, View view2, int i, int i2, int i3) {
-        Activity activity;
+    public final void h(Context context, dj0 dj0Var, hj0 hj0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (context instanceof Activity) {
-                activity = (Activity) context;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, dj0Var, hj0Var) == null) {
+            HashMap<String, String> d = dj0Var.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            d.put("downgrade_to_native", "1");
+            boolean i2 = i(context, dj0Var.d(), true);
+            if (i2) {
+                i = 0;
             } else {
-                activity = null;
+                i = 1001;
             }
-            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                try {
-                    showAtLocation(view2, i, i2, i3);
-                    do0.a().a(new t91(0, (AdData) null));
-                } catch (Exception e) {
-                    xb1.d(e);
-                }
-            }
+            c(hj0Var, dj0Var, i, i2);
         }
     }
 
-    public final void l(y91 y91Var) {
+    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
+        InterceptResult invokeLLZ;
+        String str;
+        Class cls;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, y91Var) != null) || !y91Var.v()) {
-            return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
+            if (!z && !n91.a().b(hashMap, n91.b())) {
+                ab1.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
+                return false;
+            }
+            if (hashMap != null) {
+                str = hashMap.remove("newbrowser");
+            } else {
+                str = null;
+            }
+            if (Intrinsics.areEqual("1", str)) {
+                cls = NadWebViewActivityStandard.class;
+            } else {
+                cls = NadWebViewActivity.class;
+            }
+            Intent intent = new Intent(context, cls);
+            intent.putExtra("map", hashMap);
+            return z51.d(context, intent);
         }
-        if (y91Var.t()) {
-            this.b.setImageResource(R.drawable.nad_reward_video_lp_down_arrow);
-        } else {
-            this.b.setImageResource(R.drawable.nad_reward_video_lp_close_btn);
-        }
-        this.b.setVisibility(0);
-        this.b.setOnClickListener(new c(this, y91Var));
+        return invokeLLZ.booleanValue;
     }
 }

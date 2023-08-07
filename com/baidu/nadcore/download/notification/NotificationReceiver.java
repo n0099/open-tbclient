@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.pm0;
-import com.baidu.tieba.qn0;
+import com.baidu.tieba.nl0;
+import com.baidu.tieba.om0;
 import java.io.File;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -39,8 +39,8 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
 
     private void installApk(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !qn0.c(str2)) {
-            qn0.d(new File(str));
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !om0.c(str2)) {
+            om0.d(new File(str));
         }
     }
 
@@ -50,11 +50,11 @@ public class NotificationReceiver extends BroadcastReceiver {
             installApk(str3, str2);
             str6 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
         } else {
-            qn0.h(str2);
+            om0.h(str2);
             str6 = ClogBuilder.LogType.OPEN_APP.type;
         }
         collapseStatusBar(context);
-        pm0.f().h(str6, str5, str4, str);
+        nl0.f().h(str6, str5, str4, str);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -107,14 +107,14 @@ public class NotificationReceiver extends BroadcastReceiver {
             if (c != 1) {
                 if (c != 2) {
                     if (c == 3) {
-                        pm0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                        nl0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
                         return;
                     }
                     return;
                 }
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    pm0.f().a(intExtra);
+                    nl0.f().a(intExtra);
                     return;
                 }
                 return;

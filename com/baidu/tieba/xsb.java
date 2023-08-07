@@ -1,24 +1,36 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class xsb {
+public abstract class xsb extends wsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return ysb.c(context);
-            } catch (Exception unused) {
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void e(Context context, Surface surface, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        }
+    }
+
+    public void f(Context context, Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
     }
 }

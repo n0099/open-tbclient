@@ -1,189 +1,335 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public interface fu0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "nativeCookieMgr");
-    public static final ServiceReference b = new ServiceReference("nad.core", "sailorCookieMgr");
-    public static final fu0 c = new a();
-    public static final fu0 d = new b();
-
-    String getCookie(String str);
-
-    boolean shouldAcceptCookie(String str, String str2);
-
-    boolean shouldSendCookie(String str, String str2);
-
-    void storeCookie(String str, List<String> list);
+public class fu0 implements du0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final wt0 b;
+    public au0 c;
 
     /* loaded from: classes5.dex */
-    public class a implements fu0 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        @Override // com.baidu.tieba.fu0
-        public boolean shouldAcceptCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
+    /* loaded from: classes5.dex */
+    public class b implements bv0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fu0 a;
 
-        @Override // com.baidu.tieba.fu0
-        public boolean shouldSendCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public a() {
+        public b(fu0 fu0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fu0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = fu0Var;
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.c != null) {
+                this.a.c.a(i);
             }
         }
 
-        public final fu0 a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.bv0
+        public void onEnd(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ServiceManager.getService(fu0.a) != null) {
-                    return (fu0) ServiceManager.getService(fu0.a);
-                }
-                return fu0.d;
+            if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.a.c != null) {
+                this.a.c.onEnd(i);
             }
-            return (fu0) invokeV.objValue;
         }
 
-        public final fu0 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (ServiceManager.getService(fu0.b) != null) {
-                    return (fu0) ServiceManager.getService(fu0.b);
-                }
-                return fu0.d;
-            }
-            return (fu0) invokeV.objValue;
+        public /* synthetic */ b(fu0 fu0Var, a aVar) {
+            this(fu0Var);
         }
 
-        @Override // com.baidu.tieba.fu0
-        public String getCookie(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.bv0
+        public void onInfo(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                if (!TextUtils.isEmpty(b().getCookie(str))) {
-                    return b().getCookie(str);
-                }
-                return a().getCookie(str);
+            if ((interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) && this.a.c != null) {
+                this.a.c.onInfo(i, i2);
             }
-            return (String) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.fu0
-        public void storeCookie(String str, List<String> list) {
+        @Override // com.baidu.tieba.bv0
+        public void onVideoSizeChanged(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, str, list) == null) {
-                b().storeCookie(str, list);
-                a().storeCookie(str, list);
+            if ((interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) && this.a.c != null) {
+                this.a.c.onVideoSizeChanged(i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onBufferEnd() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.c != null) {
+                this.a.c.onBufferEnd();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onBufferStart() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
+                this.a.c.onBufferStart();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onPause() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.c != null) {
+                this.a.c.onPause();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onPrepared() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a.c != null) {
+                this.a.c.onPrepared();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onResume() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.c != null) {
+                this.a.c.onResume();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onSeekEnd() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a.c != null) {
+                this.a.c.onSeekEnd();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.c != null) {
+                this.a.c.onStart();
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, str) == null) && this.a.c != null) {
+                this.a.c.onError(i, i2, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.bv0
+        public void onUpdateProgress(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) && this.a.c != null) {
+                this.a.c.onUpdateProgress(i, i2, i3);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements fu0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.fu0
-        public boolean shouldAcceptCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                return true;
+    public fu0(wt0 wt0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wt0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return invokeLL.booleanValue;
         }
+        this.b = wt0Var;
+        wt0Var.y0(new b(this, null));
+    }
 
-        @Override // com.baidu.tieba.fu0
-        public boolean shouldSendCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                return true;
+    @Override // com.baidu.tieba.du0
+    public void a(au0 au0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, au0Var) == null) {
+            this.c = au0Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.du0
+    public void attachToContainer(@NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+            this.b.f(viewGroup);
+        }
+    }
+
+    @Override // com.baidu.tieba.du0
+    public void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iVideoUpdateStrategy) == null) {
+            this.b.z1(iVideoUpdateStrategy);
+        }
+    }
+
+    public final BdVideoAd f(rr0 rr0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rr0Var)) == null) {
+            if (rr0Var == null) {
+                return null;
             }
-            return invokeLL.booleanValue;
+            BdVideoAd.b bVar = new BdVideoAd.b();
+            bVar.b(rr0Var);
+            bVar.c(true);
+            return bVar.a();
         }
+        return (BdVideoAd) invokeL.objValue;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.bu0
+    public void mute(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.b.c0(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.bu0
+    public void setLooping(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.b.v0(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.bu0
+    public void setVideoScalingMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b.B0(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.zt0
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.D();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.zt0
+    public boolean isPause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b.W();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zt0
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b.Y();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bu0
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.e0();
+        }
+    }
+
+    @Override // com.baidu.tieba.du0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b.g0();
+        }
+    }
+
+    @Override // com.baidu.tieba.bu0
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.b.l0();
+        }
+    }
+
+    @Override // com.baidu.tieba.bu0
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.b.K0();
+        }
+    }
+
+    @Override // com.baidu.tieba.bu0
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.b.L0();
+        }
+    }
+
+    @Override // com.baidu.tieba.du0
+    public void c(@NonNull pr0 pr0Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pr0Var) == null) {
+            BdVideoSeries c = t71.c(pr0Var.j);
+            IVideoUpdateStrategy n1 = this.b.n1();
+            if (c != null) {
+                c.setVideoAd(f(pr0Var.i));
+                if (n1.h()) {
+                    i = 0;
+                } else {
+                    i = -1;
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.fu0
-        public String getCookie(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                try {
-                    return CookieManager.getInstance().getCookie(str);
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.fu0
-        public void storeCookie(String str, List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && list != null && list.size() > 0) {
-                try {
-                    CookieManager cookieManager = CookieManager.getInstance();
-                    for (String str2 : list) {
-                        cookieManager.setCookie(str, str2);
-                    }
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        CookieManager.getInstance().flush();
-                        return;
-                    }
-                    CookieSyncManager.createInstance(rk0.b());
-                    CookieSyncManager.getInstance().sync();
-                } catch (Exception unused) {
-                }
+                c.setStartPosition(i);
+                c.setPlayLoop(n1.e());
+                this.b.A1(c);
+            } else if (!ut0.f()) {
+            } else {
+                throw new IllegalArgumentException("Invalid video info");
             }
         }
     }

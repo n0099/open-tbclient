@@ -1,85 +1,85 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes7.dex */
-public class s88 {
+public class s88 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105398, "Lcom/baidu/tieba/s88;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105398, "Lcom/baidu/tieba/s88;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
     public s88() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ArrayList();
     }
 
-    public List<ThreadData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean c() {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(list);
+            return a;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public q88 a(boolean z, o88 o88Var) {
-        InterceptResult invokeZL;
+    public void a(TopicList topicList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, o88Var)) == null) {
-            q88 q88Var = new q88();
-            q88Var.c = o88Var.i();
-            q88Var.e = o88Var.a();
-            q88Var.f = o88Var.c();
-            ArrayList<ThreadData> h = o88Var.h();
-            if (z) {
-                if (!ListUtils.isEmpty(h)) {
-                    this.a.clear();
-                    this.a.addAll(h);
-                }
-            } else if (!ListUtils.isEmpty(h)) {
-                this.a.addAll(h);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            n78.e(true, arrayList, o88Var.e());
-            n78.e(true, arrayList, o88Var.f());
-            n78.e(true, arrayList, o88Var.d());
-            n78.e(true, arrayList, o88Var.g());
-            q88Var.a = n78.c(arrayList);
-            return q88Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
+            topicList.topic_id.longValue();
+            String str = topicList.topic_name;
+            topicList.tag.intValue();
+            topicList.discuss_num.longValue();
+            String str2 = topicList.topic_desc;
+            String str3 = topicList.topic_pic;
         }
-        return (q88) invokeZL.objValue;
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

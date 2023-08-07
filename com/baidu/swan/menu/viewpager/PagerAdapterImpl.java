@@ -5,10 +5,10 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import com.baidu.tieba.ii4;
+import com.baidu.tieba.lh4;
 /* loaded from: classes4.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    public ii4<View> a = new ii4<>(5);
+    public lh4<View> a = new lh4<>(5);
     public SparseArray<View> b = new SparseArray<>();
 
     /* loaded from: classes4.dex */

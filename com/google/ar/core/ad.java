@@ -1,11 +1,11 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.fmb;
+import com.baidu.tieba.ilb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ad extends Session.c {
     @Override // com.google.ar.core.Session.c
-    public final fmb a(long j, Session session) {
+    public final ilb a(long j, Session session) {
         return null;
     }
 

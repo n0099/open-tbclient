@@ -1,42 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
+import com.baidu.tieba.ca3;
+import com.baidu.tieba.o74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class n74 implements en2 {
+public class n74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FullScreenFloatView a;
 
-    @Override // com.baidu.tieba.en2
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aigames/extcore/game-extension-core.zip" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements FullScreenFloatView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ n74 b;
 
-    @Override // com.baidu.tieba.en2
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onDrag() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
-        return invokeV.intValue;
-    }
 
-    @Override // com.baidu.tieba.en2
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aigames/extcore/game-extension-config.json" : (String) invokeV.objValue;
+        public a(n74 n74Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n74Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = n74Var;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
+            }
+        }
     }
 
     public n74() {
@@ -53,14 +74,48 @@ public abstract class n74 implements en2 {
         }
     }
 
-    @Override // com.baidu.tieba.en2
-    @NonNull
-    public File f() {
-        InterceptResult invokeV;
+    public void c(o74.c cVar, Activity activity) {
+        m74 m74Var;
+        sa4 sa4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(l84.d(), "extension_core");
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
+            if (cVar != null && (sa4Var = cVar.c) != null) {
+                m74Var = sa4Var.f;
+            } else {
+                m74Var = null;
+            }
+            if (m74.f(m74Var).b()) {
+                b(activity);
+            }
         }
-        return (File) invokeV.objValue;
+    }
+
+    public final void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            FullScreenFloatView a2 = h93.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+            this.a = a2;
+            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f01a1));
+            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f080177);
+            this.a.setAutoAttachEnable(false);
+            this.a.setDragImageListener(new a(this, activity));
+            this.a.setVisibility(0);
+        }
+    }
+
+    public final void d(Activity activity) {
+        ya3 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (M = ya3.M()) != null && M.Y() != null) {
+            Resources resources = activity.getResources();
+            String u = SwanInspectorEndpoint.v().u(resources);
+            ca3.a aVar = new ca3.a(activity);
+            aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f0207));
+            aVar.x(u);
+            aVar.n(new gq3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f01ce, null);
+            aVar.X();
+        }
     }
 }

@@ -1,56 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n4b;
+import com.baidu.tieba.q4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class p4b {
+public final class p4b implements n4b.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013483, "Lcom/baidu/tieba/p4b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948013483, "Lcom/baidu/tieba/p4b;");
-                return;
-            }
+    @Override // com.baidu.tieba.n4b.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        a = m3b.m();
     }
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n4b.a
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            byte[] bArr2 = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                return bArr2;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return bArr2;
-                }
-                return bArr2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public p4b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (byte[]) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n4b.a
+    public final void a(Activity activity) {
+        q4b q4bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            q4bVar = q4b.a.a;
+            q4bVar.c(new WeakReference<>(activity));
+        }
+    }
+
+    @Override // com.baidu.tieba.n4b.a
+    public final void onActivityDestroyed(Activity activity) {
+        q4b q4bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            q4bVar = q4b.a.a;
+            q4bVar.d(activity);
+        }
     }
 }

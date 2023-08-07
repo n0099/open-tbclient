@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.da5;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +23,7 @@ public class LooperBlockSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,11 +67,11 @@ public class LooperBlockSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int q = da5.p().q("key_looper_block_opt_switch", 1);
-                type = q;
-                if (q == 2) {
+                int i = SharedPrefHelper.getInstance().getInt("key_looper_block_opt_switch", 1);
+                type = i;
+                if (i == 2) {
                     switchOn = true;
-                } else if (q == 1) {
+                } else if (i == 1) {
                     switchOn = true;
                 } else {
                     switchOn = false;

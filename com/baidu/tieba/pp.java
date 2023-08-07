@@ -1,275 +1,355 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.TaskState;
+import com.baidu.bdtask.component.buoy.BuoyComponent;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.vp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
+import kotlin.ranges.RangesKt___RangesKt;
 /* loaded from: classes7.dex */
-public class pp {
+public class pp extends BuoyComponent {
     public static /* synthetic */ Interceptable $ic;
-    public static pp e;
-    public static int[] f;
-    public static short[] g;
-    public static short[] h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public short b;
-    public short c;
-    public int d;
+    public boolean i;
+    public vp j;
+    public String k;
+    public volatile long l;
+    public final qp m;
+    public final TaskInfo n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314285, "Lcom/baidu/tieba/pp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448314285, "Lcom/baidu/tieba/pp;");
-                return;
-            }
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public float s(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, taskInfo, taskStatus)) == null) {
+            return 1.0f;
         }
-        f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, OpusReader.SAMPLE_RATE};
-        g = new short[]{2, 3};
-        h = new short[]{2, 16, 12, 3};
+        return invokeLL.floatValue;
     }
 
-    public pp() {
+    /* loaded from: classes7.dex */
+    public static final class a extends vp.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pp a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(pp ppVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ppVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ppVar;
+        }
+
+        @Override // com.baidu.tieba.vp.a, com.baidu.tieba.vp
+        public void a(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) {
+                return;
+            }
+            this.a.C(j2);
+            pp ppVar = this.a;
+            ppVar.update(ppVar.n, null);
+            vp D = this.a.D();
+            if (D != null) {
+                D.a(j, j2);
+            }
+        }
+
+        @Override // com.baidu.tieba.vp.a, com.baidu.tieba.vp
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.L(true);
+                vp D = this.a.D();
+                if (D != null) {
+                    D.onCancel();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vp.a, com.baidu.tieba.vp
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                pp.M(this.a, false, 1, null);
+                vp D = this.a.D();
+                if (D != null) {
+                    D.onFinish();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vp.a, com.baidu.tieba.vp
+        public void onPause() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.L(true);
+                vp D = this.a.D();
+                if (D != null) {
+                    D.onPause();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vp.a, com.baidu.tieba.vp
+        public void onResume() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                pp.M(this.a, false, 1, null);
+                vp D = this.a.D();
+                if (D != null) {
+                    D.onResume();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vp.a, com.baidu.tieba.vp
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                pp.M(this.a, false, 1, null);
+                vp D = this.a.D();
+                if (D != null) {
+                    D.onStart();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pp(ls<TaskBuoyViewData, TaskBuoyViewModel> lsVar, qp qpVar, TaskInfo taskInfo) {
+        super(lsVar, qpVar, taskInfo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lsVar, qpVar, taskInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ls) objArr2[0], (TaskBuoyViewModel) objArr2[1], (TaskInfo) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = -2;
+        this.m = qpVar;
+        this.n = taskInfo;
+        this.i = true;
+        this.k = "";
+        qpVar.o(new a(this));
     }
 
-    public static pp b() {
-        InterceptResult invokeV;
-        pp ppVar;
+    public final synchronized void C(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            pp ppVar2 = e;
-            if (ppVar2 == null) {
-                synchronized (pp.class) {
-                    if (e == null) {
-                        e = new pp();
-                    }
-                    ppVar = e;
-                }
-                return ppVar;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            synchronized (this) {
+                this.l += j;
             }
-            return ppVar2;
         }
-        return (pp) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:125:0x011c A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0111  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public AudioRecord a() throws IllegalArgumentException {
-        InterceptResult invokeV;
-        int[] iArr;
-        int i;
-        int i2;
-        short[] sArr;
-        short s;
-        int i3;
-        int i4;
-        int minBufferSize;
-        AudioRecord audioRecord;
+    public void G(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a > 0 && this.b > 0 && this.c > 0) {
-                return new AudioRecord(1, this.a, this.c, this.b, this.d);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.i = z;
+            this.m.m();
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+            super.o(z);
+            this.m.q();
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public boolean t(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, taskStatus)) == null) {
+            return taskStatus.isDuplicated();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public long r(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, taskInfo, taskStatus)) == null) {
+            if (!taskInfo.isVisitAction()) {
+                return 0L;
             }
-            int[] iArr2 = f;
-            int length = iArr2.length;
-            AudioRecord audioRecord2 = null;
-            for (int i5 = 0; i5 < length; i5++) {
-                int i6 = iArr2[i5];
-                short[] sArr2 = g;
-                int length2 = sArr2.length;
-                int i7 = 0;
-                while (i7 < length2) {
-                    short s2 = sArr2[i7];
-                    short[] sArr3 = h;
-                    int length3 = sArr3.length;
-                    AudioRecord audioRecord3 = audioRecord2;
-                    int i8 = 0;
-                    while (i8 < length3) {
-                        short s3 = sArr3[i8];
-                        try {
-                            minBufferSize = AudioRecord.getMinBufferSize(i6, s3, s2);
-                            this.d = minBufferSize;
-                        } catch (Throwable th) {
-                            th = th;
-                            iArr = iArr2;
-                            i = i8;
-                            i2 = length3;
-                            sArr = sArr3;
-                            s = s2;
-                            i3 = i7;
-                            i4 = 1;
-                        }
-                        if (minBufferSize == -2) {
-                            if (audioRecord3 != null && audioRecord3.getState() != 1) {
-                                audioRecord3.release();
-                                iArr = iArr2;
-                                i = i8;
-                                i2 = length3;
-                                sArr = sArr3;
-                                s = s2;
-                                i3 = i7;
-                                audioRecord3 = null;
-                            } else {
-                                iArr = iArr2;
-                                i = i8;
-                                i2 = length3;
-                                sArr = sArr3;
-                                s = s2;
-                                i3 = i7;
-                            }
-                        } else {
-                            int min = Math.min(minBufferSize * 8, 4096);
-                            iArr = iArr2;
-                            i4 = 1;
-                            i = i8;
-                            i2 = length3;
-                            sArr = sArr3;
-                            short s4 = s2;
-                            i3 = i7;
-                            try {
-                                audioRecord = new AudioRecord(1, i6, s3, s2, min);
-                                try {
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    s = s4;
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                            }
-                            try {
-                                if (audioRecord.getState() == 1) {
-                                    try {
-                                        this.a = i6;
-                                        try {
-                                            this.b = s4;
-                                            this.c = s3;
-                                            this.d = min;
-                                            if (audioRecord.getState() != 1) {
-                                                audioRecord.release();
-                                            }
-                                            return audioRecord;
-                                        } catch (Throwable th4) {
-                                            th = th4;
-                                            audioRecord3 = audioRecord;
-                                            s = s4;
-                                        }
-                                    } catch (Throwable th5) {
-                                        th = th5;
-                                        audioRecord3 = audioRecord;
-                                        s = s4;
-                                        th.printStackTrace();
-                                        if (audioRecord3 != null) {
-                                        }
-                                        i8 = i + 1;
-                                        s2 = s;
-                                        length3 = i2;
-                                        iArr2 = iArr;
-                                        sArr3 = sArr;
-                                        i7 = i3;
-                                    }
-                                } else {
-                                    try {
-                                        audioRecord.release();
-                                    } catch (Throwable th6) {
-                                        th = th6;
-                                        s = s4;
-                                    }
-                                    try {
-                                        audioRecord3 = new AudioRecord(1, i6, s3, s4, this.d);
-                                        try {
-                                        } catch (Throwable th7) {
-                                            th = th7;
-                                            s = s4;
-                                        }
-                                    } catch (Throwable th8) {
-                                        th = th8;
-                                        s = s4;
-                                        audioRecord3 = audioRecord;
-                                        th.printStackTrace();
-                                        if (audioRecord3 != null) {
-                                        }
-                                        i8 = i + 1;
-                                        s2 = s;
-                                        length3 = i2;
-                                        iArr2 = iArr;
-                                        sArr3 = sArr;
-                                        i7 = i3;
-                                    }
-                                    if (audioRecord3.getState() == 1) {
-                                        this.a = i6;
-                                        s = s4;
-                                        try {
-                                            this.b = s;
-                                            this.c = s3;
-                                            if (audioRecord3.getState() != 1) {
-                                                audioRecord3.release();
-                                            }
-                                            return audioRecord3;
-                                        } catch (Throwable th9) {
-                                            th = th9;
-                                        }
-                                    } else {
-                                        s = s4;
-                                        if (audioRecord3.getState() == 1) {
-                                        }
-                                        audioRecord3.release();
-                                        audioRecord3 = null;
-                                    }
-                                }
-                                th.printStackTrace();
-                                if (audioRecord3 != null) {
-                                    if (audioRecord3.getState() == i4) {
-                                    }
-                                    audioRecord3.release();
-                                    audioRecord3 = null;
-                                }
-                            } catch (Throwable th10) {
-                                if (audioRecord3 != null && audioRecord3.getState() != i4) {
-                                    audioRecord3.release();
-                                }
-                                throw th10;
-                            }
-                        }
-                        i8 = i + 1;
-                        s2 = s;
-                        length3 = i2;
-                        iArr2 = iArr;
-                        sArr3 = sArr;
-                        i7 = i3;
+            return taskInfo.getTaskRule().getFormatStay();
+        }
+        return invokeLL.longValue;
+    }
+
+    public static /* synthetic */ void M(pp ppVar, boolean z, int i, Object obj) {
+        if (obj == null) {
+            if ((i & 1) != 0) {
+                z = false;
+            }
+            ppVar.L(z);
+            return;
+        }
+        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: syncVisitTime");
+    }
+
+    public final vp D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
+        }
+        return (vp) invokeV.objValue;
+    }
+
+    public final boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            TaskState m = BDPTask.m.m(this.n.getActionId());
+            if (m == null || !m.getTaskStatus().isEnable() || !u()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            G(true);
+        }
+    }
+
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            I("");
+        }
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            K("");
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.m.m();
+        }
+    }
+
+    public void I(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !E()) {
+            return;
+        }
+        if (BDPTask.m.l(this.n.getActionId(), str)) {
+            BDPTask.m.i(this.n.getActionId(), 0L, str);
+            return;
+        }
+        this.k = str;
+        this.i = true;
+        this.m.n();
+    }
+
+    public void K(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !E()) {
+            return;
+        }
+        if (BDPTask.m.l(this.n.getActionId(), str)) {
+            this.m.m();
+            BDPTask.m.i(this.n.getActionId(), 0L, str);
+            return;
+        }
+        this.k = str;
+        this.i = true;
+        L(true);
+        this.m.p();
+    }
+
+    public final synchronized void L(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            synchronized (this) {
+                if (z) {
+                    if (this.l == 0) {
+                        return;
                     }
-                    i7++;
-                    audioRecord2 = audioRecord3;
+                }
+                if (this.i) {
+                    long j = this.l;
+                    this.l = 0L;
+                    BDPTask.m.i(this.n.getActionId(), j, this.k);
                 }
             }
-            throw new IllegalArgumentException("getInstance() failed : no suitable audio configurations on this device.");
         }
-        return (AudioRecord) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gp
+    public void b(TaskInfo taskInfo, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048586, this, taskInfo, i, str) == null) {
+            if (i == 304) {
+                update(taskInfo, null);
+            } else {
+                o(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public float q(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, taskInfo, taskStatus)) == null) {
+            if (!taskInfo.isVisitAction()) {
+                return 0.0f;
+            }
+            long stay = taskInfo.getTaskRule().getStay();
+            if (stay == 0) {
+                return 0.0f;
+            }
+            return RangesKt___RangesKt.coerceAtMost(((float) (taskStatus.getProcess().getStayDurTimeMs() + this.l)) / ((float) stay), 1.0f);
+        }
+        return invokeLL.floatValue;
     }
 }

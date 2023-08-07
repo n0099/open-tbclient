@@ -9,12 +9,12 @@ import android.widget.CheckBox;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -150,7 +150,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         int skinType;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (skinType = TbadkCoreApplication.getInst().getSkinType()) != this.b) {
-            c(R.string.J_X07, yi.g(this.a, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
+            c(R.string.J_X07, BdUtilHelper.getDimens(this.a, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
             this.b = skinType;
         }
@@ -159,8 +159,8 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int g = yi.g(this.a, R.dimen.obfuscated_res_0x7f0701e8);
-            setPadding(g, 0, g, 0);
+            int dimens = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f0701e8);
+            setPadding(dimens, 0, dimens, 0);
             setButtonDrawable((Drawable) null);
         }
     }
@@ -197,12 +197,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
             this.d = gradientDrawable2;
             gradientDrawable2.setShape(0);
             this.d.setCornerRadius(f);
-            this.d.setStroke(i2, dba.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.d.setStroke(i2, x9a.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
             GradientDrawable gradientDrawable3 = new GradientDrawable();
             this.e = gradientDrawable3;
             gradientDrawable3.setShape(0);
             this.e.setCornerRadius(f);
-            this.e.setStroke(i2, dba.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.e.setStroke(i2, x9a.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.f = stateListDrawable;
             stateListDrawable.addState(new int[]{16842912}, this.d);

@@ -1,29 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qz8 implements dw4 {
+public class qz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.dw4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
-    }
+    public String a;
 
     public qz8() {
         Interceptable interceptable = $ic;
@@ -39,20 +27,23 @@ public class qz8 implements dw4 {
         }
     }
 
-    @Override // com.baidu.tieba.dw4
-    public void b(HashMap<String, String> hashMap, ew4 ew4Var) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, ew4Var) == null) && ew4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            String str = hashMap.get("fid");
-            if (TextUtils.isEmpty(str)) {
-                return;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("error");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("errno");
+            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.a = optString;
+            if (!StringUtils.isNull(optString)) {
+                this.a = optJSONObject.optString("errmsg");
             }
-            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(wg.g(str, 0L))));
-            TbadkCoreApplication.getInst().addLikeForum(str2);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         }
     }
 }

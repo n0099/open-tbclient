@@ -20,10 +20,10 @@ public class ActivityPendingTransitionFactory {
     public static int RES_CUSTOM_OUT_TO_RIGHT = 0;
     public static int RES_FADE_OUT = 2130772068;
     public static int RES_NFADE_IN = 2130772067;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772138;
-    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772139;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772219;
-    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772221;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772140;
+    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772141;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772221;
+    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772223;
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;

@@ -3,12 +3,12 @@ package com.baidu.tieba.barselect.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h09;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,26 +87,26 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.e();
-            int g = yi.g(getContext(), R.dimen.tbds92);
-            int g2 = yi.g(getContext(), R.dimen.tbds82);
+            int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds92);
+            int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds82);
             if (getPendantView() != null) {
-                getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(g, g2));
+                getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens2));
             }
             if (getLayerImageView() != null) {
-                getLayerImageView().setLayoutParams(new RelativeLayout.LayoutParams(g, g2));
+                getLayerImageView().setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens2));
             }
             TbImageView tbImageView = new TbImageView(getContext());
             this.n = tbImageView;
             tbImageView.setDefaultBgResource(0);
             this.n.setDefaultResource(0);
             this.n.setImageDrawable(null);
-            int g3 = yi.g(getContext(), R.dimen.tbds115);
-            int g4 = yi.g(getContext(), R.dimen.tbds34);
-            int g5 = yi.g(getContext(), R.dimen.tbds154);
-            int g6 = yi.g(getContext(), R.dimen.tbds32);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g3, g4);
-            layoutParams.topMargin = g5;
-            layoutParams.leftMargin = g6;
+            int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds115);
+            int dimens4 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds34);
+            int dimens5 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds154);
+            int dimens6 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds32);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens3, dimens4);
+            layoutParams.topMargin = dimens5;
+            layoutParams.leftMargin = dimens6;
             this.n.setLayoutParams(layoutParams);
             this.n.setVisibility(8);
         }
@@ -125,23 +125,23 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                int g = yi.g(getContext(), R.dimen.tbds5);
-                int g2 = yi.g(getContext(), R.dimen.tbds130);
-                int g3 = yi.g(getContext(), R.dimen.tbds26);
-                int g4 = yi.g(getContext(), R.dimen.tbds44);
-                getHeadView().setBorderWidth(g);
-                getHeadView().setBorderColor(h09.b("#FCD442"));
+                int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds5);
+                int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds130);
+                int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds26);
+                int dimens4 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds44);
+                getHeadView().setBorderWidth(dimens);
+                getHeadView().setBorderColor(ColorUtils.parseColor("#FCD442"));
                 getHeadView().setDrawBorder(true);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
-                layoutParams.leftMargin = g3;
-                layoutParams.topMargin = g4;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens2, dimens2);
+                layoutParams.leftMargin = dimens3;
+                layoutParams.topMargin = dimens4;
                 getHeadView().setLayoutParams(layoutParams);
                 return;
             }
-            int g5 = yi.g(getContext(), R.dimen.tbds90);
+            int dimens5 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds90);
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
-            getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(g5, g5));
+            getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(dimens5, dimens5));
             TbImageView tbImageView = this.n;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);

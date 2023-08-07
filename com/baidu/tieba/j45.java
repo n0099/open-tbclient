@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,18 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import org.json.JSONObject;
+import tbclient.YulePostActivity;
 /* loaded from: classes6.dex */
-public class j45 extends s25 implements yr5 {
+public class j45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long d;
-    public String e;
-    public String f;
-    public boolean g;
-    public int h;
-    public int i;
-    public String j;
+    public String a;
+    public String b;
 
     public j45() {
         Interceptable interceptable = $ic;
@@ -31,144 +26,61 @@ public class j45 extends s25 implements yr5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        d(8);
     }
 
-    public String e() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public long f() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t15
-    public String getRecomReason() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, recommendForumInfo) != null) || recommendForumInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            this.d = recommendForumInfo.forum_id.longValue();
-            this.e = recommendForumInfo.avatar;
-            this.f = recommendForumInfo.forum_name;
-            boolean z = true;
-            if (recommendForumInfo.is_like.intValue() != 1) {
-                z = false;
-            }
-            this.g = z;
-            this.h = recommendForumInfo.member_count.intValue();
-            this.i = recommendForumInfo.thread_count.intValue();
-            this.j = recommendForumInfo.recom_reason;
+            jSONObject.optLong("start_time");
+            jSONObject.optLong("end_time");
+            this.a = jSONObject.optString("activity_banner");
+            jSONObject.optString("activity_url");
+            jSONObject.optString("activity_desc");
+            this.b = jSONObject.optString("activity_button");
         } catch (Exception e) {
-            BdLog.detailException(e);
+            BdLog.e(e.toString());
         }
     }
 
-    public void n(boolean z) {
+    public void d(YulePostActivity yulePostActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.g = z;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yulePostActivity) != null) || yulePostActivity == null) {
+            return;
         }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
+        Long l = yulePostActivity.start_time;
+        if (l != null) {
+            l.longValue();
         }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.j = str;
+        Long l2 = yulePostActivity.end_time;
+        if (l2 != null) {
+            l2.longValue();
         }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f = str;
-        }
+        this.a = yulePostActivity.activity_banner;
+        String str = yulePostActivity.activity_url;
+        String str2 = yulePostActivity.activity_desc;
+        this.b = yulePostActivity.activity_button;
     }
 }

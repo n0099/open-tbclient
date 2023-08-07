@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.z.c;
 import com.baidu.android.pushservice.z.e;
-import com.baidu.tieba.hnb;
+import com.baidu.tieba.kmb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,13 +86,13 @@ public class MyHonorMsgService extends HonorMessageService {
     }
 
     @Override // com.hihonor.push.sdk.HonorMessageService
-    public void onMessageReceived(hnb hnbVar) {
+    public void onMessageReceived(kmb kmbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hnbVar) == null) {
-            super.onMessageReceived(hnbVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, kmbVar) == null) {
+            super.onMessageReceived(kmbVar);
             Intent intent = new Intent("com.honor.android.push.intent.RECEIVE");
-            intent.putExtra("honor_pass_msg_content", hnbVar.a());
-            intent.putExtra("honor_pass_msg_id", hnbVar.b());
+            intent.putExtra("honor_pass_msg_content", kmbVar.a());
+            intent.putExtra("honor_pass_msg_id", kmbVar.b());
             Utility.a(intent, getApplicationContext());
         }
     }

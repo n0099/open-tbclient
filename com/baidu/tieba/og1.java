@@ -1,147 +1,112 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.poly.widget.WechatSignAutoRenewActivity;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class og1 implements ij1 {
+public final class og1 {
     public static /* synthetic */ Interceptable $ic;
-    public static og1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og1 this$0;
-
-        public b(og1 og1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = og1Var;
-        }
-
-        public /* synthetic */ b(og1 og1Var, a aVar) {
-            this(og1Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
-                this.this$0.b = false;
-                try {
-                    int intExtra = intent.getIntExtra("code", 0);
-                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
-                    intent2.putExtra("code", intExtra);
-                    PolyActivity.g.startActivity(intent2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public og1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = false;
-    }
-
-    public static og1 d() {
+    public static final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (og1.class) {
-                    if (c == null) {
-                        c = new og1();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = bi1.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = bi1.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Context a = bi1.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = bi1.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final void c(hg1 hg1Var, String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, hg1Var, str) == null) && hg1Var != null) {
+            boolean z2 = false;
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                String a = hg1Var.a("Cookie");
+                String str2 = "BDUSS=" + str;
+                if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
+                    hg1Var.d("Cookie", str2);
+                    return;
+                }
+                hg1Var.d("Cookie", a + "; " + str2);
+            }
+        }
+    }
+
+    public static final void d(hg1 hg1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, hg1Var) == null) && hg1Var != null) {
+            hg1Var.d("channel", "cashiersdk");
+            hg1Var.d("deviceType", "ANDROID");
+            hg1Var.d("osVersion", Build.VERSION.RELEASE);
+            hg1Var.d(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
+            hg1Var.d("appVersion", b());
+            hg1Var.d("sdkPgName", a());
+            hg1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        }
+    }
+
+    public static final gg1 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            gg1 gg1Var = new gg1();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    gg1Var.d(next, jSONObject.optString(next));
                 }
             }
-            return c;
+            return gg1Var;
         }
-        return (og1) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b(this, null);
-            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            try {
-                PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ij1
-    public void a(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            ui1.b("WECHAT signWechatAutoRenew appId=" + str);
-            vg1 a2 = lg1.a();
-            if (a2 == null) {
-                return;
-            }
-            if (!a2.b(activity)) {
-                sj1.f(activity, "您没有安装微信，请选择其他支付方式");
-                activity.finish();
-                return;
-            }
-            this.b = true;
-            f();
-            e();
-            a2.a(activity, str, str2);
-            activity.finish();
-        }
+        return (gg1) invokeL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do5;
+import com.baidu.tieba.om5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public do5 c;
+    public om5 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -85,14 +85,14 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         this.j = new a(this, 2921442);
     }
 
-    public void H1() {
+    public void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setVisibility(8);
         }
     }
 
-    public void I1() {
+    public void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
@@ -100,7 +100,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public void J1(String str, String str2) {
+    public void K1(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             this.g = str;
@@ -108,20 +108,20 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public void K1() {
+    public void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new do5(this.a, null);
+                this.c = new om5(this.a, null);
             }
-            this.c.e();
-            this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.no_data_common_txt));
+            this.c.d();
+            this.c.h(R.drawable.new_pic_emotion_03);
+            this.c.n(this.a.getResources().getString(R.string.no_data_common_txt));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.c.b() != null && this.c.b().getParent() == null) {
-                this.b.addView(this.c.b(), layoutParams);
+            if (this.c.getAttachedView() != null && this.c.getAttachedView().getParent() == null) {
+                this.b.addView(this.c.getAttachedView(), layoutParams);
             }
         }
     }
@@ -131,9 +131,9 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            do5 do5Var = this.c;
-            if (do5Var != null) {
-                do5Var.onChangeSkinType();
+            om5 om5Var = this.c;
+            if (om5Var != null) {
+                om5Var.onChangeSkinType();
             }
         }
     }

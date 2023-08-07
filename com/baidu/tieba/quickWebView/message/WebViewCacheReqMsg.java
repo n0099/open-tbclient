@@ -3,7 +3,7 @@ package com.baidu.tieba.quickWebView.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class WebViewCacheReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.webview_version = this.mWebViewVersion;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ky5.a(builder, true);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             }
             GetWebviewCacheInfoReqIdl.Builder builder2 = new GetWebviewCacheInfoReqIdl.Builder();
             builder2.data = builder.build(true);

@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.tieba.x80;
+import com.baidu.tieba.v70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,10 +39,10 @@ public class IMReceiver extends BroadcastReceiver {
     private void startService(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            Intent intent = new Intent(context, x80.class);
+            Intent intent = new Intent(context, v70.class);
             intent.setAction(Constants.ACTION_START);
             try {
-                x80.e(context).d(context, intent);
+                v70.e(context).d(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -56,9 +56,9 @@ public class IMReceiver extends BroadcastReceiver {
                 startService(context);
                 return;
             }
-            intent.setClass(context, x80.class);
+            intent.setClass(context, v70.class);
             try {
-                x80.e(context).d(context, intent);
+                v70.e(context).d(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }

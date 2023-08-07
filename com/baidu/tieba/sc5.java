@@ -1,73 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public class sc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<tc5> a;
 
-    public static synchronized void a() {
+    public sc5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (sc5.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static rc5 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            rc5 rc5Var = new rc5();
-            if (str == null) {
-                rc5Var.f(6);
-                rc5Var.g(rc5.a(rc5Var.b()));
-                return rc5Var;
-            }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                rc5Var.f(7);
-                rc5Var.g(rc5.a(rc5Var.b()));
-                return rc5Var;
-            }
-            String b = fj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                rc5Var.f(5);
-                rc5Var.g(rc5.a(rc5Var.b()));
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    rc5Var.i(filePath);
-                    rc5Var.h(b);
-                } else {
-                    rc5Var.f(1);
-                    rc5Var.g(rc5.a(rc5Var.b()));
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
+                    return;
                 }
+                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    tc5 tc5Var = new tc5();
+                    tc5 tc5Var2 = new tc5();
+                    tc5Var.i(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        tc5Var2.i(jSONArray2.getJSONObject(i2));
+                        if (tc5Var.c != null && tc5Var.c.equals(tc5Var2.c)) {
+                            if (!TextUtils.isEmpty(tc5Var2.e) && tc5Var2.e.equals(tc5Var.e)) {
+                                z = false;
+                                tc5Var.f = z;
+                            }
+                            z = true;
+                            tc5Var.f = z;
+                        }
+                    }
+                    if (!tc5Var.f()) {
+                        this.a.add(tc5Var);
+                    }
+                }
+                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return rc5Var;
         }
-        return (rc5) invokeL.objValue;
     }
 }

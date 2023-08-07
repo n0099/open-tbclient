@@ -314,7 +314,7 @@ public class GroupNewsPojo implements Serializable {
             try {
                 JSONObject optJSONObject = new JSONObject(content).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                 if (optJSONObject != null) {
-                    setGid(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
+                    setGid(optJSONObject.optString("groupId"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

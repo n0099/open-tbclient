@@ -33,7 +33,7 @@ public final class Detector {
         BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
         List<ResultPoint[]> detect = detect(z, blackMatrix);
         if (detect.isEmpty()) {
-            blackMatrix = blackMatrix.m167clone();
+            blackMatrix = blackMatrix.m168clone();
             blackMatrix.rotate180();
             detect = detect(z, blackMatrix);
         }

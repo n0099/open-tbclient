@@ -1,71 +1,43 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
-import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class nc9<V> implements xc9<V> {
+public final class nc9 implements t55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterestSelectionStyleAModel a;
-    public gc9 b;
-    public BaseInterestSelectionFragment c;
 
-    public nc9(BaseInterestSelectionFragment baseInterestSelectionFragment, gc9 gc9Var) {
+    @Override // com.baidu.tieba.t55
+    public Class<? extends r55> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? mc9.class : (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t55
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pbFriendBotBottomNewUser" : (String) invokeV.objValue;
+    }
+
+    public nc9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseInterestSelectionFragment, gc9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.c = baseInterestSelectionFragment;
-        this.b = gc9Var;
-        this.a = new InterestSelectionStyleAModel(gc9Var, this);
-    }
-
-    @Override // com.baidu.tieba.xc9
-    public void a(V v) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.I1();
-        }
-    }
-
-    public void b() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.onDestroy();
-        }
-    }
-
-    public void c() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.a0();
-        }
-    }
-
-    @Override // com.baidu.tieba.xc9
-    public void onError(int i, String str) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.J1(str);
         }
     }
 }

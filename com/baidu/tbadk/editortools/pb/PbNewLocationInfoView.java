@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, yi.g(context, R.dimen.obfuscated_res_0x7f0701e8));
+        setTextSize(0, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701e8));
         setState(0, null);
     }
 

@@ -1,76 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ez1 extends ProviderDelegation {
+public class ez1 extends dz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements pq3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-
-        public a(ez1 ez1Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ez1Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dz1.a(cv2.c(), this.a.getString("bduss"));
-                return null;
-            }
-            return (Bundle) invokeV.objValue;
-        }
+    @Override // com.baidu.tieba.bz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BaiduAccountApi" : (String) invokeV.objValue;
     }
 
-    public ez1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ez1(@NonNull zy1 zy1Var) {
+        super(zy1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zy1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
+    public static boolean y(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            return (Bundle) mq3.b(new a(this, bundle));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean h = SwanAppAllianceLoginHelper.d.h();
+            if (!h) {
+                vu1 h0 = fu2.h0();
+                if (h0 instanceof ys1) {
+                    return ((ys1) h0).k(context);
+                }
+                return h;
+            }
+            return h;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public y22 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isBaiduAccountSync", false);
+            if (ya3.b0() == null) {
+                return new y22(1001, "swan app is null");
+            }
+            boolean y = y(getContext());
+            JSONObject jSONObject = new JSONObject();
+            yn3.f(jSONObject, "isBaiduAccount", Boolean.valueOf(y));
+            return new y22(0, jSONObject);
+        }
+        return (y22) invokeV.objValue;
     }
 }

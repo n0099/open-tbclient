@@ -25,21 +25,21 @@ public final class R {
         public static final int d20_loading_animation = 0x7f080568;
         public static final int d20_loading_bg = 0x7f080569;
         public static final int d20_selector_close = 0x7f08056a;
-        public static final int loading_progress = 0x7f080f5f;
-        public static final int loading_progress_animation = 0x7f080f60;
+        public static final int loading_progress = 0x7f080f64;
+        public static final int loading_progress_animation = 0x7f080f65;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int close = 0x7f090720;
-        public static final int loading_bar = 0x7f09161e;
-        public static final int message = 0x7f09172c;
-        public static final int root_container = 0x7f091f5c;
+        public static final int close = 0x7f09072f;
+        public static final int loading_bar = 0x7f091631;
+        public static final int message = 0x7f091740;
+        public static final int root_container = 0x7f091f73;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int d20_loading_dialog = 0x7f0d023f;
+        public static final int d20_loading_dialog = 0x7f0d0242;
     }
 
     /* loaded from: classes4.dex */

@@ -1,68 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes7.dex */
-public class np2 {
+public class np2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
-    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010073, "Lcom/baidu/tieba/np2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948010073, "Lcom/baidu/tieba/np2;");
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_item" : (String) invokeV.objValue;
+    }
+
+    public np2(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ru2.g();
-        b = "swan_core";
-        c = "extension_core";
-        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        e = "cloneFolder_";
-        f = d + File.separator + e;
-        g = "clone_pkg_folder";
-        h = "clone_core_folder";
-        i = "clone_dynamic_lib_folder";
-        j = "clone_sp_folder";
-        k = "clone_db_folder";
-        l = "cloneZip.zip";
-        m = "clone_zipFiles";
+        this.a = str;
     }
 
-    public static File a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(dj3.w());
-            if (!zr4.l(file)) {
-                return null;
-            }
-            return file;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            ir2 d = fu2.D().d(invoker, this.a);
+            y72.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d.hashCode() + "」");
+            return new lp2(d);
         }
-        return (File) invokeV.objValue;
+        return (ZeusPlugin) invokeL.objValue;
     }
 }

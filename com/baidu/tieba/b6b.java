@@ -1,52 +1,83 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class b6b {
+public class b6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<x5b> a;
+    public int[] b;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b6b(List<x5b> list) {
+        this(list, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                char[] charArray = str.toCharArray();
-                StringBuilder sb = new StringBuilder();
-                for (char c : charArray) {
-                    String binaryString = Integer.toBinaryString(c);
-                    while (binaryString.length() < 8) {
-                        binaryString = "0" + binaryString;
-                    }
-                    sb.append(binaryString);
-                }
-                while (sb.length() % 6 != 0) {
-                    sb.append("0");
-                }
-                String valueOf = String.valueOf(sb);
-                int length = valueOf.length() / 6;
-                char[] cArr = new char[length];
-                for (int i = 0; i < length; i++) {
-                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                    valueOf = valueOf.substring(6);
-                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-                }
-                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-                if (str.length() % 3 == 1) {
-                    sb2.append("==");
-                } else if (str.length() % 3 == 2) {
-                    sb2.append("=");
-                }
-                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                    sb2.insert(i2, "\r\n");
-                }
-                sb2.append("\r\n");
-                return String.valueOf(sb2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], (int[]) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public b6b(List<x5b> list, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = list;
+        c(iArr);
+    }
+
+    public List<x5b> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public int[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (int[]) invokeV.objValue;
+    }
+
+    public void c(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
+            this.b = iArr;
+            if (n9b.e(this.a)) {
+                return;
+            }
+            for (x5b x5bVar : this.a) {
+                if (x5bVar.b() != null) {
+                    x5bVar.b().mSoundTypes = iArr;
+                }
+            }
+        }
     }
 }

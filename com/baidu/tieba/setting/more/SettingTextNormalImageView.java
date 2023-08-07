@@ -11,12 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.l3a;
+import com.baidu.tieba.f2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +57,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, l3a.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, f2a.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -77,7 +77,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            d85.d(this).i(R.color.CAM_X0205);
+            EMManager.from(this).setBackGroundSelectorColor(R.color.CAM_X0205);
             this.d.invalidate();
         }
     }
@@ -110,18 +110,18 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0899, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09243c);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fdd);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c6);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a3, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092454);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ff0);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c7);
         }
     }
 
     public void setLocalIcon(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.s();
+            this.d.clearCornerFlag();
             this.d.setConrers(0);
             this.d.setImageResource(i);
         }

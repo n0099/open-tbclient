@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.uj7;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.ch7;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,9 +19,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<yn> mAltList;
-    public ArrayList<yn> mThreadList;
-    public uj7 pageInfo;
+    public ArrayList<ym> mAltList;
+    public ArrayList<ym> mThreadList;
+    public ch7 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -54,13 +54,13 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.errMsg = jSONObject.optString("errmsg");
                 this.alaLiveCount = jSONObject.optInt("ala_live_count");
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
-                uj7 uj7Var = new uj7();
-                this.pageInfo = uj7Var;
+                ch7 ch7Var = new ch7();
+                this.pageInfo = ch7Var;
                 boolean z = true;
                 if (optJSONObject.optInt("has_more") != 1) {
                     z = false;
                 }
-                uj7Var.g = z;
+                ch7Var.g = z;
                 this.pageInfo.c = optJSONObject.optInt("pn");
                 if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                     FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();

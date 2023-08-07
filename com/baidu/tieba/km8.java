@@ -1,240 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class km8 extends mn {
+public class km8 extends jm8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Context b;
-    @NonNull
-    public final BdRecyclerView c;
-    @NonNull
-    public final ko d;
-    @Nullable
-    public TextView e;
+    public boolean e;
 
-    @Override // com.baidu.tieba.mn
-    public void d() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918003, "Lcom/baidu/tieba/km8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947918003, "Lcom/baidu/tieba/km8;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen().getId();
+    }
+
+    @Override // com.baidu.tieba.jm8, com.baidu.tieba.fn8
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
         }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km8 a;
-
-        public a(km8 km8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = km8Var;
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.setPrePage(this.a);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km8 a;
-
-        public b(km8 km8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = km8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.setPrePage(null);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km8 a;
-
-        public c(km8 km8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = km8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.setNextPage(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km8 a;
-
-        public d(km8 km8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = km8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.setNextPage(null);
-            }
-        }
-    }
-
-    public km8(@NonNull BdRecyclerView bdRecyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public km8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        super(itemsDTO);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = bdRecyclerView.getContext();
-        this.c = bdRecyclerView;
-        this.d = new ko(bdRecyclerView);
+        this.e = false;
     }
 
-    public void h(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (textView = this.e) != null) {
-            d85 d2 = d85.d(textView);
-            d2.x(R.color.CAM_X0108);
-            d2.C(R.dimen.T_X09);
-        }
-    }
-
-    @Override // com.baidu.tieba.mn
-    public View a() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09ed, (ViewGroup) this.c, false);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09243c);
-            h(TbadkCoreApplication.getInst().getSkinType());
-            return inflate;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO == null || optsDTO.getExt() == null) {
+                return false;
+            }
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.c.getExt();
+            if (StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize())) {
+                return false;
+            }
+            return true;
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void f() {
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.e(new d(this));
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.e(new b(this));
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public void i() {
+    public void s(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.e(new c(this));
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.e(new a(this));
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setPicPath(str);
+            ext.setPicSize(str2);
+            this.c.setExt(ext);
         }
     }
 }

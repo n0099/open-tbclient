@@ -2,21 +2,17 @@ package com.baidu.tbadk.abtest.helper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
-import com.baidu.tieba.de5;
-import com.baidu.tieba.dg;
-import com.baidu.tieba.pl1;
-import com.baidu.tieba.uf;
+import com.baidu.tieba.Cif;
+import com.baidu.tieba.sk1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class HttpsExperimentFetcher extends pl1<uf> {
+public class HttpsExperimentFetcher extends sk1<Cif> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +24,7 @@ public class HttpsExperimentFetcher extends pl1<uf> {
     }
 
     /* loaded from: classes4.dex */
-    public static final class HttpsExperimentImpl implements uf {
+    public static final class HttpsExperimentImpl implements Cif {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,47 +42,21 @@ public class HttpsExperimentFetcher extends pl1<uf> {
             }
         }
 
-        public List<dg> getHttpsWhileList() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                de5 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
-                if (httpsWhileData == null) {
-                    return null;
-                }
-                return httpsWhileData.a();
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public boolean isFullHttps() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                de5 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
-                if (httpsWhileData == null) {
-                    return false;
-                }
-                return httpsWhileData.b();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.uf
+        @Override // com.baidu.tieba.Cif
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return Ipv6TestSwitch.isOn();
             }
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.uf
+        @Override // com.baidu.tieba.Cif
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return HttpsTestSwitch.isOn();
             }
             return invokeV.booleanValue;
@@ -113,13 +83,13 @@ public class HttpsExperimentFetcher extends pl1<uf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.pl1
-    public uf createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.sk1
+    public Cif createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new HttpsExperimentImpl(null);
         }
-        return (uf) invokeV.objValue;
+        return (Cif) invokeV.objValue;
     }
 }

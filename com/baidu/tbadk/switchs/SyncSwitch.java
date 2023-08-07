@@ -1,9 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.Cif;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.ki;
+import com.baidu.tieba.ph;
+import com.baidu.tieba.xe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -87,7 +86,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(ki.class);
+            SwitchManager.getInstance().registerSwitch(ph.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -108,7 +107,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(gh.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -160,7 +158,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(DuTokenNewSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageCountSwitch.class);
             SwitchManager.getInstance().registerSwitch(UbcAddCookieSwitch.class);
-            Cif.a().b();
+            xe.a().b();
         }
     }
 }

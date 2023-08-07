@@ -1,101 +1,176 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.utils.UniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import okhttp3.Response;
 /* loaded from: classes8.dex */
-public final class xr extends sr {
+public class xr {
     public static /* synthetic */ Interceptable $ic;
-    public static final UniqueId b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public interface b {
+        void a(boolean z, byte[] bArr);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends ResponseCallback<byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-        public a() {
+        /* renamed from: com.baidu.tieba.xr$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0541a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ byte[] a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0541a(a aVar, byte[] bArr) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bArr};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bArr;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b.a) != null) {
+                    bVar.a(true, this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a(false, null);
+                }
+            }
+        }
+
+        public a(xr xrVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xrVar, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = bVar;
         }
 
-        public final UniqueId a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (UniqueId) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
+                ExecutorUtilsExt.postOnSerial(new RunnableC0541a(this, bArr), "HandshakeRequest");
             }
-            return xr.b;
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public byte[] parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                return response.body().bytes();
+            }
+            return (byte[]) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                ExecutorUtilsExt.postOnSerial(new b(this), "HandshakeRequest");
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322035, "Lcom/baidu/tieba/xr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322035, "Lcom/baidu/tieba/xr;");
-                return;
-            }
-        }
-        c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskBackFlowCancelEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowCancelEvent\")");
-        b = gen;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + c.a().getAlias() + ':' + a().toJson();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xr(TaskInfo taskInfo) {
-        super(taskInfo);
+    public xr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void a(byte[] bArr, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, bVar) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/octet-stream");
+            hashMap.put("Bdtls", "Bdtls");
+            hashMap.put("Bdtls-Content-Type", "json");
+            CookieManager cookieManager = CookieManager.WEBKIT_COOKIES;
+            HttpManager.getDefault(dr.c.h().getAppContext()).postByteRequest().url(dr.c.h().getEnv().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

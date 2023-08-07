@@ -1,43 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ae9 {
+public class ae9 implements ym {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                a = da5.p().w("nick_name_activity_link", "");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612436, "Lcom/baidu/tieba/ae9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return a;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947612436, "Lcom/baidu/tieba/ae9;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        c = BdUniqueId.gen();
     }
 
-    public static SpannableStringBuilder b(Context context, String str) {
-        InterceptResult invokeLL;
+    public ae9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) str);
-            int length = spannableStringBuilder.length();
-            Drawable drawable = context.getResources().getDrawable(R.drawable.icon_nichenghuodong);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableStringBuilder.append((CharSequence) "tag");
-            spannableStringBuilder.setSpan(new za5(drawable), length, spannableStringBuilder.length(), 33);
-            return spannableStringBuilder;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (SpannableStringBuilder) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

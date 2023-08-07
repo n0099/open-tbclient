@@ -1,76 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wlb implements Printer {
+public final class wlb extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
+    public final /* synthetic */ tlb a;
+    public final /* synthetic */ slb b;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ wlb e;
-
-        public a(wlb wlbVar, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wlbVar, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = wlbVar;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    public wlb(b bVar, long j, boolean z) {
+    public wlb(slb slbVar, tlb tlbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {slbVar, tlbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,80 +30,33 @@ public class wlb implements Printer {
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
+        this.b = slbVar;
+        this.a = tlbVar;
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j - this.b > this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            ulb.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (slb.e().b != null) {
-                slb.e().b.c();
-            }
-            if (slb.e().c != null) {
-                slb.e().c.c();
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (slb.e().b != null) {
-                slb.e().b.d();
-            }
-            if (slb.e().c != null) {
-                slb.e().c.d();
-            }
-        }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
                 return;
             }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
+            this.b.p();
+            int i = extras.getInt("install.status");
+            if (i != 1 && i != 2 && i != 3) {
+                if (i != 4) {
+                    if (i == 6) {
+                        this.a.a(com.google.ar.core.p.CANCELLED);
+                        return;
+                    }
+                    return;
+                }
+                this.a.a(com.google.ar.core.p.COMPLETED);
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
+            this.a.a(com.google.ar.core.p.ACCEPTED);
         }
     }
 }

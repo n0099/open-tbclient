@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.max.event.WebEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bq0 extends eo0 {
+public final class bq0 implements nj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public String a;
-    @Nullable
-    public HashMap<String, String> b;
+    public final WebEventTypeEnum a;
 
-    public bq0() {
+    public bq0(WebEventTypeEnum type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,6 +29,28 @@ public final class bq0 extends eo0 {
                 return;
             }
         }
-        this.a = "-1";
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+    }
+
+    @Override // com.baidu.tieba.nj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String simpleName = bq0.class.getSimpleName();
+            Intrinsics.checkNotNullExpressionValue(simpleName, "WebViewEvent::class.java.simpleName");
+            return simpleName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final WebEventTypeEnum getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (WebEventTypeEnum) invokeV.objValue;
     }
 }

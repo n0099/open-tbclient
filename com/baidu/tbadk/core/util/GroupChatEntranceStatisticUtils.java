@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,8 +115,8 @@ public class GroupChatEntranceStatisticUtils {
         return (String) invokeLZ.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0032 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0035  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0033 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0036  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -140,7 +141,7 @@ public class GroupChatEntranceStatisticUtils {
             if (jSONObject == null) {
                 return "";
             }
-            return jSONObject.optJSONObject("pageParams").optString(str2);
+            return jSONObject.optJSONObject(YunDialogManager.PAGE_PARAMS_KEY).optString(str2);
         }
         return (String) invokeLL.objValue;
     }

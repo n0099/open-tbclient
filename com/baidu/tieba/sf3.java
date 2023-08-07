@@ -3,37 +3,36 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.tieba.ah3;
+import com.baidu.tieba.hf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sf3 extends uf3 {
+public class sf3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements oq3<yg3<ah3.e>> {
+    public class a implements hf3.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ tf3 b;
-        public final /* synthetic */ by1 c;
-        public final /* synthetic */ sf3 d;
+        public final /* synthetic */ hf3 a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
 
-        public a(sf3 sf3Var, CallbackHandler callbackHandler, tf3 tf3Var, by1 by1Var) {
+        public a(sf3 sf3Var, hf3 hf3Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sf3Var, callbackHandler, tf3Var, by1Var};
+                Object[] objArr = {sf3Var, hf3Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,48 +42,35 @@ public class sf3 extends uf3 {
                     return;
                 }
             }
-            this.d = sf3Var;
-            this.a = callbackHandler;
-            this.b = tf3Var;
-            this.c = by1Var;
+            this.a = hf3Var;
+            this.b = callbackHandler;
+            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(yg3<ah3.e> yg3Var) {
+        @Override // com.baidu.tieba.hf3.j
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
-                if (!tg3.h(yg3Var)) {
-                    tg3.q(yg3Var, this.a, this.b.e);
-                    this.b.k = null;
-                } else {
-                    tf3 tf3Var = this.b;
-                    tf3Var.m = false;
-                    this.d.m(this.a, (SwanAppSlaveManager) this.c, tf3Var);
-                }
-                if (!this.c.U(this.b)) {
-                    v82.c("updateWebView", "update webview widget fail");
-                    this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.F(this);
+                x02.L(this.b, this.c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sf3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/updateWebView");
+    public sf3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/openSetting");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -92,37 +78,37 @@ public class sf3 extends uf3 {
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (sd3.b) {
-                Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            tf3 h = tf3.h(unitedSchemeEntity);
-            if (!h.isValid()) {
-                v82.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
-            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
-                v82.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            } else if (ya3Var.n0()) {
+                if (vc3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
-                by1 by1Var = (by1) ix2.T().A(h.c);
-                if (by1Var == null) {
-                    v82.c("updateWebView", "viewManager is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                     return false;
                 }
-                if (TextUtils.equals(h.l, "quickPass")) {
-                    vb3Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, by1Var));
-                } else if (!by1Var.U(h)) {
-                    v82.c("updateWebView", "update webview widget fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                     return false;
                 }
+                hf3 e0 = ya3Var.e0();
+                if (!ya3Var.e0().E()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not open setting page");
+                    return false;
+                }
+                e0.C(new a(this, e0, callbackHandler, optString));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }

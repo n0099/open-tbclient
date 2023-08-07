@@ -1,87 +1,379 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.BigImgCard;
-import com.baidu.tieba.lego.card.model.ButtonCard;
-import com.baidu.tieba.lego.card.model.CardGroup;
-import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.lego.card.model.HorRankCard;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
-import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.lego.card.model.SingleLineCard;
-import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.lego.card.view.BaseCardView;
-import com.baidu.tieba.lego.card.view.BigImgView;
-import com.baidu.tieba.lego.card.view.ButtonCardView;
-import com.baidu.tieba.lego.card.view.FocusListCardView;
-import com.baidu.tieba.lego.card.view.HorRankCardView;
-import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
-import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
-import com.baidu.tieba.lego.card.view.LPBigImgCardView;
-import com.baidu.tieba.lego.card.view.NewImmersiveWebViewCardView;
-import com.baidu.tieba.lego.card.view.NewWebViewCardView;
-import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
-import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
-import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
-import com.baidu.tieba.lego.card.view.RankScoreCardView;
-import com.baidu.tieba.lego.card.view.SingleLineCardView;
-import com.baidu.tieba.lego.card.view.WebViewCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class vz8 extends wz8 {
+public class vz8 implements hf {
     public static /* synthetic */ Interceptable $ic;
+    public static vz8 n;
     public transient /* synthetic */ FieldHolder $fh;
+    public f a;
+    public Context b;
+    public BdLocationMananger.c c;
+    public LocationManager d;
+    public Address e;
+    public long f;
+    public Handler g;
+    public int h;
+    public boolean i;
+    public Runnable j;
+    public Runnable k;
+    public final LocationListener l;
+    public final LocationListener m;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public class a implements LocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ vz8 a;
 
-    @Override // com.baidu.tieba.wz8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
+        @Override // android.location.LocationListener
+        public void onProviderDisabled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vz8 a;
-        public transient /* synthetic */ FieldHolder $fh;
+        @Override // android.location.LocationListener
+        public void onProviderEnabled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            }
+        }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-329632745, "Lcom/baidu/tieba/vz8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-329632745, "Lcom/baidu/tieba/vz8$b;");
+        @Override // android.location.LocationListener
+        public void onStatusChanged(String str, int i, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
+            }
+        }
+
+        public a(vz8 vz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new vz8(null);
+            this.a = vz8Var;
+        }
+
+        @Override // android.location.LocationListener
+        public void onLocationChanged(Location location) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
+                if (this.a.g.hasMessages(0)) {
+                    this.a.g.removeMessages(0);
+                }
+                this.a.g.removeCallbacks(this.a.k);
+                this.a.g.removeCallbacks(this.a.j);
+                if (this.a.a != null) {
+                    return;
+                }
+                this.a.a = new f(this.a, null);
+                this.a.a.setSelfExecute(true);
+                this.a.a.execute(location);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements LocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vz8 a;
+
+        @Override // android.location.LocationListener
+        public void onProviderDisabled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
+
+        @Override // android.location.LocationListener
+        public void onProviderEnabled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            }
+        }
+
+        @Override // android.location.LocationListener
+        public void onStatusChanged(String str, int i, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
+            }
+        }
+
+        public b(vz8 vz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vz8Var;
+        }
+
+        @Override // android.location.LocationListener
+        public void onLocationChanged(Location location) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
+                if (this.a.g.hasMessages(0)) {
+                    this.a.g.removeMessages(0);
+                }
+                this.a.g.removeCallbacks(this.a.k);
+                this.a.g.removeCallbacks(this.a.j);
+                if (this.a.a != null) {
+                    return;
+                }
+                this.a.a = new f(this.a, null);
+                this.a.a.setSelfExecute(true);
+                this.a.a.execute(location);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vz8 a;
+
+        public c(vz8 vz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vz8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
+                try {
+                    this.a.d.requestLocationUpdates("network", 10000L, 100.0f, this.a.l);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vz8 a;
+
+        public d(vz8 vz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vz8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
+                try {
+                    this.a.d.requestLocationUpdates("gps", 10000L, 100.0f, this.a.m);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vz8 a;
+
+        public e(vz8 vz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vz8Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what == 0) {
+                    this.a.c();
+                    this.a.c.a(this.a.h, "", null, this.a.f, this.a.i);
+                    return false;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class f extends BdAsyncTask<Location, Void, Address> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vz8 a;
+
+        public f(vz8 vz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vz8Var;
+        }
+
+        public /* synthetic */ f(vz8 vz8Var, a aVar) {
+            this(vz8Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Address doInBackground(Location... locationArr) {
+            InterceptResult invokeL;
+            List<Address> list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationArr)) == null) {
+                Geocoder geocoder = new Geocoder(this.a.b, Locale.getDefault());
+                if (locationArr != null && locationArr.length >= 1) {
+                    Location location = locationArr[0];
+                    try {
+                        list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                    } catch (IOException | IllegalArgumentException unused) {
+                        list = null;
+                    }
+                    if (list != null && list.size() > 0) {
+                        Address address = list.get(0);
+                        StringBuffer stringBuffer = new StringBuffer();
+                        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
+                            stringBuffer.append(address.getLocality());
+                        }
+                        stringBuffer.append(address.getSubLocality());
+                        stringBuffer.append(address.getThoroughfare());
+                        address.setAddressLine(0, stringBuffer.toString());
+                        return address;
+                    }
+                }
+                return null;
+            }
+            return (Address) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(Address address) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, address) == null) {
+                super.onPostExecute(address);
+                this.a.a = null;
+                if (address != null) {
+                    this.a.c();
+                    this.a.f = System.currentTimeMillis();
+                    this.a.e = address;
+                    this.a.c.a(0, "", this.a.e, this.a.f, this.a.i);
+                    LocationCacheData.getInstance().setLatitude(String.valueOf(address.getLatitude()));
+                    LocationCacheData.getInstance().setLongitude(String.valueOf(address.getLongitude()));
+                    LocationCacheData.getInstance().setSaveTime(System.currentTimeMillis());
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onPreCancel();
+                this.a.a = null;
+            }
         }
     }
 
@@ -95,213 +387,150 @@ public class vz8 extends wz8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.c = null;
+        this.e = null;
+        this.f = 0L;
+        this.g = null;
+        this.i = false;
+        this.j = null;
+        this.k = null;
+        this.l = new a(this);
+        this.m = new b(this);
     }
 
-    public static vz8 f() {
+    public static vz8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            if (n == null) {
+                synchronized (vz8.class) {
+                    if (n == null) {
+                        n = new vz8();
+                    }
+                }
+            }
+            return n;
         }
         return (vz8) invokeV.objValue;
     }
 
-    public /* synthetic */ vz8(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.wz8
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        ICardInfo playPicInfoCard;
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 5) {
-                            if (i != 6) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i != 11) {
-                                            if (i != 28) {
-                                                if (i != 18) {
-                                                    if (i != 19) {
-                                                        switch (i) {
-                                                            case 21:
-                                                                playPicInfoCard = new LPBigImgCard(jSONObject);
-                                                                break;
-                                                            case 22:
-                                                                playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
-                                                                break;
-                                                            case 23:
-                                                                playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
-                                                                break;
-                                                            default:
-                                                                return null;
-                                                        }
-                                                    } else {
-                                                        playPicInfoCard = new BigImgCard(jSONObject);
-                                                    }
-                                                } else {
-                                                    playPicInfoCard = new WebViewCard(jSONObject);
-                                                }
-                                            } else {
-                                                playPicInfoCard = new ButtonCard(jSONObject);
-                                            }
-                                        } else {
-                                            playPicInfoCard = new CardGroup(jSONObject);
-                                        }
-                                    } else {
-                                        playPicInfoCard = new RankScoreCard(jSONObject);
-                                    }
-                                } else {
-                                    playPicInfoCard = new RankDetailTrendCard(jSONObject);
-                                }
-                            } else {
-                                playPicInfoCard = new HorRankCard(jSONObject);
-                            }
-                        } else {
-                            playPicInfoCard = new FocusListCard(jSONObject);
-                        }
-                    } else {
-                        playPicInfoCard = new OnePicInfoCard(jSONObject);
-                    }
-                } else {
-                    playPicInfoCard = new SingleLineCard(jSONObject);
-                }
-            } else {
-                playPicInfoCard = new PlayPicInfoCard(jSONObject);
-            }
-            return playPicInfoCard;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g = new Handler(Looper.getMainLooper(), new e(this));
         }
-        return (ICardInfo) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.wz8
+    @Override // com.baidu.tieba.hf
+    public void a(boolean z) {
+        LocationManager locationManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.c != null && (locationManager = this.d) != null) {
+            try {
+                try {
+                    locationManager.removeUpdates(this.l);
+                    this.h = 4;
+                    this.i = z;
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    c();
+                    this.h = 5;
+                }
+                if (PermissionUtil.checkLocationForGoogle(this.b) && (this.d.isProviderEnabled("gps") || this.d.isProviderEnabled("network"))) {
+                    if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("gps")) {
+                        this.g.post(this.k);
+                    } else {
+                        this.h = 1;
+                    }
+                    if (!z) {
+                        if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("network")) {
+                            this.g.post(this.j);
+                        } else {
+                            this.h = 2;
+                        }
+                    }
+                    return;
+                }
+                this.h = 3;
+                this.g.sendMessageDelayed(this.g.obtainMessage(0), BdLocationMananger.getInstance().getTimeOut());
+            } finally {
+                Handler handler = this.g;
+                handler.sendMessageDelayed(handler.obtainMessage(0), BdLocationMananger.getInstance().getTimeOut());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hf
+    public void b(BdLocationMananger.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            this.b = context;
+            this.c = cVar;
+            try {
+                this.d = (LocationManager) context.getSystemService("location");
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+            this.j = new c(this);
+            this.k = new d(this);
+            u();
+        }
+    }
+
+    @Override // com.baidu.tieba.hf
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = wz8.a;
-            sparseIntArray.put(1, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = wz8.a;
-            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = wz8.a;
-            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
-            SparseIntArray sparseIntArray4 = wz8.a;
-            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
-            SparseIntArray sparseIntArray5 = wz8.a;
-            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
-            SparseIntArray sparseIntArray6 = wz8.a;
-            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
-            SparseIntArray sparseIntArray7 = wz8.a;
-            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
-            SparseIntArray sparseIntArray8 = wz8.a;
-            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
-            SparseIntArray sparseIntArray9 = wz8.a;
-            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
-            SparseIntArray sparseIntArray10 = wz8.a;
-            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
-            SparseIntArray sparseIntArray11 = wz8.a;
-            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
-            SparseIntArray sparseIntArray12 = wz8.a;
-            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
-            SparseIntArray sparseIntArray13 = wz8.a;
-            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
-            wz8.b.put(1, BdUniqueId.gen());
-            wz8.b.put(2, BdUniqueId.gen());
-            wz8.b.put(3, BdUniqueId.gen());
-            wz8.b.put(5, BdUniqueId.gen());
-            wz8.b.put(6, BdUniqueId.gen());
-            wz8.b.put(7, BdUniqueId.gen());
-            wz8.b.put(8, BdUniqueId.gen());
-            wz8.b.put(18, BdUniqueId.gen());
-            wz8.b.put(19, BdUniqueId.gen());
-            wz8.b.put(21, BdUniqueId.gen());
-            wz8.b.put(22, BdUniqueId.gen());
-            wz8.b.put(23, BdUniqueId.gen());
-            wz8.b.put(28, BdUniqueId.gen());
+            if (this.g.hasMessages(0)) {
+                this.g.removeMessages(0);
+            }
+            this.g.removeCallbacks(this.k);
+            this.g.removeCallbacks(this.j);
+            LocationManager locationManager = this.d;
+            if (locationManager != null) {
+                try {
+                    locationManager.removeUpdates(this.l);
+                    this.d.removeUpdates(this.m);
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                }
+            }
+            f fVar = this.a;
+            if (fVar != null) {
+                fVar.cancel();
+                this.a = null;
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wz8
-    /* renamed from: e */
-    public <T> BaseCardView a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        BaseCardView playPicInfoCardView;
+    @Override // com.baidu.tieba.hf
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.g.hasMessages(0)) {
+                this.g.removeMessages(0);
             }
-            if (cardType != 1) {
-                if (cardType != 2) {
-                    if (cardType != 3) {
-                        if (cardType != 5) {
-                            if (cardType != 6) {
-                                if (cardType != 7) {
-                                    if (cardType != 8) {
-                                        if (cardType != 18) {
-                                            if (cardType != 19) {
-                                                if (cardType != 28) {
-                                                    switch (cardType) {
-                                                        case 21:
-                                                            playPicInfoCardView = new LPBigImgCardView(tbPageContext);
-                                                            break;
-                                                        case 22:
-                                                            playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
-                                                            break;
-                                                        case 23:
-                                                            if (en6.e("https://unknown-tmp/")) {
-                                                                playPicInfoCardView = new NewImmersiveWebViewCardView(tbPageContext);
-                                                                break;
-                                                            } else {
-                                                                playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
-                                                                break;
-                                                            }
-                                                        default:
-                                                            return null;
-                                                    }
-                                                } else {
-                                                    playPicInfoCardView = new ButtonCardView(tbPageContext);
-                                                }
-                                            } else {
-                                                playPicInfoCardView = new BigImgView(tbPageContext);
-                                            }
-                                        } else if (en6.e("https://unknown-tmp/")) {
-                                            playPicInfoCardView = new NewWebViewCardView(tbPageContext);
-                                        } else {
-                                            playPicInfoCardView = new WebViewCardView(tbPageContext);
-                                        }
-                                    } else {
-                                        playPicInfoCardView = new RankScoreCardView(tbPageContext);
-                                    }
-                                } else {
-                                    playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
-                                }
-                            } else {
-                                playPicInfoCardView = new HorRankCardView(tbPageContext);
-                            }
-                        } else {
-                            playPicInfoCardView = new FocusListCardView(tbPageContext);
-                        }
-                    } else {
-                        playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
-                    }
-                } else {
-                    playPicInfoCardView = new SingleLineCardView(tbPageContext);
+            this.g.removeCallbacks(this.k);
+            this.g.removeCallbacks(this.j);
+            LocationManager locationManager = this.d;
+            if (locationManager != null) {
+                try {
+                    locationManager.removeUpdates(this.l);
+                    this.d.removeUpdates(this.m);
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
                 }
-            } else {
-                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
             }
-            return playPicInfoCardView;
+            f fVar = this.a;
+            if (fVar != null) {
+                fVar.cancel();
+                this.a = null;
+            }
         }
-        return (BaseCardView) invokeLLI.objValue;
     }
 }

@@ -5,12 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.data.ItemStarData;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PbGoodsData;
 import com.baidu.tbadk.core.data.PbLinkData;
@@ -19,10 +21,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.s35;
-import com.baidu.tieba.t15;
+import com.baidu.tieba.q05;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class CardPersonDynamicThreadData extends t15 {
+public class CardPersonDynamicThreadData extends q05 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,14 +101,14 @@ public class CardPersonDynamicThreadData extends t15 {
         return invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.t15
-    public s35 getNegFeedBackData() {
+    @Override // com.baidu.tieba.q05
+    public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (s35) invokeV.objValue;
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
@@ -640,7 +640,7 @@ public class CardPersonDynamicThreadData extends t15 {
         I = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.t15
+    @Override // com.baidu.tieba.q05
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -650,7 +650,7 @@ public class CardPersonDynamicThreadData extends t15 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -807,10 +807,10 @@ public class CardPersonDynamicThreadData extends t15 {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.h) && wg.g(this.a, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.h) && JavaTypesHelper.toLong(this.a, -1L) != -1) {
             this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = wg.g(this.a, 0L);
+            multipleForum2.forum_id = JavaTypesHelper.toLong(this.a, 0L);
             multipleForum2.forum_name = this.h;
             this.B[0] = multipleForum2;
         }

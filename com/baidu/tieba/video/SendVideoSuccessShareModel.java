@@ -153,7 +153,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void X(String str) {
+    public void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);

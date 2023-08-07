@@ -1,106 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class fbb {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicBoolean a;
-    public static HashMap<Integer, Boolean> b;
-    public static HashMap<Integer, Long> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947759779, "Lcom/baidu/tieba/fbb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947759779, "Lcom/baidu/tieba/fbb;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-        b = new HashMap<>();
-        c = new HashMap<>();
-    }
-
-    public static long a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (c.containsKey(Integer.valueOf(i))) {
-                return c.get(Integer.valueOf(i)).longValue();
-            }
-            return Long.MAX_VALUE;
-        }
-        return invokeI.longValue;
-    }
-
-    public static SharedPreferences b(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return context.getSharedPreferences("CONFIG_RUNTIME", 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            if (!str.contains("?")) {
+                sb.append("?");
+            }
+            sb.append("&");
+            sb.append("clientfrom=native");
+            sb.append("&");
+            sb.append("client=android");
+            return sb.toString();
         }
-        return (SharedPreferences) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public static String b(String str, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (b.containsKey(Integer.valueOf(i))) {
-                return b.get(Integer.valueOf(i)).booleanValue();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
+            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
+                return str;
             }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static synchronized void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (fbb.class) {
-                if (!a.get()) {
-                    SharedPreferences b2 = b(context);
-                    Iterator<Integer> it = gbb.a.iterator();
-                    while (it.hasNext()) {
-                        int intValue = it.next().intValue();
-                        HashMap<Integer, Long> hashMap = c;
-                        Integer valueOf = Integer.valueOf(intValue);
-                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
-                        HashMap<Integer, Boolean> hashMap2 = b;
-                        Integer valueOf2 = Integer.valueOf(intValue);
-                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
-                    }
-                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
-                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
-                    a.set(true);
-                }
+            StringBuilder sb = new StringBuilder(str);
+            if (!str.contains("?")) {
+                sb.append("?");
             }
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                sb.append("&");
+                sb.append(entry.getKey());
+                sb.append("=");
+                sb.append(entry.getValue());
+            }
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
     }
 }

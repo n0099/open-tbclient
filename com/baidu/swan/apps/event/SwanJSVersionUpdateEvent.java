@@ -4,19 +4,19 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.al3;
-import com.baidu.tieba.cv2;
-import com.baidu.tieba.fs1;
+import com.baidu.tieba.dk3;
+import com.baidu.tieba.fu2;
+import com.baidu.tieba.ir1;
 @Keep
 /* loaded from: classes4.dex */
 public class SwanJSVersionUpdateEvent {
-    public static final boolean DEBUG = fs1.a;
+    public static final boolean DEBUG = ir1.a;
     public static final String TAG = "SwanJSVersionUpdateEven";
     public final long mVersionCode;
     public final String mVersionName;
 
     public SwanJSVersionUpdateEvent() {
-        SwanCoreVersion g = al3.g(0);
+        SwanCoreVersion g = dk3.g(0);
         if (g != null) {
             this.mVersionCode = g.swanCoreVersionCode;
             this.mVersionName = g.swanCoreVersionName;
@@ -39,7 +39,7 @@ public class SwanJSVersionUpdateEvent {
         if (swanJSVersionUpdateEvent.mVersionName == null) {
             return;
         }
-        cv2.N().a(swanJSVersionUpdateEvent);
+        fu2.N().a(swanJSVersionUpdateEvent);
         if (DEBUG) {
             Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
         }

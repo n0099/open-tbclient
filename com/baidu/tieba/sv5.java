@@ -1,215 +1,148 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.mz;
-import com.baidu.tieba.xz;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebpForceSwitch;
+import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class sv5 extends hv5<z45, ThreadCardViewHolder<z45>> {
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes8.dex */
+public class sv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public up6<z45> g;
 
-    /* loaded from: classes7.dex */
-    public class a extends up6<z45> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sv5 b;
-
-        public a(sv5 sv5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sv5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sv5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.up6
-        /* renamed from: d */
-        public void a(View view2, z45 z45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z45Var) == null) {
-                this.b.u(view2, z45Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements io {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sv5 a;
-
-        public b(sv5 sv5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sv5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sv5Var;
-        }
-
-        @Override // com.baidu.tieba.io
-        public void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ynVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ynVar instanceof z45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                z45 z45Var = (z45) ynVar;
-                z45Var.objType = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), z45Var);
-                }
-                ThreadCardUtils.jumpToPB((t15) z45Var, view2.getContext(), this.a.C(), false, by.a((eo) viewGroup, view2, i));
-                threadCardViewHolder.b().p(new xz.a(1));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements ThreadCommentAndPraiseInfoLayout.m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ int c;
-
-        public c(sv5 sv5Var, ViewGroup viewGroup, View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sv5Var, viewGroup, view2, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = viewGroup;
-            this.b = view2;
-            this.c = i;
-        }
-
-        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.m
-        public void a(IntentConfig intentConfig) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(by.a((eo) this.a, this.b, this.c));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_BOTTOM_NORMAL);
+    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+        }
+    }
+
+    public static void g(@NonNull String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return TbadkCoreApplication.getInst().getCapabilityOfWebp();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!WebpForceSwitch.isOn() && (!a() || !h())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
+            if (loadInt > 5) {
+                TbadkCoreApplication.getInst().setCapableOfWebp(false);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
                 return;
             }
+            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
         }
-        this.g = new a(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: P */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            mz.b bVar = new mz.b(this.c.getPageActivity(), false);
-            oz ozVar = new oz(this.c.getPageActivity());
-            z15 z15Var = new z15();
-            z15Var.b = x();
-            z15Var.h = y();
-            ozVar.D(z15Var);
-            ozVar.F(A());
-            ozVar.L(B());
-            ozVar.M(D());
-            ozVar.G(C());
-            ozVar.g(32);
-            bVar.m(ozVar);
-            mz k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.d);
-            k.s(C());
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.j(this.mPageId);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: Q */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z45 z45Var, ThreadCardViewHolder threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z45Var, threadCardViewHolder})) == null) {
-            if (z45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = z45Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.b().r(i);
-                if (threadCardViewHolder.b().f() instanceof oz) {
-                    ((oz) threadCardViewHolder.b().f()).J(new c(this, viewGroup, view2, i));
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int i = 0;
+            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
+                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
+                if (assets != null) {
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = assets.open("webp_test/test.webp");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
+                        z = true;
+                        if (!z) {
+                            TiebaStatic.log("LocalWebpUnSupport");
+                            i = 6;
+                        }
+                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                        return;
+                    }
                 }
-                threadCardViewHolder.f(z45Var);
-                threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.b().q(this.g);
-                return threadCardViewHolder.getView();
+                z = false;
+                if (!z) {
+                }
+                TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                return;
             }
-            return null;
+            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @NonNull
+    public static Pair<Boolean, String> d(@Nullable String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!f()) {
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            if (str != null && str.length() != 0) {
+                int indexOf = str.indexOf("hiphotos.baidu.com");
+                if (indexOf <= 0) {
+                    indexOf = str.indexOf("tiebapic.baidu.com");
+                }
+                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
+                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
+                }
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            return new Pair<>(Boolean.FALSE, str);
+        }
+        return (Pair) invokeL.objValue;
     }
 }

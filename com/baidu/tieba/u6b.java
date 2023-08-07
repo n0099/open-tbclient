@@ -6,63 +6,78 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
 /* loaded from: classes8.dex */
-public class u6b {
+public class u6b implements t6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public v6b b;
 
-    public u6b(AudioPlayData audioPlayData) {
+    public u6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
-            return;
+    }
+
+    @Override // com.baidu.tieba.t6b
+    public String a(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (l5b.c().d() != null && l5b.c().d().c() != null) {
+                    return l5b.c().d().c().a(obj);
+                }
+                return new Gson().toJson(obj);
+            } catch (Exception e) {
+                o9b.b(e.getMessage());
+                return "";
+            }
         }
-        this.b = new v6b(audioPlayData.audioPath);
+        return (String) invokeL.objValue;
     }
 
-    public v6b a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t6b
+    public <T> T b(String str, Class<T> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (v6b) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            v6b v6bVar = this.b;
-            return v6bVar != null && v6bVar.i();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            try {
+                if (l5b.c().d() != null && l5b.c().d().c() != null) {
+                    return (T) l5b.c().d().c().b(str, cls);
+                }
+                return (T) new Gson().fromJson(str, (Class<Object>) cls);
+            } catch (Exception e) {
+                o9b.b(e.getMessage());
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (T) invokeLL.objValue;
     }
 
-    public void d(v6b v6bVar) {
+    @Override // com.baidu.tieba.t6b
+    public <T> T c(String str, Type type) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, v6bVar) == null) {
-            this.b = v6bVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
+            try {
+                if (l5b.c().d() != null && l5b.c().d().c() != null) {
+                    return (T) l5b.c().d().c().c(str, type);
+                }
+                return (T) new Gson().fromJson(str, type);
+            } catch (Exception e) {
+                o9b.b(e.getMessage());
+                return null;
+            }
         }
+        return (T) invokeLL.objValue;
     }
 }

@@ -1,137 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlinx.coroutines.DebugKt;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class p42 extends l72 {
+public class p42 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public String k;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a(String str) {
-            InterceptResult invokeL;
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != 3551) {
-                    if (hashCode != 109935) {
-                        if (hashCode == 3005871 && str.equals("auto")) {
-                            c = 0;
-                        }
-                        c = 65535;
-                    } else {
-                        if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_OFF)) {
-                            c = 1;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_ON)) {
-                        c = 2;
-                    }
-                    c = 65535;
-                }
-                if (c != 0 && c != 1 && c != 2) {
-                    return "auto";
-                }
-                return str;
-            }
-            return (String) invokeL.objValue;
+    @Override // com.baidu.tieba.e42
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p42(String str) {
-        super("camera", "cameraId");
+    public p42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            v82.d("Camera", "parsing CameraAttrModel occurs exception", e);
-        }
     }
 
-    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.e42
+    public void a(f42 f42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
-            this.j = jSONObject.optString("devicePosition", "back");
-            this.k = jSONObject.optString("flash", "auto");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) {
+            int alpha = f42Var.b.getAlpha();
+            f42Var.c(f42Var.b);
+            canvas.drawPath(f42Var.f, f42Var.b);
+            f42Var.b.setAlpha(alpha);
         }
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.a(this.k);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b23 b23Var = this.h;
-            if (b23Var == null) {
-                return 0;
-            }
-            return b23Var.c();
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b23 b23Var = this.h;
-            if (b23Var == null) {
-                return 0;
-            }
-            return b23Var.f();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return TextUtils.equals(this.j, "front");
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -1,230 +1,273 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.PeiwanLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RankingParam;
-import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
-public class h39 implements yn {
+public class h39 implements RouterService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public a d;
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeSchemeWithCallBack(Context context, Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, uri, str, liveShowSchemeCallBack)) == null) {
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
-        public Integer b;
-        public String c;
-        public Integer d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ h39 c;
 
-        public void e(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            }
-        }
-
-        public void h(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
-            }
-        }
-
-        public a() {
+        public a(h39 h39Var, String str, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h39Var, str, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = h39Var;
+            this.a = str;
+            this.b = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Activity currentActivity = BdActivityStack.getInst().currentActivity();
+                if (currentActivity != null && (l9.a(currentActivity) instanceof TbPageContext)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(currentActivity), new String[]{this.a}, true);
+                } else if (!this.a.startsWith(BdUniDispatchSchemeController.SCHEME)) {
+                    this.c.c(this.b, this.a);
+                } else {
+                    UtilHelper.dealOneScheme(this.b, this.a);
                 }
             }
         }
-
-        public Integer a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public Integer b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public Integer d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d;
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public void f(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-                this.b = num;
-            }
-        }
-
-        public void g(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
-                this.a = num;
-            }
-        }
-
-        public void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.c = str;
-            }
-        }
-
-        public void j(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, num) == null) {
-                this.d = num;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772923, "Lcom/baidu/tieba/h39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947772923, "Lcom/baidu/tieba/h39;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
     }
 
     public h39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeScheme(Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, uri, str, liveShowSchemeCallBack)) == null) {
+            openScheme(uri.toString());
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (StringUtils.isNull(str) || !str.contains("from=tieba")) {
+                return false;
+            }
+            if (str.contains("com.baidu.tieba.unidispatch://pwStatisticalLog?")) {
+                f(Uri.parse(str));
+                return true;
+            } else if (str.contains("com.baidu.tieba.unidispatch://pwYalogger?")) {
+                e(str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_MESSAGE_CENTER_PAGE)) {
+                UrlSchemaJumpHelper.jumpMessageCenterPage(context, str);
+                return true;
+            } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
+                UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
+                UrlSchemaJumpHelper.jumpDispatchOrderPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
+                UrlSchemaJumpHelper.jumpUnPaidOrderPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_LIST_PAGE)) {
+                UrlSchemaJumpHelper.jumpUnPaidListPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
+                UrlSchemaJumpHelper.jumpPersonChat(context, str, true);
+                return true;
+            } else if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
+                UrlSchemaJumpHelper.jumpNativeH5Page(context, str);
+                return true;
+            } else {
+                if (str.startsWith(UrlSchemaHelper.SCHEME_POST_DETAIL_PAGE)) {
+                    UrlSchemaJumpHelper.jumpPostDetailPage(context, str);
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if (context != null) {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (UtilHelper.isIntentAvailable(context, intent)) {
+                    try {
+                        context.startActivity(intent);
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) != null) || StringUtils.isNull(str) || b(context, str)) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (str.indexOf("?") > 0) {
+            sb.append("&");
+        } else {
+            sb.append("?");
+        }
+        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+        sb.append("=1");
+        sb.append("&page_from=live");
+        SafeHandler.getInst().post(new a(this, sb.toString(), context));
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
                 return;
             }
-        }
-        this.a = "";
-        this.b = "";
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(SugRankingInfo sugRankingInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sugRankingInfo) == null) {
-            String str = sugRankingInfo.rank_title;
-            this.a = str;
-            this.c = str;
-            RankingParam rankingParam = sugRankingInfo.rank_param;
-            if (rankingParam != null) {
-                a aVar = new a();
-                aVar.g(rankingParam.rank_type);
-                aVar.f(rankingParam.rank_code);
-                aVar.i(rankingParam.sort_type);
-                aVar.j(rankingParam.tab_id);
-                aVar.e(rankingParam.pn);
-                aVar.h(rankingParam.rn);
-                this.d = aVar;
+            PeiwanLog.getInstance().i(parse.getQueryParameter("tag"), parse.getQueryParameter("msg"));
+        } catch (Exception e) {
+            if (TbadkApplication.getInst().isDebugMode()) {
+                e.printStackTrace();
             }
         }
     }
 
-    public void f(String str) {
+    public final void f(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, uri) != null) || uri == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter("key");
+        if (TextUtils.isEmpty(queryParameter)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(queryParameter);
+        for (String str : uri.getQueryParameterNames()) {
+            if (!TextUtils.equals(str, "key")) {
+                statisticItem.addParam(str, uri.getQueryParameter(str));
+            }
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void openScheme(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && !StringUtils.isNull(str)) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+            sb.append("=1");
+            sb.append("&page_from=live");
+            Activity currentActivity = BdActivityStack.getInst().currentActivity();
+            if (currentActivity != null) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(currentActivity), new String[]{sb.toString()}, true);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invoke(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            d(context, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invokeScheme(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
+            d(context, str);
         }
     }
 }

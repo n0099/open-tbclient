@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes8.dex */
-public interface uw1 extends m53 {
-    File a();
+public interface uw1 {
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    void e(String str, String str2);
+    boolean c();
 
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    boolean d();
 }

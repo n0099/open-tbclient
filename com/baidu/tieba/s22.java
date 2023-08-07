@@ -1,74 +1,106 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class s22 extends p22 {
+public class s22 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, l22> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948099446, "Lcom/baidu/tieba/s22;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948099446, "Lcom/baidu/tieba/s22;");
+                return;
+            }
+        }
+        b = ir1.a;
+    }
 
     public s22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public synchronized void a(BasePendingOperation basePendingOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
+                    return;
+                }
+                if (b) {
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
+                }
+                c(basePendingOperation.getType()).b(basePendingOperation);
             }
         }
     }
 
-    @Override // com.baidu.tieba.p22
-    public v32 c(@NonNull bb2 bb2Var) {
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, l22> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, l22> entry : this.a.entrySet()) {
+                    entry.getValue().a();
+                }
+            }
+        }
+    }
+
+    public final l22 c(BasePendingOperation.OperationType operationType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bb2Var)) == null) {
-            return e();
-        }
-        return (v32) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p22
-    public v32 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return e();
-        }
-        return (v32) invokeI.objValue;
-    }
-
-    public v32 e() {
-        InterceptResult invokeV;
-        v32 v32Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Application c = cv2.c();
-            int i = (int) 28.4d;
-            int P = (int) mp3.P(mp3.o(c) - c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f6));
-            int i2 = P - ((int) 75.53d);
-            int P2 = ((int) (mp3.P(mp3.t()) + 0.5f)) + ((38 - i) / 2);
-            try {
-                v32Var = new v32(0, b(i2, P2, P, i + P2));
-            } catch (JSONException e) {
-                if (p22.a) {
-                    e.printStackTrace();
-                }
-                v32Var = new v32(1001, "result JSONException");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                l22 a = p22.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
             }
-            v82.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param abnormally, result = " + v32Var);
-            return v32Var;
+            return this.a.get(operationType.name());
         }
-        return (v32) invokeV.objValue;
+        return (l22) invokeL.objValue;
     }
 }

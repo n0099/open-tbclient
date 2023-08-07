@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PublishProgressData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.xea;
+import com.baidu.tieba.rda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,8 +79,8 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091d4f);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d58);
+            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091d65);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d6e);
             TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
             this.c = textView;
             textView.setOnClickListener(this);
@@ -115,14 +115,8 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.b();
-            d85 d = d85.d(this.b);
-            d.x(R.color.CAM_X0101);
-            d.C(R.dimen.T_X06);
-            d.D(R.string.F_X01);
-            d85 d2 = d85.d(this.c);
-            d2.x(R.color.CAM_X0101);
-            d2.C(R.dimen.T_X09);
-            d2.D(R.string.F_X01);
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X01);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
         }
     }
 
@@ -148,7 +142,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 publishProgressData.hideRunning();
                 d();
             }
-            xea.c();
+            rda.c();
         }
     }
 

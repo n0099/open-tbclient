@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.os.RemoteException;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.l83;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,27 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
 /* loaded from: classes7.dex */
-public class r83 implements l83.c {
+public class r83 implements a93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Deque<Message> a;
-
-    @Override // com.baidu.tieba.l83.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.l83.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
+    public final View a;
+    public boolean b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,13 +32,42 @@ public class r83 implements l83.c {
                 return;
             }
         }
-        boolean z = fs1.a;
+        d = ir1.a;
     }
 
-    public r83() {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.a93
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.a93
+    @SuppressLint({"BDThrowableCheck"})
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !d) {
+            return;
+        }
+        throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+    }
+
+    public r83(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,62 +77,55 @@ public class r83 implements l83.c {
                 return;
             }
         }
-        this.a = new ArrayDeque();
+        this.b = false;
+        this.c = false;
+        this.a = view2;
     }
 
-    @Override // com.baidu.tieba.l83.c
-    public void a() {
+    public boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q83 Q = q83.Q();
-            while (Q.O() && !this.a.isEmpty()) {
-                Message peek = this.a.peek();
-                if (peek == null || e(peek)) {
-                    this.a.poll();
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
             }
+            if (i == this.a.getVisibility()) {
+                return true;
+            }
+            if (!b() || i != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            z83.g(this.a, i);
         }
     }
 
-    @Override // com.baidu.tieba.l83.c
-    public void b(@NonNull n83 n83Var) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n83Var) == null) {
-            Message h = n83Var.h();
-            h.arg1 = SwanAppProcessInfo.current().index;
-            if (ub3.K().E()) {
-                Object obj = h.obj;
-                if (obj instanceof Bundle) {
-                    Bundle bundle = (Bundle) obj;
-                    if (!bundle.containsKey("ai_apps_id")) {
-                        bundle.putString("ai_apps_id", ub3.K().getAppId());
-                    }
-                }
-            }
-            if (!e(h) && n83Var.n()) {
-                this.a.offer(h);
-                q83.Q().c0();
-            }
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public final boolean e(Message message) {
-        InterceptResult invokeL;
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
-            q83 Q = q83.Q();
-            if (message != null && Q.O()) {
-                try {
-                    Q.S().send(message);
-                    return true;
-                } catch (RemoteException e) {
-                    Q.U();
-                    v82.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
-                    return false;
-                }
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
             }
-            return false;
+            return new int[]{i, i2};
         }
-        return invokeL.booleanValue;
+        return (int[]) invokeII.objValue;
     }
 }

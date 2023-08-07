@@ -1,215 +1,268 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ah3;
-import com.baidu.tieba.ru2;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pm2 extends sd3 {
+public class pm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @NonNull
+    public static String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset" : (String) invokeI.objValue;
+    }
+
     /* loaded from: classes7.dex */
-    public class a implements oq3<yg3<ah3.e>> {
+    public static class a implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ pm2 d;
 
-        public a(pm2 pm2Var, CallbackHandler callbackHandler, String str, String str2) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm2Var, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.d = pm2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+        }
+
+        @Override // java.io.FilenameFilter
+        public boolean accept(File file, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+                return TextUtils.isDigitsOnly(str);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(yg3<ah3.e> yg3Var) {
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
-                if (tg3.h(yg3Var)) {
-                    this.d.k(this.c, this.b, this.a);
-                } else {
-                    tg3.q(yg3Var, this.a, this.b);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                long lastModified = file.lastModified();
+                long lastModified2 = file2.lastModified();
+                if (lastModified == lastModified2) {
+                    return 0;
                 }
+                if (lastModified - lastModified2 > 0) {
+                    return -1;
+                }
+                return 1;
             }
+            return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements ru2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ String c;
-
-        @Override // com.baidu.tieba.ru2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public b(pm2 pm2Var, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066772, "Lcom/baidu/tieba/pm2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm2Var, callbackHandler, jSONObject, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = callbackHandler;
-            this.b = jSONObject;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.ru2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a == null) {
-                    v82.o("ExtCore-DebugDownload", "handler is null");
-                    return;
-                }
-                try {
-                    v82.c("ExtCore-DebugDownload", "download failed");
-                    nb3.f(cv2.c(), R.string.obfuscated_res_0x7f0f0158).G();
-                    this.b.put("status", -1);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
-            }
-        }
-
-        @Override // com.baidu.tieba.ru2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a == null) {
-                    v82.o("ExtCore-DebugDownload", "handler is null");
-                    return;
-                }
-                try {
-                    File c = mm2.c();
-                    File b = mm2.b();
-                    if (c.exists() && zr4.U(c.getPath(), b.getPath())) {
-                        v82.c("ExtCore-DebugDownload", "download success");
-                        nb3.f(cv2.c(), R.string.obfuscated_res_0x7f0f0159).G();
-                        this.b.put("status", 0);
-                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 0).toString());
-                    } else {
-                        v82.c("ExtCore-DebugDownload", "download failed");
-                        nb3.f(cv2.c(), R.string.obfuscated_res_0x7f0f0158).G();
-                        this.b.put("status", -1);
-                        this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
-                    }
-                } catch (JSONException e) {
-                    v82.d("ExtCore-DebugDownload", "build result with exception", e);
-                    e.printStackTrace();
-                    this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(this.b, 1001).toString());
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm2(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/debug/downloadExtension");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948066772, "Lcom/baidu/tieba/pm2;");
                 return;
             }
         }
+        a = ir1.a;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                v82.c("ExtCore-DebugDownload", "params is null");
-                nb3.f(context, R.string.obfuscated_res_0x7f0f0175).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            String optString = a2.optString("url");
-            if (TextUtils.isEmpty(optString)) {
-                v82.c("ExtCore-DebugDownload", "url is null");
-                nb3.f(context, R.string.obfuscated_res_0x7f0f014a).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            String optString2 = a2.optString("cb");
-            if (TextUtils.isEmpty(optString2)) {
-                v82.c("ExtCore-DebugDownload", "cb is null");
-                nb3.f(context, R.string.obfuscated_res_0x7f0f0157).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
-                return false;
-            }
-            vb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+        if ((interceptable != null && interceptable.invokeL(65537, null, bundle) != null) || bundle == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        if (!ProcessUtils.isMainProcess()) {
+            o73 e = o73.e();
+            q73 q73Var = new q73(18, bundle);
+            q73Var.f(true);
+            e.h(q73Var);
+            return;
+        }
+        String string = bundle.getString("arg_dst_folder");
+        if (!TextUtils.isEmpty(string)) {
+            b(new File(string), bundle.getLongArray("arg_ignore_vers"));
+        }
     }
 
-    public final void k(String str, String str2, CallbackHandler callbackHandler) {
+    public static void b(File file, long... jArr) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, callbackHandler) == null) {
-            ru2.I(str, new b(this, callbackHandler, new JSONObject(), str2));
+        if (interceptable == null || interceptable.invokeLL(65538, null, file, jArr) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                Bundle bundle = new Bundle();
+                bundle.putString("arg_dst_folder", file.getPath());
+                if (jArr != null && jArr.length > 0) {
+                    bundle.putLongArray("arg_ignore_vers", jArr);
+                }
+                a(bundle);
+            } else if (file != null && file.exists() && file.isDirectory()) {
+                ArrayList arrayList = new ArrayList();
+                if (jArr != null) {
+                    for (long j : jArr) {
+                        if (j > 0) {
+                            arrayList.add(Long.valueOf(j));
+                        }
+                    }
+                }
+                arrayList.addAll(e());
+                arrayList.addAll(d(file, 3));
+                if (a) {
+                    Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
+                }
+                for (File file2 : file.listFiles()) {
+                    if (!g(file2, arrayList)) {
+                        if (a) {
+                            Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
+                        }
+                        cr4.L(file2);
+                    }
+                }
+            }
+        }
+    }
+
+    public static List<Long> d(File file, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (i > 0 && file != null && file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles(new a());
+                if (listFiles == null) {
+                    return arrayList;
+                }
+                Arrays.sort(listFiles, new b());
+                int min = Math.min(listFiles.length, i);
+                for (int i2 = 0; i2 < min; i2++) {
+                    try {
+                        arrayList.add(Long.valueOf(Long.parseLong(listFiles[i2].getName())));
+                    } catch (NumberFormatException e) {
+                        y72.l("ExtCore-Utils", "get extension version fail", e);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLI.objValue;
+    }
+
+    public static ArrayList<Long> e() {
+        InterceptResult invokeV;
+        ExtensionCore extensionCore;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList<Long> arrayList = new ArrayList<>();
+            for (x73 x73Var : z73.k().q()) {
+                SwanAppCores m = x73Var.m();
+                if (m != null && x73Var.T() && (extensionCore = m.getExtensionCore()) != null && !arrayList.contains(Long.valueOf(extensionCore.extensionCoreVersionCode))) {
+                    arrayList.add(Long.valueOf(extensionCore.extensionCoreVersionCode));
+                }
+            }
+            if (a) {
+                Log.d("ExtCore-Utils", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static boolean f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 1) {
+                return x63.z();
+            }
+            return x63.y();
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            return mj3.a().getBoolean(c(i), false);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean g(File file, List<Long> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, list)) == null) {
+            if (list == null) {
+                return false;
+            }
+            String name = file.getName();
+            for (Long l : list) {
+                if (TextUtils.equals(name, String.valueOf(l.longValue()))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void i(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            mj3.a().putBoolean(c(i), z);
         }
     }
 }

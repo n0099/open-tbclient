@@ -21,6 +21,7 @@ public class ShareFriendActivityConfig extends IntentConfig {
     public static final String FROM_MESSAGE_TAB = "is_from_chat";
     public static final String FROM_SHARE_FRIEND = "is_from_share";
     public static final String KEY_FILTER_GROUP = "key_filter_group";
+    public static final String KEY_FILTER_PERSON = "key_filter_person";
     public static final String KEY_FROM = "key_from";
     public static final String KEY_SHARE_FRIEND_LIST = "from_share_friend_list";
     public static ForumData mForumData;
@@ -87,44 +88,51 @@ public class ShareFriendActivityConfig extends IntentConfig {
         }
     }
 
+    public void setFilterPerson(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            getIntent().putExtra(KEY_FILTER_PERSON, z);
+        }
+    }
+
     public void setForumData(ForumData forumData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, forumData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, forumData) == null) {
             mForumData = forumData;
         }
     }
 
     public void setForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) && getIntent() != null) {
             getIntent().putParcelableArrayListExtra(KEY_SHARE_FRIEND_LIST, arrayList);
         }
     }
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && getIntent() != null) {
             getIntent().putExtra("key_from", i);
         }
     }
 
     public void setIsForChat(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             getIntent().putExtra(FROM_MESSAGE_TAB, z);
         }
     }
 
     public void setIsForShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             getIntent().putExtra(FROM_SHARE_FRIEND, z);
         }
     }
 
     public void setThreadData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, threadData) == null) {
             mThreadData = threadData;
         }
     }

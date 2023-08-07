@@ -15,14 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ib5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -301,7 +301,7 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
-        super(context, R.style.obfuscated_res_0x7f1003cb);
+        super(context, R.style.obfuscated_res_0x7f1003cc);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    ib5 ib5Var = new ib5();
-                    ib5Var.r(R.color.CAM_X0107);
-                    this.e.setConfig(ib5Var);
+                    y95 y95Var = new y95();
+                    y95Var.r(R.color.CAM_X0107);
+                    this.e.setConfig(y95Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.protocol_cancel));
                     this.f.setTextSize(R.dimen.tbds42);
-                    ib5 ib5Var2 = new ib5();
-                    ib5Var2.r(R.color.CAM_X0302);
-                    this.f.setConfig(ib5Var2);
+                    y95 y95Var2 = new y95();
+                    y95Var2.r(R.color.CAM_X0302);
+                    this.f.setConfig(y95Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.protocol_agree));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.tip_known));
-            ib5 ib5Var3 = new ib5();
-            ib5Var3.r(R.color.CAM_X0302);
+            y95 y95Var3 = new y95();
+            y95Var3.r(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(ib5Var3);
+            this.h.setConfig(y95Var3);
         }
     }
 
@@ -455,8 +455,8 @@ public class EBusinessProtocolView extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - yi.g(this.a, R.dimen.tbds90);
-            layoutParams.height = yi.g(this.a, R.dimen.tbds879);
+            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - BdUtilHelper.getDimens(this.a, R.dimen.tbds90);
+            layoutParams.height = BdUtilHelper.getDimens(this.a, R.dimen.tbds879);
             setContentView(this.b, layoutParams);
             setCanceledOnTouchOutside(true);
             g();

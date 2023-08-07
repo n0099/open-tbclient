@@ -1,7 +1,17 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface bvb {
-    void onPlayerPlayCompletion(lvb lvbVar);
 
-    void onPlayerPlayCompletionOneLoop(lvb lvbVar);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import java.util.TreeMap;
+/* loaded from: classes5.dex */
+public class bvb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public EffectInfo a;
+    public TreeMap<Integer, EffectSource> b;
+
+    public abstract EffectFrame a(long j);
 }

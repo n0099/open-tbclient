@@ -14,13 +14,13 @@ public class bi extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo752a() {
+    public String mo753a() {
         return "clear peer job";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo469a() {
+    public void mo470a() {
         bg.b.c cVar = this.a;
         if (cVar.a == cVar.f942a.f929a) {
             com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f942a.g);

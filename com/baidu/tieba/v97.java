@@ -1,70 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class v97 {
+public final class v97<T> extends e97<T> implements l67, u87, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final t97 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final T c;
+    public final String d;
 
-    /* loaded from: classes8.dex */
-    public static final class a implements t97 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.t97
-        public void a(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                Intrinsics.checkNotNullParameter(map, "map");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195701, "Lcom/baidu/tieba/v97;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948195701, "Lcom/baidu/tieba/v97;");
+    public v97(@NonNull T t, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.c = t;
+        this.d = str;
     }
 
-    public static final t97 a() {
+    @Override // com.baidu.tieba.u97
+    @NonNull
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (t97) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u97
+    @NonNull
+    public T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            T t = this.c;
+            if (t instanceof PreLoadImageProvider) {
+                return ((PreLoadImageProvider) t).getImages();
+            }
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u87
+    public void d(@NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            T t = this.c;
+            if (t instanceof u87) {
+                ((u87) t).d(obj);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.l67
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            T t = this.c;
+            if (t instanceof l67) {
+                ((l67) t).setPosition(i);
+            }
+        }
     }
 }

@@ -15,17 +15,17 @@ public class bm implements eg {
     @Override // com.xiaomi.push.eg
     public void a(Context context, HashMap<String, String> hashMap) {
         ig igVar = new ig();
-        igVar.b(ec.a(context).m447a());
+        igVar.b(ec.a(context).m448a());
         igVar.d(ec.a(context).b());
         igVar.c(hr.AwakeAppResponse.f508a);
         igVar.a(bd.a());
         igVar.f650a = hashMap;
         byte[] a = ir.a(ah.a(igVar.c(), igVar.b(), igVar, hh.Notification));
         if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m177a("MoleInfo : context is not correct in pushLayer " + igVar.m636a());
+            com.xiaomi.channel.commonutils.logger.b.m178a("MoleInfo : context is not correct in pushLayer " + igVar.m637a());
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m177a("MoleInfo : send data directly in pushLayer " + igVar.m636a());
+        com.xiaomi.channel.commonutils.logger.b.m178a("MoleInfo : send data directly in pushLayer " + igVar.m637a());
         ((XMPushService) context).a(context.getPackageName(), a, true);
     }
 
@@ -39,6 +39,6 @@ public class bm implements eg {
 
     @Override // com.xiaomi.push.eg
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m177a("MoleInfo：\u3000" + dx.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m178a("MoleInfo：\u3000" + dx.b(hashMap));
     }
 }

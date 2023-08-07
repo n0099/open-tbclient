@@ -1,81 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.content.Context;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes8.dex */
 public class ye1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ye1 b;
+    public static volatile ye1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public cl1<IHostAppRuntime> a;
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            al1 b2 = al1.b();
-            this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327172, "Lcom/baidu/tieba/ye1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948327172, "Lcom/baidu/tieba/ye1;");
-                return;
-            }
-        }
-        b = new ye1();
-    }
+    public boolean a;
 
     public ye1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        this.a = false;
     }
 
-    public static ye1 b() {
+    public static ye1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ye1.class) {
+                    if (b == null) {
+                        b = new ye1();
+                    }
+                }
+            }
             return b;
         }
         return (ye1) invokeV.objValue;
     }
 
-    public Application a() {
-        InterceptResult invokeV;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get().getApplication();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.a) {
+            return;
         }
-        return (Application) invokeV.objValue;
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+            c(context);
+            return;
+        }
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        new xe1(context, countDownLatch).sendMessage(Message.obtain());
+        try {
+            countDownLatch.await();
+        } catch (Exception unused) {
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            je1.a().c();
+            try {
+                new WebView(context);
+            } catch (Exception unused) {
+            }
+            this.a = true;
+        }
     }
 }

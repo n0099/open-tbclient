@@ -1,84 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
+@Autowired
 /* loaded from: classes8.dex */
-public final class y00 implements z00 {
+public class y00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public y00(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public class a implements a10 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.a10
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
             }
+            return (String) invokeV.objValue;
         }
-        this.a = i;
-    }
 
-    @Override // com.baidu.tieba.z00
-    public int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.tieba.z00
-    public void a(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || bArr == null) {
-            return;
-        }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
-    }
-
-    @Override // com.baidu.tieba.z00
-    public int b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
-            }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
-            }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return i3;
         }
-        return invokeLII.intValue;
+    }
+
+    @Inject(force = false)
+    public static z00 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return c4a.a();
+        }
+        return (z00) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static a10 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new a();
+        }
+        return (a10) invokeV.objValue;
     }
 }

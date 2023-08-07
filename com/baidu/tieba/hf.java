@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
 /* loaded from: classes6.dex */
 public interface hf {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("UniKVTest", "UniKVTest");
+    void a(boolean z);
 
-    boolean isTypeDoubleKv();
+    void b(BdLocationMananger.c cVar);
 
-    boolean isTypeDoubleSp();
+    void c();
 
-    boolean isTypeSp();
+    void destroy();
 }

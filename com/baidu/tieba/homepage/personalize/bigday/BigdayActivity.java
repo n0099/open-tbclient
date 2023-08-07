@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,7 +89,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                da5.p().H("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                SharedPrefHelper.getInstance().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -103,10 +103,10 @@ public class BigdayActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0173);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903f0);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903f1);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903ef);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903f0);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a5));
             }
@@ -117,7 +117,7 @@ public class BigdayActivity extends BaseActivity {
                 this.e = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
             this.a.setTag(getPageContext().getUniqueId());
-            this.a.N(this.c, 41, false);
+            this.a.startLoad(this.c, 41, false);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));

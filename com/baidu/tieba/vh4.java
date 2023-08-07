@@ -1,175 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.tieba.fi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vh4 {
+public class vh4 extends fi4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BaiduMap b;
-    public Marker c;
-    public BitmapDescriptor d;
-    public b e;
-    public LocationClient f;
-    public BDLocation g;
-    public boolean h;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(BDLocation bDLocation);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends BDAbstractLocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vh4 a;
-
-        public a(vh4 vh4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vh4Var;
-        }
-
-        @Override // com.baidu.location.BDAbstractLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null) {
-                    this.a.m();
-                    return;
-                }
-                this.a.b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.a.c != null) {
-                    this.a.c.remove();
-                    this.a.c = null;
-                }
-                MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d).anchor(0.5f, 0.5f);
-                vh4 vh4Var = this.a;
-                vh4Var.c = (Marker) vh4Var.b.addOverlay(anchor);
-                if (this.a.g == null) {
-                    MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
-                    if (this.a.e != null) {
-                        this.a.e.a(bDLocation);
-                    }
-                }
-                this.a.g = bDLocation;
-            }
-        }
-    }
-
-    public vh4(Context context, BaiduMap baiduMap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vh4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, baiduMap};
+            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = false;
-        this.a = context;
-        this.b = baiduMap;
     }
 
-    public void k(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                l();
-            } else {
-                m();
-            }
-        }
-    }
-
-    public BDLocation i() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fi4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public fi4 build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            qh4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
         }
-        return (BDLocation) invokeV.objValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.h) {
-            return;
-        }
-        j();
-        LocationClient locationClient = this.f;
-        if (locationClient != null && !locationClient.isStarted()) {
-            this.f.start();
-            this.h = true;
-        }
-    }
-
-    public final void m() {
-        LocationClient locationClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && (locationClient = this.f) != null && locationClient.isStarted()) {
-            this.f.stop();
-            this.h = false;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
-            LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
-            this.f = locationClient;
-            locationClient.registerLocationListener(new a(this));
-            LocationClientOption locationClientOption = new LocationClientOption();
-            locationClientOption.setOpenGps(true);
-            locationClientOption.setCoorType(CoordType.GCJ02.name());
-            locationClientOption.setScanSpan(1000);
-            this.f.setLocOption(locationClientOption);
-            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f0801a6);
-        }
+        return (fi4) invokeV.objValue;
     }
 }

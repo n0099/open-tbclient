@@ -1,85 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
-import android.os.Build;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g9 {
+public class g9<T> extends BdBaseView<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    public static boolean a(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g9(BdPageContext<T> bdPageContext, int i) {
+        super(bdPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        View inflate = LayoutInflater.from(bdPageContext.getContext()).inflate(i, (ViewGroup) null);
+        this.a = inflate;
+        inflate.setTag(this);
+    }
+
+    public View u(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0 && i != 1 && i != 11 && i != 12) {
-                switch (i) {
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                        break;
-                    default:
-                        return false;
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.findViewById(i);
         }
-        return invokeI.booleanValue;
+        return (View) invokeI.objValue;
     }
 
-    public static void b(@NonNull Activity activity) {
+    public View x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || !d(activity)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        try {
-            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-            declaredField.setAccessible(true);
-            ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
-            if (a(activityInfo.screenOrientation)) {
-                activityInfo.screenOrientation = -1;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            try {
-                Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
-                declaredField.setAccessible(true);
-                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
-                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
-                declaredMethod.setAccessible(true);
-                return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT == 26 && c(activity)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (View) invokeV.objValue;
     }
 }

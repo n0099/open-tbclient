@@ -1,23 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class st1 implements pv1 {
+/* loaded from: classes8.dex */
+public class st1 implements dw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.pv1
-    public String a(@NonNull String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
-    }
 
     public st1() {
         Interceptable interceptable = $ic;
@@ -30,6 +21,14 @@ public class st1 implements pv1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.dw1
+    public void b(ya3 ya3Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, ya3Var, jSONObject) == null) {
+            h33.e().b(ya3Var, jSONObject);
         }
     }
 }

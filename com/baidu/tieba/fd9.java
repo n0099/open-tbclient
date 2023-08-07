@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.ExcPbPage.DataRes;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes5.dex */
-public class fd9 {
+public class fd9 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
 
     public fd9() {
         Interceptable interceptable = $ic;
@@ -28,39 +31,31 @@ public class fd9 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        char c;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        ExcPbPageResIdl excPbPageResIdl;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.b;
-            int hashCode = str.hashCode();
-            if (hashCode != 2154) {
-                if (hashCode != 2161) {
-                    if (hashCode == 2162 && str.equals("CU")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("CT")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("CM")) {
-                    c = 2;
-                }
-                c = 65535;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            ed9 ed9Var = null;
+            if (customMessage == null || customMessage.getCmd() != 2001314) {
+                return null;
             }
-            if (c != 0) {
-                if (c == 1) {
-                    return 2;
+            l45.e();
+            byte[] bArr = l45.c("tb.pb_normal").get("chosen_pb_page_cache");
+            if (bArr != null) {
+                try {
+                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+                } catch (Exception unused) {
+                    excPbPageResIdl = null;
                 }
-                return 3;
+                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
+                    ed9Var = new ed9(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                }
             }
-            return 1;
+            return new ReadChosenPbCacheResponse(ed9Var);
         }
-        return invokeV.intValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

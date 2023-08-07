@@ -9,23 +9,23 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.d77;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.fc7;
+import com.baidu.tieba.aa7;
+import com.baidu.tieba.c77;
 import com.baidu.tieba.feed.component.CardLiveView;
-import com.baidu.tieba.gc7;
-import com.baidu.tieba.i97;
-import com.baidu.tieba.sc7;
-import com.baidu.tieba.u97;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.k37;
+import com.baidu.tieba.l47;
+import com.baidu.tieba.n97;
+import com.baidu.tieba.o97;
+import com.baidu.tieba.q67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,10 +38,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u0003B\u001b\b\u0007\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u0002H\u0014J\b\u0010\u001d\u001a\u00020\u001bH\u0016J\u0018\u0010\u001e\u001a\u00020\u001b2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020 H\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0015\u001a\n \u0017*\u0004\u0018\u00010\u00160\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/feed/component/CardLiveView;", "Lcom/baidu/tieba/feed/component/CardRelativeView;", "Lcom/baidu/tieba/feed/component/uistate/CardLiveUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "coverView", "Landroid/view/View;", "labelBottomLeft", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "labelBottomRight", "labelTopLeft", "Landroid/widget/LinearLayout;", "labelTopLeftText", "lottieView", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "lottieViewContainer", "Landroid/widget/FrameLayout;", "resolver", "Lcom/baidu/tieba/feed/compat/WidgetResolver$NetImageViewCreator;", "kotlin.jvm.PlatformType", "thumbnailImg", "Landroid/widget/ImageView;", "doUpdateState", "", "state", "onChangeSkin", "setCoverViewLp", "width", "", "height", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
+public final class CardLiveView extends CardRelativeView<l47> implements n97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c67.e c;
+    public final k37.e c;
     public final LinearLayout d;
     public final FrameLayout e;
     public final TBLottieAnimationView f;
@@ -138,7 +138,7 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.c = c67.a().a();
+        this.c = k37.a().a();
         this.d = new LinearLayout(context);
         this.e = new FrameLayout(context);
         this.f = new TBLottieAnimationView(context);
@@ -149,10 +149,10 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
         if (create != null) {
             this.j = (ImageView) create;
             this.k = new View(context);
-            this.j.setId(R.id.obfuscated_res_0x7f0905f6);
+            this.j.setId(R.id.obfuscated_res_0x7f090603);
             this.j.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(this.j, new RelativeLayout.LayoutParams(-1, -1));
-            c67.d dVar = new c67.d();
+            k37.d dVar = new k37.d();
             dVar.a = R.string.J_X05;
             dVar.b = 15;
             this.c.c(this.j, dVar);
@@ -162,34 +162,34 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
             this.d.setGravity(16);
             this.f.loop(true);
             this.f.addOnAttachStateChangeListener(new a(this));
-            int g = yi.g(context, R.dimen.tbds30);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g, g);
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds30);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens, dimens);
             layoutParams.gravity = 17;
             this.e.addView(this.f, layoutParams);
-            int g2 = yi.g(context, R.dimen.tbds52);
-            this.d.addView(this.e, new LinearLayout.LayoutParams(g2, g2));
-            this.g.setPadding(yi.g(context, R.dimen.M_W_X002), 0, yi.g(context, R.dimen.M_W_X004), 0);
+            int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds52);
+            this.d.addView(this.e, new LinearLayout.LayoutParams(dimens2, dimens2));
+            this.g.setPadding(BdUtilHelper.getDimens(context, R.dimen.M_W_X002), 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X004), 0);
             this.d.addView(this.g, new LinearLayout.LayoutParams(-2, -2));
             this.g.setGravity(16);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.topMargin = yi.g(context, R.dimen.M_H_X004);
-            layoutParams2.leftMargin = yi.g(context, R.dimen.M_W_X006);
+            layoutParams2.topMargin = BdUtilHelper.getDimens(context, R.dimen.M_H_X004);
+            layoutParams2.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
             addView(this.d, layoutParams2);
-            int g3 = yi.g(context, R.dimen.tbds25);
-            this.h.setPadding(g3, 0, g3, 0);
+            int dimens3 = BdUtilHelper.getDimens(context, R.dimen.tbds25);
+            this.h.setPadding(dimens3, 0, dimens3, 0);
             this.h.setGravity(17);
-            d85.d(this.h).C(R.dimen.T_X09);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, yi.g(context, R.dimen.tbds52));
-            layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0905f6);
-            layoutParams3.leftMargin = yi.g(context, R.dimen.tbds33);
-            layoutParams3.bottomMargin = yi.g(context, R.dimen.tbds25);
+            EMManager.from(this.h).setTextSize(R.dimen.T_X09);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, BdUtilHelper.getDimens(context, R.dimen.tbds52));
+            layoutParams3.addRule(8, R.id.obfuscated_res_0x7f090603);
+            layoutParams3.leftMargin = BdUtilHelper.getDimens(context, R.dimen.tbds33);
+            layoutParams3.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.tbds25);
             addView(this.h, layoutParams3);
-            d85.d(this.i).C(R.dimen.T_X09);
+            EMManager.from(this.i).setTextSize(R.dimen.T_X09);
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams4.addRule(8, R.id.obfuscated_res_0x7f0905f6);
+            layoutParams4.addRule(8, R.id.obfuscated_res_0x7f090603);
             layoutParams4.addRule(11);
-            layoutParams4.rightMargin = yi.g(context, R.dimen.M_W_X006);
-            layoutParams4.bottomMargin = yi.g(context, R.dimen.M_H_X004);
+            layoutParams4.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
+            layoutParams4.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.M_H_X004);
             addView(this.i, layoutParams4);
             if (UbsABTestHelper.isFeedLiveCardStyleA()) {
                 this.h.setVisibility(8);
@@ -197,8 +197,8 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
                 ViewGroup.LayoutParams layoutParams5 = this.j.getLayoutParams();
                 if (layoutParams5 != null) {
                     RelativeLayout.LayoutParams layoutParams6 = (RelativeLayout.LayoutParams) layoutParams5;
-                    layoutParams6.width = yi.g(context, R.dimen.tbds650);
-                    layoutParams6.height = yi.g(context, R.dimen.tbds813);
+                    layoutParams6.width = BdUtilHelper.getDimens(context, R.dimen.tbds650);
+                    layoutParams6.height = BdUtilHelper.getDimens(context, R.dimen.tbds813);
                     this.j.setLayoutParams(layoutParams6);
                     j(layoutParams6.width, layoutParams6.height);
                     return;
@@ -214,7 +214,7 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void i(d77 state, CardLiveView this$0, View view2) {
+    public static final void i(l47 state, CardLiveView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -226,50 +226,43 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
                 Intrinsics.checkNotNullExpressionValue(context, "context");
                 j.invoke(context, str);
             }
-            for (u97 u97Var : state.h()) {
-                sc7.a.b(u97Var, state.g() + 1);
-                state.f().invoke(u97Var);
+            for (c77 c77Var : state.h()) {
+                aa7.a.b(c77Var, state.g() + 1);
+                state.f().invoke(c77Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.fc7
-    public void b() {
+    @Override // com.baidu.tieba.n97
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || gc7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || o97.a(this)) {
             return;
         }
         SkinManager.setLottieAnimation(this.f, R.raw.lottie_ala_live);
-        d85 d = d85.d(this.d);
-        d.o(R.string.J_X01);
-        d.f(R.color.CAM_X0605);
-        d85 d2 = d85.d(this.e);
-        d2.o(R.string.J_X07);
-        d2.f(R.color.CAM_X0310);
+        EMManager.from(this.d).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0605);
+        EMManager.from(this.e).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0310);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0101);
-        d85.d(this.g).C(R.dimen.T_X09);
-        d85 d3 = d85.d(this.h);
-        d3.o(R.string.J_X04);
-        d3.x(R.color.CAM_X0101);
-        d3.f(R.color.CAM_X0606);
-        d85.d(this.i).x(R.color.CAM_X0101);
+        EMManager.from(this.g).setTextSize(R.dimen.T_X09);
+        EMManager.from(this.h).setCorner(R.string.J_X04).setTextColor(R.color.CAM_X0101).setBackGroundColor(R.color.CAM_X0606);
+        EMManager.from(this.i).setTextColor(R.color.CAM_X0101);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardRelativeView
     /* renamed from: h */
-    public void e(final d77 state) {
+    public void e(final l47 state) {
         int width;
         int i;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            i97 i2 = state.i();
+            q67 i2 = state.i();
             boolean isFeedLiveCardStyleA = UbsABTestHelper.isFeedLiveCardStyleA();
-            int l = yi.l(TbadkCoreApplication.getInst());
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
             if (isFeedLiveCardStyleA) {
-                width = (int) (l * 0.6f);
+                width = (int) (equipmentWidth * 0.6f);
             } else {
                 width = getWidth();
             }
@@ -301,11 +294,11 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
                     this.h.setVisibility(8);
                 }
                 this.i.setText(i2.c);
-                u97 u97Var = i2.e;
-                if (u97Var != null) {
-                    state.f().invoke(u97Var);
+                c77 c77Var = i2.e;
+                if (c77Var != null) {
+                    state.f().invoke(c77Var);
                 }
-                this.j.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.o67
+                this.j.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w37
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -313,11 +306,11 @@ public final class CardLiveView extends CardRelativeView<d77> implements fc7 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            CardLiveView.i(d77.this, this, view2);
+                            CardLiveView.i(l47.this, this, view2);
                         }
                     }
                 });
-                b();
+                c();
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");

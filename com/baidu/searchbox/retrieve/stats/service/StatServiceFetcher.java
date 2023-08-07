@@ -3,12 +3,12 @@ package com.baidu.searchbox.retrieve.stats.service;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.stats.StatTask;
-import com.baidu.tieba.pl1;
+import com.baidu.tieba.sk1;
 /* loaded from: classes4.dex */
-public class StatServiceFetcher extends pl1<IStatTask> {
+public class StatServiceFetcher extends sk1<IStatTask> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.pl1
+    @Override // com.baidu.tieba.sk1
     public IStatTask createService() throws ServiceNotFoundException {
         return new StatTask();
     }

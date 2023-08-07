@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VoteSchema;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class j55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public final Map<String, String> a;
 
     public j55() {
         Interceptable interceptable = $ic;
@@ -24,23 +26,47 @@ public class j55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayMap();
     }
 
-    public static j55 a(VoteSchema voteSchema) {
-        InterceptResult invokeL;
+    @NonNull
+    public static j55 b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voteSchema)) == null) {
-            if (voteSchema == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             j55 j55Var = new j55();
-            j55Var.a = voteSchema.text_before_vote;
-            j55Var.b = voteSchema.text_after_vote;
-            j55Var.c = voteSchema.jump_url;
+            if (!str2.startsWith("http") && !str2.startsWith("https")) {
+                if (str2.startsWith("dialoginternal://")) {
+                    Uri parse = Uri.parse(str2);
+                    for (String str3 : parse.getQueryParameterNames()) {
+                        String queryParameter = parse.getQueryParameter(str3);
+                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
+                            j55Var.a.put(str3, queryParameter);
+                        }
+                    }
+                    j55Var.a.put("yun_dialogClass", parse.getAuthority());
+                    j55Var.a.put("yun_dialogName", str);
+                    j55Var.a.put("yun_dialogUrl", str2);
+                }
+            } else {
+                j55Var.a.put("yun_dialogClass", "WebViewYunDialog");
+                j55Var.a.put("yun_dialogName", str);
+                j55Var.a.put("yun_dialogUrl", str2);
+            }
             return j55Var;
         }
-        return (j55) invokeL.objValue;
+        return (j55) invokeLL.objValue;
+    }
+
+    public String a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

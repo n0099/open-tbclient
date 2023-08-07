@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class k26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public Object a;
+    public int b;
+    public int c;
 
     public k26() {
         Interceptable interceptable = $ic;
@@ -28,51 +28,51 @@ public class k26 {
         }
     }
 
-    public String a() {
+    public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d(String str) {
+    public void d(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            this.a = obj;
         }
     }
 
-    public void e(String str) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public void f(String str) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
         }
     }
 }

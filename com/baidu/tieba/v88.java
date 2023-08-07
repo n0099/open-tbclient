@@ -1,76 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.topic.local.LocalChannelTopicHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.TopicInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
-public class v88 extends ln<y88, LocalChannelTopicHolder> {
+public class v88 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public long i;
+    public x88 j;
+    public boolean k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v88(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194771, "Lcom/baidu/tieba/v88;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948194771, "Lcom/baidu/tieba/v88;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        l = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public LocalChannelTopicHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public v88() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0526, viewGroup, false));
-        }
-        return (LocalChannelTopicHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y88 y88Var, LocalChannelTopicHolder localChannelTopicHolder) {
-        t(i, view2, viewGroup, y88Var, localChannelTopicHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, y88 y88Var, LocalChannelTopicHolder localChannelTopicHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y88Var, localChannelTopicHolder})) == null) {
-            if (y88Var != null && localChannelTopicHolder != null) {
-                localChannelTopicHolder.b(y88Var);
-                localChannelTopicHolder.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(TopicInfo topicInfo) {
+        String str;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicInfo) != null) || topicInfo == null) {
+            return;
+        }
+        this.a = String.valueOf(topicInfo.topic_id);
+        this.b = topicInfo.topic_name;
+        this.c = topicInfo.desc;
+        this.d = topicInfo.total_post_num.longValue();
+        this.e = topicInfo.head_photo_url;
+        this.f = topicInfo.head_background_url;
+        if (StringUtils.isNull(topicInfo.share_title)) {
+            str = "";
+        } else {
+            str = topicInfo.share_title;
+        }
+        this.g = str;
+        this.h = topicInfo.share_pic;
+        this.i = topicInfo.idx_num.longValue();
+        Long l2 = topicInfo.pmy_topic_id;
+        String str2 = topicInfo.head_photo_jump_url;
+        Integer num = topicInfo.pmy_source;
+        if (topicInfo.is_deleted.longValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.k = z;
+        VideoInfo videoInfo = topicInfo.video_info;
+        if (videoInfo != null && !StringUtils.isNull(videoInfo.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
+            VideoInfo videoInfo2 = topicInfo.video_info;
+            String str3 = videoInfo2.video_md5;
+            String str4 = videoInfo2.video_url;
+            videoInfo2.video_duration.intValue();
+            topicInfo.video_info.video_width.intValue();
+            topicInfo.video_info.video_height.intValue();
+            VideoInfo videoInfo3 = topicInfo.video_info;
+            String str5 = videoInfo3.thumbnail_url;
+            videoInfo3.thumbnail_width.intValue();
+            topicInfo.video_info.thumbnail_height.intValue();
+            topicInfo.video_info.video_length.intValue();
+            topicInfo.video_info.play_count.intValue();
+        }
+        String str6 = topicInfo.tag_list_type;
+        if (topicInfo.join_info != null) {
+            x88 x88Var = new x88();
+            this.j = x88Var;
+            x88Var.a(topicInfo.join_info);
+        }
     }
 }

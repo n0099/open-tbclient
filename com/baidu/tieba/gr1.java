@@ -1,52 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public class gr1 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class gr1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a Companion;
+    public static final int TYPE_CHECK_CRC_FAIL = 1;
+    public static final int TYPE_EXPANSION_FAIL = 4;
+    public static final int TYPE_WRITE_FAIL = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = lr1.b(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    er1.d(th);
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803427, "Lcom/baidu/tieba/gr1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return bArr3;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803427, "Lcom/baidu/tieba/gr1;");
+                return;
+            }
         }
-        return (byte[]) invokeLL.objValue;
+        Companion = new a(null);
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public void onKVCatchError(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = lr1.c(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    er1.d(th);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return bArr3;
         }
-        return (byte[]) invokeLL.objValue;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public gr1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 }

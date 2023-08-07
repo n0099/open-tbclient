@@ -1,82 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.SendCardInfo;
 /* loaded from: classes8.dex */
-public class xe9 {
+public class xe9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
+    public int a;
+    public long b;
+    public long c;
+    public b d;
+    public long e;
+    public Handler f;
 
-    public xe9() {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xe9 a;
+
+        public a(xe9 xe9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xe9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xe9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 2) {
+                    if (i == 1 && this.a.a == 1) {
+                        if (this.a.d != null) {
+                            this.a.d.a();
+                        }
+                        this.a.a = 0;
+                        this.a.b = 0L;
+                        this.a.c = 0L;
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = 0;
+                this.a.b = 0L;
+                this.a.c = 0L;
+            }
+        }
+    }
+
+    public xe9(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.e = 500L;
+        this.f = new a(this);
+        this.d = bVar;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e == 3) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                if (this.d == null) {
+                    return false;
+                }
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b = System.currentTimeMillis();
+                    this.f.sendEmptyMessageDelayed(1, this.e);
+                } else if (i == 2) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.c = currentTimeMillis;
+                    if (currentTimeMillis - this.b < this.e) {
+                        this.d.b();
+                    }
+                    this.f.sendEmptyMessage(2);
+                }
             }
-            return false;
+            return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
-            this.b = jSONObject.optString("card_logo");
-            this.c = jSONObject.optString("card_name");
-            this.d = jSONObject.optString("card_pro");
-            this.e = jSONObject.optInt("card_get_status");
-            this.a = jSONObject.optLong("packet_id");
-            this.f = jSONObject.optString("card_num");
-        }
-    }
-
-    public void d(SendCardInfo sendCardInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
-            this.b = sendCardInfo.card_logo;
-            this.c = sendCardInfo.card_name;
-            this.d = sendCardInfo.card_pro;
-            this.e = sendCardInfo.card_get_status.intValue();
-            this.a = sendCardInfo.packet_id.longValue();
-        }
+        return invokeLL.booleanValue;
     }
 }

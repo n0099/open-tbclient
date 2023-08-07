@@ -1,6 +1,6 @@
 package rx.exceptions;
 
-import com.baidu.tieba.h6c;
+import com.baidu.tieba.k5c;
 import java.util.HashSet;
 /* loaded from: classes2.dex */
 public final class AssemblyStackTraceException extends RuntimeException {
@@ -29,14 +29,14 @@ public final class AssemblyStackTraceException extends RuntimeException {
         while (th.getCause() != null) {
             th = th.getCause();
             if (!hashSet.add(th)) {
-                h6c.j(this);
+                k5c.j(this);
                 return;
             }
         }
         try {
             th.initCause(this);
         } catch (IllegalStateException unused) {
-            h6c.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
+            k5c.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
         }
     }
 

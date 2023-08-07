@@ -1,162 +1,86 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.StrangeCleanSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ge8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1500;
-    public static int b = 500;
+public class ge8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public xb8 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947791151, "Lcom/baidu/tieba/ge8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947791151, "Lcom/baidu/tieba/ge8;");
-        }
-    }
-
-    public static void a() {
-        String d;
+    public ge8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (!StrangeCleanSwitch.isOn()) {
-                s95.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                try {
-                    ae8.d().f();
-                    d = d();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (TextUtils.isEmpty(d)) {
-                    return;
-                }
-                boolean b2 = b(d);
-                s95.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
-            } finally {
-                ae8.d().b();
-            }
         }
+        this.a = 2001154;
+        this.b = xb8.w();
     }
 
-    public static boolean b(String str) {
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
+        }
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                ae8 d = ae8.d();
-                return d.c("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
-            } catch (Exception e) {
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return da5.p().q("key_max_stranger", a);
-        }
-        return invokeV.intValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        List<String> e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            try {
-                e = e();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getStrangeData", new Object[0]);
-            }
-            if (e != null && e.size() != 0) {
-                int c = c();
-                s95.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
-                if (e.size() > c) {
-                    int i = 2000;
-                    if (2000 >= e.size() - c) {
-                        i = e.size() - c;
-                    }
-                    boolean z = true;
-                    for (String str : e.subList(0, i)) {
-                        if (!z) {
-                            sb.append(",");
-                        } else {
-                            z = false;
-                        }
-                        sb.append(str);
-                    }
+            List<bc8> x = xb8.x();
+            if (x != null && x.size() > 0) {
+                HashMap hashMap = new HashMap(x.size());
+                for (bc8 bc8Var : x) {
+                    hashMap.put(bc8Var.b(), bc8Var);
                 }
-                return sb.toString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static List<String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = x;
                 try {
-                    cursor = ae8.d().e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                        }
-                    }
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
                 }
-                return arrayList;
-            } finally {
-                zi.a(cursor);
+                return officialFeedHeadResponsedMessage;
             }
+            return a(this.a);
         }
-        return (List) invokeV.objValue;
-    }
-
-    public static void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            int i2 = b;
-            if (i < i2) {
-                i = i2;
-            }
-            da5.p().F("key_max_stranger", i);
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

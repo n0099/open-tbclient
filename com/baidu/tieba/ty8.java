@@ -1,237 +1,87 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class ty8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, ty8> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public LabelRecommendActivity a;
-    public ViewGroup b;
-    public View c;
-    public TextView d;
-    public NoNetworkView e;
-    public TextView f;
-    public BdListView g;
-    public oy8 h;
-    public sy8 i;
-    public View.OnClickListener j;
-    public List<py8> k;
-    public List<Integer> l;
-    public View.OnClickListener m;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ty8 a;
-
-        public a(ty8 ty8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197654, "Lcom/baidu/tieba/ty8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ty8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ty8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof py8)) {
-                Integer valueOf = Integer.valueOf(((py8) view2.getTag()).a);
-                if (this.a.l.contains(valueOf)) {
-                    this.a.l.remove(valueOf);
-                } else {
-                    this.a.l.add(valueOf);
-                }
-                this.a.i();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948197654, "Lcom/baidu/tieba/ty8;");
+                return;
             }
         }
+        f = new HashMap<>();
     }
 
-    public ty8(LabelRecommendActivity labelRecommendActivity) {
+    public ty8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {labelRecommendActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.l = new ArrayList();
-        this.m = new a(this);
-        if (labelRecommendActivity == null) {
-            return;
-        }
-        this.a = labelRecommendActivity;
-        g();
+        this.b = "";
     }
 
-    public void k(View.OnClickListener onClickListener) {
+    public static ty8 a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.j = onClickListener;
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public List<Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList(this.l);
-            arrayList.add(0, Integer.valueOf(this.i.b()));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0042);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09293c);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f092294);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092207);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922ae);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(j);
+            sb.append("_");
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091531);
-            oy8 oy8Var = new oy8(this.a.getPageContext().getPageActivity());
-            this.h = oy8Var;
-            oy8Var.b(this.m);
-            sy8 sy8Var = new sy8(this.a.getPageContext().getPageActivity());
-            this.i = sy8Var;
-            this.g.addHeaderView(sy8Var.a());
-            this.g.setAdapter((ListAdapter) this.h);
-            h();
+            sb.append(str);
+            return f.get(sb.toString());
         }
+        return (ty8) invokeJL.objValue;
     }
 
-    public final void h() {
+    public void b() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.drawable.color_sub_lable_selector);
-            SkinManager.setBackgroundResource(this.f, R.drawable.bule_bg_commen_label_button);
-            this.e.d(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (py8 py8Var : this.k) {
-                if (py8Var != null) {
-                    py8Var.c = this.l.contains(Integer.valueOf(py8Var.a));
-                }
-            }
-            this.h.a(this.k);
-            l(this.l.size(), this.k.size());
-        }
-    }
-
-    public void j(qy8 qy8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, qy8Var) == null) && qy8Var != null && qy8Var.b() != null && qy8Var.a() != null) {
-            for (py8 py8Var : qy8Var.a()) {
-                if (py8Var != null) {
-                    py8Var.c = false;
-                }
-            }
-            this.k.clear();
-            this.k.addAll(qy8Var.a());
-            this.i.d(qy8Var.b());
-            this.h.a(this.k);
-            this.g.setVisibility(0);
-            l(0, this.k.size());
-        }
-    }
-
-    public final void l(int i, int i2) {
-        boolean z;
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            TextView textView = this.f;
-            if (i > 0) {
-                z = true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append("_");
+            if (TextUtils.isEmpty(this.b)) {
+                str = "";
             } else {
-                z = false;
+                str = this.b;
             }
-            textView.setEnabled(z);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f144d, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-            TextView textView2 = this.f;
-            if (i > 0) {
-                onClickListener = this.j;
-            } else {
-                onClickListener = null;
-            }
-            textView2.setOnClickListener(onClickListener);
+            sb.append(str);
+            f.put(sb.toString(), this);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.external.music.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -16,8 +17,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.external.music.data.MusicData;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.x37;
+import com.baidu.tieba.f17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x37 a;
+    public f17 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -139,18 +139,18 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, x37 x37Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, f17 f17Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, x37Var};
+            Object[] objArr = {tbPageContext, f17Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -158,14 +158,14 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = x37Var;
-        X();
+        this.a = f17Var;
+        P();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
         registerListener(this.c);
     }
 
-    public void W() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
@@ -187,7 +187,7 @@ public class SelectMusicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void X() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC, TbConfig.SERVER_ADDRESS + "c/f/video/music");

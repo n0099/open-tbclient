@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class uf7 {
+public class uf7 extends hn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ye<byte[]> a;
+    public List<l88> a;
 
     public uf7() {
         Interceptable interceptable = $ic;
@@ -29,51 +28,32 @@ public class uf7 {
                 return;
             }
         }
-        b();
+        this.a = new ArrayList();
     }
 
-    public void b() {
+    public List<l88> getDataList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            o55.e();
-            this.a = o55.c("tb.forum_member_info");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        ye.b<byte[]> bVar;
-        byte[] bArr;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            ye<byte[]> yeVar = this.a;
-            if (yeVar != null) {
-                bVar = yeVar.h(str2);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return j35.c;
         }
-        return (byte[]) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(String str, byte[] bArr) {
+    public void c(ah7 ah7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            b();
-            ye<byte[]> yeVar = this.a;
-            yeVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ah7Var) == null) {
+            this.a.add(ah7Var);
         }
     }
 }

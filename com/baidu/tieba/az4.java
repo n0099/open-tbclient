@@ -1,607 +1,325 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.bca;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.p55;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tieba.jw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class az4 extends dj5 {
+public class az4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> b;
-    public zy4 c;
-    public NewWriteModel d;
-    public String e;
-    public SpanGroupManager f;
-    public String g;
-    public String h;
-    public String i;
-    public final NewWriteModel.d j;
-    public bca.g k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947632462, "Lcom/baidu/tieba/az4;")) == null) {
-            return;
+    public static boolean a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file.exists() && file.isFile() && file.canRead()) {
+                return true;
+            }
+            return false;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947632462, "Lcom/baidu/tieba/az4;");
+        return invokeL.booleanValue;
+    }
+
+    public static jw9.g b(String str, String str2) {
+        InterceptResult invokeLL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            File file = new File(jw9.g + "bdtbNWCache");
+            FileInputStream fileInputStream2 = null;
+            if (TextUtils.isEmpty(str2) || !file.exists()) {
+                return null;
+            }
+            jw9.g gVar = new jw9.g();
+            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
+            gVar.a = file.getAbsolutePath();
+            gVar.c = str2;
+            File file3 = new File(file2, "router.json");
+            try {
+                if (!file3.exists()) {
+                    return null;
+                }
+                try {
+                    fileInputStream = new FileInputStream(file3);
+                } catch (FileNotFoundException e) {
+                    e = e;
+                }
+                try {
+                    gVar.b = f(fileInputStream);
+                    ci.e(fileInputStream);
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileInputStream2 = fileInputStream;
+                    e.printStackTrace();
+                    ci.e(fileInputStream2);
+                    return gVar;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    ci.e(fileInputStream2);
+                    throw th;
+                }
+                return gVar;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (jw9.g) invokeLL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az4(final EditorTools editorTools) {
-        super(editorTools);
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        lw9 d;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (QuickWebViewSwitch.getInOn() && !jw9.s(str)) {
+                try {
+                    d = kw9.a().d(new URL(str).getPath());
+                } catch (MalformedURLException | Exception unused) {
+                }
+                if (d != null && d.e) {
+                    String p = jw9.n().p(d.b);
+                    if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
+                        String str2 = jw9.n().m() + "/" + d.b + "/" + p + "/";
+                        if (!d.c.endsWith(".html")) {
+                            file = new File(str2, d.c + ".html");
+                        } else {
+                            file = new File(str2, d.c);
+                        }
+                        if (!a(file)) {
+                            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：主html文件异常==" + str);
+                            return false;
+                        }
+                        ArrayList<String> arrayList = d.d;
+                        if (ListUtils.isEmpty(arrayList)) {
+                            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误==" + str);
+                            return false;
+                        }
+                        for (String str3 : arrayList) {
+                            if (TextUtils.isEmpty(str3)) {
+                                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误2==" + str);
+                                return false;
+                            } else if (!a(new File(str2, str3))) {
+                                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误3==" + str);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                    YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：版本异常==" + str);
+                    return false;
+                }
+                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：离线包未初始化==" + str);
+                return false;
             }
+            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：开关关闭==" + str);
+            return false;
         }
-        Intrinsics.checkNotNullParameter(editorTools, "editorTools");
-        this.e = "";
-        this.g = "none";
-        this.h = "";
-        this.i = "";
-        this.j = new NewWriteModel.d() { // from class: com.baidu.tieba.xy4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        return invokeL.booleanValue;
+    }
 
-            @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ve5 ve5Var, WriteData writeData, AntiData antiData) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ve5Var, writeData, antiData}) == null) {
-                    az4.i(az4.this, z, postWriteCallBackData, ve5Var, writeData, antiData);
+    public static void d(Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !el6.a(set)) {
+            jw9.f fVar = new jw9.f();
+            fVar.a = new HashMap();
+            fVar.b = new HashMap<>();
+            for (String str : set) {
+                jw9.g b = b(str, jw9.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !el6.b(b.b)) {
+                    fVar.a.put(str, b);
+                    fVar.b.putAll(b.b);
                 }
             }
-        };
-        this.k = new bca.g() { // from class: com.baidu.tieba.uy4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.bca.g
-            public final void a(WriteData writeData) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
-                    az4.c(az4.this, editorTools, writeData);
-                }
-            }
-        };
-    }
-
-    public static final void c(az4 this$0, EditorTools editorTools, WriteData writeData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, editorTools, writeData) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(editorTools, "$editorTools");
-            if (writeData != null) {
-                str = writeData.getContent();
-            } else {
-                str = null;
-            }
-            if (!StringUtils.isNull(str)) {
-                String content = writeData.getContent();
-                Intrinsics.checkNotNullExpressionValue(content, "draftData.content");
-                this$0.e = content;
-                editorTools.D(new zi5(6, 40, writeData.getContent()));
+            if (!el6.b(fVar.b)) {
+                kw9.a().i(fVar.b);
             }
         }
     }
 
-    public static final void i(az4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, ve5 ve5Var, WriteData writeData, AntiData antiData) {
-        WriteData writeData2;
-        Integer num;
+    public static HashMap<String, lw9> f(InputStream inputStream) {
+        InterceptResult invokeL;
+        InputStreamReader inputStreamReader;
+        Throwable th;
+        BufferedReader bufferedReader;
+        HashMap<String, lw9> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
+            InputStreamReader inputStreamReader2 = null;
+            if (inputStream == null) {
+                return null;
+            }
+            try {
+                StringBuffer stringBuffer = new StringBuffer();
+                inputStreamReader = new InputStreamReader(inputStream);
+                try {
+                    bufferedReader = new BufferedReader(inputStreamReader);
+                    try {
+                        try {
+                            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                                stringBuffer.append(readLine);
+                            }
+                            bufferedReader.close();
+                            hashMap = new HashMap<>();
+                        } catch (Exception e) {
+                            e = e;
+                            hashMap = null;
+                        }
+                        try {
+                            JSONObject jSONObject = new JSONObject(stringBuffer.toString());
+                            e(jSONObject.optJSONObject("proxyConfig"), hashMap);
+                            e(jSONObject.optJSONObject("config"), hashMap);
+                            ci.g(inputStreamReader);
+                        } catch (Exception e2) {
+                            e = e2;
+                            inputStreamReader2 = inputStreamReader;
+                            try {
+                                e.printStackTrace();
+                                ci.g(inputStreamReader2);
+                                ci.g(bufferedReader);
+                                return hashMap;
+                            } catch (Throwable th2) {
+                                inputStreamReader = inputStreamReader2;
+                                th = th2;
+                                ci.g(inputStreamReader);
+                                ci.g(bufferedReader);
+                                throw th;
+                            }
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        ci.g(inputStreamReader);
+                        ci.g(bufferedReader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedReader = null;
+                    hashMap = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                bufferedReader = null;
+                hashMap = null;
+            } catch (Throwable th5) {
+                inputStreamReader = null;
+                th = th5;
+                bufferedReader = null;
+            }
+            ci.g(bufferedReader);
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static void e(JSONObject jSONObject, HashMap<String, lw9> hashMap) {
         String str;
         String str2;
         String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        String str9;
+        boolean z;
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, ve5Var, writeData, antiData}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            String str10 = null;
-            if (writeData == null) {
-                NewWriteModel newWriteModel = this$0.d;
-                if (newWriteModel == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                    newWriteModel = null;
-                }
-                writeData2 = newWriteModel.l0();
-            } else {
-                writeData2 = writeData;
-            }
-            if (writeData2 == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (postWriteCallBackData != null) {
-                    num = Integer.valueOf(postWriteCallBackData.getErrorCode());
-                } else {
-                    num = null;
-                }
-                jSONObject.put("errorCode", num);
-                if (postWriteCallBackData != null) {
-                    str = postWriteCallBackData.getErrorString();
-                } else {
-                    str = null;
-                }
-                jSONObject.put("errorString", str);
-                if (postWriteCallBackData != null) {
-                    str2 = postWriteCallBackData.getPostId();
-                } else {
-                    str2 = null;
-                }
-                jSONObject.put("postId", str2);
-                if (postWriteCallBackData != null) {
-                    str3 = postWriteCallBackData.getThreadId();
-                } else {
-                    str3 = null;
-                }
-                jSONObject.put("threadId", str3);
-                if (writeData != null) {
-                    str4 = writeData.getContent();
-                } else {
-                    str4 = null;
-                }
-                jSONObject.put("content", str4);
-                if (writeData != null) {
-                    str5 = writeData.getFloor();
-                } else {
-                    str5 = null;
-                }
-                jSONObject.put("floor", str5);
-                if (writeData != null) {
-                    str6 = writeData.getForumId();
-                } else {
-                    str6 = null;
-                }
-                jSONObject.put("forumId", str6);
-                if (writeData != null) {
-                    str7 = writeData.getForumName();
-                } else {
-                    str7 = null;
-                }
-                jSONObject.put("forumName", str7);
-                if (writeData != null) {
-                    str8 = writeData.getReplyId();
-                } else {
-                    str8 = null;
-                }
-                jSONObject.put("replyUId", str8);
-                if (writeData != null) {
-                    str9 = writeData.getRepostId();
-                } else {
-                    str9 = null;
-                }
-                jSONObject.put("repostId", str9);
-                zy4 zy4Var = this$0.c;
-                if (zy4Var == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                    zy4Var = null;
-                }
-                jSONObject.put("replyUName", zy4Var.a().get("replyUName"));
-                jn6.a().h("webviewPage.replyResult", jSONObject);
-            } catch (Exception unused) {
-            }
-            if (z) {
-                this$0.d();
-                this$0.o();
-                this$0.m();
-                return;
-            }
-            if (ve5Var != null) {
-                str10 = ve5Var.d();
-            }
-            if (!TextUtils.isEmpty(str10)) {
-                writeData2.setVcodeMD5(ve5Var.b());
-                writeData2.setVcodeUrl(ve5Var.c());
-                writeData2.setVcodeExtra(ve5Var.a());
-                if (vz5.b(ve5Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.getContext().getPageActivity(), 12006, writeData2, false, ve5Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this$0.getContext().getPageActivity(), writeData2, 12006)));
-                }
-            } else if (postWriteCallBackData == null) {
-            } else {
-                if (postWriteCallBackData.getErrorCode() == 227001) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this$0.getContext().getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
-                } else if (postWriteCallBackData.getErrorCode() == 220015) {
-                    this$0.u(postWriteCallBackData.getErrorString());
-                } else if (postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278 && postWriteCallBackData.getErrorCode() != 340016 && postWriteCallBackData.getErrorCode() != 1990032 && !AntiHelper.l(postWriteCallBackData.getErrorCode())) {
-                    this$0.u(postWriteCallBackData.getErrorString());
-                } else {
-                    int errorCode = postWriteCallBackData.getErrorCode();
-                    String errorString = postWriteCallBackData.getErrorString();
-                    Intrinsics.checkNotNullExpressionValue(errorString, "data.errorString");
-                    this$0.s(errorCode, errorString);
-                }
-            }
-        }
-    }
-
-    public static final void t(p55 p55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, p55Var) == null) {
-            p55Var.dismiss();
-        }
-    }
-
-    public final String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            zy4 zy4Var = this.c;
-            if (zy4Var == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                zy4Var = null;
-            }
-            Object obj = zy4Var.a().get(str);
-            if (!(obj instanceof String)) {
-                return null;
-            }
-            return (String) obj;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void h(TbPageContext<?> context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            p(context);
-            NewWriteModel newWriteModel = new NewWriteModel(context);
-            this.d = newWriteModel;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            newWriteModel.t0(this.j);
-        }
-    }
-
-    public final void p(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, tbPageContext) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "<set-?>");
-            this.b = tbPageContext;
-        }
-    }
-
-    public final void q(String content) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, content) == null) {
-            Intrinsics.checkNotNullParameter(content, "content");
-            this.e = content;
-        }
-    }
-
-    public final void r(SpanGroupManager spanGroupManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, spanGroupManager) == null) {
-            this.f = spanGroupManager;
-        }
-    }
-
-    public final void u(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && !StringUtils.isNull(str)) {
-            getContext().showToast(str);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.h)) {
-                bca.z(this.h, null);
-            } else if (!TextUtils.isEmpty(this.i)) {
-                bca.B(this.i, null);
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!TextUtils.isEmpty(this.h)) {
-                bca.p(this.h, this.k);
-            } else if (!TextUtils.isEmpty(this.i)) {
-                bca.r(this.i, this.k);
-            }
-        }
-    }
-
-    public final SpanGroupManager f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (SpanGroupManager) invokeV.objValue;
-    }
-
-    public final TbPageContext<?> getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TbPageContext<?> tbPageContext = this.b;
-            if (tbPageContext != null) {
-                return tbPageContext;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("context");
-            return null;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NewWriteModel newWriteModel = this.d;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            newWriteModel.cancelLoadData();
-            n();
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            NewWriteModel newWriteModel = this.d;
-            NewWriteModel newWriteModel2 = null;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            newWriteModel.setWriteData(null);
-            NewWriteModel newWriteModel3 = this.d;
-            if (newWriteModel3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-            } else {
-                newWriteModel2 = newWriteModel3;
-            }
-            newWriteModel2.r0(false);
-        }
-    }
-
-    public void j(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) && i2 == -1) {
-            if (i != 12004 && i != 12005) {
-                if (i == 25004 && intent != null) {
-                    String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
-                    if (b() != null) {
-                        b().D(new zi5(44, 40, stringExtra));
-                    }
-                }
-            } else if (intent != null) {
-                ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
-                if (b() != null) {
-                    b().D(new zi5(17, 40, parcelableArrayListExtra));
-                }
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            WriteData writeData = new WriteData();
-            writeData.setForumId(g("forumId"));
-            writeData.setForumName(g("forumName"));
-            writeData.setThreadId(g("threadId"));
-            if (!TextUtils.isEmpty(this.g) && !Intrinsics.areEqual("text", this.g)) {
-                if (Intrinsics.areEqual("reply", this.g)) {
-                    writeData.setType(1);
-                } else if (Intrinsics.areEqual("replyFloor", this.g)) {
-                    writeData.setType(2);
-                    String g = g("postId");
-                    writeData.setFloor(g);
-                    writeData.setFloorNum(0);
-                    writeData.setReplyId(g("replyUid"));
-                    writeData.setRepostId(g);
-                    writeData.setPortrait(g("portrait"));
-                    writeData.setName(g("name"));
-                    writeData.setReSubPostId(g("reSubPostId"));
-                    writeData.setSubPbReplyPrefix(g("subPbReplyPrefix"));
-                }
-            } else {
-                writeData.setType(9);
-            }
-            writeData.setContent(this.e);
-            writeData.onPostDataParse(this.f);
-            NewWriteModel newWriteModel = this.d;
-            NewWriteModel newWriteModel2 = null;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            newWriteModel.setWriteData(writeData);
-            NewWriteModel newWriteModel3 = this.d;
-            if (newWriteModel3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-            } else {
-                newWriteModel2 = newWriteModel3;
-            }
-            newWriteModel2.w0();
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            NewWriteModel newWriteModel = this.d;
-            if (newWriteModel == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
-                newWriteModel = null;
-            }
-            WriteData l0 = newWriteModel.l0();
-            if (l0 == null) {
-                l0 = new WriteData();
-            }
-            l0.setForumId(g("forumId"));
-            l0.setForumName(g("forumName"));
-            l0.setThreadId(this.h);
-            l0.setContent(this.e);
-            if (!TextUtils.isEmpty(this.h)) {
-                l0.setType(1);
-                bca.z(this.h, l0);
-            } else if (!TextUtils.isEmpty(this.i)) {
-                l0.setType(2);
-                l0.setReplyId(g("replyUid"));
-                l0.setFloor(this.i);
-                l0.setPortrait(g("portrait"));
-                l0.setName(g("name"));
-                l0.setReSubPostId(g("reSubPostId"));
-                l0.setSubPbReplyPrefix(g("subPbReplyPrefix"));
-                bca.B(this.i, l0);
-            }
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && b() != null) {
-            b().D(new zi5(9, -1, Boolean.TRUE));
-            b().D(new zi5(4, -1, ""));
-            b().q();
-        }
-    }
-
-    public final void s(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, str) == null) {
-            if (AntiHelper.m(i, str)) {
-                AntiHelper.w(getContext().getPageActivity(), str, i, null);
-            } else if (i != 230277 && i != 230278) {
-                u(str);
-            } else {
-                p55 p55Var = new p55(getContext().getPageActivity());
-                p55Var.setMessage(str);
-                p55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b3d, new p55.e() { // from class: com.baidu.tieba.vy4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.p55.e
-                    public final void onClick(p55 p55Var2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, p55Var2) == null) {
-                            az4.t(p55Var2);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, hashMap) == null) {
+            JSONObject jSONObject2 = jSONObject;
+            String str4 = "source";
+            String str5 = "path";
+            if (jSONObject2 != null && hashMap != null) {
+                try {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!hashMap.containsKey(next)) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
+                            ArrayList<String> arrayList = new ArrayList<>();
+                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
+                                for (int i = 0; i < optJSONArray2.length(); i++) {
+                                    arrayList.add(optJSONArray2.optString(i));
+                                }
+                            }
+                            if (!jSONObject3.has("module")) {
+                                str = "";
+                            } else {
+                                str = jSONObject3.optString("module");
+                            }
+                            if (!jSONObject3.has(str5)) {
+                                str2 = "";
+                            } else {
+                                str2 = jSONObject3.optString(str5);
+                            }
+                            ArrayList<String> arrayList2 = new ArrayList<>();
+                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
+                                str3 = str4;
+                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                    arrayList2.add(optJSONArray.optString(i2));
+                                }
+                            } else {
+                                str3 = str4;
+                            }
+                            String optString = jSONObject3.optString("staticPrePath", "");
+                            int optInt = jSONObject3.optInt("proxyMode");
+                            kw9.a().j(next, next);
+                            kw9.a().k(next, str2);
+                            Iterator<String> it = arrayList2.iterator();
+                            while (it.hasNext()) {
+                                String next2 = it.next();
+                                if (!TextUtils.isEmpty(next2)) {
+                                    kw9 a = kw9.a();
+                                    String str6 = str5;
+                                    a.j(optString + "/" + next2, next);
+                                    kw9 a2 = kw9.a();
+                                    a2.k(optString + "/" + next2, next2);
+                                    str5 = str6;
+                                }
+                            }
+                            String str7 = str5;
+                            lw9 lw9Var = new lw9();
+                            lw9Var.a = arrayList;
+                            lw9Var.b = str;
+                            lw9Var.c = str2;
+                            lw9Var.d = arrayList2;
+                            if (optInt == 1) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            lw9Var.f = z;
+                            lw9Var.e = true;
+                            hashMap.put(next, lw9Var);
+                            jSONObject2 = jSONObject;
+                            str4 = str3;
+                            str5 = str7;
                         }
                     }
-                });
-                p55Var.create(getContext()).show();
-            }
-        }
-    }
-
-    public final void v(zy4 config) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.c = config;
-            lj5 p = b().p(40);
-            Intrinsics.checkNotNullExpressionValue(p, "editorTools.findToolById…rToolsID.TOOL_ID_WEBVIEW)");
-            if (p instanceof cz4) {
-                ((cz4) p).h(config);
-                this.e = "";
-            }
-            String g = g("threadId");
-            String g2 = g("postId");
-            zy4 zy4Var = this.c;
-            if (zy4Var == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                zy4Var = null;
-            }
-            boolean z2 = true;
-            if (!Intrinsics.areEqual(zy4Var.a, this.g)) {
-                zy4 zy4Var2 = this.c;
-                if (zy4Var2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mConfig");
-                    zy4Var2 = null;
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                String str = zy4Var2.a;
-                Intrinsics.checkNotNullExpressionValue(str, "mConfig.mPostType");
-                this.g = str;
-                z = true;
-            } else {
-                z = false;
-            }
-            if (Intrinsics.areEqual("reply", this.g) && !TextUtils.isEmpty(g)) {
-                if (!StringsKt__StringsJVMKt.equals$default(g, this.h, false, 2, null)) {
-                    Intrinsics.checkNotNull(g);
-                    this.h = g;
-                    this.i = "";
-                }
-                z2 = z;
-            } else {
-                if (Intrinsics.areEqual("replyFloor", this.g) && !TextUtils.isEmpty(g2) && !StringsKt__StringsJVMKt.equals$default(g2, this.i, false, 2, null)) {
-                    this.h = "";
-                    Intrinsics.checkNotNull(g2);
-                    this.i = g2;
-                }
-                z2 = z;
-            }
-            HybridLog.getInstance().c("WebViewEditor", "updateConfig " + z2 + WebvttCueParser.CHAR_SPACE + this.g + WebvttCueParser.CHAR_SPACE + g + WebvttCueParser.CHAR_SPACE + g2);
-            if (z2) {
-                this.e = "";
-                b().D(new zi5(6, 40, ""));
-                e();
             }
         }
     }

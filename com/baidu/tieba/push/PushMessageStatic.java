@@ -7,6 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.idlehelp.IdleHandlerManager;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
@@ -17,15 +19,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.bc;
-import com.baidu.tieba.dx9;
-import com.baidu.tieba.if5;
-import com.baidu.tieba.jf5;
-import com.baidu.tieba.qw9;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.rw9;
-import com.baidu.tieba.sw9;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.iv9;
+import com.baidu.tieba.jv9;
+import com.baidu.tieba.kv9;
+import com.baidu.tieba.l85;
+import com.baidu.tieba.vv9;
+import com.baidu.tieba.wd5;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,18 +46,18 @@ public class PushMessageStatic {
 
         /* renamed from: com.baidu.tieba.push.PushMessageStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0459a implements if5.h {
+        public class C0445a implements wd5.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
-            public final /* synthetic */ sw9 b;
+            public final /* synthetic */ kv9 b;
 
-            public C0459a(a aVar, Ringtone ringtone, sw9 sw9Var) {
+            public C0445a(a aVar, Ringtone ringtone, kv9 kv9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ringtone, sw9Var};
+                    Object[] objArr = {aVar, ringtone, kv9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -68,10 +68,10 @@ public class PushMessageStatic {
                     }
                 }
                 this.a = ringtone;
-                this.b = sw9Var;
+                this.b = kv9Var;
             }
 
-            @Override // com.baidu.tieba.if5.h
+            @Override // com.baidu.tieba.wd5.h
             public void dismiss() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -79,26 +79,26 @@ public class PushMessageStatic {
                     if (ringtone != null) {
                         ringtone.stop();
                     }
-                    sw9 sw9Var = this.b;
-                    if (sw9Var != null) {
-                        sw9Var.l();
+                    kv9 kv9Var = this.b;
+                    if (kv9Var != null) {
+                        kv9Var.l();
                     }
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements sw9.e {
+        public class b implements kv9.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ if5 a;
+            public final /* synthetic */ wd5 a;
 
-            public b(a aVar, if5 if5Var) {
+            public b(a aVar, wd5 wd5Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, if5Var};
+                    Object[] objArr = {aVar, wd5Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -108,15 +108,15 @@ public class PushMessageStatic {
                         return;
                     }
                 }
-                this.a = if5Var;
+                this.a = wd5Var;
             }
 
-            @Override // com.baidu.tieba.sw9.e
+            @Override // com.baidu.tieba.kv9.e
             public void a(View view2) {
-                if5 if5Var;
+                wd5 wd5Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (if5Var = this.a) != null) {
-                    if5Var.t();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (wd5Var = this.a) != null) {
+                    wd5Var.t();
                 }
             }
         }
@@ -157,9 +157,9 @@ public class PushMessageStatic {
                         return;
                     }
                     if (currentActivity != null) {
-                        new qw9(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
+                        new iv9(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
                     } else {
-                        rw9.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
+                        jv9.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
                     }
                 }
             }
@@ -235,17 +235,17 @@ public class PushMessageStatic {
                 TbPageContext currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity());
                 if (type != 3 && type != 6 && type != 7) {
                     if (type == 1 || type == 2 || type == 4 || type == 5 || type == 8 || type == 9 || type == 10) {
-                        zg.a().post(new c(this, type, pushGeneralData));
+                        SafeHandler.getInst().post(new c(this, type, pushGeneralData));
                     }
                 } else {
-                    sw9 sw9Var = new sw9(currentPageContext);
-                    sw9Var.o(pushGeneralData);
-                    Ringtone f = dx9.f();
-                    if5 f2 = jf5.f(sw9Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                    f2.x(new C0459a(this, f, sw9Var));
-                    sw9Var.p(new b(this, f2));
+                    kv9 kv9Var = new kv9(currentPageContext);
+                    kv9Var.o(pushGeneralData);
+                    Ringtone f = vv9.f();
+                    wd5 f2 = xd5.f(kv9Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                    f2.x(new C0445a(this, f, kv9Var));
+                    kv9Var.p(new b(this, f2));
                 }
-                bc.b().a("processLiveData", new d(this, isLiveData, remindInfo, extData));
+                IdleHandlerManager.getInstance().addOrRunTask("processLiveData", new d(this, isLiveData, remindInfo, extData));
             }
         }
     }
@@ -277,19 +277,19 @@ public class PushMessageStatic {
                 if (strArr != null && tbPageContext != null && strArr.length > 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                        dx9.e(tbPageContext.getContext(), str, true);
+                        vv9.e(tbPageContext.getContext(), str, true);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                        dx9.a(tbPageContext.getContext(), str);
+                        vv9.a(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                        dx9.d(tbPageContext.getContext(), str);
+                        vv9.d(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                        dx9.b(tbPageContext.getContext(), str);
+                        vv9.b(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                        dx9.c(tbPageContext.getContext(), str);
+                        vv9.c(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                         UrlSchemaJumpHelper.jumpGamePlayPage(tbPageContext.getContext(), str);
@@ -375,10 +375,10 @@ public class PushMessageStatic {
             hashMap.put("view_top_params_key_yyext", yyExtData);
             hashMap.put("view_top_params_key_type", 1);
             hashMap.put("view_top_params_room_id", pushExtData.getLiveId());
-            if (jf5.f(null, tbPageContext, hashMap, 0L, pushRemindInfo.getShowtime()) != null) {
-                jf5.e();
+            if (xd5.f(null, tbPageContext, hashMap, 0L, pushRemindInfo.getShowtime()) != null) {
+                xd5.e();
                 TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
-                r95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                l85.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
             }
         }
     }

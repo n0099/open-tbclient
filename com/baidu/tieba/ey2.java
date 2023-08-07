@@ -1,76 +1,106 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ey2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public UnitedSchemeEntity a;
-    public CallbackHandler b;
+    public CallbackHandler a;
+    public JSONObject b;
 
-    public ey2(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750603, "Lcom/baidu/tieba/ey2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947750603, "Lcom/baidu/tieba/ey2;");
+                return;
+            }
+        }
+        c = ir1.a;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return UnitedSchemeUtility.isInvokedFromSwanGame(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ey2(CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeEntity, callbackHandler};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {callbackHandler, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = unitedSchemeEntity;
-        this.b = callbackHandler;
+        this.a = callbackHandler;
+        this.b = jSONObject;
     }
 
-    public static ey2 a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, unitedSchemeEntity, callbackHandler)) == null) {
-            return new ey2(unitedSchemeEntity, callbackHandler);
-        }
-        return (ey2) invokeLL.objValue;
-    }
-
-    public void c(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            b(str, null);
         }
     }
 
-    public void b(String str, int i, String str2) {
+    public void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || this.b == null) {
+            return;
+        }
+        JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
+        this.a.handleSchemeDispatchCallback(this.b.optString(str), wrapCallbackParamsWithEncode.toString());
+        if (c) {
+            Log.d("AudioStatusCallback", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
         }
     }
 
-    public void d(int i) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a.result = UnitedSchemeUtility.wrapCallbackParams(i);
-        }
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            UnitedSchemeEntity unitedSchemeEntity = this.a;
-            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (c) {
+                    Log.d("AudioStatusCallback", "Audio Callback is Null");
+                    return;
+                }
+                return;
+            }
+            try {
+                this.b = new JSONObject(str);
+            } catch (JSONException e) {
+                ei3.b("audio", 2009, "update json exception", -1, "");
+                by2.c("AudioStatusCallback", "#setCallbacks error", e);
+            }
         }
     }
 }

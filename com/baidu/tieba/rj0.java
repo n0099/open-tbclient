@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.LruCache;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,210 +13,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
 /* loaded from: classes7.dex */
-public class rj0 extends LruCache<String, qj0<File>> {
+public class rj0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Long a;
+    public static Long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<e> a;
-    public final String b;
-    public HashMap<qj0<File>, byte[]> c;
-    public long d;
-    public volatile boolean e;
-    public int f;
-    public long g;
 
     /* loaded from: classes7.dex */
-    public interface e {
-        void a(String str, qj0<File> qj0Var);
-
-        void b(String str, qj0<File> qj0Var);
-
-        void c(String str, qj0<File> qj0Var);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final rj0 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ rj0 b;
 
-        public a(String str, rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, rj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-459164013, "Lcom/baidu/tieba/rj0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-459164013, "Lcom/baidu/tieba/rj0$b;");
                     return;
                 }
             }
-            this.a = str;
-            this.b = rj0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    File file = new File(this.a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    this.b.o(file.listFiles(), currentTimeMillis);
-                } catch (Exception unused) {
-                    this.b.e = true;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ qj0 b;
-        public final /* synthetic */ rj0 c;
-
-        public b(rj0 rj0Var, byte[] bArr, qj0 qj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj0Var, bArr, qj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = rj0Var;
-            this.a = bArr;
-            this.b = qj0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    System.currentTimeMillis();
-                    i71.i(this.a, (File) this.b.a());
-                    this.c.put(((File) this.b.a()).getName(), this.b);
-                    rj0.b(this.c);
-                    if (!this.c.a.isEmpty()) {
-                        for (e eVar : this.c.a) {
-                            eVar.c(((File) this.b.a()).getName(), this.b);
-                        }
-                    }
-                    System.currentTimeMillis();
-                    this.c.f();
-                } catch (Throwable unused) {
-                    if (!this.c.a.isEmpty()) {
-                        for (e eVar2 : this.c.a) {
-                            eVar2.a(((File) this.b.a()).getName(), this.b);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qj0 a;
-        public final /* synthetic */ rj0 b;
-
-        public c(rj0 rj0Var, qj0 qj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj0Var, qj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rj0Var;
-            this.a = qj0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a != null) {
-                        System.currentTimeMillis();
-                        ((File) this.a.a()).getName();
-                        rj0.c(this.b);
-                        this.a.e();
-                        System.currentTimeMillis();
-                    }
-                    this.b.f();
-                } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                return Long.compare(file.lastModified(), file2.lastModified());
-            }
-            return invokeLL.intValue;
+            a = new rj0(null);
         }
     }
 
@@ -228,249 +59,127 @@ public class rj0 extends LruCache<String, qj0<File>> {
             }
             if ((invokeClinit.flags & 1) != 0) {
                 classClinitInterceptable.invokePostClinit(1948123409, "Lcom/baidu/tieba/rj0;");
+                return;
             }
         }
+        a = 30000L;
+        b = null;
     }
 
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rj0(int i, String str) {
-        super(i);
+    public rj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.e = false;
-        this.f = 0;
-        this.g = 2592000000L;
-        this.b = str;
-        this.c = new HashMap<>();
+        b = Long.valueOf(System.currentTimeMillis());
     }
 
-    public final void o(File[] fileArr, long j) {
+    @NonNull
+    public static rj0 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, fileArr, j) == null) {
-            if (fileArr != null && fileArr.length > 0) {
-                PriorityQueue priorityQueue = new PriorityQueue(11, new d(this));
-                if (priorityQueue.size() > 0) {
-                    File file = (File) priorityQueue.peek();
-                    if (file != null) {
-                        this.d = file.lastModified();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (rj0) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "uad_sys_useragent" + pj0.a().w();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ rj0(a aVar) {
+        this();
+    }
+
+    public void e(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            String f = f();
+            SharedPreferences.Editor edit = pj0.b().getSharedPreferences("uad_useragent", 0).edit();
+            edit.putString(f, str);
+            edit.apply();
+        }
+    }
+
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = property.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = property.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
                 } else {
-                    this.d = System.currentTimeMillis();
-                }
-                priorityQueue.addAll(Arrays.asList(fileArr));
-                while (!priorityQueue.isEmpty()) {
-                    File file2 = (File) priorityQueue.poll();
-                    if (file2 != null) {
-                        m(file2.getName(), file2);
-                    }
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                 }
             }
-            System.currentTimeMillis();
-            k();
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public static /* synthetic */ int b(rj0 rj0Var) {
-        int i = rj0Var.f;
-        rj0Var.f = i + 1;
-        return i;
-    }
-
-    public static /* synthetic */ int c(rj0 rj0Var) {
-        int i = rj0Var.f;
-        rj0Var.f = i - 1;
-        return i;
-    }
-
-    public void delete(String str) {
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        String a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && super.get(str) != null) {
-            g((qj0) super.remove(str));
-        }
-    }
-
-    public void e(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            x31.b(this.a, eVar);
-        }
-    }
-
-    public final void g(qj0<File> qj0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qj0Var) == null) {
-            o51.c(new c(this, qj0Var), "delete_disk_file_async", 3);
-        }
-    }
-
-    @Nullable
-    public qj0<File> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            qj0<File> qj0Var = (qj0) super.get(str);
-            if (qj0Var != null) {
-                try {
-                    qj0Var.a().setLastModified(System.currentTimeMillis());
-                } catch (Throwable unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String d = d();
+            if (!TextUtils.isEmpty(d)) {
+                return d;
+            }
+            try {
+                if (Build.VERSION.SDK_INT < 19) {
+                    a2 = a();
+                } else if (o61.e() && System.currentTimeMillis() - b.longValue() < a.longValue()) {
+                    return a() + " " + pj0.a().A().toLowerCase() + "/" + pj0.a().w() + " (Baidu; P1 " + pj0.a().b() + ") nadcorevendor/5.12.0.90";
+                } else {
+                    a2 = WebSettings.getDefaultUserAgent(pj0.b());
                 }
+            } catch (Throwable unused) {
+                a2 = a();
             }
-            return qj0Var;
+            String str = a2 + " " + pj0.a().A().toLowerCase() + "/" + pj0.a().w() + " (Baidu; P1 " + pj0.a().b() + ") nadcorevendor/5.12.0.90";
+            e(str);
+            return str;
         }
-        return (qj0) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void n(e eVar) {
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) && this.a.contains(eVar)) {
-            this.a.remove(eVar);
-        }
-    }
-
-    public boolean query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            qj0<File> i = i(str);
-            if (i != null && i.a().exists()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SharedPreferences sharedPreferences = pj0.b().getSharedPreferences("uad_useragent", 0);
+            String string = sharedPreferences.getString(f(), null);
+            if (TextUtils.isEmpty(string) && sharedPreferences.getAll().size() > 0) {
+                sharedPreferences.edit().clear().apply();
             }
-            return false;
+            return string;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static rj0 l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            rj0 rj0Var = new rj0(i, str);
-            rj0Var.e = false;
-            o51.c(new a(str, rj0Var), "restore_cache_from_disk", 3);
-            return rj0Var;
-        }
-        return (rj0) invokeLI.objValue;
-    }
-
-    public final void m(String str, File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, file) == null) && file.exists()) {
-            super.put(str, new qj0(file));
-            this.f++;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.util.LruCache
-    /* renamed from: p */
-    public int sizeOf(String str, qj0<File> qj0Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, qj0Var)) == null) {
-            if (qj0Var == null) {
-                return super.sizeOf(null, null);
-            }
-            return qj0Var.f();
-        }
-        return invokeLL.intValue;
-    }
-
-    public void q(byte[] bArr, qj0<File> qj0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, bArr, qj0Var) == null) && qj0Var != null) {
-            if (this.e) {
-                r(qj0Var, bArr);
-            } else {
-                this.c.put(qj0Var, bArr);
-            }
-        }
-    }
-
-    public final void r(qj0<File> qj0Var, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, qj0Var, bArr) == null) {
-            o51.c(new b(this, bArr, qj0Var), "store_cache_to_disk", 3);
-        }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (System.currentTimeMillis() - this.d < this.g) {
-                    return;
-                }
-                System.currentTimeMillis();
-                Map snapshot = super.snapshot();
-                this.d = System.currentTimeMillis();
-                for (String str : snapshot.keySet()) {
-                    qj0 qj0Var = (qj0) snapshot.get(str);
-                    if (qj0Var.d(this.g)) {
-                        ((File) ((qj0) super.remove(str)).a()).delete();
-                        this.f--;
-                    } else if (((File) qj0Var.a()).lastModified() < this.d) {
-                        this.d = ((File) qj0Var.a()).lastModified();
-                    }
-                }
-                System.currentTimeMillis();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.util.LruCache
-    /* renamed from: h */
-    public void entryRemoved(boolean z, String str, qj0<File> qj0Var, qj0<File> qj0Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, qj0Var, qj0Var2}) == null) {
-            super.entryRemoved(z, str, qj0Var, qj0Var2);
-            if (z && qj0Var != null) {
-                g(qj0Var);
-            }
-            if (z && !this.a.isEmpty()) {
-                for (e eVar : this.a) {
-                    eVar.b(str, qj0Var);
-                }
-            }
-        }
-    }
-
-    public final synchronized void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-                this.e = true;
-                if (this.c != null) {
-                    for (qj0<File> qj0Var : this.c.keySet()) {
-                        r(qj0Var, this.c.get(qj0Var));
-                    }
-                    this.c.clear();
-                    this.c = null;
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

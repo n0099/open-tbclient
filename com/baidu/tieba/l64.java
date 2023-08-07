@@ -1,113 +1,140 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.gl2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l64 extends wl2 {
+public class l64 extends kl2<t64, u64> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static volatile l64 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l64(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a extends gl2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.gl2.a
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894815, "Lcom/baidu/tieba/l64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894815, "Lcom/baidu/tieba/l64;");
                 return;
             }
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
+        d = ir1.a;
     }
 
-    public static wl2 t(String str, String str2) {
-        InterceptResult invokeLL;
+    public static l64 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return new l64("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
-        }
-        return (wl2) invokeLL.objValue;
-    }
-
-    public static wl2 v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return new l64("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
-        }
-        return (wl2) invokeLL.objValue;
-    }
-
-    public static wl2 u(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                str = "show";
-            } else {
-                str = "hide";
-            }
-            return new l64("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
-        }
-        return (wl2) invokeZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.vl2
-    public String o(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode != -2011830027) {
-                if (hashCode != -774049378) {
-                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                        c = 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (l64.class) {
+                    if (e == null) {
+                        e = new l64();
                     }
-                    c = 65535;
-                } else {
-                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                        c = 0;
-                    }
-                    c = 65535;
                 }
-            } else {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return "";
-                    }
-                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
-                }
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
-            }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(jo3.b(jo3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+            return e;
         }
-        return (String) invokeL.objValue;
+        return (l64) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l64() {
+        super(new t64(), new u64());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((km2) objArr[0], (nm2) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kl2
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return n64.b().getPath();
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.kl2
+    @Nullable
+    public ExtensionCore c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return d();
+            }
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
+            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
+            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
+            if (d) {
+                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+                return extensionCore;
+            }
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
     }
 }

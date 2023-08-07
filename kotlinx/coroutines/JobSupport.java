@@ -191,7 +191,7 @@ public class JobSupport implements Job, ChildJob, ParentJob, SelectClause0 {
             return false;
         }
 
-        /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
+        /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
         public final boolean isCompleting() {
             return this._isCompleting;
         }
@@ -552,7 +552,7 @@ public class JobSupport implements Job, ChildJob, ParentJob, SelectClause0 {
                 atomicReferenceFieldUpdater = _state$FU;
                 empty = JobSupportKt.EMPTY_ACTIVE;
             } else if ((state$kotlinx_coroutines_core instanceof Incomplete) && ((Incomplete) state$kotlinx_coroutines_core).getList() != null) {
-                jobNode.mo2340remove();
+                jobNode.mo2341remove();
                 return;
             } else {
                 return;

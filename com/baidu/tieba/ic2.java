@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ic2 extends fc2 {
+public class ic2 extends zb2<JSONObject, y22> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
 
     public ic2() {
         Interceptable interceptable = $ic;
@@ -26,30 +28,36 @@ public class ic2 extends fc2 {
         }
     }
 
-    public static ic2 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dc2
+    @NonNull
+    /* renamed from: c */
+    public y22 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            ic2 ic2Var = new ic2();
-            ic2Var.a = 1;
-            ic2Var.b = str;
-            ic2Var.c = 0L;
-            ic2Var.d = bitmap;
-            return ic2Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (b()) {
+                if (zb2.a) {
+                    y72.b("Api-HandleException", "has triggered fmp before remove skeleton");
+                }
+                return new y22(0);
+            } else if (jSONObject == null) {
+                return new y22(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new y22(202, "data is required");
+                }
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new y22(202, "path is required");
+                }
+                xb2 xb2Var = new xb2();
+                xb2Var.g(optString);
+                xb2Var.e();
+                return new y22(0);
+            }
         }
-        return (ic2) invokeLL.objValue;
-    }
-
-    public static ic2 b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            ic2 ic2Var = new ic2();
-            ic2Var.a = 1;
-            ic2Var.b = str;
-            ic2Var.c = j;
-            return ic2Var;
-        }
-        return (ic2) invokeLJ.objValue;
+        return (y22) invokeL.objValue;
     }
 }

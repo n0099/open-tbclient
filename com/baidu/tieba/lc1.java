@@ -1,44 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.MutableContextWrapper;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import androidx.annotation.RequiresApi;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.NadNativeBrowserView;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.tieba.h61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class lc1 extends WebChromeClient {
+public abstract class lc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gc1 a;
-    public NadNativeBrowserView b;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public BubbleManager.b d;
+    public BubbleManager.a e;
+    public g f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public ObjectAnimator j;
+    public boolean k;
+    public pc1 l;
+    public hc1 m;
 
-    @RequiresApi(21)
+    public abstract pc1 f();
+
+    public abstract void j();
+
     /* loaded from: classes6.dex */
-    public static final class a implements h91 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WebChromeClient.FileChooserParams a;
+        public final /* synthetic */ lc1 a;
 
-        public a(WebChromeClient.FileChooserParams fileChooserParams) {
+        public a(lc1 lc1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fileChooserParams};
+                Object[] objArr = {lc1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,58 +60,289 @@ public final class lc1 extends WebChromeClient {
                     return;
                 }
             }
-            this.a = fileChooserParams;
+            this.a = lc1Var;
         }
 
-        @Override // com.baidu.tieba.h91
-        public Intent a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                WebChromeClient.FileChooserParams fileChooserParams = this.a;
-                if (fileChooserParams != null) {
-                    return fileChooserParams.createIntent();
-                }
-                return null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.k();
             }
-            return (Intent) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.h91
-        public String[] b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                WebChromeClient.FileChooserParams fileChooserParams = this.a;
-                if (fileChooserParams != null) {
-                    return fileChooserParams.getAcceptTypes();
-                }
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.h91
-        public int getMode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                WebChromeClient.FileChooserParams fileChooserParams = this.a;
-                if (fileChooserParams != null) {
-                    return fileChooserParams.getMode();
-                }
-                return -1;
-            }
-            return invokeV.intValue;
         }
     }
 
-    public lc1(NadNativeBrowserView webView, gc1 gc1Var) {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lc1 a;
+
+        public b(lc1 lc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lc1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                lc1 lc1Var = this.a;
+                BubblePosition b = lc1Var.m.b(lc1Var.l);
+                if (b == BubblePosition.INVALID) {
+                    this.a.l.m();
+                    gc1.a().b("——>show: remove bubble view end");
+                    lc1 lc1Var2 = this.a;
+                    if (lc1Var2.g) {
+                        lc1Var2.l.l();
+                        gc1.a().b("——>show: remove bg view end");
+                    }
+                    lc1 lc1Var3 = this.a;
+                    if (lc1Var3.h) {
+                        lc1Var3.l.k();
+                        gc1.a().b("——>show: remove anchorlayer view end");
+                        return;
+                    }
+                    return;
+                }
+                this.a.l.z(b);
+                this.a.q(b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BubblePosition a;
+        public final /* synthetic */ lc1 b;
+
+        public c(lc1 lc1Var, BubblePosition bubblePosition) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lc1Var, bubblePosition};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lc1Var;
+            this.a = bubblePosition;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                lc1 lc1Var = this.b;
+                int[] i3 = lc1Var.m.i(this.a, lc1Var.l);
+                this.b.l.A(i3);
+                lc1 lc1Var2 = this.b;
+                if (lc1Var2.i) {
+                    int a = h61.c.a(null, lc1Var2.m.b + 11.0f);
+                    BubblePosition bubblePosition = this.a;
+                    if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
+                        if (bubblePosition == BubblePosition.RIGHT || bubblePosition == BubblePosition.LEFT) {
+                            if (this.a == BubblePosition.LEFT) {
+                                i2 = i3[0] + a;
+                            } else {
+                                i2 = i3[0] - a;
+                            }
+                            lc1 lc1Var3 = this.b;
+                            lc1Var3.b(lc1Var3.l.b, i2, i3[0], i3[1], i3[1]);
+                        }
+                    } else {
+                        if (this.a == BubblePosition.UP) {
+                            i = i3[1] + a;
+                        } else {
+                            i = i3[1] - a;
+                        }
+                        lc1 lc1Var4 = this.b;
+                        lc1Var4.b(lc1Var4.l.b, i3[0], i3[0], i, i3[1]);
+                    }
+                }
+                lc1 lc1Var5 = this.b;
+                if (lc1Var5.h) {
+                    lc1Var5.l.y();
+                }
+                lc1 lc1Var6 = this.b;
+                lc1Var6.a = true;
+                if (lc1Var6.b) {
+                    lc1Var6.f.sendEmptyMessageDelayed(0, lc1Var6.c);
+                }
+                BubbleManager.b bVar = this.b.d;
+                if (bVar != null) {
+                    bVar.onBubbleShow();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lc1 a;
+
+        public d(lc1 lc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lc1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lc1 a;
+
+        public e(lc1 lc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lc1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lc1 a;
+
+        public f(lc1 lc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lc1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+                BubbleManager.a aVar = this.a.e;
+                if (aVar != null) {
+                    aVar.onAnchorClick();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class g extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<lc1> a;
+
+        public g(lc1 lc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(lc1Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            lc1 lc1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && (lc1Var = this.a.get()) != null) {
+                lc1Var.c();
+            }
+        }
+    }
+
+    public lc1(pc1 pc1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, gc1Var};
+            Object[] objArr = {pc1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,115 +352,178 @@ public final class lc1 extends WebChromeClient {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        this.a = gc1Var;
-        this.b = webView;
+        this.b = true;
+        this.c = 7000;
+        this.k = true;
+        this.m = new hc1();
+        this.l = pc1Var;
     }
 
-    public final Activity a(WebView webView) {
-        InterceptResult invokeL;
+    public final void b(View view2, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
-            if (webView == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            ObjectAnimator objectAnimator = this.j;
+            if (objectAnimator != null && objectAnimator.isRunning()) {
+                this.j.cancel();
             }
-            if (webView.getContext() instanceof Activity) {
-                Context context = webView.getContext();
-                if (context != null) {
-                    return (Activity) context;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
-            } else if (!(webView.getContext() instanceof MutableContextWrapper)) {
-                return null;
-            } else {
-                Context context2 = webView.getContext();
-                if (context2 != null) {
-                    if (!(((MutableContextWrapper) context2).getBaseContext() instanceof Activity)) {
-                        return null;
-                    }
-                    Context context3 = webView.getContext();
-                    if (context3 != null) {
-                        Context baseContext = ((MutableContextWrapper) context3).getBaseContext();
-                        if (baseContext != null) {
-                            return (Activity) baseContext;
-                        }
-                        throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
-                }
-                throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
-            }
+            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, f2, f3), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, f4, f5)).setDuration(180L);
+            this.j = duration;
+            duration.start();
         }
-        return (Activity) invokeL.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public Bitmap getDefaultVideoPoster() {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.a) {
+            return;
+        }
+        ek0.c(new a(this));
+    }
+
+    public hc1 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.RGB_565);
-                createBitmap.eraseColor(0);
-                return createBitmap;
-            } catch (Exception unused) {
-                return super.getDefaultVideoPoster();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.m;
         }
-        return (Bitmap) invokeV.objValue;
+        return (hc1) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i) == null) {
-            super.onProgressChanged(webView, i);
-            gc1 gc1Var = this.a;
-            if (gc1Var != null) {
-                gc1Var.a(this.b, i);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return !this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onReceivedTitle(WebView webView, String str) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-            super.onReceivedTitle(webView, str);
-            gc1 gc1Var = this.a;
-            if (gc1Var != null) {
-                gc1Var.b(this.b, str);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            pc1 pc1Var = this.l;
+            if (pc1Var != null) {
+                pc1Var.n();
+                this.l = null;
             }
+            this.d = null;
+            this.f = null;
+            this.j = null;
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onRequestFocus(WebView webView) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
-            super.onRequestFocus(webView);
-            gc1 gc1Var = this.a;
-            if (gc1Var != null) {
-                gc1Var.c(this.b);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void i(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            BubbleManager.b bVar = this.d;
+            if (bVar != null) {
+                bVar.onBubbleClick();
+            }
+            if (this.k) {
+                c();
             }
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        InterceptResult invokeLLL;
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, valueCallback, fileChooserParams)) == null) {
-            this.b.V();
-            Activity a2 = a(webView);
-            if (a2 != null && Build.VERSION.SDK_INT >= 21) {
-                return k91.h(a2, valueCallback, new a(fileChooserParams));
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if (i <= 0) {
+                this.c = 7000;
+            } else {
+                this.c = i;
             }
-            if (valueCallback != null) {
-                valueCallback.onReceiveValue(null);
-            }
-            return false;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public void n(BubbleManager.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void q(BubblePosition bubblePosition) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bubblePosition) == null) {
+            this.l.j(new c(this, bubblePosition));
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.l.g()) {
+            this.f = new g(this);
+            this.l.v(new d(this));
+            this.l.u(new e(this));
+            this.l.t(new f(this));
+        }
+    }
+
+    public void p() {
+        pc1 pc1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (pc1Var = this.l) == null || pc1Var.c == null || TextUtils.isEmpty(pc1Var.c()) || !this.l.h() || !h()) {
+            return;
+        }
+        o();
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a) {
+            ObjectAnimator objectAnimator = this.j;
+            if (objectAnimator != null && objectAnimator.isRunning()) {
+                this.j.cancel();
+            }
+            if (this.g) {
+                this.l.l();
+                gc1.a().b("——>dismiss BgView end");
+            }
+            if (this.h) {
+                this.l.k();
+                gc1.a().b("——>dismiss anchorLayer end");
+            }
+            this.l.m();
+            gc1.a().b("——>dismiss BubbleView end");
+            this.a = false;
+            g gVar = this.f;
+            if (gVar != null) {
+                gVar.removeMessages(0);
+            }
+            BubbleManager.b bVar = this.d;
+            if (bVar != null) {
+                bVar.onBubbleDismiss();
+            }
+            l();
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            gc1.a().b("——>show");
+            g();
+            if (this.g) {
+                this.l.q();
+            }
+            if (this.h) {
+                this.l.p();
+                this.l.o();
+            }
+            this.l.r();
+            if (!this.k) {
+                this.l.f();
+            }
+            j();
+            this.l.j(new b(this));
+        }
     }
 }

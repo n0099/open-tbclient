@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.tieba.gn0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,17 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class wm0 implements xm0 {
+public class wm0 implements en0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<rm0> a;
+    public final ConcurrentLinkedQueue<gn0.b<?>> a;
+    public final AtomicBoolean b;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public static final wm0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,41 +37,14 @@ public class wm0 implements xm0 {
                     return;
                 }
             }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
+            a = new wm0();
         }
     }
 
-    public wm0(@NonNull rm0 rm0Var) {
+    public wm0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rm0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,67 +54,44 @@ public class wm0 implements xm0 {
                 return;
             }
         }
-        this.a = new WeakReference<>(rm0Var);
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
     }
 
-    @Override // com.baidu.tieba.xm0
-    public void a(AdDownloadStatus adDownloadStatus) {
-        rm0 rm0Var;
+    public static en0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, adDownloadStatus) != null) || (rm0Var = this.a.get()) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (en0) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
-        gm0 s = rm0Var.s();
-        String str = "";
-        switch (a.a[adDownloadStatus.ordinal()]) {
-            case 1:
-                rm0Var.x("0", String.valueOf(s.i), "", s.e());
+        while (true) {
+            gn0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
                 return;
-            case 2:
-                String valueOf = String.valueOf(s.i);
-                Uri uri = s.k;
-                if (uri != null) {
-                    str = uri.toString();
-                }
-                rm0Var.x("2", valueOf, str, s.e());
-                return;
-            case 3:
-                String valueOf2 = String.valueOf(s.i);
-                Uri uri2 = s.k;
-                if (uri2 != null) {
-                    str = uri2.toString();
-                }
-                rm0Var.x("1", valueOf2, str, s.e());
-                return;
-            case 4:
-                Uri uri3 = s.k;
-                if (uri3 != null) {
-                    str = uri3.toString();
-                }
-                rm0Var.x("3", "1", str, s.e());
-                return;
-            case 5:
-                Uri uri4 = s.k;
-                if (uri4 != null) {
-                    str = uri4.toString();
-                }
-                rm0Var.x("6", "1", str, s.e());
-                return;
-            case 6:
-                rm0Var.x("4", "0", "", s.e());
-                return;
-            default:
-                return;
+            }
         }
     }
 
-    @Override // com.baidu.tieba.xm0
-    public void b(AdDownloadCode adDownloadCode) {
-        rm0 rm0Var;
+    @Override // com.baidu.tieba.en0
+    public <T extends cn0> void a(hn0 hn0Var, fn0<T> fn0Var, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) != null) || (rm0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hn0Var, fn0Var, t) == null) {
+            this.a.offer(new gn0.b<>(hn0Var, fn0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                r41.c(this, "AsyncDeliver", 3);
+            }
         }
-        rm0Var.x("4", "0", "", rm0Var.s().e());
     }
 }

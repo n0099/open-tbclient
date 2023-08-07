@@ -6,7 +6,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,10 +21,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jn;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static jn p;
+    public static BdImage p;
     public static String q;
     public transient /* synthetic */ FieldHolder $fh;
     public ReplyLinearLayout a;
@@ -72,18 +72,18 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919e4);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919f8);
         this.h = (LinearLayout) view2.findViewById(R.id.top_line);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ccd);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092840);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec0);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ce3);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09285a);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed7);
         this.l = (TextView) view2.findViewById(R.id.forum_name);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb1);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091182);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091191);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09118c);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b99);
-        this.g = yi.d(view2.getContext(), 42.0f);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec8);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091195);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911a4);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09119f);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091baf);
+        this.g = BdUtilHelper.dip2px(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
@@ -293,15 +293,15 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             if (str2 != null && !str2.equals(str)) {
                 p = null;
             }
-            jn jnVar = p;
-            if (jnVar != null) {
-                this.i.setImageBitmap(jnVar.p());
+            BdImage bdImage = p;
+            if (bdImage != null) {
+                this.i.setImageBitmap(bdImage.getRawBitmap());
                 q = str;
                 return;
             }
             HeadImageView headImageView = this.i;
             int i = this.g;
-            headImageView.J(str, 12, i, i, false);
+            headImageView.startLoad(str, 12, i, i, false);
         }
     }
 

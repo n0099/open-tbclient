@@ -1,116 +1,178 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.play.PlayStatisticsResponseMessage;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ou9 {
+public class ou9 implements x69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public qu9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044886, "Lcom/baidu/tieba/ou9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044886, "Lcom/baidu/tieba/ou9;");
+    public ou9(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
-        b();
+        this.a = str;
+        this.b = new qu9(str);
     }
 
-    public static void a(HttpMessage httpMessage, av9 av9Var) {
+    @Override // com.baidu.tieba.x69
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, httpMessage, av9Var) == null) && httpMessage != null && av9Var != null) {
-            httpMessage.addParam("tid", av9Var.c);
-            httpMessage.addParam("fid", av9Var.d);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_TO, av9Var.g);
-            httpMessage.addParam("obj_id", av9Var.k);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, av9Var.h);
-            httpMessage.addParam("obj_source", av9Var.f);
-            httpMessage.addParam("obj_locate", av9Var.a);
-            httpMessage.addParam("obj_param1", av9Var.i);
-            if (!StringUtils.isNull(av9Var.n)) {
-                httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, av9Var.n);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !m(str)) {
+            return;
+        }
+        wja.d().j(this.a, wja.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
+    }
+
+    @Override // com.baidu.tieba.x69
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || !m(str)) {
+            return;
+        }
+        this.b.k();
+        this.b.j();
+        this.b.a(new fu9(401, "write", -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.x69
+    public void b(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new fu9(i, "write", i2, str2));
+    }
+
+    @Override // com.baidu.tieba.x69
+    public void c(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.a(new fu9(i, StatKey.EDITADDR_TAG_STAGE_EDIT, i, str2));
+    }
+
+    @Override // com.baidu.tieba.x69
+    public void f(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048581, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.a(new fu9(i, "record", i, str2));
+    }
+
+    @Override // com.baidu.tieba.x69
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!m(str)) {
+                return false;
             }
-            if (!StringUtils.isNull(av9Var.p)) {
-                httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, av9Var.p);
+            return this.b.g();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x69
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.b.h();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x69
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || !m(str)) {
+            return;
+        }
+        this.b.k();
+        this.b.a(new fu9(301, "write", -4399, ""));
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.equals(this.a, str) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void b() {
+    @Override // com.baidu.tieba.x69
+    public void g(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if ((interceptable != null && interceptable.invokeLIL(1048582, this, str, i, str2) != null) || !m(str)) {
+            return;
         }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new fu9(402, "write", i, str2));
     }
 
-    public static void c() {
+    @Override // com.baidu.tieba.x69
+    public void h(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !m(str)) {
+            return;
         }
+        this.b.a(new fu9(503, str2, -4399, ""));
     }
 
-    public static void d(long j, String str, av9 av9Var, String str2, long j2) {
+    @Override // com.baidu.tieba.x69
+    public void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, av9Var, str2, Long.valueOf(j2)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_DURATION, j);
-            httpMessage.addParam("obj_type", str);
-            httpMessage.addParam("playduration", j2);
-            if (av9Var != null) {
-                httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, av9Var.m);
-            }
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            a(httpMessage, av9Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || !m(str)) {
+            return;
         }
+        this.b.a(new fu9(501, str2, -4399, ""));
     }
 
-    public static void e(String str, String str2, String str3, av9 av9Var, int i) {
+    @Override // com.baidu.tieba.x69
+    public void l(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, av9Var, Integer.valueOf(i)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
-            httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, str);
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            httpMessage.addParam("obj_type", str3);
-            if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().c()) {
-                httpMessage.addParam("pcdn_state", i);
-            }
-            a(httpMessage, av9Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if ((interceptable != null && interceptable.invokeLIL(1048587, this, str, i, str2) != null) || !m(str)) {
+            return;
         }
+        if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
+            this.b.a(new fu9(i, str2, -4399, ""));
+            return;
+        }
+        this.b.f();
+        this.b.a(new fu9(i, str2, i, VideoPlatformStatic.g(i)));
     }
 }

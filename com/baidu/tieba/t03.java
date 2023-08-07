@@ -1,75 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t03 extends x03 {
+public class t03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127346, "Lcom/baidu/tieba/t03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948127346, "Lcom/baidu/tieba/t03;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t03(String str) {
-        super(str);
+    public static void a(Integer num, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("level", String.valueOf(num));
+            hashMap.put("percentage", str + "%");
+            lw2.T().u(new zk2("text-size-adjust", hashMap));
+            i22.d(num.intValue());
         }
     }
 
-    @Override // com.baidu.tieba.x03
-    public boolean a(n03 n03Var, p03 p03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{n03Var, p03Var, context, unitedSchemeEntity, callbackHandler, vb3Var})) == null) {
-            v82.i("video", "pause, video id:" + p03Var.j + " slave id: " + p03Var.c);
-            d(n03Var, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(n03 n03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n03Var, unitedSchemeEntity, callbackHandler) == null) {
-            n03Var.p();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
+            el2 el2Var = new el2();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "text-size-adjust");
+                jSONObject.put("percentage", str3 + "%");
+                jSONObject.put("level", str2);
+            } catch (JSONException e) {
+                q63.b(Log.getStackTraceString(e));
+            }
+            el2Var.c = jSONObject;
+            lw2.T().m(str, el2Var);
         }
     }
 }

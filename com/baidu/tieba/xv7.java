@@ -1,26 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xv7 {
+public class xv7 extends sk1<LoginModifyPwdServices> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
+    public xv7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public LoginModifyPwdServices createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) && !UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) && str2 != null) {
-            zka.a(tbPageContext, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new yv7();
         }
+        return (LoginModifyPwdServices) invokeV.objValue;
     }
 }

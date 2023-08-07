@@ -1,81 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes6.dex */
-public class lp0 implements op0 {
+public class lp0 extends zi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.op0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+    @Override // com.baidu.tieba.zi0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.op0
-    public void onForegroundToBackground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
     }
 
     public lp0() {
@@ -90,5 +39,29 @@ public class lp0 implements op0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.zi0
+    public boolean b(@NonNull Context context, @NonNull dj0 dj0Var, @Nullable Map<String, Object> map, @Nullable hj0 hj0Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dj0Var, map, hj0Var)) == null) {
+            super.b(context, dj0Var, map, hj0Var);
+            HashMap<String, String> d = dj0Var.d();
+            int i = 0;
+            if (d.isEmpty()) {
+                c(hj0Var, dj0Var, 202, false);
+                return true;
+            }
+            Intent intent = new Intent(context, NadRewardVideoActivity.class);
+            intent.putExtra("params", d);
+            boolean d2 = z51.d(context, intent);
+            if (!d2) {
+                i = 1001;
+            }
+            c(hj0Var, dj0Var, i, d2);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

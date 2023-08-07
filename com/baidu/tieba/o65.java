@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class o65 {
+public final class o65 implements f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
 
     public o65() {
         Interceptable interceptable = $ic;
@@ -26,47 +30,47 @@ public class o65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayMap();
     }
 
-    @NonNull
-    public static o65 b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.f65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            o65 o65Var = new o65();
-            if (!str2.startsWith("http") && !str2.startsWith("https")) {
-                if (str2.startsWith("dialoginternal://")) {
-                    Uri parse = Uri.parse(str2);
-                    for (String str3 : parse.getQueryParameterNames()) {
-                        String queryParameter = parse.getQueryParameter(str3);
-                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
-                            o65Var.a.put(str3, queryParameter);
-                        }
-                    }
-                    o65Var.a.put("yun_dialogClass", parse.getAuthority());
-                    o65Var.a.put("yun_dialogName", str);
-                    o65Var.a.put("yun_dialogUrl", str2);
-                }
-            } else {
-                o65Var.a.put("yun_dialogClass", "WebViewYunDialog");
-                o65Var.a.put("yun_dialogName", str);
-                o65Var.a.put("yun_dialogUrl", str2);
-            }
-            return o65Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "userGrowth");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
-        return (o65) invokeLL.objValue;
+        return (Map) invokeLLL.objValue;
     }
 
-    public String a(@NonNull String str) {
+    @Override // com.baidu.tieba.f65
+    public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
+            }
+            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+            if (levePopData.isHadShow() || StringUtils.isNull(levePopData.getTitle()) || StringUtils.isNull(levePopData.getDesc()) || StringUtils.isNull(levePopData.getBtn_scheme()) || levePopData.getLevel() <= 0 || levePopData.getLevel() > 10) {
+                return false;
+            }
+            Long uid = levePopData.getUid();
+            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+            if (uid == null || uid.longValue() != currentAccountId) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

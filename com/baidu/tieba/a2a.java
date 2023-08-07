@@ -1,19 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class a2a implements qc7 {
+public class a2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public d2a d;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a2a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-996116997, "Lcom/baidu/tieba/a2a$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-996116997, "Lcom/baidu/tieba/a2a$b;");
+                    return;
+                }
+            }
+            a = new a2a(null);
+        }
+    }
 
     public a2a() {
         Interceptable interceptable = $ic;
@@ -29,58 +62,95 @@ public abstract class a2a implements qc7 {
         }
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
+    public static a2a d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (a2a) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a && this.b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ a2a(a aVar) {
+        this();
+    }
+
+    public void a(Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && uri != null && b(uri)) {
+            this.c = null;
+        }
+    }
+
+    public final boolean b(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            if (this.d == null) {
+                this.d = new d2a();
             }
-            hashMap.put("obj_type", str);
-            String str3 = a.get("live_app_id");
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str3);
-            String str4 = a.get("abtest_tag");
-            if (str4 == null) {
-                str4 = "";
-            }
-            hashMap.put("ab_tag", str4);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            String str5 = a.get("extra");
-            if (str5 == null) {
-                str5 = "";
-            }
-            hashMap.put("obj_param1", str5);
-            String str6 = a.get("source");
-            if (str6 == null) {
-                str6 = "";
-            }
-            hashMap.put("obj_source", str6);
-            String str7 = a.get("position_from_1");
-            if (str7 == null) {
-                str7 = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_FLOOR, str7);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, "0");
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            if (cuid != null) {
-                str2 = cuid;
-            }
-            hashMap.put("cuid", str2);
-            return hashMap;
+            return this.d.a(uri);
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = true;
+            this.c = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void g(Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, uri, str) != null) || !b(uri)) {
+            return;
+        }
+        this.b = true;
+        if (!TextUtils.isEmpty(str)) {
+            this.c = c2a.a(str);
+        } else {
+            this.c = null;
+        }
     }
 }

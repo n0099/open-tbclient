@@ -1,81 +1,24 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.mz;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 /* loaded from: classes5.dex */
-public class fq7 extends yh7<uq7, ThreadCardViewHolder<uq7>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fq7 {
+    void d(int i, @NonNull String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fq7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
-    }
+    void g(boolean z);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public ThreadCardViewHolder<uq7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            mz.b bVar = new mz.b(this.c.getPageActivity(), true);
-            bVar.n(new nq7(this.c.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().j(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<uq7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
-            threadCardViewHolder.j(this.mPageId);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
+    void h(View.OnClickListener onClickListener);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uq7 uq7Var, ThreadCardViewHolder<uq7> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uq7Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.b().r(i);
-            threadCardViewHolder.f(uq7Var);
-            threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
+    void i(long j, long j2);
+
+    void j(@Nullable String str, @NonNull String str2);
+
+    void k(@NonNull LogicField logicField, int i);
+
+    void onChangeSkinType(int i);
+
+    void onDestory();
 }

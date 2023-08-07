@@ -1,169 +1,91 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public final class eu7 implements k75 {
+public class eu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment a;
+    public NavigationBarCoverTip b;
+    public TextView c;
+    public int d;
 
-    public eu7() {
+    public eu7(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, navigationBarCoverTip};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = frsFragment;
+        this.b = navigationBarCoverTip;
+        b();
     }
 
-    public static final void d(String resultBgUrl) {
+    public void a(String str) {
+        int i;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, resultBgUrl) == null) {
-            Intrinsics.checkNotNullParameter(resultBgUrl, "$resultBgUrl");
-            sg.h().m(resultBgUrl, 59, null, null);
-        }
-    }
-
-    public final void c(ThemeColorInfo themeColorInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeColorInfo) != null) || themeColorInfo == null) {
-            return;
-        }
-        final String g = qla.g(themeColorInfo);
-        if (!StringUtils.isNotNull(g)) {
-            dh.c(new Runnable() { // from class: com.baidu.tieba.lt7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        eu7.d(g);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.tieba.k75
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "frsNewUserGuide");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.k75
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        FrsViewData c1;
-        FrsSpriteNewUserGuide frsSpriteNewUserGuide;
-        long j;
-        FrsViewData c12;
-        ForumData forum;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "新用户弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            ThemeColorInfo themeColorInfo = null;
-            if (!mo5.g(false, 1, null)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "新用户弹窗策略校验失败：动画资源未就绪");
-                return false;
-            } else if (!sp5.a.a().b()) {
-                YunDialogLog.getInstance().b("YunDialogManager", "新用户弹窗策略校验失败：非新用户");
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !bi.isEmpty(str) && this.b != null && this.a.isPrimary() && (i = this.d) <= 0) {
+            this.d = i + 1;
+            if (str.length() < 20) {
+                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
+            } else if (str.length() < 34) {
+                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str;
             } else {
-                FrsActivity frsActivity = (FrsActivity) currentActivity;
-                jp7 x1 = frsActivity.x1();
-                if (x1 != null && x1.p0()) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    YunDialogLog.getInstance().b("YunDialogManager", "新用户弹窗策略校验失败：用户已关注本吧");
-                    return false;
-                }
-                jp7 x12 = frsActivity.x1();
-                if (x12 != null && x12.V()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z2) {
-                    YunDialogLog.getInstance().b("YunDialogManager", "新用户弹窗策略校验失败：底部直播动画弹窗存在互斥");
-                    return false;
-                }
-                FrsFragment v1 = frsActivity.v1();
-                if (v1 == null || (c1 = v1.c1()) == null || (frsSpriteNewUserGuide = c1.frsSpriteNewUserGuide) == null) {
-                    return false;
-                }
-                if (!frsSpriteNewUserGuide.isValid()) {
-                    YunDialogLog.getInstance().b("YunDialogManager", "新用户弹窗策略校验失败：该吧未下发新用户引导配置");
-                    return false;
-                }
-                FrsFragment v12 = frsActivity.v1();
-                if (v12 != null && (c12 = v12.c1()) != null && (forum = c12.getForum()) != null) {
-                    forum.getId();
-                }
-                long millis = TimeUnit.SECONDS.toMillis(frsSpriteNewUserGuide.bubblePeriod);
-                FrsFragment v13 = frsActivity.v1();
-                if (v13 != null) {
-                    j = v13.O3();
-                } else {
-                    j = -1;
-                }
-                if (j > 0 && System.currentTimeMillis() - j < millis) {
-                    return false;
-                }
-                FrsSpriteNewUserGuide.BubbleText bubbleText = frsSpriteNewUserGuide.bubbleText;
-                if (bubbleText != null) {
-                    themeColorInfo = bubbleText.bgUrlTheme;
-                }
-                c(themeColorInfo);
-                return true;
+                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
             }
+            this.c.setText(str2);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
+            this.b.m(this.a.getActivity(), this.c, 5000);
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = 0;
+            this.c = new TextView(this.a.getActivity());
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(3);
+            } else {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(19);
+            }
+            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+            this.c.setMaxLines(2);
+            this.c.setEllipsize(TextUtils.TruncateAt.END);
+        }
+    }
+
+    public void c() {
+        NavigationBarCoverTip navigationBarCoverTip;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
+            navigationBarCoverTip.i();
+        }
     }
 }

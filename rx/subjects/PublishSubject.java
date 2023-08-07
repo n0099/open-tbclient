@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.a2c;
-import com.baidu.tieba.b2c;
-import com.baidu.tieba.g2c;
-import com.baidu.tieba.q2c;
-import com.baidu.tieba.s6c;
-import com.baidu.tieba.u1c;
-import com.baidu.tieba.v1c;
-import com.baidu.tieba.w1c;
+import com.baidu.tieba.d1c;
+import com.baidu.tieba.e1c;
+import com.baidu.tieba.j1c;
+import com.baidu.tieba.t1c;
+import com.baidu.tieba.v5c;
+import com.baidu.tieba.x0c;
+import com.baidu.tieba.y0c;
+import com.baidu.tieba.z0c;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
-public final class PublishSubject<T> extends s6c<T, T> {
+public final class PublishSubject<T> extends v5c<T, T> {
     public final PublishSubjectState<T> b;
 
     /* loaded from: classes2.dex */
-    public static final class PublishSubjectProducer<T> extends AtomicLong implements w1c, b2c, v1c<T> {
+    public static final class PublishSubjectProducer<T> extends AtomicLong implements z0c, e1c, y0c<T> {
         public static final long serialVersionUID = 6451806817170721536L;
-        public final a2c<? super T> actual;
+        public final d1c<? super T> actual;
         public final PublishSubjectState<T> parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, a2c<? super T> a2cVar) {
+        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, d1c<? super T> d1cVar) {
             this.parent = publishSubjectState;
-            this.actual = a2cVar;
+            this.actual = d1cVar;
         }
 
-        @Override // com.baidu.tieba.b2c
+        @Override // com.baidu.tieba.e1c
         public boolean isUnsubscribed() {
             if (get() == Long.MIN_VALUE) {
                 return true;
@@ -36,28 +36,28 @@ public final class PublishSubject<T> extends s6c<T, T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onCompleted() {
             if (get() != Long.MIN_VALUE) {
                 this.actual.onCompleted();
             }
         }
 
-        @Override // com.baidu.tieba.b2c
+        @Override // com.baidu.tieba.e1c
         public void unsubscribe() {
             if (getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.remove(this);
             }
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onError(Throwable th) {
             if (get() != Long.MIN_VALUE) {
                 this.actual.onError(th);
             }
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onNext(T t) {
             long j = get();
             if (j != Long.MIN_VALUE) {
@@ -72,22 +72,22 @@ public final class PublishSubject<T> extends s6c<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.w1c
+        @Override // com.baidu.tieba.z0c
         public void request(long j) {
             long j2;
-            if (q2c.h(j)) {
+            if (t1c.h(j)) {
                 do {
                     j2 = get();
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, q2c.a(j2, j)));
+                } while (!compareAndSet(j2, t1c.a(j2, j)));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements u1c.a<T>, v1c<T> {
+    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements x0c.a<T>, y0c<T> {
         public static final PublishSubjectProducer[] EMPTY = new PublishSubjectProducer[0];
         public static final PublishSubjectProducer[] TERMINATED = new PublishSubjectProducer[0];
         public static final long serialVersionUID = -7568940796666027140L;
@@ -97,7 +97,7 @@ public final class PublishSubject<T> extends s6c<T, T> {
             lazySet(EMPTY);
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onCompleted() {
             for (PublishSubjectProducer<T> publishSubjectProducer : getAndSet(TERMINATED)) {
                 publishSubjectProducer.onCompleted();
@@ -120,10 +120,10 @@ public final class PublishSubject<T> extends s6c<T, T> {
             return true;
         }
 
-        public void call(a2c<? super T> a2cVar) {
-            PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, a2cVar);
-            a2cVar.b(publishSubjectProducer);
-            a2cVar.f(publishSubjectProducer);
+        public void call(d1c<? super T> d1cVar) {
+            PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, d1cVar);
+            d1cVar.b(publishSubjectProducer);
+            d1cVar.f(publishSubjectProducer);
             if (add(publishSubjectProducer)) {
                 if (publishSubjectProducer.isUnsubscribed()) {
                     remove(publishSubjectProducer);
@@ -133,13 +133,13 @@ public final class PublishSubject<T> extends s6c<T, T> {
             }
             Throwable th = this.error;
             if (th != null) {
-                a2cVar.onError(th);
+                d1cVar.onError(th);
             } else {
-                a2cVar.onCompleted();
+                d1cVar.onCompleted();
             }
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onError(Throwable th) {
             this.error = th;
             ArrayList arrayList = null;
@@ -153,19 +153,19 @@ public final class PublishSubject<T> extends s6c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            g2c.d(arrayList);
+            j1c.d(arrayList);
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onNext(T t) {
             for (PublishSubjectProducer<T> publishSubjectProducer : get()) {
                 publishSubjectProducer.onNext(t);
             }
         }
 
-        @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
+        @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((a2c) ((a2c) obj));
+            call((d1c) ((d1c) obj));
         }
 
         public void remove(PublishSubjectProducer<T> publishSubjectProducer) {
@@ -210,12 +210,12 @@ public final class PublishSubject<T> extends s6c<T, T> {
         this.b = publishSubjectState;
     }
 
-    @Override // com.baidu.tieba.v1c
+    @Override // com.baidu.tieba.y0c
     public void onError(Throwable th) {
         this.b.onError(th);
     }
 
-    @Override // com.baidu.tieba.v1c
+    @Override // com.baidu.tieba.y0c
     public void onNext(T t) {
         this.b.onNext(t);
     }
@@ -224,7 +224,7 @@ public final class PublishSubject<T> extends s6c<T, T> {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
-    @Override // com.baidu.tieba.v1c
+    @Override // com.baidu.tieba.y0c
     public void onCompleted() {
         this.b.onCompleted();
     }

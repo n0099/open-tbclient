@@ -8,6 +8,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,13 +17,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.vua;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.e95;
+import com.baidu.tieba.yta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public vua c;
+    public yta c;
     public BaseWebView d;
     public View e;
-    public ma5 f;
+    public BlueCircleProgressDialog f;
     public TextView g;
-    public oa5 h;
+    public e95 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -106,9 +106,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                ma5 ma5Var = new ma5(this.a.getPageContext());
-                this.f = ma5Var;
-                ma5Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(this.a.getPageContext());
+                this.f = blueCircleProgressDialog;
+                blueCircleProgressDialog.setCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -140,14 +140,14 @@ public class NewVcodeView {
                     }
                 });
             }
-            this.f.h(z);
+            this.f.setDialogVisiable(z);
         }
     }
 
-    public void setPresenter(vua vuaVar) {
+    public void setPresenter(yta ytaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vuaVar) == null) {
-            this.c = vuaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ytaVar) == null) {
+            this.c = ytaVar;
             this.i = false;
         }
     }
@@ -174,7 +174,7 @@ public class NewVcodeView {
     public void showWebViewDelay(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            zg.a().postDelayed(this.j, i);
+            SafeHandler.getInst().postDelayed(this.j, i);
         }
     }
 
@@ -197,7 +197,7 @@ public class NewVcodeView {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, newVcodeActivity)) == null) {
             newVcodeActivity.setActivityBgTransparent();
             newVcodeActivity.setSwipeBackEnabled(false);
-            if (this.b == wg.e("6", 0)) {
+            if (this.b == JavaTypesHelper.toInt("6", 0)) {
                 newVcodeActivity.setContentView(R.layout.new_vcode_center_activity);
             } else {
                 newVcodeActivity.setContentView(R.layout.new_vcode_activity);
@@ -206,16 +206,16 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f135f));
-            oa5 oa5Var = new oa5();
-            this.h = oa5Var;
-            oa5Var.a = 1000L;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1363));
+            e95 e95Var = new e95();
+            this.h = e95Var;
+            e95Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }
             try {
                 this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.new_vcode_webview);
-                if (this.b != wg.e("6", 0)) {
+                if (this.b != JavaTypesHelper.toInt("6", 0)) {
                     UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.d, 1.2631578f);
                 }
                 this.d.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
@@ -263,7 +263,7 @@ public class NewVcodeView {
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                             super.onReceivedError(webView, i, str, str2);
                             this.a.h(false);
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
                             this.a.a.finish();
                         }
                     }
@@ -278,7 +278,7 @@ public class NewVcodeView {
                             }
                             if (!this.a.i) {
                                 this.a.i = true;
-                                zg.a().postDelayed(this.a.j, 500L);
+                                SafeHandler.getInst().postDelayed(this.a.j, 500L);
                                 if (this.a.c != null) {
                                     this.a.c.onPageFinished(webView, str);
                                 }
@@ -322,7 +322,7 @@ public class NewVcodeView {
     public void onDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            zg.a().removeCallbacks(this.j);
+            SafeHandler.getInst().removeCallbacks(this.j);
         }
     }
 
@@ -340,7 +340,7 @@ public class NewVcodeView {
             BaseWebView baseWebView = this.d;
             if (baseWebView != null) {
                 if (z) {
-                    if (this.b != wg.e("6", 0)) {
+                    if (this.b != JavaTypesHelper.toInt("6", 0)) {
                         UtilHelper.setSupportHeight(this.a.getPageContext().getPageActivity(), this.d, this.k);
                     }
                     this.d.setVisibility(0);

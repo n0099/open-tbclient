@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -24,11 +25,10 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iv9;
+import com.baidu.tieba.au9;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.jv5;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.vx5;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iv9 a;
+    public au9 a;
     public View b;
     public ImageView c;
     public View d;
@@ -87,7 +87,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || vx5.a()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || jv5.a()) {
                 return;
             }
             if (view2 != this.a.b) {
@@ -222,17 +222,17 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(iv9 iv9Var) {
+    public void setVideoContainer(au9 au9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iv9Var) == null) {
-            this.a = iv9Var;
-            this.i.setOnClickListener(iv9Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, au9Var) == null) {
+            this.a = au9Var;
+            this.i.setOnClickListener(au9Var);
         }
     }
 
     public void e(boolean z, boolean z2) {
-        int g;
-        int g2;
+        int dimens;
+        int dimens2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
@@ -241,22 +241,22 @@ public class OperableVideoShareView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.h.getLayoutParams();
             LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
             if (z2 && !z) {
-                g = yi.g(getContext(), R.dimen.tbds72);
-                g2 = yi.g(getContext(), R.dimen.tbds52);
+                dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds72);
+                dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds52);
             } else {
-                g = yi.g(getContext(), R.dimen.tbds36);
-                g2 = yi.g(getContext(), R.dimen.tbds26);
+                dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds36);
+                dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds26);
             }
-            layoutParams4.rightMargin = g2;
-            layoutParams4.leftMargin = g2;
-            layoutParams5.rightMargin = g;
-            layoutParams5.leftMargin = g;
-            layoutParams3.rightMargin = g;
-            layoutParams3.leftMargin = g;
-            layoutParams2.rightMargin = g;
-            layoutParams2.leftMargin = g;
-            layoutParams.rightMargin = g;
-            layoutParams.leftMargin = g;
+            layoutParams4.rightMargin = dimens2;
+            layoutParams4.leftMargin = dimens2;
+            layoutParams5.rightMargin = dimens;
+            layoutParams5.leftMargin = dimens;
+            layoutParams3.rightMargin = dimens;
+            layoutParams3.leftMargin = dimens;
+            layoutParams2.rightMargin = dimens;
+            layoutParams2.leftMargin = dimens;
+            layoutParams.rightMargin = dimens;
+            layoutParams.leftMargin = dimens;
         }
     }
 
@@ -295,7 +295,7 @@ public class OperableVideoShareView extends LinearLayout {
             this.e = (ImageView) findViewById(R.id.share_weixin_timeline_img);
             this.f = findViewById(R.id.share_qq);
             this.g = (ImageView) findViewById(R.id.share_qq_img);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0908f9);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090908);
             this.i = findViewById(R.id.video_replay);
             this.j = (ImageView) findViewById(R.id.replay_img);
             this.b.setOnClickListener(this.m);
@@ -306,7 +306,7 @@ public class OperableVideoShareView extends LinearLayout {
             this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
             this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_qq40_svg, 1, false));
             this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_replay44_svg, R.color.CAM_X0105, null, false));
-            this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
+            this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
         }
     }
 
@@ -337,64 +337,64 @@ public class OperableVideoShareView extends LinearLayout {
         String str2 = this.k.getAbstract();
         String format = MessageFormat.format(getResources().getString(R.string.share_content_tpl), title, str2);
         ShareItem shareItem = new ShareItem();
-        shareItem.v = title;
-        shareItem.w = format;
+        shareItem.title = title;
+        shareItem.content = format;
         if (!this.k.isUgcThreadType() && this.k.isRealVideoThread() && this.k.getThreadVideoInfo() != null) {
-            shareItem.W = this.k.getThreadVideoInfo().play_count.intValue();
+            shareItem.readCount = this.k.getThreadVideoInfo().play_count.intValue();
         }
-        shareItem.H = str2;
-        shareItem.x = str;
-        shareItem.s = this.l;
-        shareItem.u = tid;
-        shareItem.J = 3;
+        shareItem.shareAbstract = str2;
+        shareItem.linkUrl = str;
+        shareItem.shareReportFrom = this.l;
+        shareItem.extData = tid;
+        shareItem.objParam1 = 3;
         if (this.k.isWorksInfo()) {
             i2 = 11;
         } else {
             i2 = 2;
         }
-        shareItem.K = i2;
+        shareItem.objParam2 = i2;
         if (i == 3) {
-            shareItem.L = 1;
+            shareItem.objParam3 = 1;
         } else if (i == 2) {
-            shareItem.L = 2;
+            shareItem.objParam3 = 2;
         } else if (i == 8) {
-            shareItem.L = 3;
+            shareItem.objParam3 = 3;
         } else {
-            shareItem.L = 0;
+            shareItem.objParam3 = 0;
         }
-        shareItem.N = valueOf;
-        shareItem.t = forum_name;
-        shareItem.O = tid;
-        shareItem.Q = this.k.getNid();
-        shareItem.h = true;
-        shareItem.I = 3;
-        shareItem.R = g(this.k);
+        shareItem.fid = valueOf;
+        shareItem.fName = forum_name;
+        shareItem.tid = tid;
+        shareItem.nid = this.k.getNid();
+        shareItem.isFromFeedVideoFinish = true;
+        shareItem.objSource = 3;
+        shareItem.obj_type = g(this.k);
         if (parse != null) {
-            shareItem.z = parse;
+            shareItem.imageUri = parse;
         }
-        shareItem.a0 = OriginalThreadInfo.ShareInfo.generateShareInfo(this.k);
-        shareItem.d0 = ShareItem.ForwardInfo.generateForwardInfo(this.k);
-        shareItem.M = 1;
+        shareItem.originalThreadInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(this.k);
+        shareItem.forwardInfo = ShareItem.ForwardInfo.generateForwardInfo(this.k);
+        shareItem.objLocate = 1;
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.t0 = this.k.getShareImageUrl();
+        shareItem.smartAppShareImageUrl = this.k.getShareImageUrl();
         Bundle bundle = new Bundle();
-        bundle.putString("tid", shareItem.O);
-        bundle.putString("fid", shareItem.N);
-        bundle.putInt("obj_type", shareItem.R);
-        bundle.putInt("obj_param1", shareItem.J);
-        bundle.putInt(TiebaStatic.Params.OBJ_PARAM2, shareItem.K);
-        bundle.putInt(TiebaStatic.Params.OBJ_PARAM3, shareItem.L);
-        bundle.putInt("obj_source", shareItem.s);
-        bundle.putInt("obj_locate", shareItem.M);
-        shareItem.r(bundle);
+        bundle.putString("tid", shareItem.tid);
+        bundle.putString("fid", shareItem.fid);
+        bundle.putInt("obj_type", shareItem.obj_type);
+        bundle.putInt("obj_param1", shareItem.objParam1);
+        bundle.putInt(TiebaStatic.Params.OBJ_PARAM2, shareItem.objParam2);
+        bundle.putInt(TiebaStatic.Params.OBJ_PARAM3, shareItem.objParam3);
+        bundle.putInt("obj_source", shareItem.shareReportFrom);
+        bundle.putInt("obj_locate", shareItem.objLocate);
+        shareItem.setStats(bundle);
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-        statisticItem.param("tid", shareItem.O);
+        statisticItem.param("tid", shareItem.tid);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("fid", shareItem.N);
+        statisticItem.param("fid", shareItem.fid);
         statisticItem.param("obj_locate", this.l);
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.L);
-        statisticItem.param("nid", shareItem.Q);
-        if (!xi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.objParam3);
+        statisticItem.param("nid", shareItem.nid);
+        if (!bi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
         }
         TiebaStatic.log(statisticItem);

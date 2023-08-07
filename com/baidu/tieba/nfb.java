@@ -1,116 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class nfb {
+public class nfb implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final zkb<Reporter> a;
-    public static final zkb<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ xfb c;
+    public final /* synthetic */ FunAdInteractionListener d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ kfb f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001951, "Lcom/baidu/tieba/nfb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948001951, "Lcom/baidu/tieba/nfb;");
+    public nfb(kfb kfbVar, xfb xfbVar, FunAdInteractionListener funAdInteractionListener, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kfbVar, xfbVar, funAdInteractionListener, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
-        b = new b();
+        this.f = kfbVar;
+        this.c = xfbVar;
+        this.d = funAdInteractionListener;
+        this.e = str;
     }
 
-    /* loaded from: classes7.dex */
-    public static class a extends zkb<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.baidu.tieba.zkb
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new sfb("https://rpe.xdplt.com/evt/", true);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends zkb<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.baidu.tieba.zkb
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new pfb("https://rpd.xdplt.com/evt/");
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static Reporter a() {
-        InterceptResult invokeV;
-        Reporter reporter;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            zkb<Reporter> zkbVar = a;
-            synchronized (zkbVar) {
-                if (zkbVar.a == null) {
-                    zkbVar.a = zkbVar.a();
-                }
-                reporter = zkbVar.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked((kfb) this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
-            return reporter;
         }
-        return (Reporter) invokeV.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked((kfb) this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdShow((kfb) this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
+        }
     }
 }

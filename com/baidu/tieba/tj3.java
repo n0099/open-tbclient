@@ -1,72 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Comparator;
 /* loaded from: classes8.dex */
-public class tj3 extends sd3 {
+public class tj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public boolean f;
+    public long g;
+    public long h;
+    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tj3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/getStorageInfo");
+    /* loaded from: classes8.dex */
+    public static final class a implements Comparator<tj3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(tj3 tj3Var, tj3 tj3Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tj3Var, tj3Var2)) == null) {
+                int length = tj3Var2.b.length() - tj3Var.b.length();
+                if (length != 0) {
+                    return length;
+                }
+                int length2 = tj3Var2.a.length() - tj3Var.a.length();
+                if (length2 != 0) {
+                    return length2;
+                }
+                int hashCode = tj3Var2.c.hashCode() - tj3Var.c.hashCode();
+                if (hashCode != 0) {
+                    return hashCode;
+                }
+                if (tj3Var2.d == null) {
+                    return -1;
+                }
+                if (tj3Var.d == null) {
+                    return 1;
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public tj3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public tj3(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (vb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            ej3 f0 = vb3Var.f0();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
-                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_CURRENT_SIZE, f0.e() / 1024);
-                jSONObject.put("limitSize", f0.n() / 1024);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            } catch (JSONException e) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-                if (sd3.b) {
-                    e.printStackTrace();
-                }
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.a = str;
+        this.b = str2;
+        this.e = -1L;
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                if (!this.a.startsWith(".")) {
+                    return str.equals(this.a);
+                }
+                if (str.endsWith(this.a.substring(1))) {
+                    int length = this.a.length();
+                    int length2 = str.length();
+                    if (length2 > length - 1 && str.charAt(length2 - length) != '.') {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(tj3 tj3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tj3Var)) == null) {
+            if (tj3Var == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || !TextUtils.equals(this.a, tj3Var.a) || !TextUtils.equals(this.b, tj3Var.b) || !TextUtils.equals(this.c, tj3Var.c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b) || !str.startsWith(this.b)) {
+                return false;
+            }
+            int length = this.b.length();
+            int length2 = str.length();
+            if (this.b.charAt(length - 1) != '/' && length2 > length && str.charAt(length) != '/') {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "domain: " + this.a + "; path: " + this.b + "; name: " + this.c + "; value: " + this.d + "; expires: " + this.e + "; secure: " + this.f;
+        }
+        return (String) invokeV.objValue;
     }
 }

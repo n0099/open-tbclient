@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.o74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ac4 {
+public class ac4 extends fj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<long[]> b;
-    public String c;
 
     public ac4() {
         Interceptable interceptable = $ic;
@@ -28,12 +24,13 @@ public class ac4 {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hj2
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "[ videoPath = " + this.a + "; clipPath = " + this.c + "; clipList = " + this.b + " ]";
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            o74.d.d(str);
+            in2.k(str);
+            cc4.k(str);
         }
-        return (String) invokeV.objValue;
     }
 }

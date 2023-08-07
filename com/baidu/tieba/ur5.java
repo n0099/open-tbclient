@@ -1,70 +1,168 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tbadk.switchs.PraiseSwitch;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
+import com.baidu.tbadk.performanceLog.PerformanceLogger;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class ur5 implements qq5<SyncDataEvent> {
-    public static /* synthetic */ Interceptable $ic;
+public class ur5 extends PerformanceLogger {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 100;
+    public static int b = 10;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948220625, "Lcom/baidu/tieba/ur5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948220625, "Lcom/baidu/tieba/ur5;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static int a;
+        public static int b;
+        public static int c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                BdStatsItem logItem = PerformanceLogger.getLogItem();
+                logItem.append("action", "imbusy");
+                logItem.append("totalNum", String.valueOf(a));
+                logItem.append("tfailNum", String.valueOf(b));
+                logItem.append("qfailNum", String.valueOf(c));
+                BdStatisticsManager.getInstance().performance("im", logItem);
+                b();
+            }
+        }
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                a = 0;
+                b = 0;
+                c = 0;
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static int a;
+        public static long b;
+        public static long c;
+        public static long d;
+        public static int e;
+        public static int f;
+        public static long g;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                BdStatsItem logItem = PerformanceLogger.getLogItem();
+                logItem.append("action", "imcost");
+                logItem.append("dect", String.valueOf(b));
+                logItem.append("dlsize", String.valueOf(c));
+                logItem.append("dbt", String.valueOf(d));
+                logItem.append("pnum", String.valueOf(e));
+                logItem.append("reqcost", String.valueOf(g));
+                logItem.append("cpu", String.valueOf(f));
+                logItem.append("totalNum", String.valueOf(a));
+                BdStatisticsManager.getInstance().performance("im", logItem);
+                b();
+            }
+        }
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                a = 0;
+                b = 0L;
+                c = 0L;
+                d = 0L;
+                e = 0;
+                f = 0;
+            }
+        }
+    }
 
     public ur5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qq5
-    /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
-        InterceptResult invokeL;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            boolean z = false;
-            if (syncDataEvent == null) {
-                return false;
-            }
-            HashMap<String, Integer> hashMap = syncDataEvent.switches;
-            if (hashMap != null && hashMap.size() > 0) {
-                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
-            }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            ex5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
-            h9 f = h9.f();
-            if (syncDataEvent.themeIsBlack == 1) {
-                z = true;
-            }
-            f.q(z);
-            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
-            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
-            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                bu4.w().J();
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
         }
-        return invokeL.booleanValue;
+        if (b.a > b) {
+            b.a();
+        }
+        if (a.a > b) {
+            a.a();
+        }
+    }
+
+    public static void a(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            a.a++;
+            if (z2) {
+                a.b++;
+            } else if (z3) {
+                a.c++;
+            }
+            if (a.a > a) {
+                a.a();
+            }
+        }
+    }
+
+    public void b(rr5 rr5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, rr5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
+        }
+        if (b.a < a) {
+            b.b += rr5Var.b;
+            b.c += rr5Var.c;
+            b.d += rr5Var.d;
+            b.e += rr5Var.e;
+            b.g += rr5Var.f;
+            b.f += rr5Var.g;
+            b.a++;
+            return;
+        }
+        b.a();
     }
 }

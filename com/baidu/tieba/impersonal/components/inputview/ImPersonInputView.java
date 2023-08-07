@@ -10,8 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,30 +90,28 @@ public class ImPersonInputView extends RelativeLayout {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0423, (ViewGroup) this, true);
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f09103b);
-        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f09095f);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0426, (ViewGroup) this, true);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f09104e);
+        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f09096e);
         this.b = editText;
-        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f1421));
+        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f1425));
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09274e);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092768);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09274f);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092769);
         this.d = textView;
         textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f03a1));
-        d85 d = d85.d(this.c);
-        d.o(R.string.J_X01);
-        d.f(R.color.CAM_X0920);
+        EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0920);
         a();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d85.d(this.d).x(R.color.CAM_X0100);
+            EMManager.from(this.d).setTextColor(R.color.CAM_X0100);
         }
     }
 

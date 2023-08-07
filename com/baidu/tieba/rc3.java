@@ -1,92 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-@Service
+import com.yy.gslbsdk.db.DelayTB;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rc3 extends sc3 {
+public class rc3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116775, "Lcom/baidu/tieba/rc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(rc3 rc3Var, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rc3Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948116775, "Lcom/baidu/tieba/rc3;");
-                return;
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "5");
+                w73.k(this.a, bundle);
             }
         }
-        b = fs1.a;
     }
 
-    public rc3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rc3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/preloadSwanCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sc3
-    public void a() {
-        List<sd3> b2;
-        List<sd3> a;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            b(new lw2(this));
-            b(new i92(this));
-            b(new n92(this));
-            b(new b92(this));
-            b(new od3(this));
-            b(new zc3(this));
-            b(new af3(this));
-            b(new pm2(this));
-            b(new ym2(this));
-            b(new qm2(this));
-            b(new um2(this));
-            b(new vm2(this));
-            b(new tm2(this));
-            b(new zm2(this));
-            b(new sm2(this));
-            b(new xm2(this));
-            b(new mr3(this));
-            b(new wm2(this));
-            b(new rm2(this));
-            at1 d = dv2.d();
-            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
-                for (sd3 sd3Var : a) {
-                    b(sd3Var);
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (vc3.b) {
+                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (b) {
-                b(new an2(this));
-                b(new tc3(this));
-                if (d != null && (b2 = d.b(this)) != null && !b2.isEmpty()) {
-                    for (sd3 sd3Var2 : b2) {
-                        b(sd3Var2);
-                    }
-                }
+            if (!ProcessUtils.isMainProcess()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
+                return false;
             }
+            JSONObject a2 = vc3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                optInt = 0;
+            } else {
+                optInt = a2.optInt(DelayTB.DELAY, 0);
+            }
+            if (optInt < 0) {
+                optInt = 0;
+            }
+            if (vc3.b) {
+                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
+            }
+            so3.b0(new a(this, context), optInt);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

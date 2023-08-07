@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class ws2 extends pp2<rs2> {
+public class ws2 extends so2<jt2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showConfirmBar" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
     }
 
     public ws2() {
@@ -36,15 +37,16 @@ public class ws2 extends pp2<rs2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rs2 rs2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jt2 jt2Var) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rs2Var) == null) {
-            int i = command.arg1;
-            String str = command.what;
-            d(rs2Var, str, "(keyboardHeight)" + i, false);
-            rs2Var.z0(i);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jt2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        jt2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(jt2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

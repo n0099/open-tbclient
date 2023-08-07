@@ -1,115 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
-import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class aw extends rt<uq> {
+public final class aw {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, zv> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> implements wt<TaskDialogViewData> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(246960666, "Lcom/baidu/tieba/aw$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(246960666, "Lcom/baidu/tieba/aw$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300087, "Lcom/baidu/tieba/aw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448300087, "Lcom/baidu/tieba/aw;");
+                return;
             }
         }
+        a = new HashMap<>();
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wt
-        /* renamed from: a */
-        public final void onChanged(TaskDialogViewData taskDialogViewData) {
-            Context context;
-            Class cls;
-            ct h;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, taskDialogViewData) == null) && taskDialogViewData != null) {
-                cv v = BDPTask.m.v();
-                if (v != null && (h = v.h()) != null) {
-                    context = h.getAppContext();
-                } else {
-                    context = null;
-                }
-                if (taskDialogViewData.getShowType() == 1) {
-                    cls = SingleBtnDialog.class;
-                } else {
-                    cls = DoubleBtnDialog.class;
-                }
-                Intent intent = new Intent(context, cls);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("data", taskDialogViewData);
-                intent.putExtras(bundle);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (context != null) {
-                    context.startActivity(intent);
+    public static synchronized zv a(String str) {
+        InterceptResult invokeL;
+        zv b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (aw.class) {
+                b = b(str, 0);
+            }
+            return b;
+        }
+        return (zv) invokeL.objValue;
+    }
+
+    public static synchronized void c(zv zvVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, zvVar) == null) {
+            synchronized (aw.class) {
+                if (zvVar != null) {
+                    zvVar.a();
+                    a.values().remove(zvVar);
                 }
             }
         }
     }
 
-    public aw() {
+    public static synchronized zv b(String str, int i) {
+        InterceptResult invokeLI;
+        zv zvVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            synchronized (aw.class) {
+                if (a.containsKey(str) && (zvVar = a.get(str)) != null) {
+                    return zvVar;
+                }
+                zv zvVar2 = new zv(str, i);
+                try {
+                    zvVar2.start();
+                } catch (Exception unused) {
+                }
+                a.put(str, zvVar2);
+                return zvVar2;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.st
-    /* renamed from: b */
-    public void a(uq uqVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uqVar) == null) {
-            uqVar.a().l(a.a);
-        }
+        return (zv) invokeLI.objValue;
     }
 }

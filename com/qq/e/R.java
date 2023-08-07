@@ -12,8 +12,8 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class anim {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int slide_right_in = 0x7f010160;
-        public static final int slide_up = 0x7f010161;
+        public static final int slide_right_in = 0x7f010165;
+        public static final int slide_up = 0x7f010166;
         public transient /* synthetic */ FieldHolder $fh;
 
         public anim() {

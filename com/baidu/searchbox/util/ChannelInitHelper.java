@@ -3,9 +3,9 @@ package com.baidu.searchbox.util;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.da5;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,7 +32,7 @@ public class ChannelInitHelper {
     }
 
     public static String getFromByShare() {
-        return da5.p().w("from_id", null);
+        return SharedPrefHelper.getInstance().getString("from_id", null);
     }
 
     public static boolean hasInitFinish() {
@@ -120,6 +120,6 @@ public class ChannelInitHelper {
         if (str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        da5.p().J("from_id", str);
+        SharedPrefHelper.getInstance().putString("from_id", str);
     }
 }

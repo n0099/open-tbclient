@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.ui.SystemBarTintManager;
@@ -38,7 +39,7 @@ public final class g {
             if (z && b.aa) {
                 intent = a(intent);
             }
-            return PendingIntent.getActivity(context, i, intent, Build.VERSION.SDK_INT >= 31 ? 201326592 : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+            return PendingIntent.getActivity(context, i, intent, Build.VERSION.SDK_INT >= 31 ? BDImageView.DEFAULT_BORDER_COLOR : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
         return (PendingIntent) invokeCommon.objValue;
     }
@@ -77,7 +78,7 @@ public final class g {
             if (launchIntentForPackage == null) {
                 return null;
             }
-            return PendingIntent.getActivity(context, i, launchIntentForPackage, Build.VERSION.SDK_INT >= 31 ? 201326592 : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+            return PendingIntent.getActivity(context, i, launchIntentForPackage, Build.VERSION.SDK_INT >= 31 ? BDImageView.DEFAULT_BORDER_COLOR : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
         return (PendingIntent) invokeLI.objValue;
     }
@@ -99,7 +100,7 @@ public final class g {
             if (b.aa && (downloadTask.getTag() instanceof DownloadParams) && ((DownloadParams) downloadTask.getTag()).requestInstallPermission) {
                 intent = a(intent);
             }
-            return PendingIntent.getActivity(context, downloadTask.getId(), intent, Build.VERSION.SDK_INT >= 31 ? 201326592 : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+            return PendingIntent.getActivity(context, downloadTask.getId(), intent, Build.VERSION.SDK_INT >= 31 ? BDImageView.DEFAULT_BORDER_COLOR : SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
         return (PendingIntent) invokeL.objValue;
     }

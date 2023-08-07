@@ -51,7 +51,7 @@ public class NetStatusInfo {
         this.netType = netStatusInfo.netType;
         this.isp = netStatusInfo.isp;
         this.ssid = netStatusInfo.ssid;
-        this.networkStatus = netStatusInfo.networkStatus.m841clone();
+        this.networkStatus = netStatusInfo.networkStatus.m842clone();
     }
 
     public void setIsp(int i) {

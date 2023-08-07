@@ -39,7 +39,7 @@ public class bl extends bv.a implements cu.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a = com.xiaomi.push.bi.a(com.xiaomi.push.s.m719a(), url);
+                String a = com.xiaomi.push.bi.a(com.xiaomi.push.s.m720a(), url);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 fi.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                 return a;
@@ -59,8 +59,8 @@ public class bl extends bv.a implements cu.a {
         @Override // com.xiaomi.push.cu
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (fg.m472a().m477a()) {
-                    str2 = bv.m801a();
+                if (fg.m473a().m478a()) {
+                    str2 = bv.m802a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
@@ -95,31 +95,31 @@ public class bl extends bv.a implements cu.a {
     @Override // com.xiaomi.push.service.bv.a
     public void a(dw.b bVar) {
         com.xiaomi.push.cq b2;
-        if (bVar.m387b() && bVar.m386a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m177a("fetch bucket :" + bVar.m386a());
+        if (bVar.m388b() && bVar.m387a() && System.currentTimeMillis() - this.a > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.m178a("fetch bucket :" + bVar.m387a());
             this.a = System.currentTimeMillis();
             com.xiaomi.push.cu a2 = com.xiaomi.push.cu.a();
-            a2.m344a();
-            a2.m347b();
-            fv m742a = this.f944a.m742a();
-            if (m742a == null || (b2 = a2.b(m742a.m500a().c())) == null) {
+            a2.m345a();
+            a2.m348b();
+            fv m743a = this.f944a.m743a();
+            if (m743a == null || (b2 = a2.b(m743a.m501a().c())) == null) {
                 return;
             }
-            ArrayList<String> m332a = b2.m332a();
+            ArrayList<String> m333a = b2.m333a();
             boolean z = true;
-            Iterator<String> it = m332a.iterator();
+            Iterator<String> it = m333a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m742a.mo501a())) {
+                } else if (it.next().equals(m743a.mo502a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m332a.isEmpty()) {
+            if (!z || m333a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m177a("bucket changed, force reconnect");
+            com.xiaomi.channel.commonutils.logger.b.m178a("bucket changed, force reconnect");
             this.f944a.a(0, (Exception) null);
             this.f944a.a(false);
         }

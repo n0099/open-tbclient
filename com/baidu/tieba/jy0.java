@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface jy0 {
-    void b();
+public class jy0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile iy0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(int i, int i2);
-
-    void f(float f);
-
-    int getCurrentPosition();
-
-    void i(float f);
-
-    void l(int i, float f);
-
-    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
-
-    Activity o();
-
-    boolean p();
+    public static synchronized iy0 a() {
+        InterceptResult invokeV;
+        iy0 iy0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (jy0.class) {
+                if (a == null) {
+                    a = new iy0();
+                }
+                iy0Var = a;
+            }
+            return iy0Var;
+        }
+        return (iy0) invokeV.objValue;
+    }
 }

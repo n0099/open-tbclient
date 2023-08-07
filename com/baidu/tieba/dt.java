@@ -1,59 +1,18 @@
 package com.baidu.tieba;
 
+import android.util.DisplayMetrics;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class dt {
+public class dt {
     public static /* synthetic */ Interceptable $ic;
-    public static final dt b;
-    public static final a c;
+    public static final DisplayMetrics a;
+    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-
-    public static final dt c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (dt) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final dt a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return dt.b;
-            }
-            return (dt) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -68,34 +27,28 @@ public final class dt {
                 return;
             }
         }
-        c = new a(null);
-        b = new dt("https://ug.baidu.com");
+        DisplayMetrics displayMetrics = dr.c.h().getAppContext().getResources().getDisplayMetrics();
+        a = displayMetrics;
+        b = displayMetrics.density;
     }
 
-    public final String b() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public dt(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int identifier = dr.c.h().getAppContext().getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = dr.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
+                } catch (Exception unused) {
+                }
             }
+            if (i == 0) {
+                return (int) (b * 25.0f);
+            }
+            return i;
         }
-        this.a = str;
+        return invokeV.intValue;
     }
 }

@@ -1,124 +1,143 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.PushMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.xa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.TopicInfo;
-import tbclient.VideoInfo;
+import java.util.Iterator;
+import java.util.LinkedList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bb8 implements yn {
+public class bb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public long i;
-    public db8 j;
-    public boolean k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947639313, "Lcom/baidu/tieba/bb8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a implements xa8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.xa8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947639313, "Lcom/baidu/tieba/bb8;");
-                return;
-            }
-        }
-        l = BdUniqueId.gen();
-    }
-
-    public bb8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static GroupNewsPojo a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            String content = chatMessage.getContent();
+            if (TextUtils.isEmpty(content)) {
+                return null;
+            }
+            try {
+                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                    return null;
+                }
+                String optString = new JSONObject(content).optString("eventId");
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
+                }
+                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
+                groupNewsPojo.setOriginalPushMsg(chatMessage);
+                return groupNewsPojo;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (GroupNewsPojo) invokeL.objValue;
     }
 
-    public void a(TopicInfo topicInfo) {
-        String str;
-        boolean z;
+    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, topicInfo) != null) || topicInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
+            if (linkedList != null && linkedList.size() != 0) {
+                LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
+                Iterator<ChatMessage> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    GroupNewsPojo a2 = a(it.next());
+                    if (a2 != null) {
+                        linkedList2.add(a2);
+                    }
+                }
+                return linkedList2;
+            }
+            return null;
         }
-        this.a = String.valueOf(topicInfo.topic_id);
-        this.b = topicInfo.topic_name;
-        this.c = topicInfo.desc;
-        this.d = topicInfo.total_post_num.longValue();
-        this.e = topicInfo.head_photo_url;
-        this.f = topicInfo.head_background_url;
-        if (StringUtils.isNull(topicInfo.share_title)) {
-            str = "";
-        } else {
-            str = topicInfo.share_title;
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public static void c(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, xa8.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            xa8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
-        this.g = str;
-        this.h = topicInfo.share_pic;
-        this.i = topicInfo.idx_num.longValue();
-        Long l2 = topicInfo.pmy_topic_id;
-        String str2 = topicInfo.head_photo_jump_url;
-        Integer num = topicInfo.pmy_source;
-        if (topicInfo.is_deleted.longValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.k = z;
-        VideoInfo videoInfo = topicInfo.video_info;
-        if (videoInfo != null && !StringUtils.isNull(videoInfo.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
-            VideoInfo videoInfo2 = topicInfo.video_info;
-            String str3 = videoInfo2.video_md5;
-            String str4 = videoInfo2.video_url;
-            videoInfo2.video_duration.intValue();
-            topicInfo.video_info.video_width.intValue();
-            topicInfo.video_info.video_height.intValue();
-            VideoInfo videoInfo3 = topicInfo.video_info;
-            String str5 = videoInfo3.thumbnail_url;
-            videoInfo3.thumbnail_width.intValue();
-            topicInfo.video_info.thumbnail_height.intValue();
-            topicInfo.video_info.video_length.intValue();
-            topicInfo.video_info.play_count.intValue();
-        }
-        String str6 = topicInfo.tag_list_type;
-        if (topicInfo.join_info != null) {
-            db8 db8Var = new db8();
-            this.j = db8Var;
-            db8Var.a(topicInfo.join_info);
+    }
+
+    public static void d(GroupMsgData groupMsgData) {
+        LinkedList<GroupNewsPojo> b;
+        PushMessage newInstance;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, groupMsgData) == null) && (b = b(groupMsgData.getListMessage())) != null && !b.isEmpty()) {
+            long j = 0;
+            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
+            Iterator<GroupNewsPojo> it = b.iterator();
+            while (it.hasNext()) {
+                GroupNewsPojo next = it.next();
+                if (!TextUtils.isEmpty(next.getNotice_id())) {
+                    long parseLong = Long.parseLong(next.getNotice_id());
+                    if (parseLong > j) {
+                        j = parseLong;
+                    }
+                }
+            }
+            pb8.c().i(linkedList);
+            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+            imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
+            imMessageCenterPojo.setIs_hidden(1);
+            imMessageCenterPojo.setCustomGroupType(-2);
+            imMessageCenterPojo.setPulled_msgId(j);
+            vb8.f().k(imMessageCenterPojo);
+            Iterator<GroupNewsPojo> it2 = b.iterator();
+            while (it2.hasNext()) {
+                GroupNewsPojo next2 = it2.next();
+                if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
+                }
+            }
         }
     }
 }

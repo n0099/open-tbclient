@@ -11,18 +11,18 @@ import androidx.annotation.DrawableRes;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.ho5;
 import com.baidu.tieba.im.data.ShareChatroomMsgData;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.ug8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.me8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,11 +89,11 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 return;
             }
         }
-        f = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
-        h = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        i = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds395);
-        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0773);
+        f = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
+        h = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds395);
+        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0774);
         Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.forum)");
         j = string;
         String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0629);
@@ -154,31 +154,31 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void d(ShareChatroomMsgData it, ChatShareChatroomCard this$0, View view2) {
+    public static final void e(ShareChatroomMsgData it, ChatShareChatroomCard this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, it, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(it, "$it");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (it.getId() != this$0.e) {
-                cq5.a().d(this$0.getContext(), 7, it.getId(), false);
-                ug8.d("c15286", 5, this$0.d);
+                ho5.a().e(this$0.getContext(), 7, it.getId(), false);
+                me8.d("c15286", 5, this$0.d);
             }
         }
     }
 
-    public final void c(final ShareChatroomMsgData shareChatroomMsgData) {
+    public final void b(final ShareChatroomMsgData shareChatroomMsgData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareChatroomMsgData) == null) && shareChatroomMsgData != null) {
             TbImageView tbImageView = this.a;
             if (tbImageView != null) {
-                tbImageView.N(shareChatroomMsgData.getIcon(), 12, false);
+                tbImageView.startLoad(shareChatroomMsgData.getIcon(), 12, false);
             }
             TextView textView = this.b;
             if (textView != null) {
                 textView.setText(shareChatroomMsgData.getName());
             }
-            e(shareChatroomMsgData);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kh8
+            f(shareChatroomMsgData);
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cf8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -186,14 +186,14 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        ChatShareChatroomCard.d(ShareChatroomMsgData.this, this, view2);
+                        ChatShareChatroomCard.e(ShareChatroomMsgData.this, this, view2);
                     }
                 }
             });
         }
     }
 
-    public final void e(ShareChatroomMsgData shareChatroomMsgData) {
+    public final void f(ShareChatroomMsgData shareChatroomMsgData) {
         TextView textView;
         TextPaint paint;
         Interceptable interceptable = $ic;
@@ -249,8 +249,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 tbImageView.setConrers(15);
                 tbImageView.setRadiusById(R.string.J_X04);
             }
-            d85.d(this.b).x(R.color.CAM_X0105);
-            d85.d(this.c).x(R.color.CAM_X0109);
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0109);
         }
     }
 

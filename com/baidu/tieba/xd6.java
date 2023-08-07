@@ -1,97 +1,116 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xd6 extends ln<yd6, LiveTabAlaRecommendViewHolder> {
+public class xd6 extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public AlaRecommendLayout b;
-    public int c;
-    public String d;
+    public AlaPersonCenterFragment a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xd6(TbPageContext tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), yd6.b);
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public boolean isAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public xd6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = "0";
-        this.a = tbPageContext;
-        this.c = i;
-        this.d = str;
+        this.a = new AlaPersonCenterFragment();
+        getFragmentTabStructure().frag = this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public FragmentTabStructure createFragmentTabStructure() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+            fragmentTabStructure.type = 5;
+            fragmentTabStructure.textResId = R.string.ala_live;
+            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+            return fragmentTabStructure;
+        }
+        return (FragmentTabStructure) invokeV.objValue;
+    }
+
+    public void a(gg7 gg7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, gg7Var) != null) || gg7Var == null || !gg7Var.h(5)) {
+            return;
+        }
+        gg7Var.a(this);
+    }
+
+    public void b(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.I1(str);
+        }
+    }
+
+    public void c(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.J1(str);
+        }
+    }
+
+    public void d(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.K1(str);
+        }
+    }
+
+    public void e(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.L1(str);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
-            this.b = alaRecommendLayout;
-            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
-            this.b.setFid(this.d);
-            TiebaStatic.log(xp6.e("c13620", this.c, this.d));
-            return new LiveTabAlaRecommendViewHolder(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.mIndicator = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.mIndicator;
         }
-        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yd6 yd6Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
-        InterceptResult invokeCommon;
-        AlaRecommendLayout alaRecommendLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yd6Var, liveTabAlaRecommendViewHolder})) == null) {
-            if (liveTabAlaRecommendViewHolder != null && (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) != null && yd6Var != null) {
-                d85 d = d85.d(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container));
-                d.o(R.string.J_X06);
-                d.f(R.color.CAM_X0201);
-                yp6 yp6Var = yd6Var.a;
-                if (yp6Var != null && !ListUtils.isEmpty(yp6Var.c())) {
-                    liveTabAlaRecommendViewHolder.a.setData(yd6Var.a);
-                    liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
-                    liveTabAlaRecommendViewHolder.a.setVisibility(0);
-                } else {
-                    liveTabAlaRecommendViewHolder.a.setVisibility(8);
-                }
-                return liveTabAlaRecommendViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

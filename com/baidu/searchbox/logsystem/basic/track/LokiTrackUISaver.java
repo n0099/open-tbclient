@@ -9,7 +9,7 @@ import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.el1;
+import com.baidu.tieba.hk1;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -48,7 +48,7 @@ public class LokiTrackUISaver {
             file.mkdirs();
         }
         if (mTempTraceFile == null) {
-            mTempTraceFile = new File(file, el1.b() + ".tmp");
+            mTempTraceFile = new File(file, hk1.b() + ".tmp");
         }
         return mTempTraceFile;
     }

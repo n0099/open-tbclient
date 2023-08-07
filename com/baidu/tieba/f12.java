@@ -1,18 +1,12 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8NetFunctionTable;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestSettings;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.gc3;
+import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.tieba.bz1;
+import com.baidu.tieba.kk3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,33 +14,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f12 {
+public class f12 extends e12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.bz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "AccelerometerApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes5.dex */
-    public static class a implements ValueCallback<Long> {
+    public class a implements bz1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ V8Engine a;
+        public final /* synthetic */ f12 a;
 
         /* renamed from: com.baidu.tieba.f12$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0290a implements Runnable {
+        public class C0283a implements kk3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ q12 b;
+            public final /* synthetic */ a c;
 
-            public RunnableC0290a(a aVar) {
+            public C0283a(a aVar, String str, q12 q12Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {aVar, str, q12Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -56,43 +58,41 @@ public class f12 {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.c = aVar;
+                this.a = str;
+                this.b = q12Var;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            @Override // com.baidu.tieba.kk3.a
+            public void a(double[] dArr) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    NetRequest netRequest = new NetRequest();
-                    NetRequestSettings netRequestSettings = new NetRequestSettings();
-                    netRequestSettings.mTimeout = 60000;
-                    boolean z = true;
-                    netRequestSettings.mShouldNeverClearReferer = true;
-                    netRequestSettings.mLoadDoNotSendCookies = true;
-                    netRequest.setRequestInterceptor(new e12());
-                    netRequest.setRedirectInterceptor(new l12());
-                    netRequest.addObserver(new g12());
-                    netRequest.setNetRequestSettings(netRequestSettings);
-                    int javaNetRequest = this.a.a.setJavaNetRequest(netRequest);
-                    if (javaNetRequest != 0) {
-                        z = false;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                    if (dArr != null && dArr.length == 3) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("x", dArr[0]);
+                            jSONObject.put("y", dArr[1]);
+                            jSONObject.put("z", dArr[2]);
+                            this.b.d(this.c.a, jSONObject);
+                            return;
+                        } catch (JSONException e) {
+                            this.c.a.p("json put data fail", e, true);
+                            this.b.f(this.c.a, "json put data fail");
+                            return;
+                        }
                     }
-                    boolean unused = f12.c = z;
-                    if (!f12.c) {
-                        int unused2 = f12.b = 0;
-                        f12.g(javaNetRequest);
-                        v82.c("ChromeNetManager", "setJavaNetRequest fail, code=" + javaNetRequest);
-                    }
+                    this.c.a.p("illegal accelerometers", null, true);
+                    this.c.a.d(this.a, new y22(1001));
                 }
             }
         }
 
-        public a(V8Engine v8Engine) {
+        public a(f12 f12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v8Engine};
+                Object[] objArr = {f12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -102,170 +102,104 @@ public class f12 {
                     return;
                 }
             }
-            this.a = v8Engine;
+            this.a = f12Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(Long l) {
+        @Override // com.baidu.tieba.bz1.a
+        public y22 a(ya3 ya3Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0290a(this));
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, ya3Var, jSONObject, str)) == null) {
+                q12 q12Var = new q12("accelerometerChange", jSONObject, str);
+                kk3 a = kk3.a();
+                a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
+                a.e(new C0283a(this, str, q12Var));
+                a.f();
+                q12Var.b(this.a);
+                return y22.f();
             }
+            return (y22) invokeLLL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static ArrayMap<String, Integer> a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
 
-        public b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-855294940, "Lcom/baidu/tieba/f12$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-855294940, "Lcom/baidu/tieba/f12$b;");
                     return;
                 }
             }
-            this.a = i;
+            ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
+            a = arrayMap;
+            arrayMap.put(TaskUIData.key, 60);
+            a.put("game", 20);
+            a.put("normal", 200);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static int a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                di3.b bVar = new di3.b(SessionCommand.COMMAND_CODE_PLAYER_GET_CURRENT_MEDIA_ITEM);
-                bVar.l(String.valueOf(this.a));
-                bVar.h(ub3.K().getAppId());
-                bVar.m();
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                Integer num = a.get(str);
+                if (num != null) {
+                    return num.intValue();
+                }
+                return 200;
             }
+            return invokeL.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711202, "Lcom/baidu/tieba/f12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947711202, "Lcom/baidu/tieba/f12;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f12(@NonNull zy1 zy1Var) {
+        super(zy1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zy1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
-        b = -1;
-        c = false;
     }
 
-    public static boolean d() {
+    public y22 A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#startAccelerometer", false);
+            return l(str, true, new a(this));
+        }
+        return (y22) invokeL.objValue;
+    }
+
+    public y22 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (io3.e() && h()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#stopAccelerometer", true);
+            kk3.a().g();
+            return y22.f();
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (cv2.g0().y() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (cv2.g0().y() >= 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void f(@NonNull V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, v8Engine) == null) {
-            if (!d()) {
-                v82.k("ChromeNetManager", "Not Used ChromeNet");
-            } else {
-                V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine));
-            }
-        }
-    }
-
-    public static void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            po3.f().execute(new b(i));
-        }
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == -1) {
-                if (j() && !kp3.f("3.300.0")) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                b = i;
-            }
-            if (b != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void k(@Nullable SwanAppConfigData swanAppConfigData) {
-        gc3.a aVar;
-        int i;
-        rd2 W;
-        NetRequest m0;
-        NetRequestSettings netRequestSettings;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, swanAppConfigData) == null) && d() && swanAppConfigData != null && (aVar = swanAppConfigData.h) != null && (i = aVar.b) > 0 && (W = pi2.U().W()) != null && (W.d() instanceof dj2) && (m0 = ((dj2) W.d()).m0()) != null && (netRequestSettings = m0.getNetRequestSettings()) != null) {
-            netRequestSettings.mTimeout = i;
-            if (a) {
-                Log.d("ChromeNetManager", "settings.mTimeout=" + i);
-            }
-        }
+        return (y22) invokeV.objValue;
     }
 }

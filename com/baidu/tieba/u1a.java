@@ -1,25 +1,148 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class u1a implements qc7 {
+public class u1a {
     public static /* synthetic */ Interceptable $ic;
+    public static u1a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10705" : (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(HashMap<String, String> hashMap);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends jw5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u1a a;
+
+        public a(u1a u1aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u1aVar;
+        }
+
+        @Override // com.baidu.tieba.jw5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Reader reader;
+            Throwable th;
+            InputStream inputStream;
+            BufferedReader bufferedReader;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    try {
+                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                String[] split = readLine.split(",");
+                                if (split.length == 2 && split[0] != null && split[1] != null) {
+                                    this.a.a.put(split[0], split[1]);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                BdCloseHelper.close(inputStream);
+                                BdCloseHelper.close((Reader) bufferedReader);
+                                return null;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        reader = null;
+                        th = th3;
+                        BdCloseHelper.close(inputStream);
+                        BdCloseHelper.close(reader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    inputStream = null;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    reader = null;
+                    th = th4;
+                    inputStream = null;
+                }
+                BdCloseHelper.close(inputStream);
+                BdCloseHelper.close((Reader) bufferedReader);
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements ov5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ u1a b;
+
+        public b(u1a u1aVar, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u1aVar, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = u1aVar;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.ov5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.a(this.b.a);
+            }
+        }
     }
 
     public u1a() {
@@ -32,44 +155,37 @@ public final class u1a implements qc7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        new HashMap();
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
+    public static u1a c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.putAll(d2a.a.a(businessInfo));
-            String str = a.get("pic_count");
-            String str2 = "0";
-            if (str == null) {
-                str = "0";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (u1a.class) {
+                    if (b == null) {
+                        b = new u1a();
+                    }
+                }
             }
-            hashMap.put("obj_type", str);
-            hashMap.put(TiebaStatic.Params.AB_ACTION, "show");
-            String str3 = a.get("has_concerned");
-            if (str3 == null) {
-                str3 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.AB_TYPE, str3);
-            hashMap.put(TiebaStatic.Params.IS_FULL, "");
-            String str4 = a.get("author_is_living");
-            if (str4 == null) {
-                str4 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM6, str4);
-            String str5 = a.get(TiebaStatic.Params.GUA_TYPE);
-            if (str5 != null) {
-                str2 = str5;
-            }
-            hashMap.put(TiebaStatic.Params.GUA_TYPE, str2);
-            return hashMap;
+            return b;
         }
-        return (Map) invokeL.objValue;
+        return (u1a) invokeV.objValue;
+    }
+
+    public void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (!this.a.isEmpty()) {
+                cVar.a(this.a);
+            } else {
+                nw5.b(new a(this), new b(this, cVar));
+            }
+        }
     }
 }

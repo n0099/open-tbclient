@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.ff;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.ue;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 \u000f2\u00020\u0001:\u0001\u000fB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\u0015\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\bH\u0014¢\u0006\u0002\u0010\nJ\b\u0010\u000b\u001a\u00020\u0006H\u0014J\b\u0010\f\u001a\u00020\u0006H\u0014J\b\u0010\r\u001a\u00020\tH\u0014J\b\u0010\u000e\u001a\u00020\u0006H\u0014¨\u0006\u0010"}, d2 = {"Lcom/baidu/tbadk/switchs/FunnySpriteSwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "", "()[Ljava/lang/String;", "getDefaultType", "getMaxCrashTimes", "getName", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class FunnySpriteSwitch extends ff {
+public final class FunnySpriteSwitch extends ue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String KEY = "funny_sprite_global_switch_android";
@@ -44,14 +44,14 @@ public final class FunnySpriteSwitch extends ff {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Companion.isOn() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -62,7 +62,7 @@ public final class FunnySpriteSwitch extends ff {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public final class FunnySpriteSwitch extends ff {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public final class FunnySpriteSwitch extends ff {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public final class FunnySpriteSwitch extends ff {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (da5.p().q(FunnySpriteSwitch.KEY, 0) != 1) {
+                if (SharedPrefHelper.getInstance().getInt(FunnySpriteSwitch.KEY, 0) != 1) {
                     return false;
                 }
                 return true;

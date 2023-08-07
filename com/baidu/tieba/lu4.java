@@ -1,43 +1,74 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class lu4 extends gu4 {
+public class lu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long e;
+    public final mu4 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lu4(au4 au4Var, long j) {
-        super(au4Var);
+    public lu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {au4Var, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((au4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = j;
+        this.a = new mu4();
     }
 
-    public long i() {
-        InterceptResult invokeV;
+    public ku4 a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str3 = null;
+            if (bi.isEmpty(str)) {
+                return null;
+            }
+            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            String group = matcher.group();
+            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
+            if (matcher2.find()) {
+                str2 = ou4.d(matcher2.group());
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && str2.startsWith("Y")) {
+                nu4.a(str2);
+                str3 = b(group);
+            }
+            return new ku4(group, str3, str2);
         }
-        return invokeV.longValue;
+        return (ku4) invokeL.objValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return this.a.a(ou4.f(str.replaceAll("\\$", "")));
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,20 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ubb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ubb {
+    String getBizType();
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return Build.MANUFACTURER;
-        }
-        return (String) invokeV.objValue;
-    }
+    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
 }

@@ -2,10 +2,10 @@ package com.baidu.searchbox.util;
 
 import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wg;
 /* loaded from: classes4.dex */
 public class VersionInitHelper {
     public static boolean hasInitFinish() {
@@ -22,7 +22,7 @@ public class VersionInitHelper {
         ApplicationInfo applicationInfo = null;
         try {
             applicationInfo = TbadkCoreApplication.getInst().getContext().getPackageManager().getApplicationInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 128);
-            TbConfig.setVersionType(wg.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+            TbConfig.setVersionType(JavaTypesHelper.toInt(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
         } catch (Exception e) {
             TbConfig.setVersionType(3);
             BdLog.e(e.getMessage());

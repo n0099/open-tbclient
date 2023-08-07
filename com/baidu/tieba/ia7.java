@@ -1,36 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedEntrybarComponent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ia7 {
+public class ia7 extends d97<CardHeadView, k47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<mc7<? extends Object>> mutableList, u97 u97Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ia7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, u97Var) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            mutableList.add(b(feedEntrybarComponent, u97Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static final b77 b(FeedEntrybarComponent feedEntrybarComponent, u97 u97Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedEntrybarComponent, u97Var)) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            String text = feedEntrybarComponent.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            String schema = feedEntrybarComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            return new b77(text, schema, null, u97Var, 4, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            hb7.k(a, 0);
+            return a;
         }
-        return (b77) invokeLL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull CardHeadView cardHeadView, @NonNull k47 k47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, k47Var) == null) {
+            cardHeadView.g(k47Var);
+        }
     }
 }

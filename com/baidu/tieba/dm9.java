@@ -1,34 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dm9 implements ika {
+public class dm9 extends mm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BdUniqueId b;
-    public em9 c;
-    public ma5 d;
-    public oa5 e;
-    public HttpMessageListener f;
+    public BaseFragment b;
+    public b c;
+    public TBSpecificationBtn d;
+    public View.OnClickListener e;
 
     /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnCancelListener {
+    public interface b {
+        void m1(boolean z);
+    }
+
+    @Override // com.baidu.tieba.mm
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dm9 a;
@@ -51,72 +58,24 @@ public class dm9 implements ika {
             this.a = dm9Var;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(this.a.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ViewHelper.skipToLoginActivity(this.a.b.getContext());
+                if (this.a.c != null) {
+                    this.a.c.m1(true);
+                }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dm9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(dm9 dm9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dm9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dm9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UEGReportResponsedMessage)) {
-                return;
-            }
-            if (this.a.d != null) {
-                this.a.d.h(false);
-            }
-            UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
-            String url = uEGReportResponsedMessage.getUrl();
-            if (StringUtils.isNull(url)) {
-                String errorString = uEGReportResponsedMessage.getErrorString();
-                if (StringUtils.isNull(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e1f);
-                }
-                this.a.e.c(errorString);
-                return;
-            }
-            this.a.h(url);
-        }
-    }
-
-    public dm9(Context context) {
+    public dm9(BaseFragment baseFragment, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {baseFragment, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -126,75 +85,55 @@ public class dm9 implements ika {
                 return;
             }
         }
-        this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
-        this.a = context;
-        this.c = new em9();
-        oa5 oa5Var = new oa5();
-        this.e = oa5Var;
-        oa5Var.a = 1000L;
+        this.e = new a(this);
+        this.b = baseFragment;
+        this.c = bVar;
     }
 
-    @Override // com.baidu.tieba.ika
-    public void a(String str) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            j();
-            this.c.a(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ika
-    public void b(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
-            this.c.c(bdUniqueId);
-            this.f.setTag(bdUniqueId);
-            this.f.setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.ika
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            j();
-            this.c.b(str);
-        }
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            nx4.v(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.pb_web_view_report_title), str, true);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.d == null) {
-                TbPageContext tbPageContext = null;
-                l9<?> a2 = r9.a(this.a);
-                if (a2 instanceof TbPageContext) {
-                    tbPageContext = (TbPageContext) a2;
-                }
-                if (tbPageContext == null) {
-                    return;
-                }
-                ma5 ma5Var = new ma5(tbPageContext);
-                this.d = ma5Var;
-                ma5Var.e(new a(this));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            js5.a(this.b.getPageContext(), this.a);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
             }
-            this.d.h(true);
+        }
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.mm
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f0, (ViewGroup) null);
+            this.a = inflate;
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09165f);
+            w95 w95Var = new w95();
+            BaseFragment baseFragment = this.b;
+            if (baseFragment != null && baseFragment.getContext() != null) {
+                this.d.setText(this.b.getContext().getResources().getString(R.string.login_see_more));
+            }
+            this.d.setTextSize(R.dimen.tbds42);
+            this.d.setConfig(w95Var);
+            this.d.setOnClickListener(this.e);
+            g(TbadkCoreApplication.getInst().getSkinType());
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
 }

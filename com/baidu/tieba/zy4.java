@@ -1,29 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class zy4 {
+public class zy4 implements ck1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public String a;
-    @NonNull
-    public HashMap<String, Object> b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
 
     public zy4() {
         Interceptable interceptable = $ic;
@@ -35,32 +21,21 @@ public class zy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "text";
-        this.b = new HashMap<>();
     }
 
-    @NonNull
-    public HashMap<String, Object> a() {
+    @Override // com.baidu.tieba.ck1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new dw7());
+            arrayList.add(new f48());
+            arrayList.add(new jc8());
+            return arrayList;
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            this.b.put(next, jSONObject.opt(next));
-        }
+        return invokeV.objValue;
     }
 }

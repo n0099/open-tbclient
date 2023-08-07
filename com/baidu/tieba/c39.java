@@ -1,46 +1,53 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.os.Environment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.h39;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class c39 extends ln<h39, SearchSuggestRankingViewHolder> {
+public class c39 {
     public static /* synthetic */ Interceptable $ic;
+    public static c39 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public boolean a;
+    public int b;
 
     /* loaded from: classes5.dex */
-    public class a implements io {
+    public class a implements CyberPlayerManager.InstallListener2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
         public final /* synthetic */ c39 b;
 
-        public a(c39 c39Var, Context context) {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
+        public void onInstallInfo(int i, int i2, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        public a(c39 c39Var, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c39Var, context};
+                Object[] objArr = {c39Var, installListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,120 +58,208 @@ public class c39 extends ln<h39, SearchSuggestRankingViewHolder> {
                 }
             }
             this.b = c39Var;
-            this.a = context;
+            this.a = installListener;
         }
 
-        @Override // com.baidu.tieba.io
-        public void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            h39 h39Var;
-            h39.a b;
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, ynVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(ynVar instanceof h39) || (b = (h39Var = (h39) ynVar).b()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b < 3) {
+                    c39.c(this.b);
+                    this.b.g(this.a);
+                    return;
+                }
+                this.b.b = 0;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallError(i, i2, str);
+                }
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put("tab_id", b.d() + "");
-            hashMap.put("sort_type", b.c() + "");
-            hashMap.put("rank_type", b.b() + "");
-            hashMap.put("rank_code", b.a() + "");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
-            this.b.u(h39Var);
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c39(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class b implements CyberPlayerManager.InstallListener2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ c39 b;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
+        public void onInstallInfo(int i, int i2, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        public b(c39 c39Var, CyberPlayerManager.InstallListener installListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c39Var, installListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c39Var;
+            this.a = installListener;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b < 3) {
+                    c39.c(this.b);
+                    this.b.g(this.a);
+                    return;
+                }
+                this.b.b = 0;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallError(i, i2, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
+        }
+    }
+
+    public c39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
+        this.a = true;
     }
 
-    public final void t(StatisticItem statisticItem, h39 h39Var) {
+    public static c39 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, statisticItem, h39Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_name", h39Var.c());
-        }
-    }
-
-    public final void A(h39 h39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h39Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
-            t(statisticItem, h39Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void u(h39 h39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h39Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
-            t(statisticItem, h39Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: x */
-    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0881, viewGroup, false));
-        }
-        return (SearchSuggestRankingViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h39 h39Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
-        y(i, view2, viewGroup, h39Var, searchSuggestRankingViewHolder);
-        return view2;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, h39 h39Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h39Var, searchSuggestRankingViewHolder})) == null) {
-            if (h39Var == null) {
-                return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                i();
             }
-            z(searchSuggestRankingViewHolder);
-            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080c65, null);
-            x29.a(searchSuggestRankingViewHolder.b, h39Var.d(), h39Var.a());
-            A(h39Var);
-            return view2;
+            return c;
         }
-        return (View) invokeCommon.objValue;
+        return (c39) invokeV.objValue;
     }
 
-    public final void z(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+    public static synchronized void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestRankingViewHolder) == null) {
-            d85 d = d85.d(searchSuggestRankingViewHolder.b);
-            d.x(R.color.CAM_X0105);
-            d.C(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
-            d85.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (c39.class) {
+                if (c == null) {
+                    c = new c39();
+                }
+            }
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
+            if (isCoreLoaded && !this.a) {
+                this.a = true;
+            }
+            return isCoreLoaded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ int c(c39 c39Var) {
+        int i = c39Var.b;
+        c39Var.b = i + 1;
+        return i;
+    }
+
+    public void g(CyberPlayerManager.InstallListener installListener) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) && !CyberPlayerManager.isCoreLoaded(3)) {
+            this.a = false;
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null) {
+                absolutePath = cacheDir.getAbsolutePath();
+            } else {
+                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("cache-path", absolutePath);
+            try {
+                CyberPlayerManager.install((Context) TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, (Map<String, String>) hashMap, (CyberPlayerManager.InstallListener2) new a(this, installListener));
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void h(CyberPlayerManager.InstallListener installListener, int i) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) && !CyberPlayerManager.isCoreLoaded(i)) {
+            this.a = false;
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null) {
+                absolutePath = cacheDir.getAbsolutePath();
+            } else {
+                absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("cache-path", absolutePath);
+            try {
+                CyberPlayerManager.install((Context) TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, (Map<String, String>) hashMap, (CyberPlayerManager.InstallListener2) new b(this, installListener));
+            } catch (Exception unused) {
+            }
         }
     }
 }

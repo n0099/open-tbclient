@@ -1,44 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.card.FeedCardView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rd7 extends vb7<FeedCardView, e87<?>> {
+public class rd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ne<byte[]> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rd7(String str) {
-        super(str);
+    public rd7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: e */
-    public void b(@NonNull FeedCardView feedCardView, @NonNull e87<?> e87Var) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, e87Var) == null) {
-            feedCardView.g(e87Var);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            l45.e();
+            this.a = l45.c("tb.tbtiel_level_info");
+        }
+    }
+
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        ne.b<byte[]> bVar;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ne<byte[]> neVar = this.a;
+            if (neVar != null && str != null) {
+                bVar = neVar.h(str);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
+            b();
+            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

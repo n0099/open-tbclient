@@ -1,66 +1,237 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tieba.cy1;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface by1<T extends cy1> extends dy1<T>, kx1 {
-    void B(int i);
+public class by1 extends ay1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean H();
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ by1 d;
 
-    boolean I();
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
 
-    void J(mi2 mi2Var);
+        public a(by1 by1Var, String str, String str2, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {by1Var, str, str2, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = by1Var;
+            this.a = str;
+            this.b = str2;
+            this.c = callbackHandler;
+        }
 
-    my1 L();
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                by1 by1Var = this.d;
+                CallbackHandler callbackHandler = this.c;
+                String str = this.b;
+                by1Var.r(callbackHandler, str, null, "downloadFile:fail" + exc.getMessage());
+            }
+        }
 
-    void N(FrameLayout frameLayout, kc3 kc3Var);
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.d.s(response, this.a, this.b, this.c);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
 
-    int P();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public by1(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/cloudDownloadFile");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vb3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void Q(String str);
+    @Override // com.baidu.tieba.ay1, com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            return super.d(context, unitedSchemeEntity, callbackHandler, ya3Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
 
-    void R();
+    public final void r(CallbackHandler callbackHandler, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, callbackHandler, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                k(callbackHandler, str, 1001, "downloadFile:fail");
+            } else {
+                k(callbackHandler, str, 1001, yx1.k(str3));
+            }
+        }
+    }
 
-    boolean U(tf3 tf3Var);
+    @Override // com.baidu.tieba.ay1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
+            if (!response.isSuccessful()) {
+                k(callbackHandler, str, 1001, "downloadFile:fail");
+                return;
+            }
+            String header = response.header("Content-Type", "");
+            if (header != null && header.contains("application/json")) {
+                JSONObject m = yx1.m(response);
+                if (m != null && response.isSuccessful()) {
+                    String optString = m.optString("errno", String.valueOf(0));
+                    String optString2 = m.optString("errmsg");
+                    if (yx1.o(optString)) {
+                        r(callbackHandler, str, optString, optString2);
+                        return;
+                    }
+                    String optString3 = m.optString("DownloadUrl");
+                    if (TextUtils.isEmpty(optString3)) {
+                        r(callbackHandler, str, optString, optString2);
+                        return;
+                    } else {
+                        p(optString3, callbackHandler, str);
+                        return;
+                    }
+                }
+                k(callbackHandler, str, 1001, "downloadFile:fail");
+                return;
+            }
+            k(callbackHandler, str, 1001, "downloadFile:fail");
+        }
+    }
 
-    boolean V(tf3 tf3Var);
+    public void p(String str, CallbackHandler callbackHandler, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, str2) == null) {
+            if (ya3.M() == null) {
+                r(callbackHandler, str2, null, null);
+            } else {
+                q(str, str2, callbackHandler);
+            }
+        }
+    }
 
-    void W(jd2 jd2Var);
+    public final void q(String str, String str2, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, callbackHandler) == null) {
+            bi4 bi4Var = new bi4(str, new a(this, str, str2, callbackHandler));
+            bi4Var.f = true;
+            bi4Var.g = false;
+            bi4Var.h = true;
+            ci4.g().d(bi4Var);
+        }
+    }
 
-    void X(kd2 kd2Var);
+    public final void s(Response response, String str, String str2, CallbackHandler callbackHandler) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, response, str, str2, callbackHandler) == null) {
+            if (!response.isSuccessful()) {
+                r(callbackHandler, str2, null, "downloadFile:fail");
+                return;
+            }
+            try {
+                str3 = bc3.A(a23.s(response.headers()), cr4.t(str));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                str3 = null;
+            }
+            if (TextUtils.isEmpty(str3)) {
+                r(callbackHandler, str2, null, null);
+                return;
+            }
+            String g = lw2.T().G().g(str3);
+            if (TextUtils.isEmpty(g)) {
+                r(callbackHandler, str2, null, null);
+            } else if (t(response, str3)) {
+                m(callbackHandler, str2, yx1.n(null, g, "downloadFile:ok"));
+            } else {
+                r(callbackHandler, str2, null, null);
+            }
+        }
+    }
 
-    @Nullable
-    l82 a0();
-
-    boolean c();
-
-    int d0();
-
-    PullToRefreshBaseWebView f0();
-
-    void g(v13 v13Var);
-
-    boolean g0();
-
-    @Nullable
-    String h0();
-
-    void i(ViewGroup viewGroup, View view2);
-
-    ey1 j();
-
-    String l();
-
-    boolean q(int i);
-
-    void u(String str);
-
-    boolean x(tf3 tf3Var);
-
-    void y(FrameLayout frameLayout, kc3 kc3Var);
+    public boolean t(Response response, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, response, str)) == null) {
+            if (response.body() != null) {
+                inputStream = response.body().byteStream();
+            } else {
+                inputStream = null;
+            }
+            File file = new File(str);
+            if (file.exists()) {
+                file.delete();
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    if (ay1.c) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return fr4.a(inputStream, file);
+        }
+        return invokeLL.booleanValue;
+    }
 }

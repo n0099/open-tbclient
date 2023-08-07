@@ -1,36 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes8.dex */
 public abstract class z6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public z6b c;
-    public w6b d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(z6b z6bVar);
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
 
-        void b(z6b z6bVar);
+    public void b(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        }
+    }
 
-        void c(int i, int i2);
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-        void d(String str, z6b z6bVar);
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void f(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, downloadException) == null) {
+        }
+    }
+
+    public void g(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
     }
 
     public z6b() {
@@ -45,139 +71,5 @@ public abstract class z6b {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public abstract void b();
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public abstract void d(w6b w6bVar);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(z6b z6bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, z6bVar) == null) {
-            this.c = z6bVar;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(w6b w6bVar) {
-        InterceptResult invokeL;
-        List<u6b> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, w6bVar)) == null) {
-            if (w6bVar != null && w6bVar.c() != null && w6bVar.c().size() == 1 && w6bVar.c().get(0).a() != null && (a2 = w6bVar.c().get(0).a()) != null && a2.size() == 1) {
-                u6b u6bVar = a2.get(0);
-                if (u6bVar.b() != null && !u6bVar.b().isNeedEdit()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(w6b w6bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, w6bVar) == null) {
-            this.d = w6bVar;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            z6b z6bVar = this.c;
-            if (z6bVar != null) {
-                z6bVar.d(w6bVar);
-            }
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public w6b n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (w6b) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a(this);
     }
 }

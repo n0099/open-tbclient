@@ -3,16 +3,16 @@ package com.baidu.nadcore.requester;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.o31;
-import com.baidu.tieba.rk0;
+import com.baidu.tieba.pj0;
+import com.baidu.tieba.r21;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NadRequester {
-    public static final o31 a;
+    public static final r21 a;
 
     /* loaded from: classes3.dex */
-    public class a implements o31 {
-        @Override // com.baidu.tieba.o31
+    public class a implements r21 {
+        @Override // com.baidu.tieba.r21
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         }
     }
@@ -43,15 +43,15 @@ public class NadRequester {
     }
 
     static {
-        o31 o31Var = (o31) ServiceManager.getService(o31.a);
-        if (o31Var == null) {
-            o31Var = new a();
+        r21 r21Var = (r21) ServiceManager.getService(r21.a);
+        if (r21Var == null) {
+            r21Var = new a();
         }
-        a = o31Var;
+        a = r21Var;
     }
 
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
-        if (rk0.a().B()) {
+        if (pj0.a().B()) {
             a.a(requestParameters, bVar);
         } else {
             bVar.a(new Error("Blocked by client"));

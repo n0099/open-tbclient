@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.util;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdAlertData;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,13 +49,13 @@ public class TBAlertBuilderHelper {
         if ((interceptable == null || interceptable.invokeL(65538, null, bdAlertData) == null) && bdAlertData != null && !ListUtils.isEmpty(bdAlertData.getButtons()) && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
             List<BdAlertData.AlertBtn> buttons = bdAlertData.getButtons();
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.x(bdAlertData.getTitle());
-            tBAlertBuilder.q(bdAlertData.getContent());
-            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[bdAlertData.getButtons().size()];
+            tBAlertBuilder.setTitleStr(bdAlertData.getTitle());
+            tBAlertBuilder.setDescStr(bdAlertData.getContent());
+            TBAlertConfig.OperateBtnConfig[] operateBtnConfigArr = new TBAlertConfig.OperateBtnConfig[bdAlertData.getButtons().size()];
             for (int i = 0; i < buttons.size(); i++) {
                 if (buttons.get(i) != null && (alertBtn = buttons.get(i)) != null) {
-                    TBAlertConfig.a aVar = new TBAlertConfig.a(alertBtn.getText(), TBAlertConfig.OperateBtnStyle.MAIN);
-                    aVar.c(new View.OnClickListener(alertBtn, tBAlertBuilder) { // from class: com.baidu.tbadk.core.util.TBAlertBuilderHelper.1
+                    TBAlertConfig.OperateBtnConfig operateBtnConfig = new TBAlertConfig.OperateBtnConfig(alertBtn.getText(), TBAlertConfig.OperateBtnStyle.MAIN);
+                    operateBtnConfig.setListener(new View.OnClickListener(alertBtn, tBAlertBuilder) { // from class: com.baidu.tbadk.core.util.TBAlertBuilderHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdAlertData.AlertBtn val$AlertBtn;
@@ -85,21 +85,21 @@ public class TBAlertBuilderHelper {
                             BdAlertData.AlertBtn alertBtn2;
                             TBAlertBuilder tBAlertBuilder2;
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (alertBtn2 = this.val$AlertBtn) != null && alertBtn2.getConfig() != null && this.val$AlertBtn.getConfig().getAction() != null && xi.isEquals(this.val$AlertBtn.getConfig().getAction(), TBAlertBuilderHelper.ACTION_RETURN) && (tBAlertBuilder2 = this.val$builder) != null) {
+                            if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (alertBtn2 = this.val$AlertBtn) != null && alertBtn2.getConfig() != null && this.val$AlertBtn.getConfig().getAction() != null && bi.isEquals(this.val$AlertBtn.getConfig().getAction(), TBAlertBuilderHelper.ACTION_RETURN) && (tBAlertBuilder2 = this.val$builder) != null) {
                                 tBAlertBuilder2.dismiss();
                                 TBAlertBuilderHelper.sendReturnMessage(TBAlertBuilderHelper.ACTION_RETURN);
                             }
                         }
                     });
-                    aVarArr[i] = aVar;
+                    operateBtnConfigArr[i] = operateBtnConfig;
                 }
             }
-            tBAlertBuilder.u(aVarArr);
-            tBAlertBuilder.j(false);
-            if (yi.F()) {
-                tBAlertBuilder.z();
+            tBAlertBuilder.setOperateBtn(operateBtnConfigArr);
+            tBAlertBuilder.setCancelable(false);
+            if (BdUtilHelper.isMainThread()) {
+                tBAlertBuilder.show();
             } else {
-                zg.a().post(new Runnable(tBAlertBuilder) { // from class: com.baidu.tbadk.core.util.TBAlertBuilderHelper.2
+                SafeHandler.getInst().post(new Runnable(tBAlertBuilder) { // from class: com.baidu.tbadk.core.util.TBAlertBuilderHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ TBAlertBuilder val$builder;
@@ -126,7 +126,7 @@ public class TBAlertBuilderHelper {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$builder.z();
+                            this.val$builder.show();
                         }
                     }
                 });

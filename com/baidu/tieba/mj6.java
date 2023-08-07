@@ -1,71 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes7.dex */
-public class mj6 extends AlertDialog {
+public class mj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public String c;
+    public final WebResourceResponse a;
+    public final ByteArrayInputStream b;
+    public final int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mj6(Context context) {
-        super(context);
+    public mj6(WebResourceResponse webResourceResponse, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {webResourceResponse, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            SkinManager.setBackgroundShapeDrawable(this.a, yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+        this.a = webResourceResponse;
+        if (bArr != null) {
+            this.c = bArr.length;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            this.b = byteArrayInputStream;
+            byteArrayInputStream.mark(0);
+            return;
         }
+        this.c = 0;
+        this.b = null;
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public WebResourceResponse a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setDimAmount(0.0f);
-                window.setContentView(R.layout.obfuscated_res_0x7f0d041f);
-                GreyUtil.grey(window);
-                this.a = window.findViewById(R.id.obfuscated_res_0x7f0925a2);
-                this.b = (TextView) window.findViewById(R.id.toast_tv);
-                if (!StringUtils.isNull(this.c)) {
-                    this.b.setText(this.c);
-                }
-                a(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && c()) {
+                this.b.reset();
+                this.a.setData(this.b);
             }
+            return this.a;
         }
+        return (WebResourceResponse) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null && this.b != null && d() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WebResourceResponse webResourceResponse = this.a;
+            if (webResourceResponse != null && !el6.b(webResourceResponse.getResponseHeaders())) {
+                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "WebResourceResponseWrap{size='" + this.c + "', isSuccessful='" + c() + "', isPrefetchData='" + b() + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

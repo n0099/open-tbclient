@@ -1,121 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import com.baidu.adp.widget.SwipeBackLayout;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tieba.cv7;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gv7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gv7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ViewGroup b;
-    public hv7 c;
-    public cv7 d;
-    public ju5 e;
-    public cv7.a f;
-    public Runnable g;
+    public Map<String, ArrayList<FunAdHistoryData>> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements cv7.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gv7 a;
-
-        public a(gv7 gv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gv7Var;
-        }
-
-        @Override // com.baidu.tieba.cv7.a
-        public void onStateChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 1) {
-                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                        if (this.a.e == null) {
-                            this.a.e = new ju5("anim_switch_trans_frs");
-                        }
-                        this.a.e.b();
-                        BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
-                    }
-                } else if (i == 2) {
-                    this.a.k();
-                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                        this.a.e.c();
-                    }
-                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
-                } else if (i == 0) {
-                    this.a.j();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gv7 a;
-
-        public b(gv7 gv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gv7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
-            }
-        }
-    }
-
-    public gv7(Context context, ViewGroup viewGroup, Intent intent) {
+    public gv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,98 +41,165 @@ public class gv7 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
-        this.a = context;
-        this.b = viewGroup;
-        hv7 hv7Var = new hv7(context);
-        this.c = hv7Var;
-        cv7 a2 = dv7.a(hv7Var, intent);
-        this.d = a2;
-        a2.b(this.f);
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(d());
     }
 
-    public static boolean i(Intent intent) {
+    public static gv7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (gv7.class) {
+                    if (b == null) {
+                        b = new gv7();
+                    }
+                }
+            }
+            return b;
+        }
+        return (gv7) invokeV.objValue;
+    }
+
+    public void a(String str, FunAdHistoryData funAdHistoryData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) && UbsABTestHelper.isDuplicateRemovalFunAdABTest() && !TextUtils.isEmpty(str) && funAdHistoryData != null) {
+            ArrayList<FunAdHistoryData> c = c(str);
+            if (c == null) {
+                c = new ArrayList<>();
+            }
+            c.add(funAdHistoryData);
+            g(c);
+            iv7.e().a(str);
+            j(str);
+        }
+    }
+
+    public final ArrayList<FunAdHistoryData> b(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
-            if (intent == null || intent.getIntExtra("transition_type", 0) == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
             }
-            return true;
+            ArrayList<FunAdHistoryData> arrayList = new ArrayList<>();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
+                try {
+                    funAdHistoryData.parserJson(jSONArray.getJSONObject(i));
+                    arrayList.add(funAdHistoryData);
+                } catch (JSONException e) {
+                    BdLog.detailException(e);
+                }
+            }
+            return arrayList;
         }
-        return invokeL.booleanValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public final void f() {
+    public final void i(ArrayList<FunAdHistoryData> arrayList) {
+        FunAdHistoryData next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zg.a().removeCallbacks(this.g);
-            if (this.d.a() == 1) {
-                zg.a().postDelayed(this.g, 10L);
-                return;
-            }
-            k();
-            this.d.c();
-        }
-    }
-
-    public final void g() {
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ViewGroup viewGroup = this.b;
-            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.b.getChildAt(0).setVisibility(8);
-            }
-            ViewGroup viewGroup2 = this.b;
-            if (viewGroup2 != null && (findViewById = viewGroup2.findViewById(16908290)) != null) {
-                findViewById.setVisibility(8);
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = this.b;
-            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.b.getChildAt(0).setVisibility(0);
-            }
-            ViewGroup viewGroup2 = this.b;
-            if (viewGroup2 != null && viewGroup2.findViewById(16908290) != null) {
-                this.b.findViewById(16908290).setVisibility(0);
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || arrayList == null) {
             return;
         }
-        f();
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewParent parent = this.c.a.getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.c.a);
-            }
-            zg.a().removeCallbacks(this.g);
+        Iterator<FunAdHistoryData> it = arrayList.iterator();
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        while (it.hasNext() && (next = it.next()) != null && currentTimeMillis - next.getShowTime() > 86400) {
+            it.remove();
         }
     }
 
-    public void l() {
+    public ArrayList<FunAdHistoryData> c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return null;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void g(ArrayList<FunAdHistoryData> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, arrayList) != null) || arrayList == null) {
             return;
         }
-        j();
-        this.b.addView(this.c.a);
-        g();
-        this.d.d();
+        h(arrayList);
+        i(arrayList);
+    }
+
+    public final void h(ArrayList<FunAdHistoryData> arrayList) {
+        int size;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, arrayList) != null) || arrayList == null || (size = arrayList.size()) <= 600) {
+            return;
+        }
+        ListUtils.removeSubList(arrayList, 0, size - 600);
+    }
+
+    public final Map<String, ArrayList<FunAdHistoryData>> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : iv7.e().c()) {
+                if (!TextUtils.isEmpty(str)) {
+                    ArrayList<FunAdHistoryData> e = e(str);
+                    if (e == null) {
+                        e = new ArrayList<>();
+                    }
+                    hashMap.put(str, e);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final ArrayList<FunAdHistoryData> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            SharedPreferences g = iv7.g();
+            String string = g.getString(str + "_fun_ad_history_key_suffix", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return b(jSONArray);
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void j(String str) {
+        ArrayList<FunAdHistoryData> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (arrayList = this.a.get(str)) == null) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        Iterator<FunAdHistoryData> it = arrayList.iterator();
+        while (it.hasNext()) {
+            JSONObject json = it.next().toJson();
+            if (json != null) {
+                jSONArray.put(json);
+            }
+        }
+        SharedPreferences g = iv7.g();
+        EditorHelper.putString(g, str + "_fun_ad_history_key_suffix", jSONArray.toString());
     }
 }

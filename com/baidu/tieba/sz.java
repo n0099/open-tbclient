@@ -1,143 +1,129 @@
 package com.baidu.tieba;
 
-import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
-import com.baidu.card.view.UnfollowedDecorView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidKeyException;
 /* loaded from: classes8.dex */
-public class sz extends zx implements ry<ThreadData>, sy {
+public class sz extends uz {
     public static /* synthetic */ Interceptable $ic;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public UnfollowedDecorView e;
-    public Align f;
+    public byte[] d;
+    public byte[] e;
+    public byte[] f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448317478, "Lcom/baidu/tieba/sz;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448317478, "Lcom/baidu/tieba/sz;");
-                return;
-            }
-        }
-        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    }
-
-    public sz(TbPageContext tbPageContext, Align align) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sz(qz qzVar) {
+        super(qzVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, align};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {qzVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((qz) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        h(-1);
-        UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.e = unfollowedDecorView;
-        unfollowedDecorView.setId(R.id.decor_item_right_id);
-        g(this.e);
-        k(align);
+        this.f = null;
+        int i3 = this.b;
+        this.e = new byte[i3];
+        this.d = new byte[i3];
     }
 
-    public void l(t15 t15Var) {
+    @Override // com.baidu.tieba.uz
+    public void a(boolean z, String str, byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) {
-            if (t15Var.isSupportTop()) {
-                k(Align.ALIGN_RIGHT_TOP);
-            } else if (t15Var.isSupportBottom()) {
-                mz mzVar = this.d;
-                if (mzVar != null) {
-                    mzVar.o(this);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
+            if (bArr == null || bArr2 == null || bArr2.length != this.b) {
+                throw new InvalidKeyException("Internal error");
+            }
+            this.c = bArr2;
+            c();
+            this.a.e(z, str, bArr);
+        }
+    }
+
+    @Override // com.baidu.tieba.uz
+    public void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i4 = i2 + i;
+            while (i < i4) {
+                for (int i5 = 0; i5 < this.b; i5++) {
+                    this.e[i5] = (byte) (bArr[i5 + i] ^ this.d[i5]);
                 }
-            } else {
-                k(Align.ALIGN_RIGHT_TOP);
+                this.a.f(this.e, 0, bArr2, i3);
+                System.arraycopy(bArr2, i3, this.d, 0, this.b);
+                int i6 = this.b;
+                i += i6;
+                i3 += i6;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: m */
-    public void b(ThreadData threadData) {
+    @Override // com.baidu.tieba.uz
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
-            this.e.n(threadData);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            System.arraycopy(this.c, 0, this.d, 0, this.b);
         }
     }
 
-    public void k(Align align) {
+    @Override // com.baidu.tieba.uz
+    public void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, align) != null) || align == this.f) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i5 = i2 + i;
+            byte[] bArr3 = (bArr != bArr2 || i < i3 || i - i3 >= this.b) ? null : (byte[]) bArr.clone();
+            while (i < i5) {
+                this.a.j(bArr, i, this.e, 0);
+                int i6 = 0;
+                while (true) {
+                    i4 = this.b;
+                    if (i6 >= i4) {
+                        break;
+                    }
+                    bArr2[i6 + i3] = (byte) (this.e[i6] ^ this.d[i6]);
+                    i6++;
+                }
+                byte[] bArr4 = this.d;
+                if (bArr3 == null) {
+                    System.arraycopy(bArr, i, bArr4, 0, i4);
+                } else {
+                    System.arraycopy(bArr3, i, bArr4, 0, i4);
+                }
+                int i7 = this.b;
+                i += i7;
+                i3 += i7;
+            }
         }
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
-        if (align == Align.ALIGN_RIGHT_TOP) {
-            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            layoutParams.topMargin = dimenPixelSize2;
-            i(layoutParams);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.e.setLayoutParams(layoutParams);
-        } else if (align == Align.ALIGN_RIGHT_CENTER) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
-            layoutParams2.addRule(11);
-            layoutParams2.addRule(15);
-            layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            layoutParams2.bottomMargin = 0;
-            i(layoutParams2);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.e.setLayoutParams(layoutParams2);
-        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-            int i = g;
-            int g2 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int g3 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
-            layoutParams3.addRule(11);
-            layoutParams3.addRule(12);
-            layoutParams3.rightMargin = g3;
-            layoutParams3.bottomMargin = g4;
-            i(layoutParams3);
-            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.e.setPadding(g2, g2, g2, g2);
-            this.e.setLayoutParams(layoutParams3);
-        }
-        this.f = align;
     }
 
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.uz
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.e.p();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f == null) {
+                this.f = new byte[this.b];
+            }
+            System.arraycopy(this.d, 0, this.f, 0, this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.uz
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            System.arraycopy(this.f, 0, this.d, 0, this.b);
         }
     }
 }

@@ -1,68 +1,61 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class ra7 {
+public class ra7 extends d97<CardTitleView, t47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<mc7<?>> dataList, s87 feedExtraData, y97 videoSchemaData) {
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ra7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
-            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            s97 s97Var = new s97();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                Integer num = agree.agree_type;
-                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
-                s97Var.e = num.intValue();
-                Integer num2 = feedSocialComponent.agree.has_agree;
-                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
-                if (num2.intValue() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                s97Var.f = z;
-                s97Var.g = feedSocialComponent.agree.agree_num.longValue();
-                Long l = feedSocialComponent.agree.diff_agree_num;
-                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
-                s97Var.h = l.longValue();
-                Long l2 = feedSocialComponent.agree.disagree_num;
-                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
-                s97Var.i = l2.longValue();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            s97Var.a = feedSocialComponent.share_num.intValue();
-            s97Var.b = feedSocialComponent.comment_num.intValue();
-            s97Var.c = String.valueOf(feedSocialComponent.tid);
-            Long fid = feedSocialComponent.fid;
-            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-            s97Var.d = fid.longValue();
-            s97Var.l = feedExtraData.a();
-            videoSchemaData.h(s97Var.f);
-            videoSchemaData.g(s97Var.g);
-            String str = s97Var.l.a().get("user_id");
-            if (str == null) {
-                str = "";
-            }
-            videoSchemaData.k(str);
-            String str2 = s97Var.l.a().get("has_concerned_user");
-            if (str2 == null) {
-                str2 = "0";
-            }
-            videoSchemaData.i(str2);
-            s97Var.j = videoSchemaData;
-            dataList.add(new nc7(new x77(s97Var, CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "comment_btn_click"), t87.b(feedExtraData, "comment_btn_click2"), t87.b(feedExtraData, "comment_btn_click3")}), null, null, null, 28, null), "social_bar"));
+        }
+    }
+
+    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            hb7.l(a, null, Integer.valueOf(BdUtilHelper.getDimens(h37.a, R.dimen.M_H_X001)));
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull CardTitleView cardTitleView, @NonNull t47 t47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, t47Var) == null) {
+            cardTitleView.f(t47Var);
         }
     }
 }

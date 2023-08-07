@@ -11,9 +11,9 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.au4;
-import com.baidu.tieba.bu4;
-import com.baidu.tieba.jo5;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tieba.dt4;
+import com.baidu.tieba.et4;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final CustomMessageListener x;
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int Q1() {
+    public int R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -179,9 +179,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                 VideoChannelFragment videoChannelFragment = this.a;
                 if (videoChannelFragment.c != null && (videoChannelViewPager = videoChannelFragment.b) != null && ListUtils.getItem(videoChannelFragment.h, videoChannelViewPager.getCurrentItem()) != null) {
                     VideoChannelFragment videoChannelFragment2 = this.a;
-                    if (((jo5) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).a instanceof BaseFragment) {
+                    if (((FragmentTabStructure) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).frag instanceof BaseFragment) {
                         VideoChannelFragment videoChannelFragment3 = this.a;
-                        videoChannelFragment3.c.f(((BaseFragment) ((jo5) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).a).getUniqueId());
+                        videoChannelFragment3.c.f(((BaseFragment) ((FragmentTabStructure) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).frag).getUniqueId());
                     }
                 }
             }
@@ -205,7 +205,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment S1() {
+    public Fragment T1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -215,7 +215,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment T1() {
+    public Fragment U1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -225,7 +225,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public void a2() {
+    public void b2() {
         VideoChannelHeaderLayout videoChannelHeaderLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (videoChannelHeaderLayout = this.c) != null) {
@@ -247,8 +247,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            if (bu4.w().y(au4.e0)) {
-                bu4.w().E();
+            if (et4.w().y(dt4.e0)) {
+                et4.w().E();
             }
         }
     }
@@ -260,8 +260,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (bu4.w().y(au4.e0)) {
-                bu4.w().E();
+            } else if (et4.w().y(dt4.e0)) {
+                et4.w().E();
             }
         }
     }
@@ -278,7 +278,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            bu4.w().O(au4.e0);
+            et4.w().O(dt4.e0);
         }
     }
 

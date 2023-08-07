@@ -1,38 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.AccountStorage;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import tbclient.ThreadInfo;
-import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
-public class za9 implements yn {
+public class za9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public int e;
-    public int f;
-    public boolean g;
-    public ThreadData h;
+    @Nullable
+    public final BaseActivity<?> a;
+    @Nullable
+    public BdAsyncTask<?, ?, ?> b;
+    public final AccountLoginCoreHelper.IReLoginCallback c;
 
-    public za9(ThreadInfo threadInfo, boolean z) {
+    /* loaded from: classes8.dex */
+    public class a implements AccountLoginCoreHelper.IReLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ za9 a;
+
+        public a(za9 za9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {za9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = za9Var;
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onBeforeLogin(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
+            }
+            this.a.j();
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onSuccess(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
+                return;
+            }
+            this.a.e();
+            this.a.g(accountData);
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onFailure(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) {
+                this.a.e();
+                if (this.a.a != null) {
+                    this.a.a.showToast(str2);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(za9 za9Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {za9Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                AccountStorage.saveAccountData(this.a);
+                Logger.addLog("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
+        }
+    }
+
+    public za9(@Nullable BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,72 +134,87 @@ public class za9 implements yn {
                 return;
             }
         }
-        b(threadInfo);
-        this.g = z;
+        this.c = new a(this);
+        this.a = baseActivity;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void g(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            i(accountData);
+            Logger.addLog("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            if (this.a != null) {
+                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
+            }
+            f(-1);
+            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ya9.a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void b(ThreadInfo threadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
             return;
         }
-        ThreadData threadData = new ThreadData();
-        this.h = threadData;
-        threadData.parserProtobuf(threadInfo);
-        this.a = threadInfo.title;
-        this.b = threadInfo.reply_num.intValue();
-        this.c = threadInfo.agree_num.intValue();
-        if (!ListUtils.isEmpty(this.h.getMedias())) {
-            Iterator<MediaData> it = this.h.getMedias().iterator();
-            while (it.hasNext()) {
-                MediaData next = it.next();
-                if (next != null && next.getType() == 3) {
-                    String picUrl = next.getPicUrl();
-                    this.d = picUrl;
-                    if (StringUtils.isNull(picUrl)) {
-                        this.d = next.getSmallUrl();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getThumbnails_url();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getSrc_pic();
-                    }
-                    if (!StringUtils.isNull(this.d)) {
-                        break;
-                    }
-                }
-            }
+        this.a.setResult(i, new Intent());
+        this.a.finish();
+    }
+
+    public final void e() {
+        BaseActivity<?> baseActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
+            return;
         }
-        VideoInfo videoInfo = threadInfo.video_info;
-        if (videoInfo != null) {
-            this.e = videoInfo.video_duration.intValue();
+        baseActivity.closeLoadingDialog();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
+                }
+                this.b = AccountLoginCoreHelper.getInstance().asyncReLogin(session.username, session.bduss, "", null, this.c);
+                return;
+            }
+            e();
+            f(0);
         }
     }
 
-    public void c(int i) {
+    public final void j() {
+        BaseActivity<?> baseActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
+            return;
+        }
+        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().isShowing()) {
+            return;
+        }
+        BaseActivity<?> baseActivity2 = this.a;
+        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
+        if (this.a.getLoadingDialog() != null) {
+            this.a.getLoadingDialog().setCancelable(false);
+            this.a.getLoadingDialog().setCanceledOnTouchOutside(false);
+        }
+    }
+
+    public final void i(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
+            kg.a().c(new b(this, accountData));
+            Logger.addLog("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null) {
+                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
+            }
+            BrowserHelper.initCookie(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
 }

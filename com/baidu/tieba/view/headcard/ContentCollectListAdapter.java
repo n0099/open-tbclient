@@ -9,11 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -22,20 +25,17 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.kq6;
-import com.baidu.tieba.my5;
-import com.baidu.tieba.np6;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.r66;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.tra;
-import com.baidu.tieba.ura;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.rn6;
+import com.baidu.tieba.um6;
 import com.baidu.tieba.view.headcard.playerlist.MatchPlayerListView;
 import com.baidu.tieba.view.headcard.viewholder.MatchPlayerListViewHolder;
-import com.baidu.tieba.vra;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.xqa;
+import com.baidu.tieba.y36;
+import com.baidu.tieba.ym;
+import com.baidu.tieba.yqa;
+import com.baidu.tieba.zqa;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,8 +49,8 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public List<yn> b;
-    public tra c;
+    public List<ym> b;
+    public xqa c;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -71,7 +71,7 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         public transient /* synthetic */ FieldHolder $fh;
         public ContentCollectView a;
         public ThreadData b;
-        public kq6 c;
+        public rn6 c;
         public final /* synthetic */ ContentCollectListAdapter d;
 
         /* loaded from: classes8.dex */
@@ -107,7 +107,7 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
                     }
                     if (this.a.c != null) {
                         ContentCollectViewHolder contentCollectViewHolder = this.a;
-                        contentCollectViewHolder.d.r(false, contentCollectViewHolder.c.p(), "clk_");
+                        contentCollectViewHolder.d.r(false, contentCollectViewHolder.c.q(), "clk_");
                         if (this.a.d.s()) {
                             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COLLECT_COVER_CLICK);
                             statisticItem.param("obj_type", 2);
@@ -164,11 +164,11 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
             contentCollectView.setCommonClickListener(new a(this, contentCollectListAdapter));
         }
 
-        public void d(ThreadData threadData, kq6 kq6Var) {
+        public void d(ThreadData threadData, rn6 rn6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, threadData, kq6Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, threadData, rn6Var) == null) {
                 this.b = threadData;
-                this.c = kq6Var;
+                this.c = rn6Var;
             }
         }
     }
@@ -184,15 +184,15 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ tra a;
+            public final /* synthetic */ xqa a;
             public final /* synthetic */ CoverCollectViewHolder b;
 
-            public a(CoverCollectViewHolder coverCollectViewHolder, tra traVar) {
+            public a(CoverCollectViewHolder coverCollectViewHolder, xqa xqaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {coverCollectViewHolder, traVar};
+                    Object[] objArr = {coverCollectViewHolder, xqaVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -203,7 +203,7 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
                     }
                 }
                 this.b = coverCollectViewHolder;
-                this.a = traVar;
+                this.a = xqaVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -212,13 +212,13 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.b.a != null && this.a.c() != null) {
                     boolean z = false;
                     if (!TextUtils.isEmpty(this.a.c().c())) {
-                        nx4.s(this.b.b.a.getPageActivity(), this.a.c().c());
+                        BrowserHelper.startWebActivity(this.b.b.a.getPageActivity(), this.a.c().c());
                         z = true;
                     }
                     if (this.a.c().p() != 0) {
                         String valueOf = String.valueOf(this.a.c().p());
                         if (NewWebHotTopicPageSwitch.isOn()) {
-                            my5.f(this.b.b.a, valueOf, null);
+                            zv5.f(this.b.b.a, valueOf, null);
                         } else {
                             new HotTopicActivityConfig(view2.getContext()).createNormalConfig(valueOf, null, "1").start();
                         }
@@ -257,12 +257,12 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
             this.a = matchCardView;
         }
 
-        public void b(tra traVar) {
+        public void b(xqa xqaVar) {
             MatchCardView matchCardView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, traVar) == null) && traVar != null && (matchCardView = this.a) != null) {
-                matchCardView.setData(traVar);
-                this.a.setOnClickListener(new a(this, traVar));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, xqaVar) == null) && xqaVar != null && (matchCardView = this.a) != null) {
+                matchCardView.setData(xqaVar);
+                this.a.setOnClickListener(new a(this, xqaVar));
             }
         }
     }
@@ -360,14 +360,11 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
             this.a = textView;
         }
 
-        public void b(@NonNull vra vraVar) {
+        public void b(@NonNull zqa zqaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vraVar) == null) {
-                this.a.setText(vraVar.a());
-                d85 d = d85.d(this.a);
-                d.D(R.string.F_X02);
-                d.C(R.dimen.T_X07);
-                d.x(R.color.CAM_X0105);
+            if (interceptable == null || interceptable.invokeL(1048576, this, zqaVar) == null) {
+                this.a.setText(zqaVar.a());
+                EMManager.from(this.a).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105);
             }
         }
     }
@@ -377,15 +374,15 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThreadData a;
-        public final /* synthetic */ kq6 b;
+        public final /* synthetic */ rn6 b;
         public final /* synthetic */ ContentCollectListAdapter c;
 
-        public a(ContentCollectListAdapter contentCollectListAdapter, ThreadData threadData, kq6 kq6Var) {
+        public a(ContentCollectListAdapter contentCollectListAdapter, ThreadData threadData, rn6 rn6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {contentCollectListAdapter, threadData, kq6Var};
+                Object[] objArr = {contentCollectListAdapter, threadData, rn6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -397,7 +394,7 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
             }
             this.c = contentCollectListAdapter;
             this.a = threadData;
-            this.b = kq6Var;
+            this.b = rn6Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -406,11 +403,11 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ThreadData threadData = this.a;
                 if (threadData != null) {
-                    ThreadCardUtils.jumpToPB((t15) threadData, (Context) this.c.a.getPageActivity(), 2, false);
+                    ThreadCardUtils.jumpToPB((q05) threadData, (Context) this.c.a.getPageActivity(), 2, false);
                 }
-                kq6 kq6Var = this.b;
-                if (kq6Var != null) {
-                    this.c.r(false, kq6Var.p(), "clk_");
+                rn6 rn6Var = this.b;
+                if (rn6Var != null) {
+                    this.c.r(false, rn6Var.q(), "clk_");
                     if (this.c.s()) {
                         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COLLECT_COVER_CLICK);
                         statisticItem.param("obj_type", 2);
@@ -446,7 +443,7 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<yn> list = this.b;
+            List<ym> list = this.b;
             if (list != null && list.size() > i) {
                 return this.b.get(i).getType().getId();
             }
@@ -455,7 +452,7 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         return invokeI.intValue;
     }
 
-    public void t(List<yn> list) {
+    public void t(List<ym> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.b = list;
@@ -474,30 +471,30 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        List<yn> list;
+        List<ym> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewHolder, i) == null) && viewHolder != null && (list = this.b) != null && list.size() > i) {
             viewHolder.setIsRecyclable(false);
-            yn ynVar = this.b.get(i);
-            if ((ynVar instanceof vra) && (viewHolder instanceof TitleViewHolder)) {
-                ((TitleViewHolder) viewHolder).b((vra) ynVar);
-            } else if ((ynVar instanceof tra) && (viewHolder instanceof CoverCollectViewHolder)) {
-                tra traVar = (tra) ynVar;
-                this.c = traVar;
-                ((CoverCollectViewHolder) viewHolder).b(traVar);
-                if (!traVar.a) {
+            ym ymVar = this.b.get(i);
+            if ((ymVar instanceof zqa) && (viewHolder instanceof TitleViewHolder)) {
+                ((TitleViewHolder) viewHolder).b((zqa) ymVar);
+            } else if ((ymVar instanceof xqa) && (viewHolder instanceof CoverCollectViewHolder)) {
+                xqa xqaVar = (xqa) ymVar;
+                this.c = xqaVar;
+                ((CoverCollectViewHolder) viewHolder).b(xqaVar);
+                if (!xqaVar.a) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COLLECT_COVER_SHOW);
-                    if (traVar.c() != null && traVar.c().g() != null) {
-                        statisticItem.addParam("obj_locate", traVar.c().g().intValue());
+                    if (xqaVar.c() != null && xqaVar.c().g() != null) {
+                        statisticItem.addParam("obj_locate", xqaVar.c().g().intValue());
                     }
-                    statisticItem.addParam("obj_source", traVar.d());
-                    statisticItem.addParam("fid", traVar.a());
-                    statisticItem.addParam("fname", traVar.b());
+                    statisticItem.addParam("obj_source", xqaVar.d());
+                    statisticItem.addParam("fid", xqaVar.a());
+                    statisticItem.addParam("fname", xqaVar.b());
                     TiebaStatic.log(statisticItem);
-                    traVar.a = true;
+                    xqaVar.a = true;
                 }
-            } else if ((ynVar instanceof ura) && (viewHolder instanceof MatchPlayerListViewHolder)) {
-                ((MatchPlayerListViewHolder) viewHolder).b((ura) ynVar);
+            } else if ((ymVar instanceof yqa) && (viewHolder instanceof MatchPlayerListViewHolder)) {
+                ((MatchPlayerListViewHolder) viewHolder).b((yqa) ymVar);
             } else {
                 ThreadData threadData = (ThreadData) this.b.get(i);
                 if (threadData == null) {
@@ -505,13 +502,13 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
                 }
                 ContentCollectViewHolder contentCollectViewHolder = (ContentCollectViewHolder) viewHolder;
                 contentCollectViewHolder.a.setData(threadData);
-                kq6 kq6Var = new kq6();
-                kq6Var.position = 0;
-                kq6Var.a = threadData;
-                kq6Var.position = i;
-                r(true, kq6Var.r(), "show_");
-                contentCollectViewHolder.d(threadData, kq6Var);
-                contentCollectViewHolder.a.setOnClickListener(new a(this, threadData, kq6Var));
+                rn6 rn6Var = new rn6();
+                rn6Var.position = 0;
+                rn6Var.a = threadData;
+                rn6Var.position = i;
+                r(true, rn6Var.r(), "show_");
+                contentCollectViewHolder.d(threadData, rn6Var);
+                contentCollectViewHolder.a.setOnClickListener(new a(this, threadData, rn6Var));
             }
         }
     }
@@ -522,14 +519,14 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            if (i == vra.b.getId()) {
+            if (i == zqa.b.getId()) {
                 EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
-                eMTextView.setPadding(yi.g(this.a.getPageActivity(), R.dimen.M_W_X005), yi.g(this.a.getPageActivity(), R.dimen.tbds30), 0, yi.g(this.a.getPageActivity(), R.dimen.M_H_X004));
+                eMTextView.setPadding(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_W_X005), BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds30), 0, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_H_X004));
                 return new TitleViewHolder(this, eMTextView);
-            } else if (i == tra.f.getId()) {
+            } else if (i == xqa.f.getId()) {
                 return new CoverCollectViewHolder(this, new MatchCardView(this.a));
             } else {
-                if (i == ura.b.getId()) {
+                if (i == yqa.b.getId()) {
                     return new MatchPlayerListViewHolder(new MatchPlayerListView(this.a.getPageActivity()));
                 }
                 return new ContentCollectViewHolder(this, new ContentCollectView(this.a));
@@ -538,18 +535,18 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public final void q(StatisticItem statisticItem, tra traVar) {
+    public final void q(StatisticItem statisticItem, xqa xqaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, statisticItem, traVar) != null) || traVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, statisticItem, xqaVar) != null) || xqaVar == null) {
             return;
         }
         int i = 0;
-        if (traVar.c() != null && traVar.c().g() != null) {
-            i = traVar.c().g().intValue();
+        if (xqaVar.c() != null && xqaVar.c().g() != null) {
+            i = xqaVar.c().g().intValue();
         }
-        int d = traVar.d();
-        String a2 = traVar.a();
-        String b2 = traVar.b();
+        int d = xqaVar.d();
+        String a2 = xqaVar.a();
+        String b2 = xqaVar.b();
         statisticItem.addParam("obj_locate", i);
         statisticItem.addParam("obj_source", d);
         statisticItem.addParam("fid", a2);
@@ -563,14 +560,14 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         }
         statisticItem.addParam("resource_id", 1);
         if (z) {
-            np6.b().a(statisticItem);
+            um6.b().a(statisticItem);
         } else {
             TiebaStatic.log(statisticItem);
         }
         if ("clk_".equals(str)) {
-            np6.b().d(true);
+            um6.b().d(true);
         }
-        r66.c().i("page_recommend", str, statisticItem);
+        y36.c().i("page_recommend", str, statisticItem);
     }
 
     public final boolean s() {
@@ -578,8 +575,8 @@ public class ContentCollectListAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (ListUtils.isNotEmpty(this.b)) {
-                for (yn ynVar : this.b) {
-                    if (ynVar instanceof tra) {
+                for (ym ymVar : this.b) {
+                    if (ymVar instanceof xqa) {
                         return true;
                     }
                 }

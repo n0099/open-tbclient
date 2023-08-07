@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import android.os.Message;
+/* loaded from: classes6.dex */
 public interface fvb {
-    void onPlayerStatistics(lvb lvbVar, int i, String str);
+    void a(Message message, int i);
 }

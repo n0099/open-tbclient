@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba6;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.qx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SmartApp;
 /* loaded from: classes4.dex */
-public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, ry<t15> {
+public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, qx<q05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -103,7 +103,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         this.b = (TextView) findViewById(R.id.tv_thread_smart_app_title);
         this.c = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
-        d();
+        c();
     }
 
     public final TbPageContext a(Context context) {
@@ -129,23 +129,23 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: c */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: b */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) {
-            if (t15Var != null && t15Var.getThreadData() != null && t15Var.getThreadData().getSmartApp() != null) {
-                SmartApp smartApp = t15Var.getThreadData().getSmartApp();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
+            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = q05Var.getThreadData().getSmartApp();
                 this.d = smartApp;
-                if (!xi.isEmpty(smartApp.avatar)) {
-                    this.a.O(this.d.avatar, 10, false, false);
+                if (!bi.isEmpty(smartApp.avatar)) {
+                    this.a.startLoad(this.d.avatar, 10, false, false);
                 }
-                if (!xi.isEmpty(this.d.name)) {
+                if (!bi.isEmpty(this.d.name)) {
                     this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
                 } else {
                     this.b.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
                 }
-                if (!xi.isEmpty(this.d._abstract)) {
+                if (!bi.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
                     this.c.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
@@ -157,9 +157,9 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
@@ -173,8 +173,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || (smartApp = this.d) == null) {
             return;
         }
-        if (!ba6.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (xi.isEmpty(this.d.h5_url)) {
+        if (!TbAiappsLaunchUtil.launch(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (bi.isEmpty(this.d.h5_url)) {
                 return;
             }
             UrlManager.getInstance().dealOneLink(a(getContext()), new String[]{this.d.h5_url});

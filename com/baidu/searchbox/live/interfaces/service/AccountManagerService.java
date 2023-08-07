@@ -43,7 +43,7 @@ public interface AccountManagerService {
     /* loaded from: classes3.dex */
     public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE = new Companion();
-        public static final ServiceReference SERVICE_REFERENCE = DI.INSTANCE.getServiceRef(DI.ACCOUNT);
+        public static final ServiceReference SERVICE_REFERENCE = DI.INSTANCE.getServiceRef("account");
 
         public final ServiceReference getSERVICE_REFERENCE() {
             return SERVICE_REFERENCE;

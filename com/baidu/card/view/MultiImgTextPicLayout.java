@@ -13,12 +13,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -26,19 +30,15 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a15;
-import com.baidu.tieba.b85;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.nz;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.t15;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.im;
+import com.baidu.tieba.iz5;
+import com.baidu.tieba.ly;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.qx;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.up6;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.z16;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
+public class MultiImgTextPicLayout extends LinearLayout implements qx<q05> {
     public static /* synthetic */ Interceptable $ic;
     public static final int u;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,10 +64,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
     public TbImageView i;
     public String j;
     public boolean k;
-    public up6<t15> l;
-    public t15 m;
+    public bn6<q05> l;
+    public q05 m;
     public int n;
-    public z16 o;
+    public iz5 o;
     public LinkedList<MediaData> p;
     public boolean q;
     public int r;
@@ -80,9 +80,9 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(hn hnVar) {
+    public void setPreloadSizeReadyCallback(im imVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, hnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, imVar) == null) {
         }
     }
 
@@ -112,7 +112,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            up6<t15> subClickListener;
+            bn6<q05> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -122,7 +122,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements z16 {
+    public class b implements iz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MultiImgTextPicLayout a;
@@ -145,11 +145,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
             this.a = multiImgTextPicLayout;
         }
 
-        @Override // com.baidu.tieba.z16
+        @Override // com.baidu.tieba.iz5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                up6<t15> subClickListener = this.a.getSubClickListener();
+                bn6<q05> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.m.objType = 2;
@@ -223,11 +223,11 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                 } else {
                     i = 14;
                 }
-                jn A = TbImageMemoryCache.v().A(sg.h().g(tbImageView.getUrl(), i));
+                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (A != null) {
-                    i3 = A.r();
-                    i2 = A.m();
+                if (D != null) {
+                    i3 = D.getWidth();
+                    i2 = D.getHeight();
                 } else {
                     i2 = 0;
                 }
@@ -236,7 +236,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                     int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
                     Matrix imageMatrix = tbImageView.getImageMatrix();
                     float f9 = 0.0f;
-                    if (tbImageView.B() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                    if (tbImageView.isSmartCrop() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                         float smartCropCenterPointWidthRatio = tbImageView.getSmartCropCenterPointWidthRatio();
                         float smartCropCenterPointHeightRatio = tbImageView.getSmartCropCenterPointHeightRatio();
                         if (i3 * height > width * i2) {
@@ -281,7 +281,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                         f7 = 0.0f;
                         imageMatrix.setScale(f6, f6);
                         imageMatrix.postTranslate(f9, f7);
-                    } else if (tbImageView.z() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                    } else if (tbImageView.isLongPic() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                         if (i3 * height > width * i2) {
                             f4 = height;
                             f5 = i2;
@@ -358,14 +358,14 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.o == null) {
                 return;
             }
-            z16 z16Var = this.d.o;
+            iz5 iz5Var = this.d.o;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            z16Var.a(view2, i, z);
+            iz5Var.a(view2, i, z);
         }
     }
 
@@ -382,10 +382,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                 return;
             }
         }
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-        u = yi.l(TbadkCoreApplication.getInst()) - ((yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+        u = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -409,16 +409,16 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         }
     }
 
-    public final int g(int i) {
+    public final int f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (this.n > 0) {
-                int l = yi.l(getContext());
-                if (l == this.r) {
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+                if (equipmentWidth == this.r) {
                     return this.n;
                 }
-                this.r = l;
+                this.r = equipmentWidth;
             }
             int size = (View.MeasureSpec.getSize(i) - (2 * TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10))) / 3;
             this.n = size;
@@ -453,17 +453,17 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         this.r = 0;
         this.s = false;
         this.t = new c(this);
-        h();
+        g();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: i */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: h */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t15Var) == null) {
-            this.m = t15Var;
-            ThreadData threadData = t15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, q05Var) == null) {
+            this.m = q05Var;
+            ThreadData threadData = q05Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.s);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, u, this.s);
             setImageData(threadData);
@@ -499,10 +499,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         }
     }
 
-    public void setSubClickListener(up6<t15> up6Var) {
+    public void setSubClickListener(bn6<q05> bn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, up6Var) == null) {
-            this.l = up6Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bn6Var) == null) {
+            this.l = bn6Var;
         }
     }
 
@@ -511,7 +511,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (a15.c().g() && ListUtils.getCount(medias) != 0) {
+            if (b05.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -524,7 +524,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                     this.h.setVisibility(8);
                     this.d.setVisibility(8);
                     this.i.setVisibility(0);
-                    k((MediaData) ListUtils.getItem(medias, 0), this.i, false, false, 0);
+                    j((MediaData) ListUtils.getItem(medias, 0), this.i, false, false, 0);
                     return;
                 }
                 this.i.setVisibility(8);
@@ -541,17 +541,17 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                 if (ListUtils.getCount(linkedList) == 2) {
                     this.d.setVisibility(0);
                     boolean z2 = z;
-                    k((MediaData) ListUtils.getItem(medias, 0), this.e, z2, false, 0);
+                    j((MediaData) ListUtils.getItem(medias, 0), this.e, z2, false, 0);
                     this.f.setVisibility(8);
-                    k((MediaData) ListUtils.getItem(medias, 1), this.g, z2, false, 1);
+                    j((MediaData) ListUtils.getItem(medias, 1), this.g, z2, false, 1);
                     return;
                 } else if (ListUtils.getCount(linkedList) >= 3) {
                     this.d.setVisibility(0);
                     this.f.setVisibility(0);
                     boolean z3 = z;
-                    k((MediaData) ListUtils.getItem(medias, 0), this.e, z3, false, 0);
-                    k((MediaData) ListUtils.getItem(medias, 1), this.f, z3, false, 1);
-                    k((MediaData) ListUtils.getItem(medias, 2), this.g, z3, true, 2);
+                    j((MediaData) ListUtils.getItem(medias, 0), this.e, z3, false, 0);
+                    j((MediaData) ListUtils.getItem(medias, 1), this.f, z3, false, 1);
+                    j((MediaData) ListUtils.getItem(medias, 2), this.g, z3, true, 2);
                     return;
                 } else {
                     this.d.setVisibility(8);
@@ -568,7 +568,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
             this.h.setVisibility(8);
             this.d.setVisibility(8);
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (a15.c().g() && ListUtils.getCount(medias) != 0) {
+            if (b05.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 MediaData mediaData = null;
                 int i = 0;
@@ -589,7 +589,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                 this.i.setVisibility(8);
                 if (ListUtils.getCount(linkedList) == 1) {
                     this.i.setVisibility(0);
-                    k(mediaData2, this.i, false, false, 0);
+                    j(mediaData2, this.i, false, false, 0);
                     return;
                 }
                 this.i.setVisibility(8);
@@ -611,26 +611,17 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
             VoiceData.VoiceModel voiceModel = voice.get(0);
             this.c.setVoiceModel(voiceModel);
             this.c.setTag(voiceModel);
-            this.c.e();
+            this.c.b();
             if (voiceModel != null) {
-                this.c.m(voiceModel.voice_status.intValue());
+                this.c.j(voiceModel.voice_status.intValue());
             }
-            this.c.o();
+            this.c.l();
         }
     }
 
-    public up6<t15> getSubClickListener() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
-        }
-        return (up6) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.multi_image_card_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -639,43 +630,43 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
             PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            int l = ((yi.l(getContext()) - (nz.l * 2)) - (yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
+            int equipmentWidth = ((BdUtilHelper.getEquipmentWidth(getContext()) - (ly.l * 2)) - (BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_more_container);
             this.d = relativeLayout;
             HomeGroupUbsUIHelper.handleContentInterval(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(this.a, R.dimen.tbds7, R.dimen.tbds10);
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(this.b, R.dimen.tbds7, R.dimen.tbds10);
-            this.d.getLayoutParams().height = l;
+            this.d.getLayoutParams().height = equipmentWidth;
             TbImageView tbImageView = (TbImageView) findViewById(R.id.thread_card_img_more_one);
             this.e = tbImageView;
             tbImageView.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X12);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.e.getLayoutParams().height = l;
-            this.e.getLayoutParams().width = l;
+            this.e.getLayoutParams().height = equipmentWidth;
+            this.e.getLayoutParams().width = equipmentWidth;
             TbImageView tbImageView2 = (TbImageView) findViewById(R.id.thread_card_img_more_two);
             this.f = tbImageView2;
             tbImageView2.setDrawCorner(false);
             this.f.setPlaceHolder(2);
             this.f.setRadiusById(R.string.J_X02);
             this.f.setConrers(15);
-            this.f.getLayoutParams().height = l;
-            this.f.getLayoutParams().width = l;
+            this.f.getLayoutParams().height = equipmentWidth;
+            this.f.getLayoutParams().width = equipmentWidth;
             TbImageView tbImageView3 = (TbImageView) findViewById(R.id.thread_card_img_more_three);
             this.g = tbImageView3;
             tbImageView3.setDrawCorner(true);
             this.g.setPlaceHolder(2);
             this.g.setRadiusById(R.string.J_X11);
             this.g.setConrers(15);
-            this.g.getLayoutParams().height = l;
-            this.g.getLayoutParams().width = l;
+            this.g.getLayoutParams().height = equipmentWidth;
+            this.g.getLayoutParams().width = equipmentWidth;
             TextView textView = (TextView) findViewById(R.id.thread_card_img_more_label);
             this.h = textView;
-            textView.getLayoutParams().height = l;
-            this.h.getLayoutParams().width = l;
-            d85.d(this.h).B(R.array.S_O_X001);
-            this.h.setTypeface(b85.K(b85.H(R.string.F_X02)));
+            textView.getLayoutParams().height = equipmentWidth;
+            this.h.getLayoutParams().width = equipmentWidth;
+            EMManager.from(this.h).setTextShadow(R.array.S_O_X001);
+            this.h.setTypeface(w65.L(w65.H(R.string.F_X02)));
             TbImageView tbImageView4 = (TbImageView) findViewById(R.id.thread_card_img_singal);
             this.i = tbImageView4;
             tbImageView4.setRadiusById(R.string.J_X05);
@@ -689,9 +680,18 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         }
     }
 
-    public final void j(TbImageView tbImageView, int i, boolean z, boolean z2) {
+    public bn6<q05> getSubClickListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{tbImageView, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.l;
+        }
+        return (bn6) invokeV.objValue;
+    }
+
+    public final void i(TbImageView tbImageView, int i, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{tbImageView, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (this.o != null && tbImageView != null) {
                 View.OnClickListener onClickListener = tbImageView.getOnClickListener();
                 if (onClickListener instanceof d) {
@@ -705,10 +705,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         }
     }
 
-    public final void k(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, int i) {
+    public final void j(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
             String thumbnailsUrl = ThreadCardUtils.getThumbnailsUrl(mediaData);
             if (this.k) {
                 i2 = 13;
@@ -716,7 +716,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                 i2 = 14;
             }
             if (!StringHelper.equals(thumbnailsUrl, tbImageView.getUrl())) {
-                tbImageView.H();
+                tbImageView.reset();
             }
             setCanCenterStart(false);
             boolean isLongPic = mediaData.isLongPic();
@@ -740,8 +740,8 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setGifIconSupport(true);
             }
-            tbImageView.N(thumbnailsUrl, i2, false);
-            j(tbImageView, i, z, z2);
+            tbImageView.startLoad(thumbnailsUrl, i2, false);
+            i(tbImageView, i, z, z2);
         }
     }
 
@@ -750,19 +750,19 @@ public class MultiImgTextPicLayout extends LinearLayout implements ry<t15> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            int g = g(i);
+            int f = f(i);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            layoutParams.width = g;
-            layoutParams.height = g;
+            layoutParams.width = f;
+            layoutParams.height = f;
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
-            layoutParams2.width = g;
-            layoutParams2.height = g;
+            layoutParams2.width = f;
+            layoutParams2.height = f;
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.g.getLayoutParams();
-            layoutParams3.width = g;
-            layoutParams3.height = g;
+            layoutParams3.width = f;
+            layoutParams3.height = f;
             RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-            layoutParams4.width = g;
-            layoutParams4.height = g;
+            layoutParams4.width = f;
+            layoutParams4.height = f;
             if (this.d.getVisibility() != 8) {
                 this.e.setLayoutParams(layoutParams);
                 this.f.setLayoutParams(layoutParams2);

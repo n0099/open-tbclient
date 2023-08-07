@@ -1,49 +1,103 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tieba.h72;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mt2 extends pp2<gu2> {
+public class mt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static h72.g b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DownloadStatisticConstants.UBC_TYPE_PAUSE : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984126, "Lcom/baidu/tieba/mt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984126, "Lcom/baidu/tieba/mt2;");
+                return;
+            }
+        }
+        a = ir1.a;
     }
 
-    public mt2() {
+    public static void a(h72.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
+            b = gVar;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gu2 gu2Var) {
+    public static void b(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gu2Var) == null) {
-            gu2Var.pause();
-            d(gu2Var, command.what, null, false);
+        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
+            e(editText, ConstPath.KEY_BLUR, i);
+        }
+    }
+
+    public static void d(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
+            e(editText, "confirm", i);
+        }
+    }
+
+    public static void f(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
+            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
+        }
+    }
+
+    public static void c(i72 i72Var, EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65539, null, i72Var, editText, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", "change");
+                jSONObject.put("cursorOffset", editText.getSelectionStart());
+                jSONObject.put("keyCode", i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            i72Var.j(editText.getText().toString());
+            i72Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
+            b.a(String.valueOf(editText.getTag()), jSONObject);
+        }
+    }
+
+    public static void e(EditText editText, String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", str);
+                jSONObject.put("cursorOffset", editText.getText().length());
+                jSONObject.put("keyboardHeight", "" + po3.O(i));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            b.a(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

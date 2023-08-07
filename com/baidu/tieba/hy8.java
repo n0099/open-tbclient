@@ -1,72 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hy8 {
+public class hy8 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final hy8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public int c;
+    public boolean d;
+    public ny8 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947840162, "Lcom/baidu/tieba/hy8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947840162, "Lcom/baidu/tieba/hy8;");
-                return;
-            }
-        }
-        a = new hy8();
-    }
-
-    public hy8() {
+    public hy8(ny8 ny8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ny8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = false;
+        this.e = ny8Var;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public final List<String> a(String content) {
-        InterceptResult invokeL;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, content)) == null) {
-            Intrinsics.checkNotNullParameter(content, "content");
-            ArrayList arrayList = new ArrayList();
-            int codePointCount = content.codePointCount(0, content.length());
-            int i = 1;
-            if (1 <= codePointCount) {
-                while (true) {
-                    String substring = content.substring(content.offsetByCodePoints(0, i - 1), content.offsetByCodePoints(0, i));
-                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-                    arrayList.add(substring);
-                    if (i == codePointCount) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ny8 ny8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (ny8Var = this.e) == null) {
+            return;
+        }
+        if (!this.d) {
+            ny8Var.j(this.b, this.c, this.a, 2);
+        }
+        this.e.j(this.b, this.c, this.a, 1);
     }
 }

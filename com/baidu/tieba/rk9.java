@@ -1,59 +1,35 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.xx;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public abstract class rk9 {
+public final class rk9 extends hv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public up6 b;
-    public xx.a c;
-    public OriginalThreadInfo d;
-    public int e;
 
-    public abstract View a();
+    @Override // com.baidu.tieba.lv9
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "collect" : (String) invokeV.objValue;
+    }
 
-    public abstract void b(TbPageContext tbPageContext, int i);
-
-    public abstract void c(OriginalThreadInfo originalThreadInfo);
-
-    public rk9(TbPageContext tbPageContext) {
+    public rk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.e = 3;
-        this.a = tbPageContext;
-    }
-
-    public void d(xx.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public void e(up6 up6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, up6Var) == null) {
-            this.b = up6Var;
         }
     }
 }

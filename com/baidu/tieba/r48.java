@@ -1,78 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.module.frs.FrsService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class r48 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071763, "Lcom/baidu/tieba/r48;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948071763, "Lcom/baidu/tieba/r48;");
-        }
-    }
-
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public static boolean a(TbPageContext<?> tbPageContext, ym ymVar) {
+        InterceptResult invokeLL;
+        jn6 jn6Var;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                try {
-                    if (activity.isInMultiWindowMode()) {
-                        return true;
-                    }
-                    return false;
-                } catch (Throwable unused) {
-                    return false;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, ymVar)) == null) {
+            if ((ymVar instanceof jn6) && (threadData = (jn6Var = (jn6) ymVar).a) != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(jn6Var.a.getVoiceRoomData().room_name) && jn6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
+                ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, jn6Var.a.getVoiceRoomData().room_id.longValue());
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null) {
-            return;
-        }
-        int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-        int i = 0;
-        View childAt = bdTypeRecyclerView.getChildAt(0);
-        if (childAt != null) {
-            i = childAt.getTop();
-        }
-        a = firstVisiblePosition;
-        b = i;
-    }
-
-    public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || a > bdTypeRecyclerView.getCount() - 1) {
-            return;
-        }
-        bdTypeRecyclerView.requestFocusFromTouch();
-        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, b);
-        a = 0;
-        b = 0;
+        return invokeLL.booleanValue;
     }
 }

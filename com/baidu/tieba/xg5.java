@@ -1,69 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.UserGrowth;
+import tbclient.UserTaskInfo;
 /* loaded from: classes8.dex */
-public final class xg5 {
+public class xg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<String> a;
-    public a b;
-    public int c;
-    public final rg<jn> d;
-    public final Runnable e;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b extends rg<jn> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xg5 a;
-
-        public b(xg5 xg5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xg5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xg5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String key, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, key, i) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (jnVar != null && !TextUtils.isEmpty(key)) {
-                    this.a.a.remove(key);
-                }
-                this.a.f();
-            }
-        }
-    }
+    public int a;
+    public long b;
+    public long c;
+    public double d;
+    public List<zg5> e;
 
     public xg5() {
         Interceptable interceptable = $ic;
@@ -78,73 +37,96 @@ public final class xg5 {
                 return;
             }
         }
-        this.a = new HashSet<>();
-        this.c = 10;
-        this.d = new b(this);
-        this.e = new Runnable() { // from class: com.baidu.tieba.ug5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    xg5.e(xg5.this);
-                }
-            }
-        };
+        this.e = new ArrayList();
     }
 
-    public static final void e(xg5 this$0) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            HashSet<String> hashSet = new HashSet<>();
-            hashSet.addAll(this$0.a);
-            this$0.d(hashSet);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    @JvmOverloads
-    public final void c(List<String> list, a aVar, int i) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048576, this, list, aVar, i) != null) || ListUtils.isEmpty(list)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public List<zg5> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public double e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        HashSet<String> hashSet = new HashSet<>();
-        Intrinsics.checkNotNull(list);
-        hashSet.addAll(list);
-        this.b = aVar;
-        this.c = i;
-        d(hashSet);
-    }
-
-    public final void d(HashSet<String> hashSet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) != null) || hashSet.isEmpty()) {
+        this.a = jSONObject.optInt("level_id");
+        this.b = jSONObject.optLong("score");
+        this.c = jSONObject.optLong("target_score");
+        this.d = jSONObject.optDouble("tmoney");
+        this.e.clear();
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_info");
+        if (optJSONArray == null) {
             return;
         }
-        this.a.clear();
-        Iterator<String> it = hashSet.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            if (!xi.isEmpty(next) && ((jn) sg.h().n(next, this.c, new Object[0])) == null) {
-                this.a.add(next);
-                sg.h().k(next, this.c, this.d, 0, 0, null, new Object[0]);
+        int length = optJSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = null;
+            try {
+                jSONObject2 = optJSONArray.getJSONObject(i);
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
+            zg5 zg5Var = new zg5();
+            zg5Var.h(jSONObject2);
+            this.e.add(zg5Var);
         }
-        f();
     }
 
-    public final void f() {
+    public void g(UserGrowth userGrowth) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.isEmpty()) {
-            zg.a().removeCallbacks(this.e);
-            a aVar = this.b;
-            if (aVar != null) {
-                Intrinsics.checkNotNull(aVar);
-                aVar.a();
-            }
+        if ((interceptable != null && interceptable.invokeL(1048582, this, userGrowth) != null) || userGrowth == null) {
+            return;
+        }
+        this.a = userGrowth.level_id.intValue();
+        this.b = userGrowth.score.longValue();
+        this.c = userGrowth.target_score.longValue();
+        this.d = userGrowth.tmoney.doubleValue();
+        this.e.clear();
+        for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
+            zg5 zg5Var = new zg5();
+            zg5Var.i(userTaskInfo);
+            this.e.add(zg5Var);
         }
     }
 }

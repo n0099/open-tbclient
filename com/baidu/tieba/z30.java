@@ -1,57 +1,254 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import org.apache.commons.codec.net.QCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class z30 {
+public class z30 extends p30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public z30() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 85, 45, 110, ExifInterface.MARKER_SOF0, -77, -20, 34, 18, -33, -20, -8, 111, -117, 98, -24, 88, 33, -35, 29, -6, 7, 53, -7, 88, -118, 83} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r1v7 */
+    @Override // com.baidu.tieba.r30
+    public String a(String str, String str2, Map<String, String> map, JSONObject jSONObject) {
+        InterceptResult invokeLLLL;
+        OutputStream outputStream;
+        BufferedReader bufferedReader;
+        HttpURLConnection httpURLConnection;
+        OutputStream outputStream2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 65, 45, 110, ExifInterface.MARKER_SOF0, -77, -20, 34, 18, -33, -20, -8, 111, -117, 98, -24, 88, 33, -35, 29, -6, 7, 53, -7, 88, -118, 83} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 65, 45, 110, -45, -67, -30, 57, 28, -42, -20, -37, 122, -96, 109, -18, QCodec.UNDERSCORE, 63} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 65, 45, 110, ExifInterface.MARKER_SOF0, -77, -20, 34, 18, -33, -20, -8, 111} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -66, -32, 59, 25, -60, -89, -2, 126, -94, Constants.SHORT_PING_CMD_TYPE, -26, 73, 99, -56, 21, -36, 5, 40, -29, 31, -73, 64, 53, 107, 71, 5, 32, ExifInterface.MARKER_SOF9, 123, 89, 110, 102} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -66, -32, 59, 25, -60, -89, -2, 126, -94, Constants.SHORT_PING_CMD_TYPE, -26, 73, 99, -56, 21, -36, 5, 40, -29, 31, -73, 64, 53, 107, 85, 18, 53, -44, 104, 113, 121, 107, -16, -87, 126, 79, -109} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -66, -32, 59, 25, -60, -89, -2, 126, -94, Constants.SHORT_PING_CMD_TYPE, -26, 73, 99, -56, 21, -36, 5, 40, -29, 31, -73, 64, 53, 107, 80, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_APP1, 110, 68, 115, 105, -16, -85, 110} : (byte[]) invokeV.objValue;
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, map, jSONObject)) != null) {
+            return (String) invokeLLLL.objValue;
+        }
+        if (TextUtils.isEmpty(str)) {
+            throw new NullPointerException("urlStr should not be null");
+        }
+        ?? r1 = 0;
+        try {
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            try {
+                httpURLConnection.setConnectTimeout(15000);
+                httpURLConnection.setReadTimeout(15000);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod(str2);
+                if (map != null && map.size() > 0) {
+                    for (String str3 : map.keySet()) {
+                        httpURLConnection.setRequestProperty(str3, map.get(str3));
+                    }
+                    httpURLConnection.setRequestProperty("Content-type", "application/json");
+                }
+                outputStream2 = httpURLConnection.getOutputStream();
+                try {
+                    outputStream2.write(jSONObject.toString().getBytes("utf-8"));
+                    outputStream2.flush();
+                    if (httpURLConnection.getResponseCode() != 200) {
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                        if (outputStream2 != null) {
+                            try {
+                                outputStream2.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                    bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "utf-8"));
+                    String str4 = "";
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            str4 = str4 + readLine;
+                        } catch (IOException unused) {
+                        } catch (Throwable th) {
+                            r1 = httpURLConnection;
+                            outputStream = outputStream2;
+                            th = th;
+                            if (r1 != 0) {
+                                r1.disconnect();
+                            }
+                            if (outputStream != null) {
+                                try {
+                                    outputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                    return str4;
+                } catch (UnsupportedEncodingException unused2) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e7) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (MalformedURLException unused3) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (ProtocolException unused4) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e11) {
+                            e11.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (IOException unused5) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e12) {
+                            e12.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e13) {
+                            e13.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (Throwable th2) {
+                    r1 = httpURLConnection;
+                    outputStream = outputStream2;
+                    th = th2;
+                    bufferedReader = null;
+                }
+            } catch (UnsupportedEncodingException unused6) {
+                outputStream2 = null;
+            } catch (MalformedURLException unused7) {
+                outputStream2 = null;
+            } catch (ProtocolException unused8) {
+                outputStream2 = null;
+            } catch (IOException unused9) {
+                outputStream2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
+                r1 = httpURLConnection;
+                outputStream = null;
+            }
+        } catch (UnsupportedEncodingException unused10) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (MalformedURLException unused11) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (ProtocolException unused12) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (IOException unused13) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (Throwable th4) {
+            th = th4;
+            outputStream = null;
+            bufferedReader = null;
+        }
     }
 }

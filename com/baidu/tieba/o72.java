@@ -1,33 +1,26 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.searchbox.downloads.ImgDataURISchemeUtil;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.swan.apps.storage.PathType;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public class o72 implements ImageAssetDelegate {
+public class o72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Context a;
+    public n72 b;
 
-    public o72(String str) {
+    public o72(@NonNull Context context, @NonNull cq3 cq3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context, cq3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,48 +30,41 @@ public class o72 implements ImageAssetDelegate {
                 return;
             }
         }
-        PathType s = dj3.s(str);
-        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.a = new File(ix2.T().G().a(str)).getParent();
+        this.a = context;
+        this.b = new n72(cq3Var);
+    }
+
+    @NonNull
+    public n72 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (n72) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.c();
         }
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
-        File file;
+    @NonNull
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
-            if (lottieImageAsset == null) {
-                return null;
-            }
-            String fileName = lottieImageAsset.getFileName();
-            if (TextUtils.isEmpty(fileName)) {
-                return null;
-            }
-            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf(ImgDataURISchemeUtil.DATA_URL_SCHEME_BASE64_FLAG) > 0) {
-                try {
-                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inScaled = true;
-                    options.inDensity = 160;
-                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
-                } catch (IllegalArgumentException e) {
-                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
-                    return null;
-                }
-            } else if (TextUtils.isEmpty(this.a)) {
-                return null;
-            } else {
-                String dirName = lottieImageAsset.getDirName();
-                if (TextUtils.isEmpty(dirName)) {
-                    file = new File(this.a);
-                } else {
-                    file = new File(this.a, dirName);
-                }
-                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (Bitmap) invokeL.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    public void c(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = context;
+        }
     }
 }

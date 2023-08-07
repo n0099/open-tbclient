@@ -1,62 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class yn8 extends ga5<List<? extends ChatMsg>> {
+public class yn8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn8(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull fa5<List<? extends ChatMsg>> fa5Var) {
-        super(fa5Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fa5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((fa5) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948336038, "Lcom/baidu/tieba/yn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948336038, "Lcom/baidu/tieba/yn8;");
                 return;
             }
         }
-        this.b = tbPageContext;
+        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ga5
-    /* renamed from: b */
-    public void a(@NonNull List<? extends ChatMsg> list) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list.size() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b(str, null);
         }
-        this.a.b(new ao8(this.b));
-        if (!nm8.e()) {
-            zn8 zn8Var = null;
-            for (ChatMsg chatMsg : list) {
-                if (zn8Var == null || zn8Var.d().size() >= 10) {
-                    zn8Var = new zn8(this.b);
-                    this.a.b(zn8Var);
+    }
+
+    public static void b(String str, BdSwitchView.SwitchState switchState) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
+            StatisticItem param = new StatisticItem(str).param("uid", a);
+            if (switchState != null) {
+                if (switchState == BdSwitchView.SwitchState.OFF) {
+                    i = 1;
+                } else {
+                    i = 2;
                 }
-                if (chatMsg.hasReaction()) {
-                    zn8Var.d().add(chatMsg);
-                }
+                param.param("obj_type", i);
             }
+            TiebaStatic.log(param);
         }
     }
 }

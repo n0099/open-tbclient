@@ -1,173 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import java.util.Map;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes7.dex */
-public class nac {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nac extends hac, gac {
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a(a9c a9cVar, w8c w8cVar, AppCustomExpand appCustomExpand);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-580472996, "Lcom/baidu/tieba/nac$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-580472996, "Lcom/baidu/tieba/nac$a;");
+        void b(a9c a9cVar, w8c w8cVar, AppCustomExpand appCustomExpand);
+
+        void c(z8c z8cVar);
+
+        void onRefreshViewFail(int i, String str);
+
+        void toHelpCenterPage();
+    }
+
+    void a();
+
+    boolean d();
+
+    void setCallback(a aVar);
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<PayWayInfo> a;
+        public String b;
+        public w8c c;
+        public AppCustomExpand d;
+        public Map<String, String> e;
+        public AbsViewEventHandler f;
+        public PayFlowType g;
+        public WindowParams h;
+        public boolean i;
+        public String j;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PayDialogType.values().length];
-            a = iArr;
-            try {
-                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[PayDialogType.PAY_SPLIT_ORDER_DIALOG.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            this.i = false;
         }
-    }
 
-    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) {
-            return b(payDialogType, i, str, false);
-        }
-        return (PayFinishInfo) invokeLIL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c5  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            int i2 = a.a[payDialogType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 == 4) {
-                            payFinishInfo.step = v7c.h;
-                            if (TextUtils.isEmpty(str)) {
-                                str2 = "支付拆单选择面板";
-                            } else {
-                                str2 = "支付拆单选择面板," + str;
-                            }
-                        }
-                        if (TextUtils.isEmpty(str)) {
-                            str = "";
-                        }
-                        payFinishInfo.message = str;
-                        payFinishInfo.code = i;
-                        return payFinishInfo;
-                    } else if (z) {
-                        payFinishInfo.step = v7c.g;
-                        if (TextUtils.isEmpty(str)) {
-                            str2 = "支付渠道选择面板(快捷)";
-                        } else {
-                            str2 = "支付渠道选择面板(快捷)," + str;
-                        }
-                    } else {
-                        payFinishInfo.step = v7c.c;
-                        if (TextUtils.isEmpty(str)) {
-                            str2 = "支付渠道选择面板";
-                        } else {
-                            str2 = "支付渠道选择面板," + str;
-                        }
-                    }
-                } else {
-                    payFinishInfo.step = v7c.b;
-                    if (TextUtils.isEmpty(str)) {
-                        str2 = "支付金额输入面板";
-                    } else {
-                        str2 = "支付金额输入面板," + str;
-                    }
-                }
-            } else {
-                payFinishInfo.step = v7c.a;
-                if (TextUtils.isEmpty(str)) {
-                    str2 = "支付金额选择面板";
-                } else {
-                    str2 = "支付金额选择面板," + str;
-                }
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.g + ", showFaqPage=" + this.i + ", appCustomExpand=" + this.d + ", clientInfoExpand='" + this.e + "', windowParams='" + this.h + "', viewEventListener='" + this.f + "', bubbleActMsg='" + this.b + "', splitOrderScene='" + this.j + "'}";
             }
-            str = str2;
-            if (TextUtils.isEmpty(str)) {
-            }
-            payFinishInfo.message = str;
-            payFinishInfo.code = i;
-            return payFinishInfo;
+            return (String) invokeV.objValue;
         }
-        return (PayFinishInfo) invokeCommon.objValue;
-    }
-
-    public static PayFinishInfo c(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = v7c.e;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
-        }
-        return (PayFinishInfo) invokeIL.objValue;
-    }
-
-    public static PayFinishInfo d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = v7c.d;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
-        }
-        return (PayFinishInfo) invokeIL.objValue;
-    }
-
-    public static PayFinishInfo e(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = v7c.f;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
-        }
-        return (PayFinishInfo) invokeIL.objValue;
     }
 }

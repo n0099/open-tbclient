@@ -1,85 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sj3 extends sd3 {
+public class sj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, rj3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sj3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/setStorageSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948153293, "Lcom/baidu/tieba/sj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948153293, "Lcom/baidu/tieba/sj3;");
                 return;
             }
         }
+        a = ir1.a;
+        b = new ArrayMap();
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    @Nullable
+    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (vb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = w12.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (ej3.b(Q)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
-                return false;
-            } else {
-                String P = w12.P(optParamsAsJo);
-                if (P == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                } else if (ej3.c(P)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
-                    return false;
-                } else {
-                    ej3 f0 = vb3Var.f0();
-                    if (f0.m(Q, P)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
-                        return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            try {
+                if (ProcessUtils.isMainProcess()) {
+                    synchronized (b) {
+                        rj3 rj3Var = b.get(str);
+                        if (rj3Var != null && rj3Var.a() != null) {
+                            return rj3Var.a();
+                        }
+                        int ashmemFD = SwanKV.getAshmemFD(str, i);
+                        if (ashmemFD >= 0) {
+                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
+                            oj3.e(ashmemFileDescriptor);
+                            return ashmemFileDescriptor;
+                        }
+                        return null;
                     }
-                    f0.g().putString(Q, P);
-                    rn3.h.update();
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
+                }
+                return nj3.c(str, i);
+            } catch (Throwable th) {
+                if (a) {
+                    th.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (AshmemFileDescriptor) invokeLI.objValue;
+    }
+
+    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
+            synchronized (sj3.class) {
+                if (ProcessUtils.isMainProcess()) {
+                    return;
+                }
+                rj3 rj3Var = b.get(ashmemFileDescriptor.getName());
+                if (rj3Var != null && rj3Var.a() != null && rj3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
+                    SwanKV b2 = rj3Var.b();
+                    rj3Var.c(new SwanKV(ashmemFileDescriptor));
+                    b2.release();
                 }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

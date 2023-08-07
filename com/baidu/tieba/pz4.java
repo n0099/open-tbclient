@@ -1,98 +1,151 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class pz4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final View b;
-    public final ThreadAchievementShareInfo.ParamBean c;
-    public TbImageView d;
-    public ImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
 
-    public pz4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948079327, "Lcom/baidu/tieba/pz4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948079327, "Lcom/baidu/tieba/pz4;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.pz4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0448a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public RunnableC0448a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                        pz4.c(TbadkCoreApplication.getInst().getCacheDir());
+                    } catch (Exception unused) {
+                    }
+                }
             }
         }
-        this.a = context;
-        this.b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.c = threadAchievementShareInfo.getParams();
-        c();
-        b();
-    }
 
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
-        return (View) invokeV.objValue;
-    }
 
-    public final void b() {
-        ThreadAchievementShareInfo.ParamBean paramBean;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (paramBean = this.c) != null && paramBean.getVideo_info() != null && !TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
-            this.d.N(this.c.getVideo_info().getThumbnail_url(), 10, false);
-            this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
-            this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                long j = SharedPrefHelper.getInstance().getLong("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (j == 0) {
+                    SharedPrefHelper.getInstance().putLong("key_clear_resource", currentTimeMillis);
+                    j = currentTimeMillis;
+                }
+                if (currentTimeMillis - j > pz4.a) {
+                    fs6.a(new RunnableC0448a(this), "clearResource", 3);
+                    SharedPrefHelper.getInstance().putLong("key_clear_resource", currentTimeMillis);
+                }
+            }
         }
     }
 
-    public final void c() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = (TextView) this.b.findViewById(R.id.comment_num);
-            this.g = (TextView) this.b.findViewById(R.id.comment_desc);
-            this.h = (TextView) this.b.findViewById(R.id.praise_desc);
-            TextView textView = (TextView) this.b.findViewById(R.id.praise_num);
-            this.i = textView;
-            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.video_img);
-            this.d = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setPlaceHolder(2);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.play_icon);
-            this.e = imageView;
-            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2005016));
+        }
+    }
+
+    public static void c(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, file) != null) || file == null) {
+            return;
+        }
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            c(listFiles[i]);
+                        } else {
+                            listFiles[i].delete();
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            file.delete();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

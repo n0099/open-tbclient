@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface g94 {
-    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull ap2 ap2Var);
+public class g94 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, String str2, String str3, String str4, String str5);
-
-    void c(@NonNull String str);
-
-    void d(@NonNull String str, @NonNull String str2);
-
-    void e(@NonNull String str);
-
-    void f(@NonNull String str);
+    public static boolean a(String str, int i) throws JSONException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (200 != i || TextUtils.isEmpty(str) || new JSONObject(str).optInt("errorno") != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
 }

@@ -1,51 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes8.dex */
-public class vw3 {
+public class vw3 implements cw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255159, "Lcom/baidu/tieba/vw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public vw3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255159, "Lcom/baidu/tieba/vw3;");
-                return;
-            }
-        }
-        try {
-            a = zf4.i(zf4.b(CountryCodeBean.ANDRIOD_SYSTEMPROP, true), CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
-        } catch (Throwable unused) {
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cw1
+    public void a(String str, z03 z03Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Method method = a;
-            if (method != null) {
-                try {
-                    return (String) method.invoke(null, str);
-                } catch (Throwable unused) {
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, z03Var, context) == null) {
+            h33.e().a(str, z03Var, context);
         }
-        return (String) invokeL.objValue;
     }
 }

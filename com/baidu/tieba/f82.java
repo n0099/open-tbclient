@@ -1,61 +1,119 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.ut2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes5.dex */
-public final class f82 extends c72 {
+public class f82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f82() {
-        super("input", "viewId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717929, "Lcom/baidu/tieba/f82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947717929, "Lcom/baidu/tieba/f82;");
                 return;
             }
         }
+        a = "__localDebug__" + File.separator + "master.js";
+        b = "__localDebug__" + File.separator + "main.js";
+        c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    @Override // com.baidu.tieba.c72, com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.u13
-    public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+    public static ut2.g a(vv2 vv2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vv2Var)) == null) {
+            File d = d();
+            h82.e().f("unzipstart");
+            ut2.M(b(), d, vv2Var);
+            h82.e().f("unzipend");
+            ut2.g gVar = new ut2.g();
+            File file = new File(d, "app.json");
+            SwanAppConfigData b2 = kb3.b(d.getAbsolutePath());
+            gVar.a = d.getPath() + File.separator;
+            gVar.b = b2;
+            y72.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new b23();
+        return (ut2.g) invokeL.objValue;
+    }
+
+    public static File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new File(c(), "local_debug.swan");
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
+        return (File) invokeV.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
         }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
         }
-        this.N = z2;
+        return (File) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d() + File.separator + a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d() + File.separator + c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     public PagerAdapter mAdapter;
     public boolean mBoundaryCaching;
@@ -22,7 +22,7 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return i + 1;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ToDestroy {
         public ViewGroup container;
         public Object object;

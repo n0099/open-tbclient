@@ -6,8 +6,8 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,8 +17,8 @@ import com.compatible.menukey.MenuKeyUtils;
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Rect b;
+    public a mOnSoftKeyBoardShownListener;
+    public Rect rect;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -44,7 +44,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
                 return;
             }
         }
-        this.b = new Rect();
+        this.rect = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -53,14 +53,14 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             int size = View.MeasureSpec.getSize(i2);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.b);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
-            if (this.a != null) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.rect);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.rect.top) - size;
+            if (this.mOnSoftKeyBoardShownListener != null) {
                 boolean z = true;
-                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= yi.d(activity, 48.0f) + 128) {
+                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= BdUtilHelper.dip2px(activity, 48.0f) + 128) {
                     z = false;
                 }
-                this.a.a(z);
+                this.mOnSoftKeyBoardShownListener.a(z);
             }
             super.onMeasure(i, i2);
         }
@@ -69,7 +69,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public void setOnSoftKeyBoardShownListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
+            this.mOnSoftKeyBoardShownListener = aVar;
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.d45;
+import com.baidu.tieba.a35;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.l45;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.ye;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d45 data;
+    public a35 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -59,12 +59,12 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                 return;
             }
             boolean z = true;
-            if (personListModel.d0() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+            if (personListModel.V() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str2 = new String(bArr);
-                o55.e();
-                ye<String> f = o55.f("tb.my_pages");
+                l45.e();
+                ne<String> f = l45.f("tb.my_pages");
                 if (f != null) {
                     if (z) {
                         str = "personal_followme";
@@ -86,20 +86,20 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                d45 d45Var = new d45();
-                this.data = d45Var;
-                d45Var.c(jSONObject);
+                a35 a35Var = new a35();
+                this.data = a35Var;
+                a35Var.c(jSONObject);
             }
         }
     }
 
-    public d45 getData() {
+    public a35 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (d45) invokeV.objValue;
+        return (a35) invokeV.objValue;
     }
 
     public String getErrMsg() {

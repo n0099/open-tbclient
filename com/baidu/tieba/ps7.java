@@ -1,105 +1,90 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.widget.LinearGradientView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
 /* loaded from: classes7.dex */
-public abstract class ps7 implements rs7 {
+public class ps7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
+    public View a;
+    public RelativeLayout b;
+    public LinearGradientView c;
+    public BarImageView d;
+    public TextView e;
+    public FrsHeaderBannerView f;
+    public LinearLayout g;
+    public ImageView h;
+    public View i;
+    public TbImageView j;
+    public ImageView k;
+    public ImageView l;
+    public ImageView m;
+    public ImageView n;
 
-    @Override // com.baidu.tieba.rs7
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(ps7 ps7Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps7Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
         }
-        return (T) invokeL.objValue;
-    }
 
-    @Override // com.baidu.tieba.rs7
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xs7
-    public void d(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rs7
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xs7
-    public void i(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xs7
-    public void j(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xs7
-    public void k(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.a;
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.rs7
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void m();
-
-    @Override // com.baidu.tieba.xs7
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    public ps7() {
+    public ps7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,37 +94,49 @@ public abstract class ps7 implements rs7 {
                 return;
             }
         }
-        dba.b();
-    }
-
-    @Override // com.baidu.tieba.rs7
-    @NonNull
-    public vs7 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.y1().j0();
-        }
-        return (vs7) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xs7
-    public void onDestory() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.rs7
-    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
+        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
+        UtilHelper.getStatusBarHeight();
+        if (context == null) {
             return;
         }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        m();
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0352, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090f02);
+        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090f05);
+        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f03);
+        this.j = tbImageView;
+        tbImageView.setDefaultBgResource(R.color.transparent);
+        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f0811c2);
+        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cd3);
+        TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
+        this.e = textView;
+        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090cc2);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090adb);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ada);
+        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090f1e);
+        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090add);
+        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090adf);
+        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090adc);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ade);
+        this.k.setOnClickListener(new a(this, context));
+        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f0320));
+        this.d.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+        this.d.setShowOval(true);
+        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.d.setStrokeColorResId(R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+        EMManager.from(this.i).setCardType(1).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
+        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f080343, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

@@ -1,51 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class ow2 {
+public class ow2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static List<WeakReference<nw2>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Object> a;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ow2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-532986111, "Lcom/baidu/tieba/ow2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-532986111, "Lcom/baidu/tieba/ow2$b;");
-                    return;
-                }
-            }
-            a = new ow2(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,106 +28,96 @@ public final class ow2 {
                 return;
             }
         }
-        b = fs1.a;
+        a = new ArrayList();
     }
 
-    public ow2() {
+    public static void a(gx1 gx1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new LruCache<>(10);
-    }
-
-    public static ow2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (ow2) invokeV.objValue;
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.evictAll();
+        if (interceptable == null || interceptable.invokeL(65537, null, gx1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                nw2 nw2Var = a.get(size).get();
+                if (nw2Var == null) {
+                    a.remove(size);
+                } else {
+                    nw2Var.d(gx1Var);
                 }
             }
         }
     }
 
-    public /* synthetic */ ow2(a aVar) {
-        this();
-    }
-
-    public synchronized <RESULT> RESULT b(String str) {
-        InterceptResult invokeL;
+    public static void b(gx1 gx1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                RESULT result = (RESULT) this.a.get(str);
-                if (result == null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
-                    }
-                    return null;
-                }
-                try {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
-                    }
-                    return result;
-                } catch (Exception e) {
-                    if (b) {
-                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
-                    }
-                    return null;
-                }
-            }
-        }
-        return (RESULT) invokeL.objValue;
-    }
-
-    public synchronized <RESULT> void d(String str, RESULT result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && result != null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
-                    }
-                    this.a.put(str, result);
+        if (interceptable == null || interceptable.invokeL(65538, null, gx1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                nw2 nw2Var = a.get(size).get();
+                if (nw2Var == null) {
+                    a.remove(size);
+                } else {
+                    nw2Var.b(gx1Var);
                 }
             }
         }
     }
 
-    public synchronized void e(String str) {
+    public static void c(gx1 gx1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
+        if (interceptable == null || interceptable.invokeL(65539, null, gx1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                nw2 nw2Var = a.get(size).get();
+                if (nw2Var == null) {
+                    a.remove(size);
+                } else {
+                    nw2Var.c(gx1Var);
                 }
-                if (b) {
-                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
-                }
-                this.a.remove(str);
             }
+        }
+    }
+
+    public static void d(gx1 gx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gx1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                nw2 nw2Var = a.get(size).get();
+                if (nw2Var == null) {
+                    a.remove(size);
+                } else {
+                    nw2Var.a(gx1Var);
+                }
+            }
+        }
+    }
+
+    public static void f(nw2 nw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, nw2Var) != null) || nw2Var == null) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            nw2 nw2Var2 = a.get(size).get();
+            if (nw2Var2 == null || nw2Var == nw2Var2) {
+                a.remove(size);
+            }
+        }
+    }
+
+    public static void e(nw2 nw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, nw2Var) != null) || nw2Var == null) {
+            return;
+        }
+        boolean z = false;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            nw2 nw2Var2 = a.get(size).get();
+            if (nw2Var2 == null) {
+                a.remove(size);
+            } else if (nw2Var2 == nw2Var) {
+                z = true;
+            } else {
+                z = false;
+            }
+        }
+        if (!z) {
+            a.add(new WeakReference<>(nw2Var));
         }
     }
 }

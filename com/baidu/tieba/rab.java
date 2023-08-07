@@ -1,48 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.uqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class rab {
+public class rab extends qab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long[] b = b();
-            if (b[0] <= 0) {
-                return 0.0f;
+    /* loaded from: classes7.dex */
+    public class a implements uqb.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ rab c;
+
+        public a(rab rabVar, AtomicBoolean atomicBoolean, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rabVar, atomicBoolean, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
+            this.c = rabVar;
+            this.a = atomicBoolean;
+            this.b = obj;
         }
-        return invokeV.floatValue;
+
+        @Override // com.baidu.tieba.uqb.c
+        public void a(int i, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+                this.c.g = i;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.uqb.c
+        public void b(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+                this.c.d = str;
+                this.c.b = z;
+                this.c.c = true;
+                this.c.g = 0;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
     }
 
-    public static long[] b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rab(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
+    }
+
+    @Override // com.baidu.tieba.pab
+    public pab d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long[] jArr = new long[4];
-            try {
-                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
-                long[] jArr2 = {30, -30};
-                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
-                if (method != null) {
-                    method.invoke(null, objArr);
-                    for (int i = 0; i < 4; i++) {
-                        jArr[i] = jArr2[i] / 1024;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n();
+            return this;
+        }
+        return (pab) invokeV.objValue;
+    }
+
+    public pab n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = new Object();
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            uqb.d(this.a, new a(this, atomicBoolean, obj));
+            synchronized (obj) {
+                if (!atomicBoolean.get()) {
+                    try {
+                        obj.wait(4000L);
+                    } catch (InterruptedException unused) {
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-            return jArr;
+            return this;
         }
-        return (long[]) invokeV.objValue;
+        return (pab) invokeV.objValue;
     }
 }

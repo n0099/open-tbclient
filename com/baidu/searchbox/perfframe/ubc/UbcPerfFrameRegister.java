@@ -13,7 +13,7 @@ import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.el1;
+import com.baidu.tieba.hk1;
 import com.baidu.ubc.UBCManager;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -38,7 +38,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
             jSONObject.put("description", perfExpInfo.getException());
             jSONObject.put("page", perfExpInfo.getPage());
-            jSONObject.put("processName", el1.b());
+            jSONObject.put("processName", hk1.b());
             jSONObject.put("business", perfExpInfo.getBusiness());
             JSONObject jSONObject2 = new JSONObject();
             if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {

@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.write.message;
 
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wg;
 import com.baidu.tieba.write.data.CreateTagResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +45,7 @@ public class QuestionTagCreateResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            setError(wg.e(jSONObject.optString("errno"), 0));
+            setError(JavaTypesHelper.toInt(jSONObject.optString("errno"), 0));
             if (getError() == 230049) {
                 setErrorString(jSONObject.optString("errmsg"));
             } else if (getError() != 0) {

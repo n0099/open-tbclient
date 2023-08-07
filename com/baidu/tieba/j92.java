@@ -1,100 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j92 extends sd3 {
+public class j92 extends ag3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public CookieManager a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j92(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/remoteDebug");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838054, "Lcom/baidu/tieba/j92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838054, "Lcom/baidu/tieba/j92;");
                 return;
             }
         }
+        b = ir1.a;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public j92() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            v82.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeLLLL.booleanValue;
+        this.a = null;
+        this.a = new k92();
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
+    public final Bundle a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, vb3Var)) == null) {
-            v82.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-            if (!m92.d()) {
-                v82.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", i);
+            bundle.putString("param1", str);
+            bundle.putString("param2", str2);
+            return bundle;
+        }
+        return (Bundle) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag3, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.getCookie(str);
+            }
+            n73 c = l73.c(i92.class, a(str, "", 4));
+            if (!c.a()) {
+                return "";
+            }
+            String string = c.a.getString("result");
+            if (b) {
+                Log.d("DelegationCookieManager", "getCookie cookie : " + string);
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.shouldAcceptCookie(str, str2);
+            }
+            n73 c = l73.c(i92.class, a(str, str2, 1));
+            if (!c.a()) {
                 return false;
             }
-            SwanAppActivity w = ub3.K().w();
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -279631955) {
-                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
-                    c = 0;
-                }
-            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, vb3Var);
-                }
-                if (w != null) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        w.finishAndRemoveTask();
-                    } else {
-                        w.finish();
-                    }
-                    System.exit(0);
-                }
-                return true;
-            }
-            v82.i("RemoteDebugAction", "Remote Debug reload");
-            if (w != null) {
-                Intent intent = w.getIntent();
-                m92.f();
-                ub3.K().n(new String[0]);
-                ub3.K().l(intent.getExtras(), "update_tag_by_remote_debug");
-            }
-            return true;
+            return c.a.getBoolean("result");
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.shouldSendCookie(str, str2);
+            }
+            n73 c = l73.c(i92.class, a(str, str2, 2));
+            if (!c.a()) {
+                return false;
+            }
+            return c.a.getBoolean("result");
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                this.a.storeCookie(str, list);
+                return;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", 3);
+            bundle.putString("param1", str);
+            bundle.putStringArrayList("param2", (ArrayList) list);
+            l73.c(i92.class, bundle);
+            if (b) {
+                Log.d("DelegationCookieManager", "set cookies for " + str);
+            }
+        }
     }
 }

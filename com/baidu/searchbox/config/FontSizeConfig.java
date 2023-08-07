@@ -123,19 +123,19 @@ public class FontSizeConfig {
     public static String getFontLevelText(Context context) {
         int appFontSizeSP = getAppFontSizeSP();
         if (appFontSizeSP == 0) {
-            return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09de);
-        }
-        if (1 == appFontSizeSP) {
-            return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09dd);
-        }
-        if (2 == appFontSizeSP) {
-            return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09db);
-        }
-        if (3 == appFontSizeSP) {
             return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09df);
         }
-        if (4 == appFontSizeSP) {
+        if (1 == appFontSizeSP) {
+            return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09de);
+        }
+        if (2 == appFontSizeSP) {
             return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09dc);
+        }
+        if (3 == appFontSizeSP) {
+            return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09e0);
+        }
+        if (4 == appFontSizeSP) {
+            return context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09dd);
         }
         return "";
     }
@@ -144,15 +144,15 @@ public class FontSizeConfig {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 5; i++) {
             if (i == 0) {
-                arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09de));
-            } else if (1 == i) {
-                arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09dd));
-            } else if (2 == i) {
-                arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09db));
-            } else if (3 == i) {
                 arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09df));
-            } else {
+            } else if (1 == i) {
+                arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09de));
+            } else if (2 == i) {
                 arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09dc));
+            } else if (3 == i) {
+                arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09e0));
+            } else {
+                arrayList.add(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f09dd));
             }
         }
         return (String[]) arrayList.toArray(new String[5]);

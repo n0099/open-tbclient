@@ -3,12 +3,12 @@ package com.baidu.tieba.ala.alasquare.subtablist.message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,16 +109,16 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int l = yi.l(TbadkCoreApplication.getInst());
-            int j = yi.j(TbadkCoreApplication.getInst());
-            float i = yi.i(TbadkCoreApplication.getInst());
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+            float equipmentDensity = BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
-            addParam("scr_w", l);
-            addParam("scr_h", j);
+            addParam("scr_w", equipmentWidth);
+            addParam("scr_h", equipmentHeight);
             addParam("q_type", 0);
-            addParam("scr_dip", String.valueOf(i));
+            addParam("scr_dip", String.valueOf(equipmentDensity));
             addParam("label_name", this.lableName);
             addParam("sort_type", this.sortType);
             addParam(SuggestAddrField.KEY_LAT, this.lat);
@@ -136,7 +136,7 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
                 }
             }
             addParam("network", str);
-            addParam("ua_str", l + "_" + j + "_android_" + TbConfig.getVersion());
+            addParam("ua_str", equipmentWidth + "_" + equipmentHeight + "_android_" + TbConfig.getVersion());
             addParam("tab_id", this.tabId);
             addParam("refresh_type", this.refreshType);
             addParam("session_id", this.sessionId);

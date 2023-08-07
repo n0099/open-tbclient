@@ -1,87 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.ByteArrayInputStream;
+import java.io.CharArrayWriter;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public class sr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return connectivityManager.getActiveNetworkInfo();
         }
-        return (NetworkInfo) invokeL.objValue;
     }
 
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
+    public static long b(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "2g";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "3g";
-                case 13:
-                case 18:
-                case 19:
-                    return "4g";
-                case 20:
-                    return "5g";
-                default:
-                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                        return "4g";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[ab1.a];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
                     }
-                    return "unknown";
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            return 0L;
         }
-        return (String) invokeIL.objValue;
+        return invokeLL.longValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static boolean d(String str, File file) {
+        InterceptResult invokeLL;
+        File parentFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "wifi";
-                }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str) || (parentFile = file.getParentFile()) == null || !parentFile.isDirectory()) {
+                return false;
             }
-            return "no";
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            e(str.getBytes(), file);
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static String c(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileReader fileReader2 = null;
+            if (file != null && file.exists()) {
+                try {
+                    fileReader = new FileReader(file);
+                } catch (Exception unused) {
+                    fileReader = null;
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    char[] cArr = new char[256];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read > 0) {
+                            charArrayWriter.write(cArr, 0, read);
+                        } else {
+                            String charArrayWriter2 = charArrayWriter.toString();
+                            a(fileReader);
+                            return charArrayWriter2;
+                        }
+                    }
+                } catch (Exception unused2) {
+                    a(fileReader);
+                    return null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    a(fileReader2);
+                    throw th;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(byte[] bArr, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, file) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            f(byteArrayInputStream, file);
+            a(byteArrayInputStream);
+        }
+    }
+
+    public static void f(InputStream inputStream, File file) {
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            }
+            try {
+                b(inputStream, fileOutputStream);
+                a(fileOutputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                a(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                a(fileOutputStream2);
+                throw th;
+            }
+        }
     }
 }

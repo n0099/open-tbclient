@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.SelectorTextView;
-import com.baidu.tieba.ta3;
-import com.baidu.tieba.za3;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public class pb2 extends ta3 {
+public class pb2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public View k;
-    public TextView l;
-    public SelectorTextView m;
-    public c n;
+    public Timer a;
+    public volatile boolean b;
+    public final qb2 c;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pb2 a;
@@ -48,210 +47,160 @@ public class pb2 extends ta3 {
             this.a = pb2Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n.k != null) {
-                this.a.n.k.onItemClick(view2);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (pb2.d) {
+                    Log.d("RequestMonitor", ">> finish collecting request info.");
+                }
+                this.a.b = false;
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final pb2 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pb2 a;
 
-        public b(pb2 pb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-523750901, "Lcom/baidu/tieba/pb2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-523750901, "Lcom/baidu/tieba/pb2$b;");
                     return;
                 }
             }
-            this.a = pb2Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n.j != null) {
-                this.a.n.j.onItemClick(view2);
-            }
+            a = new pb2(null);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c extends ta3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int g;
-        public int h;
-        public int i;
-        public ta3.c j;
-        public ta3.c k;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056201, "Lcom/baidu/tieba/pb2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // com.baidu.tieba.za3.a
-        public /* bridge */ /* synthetic */ za3.a U(int i) {
-            g0(i);
-            return this;
-        }
-
-        public c e0(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.g = i;
-                return this;
-            }
-            return (c) invokeI.objValue;
-        }
-
-        public c g0(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                super.U(i);
-                return this;
-            }
-            return (c) invokeI.objValue;
-        }
-
-        @Override // com.baidu.tieba.za3.a
-        public za3 h(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-                return new pb2(context);
-            }
-            return (za3) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.za3.a
-        public /* bridge */ /* synthetic */ za3.a v(int i) {
-            e0(i);
-            return this;
-        }
-
-        @Override // com.baidu.tieba.ta3.b, com.baidu.tieba.za3.a
-        public za3 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                pb2 pb2Var = (pb2) super.c();
-                pb2Var.r(this);
-                return pb2Var;
-            }
-            return (za3) invokeV.objValue;
-        }
-
-        public c f0(int i, ta3.c cVar) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, cVar)) == null) {
-                this.g = i;
-                this.k = cVar;
-                return this;
-            }
-            return (c) invokeIL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pb2(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948056201, "Lcom/baidu/tieba/pb2;");
                 return;
             }
         }
+        d = ir1.a;
     }
 
-    public void r(c cVar) {
+    public pb2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.n = cVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+        this.c = new qb2();
+    }
+
+    public static pb2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
+        }
+        return (pb2) invokeV.objValue;
+    }
+
+    public List<ob2> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.a.d();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            h();
+            this.c.h();
         }
     }
 
-    @Override // com.baidu.tieba.ta3
-    public View k(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void h() {
+        Timer timer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00d0, viewGroup, false);
-            this.k = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f8c);
-            this.l = textView;
-            textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060459));
-            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091f8d);
-            this.m = selectorTextView;
-            selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060458));
-            q();
-            return this.k;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (timer = this.a) != null) {
+            timer.cancel();
+            this.a = null;
         }
-        return (View) invokeL.objValue;
     }
 
-    public final void q() {
-        c cVar;
+    public void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (cVar = this.n) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = false;
+            h();
+            if (d) {
+                Log.d("RequestMonitor", ">> stop to collect request info.");
+            }
         }
-        this.l.setText(this.g.getText(cVar.g));
-        this.l.setOnClickListener(new a(this));
-        if (this.n.h > 0) {
-            this.m.setVisibility(0);
-            this.m.setText(this.g.getText(this.n.h));
-            this.m.setOnClickListener(new b(this));
-        } else {
-            this.m.setVisibility(8);
+    }
+
+    public /* synthetic */ pb2(a aVar) {
+        this();
+    }
+
+    public void e(ob2 ob2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ob2Var) == null) && this.b) {
+            if (d) {
+                Log.d("RequestMonitor", ">> add request " + ob2Var.toString());
+            }
+            this.c.a(ob2Var);
         }
-        if (this.n.i > 0) {
-            Drawable drawable = this.g.getResources().getDrawable(this.n.i);
-            ap3.b(getContext(), drawable);
-            drawable.setBounds(0, 0, mp3.f(this.g, 12.0f), mp3.f(this.g, 12.0f));
-            this.m.setCompoundDrawables(drawable, null, null, null);
+    }
+
+    @NonNull
+    public rb2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            rb2 g = this.c.g();
+            if (d) {
+                Log.d("RequestMonitor", ">> requestResult: " + g.d() + g.c());
+            }
+            return g;
+        }
+        return (rb2) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (d) {
+                Log.d("RequestMonitor", ">> start to collect request info. ");
+            }
+            this.c.i();
+            h();
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
         }
     }
 }

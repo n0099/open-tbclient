@@ -1,104 +1,274 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.view.ActionMode;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.SearchEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.mz;
+import com.baidu.tbadk.widget.floatball.FullScreenLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class f18 extends ln<l18, ThreadCardViewHolder<t15>> {
+public class f18 implements Window.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    @JvmField
-    public BdUniqueId b;
-    public eo<?> c;
+    public final Activity a;
+    public final FullScreenLayout b;
+    public long c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f18(TbPageContext<?> mPageContext, BdUniqueId bdUniqueId) {
-        super(mPageContext.getPageActivity(), bdUniqueId);
+    public f18(@NonNull Activity activity, @NonNull FullScreenLayout fullScreenLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mPageContext, bdUniqueId};
+            Object[] objArr = {activity, fullScreenLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mPageContext, "mPageContext");
-        this.a = mPageContext;
+        this.a = activity;
+        this.b = fullScreenLayout;
     }
 
-    public final void u(eo<?> eoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eoVar) == null) {
-            this.c = eoVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public ThreadCardViewHolder<t15> onCreateViewHolder(ViewGroup parent) {
+    @Override // android.view.Window.Callback
+    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            mz.b bVar = new mz.b(this.a.getPageActivity(), false);
-            w18 w18Var = new w18(this.a);
-            w18Var.r(this.b);
-            bVar.n(w18Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            mz k = bVar.k(BaseCardInfo.SupportType.CONTENT, parent, this.c);
-            Intrinsics.checkNotNullExpressionValue(k, "builder.build(BaseCardIn…, parent, mITypeListView)");
-            ThreadCardViewHolder<t15> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.j(this.b);
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            return this.a.dispatchGenericMotionEvent(motionEvent);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l18 l18Var, ThreadCardViewHolder<t15> viewHolder) {
-        InterceptResult invokeCommon;
+    @Override // android.view.Window.Callback
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l18Var, viewHolder})) == null) {
-            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            viewHolder.f(l18Var);
-            if (viewHolder.b() != null) {
-                viewHolder.b().r(i);
-                viewHolder.b().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            }
-            return viewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
+            return this.a.dispatchKeyShortcutEvent(keyEvent);
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, accessibilityEvent)) == null) {
+            return this.a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            return this.a.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            return this.a.dispatchTrackballEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onActionModeFinished(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, actionMode) == null) {
+            this.a.onActionModeFinished(actionMode);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onActionModeStarted(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, actionMode) == null) {
+            this.a.onActionModeStarted(actionMode);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    @Nullable
+    public View onCreatePanelView(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            return this.a.onCreatePanelView(i);
+        }
+        return (View) invokeI.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested(SearchEvent searchEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, searchEvent)) == null) {
+            return this.a.onSearchRequested(searchEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, layoutParams) == null) {
+            this.a.onWindowAttributesChanged(layoutParams);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.a.onWindowFocusChanged(z);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    @Nullable
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, callback)) == null) {
+            return this.a.onWindowStartingActionMode(callback);
+        }
+        return (ActionMode) invokeL.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
+            if (4 == keyEvent.getKeyCode()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.c > 500 && this.b.N()) {
+                    this.c = currentTimeMillis;
+                    return false;
+                }
+            }
+            return this.a.dispatchKeyEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.onAttachedToWindow();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onContentChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onContentChanged();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.onDetachedFromWindow();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.a.onSearchRequested();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onCreatePanelMenu(int i, @NonNull Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, menu)) == null) {
+            return this.a.onCreatePanelMenu(i, menu);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, menuItem)) == null) {
+            return this.a.onMenuItemSelected(i, menuItem);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onMenuOpened(int i, @NonNull Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, menu)) == null) {
+            return this.a.onMenuOpened(i, menu);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onPanelClosed(int i, @NonNull Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, menu) == null) {
+            this.a.onPanelClosed(i, menu);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    @Nullable
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, callback, i)) == null) {
+            return this.a.onWindowStartingActionMode(callback, i);
+        }
+        return (ActionMode) invokeLI.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onPreparePanel(int i, @Nullable View view2, @NonNull Menu menu) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048592, this, i, view2, menu)) == null) {
+            return this.a.onPreparePanel(i, view2, menu);
+        }
+        return invokeILL.booleanValue;
     }
 }

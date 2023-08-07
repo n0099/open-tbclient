@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -131,8 +131,8 @@ public class CircleView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = yi.g(context, R.dimen.tbds94);
-            f = yi.g(context, R.dimen.tbds94);
+            e = BdUtilHelper.getDimens(context, R.dimen.tbds94);
+            f = BdUtilHelper.getDimens(context, R.dimen.tbds94);
             Paint paint = new Paint();
             this.d = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0314));

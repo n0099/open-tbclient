@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.enb;
+import com.baidu.tieba.inb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +16,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.hihonor.push.framework.aidl.IPushInvoke;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class onb {
+public class onb implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oob a;
-    public static final onb b;
+    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final pmb a;
+    public a b;
+    public Handler c;
+    public boolean d;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,149 +46,135 @@ public class onb {
                 return;
             }
         }
-        b = new onb();
+        e = new Object();
     }
 
-    public onb() {
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (e) {
+                Handler handler = this.c;
+                if (handler != null) {
+                    handler.removeMessages(1001);
+                    this.c = null;
+                }
+            }
+        }
+    }
+
+    public onb(pmb pmbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pmbVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        this.d = false;
+        this.a = pmbVar;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onNullBinding(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            Log.i("AIDLSrvConnection", "enter onNullBinding, than unBind.");
+            if (this.d) {
+                this.d = false;
+                return;
+            }
+            c();
+            a();
+            a aVar = this.b;
+            if (aVar != null) {
+                knb knbVar = (knb) aVar;
+                knbVar.a.a.set(1);
+                knbVar.a.a(8002005);
+                knbVar.a.b = null;
             }
         }
     }
 
-    public final void a(Context context) {
+    public final void b(int i) {
+        a aVar;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && a == null) {
-            a = new oob(context, "push");
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (aVar = this.b) != null) {
+            knb knbVar = (knb) aVar;
+            AtomicInteger atomicInteger = knbVar.a.a;
+            if (i == HonorPushErrorEnum.ERROR_SERVICE_TIME_OUT.statusCode) {
+                i2 = 2;
+            } else {
+                i2 = 1;
+            }
+            atomicInteger.set(i2);
+            knbVar.a.a(i);
+            knbVar.a.b = null;
         }
     }
 
-    public synchronized void b(Context context, String str) {
-        byte[] bArr;
-        byte[] bArr2;
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            synchronized (this) {
-                a(context);
-                if (TextUtils.isEmpty(str)) {
-                    a.a("key_push_token");
-                } else {
-                    String e = jnb.e(context, context.getPackageName());
-                    byte[] h = jnb.h("EA23F5B8C7577CDC744ABD1C6D7E143D5123F8F282BF4E7853C1EC86BD2EDD22");
-                    byte[] h2 = jnb.h(e);
-                    try {
-                        bArr = new byte[32];
-                        new SecureRandom().nextBytes(bArr);
-                    } catch (Exception unused) {
-                        bArr = new byte[0];
-                    }
-                    jnb.i(h, -4);
-                    byte[] j = jnb.j(h, h2);
-                    jnb.i(j, 6);
-                    String encodeToString = Base64.encodeToString(jnb.j(j, bArr), 0);
-                    boolean b2 = a.b("key_aes_gcm", encodeToString);
-                    byte[] decode = Base64.decode(encodeToString, 0);
-                    String str2 = "";
-                    if (!TextUtils.isEmpty(str) && decode != null && decode.length >= 16) {
-                        try {
-                            try {
-                                bArr2 = new byte[12];
-                                new SecureRandom().nextBytes(bArr2);
-                            } catch (GeneralSecurityException e2) {
-                                String str3 = "GCM encrypt data error" + e2.getMessage();
-                            }
-                        } catch (Exception unused2) {
-                            bArr2 = new byte[0];
-                        }
-                        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                        cipher.init(1, secretKeySpec, new GCMParameterSpec(128, bArr2));
-                        byte[] doFinal = cipher.doFinal(bytes);
-                        if (doFinal != null && doFinal.length != 0) {
-                            str2 = jnb.f(bArr2) + jnb.f(doFinal);
-                        }
-                    }
-                    if (b2 && !TextUtils.isEmpty(str2)) {
-                        a.b("key_push_token", str2);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048581, this, componentName) == null) {
+            Log.i("AIDLSrvConnection", "enter onServiceDisconnected.");
+            a aVar = this.b;
+            if (aVar != null) {
+                knb knbVar = (knb) aVar;
+                knbVar.a.a.set(1);
+                knbVar.a.a(8002002);
+                knbVar.a.b = null;
             }
         }
     }
 
-    public synchronized String c(Context context) {
-        InterceptResult invokeL;
-        String str;
-        boolean z;
-        String str2;
-        String str3;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            synchronized (this) {
-                a(context);
-                str = "";
-                SharedPreferences sharedPreferences = a.a;
-                boolean z2 = true;
-                if (sharedPreferences != null && sharedPreferences.contains("key_push_token")) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                Log.i("AIDLSrvConnection", "trying to unbind service from " + this);
+                tmb.e.a().unbindService(this);
+            } catch (Exception e2) {
+                String str = "on unBind service exception:" + e2.getMessage();
+            }
+        }
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, componentName, iBinder) == null) {
+            Log.i("AIDLSrvConnection", "enter onServiceConnected.");
+            a();
+            a aVar = this.b;
+            if (aVar != null) {
+                knb knbVar = (knb) aVar;
+                knbVar.a.b = IPushInvoke.Stub.asInterface(iBinder);
+                if (knbVar.a.b == null) {
+                    knbVar.a.d.c();
+                    knbVar.a.a.set(1);
+                    knbVar.a.a(8002001);
+                    return;
                 }
-                if (z) {
-                    SharedPreferences sharedPreferences2 = a.a;
-                    if (sharedPreferences2 == null || !sharedPreferences2.contains("key_aes_gcm")) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        SharedPreferences sharedPreferences3 = a.a;
-                        if (sharedPreferences3 != null) {
-                            str2 = sharedPreferences3.getString("key_push_token", "");
-                        } else {
-                            str2 = "";
-                        }
-                        SharedPreferences sharedPreferences4 = a.a;
-                        if (sharedPreferences4 != null) {
-                            str3 = sharedPreferences4.getString("key_aes_gcm", "");
-                        } else {
-                            str3 = "";
-                        }
-                        byte[] decode = Base64.decode(str3, 0);
-                        String str4 = "";
-                        if (!TextUtils.isEmpty(str2) && decode != null && decode.length >= 16) {
-                            try {
-                                SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                                String substring = str2.substring(0, 24);
-                                String substring2 = str2.substring(24);
-                                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2)) {
-                                    cipher.init(2, secretKeySpec, new GCMParameterSpec(128, jnb.h(substring)));
-                                    str4 = new String(cipher.doFinal(jnb.h(substring2)), StandardCharsets.UTF_8);
-                                }
-                            } catch (Exception e) {
-                                String str5 = "GCM decrypt data exception: " + e.getMessage();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str4)) {
-                            str = str4;
-                        } else {
-                            a.a("key_aes_gcm");
-                            a.a("key_push_token");
-                        }
+                knbVar.a.a.set(3);
+                inb.a aVar2 = knbVar.a.c;
+                if (aVar2 != null) {
+                    enb.a aVar3 = (enb.a) aVar2;
+                    if (Looper.myLooper() == aVar3.f.a.getLooper()) {
+                        aVar3.d();
                     } else {
-                        a.a("key_push_token");
+                        aVar3.f.a.post(new bnb(aVar3));
                     }
                 }
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 }

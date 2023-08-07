@@ -2,6 +2,7 @@ package com.baidu.tieba.videoplay;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -10,6 +11,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -18,12 +20,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kx5;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xw4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.yu5;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class VideoPlayModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -79,7 +79,7 @@ public class VideoPlayModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -142,7 +142,7 @@ public class VideoPlayModel extends BdBaseModel {
                         this.a.b.a(videoItemDatas, responseGetNaniVideoMessage.isHasMore(), this.a.k);
                     }
                 }
-                VideoPlayModel.Y(this.a);
+                VideoPlayModel.Q(this.a);
             }
         }
     }
@@ -183,7 +183,7 @@ public class VideoPlayModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                yi.O(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e1f));
+                BdUtilHelper.showLongToast(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e21));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -192,7 +192,7 @@ public class VideoPlayModel extends BdBaseModel {
             }
             this.a.j = true;
             VideoPlayModel videoPlayModel = this.a;
-            videoPlayModel.k0(videoPlayModel.g, this.a.d, this.a.e, this.a.f);
+            videoPlayModel.c0(videoPlayModel.g, this.a.d, this.a.e, this.a.f);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.l)));
         }
     }
@@ -209,7 +209,7 @@ public class VideoPlayModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -225,22 +225,22 @@ public class VideoPlayModel extends BdBaseModel {
         registerListener(this.n);
     }
 
-    public static /* synthetic */ int Y(VideoPlayModel videoPlayModel) {
+    public static /* synthetic */ int Q(VideoPlayModel videoPlayModel) {
         int i = videoPlayModel.c;
         videoPlayModel.c = i + 1;
         return i;
     }
 
-    public void l0(int i) {
+    public void d0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.l = i;
         }
     }
 
-    public void m0(c cVar) {
+    public void e0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.b = cVar;
         }
     }
@@ -252,18 +252,18 @@ public class VideoPlayModel extends BdBaseModel {
         }
     }
 
-    public final String i0() {
+    public final String a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<xw4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<yv4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<xw4> it = videoRecordList.iterator();
+                        Iterator<yv4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            xw4 next = it.next();
+                            yv4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -279,10 +279,10 @@ public class VideoPlayModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void j0(VideoItemData videoItemData) {
+    public void b0(VideoItemData videoItemData) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoItemData) != null) || this.g == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoItemData) != null) || this.g == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
@@ -296,7 +296,7 @@ public class VideoPlayModel extends BdBaseModel {
         }
         httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, str);
         httpMessage.addParam("pn", this.c);
-        httpMessage.addParam("user_view_data", i0());
+        httpMessage.addParam("user_view_data", a0());
         BaijiahaoData baijiahaoData = videoItemData.baijiahaoData;
         if (baijiahaoData != null) {
             httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
@@ -304,14 +304,14 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", kx5.a());
+        httpMessage.addParam("app_transmit_data", yu5.a());
         sendMessage(httpMessage);
     }
 
-    public void k0(VideoItemData videoItemData, String str, String str2, boolean z) {
+    public void c0(VideoItemData videoItemData, String str, String str2, boolean z) {
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{videoItemData, str, str2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{videoItemData, str, str2, Boolean.valueOf(z)}) == null) {
             this.c = 1;
             if (videoItemData == null) {
                 return;
@@ -331,7 +331,7 @@ public class VideoPlayModel extends BdBaseModel {
             }
             httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, str3);
             httpMessage.addParam("pn", this.c);
-            httpMessage.addParam("user_view_data", i0());
+            httpMessage.addParam("user_view_data", a0());
             if ("frs".equals(this.h)) {
                 this.i = "client_frs";
             } else if ("index".equals(this.h)) {
@@ -347,7 +347,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", kx5.a());
+            httpMessage.addParam("app_transmit_data", yu5.a());
             sendMessage(httpMessage);
         }
     }

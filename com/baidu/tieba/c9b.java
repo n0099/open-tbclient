@@ -1,43 +1,38 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class c9b {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947631005, "Lcom/baidu/tieba/c9b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947631005, "Lcom/baidu/tieba/c9b;");
-        }
-    }
-
-    public static void a(String str, String str2) {
+    public static double a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
-            Log.d(str, "-----------------" + str2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
+            if (byteBuffer == null || i == 0) {
+                return 0.0d;
+            }
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            byte[] bArr = new byte[i];
+            byteBuffer.get(bArr);
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            double d = 0.0d;
+            for (int i2 = 0; i2 < i; i2 += 2) {
+                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
+                if (i3 >= 32768) {
+                    i3 = 65535 - i3;
+                }
+                d += i3 * i3;
+            }
+            double d2 = (d / i) / 2.0d;
+            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
         }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
-            Log.d("muxer_publish_progress", str + "---" + str2);
-        }
+        return invokeLI.doubleValue;
     }
 }

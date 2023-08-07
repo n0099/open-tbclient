@@ -183,7 +183,7 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m306a() {
+    public void m307a() {
         if (this.f159a != null) {
             c();
         }
@@ -200,86 +200,86 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m307a(int i) {
+    public void m308a(int i) {
         if (i >= 0) {
-            m326d(i);
+            m327d(i);
         } else {
-            m325c(i);
+            m326c(i);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m308a(int i, int i2) {
+    public void m309a(int i, int i2) {
         c(i, 0);
-        m307a(i2);
+        m308a(i2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m309a(int i, long j) {
+    public void m310a(int i, long j) {
         c(i, 0);
-        m314a(j);
+        m315a(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m310a(int i, com.xiaomi.push.a aVar) {
+    public void m311a(int i, com.xiaomi.push.a aVar) {
         c(i, 2);
-        m315a(aVar);
+        m316a(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m311a(int i, e eVar) {
+    public void m312a(int i, e eVar) {
         c(i, 2);
-        m316a(eVar);
+        m317a(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m312a(int i, String str) {
+    public void m313a(int i, String str) {
         c(i, 2);
-        m317a(str);
+        m318a(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m313a(int i, boolean z) {
+    public void m314a(int i, boolean z) {
         c(i, 0);
-        m318a(z);
+        m319a(z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m314a(long j) {
-        m325c(j);
+    public void m315a(long j) {
+        m326c(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m315a(com.xiaomi.push.a aVar) {
-        byte[] m250a = aVar.m250a();
-        m326d(m250a.length);
-        a(m250a);
+    public void m316a(com.xiaomi.push.a aVar) {
+        byte[] m251a = aVar.m251a();
+        m327d(m251a.length);
+        a(m251a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m316a(e eVar) {
-        m326d(eVar.a());
+    public void m317a(e eVar) {
+        m327d(eVar.a());
         eVar.a(this);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m317a(String str) {
+    public void m318a(String str) {
         byte[] bytes = str.getBytes("UTF-8");
-        m326d(bytes.length);
+        m327d(bytes.length);
         a(bytes);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m318a(boolean z) {
-        m324c(z ? 1 : 0);
+    public void m319a(boolean z) {
+        m325c(z ? 1 : 0);
     }
 
     public void a(byte[] bArr) {
-        m319a(bArr, 0, bArr.length);
+        m320a(bArr, 0, bArr.length);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m319a(byte[] bArr, int i, int i2) {
+    public void m320a(byte[] bArr, int i, int i2) {
         int i3 = this.a;
         int i4 = this.b;
         if (i3 - i4 >= i2) {
@@ -308,51 +308,51 @@ public final class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m320b(int i) {
-        m326d(i);
+    public void m321b(int i) {
+        m327d(i);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m321b(int i, int i2) {
+    public void m322b(int i, int i2) {
         c(i, 0);
-        m320b(i2);
+        m321b(i2);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m322b(int i, long j) {
+    public void m323b(int i, long j) {
         c(i, 0);
-        m323b(j);
+        m324b(j);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m323b(long j) {
-        m325c(j);
+    public void m324b(long j) {
+        m326c(j);
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m324c(int i) {
+    public void m325c(int i) {
         a((byte) i);
     }
 
     public void c(int i, int i2) {
-        m326d(f.a(i, i2));
+        m327d(f.a(i, i2));
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m325c(long j) {
+    public void m326c(long j) {
         while (((-128) & j) != 0) {
-            m324c((((int) j) & 127) | 128);
+            m325c((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        m324c((int) j);
+        m325c((int) j);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m326d(int i) {
+    public void m327d(int i) {
         while ((i & (-128)) != 0) {
-            m324c((i & 127) | 128);
+            m325c((i & 127) | 128);
             i >>>= 7;
         }
-        m324c(i);
+        m325c(i);
     }
 }

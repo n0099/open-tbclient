@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sj5;
-import com.baidu.tieba.zi5;
+import com.baidu.tieba.ei5;
+import com.baidu.tieba.lh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                this.a.c.D(new zi5(3, -1, null));
+                this.a.c.D(new lh5(3, -1, null));
             }
         }
     }
@@ -90,9 +90,9 @@ public class EmotionTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) this, true);
-            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090ac5);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ac3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b0, (ViewGroup) this, true);
+            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090ad5);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ad3);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }
@@ -120,10 +120,10 @@ public class EmotionTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(sj5 sj5Var) {
+    public void b(ei5 ei5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sj5Var) == null) {
-            this.a.k(sj5Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ei5Var) == null) {
+            this.a.k(ei5Var);
         }
     }
 
@@ -144,7 +144,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<sj5> arrayList) {
+    public void setDatas(ArrayList<ei5> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

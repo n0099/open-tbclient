@@ -26,7 +26,7 @@ import kotlin.sequences.SequencesKt___SequencesKt;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010!\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u0000 *:\u0005*+,-.B\u0017\u0012\u0006\u0010\u0016\u001a\u00020\u0015\u0012\u0006\u0010\"\u001a\u00020!¢\u0006\u0004\b(\u0010)J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J+\u0010\f\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00010\n¢\u0006\u0004\b\f\u0010\rJ\u0015\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u000e\u0010\u0005J\r\u0010\u000f\u001a\u00020\u0003¢\u0006\u0004\b\u000f\u0010\u0010J\r\u0010\u0011\u001a\u00020\u0003¢\u0006\u0004\b\u0011\u0010\u0010J\u000f\u0010\u0012\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0012\u0010\u0010J\u000f\u0010\u0013\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0013\u0010\u0010J\u000f\u0010\u0014\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0014\u0010\u0010R\u0019\u0010\u0016\u001a\u00020\u00158\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0018\u0010\u0019R\u0018\u0010\u001a\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR2\u0010\u001f\u001a\u001e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u001d0\u001cj\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u001d`\u001e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0019\u0010\"\u001a\u00020!8\u0006@\u0006¢\u0006\f\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%R\u0018\u0010\u0012\u001a\u0004\u0018\u00010&8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0012\u0010'¨\u0006/"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "liveItemModel", "", "dispatchFirstLiveItemModelAction", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "", "pageSession", "", "hasMore", "", "data", "dispatchListResult", "(Ljava/lang/String;ILjava/util/List;)V", "dispatchLiveItemModelSelectedAction", "onCreate", "()V", MissionEvent.MESSAGE_DESTROY, "recoveryUploadIds", "registerService", "saveUploadIds", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "currentRoomId", "Ljava/lang/String;", "Ljava/util/HashMap;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveItemModelWrapper;", "Lkotlin/collections/HashMap;", "liveItemModels", "Ljava/util/HashMap;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "getMixUniqueId", "()Lcom/baidu/live/arch/utils/MiniUniqueId;", "Lorg/json/JSONArray;", "Lorg/json/JSONArray;", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;)V", "Companion", "DisplayPart", "LiveItemModelWrapper", "LiveRoomInfoStatPreferences", com.baidu.sapi2.utils.StatService.TAG, "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LiveRoomInfoStatPlugin {
     public static final Companion Companion = new Companion(null);
     public static final String TAG = "LiveRoomInfoStatPlugin";
@@ -37,19 +37,19 @@ public final class LiveRoomInfoStatPlugin {
     public JSONArray recoveryUploadIds;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u00012\u00020\u0002J\u000f\u0010\u0004\u001a\u00020\u0003H&¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$StatService;", "Lcom/baidu/live/arch/api/IService;", "Lkotlin/Any;", "Lorg/json/JSONArray;", "getUploadIds", "()Lorg/json/JSONArray;", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface StatService extends IService {
         JSONArray getUploadIds();
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\b\u0002\u0018\u0000 \b2\u00020\u0001:\u0002\b\tB\u001b\b\u0002\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002\u0012\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "Lcom/baidu/live/arch/utils/SharedPrefsWrapper;", "Landroid/content/Context;", "context", "", "fileName", "<init>", "(Landroid/content/Context;Ljava/lang/String;)V", "Companion", "Holder", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class LiveRoomInfoStatPreferences extends SharedPrefsWrapper {
         public static final Companion Companion = new Companion(null);
         public static final String PREF_NAME = "live_room_info_stat";
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\b\u0010\tR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0013\u0010\u0007\u001a\u00020\u00048F@\u0006¢\u0006\u0006\u001a\u0004\b\u0005\u0010\u0006¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences$Companion;", "", "PREF_NAME", "Ljava/lang/String;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "getInstance", "()Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class Companion {
             public Companion() {
             }
@@ -64,7 +64,7 @@ public final class LiveRoomInfoStatPlugin {
         }
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\bÂ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences$Holder;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "INSTANCE", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "getINSTANCE", "()Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class Holder {
             public static final Holder INSTANCE = new Holder();
 
@@ -86,7 +86,7 @@ public final class LiveRoomInfoStatPlugin {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$Companion;", "", "TAG", "Ljava/lang/String;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -97,7 +97,7 @@ public final class LiveRoomInfoStatPlugin {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\f\b\u0002\u0018\u0000B\u0007¢\u0006\u0004\b\u000b\u0010\fR\"\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u0004\b\u0006\u0010\u0007R\"\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\b\u0010\u0003\u001a\u0004\b\t\u0010\u0005\"\u0004\b\n\u0010\u0007¨\u0006\r"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$DisplayPart;", "", "slidInTs", "J", "getSlidInTs", "()J", "setSlidInTs", "(J)V", "slidOutTs", "getSlidOutTs", "setSlidOutTs", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class DisplayPart {
         public long slidInTs;
         public long slidOutTs;
@@ -120,7 +120,7 @@ public final class LiveRoomInfoStatPlugin {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\f\b\u0002\u0018\u0000B\u0007¢\u0006\u0004\b \u0010!J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u000f\u0010\u0005\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0005\u0010\u0006R(\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\"\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R$\u0010\u0017\u001a\u0004\u0018\u00010\u00168\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0017\u0010\u0018\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001cR\"\u0010\u001d\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u0011\u001a\u0004\b\u001e\u0010\u0013\"\u0004\b\u001f\u0010\u0015¨\u0006\""}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveItemModelWrapper;", "", "calculateDisplayTs", "()J", "Lorg/json/JSONObject;", "getUploadId", "()Lorg/json/JSONObject;", "", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$DisplayPart;", "displayParts", "Ljava/util/List;", "getDisplayParts", "()Ljava/util/List;", "setDisplayParts", "(Ljava/util/List;)V", "", "hasShow", "Z", "getHasShow", "()Z", "setHasShow", "(Z)V", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "liveItemModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getLiveItemModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setLiveItemModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "slidReported", "getSlidReported", "setSlidReported", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class LiveItemModelWrapper {
         public List<DisplayPart> displayParts = new ArrayList();
         public boolean hasShow;

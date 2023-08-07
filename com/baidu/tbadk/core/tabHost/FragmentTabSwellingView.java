@@ -7,10 +7,10 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -134,13 +134,13 @@ public class FragmentTabSwellingView extends View {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e = yi.g(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f = yi.g(getContext().getApplicationContext(), R.dimen.tbds204);
-            this.g = yi.g(getContext().getApplicationContext(), R.dimen.tbds23);
-            this.h = yi.g(getContext().getApplicationContext(), R.dimen.tbds51);
-            this.i = yi.g(getContext().getApplicationContext(), R.dimen.tbds16);
-            this.j = yi.g(getContext().getApplicationContext(), R.dimen.tbds52);
-            this.k = yi.g(getContext().getApplicationContext(), R.dimen.tbds2);
+            this.e = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.g = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
+            this.h = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
+            this.i = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
+            this.j = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds52);
+            this.k = BdUtilHelper.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
         }
     }
 
@@ -149,7 +149,7 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (getWidth() > yi.l(getContext())) {
+            if (getWidth() > BdUtilHelper.getEquipmentWidth(getContext())) {
                 return;
             }
             this.c.reset();

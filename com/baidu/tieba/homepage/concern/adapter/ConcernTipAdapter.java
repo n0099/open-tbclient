@@ -6,21 +6,21 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i18;
-import com.baidu.tieba.ln;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.lm;
+import com.baidu.tieba.sy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ConcernTipAdapter extends ln<i18, ConcernTipViewHolder> {
+public class ConcernTipAdapter extends lm<sy7, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public static int b;
@@ -53,8 +53,8 @@ public class ConcernTipAdapter extends ln<i18, ConcernTipViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09078e);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09078d);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09079d);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09079c);
         }
 
         public void b(int i) {
@@ -69,7 +69,7 @@ public class ConcernTipAdapter extends ln<i18, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, i18.f);
+        super(context, sy7.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,18 +86,18 @@ public class ConcernTipAdapter extends ln<i18, ConcernTipViewHolder> {
                 return;
             }
         }
-        a = yi.g(context, R.dimen.tbds102);
-        b = yi.g(context, R.dimen.tbds166);
+        a = BdUtilHelper.getDimens(context, R.dimen.tbds102);
+        b = BdUtilHelper.getDimens(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.lm
     /* renamed from: s */
     public ConcernTipViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = View.inflate(viewGroup.getContext(), R.layout.obfuscated_res_0x7f0d0226, null);
+            View inflate = View.inflate(viewGroup.getContext(), R.layout.obfuscated_res_0x7f0d0229, null);
             SkinManager.setBackgroundColor(inflate, R.color.CAM_X0205);
             ConcernTipViewHolder concernTipViewHolder = new ConcernTipViewHolder(inflate);
             ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
@@ -110,18 +110,18 @@ public class ConcernTipAdapter extends ln<i18, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.lm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i18 i18Var, ConcernTipViewHolder concernTipViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sy7 sy7Var, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i18Var, concernTipViewHolder})) == null) {
-            concernTipViewHolder.a.setText(i18Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sy7Var, concernTipViewHolder})) == null) {
+            concernTipViewHolder.a.setText(sy7Var.b);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.a.getLayoutParams();
-            if (i18Var.c) {
+            if (sy7Var.c) {
                 layoutParams.height = b;
                 concernTipViewHolder.b.setVisibility(0);
-            } else if (i18Var.d) {
+            } else if (sy7Var.d) {
                 layoutParams.height = a;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);

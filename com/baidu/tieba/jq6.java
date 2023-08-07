@@ -1,101 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jq6 extends kq6 {
+public final class jq6 implements y97 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId S0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891994, "Lcom/baidu/tieba/jq6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947891994, "Lcom/baidu/tieba/jq6;");
-                return;
-            }
-        }
-        S0 = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.kq6, com.baidu.tieba.cq6, com.baidu.tieba.t15
-    public ThreadData getThreadData() {
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kq6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return S0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public jq6(ThreadData threadData) {
+    public jq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = threadData;
     }
 
-    public static boolean X(ThreadData threadData) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_locate", "1");
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str = "";
+            if (currentAccount == null) {
+                currentAccount = "";
             }
-            if (threadData.getThreadType() != 49 && threadData.getThreadType() != 69) {
-                return false;
+            hashMap.put("obj_id", currentAccount);
+            String str2 = a.get("user_id");
+            if (str2 != null) {
+                str = str2;
             }
-            return true;
+            hashMap.put("obj_param1", str);
+            return hashMap;
         }
-        return invokeL.booleanValue;
-    }
-
-    public StatisticItem b0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StatisticItem d = d(str);
-            d.delete("obj_type");
-            d.delete("obj_type");
-            d.param("obj_type", 3);
-            return d;
-        }
-        return (StatisticItem) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 }

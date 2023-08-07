@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class gv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
 
-    public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {
-        InterceptResult invokeCommon;
+    public gv4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i != 0 && i2 != 0 && !xi.isEmpty(str)) {
-                if (jSONObject == null) {
-                    jSONObject = new JSONObject();
-                }
-                try {
-                    jSONObject.put(i + "-" + i2, str);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public static void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            new StatisticItem("c13318").param("obj_source", i).param("obj_type", i2).eventStat();
-        }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            new StatisticItem("c13317").param("obj_source", i).param("obj_type", i2).eventStat();
-        }
+        this.b = 0;
+        this.c = null;
     }
 }

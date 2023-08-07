@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.os.Bundle;
 /* loaded from: classes8.dex */
 public interface ta6 {
-    void a(Bundle bundle);
+    void a(h96 h96Var);
 }

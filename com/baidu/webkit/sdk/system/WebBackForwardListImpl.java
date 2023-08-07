@@ -30,7 +30,7 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     /* renamed from: clone */
-    public final WebBackForwardList mo157clone() {
+    public final WebBackForwardList mo158clone() {
         try {
             if (cloneMethod != null && this.mList != null) {
                 return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));

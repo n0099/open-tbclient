@@ -2,8 +2,10 @@ package com.baidu.adp.framework.cmdRouter;
 
 import android.app.Application;
 import android.content.pm.PackageManager;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,8 +82,12 @@ public class CmdRouter {
             try {
                 loadInfo();
             } catch (Exception e) {
-                e.printStackTrace();
-                Log.e(TAG, "初始化失败!", e);
+                if (!BdBaseApplication.getInst().isDebugMode()) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.e(TAG, "fail: " + e);
+                    return;
+                }
+                throw new RuntimeException(e);
             }
         }
     }
@@ -107,8 +113,26 @@ public class CmdRouter {
             }
             for (String str : loadCmdClasses) {
                 if (str.startsWith("com.baidu.tieba.route.")) {
-                    cmdMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
-                    configMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
+                    try {
+                        cmdMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
+                    } catch (Exception e2) {
+                        if (!BdBaseApplication.getInst().isDebugMode()) {
+                            TbLog defaultLog = DefaultLog.getInstance();
+                            defaultLog.e(TAG, "fail: " + e2);
+                        } else {
+                            throw new RuntimeException(e2);
+                        }
+                    }
+                    try {
+                        configMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
+                    } catch (Exception e3) {
+                        if (!BdBaseApplication.getInst().isDebugMode()) {
+                            TbLog defaultLog2 = DefaultLog.getInstance();
+                            defaultLog2.e(TAG, "fail: " + e3);
+                        } else {
+                            throw new RuntimeException(e3);
+                        }
+                    }
                 }
             }
         }

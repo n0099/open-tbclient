@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.fb9;
+import com.baidu.tieba.c99;
+import com.baidu.tieba.fs6;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.q47;
-import com.baidu.tieba.tx4;
-import com.baidu.tieba.zu6;
+import com.baidu.tieba.uw4;
+import com.baidu.tieba.y17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +115,7 @@ public class UserDiyModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003532 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    fb9.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
+                    c99.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -152,7 +152,7 @@ public class UserDiyModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<DiyEmotionData> r = q47.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<DiyEmotionData> r = y17.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
                 if (r == null) {
                     return;
@@ -171,7 +171,7 @@ public class UserDiyModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, tx4.t(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, uw4.t(jSONArray.toString()));
                 } else {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, "all_delete");
                 }
@@ -203,10 +203,10 @@ public class UserDiyModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void V() {
+    public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zu6.a(new a(this), "FaceUpload", 1);
+            fs6.a(new a(this), "FaceUpload", 1);
         }
     }
 

@@ -1,30 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class umb implements Runnable {
+public class umb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ qmb b;
-    public final /* synthetic */ pmb c;
+    public final /* synthetic */ fnb a;
+    public final /* synthetic */ wmb b;
 
-    public umb(pmb pmbVar, Activity activity, qmb qmbVar) {
+    public umb(wmb wmbVar, fnb fnbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pmbVar, activity, qmbVar};
+            Object[] objArr = {wmbVar, fnbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,29 +26,20 @@ public final class umb implements Runnable {
                 return;
             }
         }
-        this.c = pmbVar;
-        this.a = activity;
-        this.b = qmbVar;
+        this.b = wmbVar;
+        this.a = fnbVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                pmb pmbVar = this.c;
-                l = pmb.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new vmb(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                pmb pmbVar2 = this.c;
-                pmb.n(this.a, this.b);
+            synchronized (this.b.c) {
+                vnb vnbVar = this.b.a;
+                if (vnbVar != null) {
+                    this.a.c();
+                    ((jnb) vnbVar).a.countDown();
+                }
             }
         }
     }

@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w43 implements oq3<HybridUbcFlow> {
+public class w43 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static boolean b;
+    public static final int c;
+    public static int d;
+    public static int e;
+    public static final boolean f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,44 +32,83 @@ public class w43 implements oq3<HybridUbcFlow> {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
+        d = -1;
+        e = -1;
+        b = f("swan_get_swan_id_cache");
+        fu2.g0().getSwitch("swan_pms_use_outback_switch", 0);
+        fu2.g0().getSwitch("swan_preload_game_strategy", 0);
+        c = 0;
+        f = f("swan_670_append_request_info");
+        fu2.g0().getSwitch("swan_description_online_control", 0);
+        fn4.a = 0;
+        fu2.g0().getSwitch("swan_bdtls_use_cache", false);
+        g = false;
     }
 
-    public w43() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == -1) {
+                fu2.g0().getSwitch("swan_use_extra_connect_pool", 0);
+                e = 0;
             }
+            return e;
         }
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oq3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        PMSAppInfo u;
-        long g;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == -1) {
+                fu2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
+                d = 0;
+            }
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            fu2.g0().getSwitch(str, 0);
             if (a) {
-                Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
+                Log.d("SwanApiCostOpt", str + " value : 0");
             }
-            if (hybridUbcFlow != null && (u = sj4.i().u(ub3.K().getAppId())) != null) {
-                UbcFlowEvent g2 = hybridUbcFlow.g("naStart");
-                if (g2 == null) {
-                    g = System.currentTimeMillis();
-                } else {
-                    g = g2.g();
-                }
-                u.countLaunch(g);
-                sj4.i().y(u);
-            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

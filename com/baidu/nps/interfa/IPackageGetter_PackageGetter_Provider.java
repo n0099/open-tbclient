@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.pl;
-import com.baidu.tieba.zk1;
+import com.baidu.tieba.ck1;
+import com.baidu.tieba.qk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class IPackageGetter_PackageGetter_Provider implements zk1 {
+public class IPackageGetter_PackageGetter_Provider implements ck1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IPackageGetter_PackageGetter_Provider implements zk1 {
         }
     }
 
-    @Override // com.baidu.tieba.zk1
+    @Override // com.baidu.tieba.ck1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pl() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new qk() : invokeV.objValue;
     }
 }

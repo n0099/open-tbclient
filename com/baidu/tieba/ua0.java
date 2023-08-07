@@ -1,162 +1,120 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.DnsTransmitter;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.ba0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ua0 extends ra0 {
+public final class ua0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ua0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ba0.d b;
 
-    @Override // com.baidu.tieba.ta0.b
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://httpsdns.baidu.com/v6/0025" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948204133, "Lcom/baidu/tieba/ua0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948204133, "Lcom/baidu/tieba/ua0;");
+                return;
+            }
+        }
+        a = new ua0();
     }
 
-    @Override // com.baidu.tieba.ta0.b
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ra0, com.baidu.tieba.ta0.b
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
-    }
-
-    public ua0(Context context) {
+    public ua0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = null;
-        this.a = context;
     }
 
-    public void a(ba0.d dVar) {
+    public final Drawable a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.b = dVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_gradient_1"), fd0.f().a(context, str, "color_gradient_2")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
         }
+        return (Drawable) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ta0.b
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
+    public final Drawable d(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Host", DnsTransmitter.IDC_HOST);
-            return hashMap;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_gradient_2"), fd0.f().a(context, str, "color_gradient_1")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
         }
-        return (Map) invokeV.objValue;
+        return (Drawable) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ta0.b
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
+    public final Drawable b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ("type=ipv4,ipv6&dn=" + ga0.Z(this.a).D).getBytes();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = oa0.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_F5F5F53"), fd0.f().a(context, str, "color_F5F5F53")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
         }
-        return (byte[]) invokeV.objValue;
+        return (Drawable) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ta0.d
-    public void onFailure(int i, String str) {
+    public final Drawable c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            if (xa0.a) {
-                ya0.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
-            }
-            ba0.g(3, this.a);
-            ba0.a(this.a).b(ga0.Z(this.a).D, this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = oa0.b(context, 18.0f);
+            gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, b, b, b, b});
+            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_main_bg"), fd0.f().a(context, str, "color_main_bg")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
         }
+        return (Drawable) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ta0.d
-    public void onSuccess(byte[] bArr) {
-        int length;
-        int length2;
+    public final Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
-            String str = new String(bArr);
-            if (xa0.a) {
-                ya0.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + ga0.Z(this.a).D + " is " + str);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(ga0.Z(this.a).D);
-                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
-                if (optJSONArray2 == null) {
-                    length = 0;
-                } else {
-                    length = optJSONArray2.length();
-                }
-                if (optJSONArray == null) {
-                    length2 = 0;
-                } else {
-                    length2 = optJSONArray.length();
-                }
-                if (length2 + length > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    if (optJSONArray != null && length2 > 0) {
-                        arrayList.add(optJSONArray.getString(0));
-                    }
-                    if (optJSONArray2 != null && length > 0) {
-                        arrayList.add(optJSONArray2.getString(0));
-                    }
-                    ba0.h(arrayList, this.a);
-                    if (this.b != null && ba0.b.size() > 0) {
-                        this.b.a(0, DnsModel.MSG_OK, ba0.b.get(0));
-                        if (ba0.b.size() > 1) {
-                            ba0.c++;
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                if (xa0.a) {
-                    ya0.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
-                }
-                ba0.g(3, this.a);
-                ba0.a(this.a).b(ga0.Z(this.a).D, this.b);
-            } catch (Exception e) {
-                if (xa0.a) {
-                    ya0.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
-                }
-                ba0.g(3, this.a);
-                ba0.a(this.a).b(ga0.Z(this.a).D, this.b);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = oa0.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_FF33552"), fd0.f().a(context, str, "color_FF33552")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
         }
+        return (Drawable) invokeLL.objValue;
     }
 }

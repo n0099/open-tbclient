@@ -2,10 +2,10 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class SettingTextRedDotView extends TbSettingTextTipView {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (da5.p().q("setting_private_red_dot", 1) == 1) {
+            if (SharedPrefHelper.getInstance().getInt("setting_private_red_dot", 1) == 1) {
                 int height = this.e.getHeight() / 2;
                 this.e.setHeight(height);
                 this.e.setWidth(height);

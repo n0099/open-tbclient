@@ -1,51 +1,20 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ii3 {
+public class ii3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xi3 a;
-
-        public a(xi3 xi3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xi3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xi3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ci3.k("1719", this.a.f());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,20 +29,30 @@ public final class ii3 {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
-    public static void onEvent(xi3 xi3Var) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String W;
+        String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, xi3Var) == null) {
-            if (xi3Var == null) {
-                if (a) {
-                    Log.w("SwanAppPermissionDialogUbc", "event is null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ya3 b0 = ya3.b0();
+            if (b0 == null || (W = b0.W().W()) == null || (queryParameter = Uri.parse(W).getQueryParameter("params")) == null) {
+                return false;
             }
-            po3.j(new a(xi3Var), "SwanAppPermissionDialogUbc");
+            try {
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            if (!TextUtils.equals(new JSONObject(queryParameter).optString("forcePath"), DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE)) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

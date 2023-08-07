@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.Callback;
-import org.chromium.base.Promise;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes8.dex */
-public final /* synthetic */ class zzb implements Callback {
+public class zzb extends b0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Promise a;
 
-    @Override // org.chromium.base.Callback
-    public /* synthetic */ Runnable bind(T t) {
-        return a0c.$default$bind(this, t);
-    }
-
-    @Override // org.chromium.base.Callback
-    public final void onResult(Object obj) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zzb() {
+        super(Framedata.Opcode.CONTINUOUS);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.a.reject((Exception) obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 }

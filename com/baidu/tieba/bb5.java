@@ -1,30 +1,47 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bb5 {
+public abstract class bb5<T extends ym, V extends BdBaseViewPagerAdapter.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public CharSequence b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
+    public Context a;
+    public a<T, V> b;
+    public BdUniqueId c;
 
-    public bb5() {
+    /* loaded from: classes5.dex */
+    public interface a<T extends ym, V extends BdBaseViewPagerAdapter.a> {
+        void a(V v, T t);
+    }
+
+    public abstract V b(ViewGroup viewGroup);
+
+    public void c(V v, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
+        }
+    }
+
+    public abstract View d(ViewGroup viewGroup, V v, T t);
+
+    public bb5(Context context, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,7 +51,32 @@ public class bb5 {
                 return;
             }
         }
-        this.c = R.color.CAM_X0105;
-        this.d = R.color.CAM_X0108;
+        this.a = context;
+        this.c = bdUniqueId;
+    }
+
+    public a<T, V> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(a<T, V> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
     }
 }

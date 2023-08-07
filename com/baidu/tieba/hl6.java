@@ -1,67 +1,36 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class hl6 implements fl6 {
+public class hl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public hl6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public boolean c(Class<?> cls) {
+    @SafeVarargs
+    public static String a(Pair<String, String>... pairArr) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            boolean z = false;
-            for (Method method : cls.getMethods()) {
-                Annotation[] annotations = method.getAnnotations();
-                int length = annotations.length;
-                int i = 0;
-                while (true) {
-                    if (i >= length) {
-                        break;
-                    } else if (annotations[i] instanceof JavascriptInterface) {
-                        z = true;
-                        break;
-                    } else {
-                        i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pairArr)) == null) {
+            if (!el6.e(pairArr)) {
+                JSONObject jSONObject = new JSONObject();
+                for (Pair<String, String> pair : pairArr) {
+                    if (pair != null && (str = pair.first) != null) {
+                        try {
+                            jSONObject.put(str, pair.second);
+                        } catch (Exception e) {
+                            cl6.b("newHybrid", "toJsonStr err:" + e);
+                        }
                     }
                 }
-                if (z) {
-                    break;
-                }
+                return jSONObject.toString();
             }
-            return z;
+            return "{}";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -1,106 +1,108 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zx2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mk3 a;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375253, "Lcom/baidu/tieba/zx2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948375253, "Lcom/baidu/tieba/zx2;");
+                return;
+            }
+        }
+        boolean z = ir1.a;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
 
     public zx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new mk3("swan_local_ab_data");
-        if (ProcessUtils.isMainProcess()) {
-            this.a.clear();
-        }
-        c();
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    public static zx2 b() {
-        InterceptResult invokeV;
+    public static zx2 a(JSONObject jSONObject, zx2 zx2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (zx2.class) {
-                    if (b == null) {
-                        b = new zx2();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, zx2Var)) == null) {
+            zx2 zx2Var2 = new zx2();
+            if (jSONObject != null) {
+                zx2Var2.a = jSONObject.optString("audioId", zx2Var.a);
+                zx2Var2.b = jSONObject.optString("slaveId", zx2Var.b);
+                zx2Var2.e = jSONObject.optBoolean("autoplay", zx2Var.e);
+                zx2Var2.f = jSONObject.optBoolean("loop", zx2Var.f);
+                zx2Var2.c = jSONObject.optString("src", zx2Var.c);
+                zx2Var2.d = jSONObject.optInt("startTime", zx2Var.d);
+                zx2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", zx2Var.g);
+                zx2Var2.h = jSONObject.optInt(CriusAttrConstants.POSITION, zx2Var.h);
+                zx2Var2.i = (float) jSONObject.optDouble("volume", zx2Var.i);
+                zx2Var2.j = jSONObject.optString("cb", zx2Var.j);
             }
-            return b;
+            return zx2Var2;
         }
-        return (zx2) invokeV.objValue;
+        return (zx2) invokeLL.objValue;
     }
 
-    public String a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString(Config.SID, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
         }
         return (String) invokeV.objValue;
-    }
-
-    public final void c() {
-        String substring;
-        Object e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
-            List<ay2> c = new yx2().c();
-            for (ay2 ay2Var : c) {
-                by2 b2 = ay2Var.b();
-                cy2 c2 = ay2Var.c();
-                if (b2 == null) {
-                    e = c2.d();
-                } else {
-                    e = b2.e();
-                }
-                if (e instanceof Boolean) {
-                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
-                } else if (e instanceof Double) {
-                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
-                } else if (e instanceof Integer) {
-                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
-                } else if (e instanceof Long) {
-                    this.a.writeLong(c2.e(), ((Long) e).longValue());
-                } else if (e instanceof String) {
-                    this.a.writeString(c2.e(), (String) e);
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            for (ay2 ay2Var2 : c) {
-                by2 b3 = ay2Var2.b();
-                if (b3 != null) {
-                    sb.append(b3.d());
-                    sb.append("-");
-                }
-            }
-            if (sb.length() == 0) {
-                substring = "";
-            } else {
-                substring = sb.substring(0, sb.length() - 1);
-            }
-            this.a.writeString(Config.SID, substring);
-        }
     }
 }

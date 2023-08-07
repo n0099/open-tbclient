@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.recent_history.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ee6;
-import com.baidu.tieba.fe6;
+import com.baidu.tieba.kb6;
+import com.baidu.tieba.lb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ee6 mHistoryData;
+    public kb6 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -37,13 +37,13 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public ee6 getRecentHistoryData() {
+    public kb6 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mHistoryData;
         }
-        return (ee6) invokeV.objValue;
+        return (kb6) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -54,22 +54,22 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            ee6 ee6Var = new ee6();
-            this.mHistoryData = ee6Var;
+            kb6 kb6Var = new kb6();
+            this.mHistoryData = kb6Var;
             boolean z = true;
             if (jSONObject.optInt("has_more") != 1) {
                 z = false;
             }
-            ee6Var.a = z;
+            kb6Var.a = z;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    fe6 fe6Var = new fe6();
-                    fe6Var.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(fe6Var);
+                    lb6 lb6Var = new lb6();
+                    lb6Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(lb6Var);
                 }
                 arrayList = arrayList2;
             }

@@ -69,7 +69,7 @@ public class eu implements et.a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(boolean z) {
-        long m816a = com.xiaomi.push.service.o.a(this.f332a).m816a();
+        long m817a = com.xiaomi.push.service.o.a(this.f332a).m817a();
         if (z || this.a != 0) {
             if (z) {
                 a();
@@ -77,14 +77,14 @@ public class eu implements et.a {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (!z && this.a != 0) {
                 if (this.a <= elapsedRealtime) {
-                    this.a += m816a;
+                    this.a += m817a;
                 }
                 Intent intent = new Intent(com.xiaomi.push.service.bk.p);
                 intent.setPackage(this.f332a.getPackageName());
                 a(intent, this.a);
             }
-            m816a -= elapsedRealtime % m816a;
-            this.a = elapsedRealtime + m816a;
+            m817a -= elapsedRealtime % m817a;
+            this.a = elapsedRealtime + m817a;
             Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
             intent2.setPackage(this.f332a.getPackageName());
             a(intent2, this.a);
@@ -93,7 +93,7 @@ public class eu implements et.a {
 
     @Override // com.xiaomi.push.et.a
     /* renamed from: a */
-    public boolean mo464a() {
+    public boolean mo465a() {
         return this.a != 0;
     }
 }

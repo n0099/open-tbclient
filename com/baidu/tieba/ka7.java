@@ -1,73 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardMountView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedKV;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ka7 {
+public class ka7 extends d97<CardMountView, m47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(List<FeedKV> list, String key) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ka7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            for (FeedKV feedKV : list) {
-                if (Intrinsics.areEqual(feedKV.key, key)) {
-                    return feedKV.value;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static final List<u97> b(List<FeedKV> list) {
+    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            ArrayList arrayList = new ArrayList();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
-                u97 u97Var = new u97(str, null, null, null, null, 30, null);
-                Map<String, String> d = u97Var.d();
-                try {
-                    JSONObject jSONObject = new JSONObject(feedKV.value);
-                    if (d instanceof HashMap) {
-                        Iterator<String> keys = jSONObject.keys();
-                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
-                        while (keys.hasNext()) {
-                            String key = keys.next();
-                            if (!Intrinsics.areEqual(key, "position_name")) {
-                                Intrinsics.checkNotNullExpressionValue(key, "key");
-                                String optString = jSONObject.optString(key);
-                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
-                                d.put(key, optString);
-                            }
-                        }
-                    }
-                    String optString2 = jSONObject.optString("position_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
-                    u97Var.g(optString2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                arrayList.add(u97Var);
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            hb7.j(a);
+            return a;
         }
-        return (List) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull CardMountView cardMountView, @NonNull m47 m47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMountView, m47Var) == null) {
+            cardMountView.a(m47Var);
+        }
     }
 }

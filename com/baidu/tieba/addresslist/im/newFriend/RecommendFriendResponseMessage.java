@@ -2,7 +2,7 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.md8;
+import com.baidu.tieba.fb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<md8> mDatas;
+    public List<fb8> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -57,26 +57,26 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                     this.mDatas = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        md8 md8Var = new md8();
+                        fb8 fb8Var = new fb8();
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        md8Var.h(jSONObject2.optLong("user_id"));
-                        md8Var.j(jSONObject2.optString("user_name"));
-                        md8Var.k(jSONObject2.optString("portrait"));
-                        md8Var.g(jSONObject2.optString("message"));
+                        fb8Var.h(jSONObject2.optLong("user_id"));
+                        fb8Var.j(jSONObject2.optString("user_name"));
+                        fb8Var.k(jSONObject2.optString("portrait"));
+                        fb8Var.g(jSONObject2.optString("message"));
                         if (jSONObject2.optInt("type") == 0) {
-                            md8Var.l(0);
+                            fb8Var.l(0);
                         } else {
-                            md8Var.l(1);
+                            fb8Var.l(1);
                         }
-                        md8Var.i(1);
-                        this.mDatas.add(md8Var);
+                        fb8Var.i(1);
+                        this.mDatas.add(fb8Var);
                     }
                 }
             }
         }
     }
 
-    public List<md8> getDatas() {
+    public List<fb8> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

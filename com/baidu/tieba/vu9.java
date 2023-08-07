@@ -1,57 +1,155 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.helper.ProgressHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vu9 extends ProgressHelper {
+public class vu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDVideoPlayer a;
+    public List<a> a;
+    public t25 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vu9(@NonNull BDVideoPlayer bDVideoPlayer) {
-        super(bDVideoPlayer);
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public long c;
+        public String d;
+        public String e;
+        public long f;
+        public int g;
+        public int h;
+        public String i;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public vu9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bDVideoPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BDVideoPlayer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bDVideoPlayer;
+        this.a = new ArrayList();
+        this.b = new t25();
     }
 
-    public final void callPlayerBack(int i, int i2, int i3) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
-            this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<a> list = this.a;
+            if (list != null && list.size() != 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
-    public void doTask() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int position = this.a.getPosition();
-            int durationMs = this.a.getDurationMs();
-            int bufferingPosition = this.a.getBufferingPosition();
-            int positionMs = this.a.getPositionMs();
-            this.a.getControlEventTrigger().syncPos(position, positionMs, durationMs, bufferingPosition);
-            callPlayerBack(positionMs, durationMs, bufferingPosition);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            t25 t25Var = this.b;
+            if (t25Var != null && t25Var.b() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            String str2 = "";
+            if (jSONObject == null) {
+                return;
+            }
+            try {
+                this.b.i(jSONObject.getJSONObject("page"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                if (optJSONArray != null && optJSONArray.length() != 0) {
+                    this.a.clear();
+                    int i2 = 0;
+                    while (i2 < optJSONArray.length()) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        if (jSONObject2 == null) {
+                            jSONArray = optJSONArray;
+                            str = str2;
+                            i = i2;
+                        } else {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
+                            String optString = jSONObject3.optString("name_show", str2);
+                            jSONObject3.optString("name", str2);
+                            long optLong = jSONObject2.optLong("pid", 0L);
+                            String optString2 = jSONObject2.optString("title", str2);
+                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
+                            String optString3 = jSONObject2.optString("content", str2);
+                            String optString4 = jSONObject2.optString("fname", str2);
+                            long optLong3 = jSONObject2.optLong("tid", 0L);
+                            jSONArray = optJSONArray;
+                            int optInt = jSONObject2.optInt("is_floor", 0);
+                            str = str2;
+                            int optInt2 = jSONObject2.optInt("is_replay", 0);
+                            i = i2;
+                            if (jSONObject2.optInt("thread_type", 0) != 33) {
+                                a aVar = new a();
+                                aVar.a = optLong;
+                                aVar.b = optString2;
+                                aVar.c = optLong2;
+                                aVar.d = optString3;
+                                aVar.e = optString4;
+                                aVar.f = optLong3;
+                                aVar.g = optInt;
+                                aVar.h = optInt2;
+                                aVar.i = optString;
+                                this.a.add(aVar);
+                            }
+                        }
+                        i2 = i + 1;
+                        optJSONArray = jSONArray;
+                        str2 = str;
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.d(e.getMessage());
+            }
         }
     }
 }

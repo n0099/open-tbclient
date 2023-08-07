@@ -1,37 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ah3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m74 extends sd3 {
+public class m74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
     /* loaded from: classes6.dex */
-    public class a implements oq3<yg3<ah3.e>> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
+        public boolean a;
+        public String b;
 
-        public a(m74 m74Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
+        public a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m74Var, callbackHandler, unitedSchemeEntity, jSONObject};
+                Object[] objArr = {Boolean.valueOf(z), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,68 +44,156 @@ public class m74 extends sd3 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
+            this.a = false;
+            this.a = z;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(yg3<ah3.e> yg3Var) {
+        public static a c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
-                if (!tg3.h(yg3Var)) {
-                    tg3.p(yg3Var, this.a, this.b);
-                    return;
-                }
-                u73.L(jm2.b(this.c.optInt("emitReplaceGameCore")));
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                u73.Z();
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new a(false, "未启用真机调试");
             }
+            return (a) invokeV.objValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m74(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/debug/setReplaceGameCoreConfig");
+    public m74(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
+            this.a = optJSONObject.optString("hostname", null);
+            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
+            this.c = optJSONObject.optBoolean("breakOnStart", false);
+        }
+        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
+        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
+        this.f = z;
+        if (z) {
+            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
+            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
+            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
+            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
+        }
+        String str = this.a;
+        if (str != null && !str.trim().equals("")) {
+            this.e = true;
+        }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public static a f(m74 m74Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                v82.c("setReplaceGameCoreConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("emitReplaceGameCore")) {
-                v82.c("setReplaceGameCoreConfig", "emitReplaceGameCore is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                vb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2));
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m74Var)) == null) {
+            if (m74Var == null) {
+                return a.c();
             }
+            return m74Var.e();
         }
-        return invokeLLLL.booleanValue;
+        return (a) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            if (this.b != null) {
+                str = ":" + this.b;
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public a e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.f && c()) {
+                return new a(false, "线上包禁用真机调试");
+            }
+            boolean z = this.e;
+            if (!z) {
+                str = "未启用真机调试";
+            } else if (this.f) {
+                str = "使用了 debug 面板配置";
+            } else {
+                str = "启用了真机调试";
+            }
+            return new a(z, str);
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a32.f(ya3.g0());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

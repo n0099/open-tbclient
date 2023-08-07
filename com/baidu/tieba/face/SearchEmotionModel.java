@@ -7,14 +7,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.f47;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.n17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(String str, f47 f47Var);
+        void a(String str, n17 n17Var);
 
         void onFail(int i, String str);
     }
@@ -87,7 +87,7 @@ public class SearchEmotionModel extends BdBaseModel {
                 return;
             }
             if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                yi.R(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
             }
             this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
         }
@@ -114,7 +114,7 @@ public class SearchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void W(String str, int i, int i2, b bVar) {
+    public void O(String str, int i, int i2, b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) && bVar != null && !TextUtils.isEmpty(str)) {
             this.a = bVar;

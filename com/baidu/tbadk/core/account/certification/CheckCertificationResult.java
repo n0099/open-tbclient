@@ -10,17 +10,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class CheckCertificationResult {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int PASS_AUTH_STATUS_JUNIOR = 1;
+    public static final int PASS_AUTH_STATUS_NON = 0;
+    public static final int PASS_AUTH_STATUS_SENIOR = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public String action;
+    public String authWidgetURL;
+    public String authsid;
+    public int code;
+    public String livingUname;
+    public String resultMsg;
     @Keep
     public boolean sdkCallbackSuccess;
+    public int status;
 
     public CheckCertificationResult() {
         Interceptable interceptable = $ic;
@@ -36,14 +39,14 @@ public class CheckCertificationResult {
         }
     }
 
-    public int a() {
+    public int getRealNameStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if ("advanced_cert_face_match".equals(this.b)) {
+            if ("advanced_cert_face_match".equals(this.action)) {
                 return 2;
             }
-            if ("cert_face_match".equals(this.b)) {
+            if ("cert_face_match".equals(this.action)) {
                 return 1;
             }
             return 0;
@@ -52,7 +55,7 @@ public class CheckCertificationResult {
     }
 
     @Nullable
-    public static CheckCertificationResult b(CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
+    public static CheckCertificationResult parseFromSdk(CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, checkUserFaceIdResult, z)) == null) {
@@ -61,13 +64,13 @@ public class CheckCertificationResult {
             }
             CheckCertificationResult checkCertificationResult = new CheckCertificationResult();
             checkCertificationResult.sdkCallbackSuccess = z;
-            checkCertificationResult.a = checkUserFaceIdResult.getResultCode();
-            checkCertificationResult.b = checkUserFaceIdResult.action;
-            checkCertificationResult.c = checkUserFaceIdResult.status;
-            checkCertificationResult.d = checkUserFaceIdResult.getResultMsg();
-            checkCertificationResult.e = checkUserFaceIdResult.livingUname;
-            checkCertificationResult.f = checkUserFaceIdResult.authsid;
-            checkCertificationResult.g = checkUserFaceIdResult.authWidgetURL;
+            checkCertificationResult.code = checkUserFaceIdResult.getResultCode();
+            checkCertificationResult.action = checkUserFaceIdResult.action;
+            checkCertificationResult.status = checkUserFaceIdResult.status;
+            checkCertificationResult.resultMsg = checkUserFaceIdResult.getResultMsg();
+            checkCertificationResult.livingUname = checkUserFaceIdResult.livingUname;
+            checkCertificationResult.authsid = checkUserFaceIdResult.authsid;
+            checkCertificationResult.authWidgetURL = checkUserFaceIdResult.authWidgetURL;
             return checkCertificationResult;
         }
         return (CheckCertificationResult) invokeLZ.objValue;

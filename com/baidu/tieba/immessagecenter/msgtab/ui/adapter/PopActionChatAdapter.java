@@ -8,11 +8,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.msgtab.ui.prenster.PopActionChatPresenter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,20 +57,17 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
                 }
             }
             Intrinsics.checkNotNullParameter(view2, "view");
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cc6);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cdc);
             Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.pop_item_root)");
             this.a = (ViewGroup) findViewById;
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091cc5);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091cdb);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "view.findViewById(R.id.pop_item_image)");
             this.b = (ImageView) findViewById2;
-            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091cc4);
+            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091cda);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "view.findViewById(R.id.pop_item_content)");
             this.c = (TextView) findViewById3;
-            d85.d(this.a).f(R.color.CAM_X0208);
-            d85 d = d85.d(this.c);
-            d.x(R.color.CAM_X0107);
-            d.C(R.dimen.T_X05);
-            d.D(R.string.F_X01);
+            EMManager.from(this.a).setBackGroundColor(R.color.CAM_X0208);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01);
         }
 
         public final void b(PopActionChatPresenter.ChatItemData data) {
@@ -118,7 +115,7 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d061b, parent, false);
+            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0620, parent, false);
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             return new ViewHolder(this, view2);
         }

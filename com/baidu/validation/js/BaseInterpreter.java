@@ -1,8 +1,8 @@
 package com.baidu.validation.js;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xbb;
-import com.baidu.tieba.zbb;
+import com.baidu.tieba.abb;
+import com.baidu.tieba.cbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseInterpreter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xbb mInterpreterCallback;
+    public abb mInterpreterCallback;
     public String mName;
 
     public BaseInterpreter() {
@@ -29,10 +29,10 @@ public abstract class BaseInterpreter {
         }
     }
 
-    public xbb getInterpreterCallback() {
+    public abb getInterpreterCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (xbb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (abb) invokeV.objValue;
     }
 
     public String getName() {
@@ -41,12 +41,12 @@ public abstract class BaseInterpreter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public abstract String interpret(zbb zbbVar);
+    public abstract String interpret(cbb cbbVar);
 
-    public void setInterpreterCallback(xbb xbbVar) {
+    public void setInterpreterCallback(abb abbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xbbVar) == null) {
-            this.mInterpreterCallback = xbbVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, abbVar) == null) {
+            this.mInterpreterCallback = abbVar;
         }
     }
 

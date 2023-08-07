@@ -7,11 +7,11 @@ import android.content.Intent;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.o99;
+import com.baidu.tieba.m79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,8 +42,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !ACTION_NAME.equals(intent.getAction())) {
             return;
         }
-        o99.b().g();
-        if (!da5.p().l("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+        m79.b().g();
+        if (!SharedPrefHelper.getInstance().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
             return;
         }
         try {

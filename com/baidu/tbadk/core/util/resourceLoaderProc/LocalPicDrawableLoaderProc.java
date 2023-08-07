@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,25 +67,25 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.tg
-    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.eg
+    public BdImage getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            jn A = TbImageMemoryCache.v().A(str3);
-            if (A == null) {
-                Bitmap bitmap = SkinManager.getBitmap(wg.e(str2, 0));
+            BdImage D = TbImageMemoryCache.B().D(str3);
+            if (D == null) {
+                Bitmap bitmap = SkinManager.getBitmap(JavaTypesHelper.toInt(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                jn jnVar = new jn(bitmap, false, str2);
-                TbImageMemoryCache.v().m(str3, jnVar);
-                return jnVar;
+                BdImage bdImage = new BdImage(bitmap, false, str2);
+                TbImageMemoryCache.B().m(str3, bdImage);
+                return bdImage;
             }
-            return A;
+            return D;
         }
-        return (jn) invokeCommon.objValue;
+        return (BdImage) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

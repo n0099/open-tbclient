@@ -34,7 +34,7 @@ public class BubbleTextView extends BubbleBaseView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d018a;
+        return R.layout.obfuscated_res_0x7f0d018d;
     }
 
     public int getTextColor() {
@@ -58,7 +58,7 @@ public class BubbleTextView extends BubbleBaseView {
             return false;
         }
         int textColor = getTextColor();
-        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09050c);
+        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090519);
         this.mBubbleText = textView;
         textView.setTextColor(textColor);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701f8);

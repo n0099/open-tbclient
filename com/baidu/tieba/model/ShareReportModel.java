@@ -1,16 +1,16 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,29 +53,29 @@ public class ShareReportModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        V();
+        N();
     }
 
-    public final void V() {
+    public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gca.h(309480, ShareReportSocketResponseMessage.class, false, false);
-            gca.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+            zaa.h(309480, ShareReportSocketResponseMessage.class, false, false);
+            zaa.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void W(String str, String str2, int i) {
+    public void O(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i) == null) {
             ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
-            shareReportNetMessage.setFid(wg.g(str, 0L));
-            shareReportNetMessage.setTid(wg.g(str2, 0L));
+            shareReportNetMessage.setFid(JavaTypesHelper.toLong(str, 0L));
+            shareReportNetMessage.setTid(JavaTypesHelper.toLong(str2, 0L));
             shareReportNetMessage.setFrom(i);
             sendMessage(shareReportNetMessage);
         }

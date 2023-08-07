@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.ValueCallback;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class uj2 implements tj2 {
+public class uj2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile uj2 g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, vj2> a;
-    public HashMap<String, ArrayList<ValueCallback<String>>> b;
-    public String c;
-    public HttpManager d;
-    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,23 +32,8 @@ public class uj2 implements tj2 {
                 return;
             }
         }
-        f = fs1.a;
-    }
-
-    public static uj2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (uj2.class) {
-                    if (g == null) {
-                        g = new uj2();
-                    }
-                }
-            }
-            return g;
-        }
-        return (uj2) invokeV.objValue;
+        fu2.g0().getSwitch("swan_recovery_enable", true);
+        a = true;
     }
 
     public uj2() {
@@ -70,127 +46,45 @@ public class uj2 implements tj2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.d = dv2.l().a();
-        this.c = dv2.f().a();
     }
 
-    @Override // com.baidu.tieba.tj2
-    public void a(String str, String str2) {
-        ArrayList<ValueCallback<String>> arrayList;
+    public static void c(ek2 ek2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).onReceiveValue(str2);
-                        if (f) {
-                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(65538, null, ek2Var) != null) || !a || ek2Var == null) {
+            return;
         }
+        if (ProcessUtils.isMainProcess()) {
+            vj2.a(ek2Var).b();
+            dk2.b().a(ek2Var.a);
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("recovery_level", ek2Var.a);
+        bundle.putStringArrayList("recovery_app_list", ek2Var.b);
+        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), uj2.class, bundle);
     }
 
-    public void g(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
-            if (TextUtils.isEmpty(str)) {
-                valueCallback.onReceiveValue(null);
-                return;
-            }
-            try {
-                String d = d(str);
-                if (TextUtils.isEmpty(d)) {
-                    return;
-                }
-                File file = new File(d(str));
-                if (file.exists() && !file.isDirectory()) {
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(d);
-                        return;
-                    }
-                    return;
-                }
-                synchronized (this.e) {
-                    if (!f(str)) {
-                        c(str);
-                    }
-                    b(str, valueCallback);
-                }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void b(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(valueCallback);
-                return;
-            }
-            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
-            arrayList.add(valueCallback);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
-            }
-            vj2 vj2Var = new vj2(this.d, this.c, str, this);
-            this.a.put(str, vj2Var);
-            vj2Var.e();
-        }
-    }
-
-    public final String d(String str) throws MalformedURLException {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c + dv2.f().c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tj2
-    public void fail(int i, String str) {
-        ArrayList<ValueCallback<String>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).onReceiveValue("");
-                    }
-                    this.a.remove(str);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!a) {
+                return null;
             }
+            int i = bundle.getInt("recovery_level", -1);
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
+            ek2 ek2Var = new ek2();
+            ek2Var.a = i;
+            if (stringArrayList != null) {
+                ek2Var.b = stringArrayList;
+            }
+            vj2.a(ek2Var).b();
+            dk2.b().a(ek2Var.a);
+            return null;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

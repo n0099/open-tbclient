@@ -1,62 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
-public final class vv8 extends rv8<VoiceMsgContent> implements mc7<vv8> {
+public final class vv8 extends uv8<ImageMsg, ut8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    public vv8 i() {
+    @Override // com.baidu.tieba.uv8
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (vv8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vv8(cw8<VoiceMsgContent> data, String templateName) {
-        super(data);
+    public vv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((cw8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.mc7
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uv8
+    /* renamed from: h */
+    public ImageMsg e(ut8 ut8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ut8Var)) == null) {
+            return new ImageMsg();
         }
-        return (String) invokeV.objValue;
+        return (ImageMsg) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.mc7
-    public /* bridge */ /* synthetic */ vv8 b() {
-        i();
-        return this;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uv8
+    /* renamed from: i */
+    public ut8 g(ImageMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            ut8 ut8Var = new ut8();
+            ut8Var.e(sdkMsg.getRemoteUrl());
+            ut8Var.g(sdkMsg.getThumbUrl());
+            ut8Var.d(StringsKt__StringsKt.trim((CharSequence) sdkMsg.getMsgContent().toString()).toString());
+            return ut8Var;
+        }
+        return (ut8) invokeL.objValue;
     }
 }

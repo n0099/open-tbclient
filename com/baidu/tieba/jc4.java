@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jc4 {
+public class jc4 extends ai3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public JSONObject d;
-    public kc4 e;
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
     public jc4() {
         Interceptable interceptable = $ic;
@@ -30,12 +33,27 @@ public class jc4 {
         }
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.ai3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.a + " , query=" + this.b + " , title=" + this.c + ", extra=" + this.d + ", videoEditorParams=" + this.e + " }";
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put(DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH, this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (ai3.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

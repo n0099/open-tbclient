@@ -1,137 +1,85 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pbextra.praise.PraiseListActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class tn9 extends BaseAdapter implements AbsListView.OnScrollListener {
+public class tn9 extends lm<qo9, CardViewHolder<ap9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PraiseListActivity a;
-    public List<rn9> b;
-    public volatile boolean c;
+    public TbPageContext a;
+    public ap9 b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
-        }
-    }
-
-    public tn9(PraiseListActivity praiseListActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tn9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {praiseListActivity};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = praiseListActivity;
-    }
-
-    public final View a(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-            sn9 b2 = sn9.b(this.a.getPageContext().getPageActivity(), view2);
-            rn9 item = getItem(i);
-            if (StringUtils.isNull(item.b())) {
-                b = item.d();
-            } else {
-                b = item.b();
-            }
-            b2.c(b, item.a(), item.e(), this.c);
-            this.a.changSkinType(b2.a());
-            return b2.a();
-        }
-        return (View) invokeILL.objValue;
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public rn9 getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public CardViewHolder<ap9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<rn9> list = this.b;
-            if (list != null) {
-                return list.get(i);
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.b = new ap9(this.a);
+            return new CardViewHolder<>(this.b);
         }
-        return (rn9) invokeI.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void c(List<rn9> list) {
+    public void u(boolean z) {
+        ap9 ap9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (ap9Var = this.b) != null) {
+            ap9Var.x(z);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void onPause() {
+        ap9 ap9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<rn9> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ap9Var = this.b) != null) {
+            ap9Var.u();
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qo9 qo9Var, CardViewHolder<ap9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            return a(i, view2, viewGroup);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qo9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().i(qo9Var);
+            return cardViewHolder.getView();
         }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) {
-            if (i == 0) {
-                this.c = false;
-                notifyDataSetChanged();
-                return;
-            }
-            this.c = true;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

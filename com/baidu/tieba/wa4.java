@@ -10,16 +10,14 @@ public class wa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public int code;
-    @V8JavascriptField
-    public String reason;
+    public int microphoneStatus;
 
-    public wa4(int i, String str) {
+    public wa4(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,7 +27,6 @@ public class wa4 {
                 return;
             }
         }
-        this.code = i;
-        this.reason = str;
+        this.microphoneStatus = i;
     }
 }

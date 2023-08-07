@@ -1,25 +1,73 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ib5 extends TBSpecificationButtonConfig {
+public class ib5 implements eg<gb5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public int w;
-    public int x;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eg
+    /* renamed from: b */
+    public gb5 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            return null;
+        }
+        return (gb5) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.eg
+    public BdAsyncTaskParallel getAsyncTaskParallel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (BdAsyncTaskParallel) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.eg
+    public int getAsyncTaskPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg
+    public boolean isNeedLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eg
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        }
+    }
 
     public ib5() {
         Interceptable interceptable = $ic;
@@ -31,99 +79,117 @@ public class ib5 extends TBSpecificationButtonConfig {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.w = R.dimen.tbds1;
-        this.x = R.string.A_X07;
-        this.b = R.color.CAM_X0302;
-        this.v = false;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return v(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void r(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
             }
         }
     }
 
-    public void s(@ColorInt int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eg
+    /* renamed from: a */
+    public gb5 getFromLocal(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.v = false;
-            this.r = false;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
+            if (str.contains("https://")) {
+                str = Uri.parse(str).getLastPathSegment();
             }
+            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            diskFileOperate.setSubFolder(false);
+            diskFileOperate.setIsFormatData(false);
+            if (dgVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(diskFileOperate);
+                dgVar.a = diskCancelWorker;
+            }
+            diskFileOperate.call();
+            if (!diskFileOperate.isSuccess()) {
+                return null;
+            }
+            String desPath = diskFileOperate.getDesPath();
+            gb5 gb5Var = new gb5();
+            gb5Var.h(str);
+            gb5Var.i(desPath);
+            return gb5Var;
         }
+        return (gb5) invokeCommon.objValue;
     }
 
-    public void t(@ColorRes int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eg
+    /* renamed from: c */
+    public gb5 getFromRemote(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-            this.c = R.color.CAM_X0902;
-            this.v = true;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = R.color.CAM_X0101;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public final Drawable v(float f) {
-        InterceptResult invokeF;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            if (this.v) {
-                gradientDrawable.setStroke(yi.g(TbadkCoreApplication.getInst().getContext(), this.w), SkinManager.getColor(this.s, this.c));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
+            int i3 = 1;
+            String str5 = null;
+            if (objArr.length == 1) {
+                str3 = String.valueOf(objArr[0]);
             } else {
-                int g = yi.g(TbadkCoreApplication.getInst().getContext(), this.w);
-                if (this.r) {
-                    i = SkinManager.getColor(this.s, this.b);
-                } else {
-                    i = this.b;
-                }
-                gradientDrawable.setStroke(g, dba.a(i, b85.b(this.x)));
+                str3 = null;
             }
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+            gb5 gb5Var = new gb5();
+            WebClient webClient = new WebClient();
+            if (dgVar != null) {
+                dgVar.a = webClient;
+            }
+            if (str.contains("https://")) {
+                str4 = Uri.parse(str).getLastPathSegment();
+            } else {
+                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+                if (!TextUtils.isEmpty(str3)) {
+                    str4 = str;
+                    str = str6 + "&play_from=" + str3;
+                } else {
+                    str4 = str;
+                    str = str6;
+                }
+            }
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
+            if (!webClient.IsRequestSuccess()) {
+                gb5Var.f(3);
+                gb5Var.g(si.a(R.string.obfuscated_res_0x7f0f0e21));
+                return gb5Var;
+            } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                if (str4 == null) {
+                    i3 = 5;
+                } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
+                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                    diskFileOperate.setSubFolder(false);
+                    diskFileOperate.setData(downloadCommonBytes);
+                    if (dgVar != null) {
+                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                        diskCancelWorker.setOperate(diskFileOperate);
+                        dgVar.a = diskCancelWorker;
+                    }
+                    diskFileOperate.call();
+                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
+                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        i3 = 0;
+                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
+                        i3 = 2;
+                    }
+                } else {
+                    i3 = 6;
+                }
+                if (i3 == 0) {
+                    gb5Var.i(str5);
+                    gb5Var.h(str4);
+                } else {
+                    gb5Var.f(i3);
+                    gb5Var.g(gb5.a(i3));
+                }
+                return gb5Var;
+            } else {
+                gb5Var.f(4);
+                gb5Var.g(si.a(R.string.voice_cache_error_no_file));
+                return gb5Var;
+            }
         }
-        return (Drawable) invokeF.objValue;
+        return (gb5) invokeCommon.objValue;
     }
 }

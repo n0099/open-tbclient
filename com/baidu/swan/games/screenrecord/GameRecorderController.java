@@ -4,22 +4,22 @@ import com.baidu.mario.audio.AudioParams;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
-import com.baidu.tieba.df0;
-import com.baidu.tieba.ff0;
-import com.baidu.tieba.ix2;
-import com.baidu.tieba.ji4;
-import com.baidu.tieba.ki4;
-import com.baidu.tieba.le0;
-import com.baidu.tieba.y54;
+import com.baidu.tieba.b54;
+import com.baidu.tieba.be0;
+import com.baidu.tieba.de0;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.lw2;
+import com.baidu.tieba.mh4;
+import com.baidu.tieba.nh4;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class GameRecorderController {
     public AREngineDelegate a;
-    public ff0 b;
+    public de0 b;
     public RecorderState c;
-    public le0 d;
+    public jd0 d;
     public long e;
-    public ki4 f = new a();
+    public nh4 f = new a();
 
     /* loaded from: classes4.dex */
     public enum RecorderState {
@@ -30,14 +30,14 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements ki4 {
+    public class a implements nh4 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.ki4
-        public void a(ji4 ji4Var) {
+        @Override // com.baidu.tieba.nh4
+        public void a(mh4 mh4Var) {
             if (GameRecorderController.this.d != null) {
-                GameRecorderController.this.d.onAudioFrameAvailable(ByteBuffer.wrap(ji4Var.a), (int) ji4Var.b, ji4Var.c - GameRecorderController.this.e);
+                GameRecorderController.this.d.onAudioFrameAvailable(ByteBuffer.wrap(mh4Var.a), (int) mh4Var.b, mh4Var.c - GameRecorderController.this.e);
             }
         }
     }
@@ -54,13 +54,13 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements df0 {
+    public class c implements be0 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.df0
-        public void a(le0 le0Var) {
-            GameRecorderController.this.d = le0Var;
+        @Override // com.baidu.tieba.be0
+        public void a(jd0 jd0Var) {
+            GameRecorderController.this.d = jd0Var;
             GameRecorderController.this.e = System.nanoTime();
             GameRecorderController.this.m();
         }
@@ -81,11 +81,11 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements ff0 {
+    public class e implements de0 {
         public e() {
         }
 
-        @Override // com.baidu.tieba.ff0
+        @Override // com.baidu.tieba.de0
         public void onError(int i) {
             GameRecorderController.this.c = RecorderState.IDLE;
             if (GameRecorderController.this.b != null) {
@@ -97,16 +97,16 @@ public class GameRecorderController {
             this();
         }
 
-        @Override // com.baidu.tieba.ff0
-        public void w(int i, String str) {
+        @Override // com.baidu.tieba.de0
+        public void v(int i, String str) {
             GameRecorderController.this.c = RecorderState.STOP;
             GameRecorderController.this.n();
             if (GameRecorderController.this.b != null) {
-                GameRecorderController.this.b.w(i, str);
+                GameRecorderController.this.b.v(i, str);
             }
         }
 
-        @Override // com.baidu.tieba.ff0
+        @Override // com.baidu.tieba.de0
         public void onPause() {
             GameRecorderController.this.c = RecorderState.PAUSE;
             if (GameRecorderController.this.b != null) {
@@ -114,7 +114,7 @@ public class GameRecorderController {
             }
         }
 
-        @Override // com.baidu.tieba.ff0
+        @Override // com.baidu.tieba.de0
         public void onResume() {
             GameRecorderController.this.c = RecorderState.RECORDING;
             if (GameRecorderController.this.b != null) {
@@ -122,7 +122,7 @@ public class GameRecorderController {
             }
         }
 
-        @Override // com.baidu.tieba.ff0
+        @Override // com.baidu.tieba.de0
         public void onStart() {
             GameRecorderController.this.c = RecorderState.RECORDING;
             if (GameRecorderController.this.b != null) {
@@ -137,21 +137,21 @@ public class GameRecorderController {
             this.c = RecorderState.IDLE;
             aREngineDelegate.setGameRecordCallback(new e(this, null));
         }
-        y54.h().e().post(new b());
+        b54.h().e().post(new b());
     }
 
     public final void r(boolean z) {
-        y54.h().e().post(new d(this, z));
+        b54.h().e().post(new d(this, z));
     }
 
-    public void s(ff0 ff0Var) {
-        this.b = ff0Var;
+    public void s(de0 de0Var) {
+        this.b = de0Var;
     }
 
     public void t(int i, String str) {
         boolean z;
         if (this.a != null) {
-            SwanAppActivity activity = ix2.T().getActivity();
+            SwanAppActivity activity = lw2.T().getActivity();
             if (activity != null && activity.j0()) {
                 z = true;
             } else {
@@ -192,9 +192,9 @@ public class GameRecorderController {
     }
 
     public final void n() {
-        le0 le0Var = this.d;
-        if (le0Var != null) {
-            le0Var.onAudioStop(true);
+        jd0 jd0Var = this.d;
+        if (jd0Var != null) {
+            jd0Var.onAudioStop(true);
         }
         r(false);
     }

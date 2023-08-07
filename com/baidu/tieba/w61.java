@@ -1,122 +1,111 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
-import android.widget.Toast;
-import androidx.core.content.FileProvider;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
 /* loaded from: classes8.dex */
-public final class w61 {
-    public static /* synthetic */ Interceptable $ic;
+public class w61 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    if (TextUtils.isEmpty(rk0.a().v())) {
-                        return false;
-                    }
-                    Uri uriForFile = FileProvider.getUriForFile(context, rk0.a().v(), file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
-                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException | Exception unused) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void b(Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, dialog) != null) || dialog == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948222423, "Lcom/baidu/tieba/w61;")) == null) {
             return;
         }
-        try {
-            dialog.show();
-        } catch (Exception unused) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948222423, "Lcom/baidu/tieba/w61;");
         }
     }
 
-    public static void c(Activity activity, Intent intent) {
+    public static int c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
-            e(activity, intent, true);
-        }
-    }
-
-    public static boolean d(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
-            return e(context, intent, false);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean e(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
-            return f(context, intent, z, false);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            if (i < i2) {
+                i = i2;
             }
+            return i > i3 ? i3 : i;
+        }
+        return invokeIII.intValue;
+    }
+
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    i = b(activity);
+                } else {
+                    i = (int) (f * 255.0f);
+                }
+                int i2 = a;
+                if (i2 >= 0 && i <= 50) {
+                    return i2;
+                }
+                return i;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
-                return false;
-            } catch (SecurityException unused2) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
-                return false;
-            } catch (Exception unused3) {
-                return false;
+                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        return invokeCommon.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static void f(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
+            e(activity, -1);
+        }
+    }
+
+    public static void d(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
+            a = c(i, 0, 255);
+            int c = c(i, 50, 255);
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
+            activity.getWindow().setAttributes(attributes);
+        }
+    }
+
+    public static void e(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = i;
+            window.setAttributes(attributes);
+        }
     }
 }

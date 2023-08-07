@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.pq9;
+import com.baidu.tieba.ip9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pq9 data;
+    public ip9 data;
     public int errCode;
     public String resultString;
 
@@ -36,7 +36,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = 0;
-        this.data = new pq9();
+        this.data = new ip9();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -62,13 +62,13 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public pq9 getPersonBarData() {
+    public ip9 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.data;
         }
-        return (pq9) invokeV.objValue;
+        return (ip9) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -87,10 +87,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonBarData(pq9 pq9Var) {
+    public void setPersonBarData(ip9 ip9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pq9Var) == null) {
-            this.data = pq9Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ip9Var) == null) {
+            this.data = ip9Var;
         }
     }
 

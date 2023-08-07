@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
@@ -16,7 +17,6 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -150,7 +150,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         this.g = bawuRoleInfoPub;
-        this.c.N(bawuRoleInfoPub.portrait, 12, false);
+        this.c.startLoad(bawuRoleInfoPub.portrait, 12, false);
         TextView textView = this.d;
         if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
             str = bawuRoleInfoPub.user_name;
@@ -180,15 +180,15 @@ public class BawuMemberInfoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0151, this);
             this.b = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091093);
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910a6);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.c.setBorderWidth(yi.g(this.a, R.dimen.obfuscated_res_0x7f070198));
+            this.c.setBorderWidth(BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070198));
             this.b.setOnClickListener(new a(this));
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091094);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09249d);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09249c);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910a7);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b5);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b4);
         }
     }
 

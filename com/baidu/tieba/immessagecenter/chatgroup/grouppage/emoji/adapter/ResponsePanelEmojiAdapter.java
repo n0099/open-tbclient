@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gk8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.ResponsePanelEmojiHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
-import com.baidu.tieba.nm8;
-import com.baidu.tieba.qm8;
+import com.baidu.tieba.kk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final List<Reaction> a;
-    public qm8 b;
+    public kk8 b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -93,10 +93,10 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         notifyDataSetChanged();
     }
 
-    public void p(qm8 qm8Var) {
+    public void p(kk8 kk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qm8Var) == null) {
-            this.b = qm8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, kk8Var) == null) {
+            this.b = kk8Var;
         }
     }
 
@@ -117,7 +117,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsePanelEmojiHolder, i) == null) {
             Reaction reaction = this.a.get(i);
-            responsePanelEmojiHolder.a.I(reaction.getContent());
+            responsePanelEmojiHolder.a.startLoad(reaction.getContent());
             responsePanelEmojiHolder.itemView.setOnClickListener(new a(this, reaction));
         }
     }
@@ -130,8 +130,8 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d028b, viewGroup, false);
-            int i2 = nm8.b;
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d028e, viewGroup, false);
+            int i2 = gk8.b;
             inflate.setPadding(i2, 0, i2, 0);
             return new ResponsePanelEmojiHolder(inflate);
         }

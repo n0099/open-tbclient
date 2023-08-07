@@ -1,105 +1,103 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class lm8 {
+public class lm8 extends fn8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AbilityItem a;
-    public final Integer b;
-    public final View c;
+    @NonNull
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947947794, "Lcom/baidu/tieba/lm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (obj instanceof lm8) {
-                lm8 lm8Var = (lm8) obj;
-                return Intrinsics.areEqual(this.a, lm8Var.a) && Intrinsics.areEqual(this.b, lm8Var.b) && Intrinsics.areEqual(this.c, lm8Var.c);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947947794, "Lcom/baidu/tieba/lm8;");
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        b = BdUniqueId.gen().getId();
     }
 
-    public int hashCode() {
+    @Override // com.baidu.tieba.fn8
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            Integer num = this.b;
-            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
-            View view2 = this.c;
-            return hashCode2 + (view2 != null ? view2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
         return invokeV.intValue;
     }
 
-    public String toString() {
+    @NonNull
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "DirectTagData(data=" + this.a + ", position=" + this.b + ", redView=" + this.c + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getName();
         }
         return (String) invokeV.objValue;
     }
 
-    public lm8(AbilityItem data, Integer num, View view2) {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.getDefaultX() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public lm8(@NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, num, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {optsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
-        this.b = num;
-        this.c = view2;
+        this.a = optsDTO;
     }
 
-    public final AbilityItem a() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a.setDefaultX(z ? 1 : 0);
         }
-        return (AbilityItem) invokeV.objValue;
-    }
-
-    public final Integer b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
     }
 }

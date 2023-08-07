@@ -1,151 +1,121 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.TbMusicData;
+import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 /* loaded from: classes6.dex */
-public class jta {
+public class jta extends xh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbMultiMediaData a;
-    public FilterValue b;
-    public MediaTrackConfig c;
-    public float d;
-    public TbMusicData e;
-    public int f;
-    public int g;
+    public Context t;
 
-    public jta() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jta(Context context, String str) {
+        super(context, (String) null, 15);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.t = context;
+        this.n = 3;
+        this.m = new EditorInfoContainer(context, str);
+        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).o();
             }
         }
     }
 
-    public FilterValue a() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (FilterValue) invokeV.objValue;
-    }
-
-    public MediaTrackConfig b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (MediaTrackConfig) invokeV.objValue;
-    }
-
-    public TbMultiMediaData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (TbMultiMediaData) invokeV.objValue;
-    }
-
-    public TbMusicData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (TbMusicData) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public void h(FilterValue filterValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, filterValue) == null) {
-            this.b = filterValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).p();
+            }
         }
     }
 
-    public void i(MediaTrackConfig mediaTrackConfig) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaTrackConfig) == null) {
-            this.c = mediaTrackConfig;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).q();
+            }
         }
     }
 
-    public void j(TbMultiMediaData tbMultiMediaData) {
+    public void j(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tbMultiMediaData) == null) {
-            this.a = tbMultiMediaData;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).v(str, i);
+            }
         }
     }
 
-    public void k(TbMusicData tbMusicData) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tbMusicData) == null) {
-            this.e = tbMusicData;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).w(i);
+            }
         }
     }
 
-    public void l(int i) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).y(z);
+            }
         }
     }
 
-    public void m(int i) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).setFrom(str);
+            }
         }
     }
 
-    public void n(float f) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            this.d = f;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            yh5 yh5Var = this.m;
+            if (yh5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) yh5Var).D(z);
+            }
         }
     }
 }

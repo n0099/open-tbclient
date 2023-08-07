@@ -1,336 +1,174 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kc3 {
+public class kc3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean t;
-    public static final jc3<kc3> u;
-    public static final ic3<kc3> v;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public boolean f;
-    public String g;
-    public boolean h;
-    public boolean i;
-    public String j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public String q;
-    public String r;
-    public String s;
 
     /* loaded from: classes6.dex */
-    public static class a extends jc3<kc3> {
+    public interface b {
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ Uri b;
 
-        public a() {
+        public a(kc3 kc3Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kc3Var, activity, uri, str, callbackHandler, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jc3
-        /* renamed from: b */
-        public void a(@NonNull kc3 kc3Var, @NonNull bv2 bv2Var) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kc3Var, bv2Var) == null) {
-                bv2Var.writeInt(kc3Var.a);
-                bv2Var.f(kc3Var.b);
-                bv2Var.f(kc3Var.c);
-                bv2Var.f(kc3Var.d);
-                bv2Var.writeInt(kc3Var.e);
-                bv2Var.writeBoolean(kc3Var.f);
-                bv2Var.f(kc3Var.g);
-                bv2Var.writeBoolean(kc3Var.h);
-                bv2Var.writeBoolean(kc3Var.i);
-                bv2Var.f(kc3Var.j);
-                bv2Var.writeBoolean(kc3Var.k);
-                bv2Var.writeBoolean(kc3Var.l);
-                bv2Var.writeBoolean(kc3Var.m);
-                bv2Var.writeBoolean(kc3Var.n);
-                bv2Var.writeBoolean(kc3Var.o);
-                bv2Var.writeBoolean(kc3Var.p);
-                bv2Var.f(kc3Var.q);
-                bv2Var.f(kc3Var.r);
-                bv2Var.f(kc3Var.s);
-            }
+            this.a = activity;
+            this.b = uri;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends ic3<kc3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ic3
-        /* renamed from: b */
-        public kc3 a(@NonNull av2 av2Var) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, av2Var)) == null) {
-                kc3 kc3Var = new kc3();
-                kc3Var.a = av2Var.readInt();
-                kc3Var.b = av2Var.g();
-                kc3Var.c = av2Var.g();
-                kc3Var.d = av2Var.g();
-                kc3Var.e = av2Var.readInt();
-                kc3Var.f = av2Var.readBoolean();
-                kc3Var.g = av2Var.g();
-                kc3Var.h = av2Var.readBoolean();
-                kc3Var.i = av2Var.readBoolean();
-                kc3Var.j = av2Var.g();
-                kc3Var.k = av2Var.readBoolean();
-                kc3Var.l = av2Var.readBoolean();
-                kc3Var.m = av2Var.readBoolean();
-                kc3Var.n = av2Var.readBoolean();
-                kc3Var.o = av2Var.readBoolean();
-                kc3Var.p = av2Var.readBoolean();
-                kc3Var.q = av2Var.g();
-                kc3Var.r = av2Var.g();
-                kc3Var.s = av2Var.g();
-                return kc3Var;
-            }
-            return (kc3) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947908238, "Lcom/baidu/tieba/kc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947908238, "Lcom/baidu/tieba/kc3;");
-                return;
-            }
-        }
-        t = fs1.a;
-        u = new a();
-        v = new b();
-    }
-
-    public kc3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/file/openDocument");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = false;
-        this.m = false;
-        this.n = true;
-        this.o = false;
-        this.p = false;
-        this.a = -16777216;
-        this.c = "#ffffff";
-        this.j = "default";
-        this.e = -1;
-        this.f = false;
     }
 
-    public static kc3 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (t) {
-                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
-            }
-            return new kc3();
-        }
-        return (kc3) invokeV.objValue;
-    }
-
-    public static kc3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d();
-            }
-            return c(jSONObject);
-        }
-        return (kc3) invokeL.objValue;
-    }
-
-    public static boolean f(kc3 kc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, kc3Var)) == null) {
-            if (kc3Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
-            }
-            if (!kc3Var.h && !TextUtils.equals(kc3Var.j, ExceptionHandlerImpl.KEY_CUSTOM)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
-            this.p = true;
-        }
-    }
-
-    public static kc3 b(String str, @NonNull kc3 kc3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, kc3Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return kc3Var;
-            }
-            try {
-                return e(new JSONObject(str), kc3Var);
-            } catch (JSONException e) {
-                if (t) {
-                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+            } else if (ya3Var.n0()) {
+                if (vc3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                return kc3Var;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject a2 = vc3.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                    return false;
+                }
+                String optString = a2.optString("filePath");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
+                    return false;
+                }
+                String g0 = ya3.g0();
+                if (TextUtils.isEmpty(g0)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+                    return false;
+                }
+                String M = gi3.M(optString, g0);
+                if (TextUtils.isEmpty(M)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
+                    return false;
+                }
+                String optString2 = a2.optString("fileType");
+                String t = cr4.t(M);
+                if (TextUtils.isEmpty(t)) {
+                    if (TextUtils.isEmpty(optString2)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                        return false;
+                    }
+                } else {
+                    optString2 = t;
+                }
+                String b2 = pn3.b(optString2);
+                if (TextUtils.isEmpty(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
+                    return false;
+                }
+                Uri parse = Uri.parse(M);
+                if (parse == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
+                    return false;
+                }
+                if (parse.getScheme() == null) {
+                    uri = Uri.fromFile(new File(M));
+                } else {
+                    uri = parse;
+                }
+                SwanAppActivity w = ya3Var.w();
+                if (w == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
+                    return false;
+                } else if (!pn3.a(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
+                    return false;
+                } else {
+                    String optString3 = a2.optString("cb");
+                    kv1 r = fu2.r();
+                    if (!r.b(w, b2)) {
+                        if (TextUtils.isEmpty(optString3)) {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
+                            return false;
+                        }
+                        j(w, b2, uri, optString3, callbackHandler);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        return true;
+                    }
+                    r.c(w, uri, b2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return true;
+                }
             }
         }
-        return (kc3) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static kc3 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            if (optJSONObject == null) {
-                return d();
-            }
-            kc3 kc3Var = new kc3();
-            String optString = optJSONObject.optString("navigationBarBackgroundColor");
-            if (TextUtils.isEmpty(optString)) {
-                optString = "#000000";
-            }
-            kc3Var.a = SwanAppConfigData.t(optString);
-            String optString2 = optJSONObject.optString("navigationBarTextStyle");
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = "white";
-            }
-            kc3Var.c = optString2;
-            kc3Var.b = optJSONObject.optString("navigationBarTitleText");
-            kc3Var.d = optJSONObject.optString("backgroundTextStyle", "black");
-            kc3Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
-            kc3Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
-            kc3Var.g = optJSONObject.optString("onReachBottomDistance");
-            kc3Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
-            kc3Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
-            kc3Var.j = optJSONObject.optString("navigationStyle", "default");
-            kc3Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
-            kc3Var.q = optJSONObject.optString("textSizeAdjust");
-            kc3Var.s = optJSONObject.optString("htmlFontSize");
-            optJSONObject.optJSONArray("fontFace");
-            return kc3Var;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
+            fu2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
         }
-        return (kc3) invokeL.objValue;
-    }
-
-    public static kc3 e(JSONObject jSONObject, @NonNull kc3 kc3Var) {
-        InterceptResult invokeLL;
-        int t2;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, kc3Var)) == null) {
-            kc3 kc3Var2 = new kc3();
-            String optString = jSONObject.optString("navigationBarBackgroundColor");
-            if (TextUtils.isEmpty(optString)) {
-                t2 = kc3Var.a;
-            } else {
-                t2 = SwanAppConfigData.t(optString);
-            }
-            kc3Var2.a = t2;
-            kc3Var2.b = jSONObject.optString("navigationBarTitleText", kc3Var.b);
-            String optString2 = jSONObject.optString("navigationBarTextStyle");
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = kc3Var.c;
-            }
-            kc3Var2.c = optString2;
-            kc3Var2.d = jSONObject.optString("backgroundTextStyle", kc3Var.d);
-            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
-                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
-            } else {
-                i = kc3Var.e;
-            }
-            kc3Var2.e = i;
-            kc3Var2.f = jSONObject.optBoolean("enablePullDownRefresh", kc3Var.f);
-            kc3Var2.g = jSONObject.optString("onReachBottomDistance", kc3Var.g);
-            kc3Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", kc3Var.h);
-            kc3Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", kc3Var.i);
-            kc3Var2.j = jSONObject.optString("navigationStyle", kc3Var.j);
-            kc3Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", kc3Var.k);
-            kc3Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
-            kc3Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
-            kc3Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
-            kc3Var2.o = jSONObject.optBoolean("_hasVideo", false);
-            kc3Var2.r = jSONObject.optString("viewMode", kc3Var.r);
-            kc3Var2.s = jSONObject.optString("htmlFontSize", kc3Var.s);
-            jSONObject.optJSONArray("fontFace");
-            return kc3Var2;
-        }
-        return (kc3) invokeLL.objValue;
     }
 }

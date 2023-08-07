@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
+import android.opengl.EGL14;
+import android.opengl.EGLSurface;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class od0 {
-    public static /* synthetic */ Interceptable $ic;
+public class od0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String c = "od0";
     public transient /* synthetic */ FieldHolder $fh;
+    public nd0 a;
+    public EGLSurface b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,18 +34,68 @@ public final class od0 {
         }
     }
 
-    @JvmStatic
-    public static final String a() {
+    public od0(nd0 nd0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nd0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = EGL14.EGL_NO_SURFACE;
+        this.a = nd0Var;
+    }
+
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (this.b == EGL14.EGL_NO_SURFACE) {
+                this.b = this.a.b(obj);
+                return;
+            }
+            throw new IllegalStateException("surface already created");
+        }
+    }
+
+    public void b(nd0 nd0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nd0Var) == null) && !nd0Var.d(this.b)) {
+            nd0Var.e(this.b);
+        }
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.a.h(this.b, j);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.g(this.b);
+            this.b = EGL14.EGL_NO_SURFACE;
+        }
+    }
+
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
-                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            boolean i = this.a.i(this.b);
+            if (!i) {
+                Log.d(c, "WARNING: swapBuffers() failed");
             }
-            String str = Build.MANUFACTURER;
-            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
-            return str;
+            return i;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

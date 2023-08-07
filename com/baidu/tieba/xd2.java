@@ -4,11 +4,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,125 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class xd2 {
+public class xd2 extends yd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
+    public static final boolean D;
     public transient /* synthetic */ FieldHolder $fh;
-    public rd2 a;
-    public final List<ge2> b;
-    public volatile PMSAppInfo c;
-    public volatile PrefetchEvent.c d;
-    public volatile fe2 e;
-    public final boolean f;
-    public volatile boolean g;
-    public long h;
-    public long i;
-    public final boolean j;
 
-    public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ce2
+    public int K() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, pMSAppInfo)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 3;
         }
-        return invokeLL.booleanValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends ja2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xd2 a;
-
-        public a(xd2 xd2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xd2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xd2Var;
-        }
-
-        @Override // com.baidu.tieba.ja2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                super.a(str);
-                if (xd2.k) {
-                    Log.d("BasePreloadMasterManager", "prepareMaster finish. url: " + str);
-                }
-                this.a.g = true;
-                this.a.i = System.currentTimeMillis();
-                this.a.o();
-                if (xd2.k) {
-                    Log.d("BasePreloadMasterManager", "createBlankOne cost - " + this.a.f() + "ms");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ge2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ PMSAppInfo b;
-        public final /* synthetic */ PrefetchEvent.c c;
-        public final /* synthetic */ xd2 d;
-
-        public b(xd2 xd2Var, String str, PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xd2Var, str, pMSAppInfo, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = xd2Var;
-            this.a = str;
-            this.b = pMSAppInfo;
-            this.c = cVar;
-        }
-
-        @Override // com.baidu.tieba.ge2
-        public void onReady() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rd2 i = this.d.i();
-                if (i != null && i.d() != null && !i.d().isDestroyed()) {
-                    this.d.q(this.a, this.b);
-                    rl2.a(i.d(), this.c);
-                    v82.i(PrefetchEvent.MODULE, "prefetch master finish");
-                    z = true;
-                } else {
-                    z = false;
-                }
-                yg2 d = yg2.d();
-                d.b(this.a, new UbcFlowEvent("prefetch_end"));
-                d.e(this.a, z, false);
-            }
-        }
+        return invokeV.intValue;
     }
 
     static {
@@ -150,288 +43,144 @@ public abstract class xd2 {
                 return;
             }
         }
-        k = fs1.a;
+        D = ir1.a;
     }
 
-    public long f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ti4
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i - this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public PMSAppInfo g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (PMSAppInfo) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.c != null) {
-                return this.c.appId;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            if (this.n != null) {
+                u0();
+                H0("checkForUpdate", false);
+                oe2.c(this.o);
             }
-            return null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public rd2 i() {
+    @Override // com.baidu.tieba.yd2
+    public PMSDownloadType k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+            return PMSDownloadType.ASYNC;
         }
-        return (rd2) invokeV.objValue;
+        return (PMSDownloadType) invokeV.objValue;
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.e != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public xd2(boolean z, boolean z2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xd2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.j = z2;
-        this.f = z;
-        if (!z) {
-            ee2.b().c(this);
-        }
-        e();
     }
 
-    public boolean m(PrefetchEvent.c cVar, PrefetchEvent.c cVar2) {
-        InterceptResult invokeLL;
-        String str;
+    @Override // com.baidu.tieba.yd2, com.baidu.tieba.ti4
+    public void C(sj4 sj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, cVar, cVar2)) == null) {
-            if (cVar2 == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sj4Var) == null) {
+            super.C(sj4Var);
+            if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + sj4Var.toString());
             }
-            String str2 = null;
-            if (cVar == null) {
-                vb3 b0 = vb3.b0();
-                if (b0 != null) {
-                    str = b0.U().e("dynamicLibPath", null);
-                } else {
-                    str = null;
-                }
+            H0("checkForUpdate", false);
+            m0(sj4Var.a);
+            if (oe2.m(sj4Var)) {
+                oe2.c(this.o);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yd2, com.baidu.tieba.ti4
+    public void G(go4 go4Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go4Var) == null) {
+            super.G(go4Var);
+            if (go4Var != null && go4Var.f()) {
+                z = true;
             } else {
-                str = cVar.t().get("dynamicLibPath");
+                z = false;
             }
-            String str3 = cVar2.t().get("dynamicLibPath");
-            if (TextUtils.isEmpty(str)) {
-                str = null;
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                str2 = str3;
-            }
-            return !TextUtils.equals(str2, str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void d(PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo) == null) {
-            this.c = pMSAppInfo;
-            ee2.b().c(this);
+            H0("checkForUpdate", z);
         }
     }
 
-    public void p(PMSAppInfo pMSAppInfo) {
+    @Override // com.baidu.tieba.ti4
+    public void H(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, pMSAppInfo) == null) {
-            d(pMSAppInfo);
-            this.e = null;
-            this.d = null;
-        }
-    }
-
-    public void s(PrefetchEvent.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
-            this.d = cVar;
-            if (k) {
-                Log.d("BasePreloadMasterManager", "fire prefetch event name - " + cVar.a);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            super.H(str, i);
+            dk4 a = dk4.a(str);
+            if (a == null) {
+                return;
+            }
+            boolean b = fo4.b(a.c());
+            y72.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
+            if (b) {
+                o73 e = o73.e();
+                q73 q73Var = new q73(129);
+                q73Var.f(true);
+                e.h(q73Var);
             }
         }
     }
 
-    public synchronized void c(ge2 ge2Var) {
+    public final void H0(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ge2Var) == null) {
-            synchronized (this) {
-                if (ge2Var == null) {
-                    return;
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, str, z) != null) || TextUtils.isEmpty(this.o)) {
+            return;
+        }
+        ae2.f(str, this.o, z);
+    }
+
+    @Override // com.baidu.tieba.yd2
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.v0();
+            this.p.add(new UbcFlowEvent("na_start_update_db"));
+            rm3 F0 = F0();
+            this.p.add(new UbcFlowEvent("na_end_update_db"));
+            if (F0 == null) {
+                if (D) {
+                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
                 }
-                if (this.g) {
-                    if (k) {
-                        Log.d("BasePreloadMasterManager", "is Ready , call back immediately");
-                    }
-                    ge2Var.onReady();
-                    return;
-                }
-                if (!this.b.contains(ge2Var)) {
-                    this.b.add(ge2Var);
-                }
+                H0("updateReady", true);
+                A0("main_async_download", "0");
+                oe2.c(this.o);
+            } else if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
             }
         }
     }
 
-    public final void e() {
-        long j;
+    @Override // com.baidu.tieba.yd2
+    public void w0(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (k) {
-                Log.d("BasePreloadMasterManager", "start create a blank preload master manager, is default - " + this.f + ",is v8 - " + this.j);
-            }
-            this.h = System.currentTimeMillis();
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a = pi2.U().D0(this.j, new a(this));
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("BasePreloadMasterManager", "create a new master cost - " + (currentTimeMillis - j) + "ms");
-            }
-        }
-    }
-
-    public final synchronized void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            synchronized (this) {
-                if (k) {
-                    Log.d("BasePreloadMasterManager", "notifyAllReady, callback size " + this.b.size());
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
+            H0("updateFailed", false);
+            if (th instanceof PkgDownloadError) {
+                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
+                if (D) {
+                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
                 }
-                for (ge2 ge2Var : this.b) {
-                    if (ge2Var != null) {
-                        ge2Var.onReady();
-                    }
-                }
-                this.b.clear();
-            }
-        }
-    }
-
-    public void q(String str, PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, pMSAppInfo) == null) {
-            v(pMSAppInfo);
-            eh2.c(str, pMSAppInfo.appId);
-        }
-    }
-
-    public final void t(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048593, this, cVar, pMSAppInfo) == null) && cVar.u()) {
-            this.e = new fe2();
-            this.e.a = pMSAppInfo.appId;
-            this.e.b = pMSAppInfo;
-            this.e.c = cVar;
-        }
-    }
-
-    public void r(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048591, this, str, cVar, pMSAppInfo) == null) {
-            if (cVar == null) {
-                if (k) {
-                    Log.e("BasePreloadMasterManager", "prefetch event is null");
-                }
-            } else if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
-                if (this.a == null) {
-                    v82.k("BasePreloadMasterManager", "mMasterManager not create yet, can not prefetch");
-                } else if (l() && this.c == null) {
-                    v82.k("BasePreloadMasterManager", "default blank master can not use to prefetch");
-                } else if (k(cVar, pMSAppInfo)) {
-                    v82.k("BasePreloadMasterManager", "intercept before preload/prefetch");
-                } else {
-                    d(pMSAppInfo);
-                    s(cVar);
-                    t(cVar, pMSAppInfo);
-                    u(str, cVar, pMSAppInfo);
-                }
-            } else {
-                v82.k("BasePreloadMasterManager", "prefetch currentAppInfo is empty");
-            }
-        }
-    }
-
-    public void u(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, str, cVar, pMSAppInfo) == null) {
-            c(new b(this, str, pMSAppInfo, cVar));
-            if (k) {
-                Log.i("BasePreloadMasterManager", "fire prefetch event - " + pMSAppInfo.appId + ", version -" + pMSAppInfo.versionCode);
-            }
-        }
-    }
-
-    public void v(PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, pMSAppInfo) == null) {
-            rd2 rd2Var = this.a;
-            if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId) && rd2Var != null) {
-                if (k) {
-                    Log.d("BasePreloadMasterManager", "set code cache setting before preload/prefetch");
-                }
-                ta2 d = rd2Var.d();
-                String str = ru2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)).getPath() + File.separator;
-                if (d instanceof dj2) {
-                    ((dj2) d).A0(na2.a("appjs", str));
-                } else if (d instanceof NgWebView) {
-                    ((NgWebView) d).getSettings().setCodeCacheSetting(oa2.a("appjs", str));
-                }
+            } else if (D) {
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
             }
         }
     }

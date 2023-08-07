@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.InspectorNativeChannel;
-import com.baidu.searchbox.v8engine.InspectorNativeClient;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.w92;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,240 +11,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.concurrent.LinkedBlockingQueue;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
-public class z92 implements w92.c {
+public class z92 implements kx1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w92.b a;
-    public q0c b;
-    public InspectorNativeClient c;
-    public dj2 d;
-    public LinkedBlockingQueue<String> e;
-    public String f;
+    public ArrayList<aa2> a;
+    public final Lock b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public c e;
+    public WebKitFactory.IForceInitZeusListener f;
 
     /* loaded from: classes8.dex */
-    public class b extends q0c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z92 a;
-
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.a.a.e.poll();
-                    while (str != null) {
-                        this.a.a.c.dispatchProtocolMessage(str);
-                        this.a.c(str);
-                        this.a.d(str);
-                        str = (String) this.a.a.e.poll();
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.z92$b$b  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0553b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0553b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.a.onConnected();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z92 z92Var, URI uri) {
-            super(uri);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z92Var, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((URI) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z92Var;
-        }
-
-        public final void c(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && this.a.a != null) {
-                try {
-                    if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        ub3 K = ub3.K();
-                        SwanAppActivity w = K.w();
-                        if (K.E() && w != null) {
-                            w.runOnUiThread(new RunnableC0553b(this));
-                        }
-                    }
-                } catch (JSONException e) {
-                    if (z92.g) {
-                        Log.e("V8InspectorClient", "message is not a Json object", e);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.q0c
-        public void onOpen(k1c k1cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, k1cVar) == null) {
-                v82.i("V8InspectorClient", "V8 inspector opened");
-                rd2 W = pi2.U().W();
-                if (W instanceof vd2) {
-                    this.a.d = (dj2) W.d();
-                }
-                if (this.a.d == null) {
-                    v82.i("V8InspectorClient", "inner error, V8 mEngine is null");
-                    close();
-                    return;
-                }
-                z92 z92Var = this.a;
-                z92Var.c = z92Var.d.q0(new a(this.a));
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:22:0x0045, code lost:
-            if (r2 == 1) goto L20;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x0047, code lost:
-            com.baidu.tieba.v82.c("V8InspectorClient", "Undefined command");
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x004d, code lost:
-            com.baidu.tieba.v82.i("V8InspectorClient", "v8 inspector close");
-            com.baidu.tieba.q92.d();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
-            return;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("command");
-                if (TextUtils.isEmpty(optString)) {
-                    return;
-                }
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -934641255) {
-                    if (hashCode == 94756344 && optString.equals("close")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("reload")) {
-                    c = 0;
-                }
-                v82.i("V8InspectorClient", "v8 inspector reload");
-                String optString2 = jSONObject.optString("value");
-                if (!TextUtils.isEmpty(optString2) && TextUtils.equals(Uri.parse(optString2).getHost(), "swanAPI")) {
-                    SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
-                }
-            } catch (JSONException e) {
-                if (z92.g) {
-                    Log.e("V8InspectorClient", "message is not a json object", e);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.q0c
-        public void onClose(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-                v82.i("V8InspectorClient", "V8 inspector closed");
-            }
-        }
-
-        @Override // com.baidu.tieba.q0c
-        public void onError(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-                v82.d("V8InspectorClient", "V8 inspector error", exc);
-            }
-        }
-
-        @Override // com.baidu.tieba.q0c
-        public void onMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.a.e.offer(str);
-                this.a.d.postOnJSThread(new a(this));
-            }
-        }
+    public interface c {
+        void a();
     }
 
     /* loaded from: classes8.dex */
-    public class a extends InspectorNativeChannel {
+    public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z92 a;
@@ -273,41 +58,92 @@ public class z92 implements w92.c {
             this.a = z92Var;
         }
 
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public void sendMessage(String str) {
+        @Override // com.baidu.tieba.z92.c
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.a.b != null) {
-                        this.a.b.send(str);
-                    }
-                } catch (Exception unused) {
-                    if (z92.g) {
-                        Log.d("V8InspectorClient", "V8 send message fail, try to check if websocket has opened");
-                    }
+                    this.a.b.lock();
+                    this.a.d = true;
+                    this.a.j();
+                    this.a.p();
+                } finally {
+                    this.a.b.unlock();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements WebKitFactory.IForceInitZeusListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z92 a;
+
+        public b(z92 z92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z92Var;
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
+        public void onForceInitZeusFinish(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                try {
+                    this.a.b.lock();
+                    this.a.c = true;
+                    this.a.p();
+                    this.a.b.unlock();
+                    BdSailor.getInstance().removeForceInitListener(this.a.f);
+                } catch (Throwable th) {
+                    this.a.b.unlock();
+                    throw th;
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public String awaitMessage() {
-            InterceptResult invokeV;
+        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
+        public void onForceInitZeusStart() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (z92.g) {
-                    Log.d("V8InspectorClient", "getInspectorMessage");
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && z92.g) {
+                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final z92 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-275323690, "Lcom/baidu/tieba/z92$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                try {
-                    return (String) this.a.e.take();
-                } catch (InterruptedException e) {
-                    if (z92.g) {
-                        Log.e("V8InspectorClient", "awaitMessage on Debugger", e);
-                        return "";
-                    }
-                    return "";
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-275323690, "Lcom/baidu/tieba/z92$d;");
+                    return;
                 }
             }
-            return (String) invokeV.objValue;
+            a = new z92(null);
         }
     }
 
@@ -324,39 +160,40 @@ public class z92 implements w92.c {
                 return;
             }
         }
-        g = fs1.a;
+        g = ir1.a;
     }
 
-    @Override // com.baidu.tieba.w92.c
-    public void start() {
+    public static z92 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                b bVar = new b(this, new URI(this.f));
-                this.b = bVar;
-                bVar.connect();
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return d.a;
+        }
+        return (z92) invokeV.objValue;
+    }
+
+    public final synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (!ProcessUtils.isMainProcess()) {
+                    WebSettingsGlobalBlink.setFileInIOEnabled(true);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.w92.c
-    public void stop() {
-        q0c q0cVar;
+    public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (q0cVar = this.b) != null) {
-            q0cVar.close();
-            this.b = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            m(false);
         }
     }
 
-    public z92(String str, w92.b bVar) {
+    public z92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -366,8 +203,131 @@ public class z92 implements w92.c {
                 return;
             }
         }
-        this.e = new LinkedBlockingQueue<>();
-        this.f = str;
-        this.a = bVar;
+        this.a = new ArrayList<>();
+        this.b = new ReentrantLock();
+        this.c = false;
+        this.d = false;
+        this.e = new a(this);
+        b bVar = new b(this);
+        this.f = bVar;
+        BdSailor.addForceInitListener(bVar);
+        fu2.g().h(this.e);
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.b.lock();
+                if (!n()) {
+                    return;
+                }
+                Iterator<aa2> it = this.a.iterator();
+                while (it.hasNext()) {
+                    aa2 next = it.next();
+                    if (next != null) {
+                        next.a();
+                    }
+                }
+                this.a.clear();
+            } finally {
+                this.b.unlock();
+            }
+        }
+    }
+
+    public /* synthetic */ z92(a aVar) {
+        this();
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            fu2.g().d(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.kx1
+    public void a(aa2 aa2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aa2Var) == null) {
+            try {
+                this.b.lock();
+                if (aa2Var != null && this.a.contains(aa2Var)) {
+                    this.a.remove(aa2Var);
+                }
+            } finally {
+                this.b.unlock();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kx1
+    public void b(aa2 aa2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aa2Var) == null) {
+            try {
+                this.b.lock();
+                if (aa2Var == null) {
+                    return;
+                }
+                if (!this.a.contains(aa2Var)) {
+                    this.a.add(aa2Var);
+                }
+                if (n()) {
+                    p();
+                }
+            } finally {
+                this.b.unlock();
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
+        if (o() != false) goto L15;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean n() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                this.b.lock();
+                if (g) {
+                    Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.d);
+                    Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.c + " ,isZeusForceInited: " + o());
+                }
+                if (this.d) {
+                    if (!this.c) {
+                    }
+                    z = true;
+                    return z;
+                }
+                z = false;
+                return z;
+            } finally {
+                this.b.unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (g) {
+                Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
+                Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
+            }
+            if (BdSailor.getInstance().checkZeusForceInit() && (!BdSailor.getInstance().checkZeusForceInit() || !BdSailor.getInstance().isZeusForceInited())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

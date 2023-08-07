@@ -1,70 +1,70 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.xkb;
+import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes7.dex */
-public class mjb<A extends xkb> extends AdReporter<A> {
+public class mjb extends ujb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ yib c;
+    public final /* synthetic */ jjb d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mjb(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+    public mjb(jjb jjbVar, yib yibVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {jjbVar, yibVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
+        this.d = jjbVar;
+        this.c = yibVar;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        double a;
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            xkb xkbVar = (xkb) obj;
-            if (xkbVar != null && xkbVar.a != 0) {
-                ArrayList arrayList = new ArrayList();
-                if (!this.e) {
-                    a = FunAdSdk.getARPU(this.f);
-                } else {
-                    a = (xkbVar.a() / 100.0d) / 1000.0d;
-                }
-                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
-                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
-                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
         }
-        return (List) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((jjb) this.c, this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((jjb) this.c, this.a, new String[0]);
+            this.a = true;
+        }
     }
 }

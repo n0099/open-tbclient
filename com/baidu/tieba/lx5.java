@@ -1,57 +1,43 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.ViewTreeObserver;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Looper;
+import android.os.MessageQueue;
+import android.text.TextUtils;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.jx5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.badge.BadgeUtils;
-import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class lx5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static Field e;
+    public static List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BadgeDrawable a;
-    @Nullable
-    public String b;
-    public boolean c;
-    @Nullable
-    public b d;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        boolean a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static class a implements jx5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ lx5 b;
+        public final /* synthetic */ String a;
 
-        public a(lx5 lx5Var, View view2) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lx5Var, view2};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,209 +47,147 @@ public class lx5 {
                     return;
                 }
             }
-            this.b = lx5Var;
-            this.a = view2;
+            this.a = str;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // com.baidu.tieba.jx5.b
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BadgeUtils.attachBadgeDrawable(this.b.a, this.a, null);
-                this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("WebPreheat", "预热成功:" + this.a);
             }
         }
     }
 
-    public lx5(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ jx5.b c;
+
+        public b(Context context, String str, jx5.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = str;
+            this.c = bVar;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                jx5 a = kx5.b().a(this.a.getApplicationContext(), this.b);
+                if (a != null) {
+                    a.b(this.c);
+                    return false;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947958272, "Lcom/baidu/tieba/lx5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947958272, "Lcom/baidu/tieba/lx5;");
                 return;
             }
         }
-        this.c = true;
-        this.a = BadgeDrawable.create(context);
+        a = new ArrayList();
     }
 
-    @NonNull
-    public lx5 i(@DimenRes int i) {
-        InterceptResult invokeI;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (e == null) {
-                try {
-                    Field declaredField = BadgeDrawable.class.getDeclaredField("badgeRadius");
-                    e = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            for (String str2 : a) {
+                if (str2 != null && str != null && str.startsWith(str2)) {
+                    return str2;
                 }
             }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, jSONArray) != null) || jSONArray == null) {
+            return;
+        }
+        a.clear();
+        for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                if (e != null) {
-                    e.set(this.a, Integer.valueOf(UtilHelper.getDimenPixelSize(i)));
-                }
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-            }
-            return this;
-        }
-        return (lx5) invokeI.objValue;
-    }
-
-    @NonNull
-    public static lx5 c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return new lx5(context);
-        }
-        return (lx5) invokeL.objValue;
-    }
-
-    @NonNull
-    public lx5 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (lx5) invokeZ.objValue;
-    }
-
-    @NonNull
-    public lx5 g(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.setBackgroundColor(i);
-            return this;
-        }
-        return (lx5) invokeI.objValue;
-    }
-
-    @NonNull
-    public lx5 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.setBadgeGravity(i);
-            return this;
-        }
-        return (lx5) invokeI.objValue;
-    }
-
-    @NonNull
-    public lx5 k(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (lx5) invokeL.objValue;
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a.setVisible(z);
-            if (!z && this.b != null) {
-                da5.p().A(this.b, true);
+                a.add((String) jSONArray.get(i));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return;
             }
         }
     }
 
-    @NonNull
-    public lx5 b(@NonNull View view2) {
-        InterceptResult invokeL;
+    public static void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            b bVar = this.d;
-            if (bVar != null && !bVar.a()) {
-                return this;
-            }
-            if (this.b != null && da5.p().l(this.b, false)) {
-                return this;
-            }
-            ViewParent parent = view2.getParent();
-            if (parent instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) parent;
-                viewGroup.setClipChildren(this.c);
-                viewGroup.setClipToPadding(this.c);
-            }
-            view2.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, view2));
-            return this;
+        if ((interceptable != null && interceptable.invokeL(65538, null, webView) != null) || webView == null) {
+            return;
         }
-        return (lx5) invokeL.objValue;
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setDatabaseEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setTextZoom(100);
+        webView.getSettings().setDatabasePath(webView.getContext().getApplicationContext().getDir("databases", 0).getAbsolutePath());
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setHorizontalScrollbarOverlay(false);
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        boolean z;
+    public static boolean d(Context context, String str, jx5.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.d;
-            boolean z2 = true;
-            if (bVar != null) {
-                z = bVar.a();
-            } else {
-                z = true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, bVar)) == null) {
+            if (!TextUtils.isEmpty(str) && !kx5.b().d(str)) {
+                Looper.myQueue().addIdleHandler(new b(context, str, bVar));
+                return true;
             }
-            if (this.b != null) {
-                return (!z || da5.p().l(this.b, false)) ? false : false;
-            }
-            return z;
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public static void e(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.isVisible();
+        if ((interceptable != null && interceptable.invokeL(65541, null, jSONArray) != null) || jSONArray == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public lx5 j(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
-            }
-            this.a.setHorizontalOffset(dimenPixelSize);
-            return this;
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            String optString = jSONArray.optString(i);
+            d(TbadkCoreApplication.getInst(), optString, new a(optString));
         }
-        return (lx5) invokeCommon.objValue;
-    }
-
-    @NonNull
-    public lx5 l(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
-            }
-            this.a.setVerticalOffset(dimenPixelSize);
-            return this;
-        }
-        return (lx5) invokeCommon.objValue;
     }
 }

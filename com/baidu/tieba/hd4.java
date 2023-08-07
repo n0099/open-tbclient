@@ -1,38 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.sw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes6.dex */
 public class hd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public fd4 a;
 
     /* loaded from: classes6.dex */
-    public static class a extends b83 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gd4 c;
+        public final /* synthetic */ SwanAppActivity a;
 
-        public a(gd4 gd4Var) {
+        public a(hd4 hd4Var, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gd4Var};
+                Object[] objArr = {hd4Var, swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,92 +37,94 @@ public class hd4 {
                     return;
                 }
             }
-            this.c = gd4Var;
+            this.a = swanAppActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b83, com.baidu.tieba.c83, com.baidu.tieba.a83
-        public void onEvent(@NonNull y73 y73Var) {
-            int i;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y73Var) == null) {
-                if (!SwanAppNetworkUtils.i(null)) {
-                    i = -2;
-                } else if (y73Var.a() != null) {
-                    i = y73Var.a().getInt("net_quality");
-                } else {
-                    i = -1;
-                }
-                if (hd4.a) {
-                    Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
-                }
-                gd4 gd4Var = this.c;
-                gd4Var.m = i;
-                oi3.x("976", gd4Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                go3.a(this.a);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819857, "Lcom/baidu/tieba/hd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947819857, "Lcom/baidu/tieba/hd4;");
+    public hd4(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
+        this.a = fd4.d(f32.F(jsObject));
+        ed4.a().f(this);
     }
 
-    public static void b(gd4 gd4Var) {
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
+        if (r1.equals("checkForUpdate") != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(gd4 gd4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, gd4Var) != null) || gd4Var == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, gd4Var) == null) && this.a != null && JSEvent.isValid(gd4Var)) {
+            char c = 0;
+            y72.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", gd4Var.type, Boolean.valueOf(gd4Var.hasUpdate)));
+            String str = gd4Var.type;
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("updateFailed")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        this.a.b();
+                        return;
+                    }
+                    return;
+                }
+                this.a.c();
+                return;
+            }
+            this.a.a(gd4Var);
         }
-        q83.Q().X(null, j33.class, new a(gd4Var));
     }
 
-    public static void c(ep1 ep1Var) {
-        V8ExceptionInfo a2;
-        int i;
+    @JavascriptInterface
+    public boolean applyUpdate() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, ep1Var) != null) || ep1Var == null || (a2 = ep1Var.a()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SwanAppActivity activity = lw2.T().getActivity();
+            if (activity == null) {
+                y72.c("UpdateManagerApi", "applyUpdate activity is null");
+                return false;
+            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+                return false;
+            } else {
+                so3.e0(new a(this, activity));
+                return true;
+            }
         }
-        String str = a2.exceptionMsg;
-        String str2 = a2.exceptionTrace;
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return;
-        }
-        if (a) {
-            Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(f84.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
-        }
-        if (a2.exceptionTime >= f84.a()) {
-            return;
-        }
-        gd4 gd4Var = new gd4();
-        gd4Var.b = "stuck";
-        gd4Var.e = "jserror";
-        gd4Var.f = vb3.g0();
-        if (vb3.M() != null && vb3.M().Y() != null) {
-            sw2.a Y = vb3.M().Y();
-            gd4Var.c = Y.T();
-            gd4Var.a = oi3.n(Y.G());
-        }
-        gd4Var.l = str + ParamableElem.DIVIDE_PARAM + str2;
-        if (sc4.d()) {
-            i = 20;
-        } else {
-            i = 10;
-        }
-        gd4Var.k = i;
-        gd4Var.n = f84.b();
-        gd4Var.o = System.currentTimeMillis() - a2.exceptionTime;
-        b(gd4Var);
+        return invokeV.booleanValue;
     }
 }

@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.util.httpNet;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.AccountStorage;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.d15;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.kw9;
-import com.baidu.tieba.lw9;
-import com.baidu.tieba.r85;
-import com.baidu.tieba.uq5;
+import com.baidu.tbadk.coreExtra.apkabtest.ApkAbTestHelper;
+import com.baidu.tieba.cv9;
+import com.baidu.tieba.dv9;
+import com.baidu.tieba.e05;
+import com.baidu.tieba.xf;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,12 +139,12 @@ public class HttpRequest {
                 b = currentAccountInfo.getBDUSS();
             } else {
                 if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                    b = uq5.b();
+                    b = yo5.b();
                 }
                 return null;
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = d15.e();
+                currentAccountInfo = AccountStorage.getActiveAccountData();
                 if (currentAccountInfo == null) {
                     return null;
                 }
@@ -156,7 +156,7 @@ public class HttpRequest {
                 sb.append("=");
                 sb.append(b);
                 sb.append(ParamableElem.DIVIDE_PARAM);
-                String a = e15.a(currentAccountInfo);
+                String a = e05.a(currentAccountInfo);
                 if (!StringUtils.isNull(a)) {
                     sb.append("stoken");
                     sb.append("=");
@@ -178,12 +178,12 @@ public class HttpRequest {
             if (currentAccountInfo != null) {
                 b = currentAccountInfo.getBDUSS();
             } else if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                b = uq5.b();
+                b = yo5.b();
             } else {
                 return;
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = d15.e();
+                currentAccountInfo = AccountStorage.getActiveAccountData();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -191,7 +191,7 @@ public class HttpRequest {
             }
             if (!TextUtils.isEmpty(b) && this.mIsUseCurrentBDUSS) {
                 iNetWorkCore.addPostData(BDUSS, b);
-                String a = e15.a(currentAccountInfo);
+                String a = e05.a(currentAccountInfo);
                 if (!StringUtils.isNull(a)) {
                     iNetWorkCore.addPostData("stoken", a);
                 }
@@ -231,31 +231,31 @@ public class HttpRequest {
             }
             int netType = BdNetTypeUtil.netType();
             iNetWorkCore.addPostData("net_type", String.valueOf(netType));
-            String a = bd5.b().a();
+            String cookieStringIfAbTest = ApkAbTestHelper.getInstance().getCookieStringIfAbTest();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
-                a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ParamableElem.DIVIDE_PARAM;
+                cookieStringIfAbTest = cookieStringIfAbTest + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ParamableElem.DIVIDE_PARAM;
             }
             if (1 == netType) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                    a = a + "ka=open;";
+                    cookieStringIfAbTest = cookieStringIfAbTest + "ka=open;";
                     z2 = true;
                 }
                 z2 = false;
             } else {
                 if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                    a = a + "ka=open;";
+                    cookieStringIfAbTest = cookieStringIfAbTest + "ka=open;";
                     z2 = true;
                 }
                 z2 = false;
             }
             if (z && (bdussData = getBdussData()) != null) {
-                a = a + bdussData;
+                cookieStringIfAbTest = cookieStringIfAbTest + bdussData;
             }
-            kg.s(z2);
-            kg.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            xf.s(z2);
+            xf.n(cookieStringIfAbTest + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData("tbs", uq5.f());
+                    iNetWorkCore.addPostData("tbs", yo5.f());
                 } else {
                     iNetWorkCore.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
                 }
@@ -266,7 +266,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (da5.p().q("android_safe_sdk_open", 0) == 1) {
+            if (SharedPrefHelper.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
             if (!TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
@@ -281,9 +281,9 @@ public class HttpRequest {
             }
             iNetWorkCore.addPostData("cmode", str);
             iNetWorkCore.addPostData("is_teenager", "0");
-            iNetWorkCore.addPostData("start_type", r85.f + "");
-            iNetWorkCore.addPostData("start_scheme", r85.e());
-            if (lw9.b()) {
+            iNetWorkCore.addPostData("start_type", GrowthFunnelHelper.realStartType + "");
+            iNetWorkCore.addPostData("start_scheme", GrowthFunnelHelper.getRealStartScheme());
+            if (dv9.b()) {
                 if (TbadkCoreApplication.getInst().getImei() != null) {
                     if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
                         iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey(PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
@@ -295,7 +295,7 @@ public class HttpRequest {
                 if (!TextUtils.isEmpty(lastCachedOid)) {
                     iNetWorkCore.addPostData("oaid", lastCachedOid);
                 }
-                iNetWorkCore.addPostData("model", aj.g());
+                iNetWorkCore.addPostData("model", DeviceInfoHelper.getModel());
                 iNetWorkCore.addPostData("brand", Build.BRAND);
                 if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
                     iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey(ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
@@ -303,29 +303,29 @@ public class HttpRequest {
                     iNetWorkCore.addPostData(ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
                 }
             } else {
-                iNetWorkCore.addPostData(NEED_DECRYPT, lw9.c());
-                String g = lw9.g(PHONE_IMEI);
+                iNetWorkCore.addPostData(NEED_DECRYPT, dv9.c());
+                String g = dv9.g(PHONE_IMEI);
                 if (!TextUtils.isEmpty(g)) {
-                    iNetWorkCore.addPostData(g, lw9.f());
+                    iNetWorkCore.addPostData(g, dv9.f());
                 }
-                String g2 = lw9.g("oaid");
+                String g2 = dv9.g("oaid");
                 if (!TextUtils.isEmpty(g2)) {
-                    iNetWorkCore.addPostData(g2, lw9.i());
+                    iNetWorkCore.addPostData(g2, dv9.i());
                 }
-                String g3 = lw9.g("model");
+                String g3 = dv9.g("model");
                 if (!TextUtils.isEmpty(g3)) {
-                    iNetWorkCore.addPostData(g3, lw9.h());
+                    iNetWorkCore.addPostData(g3, dv9.h());
                 }
-                String g4 = lw9.g("brand");
+                String g4 = dv9.g("brand");
                 if (!TextUtils.isEmpty(g4)) {
-                    iNetWorkCore.addPostData(g4, lw9.e());
+                    iNetWorkCore.addPostData(g4, dv9.e());
                 }
-                String g5 = lw9.g(ANDROID_ID);
+                String g5 = dv9.g(ANDROID_ID);
                 if (!TextUtils.isEmpty(g5)) {
-                    iNetWorkCore.addPostData(g5, lw9.d());
+                    iNetWorkCore.addPostData(g5, dv9.d());
                 }
             }
-            if (kw9.b()) {
+            if (cv9.b()) {
                 if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
                     iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                     return;
@@ -334,10 +334,10 @@ public class HttpRequest {
                     return;
                 }
             }
-            iNetWorkCore.addPostData("need_cam_decrypt", kw9.c());
-            String d = kw9.d("mac");
+            iNetWorkCore.addPostData("need_cam_decrypt", cv9.c());
+            String d = cv9.d("mac");
             if (!TextUtils.isEmpty(d)) {
-                iNetWorkCore.addPostData(d, kw9.e());
+                iNetWorkCore.addPostData(d, cv9.e());
             }
         }
     }

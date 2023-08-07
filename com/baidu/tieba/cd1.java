@@ -1,55 +1,70 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.view.ViewTreeObserver;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cd1 {
+public class cd1 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Drawable b;
-    public int c;
-    public a d;
+    public TextView a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public float[] b;
-        public float c;
-        public int d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-        }
-    }
-
-    public cd1() {
+    public cd1(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        int maxLines = textView.getMaxLines();
+        this.b = maxLines;
+        if (maxLines <= 0) {
+            this.b = 1;
+        }
+        this.a = textView;
+        textView.setMaxLines(this.b + 1);
+        this.a.setSingleLine(false);
+    }
+
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        CharSequence text;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = "";
+            if (this.a.getLineCount() > this.b) {
+                try {
+                    text = this.a.getText().subSequence(0, this.a.getLayout().getLineEnd(this.b - 1) - 2);
+                    str = "...";
+                } catch (Exception e) {
+                    pk0.d("CustomLinkByEllipsize", "", e);
+                    text = this.a.getText();
+                }
+                TextUtils.TruncateAt ellipsize = this.a.getEllipsize();
+                if (ellipsize == TextUtils.TruncateAt.START) {
+                    this.a.setText(str);
+                    this.a.append(text);
+                } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
+                    this.a.setText(text.subSequence(0, text.length() / 2));
+                    this.a.append(str);
+                    this.a.append(text.subSequence(text.length() / 2, text.length()));
+                } else {
+                    this.a.setText(text);
+                    this.a.append(str);
+                }
             }
         }
     }

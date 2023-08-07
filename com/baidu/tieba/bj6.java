@@ -1,27 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ElectionInfo.Basic;
-import tbclient.ElectionInfo.NoticeContent;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class bj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
-    public int g;
-    public boolean h;
-    public NoticeContent i;
+    public final Map<String, Object> a;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bj6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-917051683, "Lcom/baidu/tieba/bj6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-917051683, "Lcom/baidu/tieba/bj6$b;");
+                    return;
+                }
+            }
+            a = new bj6(null);
+        }
+    }
 
     public bj6() {
         Interceptable interceptable = $ic;
@@ -36,186 +58,69 @@ public class bj6 {
                 return;
             }
         }
-        this.e = 0;
+        this.a = new ConcurrentHashMap();
     }
 
-    public long a() {
+    public static bj6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeV.longValue;
+        return (bj6) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
+    public /* synthetic */ bj6(a aVar) {
+        this();
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public synchronized void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public NoticeContent f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (NoticeContent) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static bj6 j(Basic basic) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, basic)) == null) {
-            if (basic == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this) {
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, new Object());
+                }
             }
-            bj6 bj6Var = new bj6();
-            bj6Var.r(k(basic.remind_time));
-            bj6Var.s(basic.status.intValue());
-            bj6Var.n(basic.candidate_num.intValue());
-            bj6Var.o(k(basic.begin_apply_time));
-            bj6Var.l(k(basic.begin_audit_time));
-            bj6Var.t(k(basic.begin_vote_time));
-            bj6Var.p(k(basic.begin_public_time));
-            bj6Var.m(basic.is_voted.booleanValue());
-            bj6Var.q(basic.notice);
-            return bj6Var;
         }
-        return (bj6) invokeL.objValue;
     }
 
-    public static long k(String str) {
+    public synchronized boolean c(String str) {
         InterceptResult invokeL;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str) {
+        Object remove;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
             try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+                synchronized (remove) {
+                    remove.notifyAll();
+                }
+            } catch (Exception unused) {
             }
         }
-        return invokeL.longValue;
     }
 
-    public void l(long j) {
+    public void d(String str, long j) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void q(NoticeContent noticeContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, noticeContent) == null) {
-            this.i = noticeContent;
-        }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void t(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.c = j;
+        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
+            try {
+                synchronized (obj) {
+                    obj.wait(j);
+                }
+            } catch (InterruptedException unused) {
+            }
         }
     }
 }

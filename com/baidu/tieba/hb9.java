@@ -1,9 +1,13 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import android.view.ViewGroup;
+import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 /* loaded from: classes6.dex */
 public interface hb9 {
-    void onFail(String str);
+    void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup);
 
-    void onProgress(int i);
+    Intent getResultIntent();
 
-    void onSuccess(String str);
+    void r(int i);
 }

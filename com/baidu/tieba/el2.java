@@ -1,53 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.net.Uri;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class el2 extends cl2 {
+public class el2<T> extends yk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public T c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public el2(@NonNull bl2 bl2Var) {
-        super(bl2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bl2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((bl2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947738110, "Lcom/baidu/tieba/el2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947738110, "Lcom/baidu/tieba/el2;");
                 return;
             }
         }
+        e = ir1.a;
     }
 
-    @Override // com.baidu.tieba.cl2
-    public void e() {
+    public el2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            zr4.M(dj3.w());
-            o73.a();
-            zr4.L(ag2.a().b());
-            zr4.M(nc3.e());
-            Map<String, PMSAppInfo> v = sj4.i().v();
-            fk2 d = hk2.c().d();
-            ArrayList arrayList = new ArrayList(v.keySet());
-            ql2 l = ql2.l();
-            l.i(15);
-            d.g(arrayList, true, false, l.k());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = true;
+        this.a = "message";
+    }
+
+    @Override // com.baidu.tieba.yk2
+    public void m(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Object obj = this.c;
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (this.d) {
+                    str = Uri.encode(str);
+                }
+                if (e) {
+                    Log.d("SwanAppWebMessage", "mData: " + this.c);
+                    Log.d("SwanAppWebMessage", "encode mData: " + str);
+                }
+                map.put("message", str);
+            } else if (obj instanceof JSONObject) {
+                map.put("message", obj);
+            }
         }
     }
 }

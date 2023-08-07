@@ -1,110 +1,110 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class q55 {
+public abstract class q55 extends r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public Activity b;
-    public View c;
-    public DialogInterface.OnDismissListener d;
+    public Activity a;
+    public TBAlertBuilder b;
 
-    public q55(Activity activity) {
+    public abstract void b(TBAlertBuilder tBAlertBuilder);
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public q55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = activity;
     }
 
-    public void c(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2;
-        }
-    }
-
-    public void d(DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onDismissListener) == null) {
-            this.d = onDismissListener;
-        }
-    }
-
-    public void a() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
-            this.a.dismiss();
-        }
-    }
-
-    public int b() {
+    public final Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return 5894;
-            }
-            return 1280;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (Activity) invokeV.objValue;
     }
 
-    public void e() {
+    public static final void e(q55 this$0, DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, dialogInterface) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
-        if (this.a == null) {
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.a = create;
-            create.requestWindowFeature(b());
-            GreyUtil.grey(this.a);
-        }
-        if (this.a.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a.setCancelable(true);
-        this.a.setOnDismissListener(this.d);
-        this.a.show();
-        Window window = this.a.getWindow();
-        window.getDecorView().setSystemUiVisibility(b());
-        window.addFlags(Integer.MIN_VALUE);
-        window.setStatusBarColor(0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -1;
-        window.setNavigationBarColor(0);
-        window.setAttributes(attributes);
-        window.setDimAmount(0.0f);
-        View view2 = this.c;
-        if (view2 != null) {
-            this.a.setContentView(view2);
+    }
+
+    @Override // com.baidu.tieba.r55
+    public void a(Context context, j55 data) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!(context instanceof Activity)) {
+                activity = TbadkApplication.getInst().getCurrentActivity();
+            } else {
+                activity = (Activity) context;
+            }
+            this.a = activity;
+            if (activity == null) {
+                c();
+                TbLog yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
+                return;
+            }
+            Intrinsics.checkNotNull(activity);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            this.b = tBAlertBuilder;
+            if (tBAlertBuilder != null) {
+                tBAlertBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.m55
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.content.DialogInterface.OnDismissListener
+                    public final void onDismiss(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            q55.e(q55.this, dialogInterface);
+                        }
+                    }
+                });
+                b(tBAlertBuilder);
+                d();
+            }
         }
     }
 }

@@ -1,238 +1,210 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import com.baidu.tieba.lo5;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
-import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
-import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.recentforum.data.RecentForumRespondedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.Unit;
 /* loaded from: classes7.dex */
-public class pz9 extends wz8 {
+public final class pz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public boolean b;
+    public a c;
+    public boolean d;
+    public final b e;
 
-    @Override // com.baidu.tieba.wz8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(y38 y38Var);
+
+        void onFail();
     }
 
     /* loaded from: classes7.dex */
-    public class a implements lo5.b {
+    public static final class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ pz9 a;
 
-        public a(pz9 pz9Var, TbPageContext tbPageContext) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(pz9 pz9Var) {
+            super(CmdConfigHttp.CMD_RECENT_FORUM);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, tbPageContext};
+                Object[] objArr = {pz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = tbPageContext;
+            this.a = pz9Var;
         }
 
-        @Override // com.baidu.tieba.lo5.b
-        public Object build() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardSinglePicView(this.a);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements lo5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(pz9 pz9Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003572 && (httpResponsedMessage instanceof RecentForumRespondedMessage)) {
+                    RecentForumRespondedMessage recentForumRespondedMessage = (RecentForumRespondedMessage) httpResponsedMessage;
+                    if (recentForumRespondedMessage.getError() != 0) {
+                        this.a.g(false);
+                        TbLog defaultLog = DefaultLog.getInstance();
+                        defaultLog.i("RecentForumLog", "请求结束，返回错误，错误码为：" + recentForumRespondedMessage.getError());
+                        a a = this.a.a();
+                        if (a != null) {
+                            a.onFail();
+                            return;
+                        }
+                        return;
+                    }
+                    this.a.g(false);
+                    y38 data = recentForumRespondedMessage.getData();
+                    Unit unit = null;
+                    if (data != null) {
+                        pz9 pz9Var = this.a;
+                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，有返回数据");
+                        a a2 = pz9Var.a();
+                        if (a2 != null) {
+                            a2.a(data);
+                            unit = Unit.INSTANCE;
+                        }
+                    }
+                    if (unit == null) {
+                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，返回数据为空");
+                        return;
+                    }
                     return;
                 }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.lo5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardMultiPicView(this.a);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements lo5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public c(pz9 pz9Var, TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                this.a.g(false);
+                DefaultLog.getInstance().i("RecentForumLog", "请求结束，数据不合法");
+                a a3 = this.a.a();
+                if (a3 != null) {
+                    a3.onFail();
                 }
             }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.lo5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardVideoView(this.a, this.b);
-            }
-            return invokeV.objValue;
         }
     }
 
-    public pz9() {
+    public pz9(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = bdUniqueId;
+        this.e = new b(this);
+        e();
     }
 
-    @Override // com.baidu.tieba.wz8
-    public <T> p09 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
+    public final a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
-            }
-            if (cardType != 17 && cardType != 34) {
-                return null;
-            }
-            return e(tbPageContext, iCardInfo, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (p09) invokeLLI.objValue;
+        return (a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wz8
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 17 && i != 34) {
-                return null;
-            }
-            return new AdCard(jSONObject);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.wz8
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = wz8.a;
-            sparseIntArray.put(17, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = wz8.a;
-            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = wz8.a;
-            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
-            wz8.b.put(17, BdUniqueId.gen());
-            wz8.b.put(33, BdUniqueId.gen());
-            wz8.b.put(34, BdUniqueId.gen());
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_RECENT_FORUM);
+            MessageManager.getInstance().unRegisterListener(this.e);
+            this.d = true;
         }
     }
 
-    public final BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (!(iCardInfo instanceof AdCard)) {
-                return null;
-            }
-            AdCard adCard = (AdCard) iCardInfo;
-            int cardType = adCard.getCardType();
-            if (cardType != 17 && cardType != 34) {
-                BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
-                return null;
-            }
-            int i2 = adCard.goodsStyle;
-            if (i2 != 2) {
-                if (i2 != 14) {
-                    if (i2 != 6) {
-                        if (i2 != 7) {
-                            if (i2 != 8) {
-                                return null;
-                            }
-                        }
-                    } else {
-                        return (AdCardMultiPicView) lo5.e().d(1102, new b(this, tbPageContext));
-                    }
-                }
-                AdCardVideoView adCardVideoView = (AdCardVideoView) lo5.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
-                adCardVideoView.setBusinessType(i);
-                return adCardVideoView;
-            }
-            return (AdCardSinglePicView) lo5.e().d(1101, new a(this, tbPageContext));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+            this.e.setSelfListener(true);
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
         }
-        return (BaseLegoCardView) invokeLLI.objValue;
+    }
+
+    public final boolean b(dx7 dx7Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dx7Var)) == null) {
+            if (this.d) {
+                e();
+                this.d = false;
+                DefaultLog.getInstance().i("RecentForumLog", "重新注册");
+            }
+            if (this.b) {
+                DefaultLog.getInstance().i("RecentForumLog", "上一次请求正在执行，不请求");
+                return false;
+            }
+            this.b = true;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RECENT_FORUM);
+            String str = null;
+            if (dx7Var != null) {
+                str = dx7Var.a().toString();
+                httpMessage.addParam("forum_frscsm", str);
+            }
+            httpMessage.setTag(this.a);
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("RecentForumLog", "开始请求，请求参数：" + str);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECENT_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecentForum");
+            tbHttpMessageTask.setResponsedClass(RecentForumRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void f(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.c = aVar;
+        }
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.b = z;
+        }
     }
 }

@@ -1,31 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
+import com.baidu.tieba.nt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public abstract class rv8<T> {
+public abstract class rv8<T, V extends View, M extends nt8<T>> implements t97<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cw8<T> a;
-    public Function2<? super View, ? super cw8<T>, Unit> b;
-    public Function2<? super View, ? super cw8<T>, Unit> c;
+    public final String a;
 
-    public rv8(cw8<T> data) {
+    public abstract void d(V v, M m);
+
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+        }
+    }
+
+    public abstract V g(ViewGroup viewGroup);
+
+    public rv8(String name) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data};
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,118 +46,76 @@ public abstract class rv8<T> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
-    public boolean f(rv8<?> other) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.h(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
         }
-        return invokeL.booleanValue;
     }
 
-    public final cw8<T> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (cw8) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.cw8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.cw8<T>, kotlin.Unit> */
-    public final Function2<View, cw8<T>, Unit> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (Function2<? super View, ? super cw8<T>, Unit>) this.b;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.cw8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.cw8<T>, kotlin.Unit> */
-    public final Function2<View, cw8<T>, Unit> e() {
+    @Override // com.baidu.tieba.t97
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Function2<? super View, ? super cw8<T>, Unit>) this.c;
+            return this.a;
         }
-        return (Function2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int hashCode() {
+    public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Objects.hashCode(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    public boolean equals(Object obj) {
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: h */
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
         InterceptResult invokeL;
-        rv8 rv8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            cw8<T> cw8Var = (cw8<T>) false;
-            if (obj instanceof rv8) {
-                rv8Var = (rv8) obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.f(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.f(g(parent));
+                return personalMsgContainer2;
             } else {
-                rv8Var = null;
+                throw new IllegalArgumentException("unknown template: " + c());
             }
-            if (this instanceof tv8) {
-                String a = ((tv8) this).c().g().a();
-                ?? r1 = cw8Var;
-                if (rv8Var != null) {
-                    cw8<T> cw8Var2 = rv8Var.a;
-                    r1 = cw8Var;
-                    if (cw8Var2 != null) {
-                        bw8 g = cw8Var2.g();
-                        r1 = cw8Var;
-                        if (g != null) {
-                            r1 = (cw8<T>) g.a();
-                        }
-                    }
-                }
-                return TextUtils.equals(a, r1);
-            }
-            cw8<T> cw8Var3 = this.a;
-            cw8<T> cw8Var4 = cw8Var;
-            if (rv8Var != null) {
-                cw8Var4 = rv8Var.a;
-            }
-            return Objects.equals(cw8Var3, cw8Var4);
         }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(Function2<? super View, ? super cw8<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
-            this.b = function2;
-        }
-    }
-
-    public final void h(Function2<? super View, ? super cw8<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
-            this.c = function2;
-        }
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

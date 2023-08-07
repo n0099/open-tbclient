@@ -1,55 +1,74 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sp9 {
+public class sp9 extends lm<dr9, CardViewHolder<hs9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public Drawable e;
-    public Drawable f;
-    public Drawable g;
-    public boolean h;
-    public String i;
+    public TbPageContext<?> a;
+    public LikeModel b;
 
-    public sp9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sp9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), dr9.l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
+        this.a = tbPageContext;
+        this.b = new LikeModel(tbPageContext);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public CardViewHolder<hs9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            hs9 hs9Var = new hs9(this.a);
+            hs9Var.z(this.b);
+            return new CardViewHolder<>(hs9Var);
         }
-        return invokeV.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void b(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dr9 dr9Var, CardViewHolder<hs9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dr9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().i(dr9Var);
+            cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

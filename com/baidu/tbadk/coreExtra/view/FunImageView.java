@@ -7,11 +7,11 @@ import android.view.ViewParent;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ux7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.cv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,11 +93,11 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup l = ux7.m().l(context);
+            ViewGroup l = cv7.m().l(context);
             this.a = l;
             if (l != null) {
                 SkinManager.setBackgroundColor(l, R.color.CAM_X0101, 0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.l(context), -2);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getEquipmentWidth(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
                 addView(this.a, layoutParams);

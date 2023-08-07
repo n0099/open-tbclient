@@ -5,13 +5,13 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public class ConcernVideoImageView extends RelativeLayout {
     public void setData(List<MediaData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && !ListUtils.isEmpty(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
-            this.a.N(list.get(0).getPicUrl(), 10, false);
+            this.a.startLoad(list.get(0).getPicUrl(), 10, false);
         }
     }
 
@@ -98,14 +98,14 @@ public class ConcernVideoImageView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0227, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090792);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022a, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0907a1);
             this.a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-            int l = yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070261);
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext()) - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070261);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.height = (l * 9) / 16;
-            layoutParams.width = l;
+            layoutParams.height = (equipmentWidth * 9) / 16;
+            layoutParams.width = equipmentWidth;
         }
     }
 }

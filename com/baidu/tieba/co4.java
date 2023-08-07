@@ -1,53 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
 public class co4 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947681473, "Lcom/baidu/tieba/co4;")) == null) {
-            return;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947681473, "Lcom/baidu/tieba/co4;");
-        }
+        return (String) invokeLLZ.objValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ej4 b = gj4.b();
-            if (b == null) {
-                return "0";
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a = a(messageDigest.digest(), "", z);
+                            cr4.d(fileInputStream);
+                            return a;
+                        }
+                    }
+                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
+                    cr4.d(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    cr4.d(fileInputStream2);
+                    throw th;
+                }
+            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return b.i().getString("key_online_description_fix_version", "0");
+        } else {
+            return (String) invokeLZ.objValue;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

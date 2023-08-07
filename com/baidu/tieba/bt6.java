@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bt6 implements qc7 {
+public abstract class bt6 implements e0, s7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
+    public us6 a;
 
     public bt6() {
         Interceptable interceptable = $ic;
@@ -31,20 +25,35 @@ public final class bt6 implements qc7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = us6.i.a();
+    }
+
+    public final us6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (us6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s7.a
+    @CallSuper
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = us6.i.a();
         }
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
+    public final void b(us6 us6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "2");
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, us6Var) == null) {
+            Intrinsics.checkNotNullParameter(us6Var, "<set-?>");
+            this.a = us6Var;
         }
-        return (Map) invokeL.objValue;
     }
 }

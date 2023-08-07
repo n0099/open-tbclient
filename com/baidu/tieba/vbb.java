@@ -1,37 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class vbb {
+public class vbb implements ck1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(File file, Object obj) {
-        InterceptResult invokeLL;
-        String b;
+    public vbb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
-            synchronized (obj) {
-                b = wbb.b(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return b;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean b(String str, File file, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean e;
+    @Override // com.baidu.tieba.ck1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
-            synchronized (obj) {
-                e = wbb.e(str, file, z);
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AcUploadResultObserver());
+            return arrayList;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.objValue;
     }
 }

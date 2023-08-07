@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.ImageView;
 /* loaded from: classes8.dex */
-public final class yb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a = false;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yb1<IMAGEVIEW extends ImageView> extends ro0 {
+    void a(String str, IMAGEVIEW imageview, boolean z);
 
-    public static final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
+    void b(String str, IMAGEVIEW imageview, int i, int i2);
+
+    void e(String str, qo0 qo0Var);
 }

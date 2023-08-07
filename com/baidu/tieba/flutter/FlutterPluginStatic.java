@@ -2,21 +2,21 @@ package com.baidu.tieba.flutter;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.controller.CustomRule;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ab;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.mu5;
-import com.baidu.tieba.ol;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.bs5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.pk;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.yk;
+import com.baidu.tieba.zj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (s05.c().contains("-Flutter")) {
+        if (GlobalBuildConfig.getTiebaNpsPluginMode().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -75,24 +75,25 @@ public class FlutterPluginStatic {
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                         return;
                     }
-                    String e = ol.f().e();
+                    String e = pk.f().e();
                     String versionName = TbadkCoreApplication.getInst().getVersionName();
-                    h29 a = yk.a();
-                    a.c(FlutterPluginManager.TAG, "开始安装Flutter插件 配置的Flutter版本：" + e + " 客户端当前版本" + versionName + " data" + customResponsedMessage.getData());
-                    if (!TextUtils.isEmpty(versionName) && versionName.equals(e)) {
-                        if (customResponsedMessage.getData() instanceof IntentConfig) {
-                            FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                        } else if (customResponsedMessage.getData() instanceof mu5) {
-                            FlutterPluginManager.getInstance().init((mu5) customResponsedMessage.getData());
-                        } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
-                            FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
-                        } else {
-                            FlutterPluginManager.getInstance().init();
-                        }
+                    TbLog a = zj.a();
+                    a.i(FlutterPluginManager.TAG, "开始安装Flutter插件 配置的Flutter版本：" + e + " 客户端当前版本" + versionName + " data" + customResponsedMessage.getData());
+                    if (TextUtils.isEmpty(versionName)) {
+                        return;
+                    }
+                    if (customResponsedMessage.getData() instanceof IntentConfig) {
+                        FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof bs5) {
+                        FlutterPluginManager.getInstance().init((bs5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
+                        FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
+                    } else {
+                        FlutterPluginManager.getInstance().init();
                     }
                 }
             });
-            MessageManager.getInstance().addMessageRule(new ab(0) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.2
+            MessageManager.getInstance().addMessageRule(new CustomRule(0) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +118,7 @@ public class FlutterPluginStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.eb
+                @Override // com.baidu.adp.framework.controller.MessageRule
                 public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;

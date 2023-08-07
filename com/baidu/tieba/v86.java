@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class v86 {
+public class v86 implements bv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<kg5> b;
 
     public v86() {
         Interceptable interceptable = $ic;
@@ -32,55 +35,51 @@ public class v86 {
         }
     }
 
-    public List<kg5> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bv2
+    public boolean a(Context context, String str, rm3 rm3Var) {
+        InterceptResult invokeLLL;
+        String p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, rm3Var)) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
+            if (k76.l().p() == null) {
+                p = "";
+            } else {
+                p = k76.l().p();
             }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
-            this.a = listdata.key;
-            if (listdata.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : listdata.friend_list) {
-                    kg5 kg5Var = new kg5();
-                    kg5Var.i(friendlist);
-                    kg5Var.j(this.a);
-                    this.b.add(kg5Var);
-                }
+            statisticItem.param("uid", p);
+            statisticItem.param("obj_param1", rm3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, rm3Var.e());
+            TiebaStatic.log(statisticItem);
+            if (rm3Var.j() == 10 && rm3Var.h() == 1013) {
+                b(context, rm3Var);
+                return true;
             }
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public void d(robotsList robotslist) {
+    public final void b(Context context, rm3 rm3Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
-            this.a = robotslist.key;
-            if (robotslist.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : robotslist.friend_list) {
-                    kg5 kg5Var = new kg5();
-                    kg5Var.i(friendlist);
-                    kg5Var.j(this.a);
-                    this.b.add(kg5Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rm3Var) == null) {
+            ya3 b0 = ya3.b0();
+            if (context != null && b0 != null) {
+                String i = dk3.i(lw2.T().getCoreVersion(), b0.Y().G());
+                long h = rm3Var.h();
+                String r = rm3Var.r();
+                if (1020 == h && !TextUtils.isEmpty(r)) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                if (!z) {
+                    r = wm4.b().a(h);
+                }
+                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + so3.D() + "/" + i + "/" + rm3Var.a());
+                forbiddenInfo.enableSlidingFlag = -1;
+                sv2.l(context, "type_need_update_sdk", rm3Var, forbiddenInfo, b0.Y().D());
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.faceshop.emotioncenter.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -12,8 +13,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.m57;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,12 +67,12 @@ public class EmotionChangeModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003355 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                m57 m57Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof m57)) {
-                    m57Var = (m57) extra;
+                u27 u27Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof u27)) {
+                    u27Var = (u27) extra;
                 }
-                if (m57Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
-                    m57Var.R0(emotionCenterResponseMessage.data);
+                if (u27Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
+                    u27Var.S0(emotionCenterResponseMessage.data);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class EmotionChangeModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,11 +103,11 @@ public class EmotionChangeModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void V(m57 m57Var) {
+    public void N(u27 u27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, u27Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
-            httpMessage.setExtra(m57Var);
+            httpMessage.setExtra(u27Var);
             sendMessage(httpMessage);
         }
     }

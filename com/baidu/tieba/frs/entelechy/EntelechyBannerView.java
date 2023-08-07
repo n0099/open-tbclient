@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +64,7 @@ public class EntelechyBannerView extends BannerView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.c) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.topMargin = (yi.g(getContext(), R.dimen.obfuscated_res_0x7f07019a) - yi.d(getContext(), 20.0f)) / 2;
+            layoutParams.topMargin = (BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07019a) - BdUtilHelper.dip2px(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
             this.c.requestLayout();
         }

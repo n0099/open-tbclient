@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,56 +16,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class wk3 {
+public class wk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public uk3 a;
-    public rk3 b;
-    public volatile boolean c;
-    public HandlerThread d;
-    public Handler e;
-
-    public abstract void f();
 
     /* loaded from: classes8.dex */
-    public class a extends Handler {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wk3 a;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wk3 wk3Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wk3Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wk3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-315005364, "Lcom/baidu/tieba/wk3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-315005364, "Lcom/baidu/tieba/wk3$b;");
                     return;
                 }
             }
-            this.a = wk3Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.a.f();
-                if (this.a.c) {
-                    this.a.a.c();
-                } else {
-                    this.a.e.removeMessages(101);
-                }
-            }
+            a = new wk3(null);
         }
     }
 
@@ -80,75 +62,105 @@ public abstract class wk3 {
                 return;
             }
         }
-        f = fs1.a;
+        boolean z = ir1.a;
     }
 
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessage(this.e.obtainMessage(101));
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
-            HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new a(this, this.d.getLooper());
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c = true;
-                if (this.d != null) {
-                    this.d.quitSafely();
-                }
-                this.e = null;
-                this.d = null;
-            }
-        }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
-            }
-        }
-    }
-
-    public wk3(rk3 rk3Var) {
+    public wk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rk3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new uk3();
-        this.b = rk3Var;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                Resources system = Resources.getSystem();
+                int identifier = system.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android");
+                if (identifier != 0) {
+                    return system.getInteger(identifier);
+                }
+                return 255;
+            } catch (Exception unused) {
+                return 255;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static wk3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (wk3) invokeV.objValue;
+    }
+
+    public /* synthetic */ wk3(a aVar) {
+        this();
+    }
+
+    public static float d(Context context) {
+        int i;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                i = 0;
+            }
+            return i * (1.0f / b());
+        }
+        return invokeL.floatValue;
+    }
+
+    public float a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    return d(activity);
+                }
+                return f;
+            }
+            return -1.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public void e(Activity activity, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f) == null) && activity != null) {
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = f;
+            activity.getWindow().setAttributes(attributes);
+        }
+    }
+
+    public void f(Activity activity, boolean z) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z) != null) || activity == null || (window = activity.getWindow()) == null) {
+            return;
+        }
+        if (z) {
+            window.addFlags(128);
+        } else {
+            window.clearFlags(128);
+        }
     }
 }

@@ -1,220 +1,385 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.view.SwanAppActionBar;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w03 extends sd3 {
+public class w03 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public s03 c;
-    public c13 d;
-    public u03 e;
-    public t03 f;
-    public z03 g;
-    public r03 h;
-    public a13 i;
-    public y03 j;
-    public b13 k;
-    public v03 l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w03(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/video");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ SwanAppActionBar b;
+        public final /* synthetic */ String c;
+
+        public a(Context context, SwanAppActionBar swanAppActionBar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, swanAppActionBar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = swanAppActionBar;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                w03.e(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ SwanAppActionBar b;
+
+        public b(JSONObject jSONObject, SwanAppActionBar swanAppActionBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, swanAppActionBar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject;
+            this.b = swanAppActionBar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            w03.o(this.b, w03.n(this.a));
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ fh4 b;
+        public final /* synthetic */ SwanAppActionBar c;
+        public final /* synthetic */ String d;
+
+        public c(Context context, fh4 fh4Var, SwanAppActionBar swanAppActionBar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, fh4Var, swanAppActionBar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = fh4Var;
+            this.c = swanAppActionBar;
+            this.d = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            w03.f(this.a, this.b, this.c, this.d);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONArray a;
+        public final /* synthetic */ fh4 b;
+        public final /* synthetic */ SwanAppActionBar c;
+
+        public d(JSONArray jSONArray, fh4 fh4Var, SwanAppActionBar swanAppActionBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONArray, fh4Var, swanAppActionBar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONArray;
+            this.b = fh4Var;
+            this.c = swanAppActionBar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int length;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONArray jSONArray = this.a;
+                if (jSONArray == null) {
+                    length = 0;
+                } else {
+                    length = jSONArray.length();
+                }
+                if (length == 0) {
+                    return;
+                }
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = this.a.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        this.b.z(optJSONObject);
+                        w03.d(optJSONObject);
+                    }
+                }
+                this.b.j();
+                ya3 b0 = ya3.b0();
+                if (b0 != null) {
+                    w03.o(this.c, b0.U().d("key_unread_counts_message", 0).intValue());
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216719, "Lcom/baidu/tieba/w03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948216719, "Lcom/baidu/tieba/w03;");
                 return;
             }
         }
+        a = ir1.a;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public static int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (sd3.b) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return xa3.K().q().U().d("key_unread_counts_message", 0).intValue();
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.sd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, vb3Var)) == null) {
-            v82.i("VideoPlayerAction", "handleSubAction subAction : " + str + "params : " + sd3.a(unitedSchemeEntity, "params"));
-            switch (str.hashCode()) {
-                case -1701478259:
-                    if (str.equals("/swanAPI/video/pause")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440375597:
-                    if (str.equals("/swanAPI/video/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440349763:
-                    if (str.equals("/swanAPI/video/play")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440267007:
-                    if (str.equals("/swanAPI/video/seek")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440252277:
-                    if (str.equals("/swanAPI/video/stop")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1145507635:
-                    if (str.equals("/swanAPI/video/remove")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1049743086:
-                    if (str.equals("/swanAPI/video/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -274000988:
-                    if (str.equals("/swanAPI/video/fullScreen")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 711122280:
-                    if (str.equals("/swanAPI/video/sendDanmu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1568993060:
-                    if (str.equals("/swanAPI/video/playbackRate")) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (this.c == null) {
-                        this.c = new s03("/swanAPI/video/open");
-                    }
-                    c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 1:
-                    if (this.d == null) {
-                        this.d = new c13("/swanAPI/video/update");
-                    }
-                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 2:
-                    if (this.j == null) {
-                        this.j = new y03("/swanAPI/video/remove");
-                    }
-                    c2 = this.j.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 3:
-                    if (this.e == null) {
-                        this.e = new u03("/swanAPI/video/play");
-                    }
-                    c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 4:
-                    if (this.f == null) {
-                        this.f = new t03("/swanAPI/video/pause");
-                    }
-                    c2 = this.f.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 5:
-                    if (this.g == null) {
-                        this.g = new z03("/swanAPI/video/seek");
-                    }
-                    c2 = this.g.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 6:
-                    if (this.h == null) {
-                        this.h = new r03("/swanAPI/video/fullScreen");
-                    }
-                    c2 = this.h.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case 7:
-                    if (this.i == null) {
-                        this.i = new a13("/swanAPI/video/sendDanmu");
-                    }
-                    c2 = this.i.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case '\b':
-                    if (this.k == null) {
-                        this.k = new b13("/swanAPI/video/stop");
-                    }
-                    c2 = this.k.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                case '\t':
-                    if (this.l == null) {
-                        this.l = new v03("/swanAPI/video/playbackRate");
-                    }
-                    c2 = this.l.c(context, unitedSchemeEntity, callbackHandler, vb3Var);
-                    break;
-                default:
-                    c2 = false;
-                    break;
-            }
-            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, vb3Var)) {
-                return false;
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && ya3.b0() != null) {
+            ya3.b0().U().i("key_unread_counts_message", 0);
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public static void e(Context context, SwanAppActionBar swanAppActionBar, String str) {
+        JSONObject c2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65541, null, context, swanAppActionBar, str) == null) && (c2 = fu2.i().c(context, str)) != null && swanAppActionBar != null) {
+            xa3.M().post(new b(c2, swanAppActionBar));
+        }
+    }
+
+    public static void k(Context context, SwanAppActionBar swanAppActionBar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, context, swanAppActionBar, str) == null) {
+            r43.e().d(new a(context, swanAppActionBar, str), "getRefreshTips", true);
+        }
+    }
+
+    public static void m(JSONObject jSONObject, fh4 fh4Var, SwanAppActionBar swanAppActionBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, jSONObject, fh4Var, swanAppActionBar) == null) {
+            n(jSONObject);
+            xa3.M().post(new d(jSONObject.optJSONArray("un_read_list"), fh4Var, swanAppActionBar));
+        }
+    }
+
+    public static void f(Context context, fh4 fh4Var, SwanAppActionBar swanAppActionBar, String str) {
+        JSONObject c2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65542, null, context, fh4Var, swanAppActionBar, str) == null) && (c2 = fu2.i().c(context, str)) != null && fh4Var != null) {
+            m(c2, fh4Var, swanAppActionBar);
+        }
+    }
+
+    public static void l(Context context, fh4 fh4Var, SwanAppActionBar swanAppActionBar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, fh4Var, swanAppActionBar, str) == null) {
+            ExecutorUtilsExt.postOnElastic(new c(context, fh4Var, swanAppActionBar, str), "getMenuToolRefreshTips", 1);
+        }
+    }
+
+    public static void d(JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null || Long.valueOf(jSONObject.optLong("pa_unread_sums")).longValue() <= 0) {
+            return;
+        }
+        int optInt = jSONObject.optInt(Constants.EXTRA_PA_TYPE);
+        if (optInt != 7) {
+            if (optInt != 666) {
+                if (optInt != 888) {
+                    if (optInt != 999) {
+                        str = "";
+                    } else {
+                        str = "message";
+                    }
+                } else {
+                    str = PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE;
+                }
+            } else {
+                str = "notice";
+            }
+        } else {
+            str = "customerService";
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        o03.q(str, "1", "show");
+    }
+
+    public static void j(gh4 gh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, null, gh4Var) == null) && ya3.b0() != null) {
+            ya3.b0().U().i("key_unread_counts_message", Integer.valueOf(Math.max((int) (ya3.b0().U().d("key_unread_counts_message", 0).intValue() - gh4Var.e()), 0)));
+        }
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            ya3 q = xa3.K().q();
+            if (q == null || q.W() == null || q.W().f0() == null) {
+                return 0;
+            }
+            JSONObject c2 = fu2.i().c(context, q.W().f0().paNumber);
+            if (c2 == null || (optJSONArray = c2.optJSONArray("un_read_list")) == null || optJSONArray.length() <= 0) {
+                return 0;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                if (optJSONObject != null && optJSONObject.optInt(Constants.EXTRA_PA_TYPE) == 888) {
+                    i += optJSONObject.optInt("pa_unread_sums");
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int n(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("un_read_list")) == null || optJSONArray.length() == 0) {
+                return 0;
+            }
+            int length = optJSONArray.length();
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                int optInt = optJSONObject.optInt(Constants.EXTRA_PA_TYPE);
+                if (optInt == 7) {
+                    i += optJSONObject.optInt("pa_unread_sums");
+                }
+                if (so3.R() && (optInt == 27 || optInt == 17)) {
+                    i += optJSONObject.optInt("pa_unread_sums");
+                }
+            }
+            if (i == 0) {
+                for (int i3 = 0; i3 < length; i3++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                    int optInt2 = optJSONObject2.optInt(Constants.EXTRA_PA_TYPE);
+                    if (optInt2 == 888 || optInt2 == 666 || optInt2 == 999) {
+                        i += optJSONObject2.optInt("pa_unread_sums");
+                    }
+                }
+            }
+            if (ya3.b0() != null) {
+                ya3.b0().U().i("key_unread_counts_message", Integer.valueOf(i));
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void o(SwanAppActionBar swanAppActionBar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65551, null, swanAppActionBar, i) == null) {
+            boolean z = false;
+            if (fu2.y0().d()) {
+                swanAppActionBar.setRightRedDotVisibility(false);
+                return;
+            }
+            if (a) {
+                Log.i("messageRefresh", "update_red_dots:" + i);
+            }
+            if (swanAppActionBar != null) {
+                if (i > 0) {
+                    z = true;
+                }
+                swanAppActionBar.setRightRedDotVisibility(z);
+            }
+        }
     }
 }

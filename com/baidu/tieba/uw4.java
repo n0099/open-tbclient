@@ -1,56 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
+import android.app.Activity;
 import android.content.Context;
-import android.database.Cursor;
+import android.content.Intent;
 import android.net.Uri;
-import android.provider.MediaStore;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
+import com.baidu.tbadk.util.WebviewHelper;
+import com.baidu.tieba.m45;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class uw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public c b;
-    public final Context c;
-    public int d;
-    public String[] e;
-    public String[] f;
-    public HashMap<String, pw4> g;
 
     /* loaded from: classes8.dex */
-    public class a implements Comparator<MediaFileInfo> {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(uw4 uw4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uw4Var};
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
+                return;
+            }
+            BrowserHelper.initCookie(TbadkCoreApplication.getInst());
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements UrlManager.UrlWebDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,38 +115,224 @@ public class uw4 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlWebDealListener
+        public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaFileInfo, mediaFileInfo2)) == null) {
-                int i = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
-                if (i == 0) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2), bundle}) == null) {
+                if (z2) {
+                    uw4.q(tbPageContext, str2, null, false, bundle);
+                } else {
+                    uw4.s(tbPageContext, str2, str, z, bundle);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
+            String str;
+            String str2;
+            Uri parse;
+            Bundle bundle;
+            Bundle parserQuery;
+            String str3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (tbPageContext == null || strArr == null || strArr.length == 0) {
+                    return 3;
+                }
+                String str4 = strArr[0];
+                if (StringUtils.isNull(str4)) {
+                    return 3;
+                }
+                if (strArr.length > 2) {
+                    str = strArr[2];
+                } else {
+                    str = null;
+                }
+                if (strArr.length > 1) {
+                    str2 = strArr[1];
+                } else {
+                    str2 = null;
+                }
+                if (str4.startsWith("tel:")) {
+                    UtilHelper.callPhone(tbPageContext.getPageActivity(), str4.substring(4));
                     return 0;
+                } else if (WebviewHelper.isNetWorkUrl(str4) && str4.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+                    uw4.p(tbPageContext.getPageActivity(), str4);
+                    return 0;
+                } else {
+                    String str5 = "";
+                    if (str4.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC)) {
+                        Uri parse2 = Uri.parse(str4);
+                        String queryParameter = parse2.getQueryParameter("topic_id");
+                        String queryParameter2 = parse2.getQueryParameter("topic_name");
+                        String queryParameter3 = parse2.getQueryParameter("is_video_topic");
+                        if (TextUtils.isEmpty(queryParameter)) {
+                            return 3;
+                        }
+                        if (strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
+                            str5 = strArr[1];
+                        }
+                        if (!StringHelper.equals(queryParameter3, "1") && NewWebHotTopicPageSwitch.isOn()) {
+                            zv5.f(tbPageContext, queryParameter, queryParameter2);
+                        } else {
+                            new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter, queryParameter2, queryParameter3, str5).start();
+                        }
+                        return 0;
+                    } else if (str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
+                        String substring = str4.substring(4);
+                        if (!str4.contains("body=")) {
+                            str3 = "";
+                            str5 = substring;
+                        } else {
+                            str3 = WebviewHelper.getMatchStringFromURL(str4, "body=");
+                            int indexOf = substring.indexOf("?");
+                            if (indexOf >= 1 && indexOf <= substring.length()) {
+                                str5 = substring.substring(0, indexOf);
+                            }
+                        }
+                        UtilHelper.smsTo(tbPageContext.getPageActivity(), str5, str3);
+                        return 0;
+                    } else if (str4.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
+                        BrowserHelper.startExternWebActivity(tbPageContext.getPageActivity(), str4);
+                        return 1;
+                    } else if (UtilHelper.isNativeAdURL(str4)) {
+                        mx9.a(tbPageContext.getPageActivity(), str4, null, null, null);
+                        return 1;
+                    } else if (!str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
+                        if ((str4.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
+                            tbPageContext.getPageActivity().finish();
+                            return 1;
+                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.TBEAN_TOAST) && (tbPageContext instanceof Activity)) {
+                            UtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.buy_sucess);
+                            ((Activity) tbPageContext).finish();
+                            return 0;
+                        } else if (str4.startsWith("tieba://focusforum")) {
+                            TbadkCoreApplication.getInst().setLikeBarChanged(true);
+                            return 0;
+                        } else if (str4.startsWith("baiduxiuba://")) {
+                            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+                            intent.addCategory("android.intent.category.DEFAULT");
+                            intent.setData(Uri.parse(str4));
+                            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                            tbPageContext.getPageActivity().startActivity(intent);
+                            return 0;
+                        } else if (str4.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_URL) && str4.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_PARAM)) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016525, Boolean.TRUE));
+                            tbPageContext.getPageActivity().finish();
+                            return 1;
+                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, WebviewHelper.getMatchStringFromURL(str4, "bindid=")));
+                            tbPageContext.getPageActivity().finish();
+                            return 1;
+                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (parserQuery = WebviewHelper.parserQuery(str4)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(parserQuery.getString("path"))) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
+                            return 0;
+                        } else if (str4.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
+                            MessageManager.getInstance().runTask(2921329, null, tbPageContext.getPageActivity());
+                            return 0;
+                        } else if (str4.contains(UrlSchemaHelper.FROM_FORUM_SQUARE) && tbPageContext.getPageActivity() != null) {
+                            ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
+                            forumSquareActivityConfig.setUri(Uri.parse(str4));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+                            return 0;
+                        } else if (str4.contains(UrlSchemaHelper.FROM_ENTER_FORUM) && tbPageContext.getPageActivity() != null) {
+                            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1);
+                            String queryParameter4 = Uri.parse(str4).getQueryParameter(BdUniDispatchSchemeController.PARAM_TAB_NAME);
+                            if (!bi.isEmpty(queryParameter4)) {
+                                createNormalCfg.setSubTab(0, queryParameter4);
+                            }
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, createNormalCfg));
+                            return 0;
+                        } else {
+                            if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE)) {
+                                if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_WEB)) {
+                                    if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
+                                        if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
+                                            if (str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
+                                                String substring2 = str4.substring(5);
+                                                if (!TextUtils.isEmpty(substring2)) {
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage(2902028, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring2, str)));
+                                                }
+                                            } else if (str4.contains("com.baidu.tieba://unidispatch/tbwebview") && (parse = Uri.parse(str4)) != null) {
+                                                String queryParameter5 = parse.getQueryParameter("url");
+                                                String queryParameter6 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
+                                                String queryParameter7 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_INIT_DATA);
+                                                if (!StringUtils.isNull(queryParameter6)) {
+                                                    bundle = new Bundle();
+                                                    bundle.putString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE, queryParameter6);
+                                                } else {
+                                                    bundle = null;
+                                                }
+                                                if (!StringUtils.isNull(queryParameter7)) {
+                                                    if (bundle == null) {
+                                                        bundle = new Bundle();
+                                                    }
+                                                    bundle.putString(BdUniDispatchSchemeController.PARAM_INIT_DATA, queryParameter7);
+                                                }
+                                                uw4.q(tbPageContext, queryParameter5, null, false, bundle);
+                                                return 0;
+                                            }
+                                        } else {
+                                            uw4.r(tbPageContext, str4.substring(3), tbPageContext.getString(R.string.photo_live_tips), false, true, false, false);
+                                        }
+                                    } else {
+                                        uw4.r(tbPageContext, str2, str4.substring(6), false, true, true, false);
+                                    }
+                                } else {
+                                    uw4.r(tbPageContext, BrowserHelper.parseWebViewUrl(str4.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str), null, false, true, true, true);
+                                }
+                            } else {
+                                uw4.r(tbPageContext, BrowserHelper.parseWebViewUrl(str4.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str), null, false, true, true, true);
+                            }
+                            return 3;
+                        }
+                    } else {
+                        BrowserHelper.startWebActivity(tbPageContext.getPageActivity(), str4);
+                        return 1;
+                    }
                 }
-                if (i > 0) {
-                    return 1;
-                }
-                return -1;
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Comparator<pw4> {
+    public static class d implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uw4 a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Bundle d;
 
-        public b(uw4 uw4Var) {
+        public d(TbPageContext tbPageContext, String str, String str2, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uw4Var};
+                Object[] objArr = {tbPageContext, str, str2, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -102,424 +342,472 @@ public class uw4 {
                     return;
                 }
             }
-            this.a = uw4Var;
+            this.a = tbPageContext;
+            this.b = str;
+            this.c = str2;
+            this.d = bundle;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(pw4 pw4Var, pw4 pw4Var2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pw4Var, pw4Var2)) == null) {
-                if (this.a.a.equals(pw4Var.g())) {
-                    return -1;
-                }
-                if (this.a.a.equals(pw4Var2.g())) {
-                    return 1;
-                }
-                int i = ((pw4Var2.e().getSortTime() - pw4Var.e().getSortTime()) > 0L ? 1 : ((pw4Var2.e().getSortTime() - pw4Var.e().getSortTime()) == 0L ? 0 : -1));
-                if (i == 0) {
-                    return 0;
-                }
-                if (i <= 0) {
-                    return -1;
-                }
-                return 1;
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+                m45Var.dismiss();
+                BrowserHelper.startWebActivity(this.a.getPageActivity(), this.b, this.c, this.d);
             }
-            return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c extends BdAsyncTask<Object, Integer, vw4> {
+    public static class e implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final tw4 a;
-        public final /* synthetic */ uw4 b;
 
-        public c(uw4 uw4Var, tw4 tw4Var) {
+        public e() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uw4Var, tw4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uw4Var;
-            this.a = tw4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public vw4 doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                return this.b.d();
-            }
-            return (vw4) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(vw4 vw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vw4Var) == null) {
-                super.onPostExecute(vw4Var);
-                tw4 tw4Var = this.a;
-                if (tw4Var != null) {
-                    tw4Var.a(vw4Var);
                 }
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreExecute();
-                tw4 tw4Var = this.a;
-                if (tw4Var != null) {
-                    tw4Var.onPreLoad();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+                m45Var.dismiss();
             }
         }
     }
 
-    public uw4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class f implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
+            PbActivityConfig createNormalCfg;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (strArr != null && strArr[0] != null) {
+                    Uri parse = Uri.parse(strArr[0]);
+                    if ("lego".equalsIgnoreCase(parse.getAuthority())) {
+                        if (!uw4.g(tbPageContext, parse, null, false)) {
+                            return 3;
+                        }
+                        return 0;
+                    } else if ("pb".equalsIgnoreCase(parse.getAuthority())) {
+                        String queryParameter = parse.getQueryParameter("tId");
+                        String queryParameter2 = parse.getQueryParameter("view_type");
+                        if (queryParameter == null || queryParameter.length() <= 0) {
+                            return 3;
+                        }
+                        if (queryParameter2 != null && (queryParameter2.equals("2") || queryParameter2.equals("3"))) {
+                            createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createViewTypeCfg(queryParameter, Boolean.valueOf(queryParameter2.equals("2")).booleanValue(), Boolean.valueOf(!queryParameter2.equals("3")).booleanValue(), "lego");
+                            createNormalCfg.setVideo_source("frs");
+                        } else {
+                            createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter, null, "lego");
+                        }
+                        tbPageContext.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                        return 0;
+                    } else if ("frs".equalsIgnoreCase(parse.getAuthority())) {
+                        String queryParameter3 = parse.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
+                        if (queryParameter3 == null || queryParameter3.length() <= 0) {
+                            return 3;
+                        }
+                        FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter3, "lego");
+                        createNormalCfg2.setCallFrom(12);
+                        tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg2));
+                        return 0;
+                    } else if ("person".equalsIgnoreCase(parse.getAuthority())) {
+                        String queryParameter4 = parse.getQueryParameter("uid");
+                        String queryParameter5 = parse.getQueryParameter("uname");
+                        String queryParameter6 = parse.getQueryParameter("changeAvatar");
+                        if (queryParameter4 == null || queryParameter4.length() <= 0) {
+                            return 3;
+                        }
+                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(tbPageContext.getPageActivity(), queryParameter4, queryParameter5);
+                        personInfoActivityConfig.setChangeAvatar(queryParameter6);
+                        tbPageContext.sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
+                        return 0;
+                    } else if ("topic".equalsIgnoreCase(parse.getAuthority())) {
+                        String queryParameter7 = parse.getQueryParameter("topic_id");
+                        String queryParameter8 = parse.getQueryParameter("topic_name");
+                        String queryParameter9 = parse.getQueryParameter("is_video_topic");
+                        if (queryParameter7 != null && queryParameter8 != null) {
+                            if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
+                                zv5.f(tbPageContext, queryParameter7, queryParameter8);
+                            } else {
+                                new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null).start();
+                            }
+                            return 1;
+                        } else if (queryParameter7 != null) {
+                            if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
+                                zv5.f(tbPageContext, queryParameter7, null);
+                            } else {
+                                new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, null, queryParameter9, null).start();
+                            }
+                            return 1;
+                        }
+                    }
+                }
+                return 3;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class g implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (strArr != null && strArr[0] != null) {
+                    String str = strArr[0];
+                    String str2 = null;
+                    if (!str.startsWith(uw4.b) && !str.startsWith(uw4.c)) {
+                        if (!str.startsWith(uw4.d) && !str.startsWith(uw4.e)) {
+                            return 3;
+                        }
+                        int indexOf = str.indexOf("page/") + 5;
+                        int indexOf2 = str.indexOf("?");
+                        if (indexOf > 5 && indexOf2 > indexOf) {
+                            str2 = str.substring(indexOf, indexOf2);
+                        }
+                        if (indexOf2 > -1) {
+                            if (uw4.g(tbPageContext, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_LEGO + str.substring(indexOf2 + 1)), str2, true)) {
+                                return 0;
+                            }
+                        }
+                        return 3;
+                    }
+                    int indexOf3 = str.indexOf("page/") + 5;
+                    int indexOf4 = str.indexOf("?");
+                    if (indexOf3 > 5 && indexOf4 > indexOf3) {
+                        str2 = str.substring(indexOf3, indexOf4);
+                    }
+                    if (indexOf4 > -1) {
+                        if (uw4.g(tbPageContext, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_LEGO + str.substring(indexOf4 + 1)), str2, false)) {
+                            return 0;
+                        }
+                    }
+                }
+                return 3;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948225399, "Lcom/baidu/tieba/uw4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948225399, "Lcom/baidu/tieba/uw4;");
                 return;
             }
         }
-        this.a = TbConfig.getTempDirName();
-        this.d = 0;
-        this.e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-        this.f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-        this.g = new HashMap<>();
-        this.c = context;
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/checkurl?url=";
+        b = TbConfig.TIEBA_ADDRESS + "mo/q/blitz/index#";
+        c = TbConfig.TIEBA_ADDRESS + "mo/q/blitz/index#";
+        d = TbConfig.TIEBA_ADDRESS + "tb/zt/lego/h5/#";
+        e = TbConfig.TIEBA_ADDRESS + "tb/zt/lego/h5/#";
     }
 
-    public void c() {
-        c cVar;
+    public static void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.b) != null) {
-            cVar.cancel();
-            this.b = null;
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            UrlManager.getInstance().addListener(new c());
         }
     }
 
-    public List<ImageFileInfo> e() {
-        InterceptResult invokeV;
+    public static void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<ImageFileInfo> f = f(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if (f != null) {
-                arrayList.addAll(f);
-            }
-            List<ImageFileInfo> f2 = f(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            if (f2 != null) {
-                arrayList.addAll(f2);
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            UrlManager.getInstance().addListener(new f());
         }
-        return (List) invokeV.objValue;
     }
 
-    public final vw4 d() {
-        InterceptResult invokeV;
-        List<ImageFileInfo> list;
+    public static void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.g.clear();
-            vw4 vw4Var = new vw4();
-            List<VideoFileInfo> list2 = null;
-            if (this.d != 1) {
-                list = e();
-            } else {
-                list = null;
-            }
-            int i = this.d;
-            if (i != 2 && i != 3 && i != 4) {
-                list2 = g();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                arrayList.addAll(list);
-            }
-            if (!ListUtils.isEmpty(list2)) {
-                arrayList.addAll(list2);
-            }
-            if (!ListUtils.isEmpty(arrayList)) {
-                Collections.sort(arrayList, new a(this));
-            }
-            ArrayList arrayList2 = new ArrayList(this.g.values());
-            if (!ListUtils.isEmpty(arrayList2)) {
-                Collections.sort(arrayList2, new b(this));
-            }
-            vw4Var.a = arrayList2;
-            vw4Var.c = list2;
-            vw4Var.b = arrayList;
-            return vw4Var;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            UrlManager.getInstance().addListener(new g());
         }
-        return (vw4) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x009f, code lost:
-        if (r12 > 3145728) goto L27;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0122 A[LOOP:0: B:12:0x002c->B:48:0x0122, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x013a A[EDGE_INSN: B:80:0x013a->B:61:0x013a ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final List<ImageFileInfo> f(Uri uri) {
+    public static boolean g(TbPageContext<?> tbPageContext, Uri uri, String str, boolean z) {
+        InterceptResult invokeCommon;
+        String queryParameter;
+        int i;
+        int i2;
+        int i3;
+        String str2;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, uri, str, Boolean.valueOf(z)})) == null) {
+            if (tbPageContext != null && uri != null) {
+                if (str != null && str.length() != 0) {
+                    queryParameter = str;
+                } else {
+                    queryParameter = uri.getQueryParameter(LegoListActivityConfig.PAGE_ID);
+                }
+                String queryParameter2 = uri.getQueryParameter("page_type");
+                String queryParameter3 = uri.getQueryParameter("item_id");
+                String queryParameter4 = uri.getQueryParameter("rn");
+                String queryParameter5 = uri.getQueryParameter("params");
+                String queryParameter6 = uri.getQueryParameter(LegoListActivityConfig.PRE_LOAD);
+                String queryParameter7 = uri.getQueryParameter("next_page");
+                String queryParameter8 = uri.getQueryParameter("lego_version");
+                String queryParameter9 = uri.getQueryParameter(LegoListActivityConfig.IS_IMMERSIVE);
+                String queryParameter10 = uri.getQueryParameter(LegoListActivityConfig.HAS_ANIMATION);
+                String queryParameter11 = uri.getQueryParameter(LegoListActivityConfig.IS_LANDINGPAGE);
+                String queryParameter12 = uri.getQueryParameter("source");
+                if (TextUtils.isEmpty(queryParameter12)) {
+                    queryParameter12 = "unknown";
+                }
+                String str3 = queryParameter12;
+                if ((!z || j(queryParameter8)) && queryParameter != null && queryParameter2 != null && queryParameter.length() > 0 && queryParameter2.length() > 0) {
+                    try {
+                        int parseInt = Integer.parseInt(queryParameter2);
+                        long parseLong = Long.parseLong(queryParameter);
+                        try {
+                            i = Integer.parseInt(queryParameter4);
+                        } catch (Exception unused) {
+                            i = 20;
+                        }
+                        try {
+                            i2 = Integer.parseInt(queryParameter9);
+                        } catch (Exception unused2) {
+                            i2 = 0;
+                        }
+                        try {
+                            i3 = Integer.parseInt(queryParameter10);
+                        } catch (Exception unused3) {
+                            i3 = 0;
+                        }
+                        if (i3 == 1) {
+                            str2 = uri.getQueryParameter(LegoListActivityConfig.ANIMATION_INFO);
+                        } else {
+                            str2 = "";
+                        }
+                        try {
+                            i4 = Integer.parseInt(queryParameter11);
+                        } catch (Exception unused4) {
+                            i4 = 0;
+                        }
+                        LegoListActivityConfig createNormalCfg = new LegoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(parseLong, parseInt, queryParameter3, i2, i, queryParameter5);
+                        createNormalCfg.addLandingPageParams(str2, queryParameter6, queryParameter7, i3, i4, str3);
+                        tbPageContext.sendMessage(new CustomMessage(2016447, createNormalCfg));
+                        return true;
+                    } catch (Exception unused5) {
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            MessageManager.getInstance().registerListener(2005016, new a(0));
+            UrlManager.getInstance().setWebListener(new b());
+            SwitchManager.getInstance().addSwitchData(new ye("switch_mbaidu_startup", 1, null));
+            m();
+            n();
+            o();
+        }
+    }
+
+    public static boolean i(String str) {
         InterceptResult invokeL;
-        Cursor cursor;
-        ArrayList arrayList;
-        Cursor cursor2;
-        String str;
-        ArrayList arrayList2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
-            String str2 = null;
-            if (this.c == null) {
-                return null;
-            }
-            ArrayList arrayList3 = new ArrayList();
-            try {
-                cursor2 = this.c.getContentResolver().query(uri, this.e, "mime_type like 'image/%'", null, "date_added DESC");
-            } catch (Exception e) {
-                e = e;
-                arrayList = arrayList3;
-                cursor2 = null;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-                vg.a(cursor);
-                throw th;
-            }
-            if (cursor2 != null) {
-                try {
-                    try {
-                    } catch (Exception e2) {
-                        e = e2;
-                        arrayList = arrayList3;
-                    }
-                    if (cursor2.moveToFirst()) {
-                        while (true) {
-                            Uri withAppendedId = ContentUris.withAppendedId(uri, cursor2.getLong(cursor2.getColumnIndex("_id")));
-                            if (withAppendedId != null) {
-                                str = withAppendedId.toString();
-                            } else {
-                                str = str2;
-                            }
-                            String string = cursor2.getString(cursor2.getColumnIndex("bucket_id"));
-                            String string2 = cursor2.getString(cursor2.getColumnIndex("bucket_display_name"));
-                            String string3 = cursor2.getString(cursor2.getColumnIndex("_data"));
-                            String string4 = cursor2.getString(cursor2.getColumnIndex("mime_type"));
-                            long j = cursor2.getLong(cursor2.getColumnIndex("date_added"));
-                            int i = cursor2.getInt(cursor2.getColumnIndex("_size"));
-                            long j2 = cursor2.getLong(cursor2.getColumnIndex("date_modified"));
-                            boolean endsWith = string4.endsWith(NativeConstants.TYPE_GIF);
-                            try {
-                                if (endsWith) {
-                                    if (this.d != 3) {
-                                        arrayList2 = arrayList3;
-                                    } else {
-                                        arrayList = arrayList3;
-                                        if (!cursor2.moveToNext()) {
-                                            break;
-                                        }
-                                        arrayList3 = arrayList;
-                                        str2 = null;
-                                    }
-                                } else {
-                                    arrayList2 = arrayList3;
-                                }
-                                if (this.d == 4 && !string4.endsWith("jpeg") && !string4.endsWith("png")) {
-                                    arrayList = arrayList2;
-                                    if (!cursor2.moveToNext()) {
-                                    }
-                                } else {
-                                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                    imageFileInfo.setAlbumnId(string);
-                                    imageFileInfo.setContentUriStr(str);
-                                    imageFileInfo.setFilePath(string3);
-                                    imageFileInfo.setIsGif(endsWith);
-                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(j2));
-                                    imageFileInfo.setSortTime(j);
-                                    arrayList = arrayList2;
-                                    try {
-                                        arrayList.add(imageFileInfo);
-                                        pw4 pw4Var = this.g.get(string);
-                                        if (pw4Var == null) {
-                                            pw4Var = new pw4();
-                                            this.g.put(string, pw4Var);
-                                        }
-                                        pw4Var.h(string);
-                                        pw4Var.l(string2);
-                                        pw4Var.a();
-                                        if (pw4Var.e() == null) {
-                                            pw4Var.k(imageFileInfo);
-                                        }
-                                        List<MediaFileInfo> d = pw4Var.d();
-                                        if (pw4Var.d() == null) {
-                                            d = new ArrayList<>();
-                                            pw4Var.j(d);
-                                        }
-                                        d.add(imageFileInfo);
-                                        if (!cursor2.moveToNext()) {
-                                        }
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        BdLog.detailException(e);
-                                        vg.a(cursor2);
-                                        return arrayList;
-                                    }
-                                }
-                            } catch (Exception e4) {
-                                e = e4;
-                                arrayList = arrayList2;
-                                BdLog.detailException(e);
-                                vg.a(cursor2);
-                                return arrayList;
-                            }
-                        }
-                        vg.a(cursor2);
-                        return arrayList;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = cursor2;
-                    vg.a(cursor);
-                    throw th;
-                }
-            }
-            arrayList = arrayList3;
-            vg.a(cursor2);
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<VideoFileInfo> g() {
-        InterceptResult invokeV;
-        Cursor cursor;
-        Cursor cursor2;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Context context = this.c;
-            if (context == null) {
-                return arrayList;
-            }
-            ContentResolver contentResolver = context.getContentResolver();
-            HashSet hashSet = new HashSet();
-            try {
-                Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                Cursor query = contentResolver.query(uri, this.f, null, null, "date_added DESC");
-                if (query != null) {
-                    try {
-                        if (query.moveToFirst()) {
-                            while (true) {
-                                int i = query.getInt(query.getColumnIndex("_id"));
-                                Uri withAppendedId = ContentUris.withAppendedId(uri, i);
-                                if (withAppendedId != null) {
-                                    str = withAppendedId.toString();
-                                } else {
-                                    str = null;
-                                }
-                                String string = query.getString(query.getColumnIndexOrThrow("_data"));
-                                String string2 = query.getString(query.getColumnIndexOrThrow("title"));
-                                String string3 = query.getString(query.getColumnIndexOrThrow("_display_name"));
-                                String string4 = query.getString(query.getColumnIndexOrThrow("mime_type"));
-                                int i2 = query.getInt(query.getColumnIndexOrThrow("duration"));
-                                long j = query.getLong(query.getColumnIndexOrThrow("date_modified"));
-                                Uri uri2 = uri;
-                                long j2 = query.getLong(query.getColumnIndexOrThrow("date_added"));
-                                if (i2 > 1 && !hashSet.contains(string)) {
-                                    hashSet.add(string);
-                                    File file = new File(string);
-                                    if (file.exists() && file.isFile() && ti.u(file) > 0) {
-                                        VideoFileInfo videoFileInfo = new VideoFileInfo();
-                                        videoFileInfo.videoId = i;
-                                        videoFileInfo.contentUriStr = str;
-                                        videoFileInfo.videoPath = string;
-                                        videoFileInfo.displayName = string3;
-                                        videoFileInfo.title = string2;
-                                        videoFileInfo.mimeType = string4;
-                                        videoFileInfo.videoDuration = i2;
-                                        videoFileInfo.lastModified = j;
-                                        videoFileInfo.setSortTime(j2);
-                                        arrayList.add(videoFileInfo);
-                                    }
-                                }
-                                if (!query.moveToNext()) {
-                                    break;
-                                }
-                                uri = uri2;
-                            }
-                        }
-                    } catch (Exception unused) {
-                        cursor2 = query;
-                        vg.a(cursor2);
-                        return arrayList;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = query;
-                        vg.a(cursor);
-                        throw th;
-                    }
-                }
-                vg.a(query);
-            } catch (Exception unused2) {
-                cursor2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean h(int i, tw4 tw4Var) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, tw4Var)) == null) {
-            if (tw4Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            c();
-            this.d = i;
-            c cVar = new c(this, tw4Var);
-            this.b = cVar;
-            cVar.setPriority(3);
-            this.b.execute(new Object[0]);
-            return true;
+            try {
+                return "lego".equalsIgnoreCase(Uri.parse(str).getAuthority());
+            } catch (Throwable unused) {
+                return false;
+            }
         }
-        return invokeIL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "1.0.0";
+            }
+            if (TbConfig.getLegoLibVersion().compareTo(str) >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                String str2 = new String(str.getBytes(), StandardCharsets.UTF_8);
+                try {
+                    return URLEncoder.encode(str2, "UTF-8");
+                } catch (Exception unused) {
+                    return str2;
+                }
+            } catch (Exception unused2) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            String str2 = a;
+            Matcher matcher = Pattern.compile("^http[s]?:\\/\\/[^\\/\\\\\\\\]*(tieba\\.baidu\\.com\\/)", 2).matcher(str);
+            if (!str.startsWith(str2)) {
+                if (matcher == null || !matcher.find()) {
+                    return str2 + t(str);
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            String checkUrl = TbadkCoreApplication.getInst().getCheckUrl();
+            if (checkUrl == null) {
+                checkUrl = a;
+            } else if (checkUrl.trim().length() == 0) {
+                return str;
+            }
+            if (str.startsWith(checkUrl)) {
+                return str;
+            }
+            return checkUrl + t(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean p(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
+            try {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
+                if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+                    context.startActivity(intent);
+                    return true;
+                }
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void q(TbPageContext<?> tbPageContext, String str, String str2, boolean z, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), bundle}) == null) {
+            boolean isBaiduDomain = UrlUtils.isBaiduDomain(str);
+            if (bundle != null && !bundle.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) {
+                isBaiduDomain = false;
+            }
+            if (isBaiduDomain) {
+                str = BrowserHelper.appendClientType(BrowserHelper.appendVersionCode(BrowserHelper.appendCuidParam(str)));
+            }
+            String l = l(str);
+            if (z) {
+                DialogUtil.openUrl(tbPageContext, new d(tbPageContext, str2, l, bundle), new e(), l);
+            } else {
+                BrowserHelper.startWebActivity(tbPageContext.getPageActivity(), str2, l, bundle);
+            }
+        }
+    }
+
+    public static void r(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            q(tbPageContext, str, str2, z, null);
+        }
+    }
+
+    public static void s(TbPageContext<?> tbPageContext, String str, String str2, boolean z, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), bundle}) == null) {
+            TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
+            q(tbPageContext, str, str2, z, bundle);
+        }
     }
 }

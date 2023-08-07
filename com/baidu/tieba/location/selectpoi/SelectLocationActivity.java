@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.g29;
-import com.baidu.tieba.wu5;
+import com.baidu.tieba.b09;
+import com.baidu.tieba.ls5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class SelectLocationActivity extends SuspendedActivity {
     public CustomMessageListener k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void D1() {
+    public void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -103,12 +103,12 @@ public class SelectLocationActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public wu5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ls5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, linearLayout, navigationBar)) == null) {
-            return new g29(getPageContext(), linearLayout, navigationBar);
+            return new b09(getPageContext(), linearLayout, navigationBar);
         }
-        return (wu5) invokeLL.objValue;
+        return (ls5) invokeLL.objValue;
     }
 }

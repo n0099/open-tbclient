@@ -1,28 +1,137 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class jd8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile jd8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ long d;
+
+        public a(jd8 jd8Var, Long l, String str, String str2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jd8Var, l, str, str2, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l;
+            this.b = str;
+            this.c = str2;
+            this.d = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ob8.j().t(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
+
+        public b(jd8 jd8Var, Long l, String str, String str2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jd8Var, l, str, str2, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l;
+            this.b = str;
+            this.c = str2;
+            this.d = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ob8.j().w(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, !this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ long d;
+
+        public c(jd8 jd8Var, Long l, String str, String str2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jd8Var, l, str, str2, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l;
+            this.b = str;
+            this.c = str2;
+            this.d = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ob8.j().y(TbadkCoreApplication.getCurrentAccount(), this.a.longValue(), this.b, this.c, this.d);
+            }
+        }
+    }
 
     public jd8() {
         Interceptable interceptable = $ic;
@@ -38,144 +147,42 @@ public class jd8 {
         }
     }
 
-    public String a() {
+    public static jd8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static jd8 g(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                jd8 jd8Var = new jd8();
-                try {
-                    jd8Var.a = (String) map.get("user_id");
-                    jd8Var.b = (String) map.get("username");
-                    jd8Var.c = (String) map.get("avatar");
-                    jd8Var.d = ((Boolean) map.get("is_free")).booleanValue();
-                    jd8Var.e = ((Integer) map.get("pos")).intValue();
-                } catch (Exception unused) {
-                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
-                }
-                if (jd8Var.f()) {
-                    return jd8Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (jd8) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<jd8> h(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Object obj = hashMap.get("imUserList");
-            if (obj instanceof List) {
-                int i = 0;
-                while (true) {
-                    List list = (List) obj;
-                    if (i >= list.size()) {
-                        break;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (jd8.class) {
+                    if (a == null) {
+                        a = new jd8();
                     }
-                    jd8 g = g(list.get(i));
-                    if (g != null) {
-                        arrayList.add(g);
-                    }
-                    i++;
                 }
             }
-            return arrayList;
+            return a;
         }
-        return (List) invokeL.objValue;
+        return (jd8) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
+    public long a(@NonNull Long l) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
+            GroupChatRoomPojo f = ob8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (f != null) {
+                return f.getTopTime();
             }
-            if (obj == null || jd8.class != obj.getClass()) {
-                return false;
-            }
-            String str = this.a;
-            String str2 = ((jd8) obj).a;
-            if (str != null) {
-                return str.equals(str2);
-            }
-            if (str2 == null) {
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    @WorkerThread
+    public boolean d(@NonNull Long l) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
+            GroupChatRoomPojo f = ob8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (f == null || f.O() == 0) {
                 return true;
             }
             return false;
@@ -183,12 +190,38 @@ public class jd8 {
         return invokeL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @WorkerThread
+    public boolean c(@NonNull Long l, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, j)) == null) {
+            GroupChatRoomPojo f = ob8.j().f(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (f != null && f.getDeleteTime() != 0 && j <= f.getDeleteTime()) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLJ.booleanValue;
+    }
+
+    public void e(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
+            lg.e(new a(this, l, str, str2, j));
+        }
+    }
+
+    public void f(@NonNull Long l, @NonNull String str, @NonNull String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{l, str, str2, Boolean.valueOf(z)}) == null) {
+            lg.e(new b(this, l, str, str2, z));
+        }
+    }
+
+    public void g(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
+            lg.e(new c(this, l, str, str2, j));
+        }
     }
 }

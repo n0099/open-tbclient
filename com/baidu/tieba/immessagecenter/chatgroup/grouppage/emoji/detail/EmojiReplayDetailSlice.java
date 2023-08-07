@@ -11,17 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager2.widget.ViewPager2;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,20 +84,16 @@ public class EmojiReplayDetailSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, tab, i) == null) {
                 if (tab.getCustomView() == null) {
-                    customView = LayoutInflater.from(this.a.k.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0289, (ViewGroup) null);
+                    customView = LayoutInflater.from(this.a.k.getContext()).inflate(R.layout.obfuscated_res_0x7f0d028c, (ViewGroup) null);
                     tab.setCustomView(customView);
                 } else {
                     customView = tab.getCustomView();
                 }
-                TextView textView = (TextView) customView.findViewById(R.id.obfuscated_res_0x7f09098c);
-                d85 d = d85.d((LinearLayout) customView.findViewById(R.id.obfuscated_res_0x7f090987));
-                d.o(R.string.J_X01);
-                d.f(R.color.CAM_X0212);
-                d85 d2 = d85.d(textView);
-                d2.C(R.dimen.T_X07);
-                d2.x(R.color.CAM_X0105);
+                TextView textView = (TextView) customView.findViewById(R.id.obfuscated_res_0x7f09099b);
+                EMManager.from((LinearLayout) customView.findViewById(R.id.obfuscated_res_0x7f090996)).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0212);
+                EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105);
                 EmojiData emojiData = (EmojiData) this.a.o.get(i);
-                ((TbImageView) customView.findViewById(R.id.obfuscated_res_0x7f090986)).I(emojiData.getContent());
+                ((TbImageView) customView.findViewById(R.id.obfuscated_res_0x7f090995)).startLoad(emojiData.getContent());
                 textView.setText(String.valueOf(emojiData.getAllNum()));
             }
         }
@@ -130,7 +126,7 @@ public class EmojiReplayDetailSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091e8f) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091ea6) {
                 return;
             }
             this.a.e0();
@@ -187,7 +183,7 @@ public class EmojiReplayDetailSlice extends Slice {
             this.a.l.g.setCurrentItem(tab.getPosition());
             EmojiDetailFragment emojiDetailFragment = (EmojiDetailFragment) this.a.p.get(tab.getPosition());
             if (emojiDetailFragment != null) {
-                emojiDetailFragment.U1();
+                emojiDetailFragment.M1();
             }
         }
     }
@@ -224,14 +220,14 @@ public class EmojiReplayDetailSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e9b);
-                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e9c);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e8f);
-                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e90);
-                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e9e);
+                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb2);
+                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb3);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea6);
+                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea7);
+                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb5);
                 dVar.f = tabLayout;
                 tabLayout.setSelectedTabIndicator(0);
-                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091ea0);
+                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091eb7);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -265,11 +261,11 @@ public class EmojiReplayDetailSlice extends Slice {
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     @Nullable
-    public View N(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View O(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d085d, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0867, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -279,7 +275,7 @@ public class EmojiReplayDetailSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.U(view2, bundle);
-            View inflate = LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d028c, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d028f, (ViewGroup) null);
             if (inflate != null) {
                 this.l = d.a(inflate);
                 d0();
@@ -304,7 +300,7 @@ public class EmojiReplayDetailSlice extends Slice {
             bottomSheetDialog.setContentView(this.l.a);
             View view2 = (View) this.l.a.getParent();
             view2.setBackgroundResource(17170445);
-            BottomSheetBehavior.from(view2).setPeekHeight((int) (yi.j(TbadkApplication.getInst()) * 0.93f));
+            BottomSheetBehavior.from(view2).setPeekHeight((int) (BdUtilHelper.getEquipmentHeight(TbadkApplication.getInst()) * 0.93f));
         }
     }
 
@@ -336,7 +332,7 @@ public class EmojiReplayDetailSlice extends Slice {
                 tabAt.select();
             }
             this.m.show();
-            this.m.getWindow().setLayout(-1, (int) (yi.j(TbadkApplication.getInst()) * 0.93f));
+            this.m.getWindow().setLayout(-1, (int) (BdUtilHelper.getEquipmentHeight(TbadkApplication.getInst()) * 0.93f));
             this.m.getWindow().setGravity(80);
         }
     }
@@ -348,24 +344,22 @@ public class EmojiReplayDetailSlice extends Slice {
         if ((interceptable != null && interceptable.invokeLZ(1048581, this, view2, z) != null) || view2 == null) {
             return;
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090986);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09098c);
-        d85 d2 = d85.d((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090987));
-        d2.o(R.string.J_X01);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090995);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09099b);
+        EMManager corner = EMManager.from((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090996)).setCorner(R.string.J_X01);
         if (z) {
             i = R.color.CAM_X0905;
         } else {
             i = R.color.CAM_X0212;
         }
-        d2.f(i);
-        d85 d3 = d85.d(textView);
-        d3.C(R.dimen.T_X07);
+        corner.setBackGroundColor(i);
+        EMManager textSize = EMManager.from(textView).setTextSize(R.dimen.T_X07);
         if (z) {
             i2 = R.color.CAM_X0304;
         } else {
             i2 = R.color.CAM_X0105;
         }
-        d3.x(i2);
+        textSize.setTextColor(i2);
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
@@ -375,17 +369,9 @@ public class EmojiReplayDetailSlice extends Slice {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
             this.n.notifyDataSetChanged();
-            d85 d2 = d85.d(this.l.b);
-            d2.o(R.string.J_X14);
-            d2.f(R.color.CAM_X0213);
-            d85 d3 = d85.d(this.l.d);
-            d3.x(R.color.CAM_X0105);
-            d3.C(R.dimen.T_X05);
-            d3.D(R.string.F_X01);
-            d85 d4 = d85.d(this.l.e);
-            d4.x(R.color.CAM_X0105);
-            d4.C(R.dimen.T_X05);
-            d4.D(R.string.F_X01);
+            EMManager.from(this.l.b).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0213);
+            EMManager.from(this.l.d).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01);
+            EMManager.from(this.l.e).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01);
         }
     }
 }

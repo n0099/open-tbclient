@@ -43,7 +43,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
 
         @Override // com.kwad.components.ad.reward.presenter.b
         public final int gS() {
-            return R.id.obfuscated_res_0x7f091269;
+            return R.id.obfuscated_res_0x7f09127c;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b

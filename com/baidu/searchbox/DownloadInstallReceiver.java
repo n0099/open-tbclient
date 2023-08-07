@@ -108,7 +108,7 @@ public class DownloadInstallReceiver extends OpenDownloadReceiver {
                                                 UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.DownloadInstallReceiver.1.2
                                                     @Override // java.lang.Runnable
                                                     public void run() {
-                                                        UniversalToast.makeText(AppRuntime.getAppContext(), AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f1794)).showToast();
+                                                        UniversalToast.makeText(AppRuntime.getAppContext(), AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f1798)).showToast();
                                                     }
                                                 });
                                                 MigrateStatisticUtils.invoke(MigrateStatisticConstants.UB_UDPATE_VALID_FAILED_TYPE, MigrateStatisticUtils.build(md5));

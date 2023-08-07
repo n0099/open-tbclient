@@ -1,50 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.tieba.pp3;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gd3 extends sd3 {
+public class gd3 extends cd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements oq3<vg3> {
+    public class a implements rm2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ UnitedSchemeEntity b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ gd3 g;
+        public final /* synthetic */ gd3 d;
 
-        public a(gd3 gd3Var, CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
+        public a(gd3 gd3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gd3Var, callbackHandler, str, str2, context, jSONObject, str3};
+                Object[] objArr = {gd3Var, callbackHandler, unitedSchemeEntity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,161 +42,59 @@ public class gd3 extends sd3 {
                     return;
                 }
             }
-            this.g = gd3Var;
+            this.d = gd3Var;
             this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = context;
-            this.e = jSONObject;
-            this.f = str3;
+            this.b = unitedSchemeEntity;
+            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(vg3 vg3Var) {
+        @Override // com.baidu.tieba.rm2
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vg3Var) == null) {
-                if (vg3Var != null && !vg3Var.d) {
-                    if (this.g.m(vg3Var, this.c)) {
-                        this.g.l(this.d, this.e, this.a, this.b, this.f);
-                        return;
-                    } else {
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
-                        return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.n(this.b, this.a, this.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.rm2
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.d.n(this.b, this.a, this.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.rm2
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("success", "1");
+                } catch (JSONException e) {
+                    if (ir1.a) {
+                        e.printStackTrace();
                     }
                 }
-                if (sd3.b) {
-                    Log.i("OpenAppAction", "no configuration of authority");
-                }
-                tg3.o(10005, this.a, this.b);
-                oi3.r(10005, vg3Var);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements pp3.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public b(gd3 gd3Var, CallbackHandler callbackHandler, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gd3Var, callbackHandler, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-        }
-
-        @Override // com.baidu.tieba.pp3.g
-        public void a(boolean z) {
-            int i;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    i = 0;
-                } else {
-                    i = 1001;
-                }
-                if (z) {
-                    str = "打开APP成功";
-                } else {
-                    str = "打开APP失败，本地没有安装";
-                }
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
-                c.a("open", this.c, "confirm", this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.pp3.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
-                c.a("open", this.c, "cancel", this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(String str, String str2, String str3, String str4) {
-            String str5;
-            String str6;
-            String str7;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
-                xi3 xi3Var = new xi3();
-                vb3 b0 = vb3.b0();
-                String str8 = "";
-                if (b0 == null) {
-                    str5 = "";
-                    str6 = str5;
-                    str7 = str6;
-                } else {
-                    str8 = oi3.n(b0.k());
-                    str6 = b0.getAppId();
-                    str7 = b0.Z();
-                    str5 = b0.W().T();
-                }
-                String a = cv2.n().a();
-                xi3Var.a = str8;
-                xi3Var.b = str;
-                xi3Var.e = str2;
-                xi3Var.f = str6;
-                xi3Var.c = str5;
-                xi3Var.a("appName", str7);
-                xi3Var.a("hostName", a);
-                xi3Var.a("hostVersion", pp3.D());
-                xi3Var.a(PushConstants.CLICK_TYPE, str3);
-                try {
-                    str4 = URLDecoder.decode(str4, "UTF-8");
-                } catch (UnsupportedEncodingException unused) {
-                }
-                xi3Var.a("scheme", str4);
-                ci3.i("2572", "90", xi3Var.f());
-                if (sd3.b) {
-                    Log.d("OpenAppAction", String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", xi3Var.f()));
-                }
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gd3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/openApp");
+    public gd3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/topFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((vb3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -216,168 +102,32 @@ public class gd3 extends sd3 {
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (!cv2.a().d()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                return false;
-            } else if (vb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                return false;
-            } else {
-                JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params");
-                    return false;
-                }
-                String optString = a2.optString("cb");
-                if (sd3.b) {
-                    Log.i("OpenAppAction", "params is " + a2.toString());
-                }
-                String optString2 = a2.optString("open", "");
-                String optString3 = a2.optString("invokeFrom", "");
-                c.a(DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, optString3, null, optString2);
-                if (optString2.startsWith(BaiduIdentityManager.VALUE_OSNAME)) {
-                    if (!cv2.a().c()) {
-                        nb3.f(context, R.string.obfuscated_res_0x7f0f1491).G();
-                        return false;
-                    }
-                    l(context, a2, callbackHandler, optString, optString3);
-                } else {
-                    vb3Var.e0().e("scope_open_app", new a(this, callbackHandler, optString, optString2, context, a2, optString3));
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void l(Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
-        boolean z;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, callbackHandler, str, str2) == null) {
-            String optString = jSONObject.optString("open");
-            int i = 0;
-            if (!TextUtils.isEmpty(optString)) {
-                optString = Uri.decode(optString);
-                cv2.P().a(optString, jSONObject.optJSONObject("extraParams"));
-                if (sd3.b) {
-                    Log.i("OpenAppAction", "openUrl:" + optString);
-                }
-                z = o(context, optString, callbackHandler, str, str2);
-            } else {
-                z = false;
-            }
-            boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
-            if (sd3.b) {
-                Log.i("OpenAppAction", "open app result=" + z + "\nisNeedDownload=" + optBoolean);
-            }
-            if (!optBoolean) {
-                if (!z) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1002, "打开APP失败，本地没有安装").toString());
-                }
-            } else if (!z) {
-                boolean e = pp3.e(context, jSONObject.optString("download"));
-                if (!e) {
-                    i = 1001;
-                }
-                if (e) {
-                    str3 = "下载APP成功";
-                } else {
-                    str3 = "下载APP失败";
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, str3).toString());
-                c.a("download", str2, null, optString);
-            }
-        }
-    }
-
-    public final boolean m(vg3 vg3Var, String str) {
+    @Override // com.baidu.tieba.cd3
+    public boolean j(ya3 ya3Var, UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeLL;
-        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vg3Var, str)) == null) {
-            if (vg3Var != null && !TextUtils.isEmpty(str)) {
-                String T2 = ub3.K().q().W().T();
-                if (TextUtils.isEmpty(T2)) {
-                    T2 = "NA";
-                }
-                JSONObject jSONObject = vg3Var.o;
-                if (jSONObject != null && jSONObject.keys() != null) {
-                    if (sd3.b) {
-                        Log.i("OpenAppAction", "source: " + T2 + " openUrl:" + str + " 配置数据:" + jSONObject);
-                    }
-                    JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
-                    if (optJSONArray == null) {
-                        length = 0;
-                    } else {
-                        length = optJSONArray.length();
-                    }
-                    if (length > 0) {
-                        boolean z = false;
-                        for (int i = 0; i < length; i++) {
-                            if (T2.equals(optJSONArray.optString(i))) {
-                                z = true;
-                            }
-                        }
-                        if (!z || !n(str, optJSONArray2)) {
-                            return false;
-                        }
-                        return true;
-                    }
-                    return n(str, optJSONArray2);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ya3Var, unitedSchemeEntity)) == null) {
+            String param = unitedSchemeEntity.getParam("params");
+            if (TextUtils.isEmpty(param)) {
+                return false;
             }
-            return false;
+            try {
+                String optString = new JSONObject(param).optString("appid");
+                this.c = optString;
+                return !TextUtils.isEmpty(optString);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
         return invokeLL.booleanValue;
     }
 
-    public final boolean n(String str, JSONArray jSONArray) {
-        InterceptResult invokeLL;
-        int length;
+    @Override // com.baidu.tieba.cd3
+    public void k(ya3 ya3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jSONArray)) == null) {
-            if (jSONArray == null) {
-                length = 0;
-            } else {
-                length = jSONArray.length();
-            }
-            if (length > 0 && !TextUtils.isEmpty(str)) {
-                for (int i = 0; i < length; i++) {
-                    String optString = jSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        String decode = Uri.decode(optString);
-                        int indexOf = decode.indexOf(":");
-                        if (indexOf > 0) {
-                            decode = decode.substring(0, indexOf);
-                        }
-                        if (str.startsWith(decode)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ya3Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            SwanFavorDataManager.h().j(this.c, new a(this, callbackHandler, unitedSchemeEntity, str));
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean o(Context context, String str, CallbackHandler callbackHandler, String str2, String str3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, context, str, callbackHandler, str2, str3)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                return pp3.Z(context, str, new b(this, callbackHandler, str2, str3, str));
-            }
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

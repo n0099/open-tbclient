@@ -1,105 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.TailManagementActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes6.dex */
-public class j69 implements yn {
+public class j69 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static int d;
-    public static boolean e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public i69 a;
-    public List<k69> b;
+    public final BdListView a;
+    public LinearLayout b;
+    public LinearLayout c;
+    public TextView d;
+    public ImageView e;
+    public ImageView f;
+    public TextView g;
+    public final Context h;
+    public SimpleDraweeView i;
+    public final View.OnClickListener j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835388, "Lcom/baidu/tieba/j69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j69 a;
+
+        public a(j69 j69Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j69Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835388, "Lcom/baidu/tieba/j69;");
-                return;
+            this.a = j69Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.b) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailManagementActivityConfig(view2.getContext())));
+                } else if (view2 == this.a.c) {
+                    UserData e = lk5.d().e();
+                    if (e == null || e.getSmallTailThemeData() == null) {
+                        str = "";
+                    } else {
+                        str = e.getSmallTailThemeData().getPropsId();
+                    }
+                    String string = TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title);
+                    String string2 = SharedPrefHelper.getInstance().getString("tail_link", "");
+                    if (!StringUtils.isNull(string2)) {
+                        Context context = view2.getContext();
+                        BrowserHelper.startWebActivity(context, string, UtilHelper.urlAddParam(string2, "page_from=4&tailSkinId=" + str), true, true, true);
+                    }
+                }
             }
         }
-        c = BdUniqueId.gen();
-        d = 3;
-        e = false;
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public j69(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
-        String str;
+    public j69(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str2 = vipSpecialList.card_id;
-            i69 i69Var = new i69();
-            this.a = i69Var;
-            i69Var.e(4);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            if (TbadkCoreApplication.isLogin()) {
-                str = TbadkCoreApplication.getCurrentAccount();
-            } else {
-                str = SevenZipUtils.FILE_NAME_TEMP;
+        this.j = new a(this);
+        this.h = viewGroup.getContext();
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092410);
+        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092411);
+        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09240a);
+        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09240b);
+        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09240c);
+        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092407);
+        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092409);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092408);
+        this.b.setOnClickListener(this.j);
+        this.c.setOnClickListener(this.j);
+    }
+
+    public void d(e69 e69Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e69Var) == null) {
+            this.a.setAdapter((ListAdapter) e69Var);
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            EMManager.from(this.d).setTextColor(R.color.CAM_X0304).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06);
+            EMManager.from(this.b).setCorner(R.string.J_X01).setAlpha(R.string.A_X11).setBackGroundColor(R.color.CAM_X0302);
+            EMManager.from(this.g).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06);
+            EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080bcc, R.color.CAM_X0304, null);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080b46, R.color.CAM_X0101, null);
+        }
+    }
+
+    public void e(SmallTailThemeData smallTailThemeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, smallTailThemeData) == null) {
+            if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTail())) {
+                this.i.setVisibility(0);
+                this.i.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse(smallTailThemeData.getTail())).setAutoPlayAnimations(true).build());
+                this.i.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
+                return;
             }
-            if (StringUtils.isNull(f) || !f.equals(str)) {
-                e = false;
-                f = str;
-            }
-            this.b = new ArrayList();
-            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
-                this.b.add(new k69(vipSpecialList.item.get(i3)));
-                if (e) {
-                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
-                        this.b.add(new k69(true, true));
-                    }
-                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
-                    this.b.add(new k69(true, false));
-                    return;
-                }
-            }
+            this.i.setVisibility(4);
         }
     }
 }

@@ -1,145 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.IntentFilter;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g24 {
+public class g24 extends e34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<o24>> a;
+    public AppDownloadNetworkStateReceiver c;
 
-    public g24() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742016, "Lcom/baidu/tieba/g24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947742016, "Lcom/baidu/tieba/g24;");
                 return;
             }
         }
-        this.a = new HashMap<>();
+        boolean z = ir1.a;
     }
 
-    public synchronized void a(String str, o24 o24Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g24() {
+        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, o24Var) == null) {
-            synchronized (this) {
-                if (e(str, o24Var)) {
-                    return;
-                }
-                List<o24> c = c(str);
-                if (!c.contains(o24Var)) {
-                    c.add(o24Var);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, c);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public synchronized void b(String str, p24 p24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, p24Var) == null) {
-            synchronized (this) {
-                for (o24 o24Var : new ArrayList(c(str))) {
-                    if (o24Var != null) {
-                        o24Var.a(p24Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void g(String str, o24 o24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, o24Var) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (o24Var == null) {
-                    this.a.remove(str);
-                    return;
-                }
-                List<o24> c = c(str);
-                if (c.contains(o24Var)) {
-                    c.remove(o24Var);
-                    if (c.isEmpty()) {
-                        this.a.remove(str);
-                    }
-                }
-            }
-        }
-    }
-
-    public final List<o24> c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ArrayList();
-            }
-            List<o24> list = this.a.get(str);
-            if (list == null) {
-                return new ArrayList();
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                List<o24> list = this.a.get(str);
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        z = true;
-                    }
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                g(str, null);
-            }
-        }
-    }
-
-    public final boolean e(String str, o24 o24Var) {
+    @Override // com.baidu.tieba.e34
+    public y22 a(JSONObject jSONObject, co2 co2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, o24Var)) == null) {
-            if (!TextUtils.isEmpty(str) && o24Var != null) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, co2Var)) == null) {
+            if (jSONObject == null) {
+                co2Var.onFail(202, "params may be error");
+                return null;
             }
-            return true;
+            if (this.c == null) {
+                this.c = new AppDownloadNetworkStateReceiver();
+            }
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+            fu2.c().registerReceiver(this.c, intentFilter);
+            co2Var.onSuccess(null);
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (y22) invokeLL.objValue;
     }
 }

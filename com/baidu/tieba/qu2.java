@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.bx2;
-import com.baidu.tieba.tu2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,96 +11,99 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class qu2 extends tu2.f {
+public class qu2 implements ru3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final nj4 e;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104251, "Lcom/baidu/tieba/qu2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104251, "Lcom/baidu/tieba/qu2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948104251, "Lcom/baidu/tieba/qu2;")) == null) {
+            return;
         }
-        f = fs1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948104251, "Lcom/baidu/tieba/qu2;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qu2(String str, nj4 nj4Var) {
-        super("check_sign");
+    public qu2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, nj4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = str;
-        this.e = nj4Var;
     }
 
-    @Override // com.baidu.tieba.tu2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        on3 on3Var;
+    @Override // com.baidu.tieba.ru3
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            ax2 d = ax2.d(bundle.getString("launch_id"));
-            bx2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    on3Var = nf2.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    on3 on3Var2 = new on3();
-                    on3Var2.k(11L);
-                    on3Var2.i(2300L);
-                    on3Var2.f("inputStream IOException:" + e2.toString());
-                    sn3.a().f(on3Var2);
-                    d.g("SignChecker", on3Var2.toString());
-                    iq3.a(sourceChannel);
-                    on3Var = on3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (on3Var != null) {
-                    z = false;
-                }
-                if (on3Var != null) {
-                    d.g("SignChecker", on3Var.toString());
-                    c().putLong("result_error_code", on3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                iq3.a(sourceChannel);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return jr1.a();
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ru3
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return fu2.n().a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ru3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return kr4.b(AppRuntime.getAppContext()).a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ru3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return fu2.h0().i(AppRuntime.getAppContext());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ru3
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return so3.D();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ru3
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ir1.a;
+        }
+        return invokeV.booleanValue;
     }
 }

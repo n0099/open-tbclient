@@ -1,40 +1,164 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.network.outback.IOutbackClientIPProvider;
+import com.baidu.searchbox.network.outback.IOutbackContext;
+import com.baidu.searchbox.network.outback.core.CallFactory;
+import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.BdNetTypeSwitch;
+import com.baidu.tieba.d60;
+import com.baidu.tieba.h70;
+import com.baidu.tieba.i70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+import okhttp3.OkHttpClient;
+import okhttp3.internal.tls.OkHostnameVerifier;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class tq5 implements sq5 {
+public class tq5 implements IOutbackContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public rq5 b;
-    public Application c;
-    public String d;
-    public final yq5 e;
-    public final zq5 f;
+    public HashMap<String, CallFactory.CallFactoryProducer> a;
+    public CallFactory.CallFactoryProducer b;
+    public CallFactory.CallFactoryProducer c;
+    public CallFactory.CallFactoryProducer d;
+    public int e;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public IOutbackClientIPProvider getClientIPProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IOutbackClientIPProvider) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BroadcastReceiver {
+    public class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tq5 this$0;
+
+        public a(tq5 tq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return OkHostnameVerifier.INSTANCE.verify(str, sSLSession);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements IAdditionalRecord {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public long getAppLaunchTimeStamp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public String getClientIPV6() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public String getHttpDnsAreaInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public long getHttpDnsAreaInfoLastUpdateTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public int getIpStack() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public int getNetworkQuality() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
+        public String getProcessName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
 
         public b(tq5 tq5Var) {
             Interceptable interceptable = $ic;
@@ -48,54 +172,15 @@ public class tq5 implements sq5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = tq5Var;
-        }
-
-        public /* synthetic */ b(tq5 tq5Var, a aVar) {
-            this(tq5Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            pq5 a;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
-                return;
-            }
-            if (!uq5.i()) {
-                String c = uq5.c();
-                uq5.m(c + " Process Not In WhiteList，No Receive");
-            } else if (!"intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) || (a = this.this$0.e.a(intent)) == null) {
-            } else {
-                int myPid = Process.myPid();
-                int pid = a.getPid();
-                if (a != null && a.getType() == 1) {
-                    if (myPid == pid) {
-                        return;
-                    }
-                } else if (a.getType() == 2) {
-                    if (myPid != pid) {
-                        return;
-                    }
-                } else if (a.getType() == 3 && !uq5.l()) {
-                    return;
-                }
-                if (this.this$0.b != null) {
-                    this.this$0.b.a(a);
                 }
             }
         }
     }
 
-    public tq5(Application application) {
+    public tq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,102 +190,72 @@ public class tq5 implements sq5 {
                 return;
             }
         }
-        this.d = null;
-        this.e = new yq5();
-        this.f = new zq5();
-        this.c = application;
+        this.e = SwitchManager.getInstance().findType(BdNetTypeSwitch.KEY);
+        TbadkCoreApplication.getInst().setBdNetType(this.e);
+        a();
+        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new a(this)).build();
+        d60.b bVar = new d60.b();
+        bVar.p(build);
+        this.b = bVar.n();
+        this.c = new i70.a().a();
+        this.d = new h70.a().a();
+        HashMap<String, CallFactory.CallFactoryProducer> hashMap = new HashMap<>();
+        this.a = hashMap;
+        hashMap.put(this.b.getEngineName(), this.b);
+        this.a.put(this.c.getEngineName(), this.c);
+        this.a.put(this.d.getEngineName(), this.d);
     }
 
-    public final void f(pq5 pq5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pq5Var) == null) {
-            if (pq5Var != null) {
-                try {
-                    Intent intent = new Intent();
-                    intent.setPackage(e());
-                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                    this.f.a(intent, pq5Var);
-                    this.c.sendBroadcast(intent);
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            throw new NullPointerException("send multi-process message is null");
-        }
-    }
-
-    @Override // com.baidu.tieba.sq5
-    public void a(pq5 pq5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pq5Var) == null) {
-            f(pq5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.sq5
-    public void b(rq5 rq5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rq5Var) == null) {
-            this.b = rq5Var;
-        }
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            try {
-                unregisterReceiver();
-                this.a = new b(this, null);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.setPriority(1000);
-                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                this.c.registerReceiver(this.a, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                if (this.a != null && this.c != null) {
-                    this.c.unregisterReceiver(this.a);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final String e() {
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
         InterceptResult invokeV;
-        Application application;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null && (application = this.c) != null) {
-                this.d = application.getPackageName();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (CallFactory.CallFactoryProducer) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (BdNetTypeSwitch.isOkHttp(this.e)) {
+                return this.b;
             }
-            return this.d;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return (CallFactory.CallFactoryProducer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sq5
-    public void startService() {
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public IAdditionalRecord getIAdditionalRecord() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerReceiver();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new b(this);
         }
+        return (IAdditionalRecord) invokeV.objValue;
     }
 
-    public void stopService() {
+    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            unregisterReceiver();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
+        return (HashMap) invokeV.objValue;
     }
 }

@@ -1,32 +1,58 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import androidx.core.content.ContextCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class s21 {
+public class s21 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final boolean b;
 
-    public static final String a(String[] array) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View widget) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
-            Intrinsics.checkNotNullParameter(array, "array");
-            for (String str : array) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    return str;
-                }
-            }
-            return "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+            Intrinsics.checkNotNullParameter(widget, "widget");
         }
-        return (String) invokeL.objValue;
+    }
+
+    public s21(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = z;
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            if (this.a != -1) {
+                ds.setColor(ContextCompat.getColor(pj0.b(), this.a));
+            }
+            ds.setUnderlineText(this.b);
+        }
     }
 }

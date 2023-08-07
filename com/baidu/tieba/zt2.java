@@ -1,256 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.sw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class zt2 {
+public class zt2 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Long> a;
-    public final HashMap<String, String> b;
-    public boolean c;
-    public boolean d;
+    public CountDownLatch a;
+    public File b;
+    public AtomicInteger c;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sw2.a a;
-        public final /* synthetic */ zt2 b;
+        public final /* synthetic */ zt2 a;
 
-        public a(zt2 zt2Var, sw2.a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zt2 zt2Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zt2Var, aVar};
+                Object[] objArr = {zt2Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zt2Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 100) {
+                    b bVar = (b) message.obj;
+                    File file = new File(this.a.b, bVar.a);
+                    cr4.m(file.getParentFile());
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(file);
+                        fileOutputStream.write(bVar.b);
+                        fileOutputStream.close();
+                    } catch (Exception e) {
+                        if (this.a.c != null) {
+                            this.a.c.incrementAndGet();
+                        }
+                        y72.l("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e);
+                    }
+                } else if (i == 200) {
+                    if (this.a.a != null) {
+                        this.a.a.countDown();
+                    }
+                    this.a.quit();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public byte[] b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = zt2Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.b.j(this.a);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948371409, "Lcom/baidu/tieba/zt2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948371409, "Lcom/baidu/tieba/zt2;");
-                return;
-            }
-        }
-        e = fs1.a;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            this.b.clear();
-        }
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.d = true;
-            }
-        }
-    }
-
-    public synchronized boolean f() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            po3.k(new a(this, ub3.K().q().W()), "VideoStaticRecorder");
-        }
-    }
-
-    public zt2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zt2(String str, int i, File file, CountDownLatch countDownLatch, AtomicInteger atomicInteger) {
+        super(str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), file, countDownLatch, atomicInteger};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = file;
+        this.a = countDownLatch;
+        this.c = atomicInteger;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public zt2(String str, File file, CountDownLatch countDownLatch, AtomicInteger atomicInteger) {
+        this(str, 0, file, countDownLatch, atomicInteger);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, file, countDownLatch, atomicInteger};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (File) objArr2[2], (CountDownLatch) objArr2[3], (AtomicInteger) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = false;
-        this.d = false;
     }
 
-    public synchronized void g(String str, String str2) {
+    public Handler d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.b.put(str, str2);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this, getLooper());
         }
-    }
-
-    public synchronized boolean d(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean e(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.b.containsKey(str);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void h(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this) {
-                if (e) {
-                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
-                }
-                if (!this.d && !this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-                }
-            }
-        }
-    }
-
-    public synchronized void i(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            synchronized (this) {
-                if (e) {
-                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(j));
-                }
-            }
-        }
-    }
-
-    public final synchronized void j(sw2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                boolean equals = TextUtils.equals("1", this.b.get("autoPlay"));
-                boolean equals2 = TextUtils.equals("1", this.b.get("playMethod"));
-                if (e) {
-                    Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
-                }
-                if (!equals && !equals2) {
-                    b();
-                    return;
-                }
-                a53.r("video");
-                HybridUbcFlow p = a53.p("video");
-                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
-                    v82.i("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
-                    ubcFlowEvent.h(entry.getValue().longValue());
-                    p.F(ubcFlowEvent);
-                }
-                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
-                    v82.i("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
-                    p.D(entry2.getKey(), entry2.getValue());
-                }
-                String h = p.h("fmpArrived");
-                if (TextUtils.isEmpty(h)) {
-                    h = "0";
-                }
-                p.D("fmpArrived", h);
-                long l = aVar.l("launch_time", 0L);
-                UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_start");
-                ubcFlowEvent2.h(l);
-                p.F(ubcFlowEvent2);
-                p.D("launchID", aVar.V());
-                p.D("scheme", aVar.W());
-                p.D("appid", aVar.H());
-                p.D("page", aVar.e0());
-                long j = aVar.s0().getLong("click_time", 0L);
-                if (j > 0) {
-                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("user_action");
-                    ubcFlowEvent3.h(j);
-                    p.F(ubcFlowEvent3);
-                }
-                p.A();
-                b();
-            }
-        }
+        return (Handler) invokeV.objValue;
     }
 }

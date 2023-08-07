@@ -1,61 +1,119 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class ph1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ph1 b;
+    public static volatile Executor a;
+    public static final int b;
+    public static final int c;
+    public static final ThreadFactory d;
     public transient /* synthetic */ FieldHolder $fh;
-    public qh1 a;
 
-    public ph1(qh1 qh1Var) {
+    /* loaded from: classes7.dex */
+    public static class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new AtomicInteger(1);
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061936, "Lcom/baidu/tieba/ph1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948061936, "Lcom/baidu/tieba/ph1;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        b = availableProcessors;
+        c = (availableProcessors * 2) + 1;
+        d = new a();
+    }
+
+    public ph1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qh1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = qh1Var;
     }
 
-    public static void c(qh1 qh1Var) {
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, qh1Var) == null) && b == null) {
-            synchronized (ph1.class) {
-                if (b == null) {
-                    b = new ph1(qh1Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            b().execute(runnable);
         }
     }
 
-    public static ph1 b() {
+    public static synchronized Executor b() {
         InterceptResult invokeV;
+        Executor executor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (ph1.class) {
+                if (a == null) {
+                    synchronized (ph1.class) {
+                        if (a == null) {
+                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
+                            threadPoolExecutor.allowCoreThreadTimeOut(true);
+                            a = threadPoolExecutor;
+                        }
+                    }
+                }
+                executor = a;
+            }
+            return executor;
         }
-        return (ph1) invokeV.objValue;
-    }
-
-    public void a(ImageView imageView, String str) {
-        qh1 qh1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) && (qh1Var = this.a) != null) {
-            qh1Var.a(imageView, str);
-        }
+        return (Executor) invokeV.objValue;
     }
 }

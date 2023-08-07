@@ -1,74 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t34 {
+public class t34 extends e34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130260, "Lcom/baidu/tieba/t34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948130260, "Lcom/baidu/tieba/t34;");
+                return;
+            }
+        }
+        c = ir1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t34() {
+        super("getSid");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
-            ((NotificationManager) context.getSystemService("notification")).cancel(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public static final Bitmap b(Drawable drawable) {
-        InterceptResult invokeL;
-        Bitmap.Config config;
+    @Override // com.baidu.tieba.e34
+    public y22 a(JSONObject jSONObject, co2 co2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
-            int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (drawable.getOpacity() != -1) {
-                config = Bitmap.Config.ARGB_8888;
-            } else {
-                config = Bitmap.Config.RGB_565;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, co2Var)) == null) {
+            String k = fu2.g0().k();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("sid", k);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
             }
-            Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
-            Canvas canvas = new Canvas(createBitmap);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            drawable.draw(canvas);
-            return createBitmap;
+            co2Var.onSuccess(jSONObject2);
+            return null;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
-        NotificationCompat.Builder builder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            if (Build.VERSION.SDK_INT >= 26) {
-                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
-                builder = new NotificationCompat.Builder(context, String.valueOf(i));
-            } else {
-                builder = new NotificationCompat.Builder(context);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                w34.c("notifyShow", str3, str4);
-            }
-            if (pendingIntent != null) {
-                builder.setContentIntent(pendingIntent);
-            }
-            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f080183);
-            if (bitmap == null) {
-                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080183));
-            }
-            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
-        }
+        return (y22) invokeLL.objValue;
     }
 }

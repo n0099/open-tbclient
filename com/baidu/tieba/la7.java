@@ -1,107 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardMultiLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLinkComponent;
-import tbclient.PbLinkInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class la7 {
+public class la7 extends d97<CardMultiLinkView, n47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<mc7<? extends Object>> mutableList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public la7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            List<PbLinkInfo> list = feedLinkComponent.links;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (PbLinkInfo it : list) {
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    h97 b = b(it);
-                    if (b != null) {
-                        arrayList.add(b);
-                    }
-                }
-                if (arrayList.size() > 1) {
-                    mutableList.add(new f77(arrayList));
-                } else {
-                    mutableList.add(new k77((h97) arrayList.get(0)));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static final h97 b(PbLinkInfo pbLinkInfo) {
+    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        int intValue;
-        String str6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
-            String str7 = pbLinkInfo.title;
-            if (str7 == null) {
-                str = "";
-            } else {
-                str = str7;
-            }
-            String str8 = pbLinkInfo.to_url;
-            if (str8 == null) {
-                str2 = "";
-            } else {
-                str2 = str8;
-            }
-            String str9 = pbLinkInfo.pic_url;
-            if (str9 == null) {
-                str3 = "";
-            } else {
-                str3 = str9;
-            }
-            String str10 = pbLinkInfo.link_from;
-            if (str10 == null) {
-                str4 = "";
-            } else {
-                str4 = str10;
-            }
-            String str11 = pbLinkInfo.ext_txt;
-            if (str11 == null) {
-                str5 = "";
-            } else {
-                str5 = str11;
-            }
-            Integer num = pbLinkInfo.sort;
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            Integer num2 = pbLinkInfo.url_type;
-            if (num2 != null) {
-                i = num2.intValue();
-            }
-            String str12 = pbLinkInfo.content1;
-            if (str12 == null) {
-                str6 = "";
-            } else {
-                str6 = str12;
-            }
-            String str13 = pbLinkInfo.content2;
-            if (str13 == null) {
-                str13 = "";
-            }
-            return new h97(str, str2, str3, str4, str5, intValue, i, str6, str13);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            hb7.j(a);
+            return a;
         }
-        return (h97) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull CardMultiLinkView cardMultiLinkView, @NonNull n47 n47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMultiLinkView, n47Var) == null) {
+            cardMultiLinkView.a(n47Var);
+        }
     }
 }

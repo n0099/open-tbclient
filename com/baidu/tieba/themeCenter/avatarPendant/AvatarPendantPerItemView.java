@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.qha;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.zia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public ImageView e;
     public TextView f;
     public DressItemData g;
-    public zia.a h;
+    public qha.a h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -138,7 +138,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         d();
     }
 
-    public void setAvatarPendantItemClickListener(zia.a aVar) {
+    public void setAvatarPendantItemClickListener(qha.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.h = aVar;
@@ -155,13 +155,13 @@ public class AvatarPendantPerItemView extends LinearLayout {
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
             if (this.c.getHeadView() != null) {
-                this.c.getHeadView().N(String.valueOf((int) R.drawable.pic_shop_woman), 24, false);
+                this.c.getHeadView().startLoad(String.valueOf((int) R.drawable.pic_shop_woman), 24, false);
             }
         } else if (this.c.getHeadView() != null) {
-            this.c.getHeadView().N(String.valueOf((int) R.drawable.pic_shop_man), 24, false);
+            this.c.getHeadView().startLoad(String.valueOf((int) R.drawable.pic_shop_man), 24, false);
         }
-        if (xi.byteLength(dressItemData.getTitle()) > 8) {
-            this.f.setText(xi.cutString(dressItemData.getTitle(), 8));
+        if (bi.byteLength(dressItemData.getTitle()) > 8) {
+            this.f.setText(bi.cutString(dressItemData.getTitle(), 8));
         } else {
             this.f.setText(dressItemData.getTitle());
         }
@@ -171,7 +171,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         } else {
             this.e.setVisibility(8);
         }
-        this.d.N(dressItemData.getPermissionImgUrl(), 10, false);
+        this.d.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
         this.c.n(dressItemData.getExampleImgUrl());
         this.c.setOnClickListener(new a(this));
         SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
@@ -182,13 +182,13 @@ public class AvatarPendantPerItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0132, this);
             this.b = inflate;
-            this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f090318);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b51);
+            this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f090319);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b67);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906ea);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09246a);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906f9);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092482);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);

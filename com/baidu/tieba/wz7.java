@@ -1,216 +1,205 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.BannerImage;
-import tbclient.RecomTopicList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wz7 {
+public class wz7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<ThreadData> b;
-    public h25 c;
-    public h35 d;
-    public p88 e;
-    @Nullable
-    public String f;
-    public aa9 g;
+    public List<e08> a;
+    public TbPageContext b;
+    public int c;
+    public int d;
+    public BdUniqueId e;
+    public boolean f;
 
-    public wz7() {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BarImageView b;
+        public ImageView c;
+
+        public b(wz7 wz7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wz7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(wz7 wz7Var, a aVar) {
+            this(wz7Var);
+        }
+    }
+
+    public wz7(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
+        this.c = -1;
+        this.f = false;
+        this.b = tbPageContext;
+        this.e = bdUniqueId;
+        this.d = i;
+        this.c = SharedPrefHelper.getInstance().getInt("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
-    public h25 a() {
-        InterceptResult invokeV;
+    public final void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+            return;
         }
-        return (h25) invokeV.objValue;
+        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
+        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
     }
 
-    public h35 b() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
-        return (h35) invokeV.objValue;
     }
 
-    public p88 c() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return ListUtils.getItem(this.a, i);
         }
-        return (p88) invokeV.objValue;
+        return invokeI.objValue;
     }
 
-    public aa9 d() {
+    public void b(List<e08> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            if (!this.f && !ListUtils.isEmpty(list)) {
+                for (e08 e08Var : list) {
+                    if (!StringUtils.isNull(e08Var.c)) {
+                        BdResourceLoader.getInstance().loadResource(e08Var.c, 10, null, this.e);
+                    }
+                }
+                this.f = true;
+            }
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            return ListUtils.getCount(this.a);
         }
-        return (aa9) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public ArrayList<ThreadData> e() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(JSONObject jSONObject) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-            boolean z = false;
-            if (optJSONArray != null) {
-                this.b = new ArrayList<>(optJSONArray.length());
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    if (jSONObject2 != null) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.isFromFeedTab = true;
-                        threadData.isFromLocal = "local".equals(this.f);
-                        threadData.parserJson(jSONObject2);
-                        threadData.insertItemToTitleOrAbstractText();
-                        this.b.add(threadData);
-                    }
-                }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b(this, null);
+                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03d0, (ViewGroup) null);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091018);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f091016);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091017);
+                bVar.b.setShowOval(true);
+                bVar.b.setAutoChangeStyle(true);
+                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
+                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+                view3.setTag(bVar);
+            } else {
+                view3 = view2;
+                bVar = (b) view2.getTag();
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("banner_list");
-            if (optJSONArray2 != null) {
-                this.c = new h25();
-                ArrayList arrayList = new ArrayList();
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
-                    if (optJSONObject != null) {
-                        BannerImage.Builder builder = new BannerImage.Builder();
-                        builder.ahead_url = optJSONObject.optString("ahead_url");
-                        builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
-                        builder.title = optJSONObject.optString("title");
-                        arrayList.add(builder.build(true));
-                    }
-                }
-                this.c.parserProtobuf(arrayList);
-            }
-            JSONArray optJSONArray3 = jSONObject.optJSONArray("grid");
-            if (optJSONArray3 != null && optJSONArray3.length() >= 4) {
-                this.d = new h35();
-                ArrayList arrayList2 = new ArrayList();
-                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i4);
-                    if (optJSONObject2 != null) {
-                        BannerImage.Builder builder2 = new BannerImage.Builder();
-                        builder2.ahead_url = optJSONObject2.optString("ahead_url");
-                        builder2.img_url = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                        builder2.title = optJSONObject2.optString("title");
-                        arrayList2.add(builder2.build(true));
-                    }
-                }
-                this.d.parserProtobuf(arrayList2);
-            }
-            JSONArray optJSONArray4 = jSONObject.optJSONArray("module_list");
-            JSONArray jSONArray = null;
-            int i5 = 0;
-            while (true) {
-                if (i5 < optJSONArray4.length()) {
-                    JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i5);
-                    if ("hot_topic".equals(optJSONObject3.optString("type"))) {
-                        jSONArray = optJSONObject3.optJSONArray("hot_topic");
-                        i = optJSONObject3.optInt(CriusAttrConstants.POSITION);
-                        break;
-                    }
-                    i5++;
+            a(bVar);
+            e08 e08Var = (e08) ListUtils.getItem(this.a, i);
+            if (e08Var != null) {
+                TextView textView = bVar.a;
+                if (StringUtils.isNull(e08Var.b)) {
+                    str = "";
                 } else {
-                    i = 0;
-                    break;
+                    str = e08Var.b;
+                }
+                textView.setText(str);
+                bVar.b.startLoad(e08Var.c, 10, false);
+                if (e08Var.d == 1) {
+                    bVar.b.setAlpha(1);
+                    bVar.a.setAlpha(1.0f);
+                } else {
+                    bVar.b.setAlpha(0.5f);
+                    bVar.a.setAlpha(0.5f);
+                }
+                if (e08Var.a == this.c && this.d != 101) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(8);
                 }
             }
-            if (jSONArray != null && jSONArray.length() >= 4) {
-                ArrayList arrayList3 = new ArrayList();
-                for (int i6 = 0; i6 < jSONArray.length(); i6++) {
-                    JSONObject optJSONObject4 = jSONArray.optJSONObject(i6);
-                    if (optJSONObject4 != null && i6 < 6) {
-                        RecomTopicList.Builder builder3 = new RecomTopicList.Builder();
-                        builder3.topic_id = Long.valueOf(wg.g(optJSONObject4.optString("topic_id"), 0L));
-                        builder3.topic_name = optJSONObject4.optString("topic_name");
-                        builder3.topic_desc = optJSONObject4.optString("topic_desc");
-                        builder3.tag = Integer.valueOf(optJSONObject4.optInt("tag"));
-                        builder3.topic_pic = optJSONObject4.optString("topic_pic");
-                        builder3.type = Integer.valueOf(optJSONObject4.optInt("type"));
-                        builder3.discuss_num = Long.valueOf(wg.g(optJSONObject4.optString("discuss_num"), 0L));
-                        arrayList3.add(builder3.build(true));
-                    }
-                    p88 p88Var = new p88();
-                    this.e = p88Var;
-                    p88Var.floorPosition = i;
-                    p88Var.parserProtobuf(arrayList3);
-                }
-            }
-            if (jSONObject.optInt("has_more", 1) == 1) {
-                z = true;
-            }
-            this.a = z;
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("nearby_person");
-            if (optJSONObject5 != null) {
-                aa9 aa9Var = new aa9();
-                this.g = aa9Var;
-                aa9Var.a(optJSONObject5);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return view3;
         }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f = str;
-        }
+        return (View) invokeILL.objValue;
     }
 }

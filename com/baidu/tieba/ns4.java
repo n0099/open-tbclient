@@ -1,52 +1,129 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.videoplayer.widget.MediaTipStateLayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.util.UUID;
 /* loaded from: classes7.dex */
-public class ns4 implements js4<String> {
+public final class ns4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final boolean a;
+    public final boolean b;
+    public final boolean c;
+    public final boolean d;
+    public final boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
-    @Override // com.baidu.tieba.js4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.js4
-    /* renamed from: h */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+            this.b = true;
+            this.c = true;
+            this.d = true;
+            this.e = true;
+        }
+
+        public ns4 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ns4(this, null);
+            }
+            return (ns4) invokeV.objValue;
+        }
+
+        public b g(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.c = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b h(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.d = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.b = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b j(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.e = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b k(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.a = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
         }
     }
 
-    public ns4(Context context) {
+    public ns4(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,141 +133,122 @@ public class ns4 implements js4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.i = false;
+        this.a = bVar.a;
+        this.b = bVar.b;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.c = bVar.c;
     }
 
-    public static byte[] g(byte[]... bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            int i = 0;
-            for (byte[] bArr2 : bArr) {
-                i += bArr2.length;
-            }
-            byte[] bArr3 = new byte[i];
-            int i2 = 0;
-            for (byte[] bArr4 : bArr) {
-                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
-                i2 += bArr4.length;
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeL.objValue;
+    public /* synthetic */ ns4(b bVar, a aVar) {
+        this(bVar);
     }
 
-    public final String b() {
+    public boolean a() {
         InterceptResult invokeV;
-        byte[] g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c() && this.b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
-            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
-            if (Build.VERSION.SDK_INT < 23) {
-                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
-            } else {
-                g = g(bytes2, bytes);
+            if (c() && f() && this.c && !this.h && !this.a) {
+                return true;
             }
-            return qs4.b(g, true);
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public final String e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                str = (String) Build.class.getField("SERIAL").get(null);
-                try {
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        Method declaredMethod = Build.class.getDeclaredMethod("getString", String.class);
-                        declaredMethod.setAccessible(true);
-                        str = (String) declaredMethod.invoke(null, "ro.serialno");
-                    }
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        str = f("ro.serialno");
-                    }
-                } catch (Exception unused) {
-                }
-            } catch (Exception unused2) {
-                str = null;
-            }
-            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                return null;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.js4
-    /* renamed from: c */
-    public String get() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b();
+            if (this.g && this.i) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @SuppressLint({"HardwareIds"})
-    public final String d() {
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (c() && !f() && this.d && !this.a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a = ax3.b.a(this.a);
-            if (TextUtils.isEmpty(a)) {
-                a = e();
+            if (f()) {
+                if (c() && this.e && !this.h) {
+                    return true;
+                }
+            } else if (c() && this.e) {
+                return true;
             }
-            if (TextUtils.isEmpty(a)) {
-                a = UUID.randomUUID().toString();
-            }
-            if (a == null) {
-                return "";
-            }
-            return a;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String f(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                try {
-                    Runtime runtime = Runtime.getRuntime();
-                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException unused) {
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                ps4.a(bufferedReader);
-                if (readLine == null) {
-                    return "";
-                }
-                return readLine;
-            } catch (IOException unused2) {
-                bufferedReader2 = bufferedReader;
-                ps4.a(bufferedReader2);
-                ps4.a(bufferedReader2);
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                ps4.a(bufferedReader2);
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void j(MediaTipStateLayer.TipState tipState) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, tipState) == null) {
+            if (tipState == MediaTipStateLayer.TipState.NORMAL) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.i = z;
+        }
     }
 }

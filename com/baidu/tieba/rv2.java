@@ -1,211 +1,165 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class rv2 implements fw1 {
+public final class rv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, Object> a;
 
-    @Override // com.baidu.tieba.fw1
-    public String H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.fw1
-    public boolean J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rv2 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fw1
-    public String K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-448022179, "Lcom/baidu/tieba/rv2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-448022179, "Lcom/baidu/tieba/rv2$b;");
+                    return;
+                }
+            }
+            a = new rv2(null);
         }
     }
 
-    @Override // com.baidu.tieba.fw1
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135003, "Lcom/baidu/tieba/rv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135003, "Lcom/baidu/tieba/rv2;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public void x(Message message, vy2 vy2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, message, vy2Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String z(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
+        b = ir1.a;
     }
 
     public rv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new LruCache<>(10);
+    }
+
+    public static rv2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (rv2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.evictAll();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.fw1
-    public String G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com");
-        }
-        return (String) invokeV.objValue;
+    public /* synthetic */ rv2(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.fw1
-    public String I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return r82.w(String.format("%s/ma/navigate", r82.a), true);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return r82.v(String.format("%s/ma/customer/checknewmess", r82.a));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return String.format("%s/pms", "https://ossapi.baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return String.format("%s", "https://ossapi.baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw1
-    public String m(String str) {
+    public synchronized <RESULT> RESULT b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return r82.v(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                RESULT result = (RESULT) this.a.get(str);
+                if (result == null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+                    }
+                    return null;
+                }
+                try {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                    }
+                    return result;
+                } catch (Exception e) {
+                    if (b) {
+                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    }
+                    return null;
+                }
+            }
         }
-        return (String) invokeL.objValue;
+        return (RESULT) invokeL.objValue;
+    }
+
+    public synchronized <RESULT> void d(String str, RESULT result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && result != null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
+                    }
+                    this.a.put(str, result);
+                }
+            }
+        }
+    }
+
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (b) {
+                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
+                }
+                this.a.remove(str);
+            }
+        }
     }
 }

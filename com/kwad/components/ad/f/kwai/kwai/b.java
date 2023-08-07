@@ -7,32 +7,32 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public static int ks = 1;
     public static int kt = 2;
     public com.kwad.sdk.core.webview.kwai.c kr;
     public int ku;
     public int kv;
-    public InterfaceC0601b kx;
+    public InterfaceC0602b kx;
     public c kw = new c(this, (byte) 0);
     @Nullable
     public Runnable ky = null;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int kA;
         public int kB;
     }
 
     /* renamed from: com.kwad.components.ad.f.kwai.kwai.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0601b {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0602b {
         void C(int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements Runnable {
         public boolean kC;
         public int kD;
@@ -80,9 +80,9 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public void I(int i) {
         com.kwad.sdk.core.e.b.d("RegisterTimer", "updateTimer: " + i + ", mCallBackFunction: " + this.kr);
         if (i >= 0 && this.kr != null) {
-            InterfaceC0601b interfaceC0601b = this.kx;
-            if (interfaceC0601b != null && i == 0) {
-                interfaceC0601b.C(this.ku);
+            InterfaceC0602b interfaceC0602b = this.kx;
+            if (interfaceC0602b != null && i == 0) {
+                interfaceC0602b.C(this.ku);
             }
             a aVar = new a();
             aVar.kB = i;
@@ -110,8 +110,8 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         return null;
     }
 
-    public final void a(InterfaceC0601b interfaceC0601b) {
-        this.kx = interfaceC0601b;
+    public final void a(InterfaceC0602b interfaceC0602b) {
+        this.kx = interfaceC0602b;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

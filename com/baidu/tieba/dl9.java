@@ -1,190 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class dl9 {
+public abstract class dl9<T, V extends TypeAdapter.ViewHolder> extends lm<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<yn> a;
-    public final RelateRecThreadListModel b;
-    public ij9 c;
-    public PbModel d;
-    public boolean e;
-    public List<yn> f;
-    public final c05 g;
+    public kf9 a;
+    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public class a implements c05 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dl9 a;
-
-        public a(dl9 dl9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dl9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dl9Var;
+    @Override // com.baidu.tieba.lm
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.c05
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.c != null && this.a.c.d1() != null) {
-                this.a.c.d1().Q();
-            }
-        }
-
-        @Override // com.baidu.tieba.c05
-        public void onSuccess(Object obj) {
-            String str;
-            int intValue;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    ze9 z1 = this.a.d.z1();
-                    if (z1.k() != null) {
-                        str = z1.k().getFirst_class();
-                    } else {
-                        str = "";
-                    }
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c != null && this.a.c.d1() != null) {
-                            this.a.c.d1().y(z1.s());
-                            this.a.c.d1().Q();
-                            if (z1.s()) {
-                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("fid", z1.l());
-                                statisticItem.param("fname", z1.m());
-                                statisticItem.param("tid", z1.P());
-                                TiebaStatic.log(statisticItem);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    List<yn> b = el9.b(list, str, this.a.d.y1());
-                    this.a.a.addAll(b);
-                    z1.Q0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    if (num == null) {
-                        intValue = 0;
-                    } else {
-                        intValue = num.intValue();
-                    }
-                    z1.N0(intValue);
-                }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.R3();
-                }
-                if (this.a.c != null && this.a.c.d1() != null && this.a.c.d1().q() && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.d1().n();
-                }
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 
-    public dl9(bn9 bn9Var, BdUniqueId bdUniqueId, ij9 ij9Var, PbModel pbModel) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public dl9(kf9 kf9Var, BdUniqueId bdUniqueId) {
+        this(kf9Var, bdUniqueId, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bn9Var, bdUniqueId, ij9Var, pbModel};
+            Object[] objArr = {kf9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((kf9) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = ij9Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(bn9Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.c0(this.g);
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dl9(kf9 kf9Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(kf9Var.getPageContext().getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.S1()) || this.d.z1() == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kf9Var, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (this.e) {
-                return true;
-            }
-            if (this.d.z1().b0()) {
-                return false;
-            }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.z1().k() != null) {
-                forumId = this.d.z1().k().getId();
-            }
-            long g = wg.g(forumId, 0L);
-            long g2 = wg.g(this.d.S1(), 0L);
-            int O1 = this.d.O1();
-            String N1 = this.d.N1();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.b0(g, g2, 1, O1, N1);
         }
-        return invokeV.booleanValue;
+        this.b = false;
+        this.a = kf9Var;
     }
 
-    public void e() {
+    public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
-        }
-    }
-
-    public void f(ij9 ij9Var, PbModel pbModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ij9Var, pbModel) == null) {
-            this.c = ij9Var;
-            this.d = pbModel;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
     }
 }

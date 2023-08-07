@@ -35,7 +35,7 @@ public class ChatTabFragmentAdapt extends BaseFragment {
         this.a = chatTabFragment != null;
     }
 
-    public BaseFragment H1() {
+    public BaseFragment I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

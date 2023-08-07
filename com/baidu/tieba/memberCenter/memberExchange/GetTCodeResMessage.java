@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.x69;
+import com.baidu.tieba.v49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ public class GetTCodeResMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVATION_CODE = "activation_code";
     public transient /* synthetic */ FieldHolder $fh;
-    public x69 mData;
+    public v49 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTCodeResMessage(int i) {
@@ -46,18 +46,18 @@ public class GetTCodeResMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null) {
                 return;
             }
-            x69 x69Var = new x69();
-            this.mData = x69Var;
-            x69Var.a(jSONObject);
+            v49 v49Var = new v49();
+            this.mData = v49Var;
+            v49Var.a(jSONObject);
         }
     }
 
-    public x69 getTCodeInfo() {
+    public v49 getTCodeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (x69) invokeV.objValue;
+        return (v49) invokeV.objValue;
     }
 }

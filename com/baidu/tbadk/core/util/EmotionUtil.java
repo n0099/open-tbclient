@@ -6,7 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.ci;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +48,7 @@ public class EmotionUtil {
                 }
             } finally {
                 try {
-                    zi.a(cursor);
+                    ci.a(cursor);
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.param("obj_param1", i);
@@ -56,7 +56,7 @@ public class EmotionUtil {
                 } catch (Throwable th) {
                 }
             }
-            zi.a(cursor);
+            ci.a(cursor);
             StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
             statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem2.param("obj_param1", i);

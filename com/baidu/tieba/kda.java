@@ -1,14 +1,23 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public class kda {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
+public interface kda {
+    void a(TbPageContext<?> tbPageContext);
 
-    public abstract void a(Canvas canvas);
+    void b(String str);
+
+    boolean c(qi qiVar, int i);
+
+    void cancelRecord();
+
+    void d(int i);
+
+    void e(qi qiVar);
+
+    boolean f();
+
+    void release();
+
+    void stopRecord();
 }

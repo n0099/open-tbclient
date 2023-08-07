@@ -1,249 +1,101 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Locale;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "BdPlayerUtils")
 /* loaded from: classes8.dex */
-public final class u11 extends t11 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean f = false;
-    public static boolean g = false;
-    public static boolean h = false;
-    public static boolean i = false;
-    public static int j = -1;
+public final class u11 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
-    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948158036, "Lcom/baidu/tieba/u11;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948158036, "Lcom/baidu/tieba/u11;");
-        }
+    @JvmOverloads
+    public static final int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u11(Context context) {
-        super(context);
+    public static final int a(View view2, float f) {
+        InterceptResult invokeLF;
+        float f2;
+        Context context;
+        Resources resources;
+        DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-    }
-
-    @Override // com.baidu.tieba.t11, com.baidu.tieba.ny0
-    public void d(mx0 event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                boolean z = false;
-                this.e = false;
-                Context context = getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "context");
-                boolean a = q21.a(context);
-                if (!a) {
-                    j = y21.c(getContext());
-                }
-                if (a != f) {
-                    f = a;
-                    if (!a && su0.T() && y21.c(getContext()) > 0) {
-                        v21.b("HeadsetPlugin", "恢复操作,静音->非静音");
-                        i = false;
-                        su0 i2 = i();
-                        if (i2 != null) {
-                            i2.s0(false);
-                        }
-                    }
-                }
-                su0 i3 = i();
-                if (i3 != null) {
-                    z = i3.V();
-                }
-                this.d = z;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ny0
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new int[]{1, 4};
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t11, com.baidu.tieba.ny0
-    public void n(mx0 event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_HEADSET_PLUG)) {
-                boolean d = event.d(3);
-                h = d;
-                if (!g) {
-                    p(d);
-                }
-            } else if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_BLUETOOTH_HEADSET)) {
-                boolean d2 = event.d(6);
-                g = d2;
-                if (!h) {
-                    p(d2);
-                }
-            }
-        }
-    }
-
-    public final void p(boolean z) {
-        Boolean bool;
-        Boolean bool2;
-        su0 i2;
-        boolean z2;
-        su0 i3;
-        int i4;
-        int i5;
-        su0 i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("播放器是否静音isMute= ");
-            su0 i7 = i();
-            Boolean bool3 = null;
-            if (i7 != null) {
-                bool = Boolean.valueOf(i7.V());
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
+            if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
+                f2 = displayMetrics.density;
             } else {
-                bool = null;
+                f2 = 1.0f;
             }
-            sb.append(bool);
-            sb.append(',');
-            sb.append(" 播放器是否全局静音sGlobalMute= ");
-            sb.append(su0.T());
-            sb.append(',');
-            sb.append(" 播放器静音状态(业务复写的方法)isPlayerMute= ");
-            su0 i8 = i();
-            if (i8 != null) {
-                bool2 = Boolean.valueOf(i8.X());
+            return (int) ((f * f2) + 0.5f);
+        }
+        return invokeLF.intValue;
+    }
+
+    @JvmOverloads
+    public static final int d(String str, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
             } else {
-                bool2 = null;
+                z = true;
             }
-            sb.append(bool2);
-            sb.append(',');
-            sb.append(" 播放器耳机连接前的音量大小-> ");
-            sb.append(j);
-            sb.append(',');
-            sb.append(" 播放器音量音量焦点-> ");
-            su0 i9 = i();
-            if (i9 != null) {
-                bool3 = Boolean.valueOf(i9.U());
-            }
-            sb.append(bool3);
-            v21.b("HeadsetPlugin", sb.toString());
             if (z) {
-                f = true;
-                i = su0.T();
-                su0 i10 = i();
-                if (i10 != null) {
-                    z2 = i10.V();
-                } else {
-                    z2 = false;
-                }
-                this.d = z2;
-                v21.b("HeadsetPlugin", "耳机连接>>> 静音状态,全局=" + i + ", 播放器=" + this.d);
-                boolean z3 = this.d;
-                if (!z3) {
-                    su0 i11 = i();
-                    if (i11 != null && i11.V()) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                }
-                if (z3 && (i6 = i()) != null) {
-                    i6.s0(false);
-                }
-                int c = y21.c(getContext());
-                if (c == 0) {
-                    c = (int) (y21.b(getContext()) * 0.35d);
-                }
-                y21.d(getContext(), c);
-                if (f31.j() && (i3 = i()) != null && i3.W() && this.e) {
-                    su0 i12 = i();
-                    if (i12 != null) {
-                        i4 = i12.r();
-                    } else {
-                        i4 = 0;
-                    }
-                    su0 i13 = i();
-                    if (i13 != null) {
-                        i5 = i13.C();
-                    } else {
-                        i5 = 0;
-                    }
-                    if (i4 > i5) {
-                        this.e = false;
-                        su0 i14 = i();
-                        if (i14 != null) {
-                            i14.l0();
-                        }
-                    }
-                }
-            } else if (f) {
-                f = false;
-                if (f31.j() && (i2 = i()) != null && i2.Y()) {
-                    this.e = true;
-                    su0 i15 = i();
-                    if (i15 != null) {
-                        i15.f0(4);
-                    }
-                }
-                v21.b("HeadsetPlugin", "耳机断开>>> 恢复之前静音状态,全局=" + i + ", 播放器=" + this.d + StringUtil.ARRAY_ELEMENT_SEPARATOR + "声音=" + j);
-                if (j == 0) {
-                    y21.d(getContext(), j);
-                }
-                su0 i16 = i();
-                if (i16 != null) {
-                    i16.s0(i);
-                }
-                su0 i17 = i();
-                if (i17 != null) {
-                    i17.w0(this.d);
-                }
-            } else {
-                h21.c().d(cx0.w(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                y11.f("parseInt catch exception:", e);
+                return i;
             }
         }
+        return invokeLI.intValue;
+    }
+
+    public static final String b(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
+                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
+                return format;
+            }
+            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
+            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
+            return format2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
+        }
+        return d(str, i);
     }
 }

@@ -1,68 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class w18 extends xx<l18> {
+public class w18 implements j18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final v18 f;
+    public k18 a;
+    public i18 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w18(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity());
+    public w18(k18 k18Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {k18Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.f = new v18(pageContext);
+        this.a = k18Var;
+        this.b = new v18(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: u */
-    public void b(l18 l18Var) {
+    @Override // com.baidu.tieba.j18
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, l18Var) == null) {
-            this.f.e(l18Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            i18 i18Var = this.b;
+            if (i18Var != null) {
+                return i18Var.a(bdUniqueId, str, str2, str3);
+            }
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xx
-    public View l() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.j18
+    public boolean b(int i, u18 u18Var) {
+        InterceptResult invokeIL;
+        k18 k18Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.c();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, u18Var)) == null) {
+            if (u18Var != null && (k18Var = this.a) != null) {
+                k18Var.setData(u18Var.getDataList());
+                return true;
+            }
+            return false;
         }
-        return (View) invokeV.objValue;
+        return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+    @Override // com.baidu.tieba.j18
+    public boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            k18 k18Var = this.a;
+            if (k18Var != null) {
+                k18Var.a(i);
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.j18
+    public void setData(List<ym> list) {
+        k18 k18Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (k18Var = this.a) != null) {
+            k18Var.setData(list);
         }
     }
 }

@@ -1,228 +1,124 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankHttpResMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankReqMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class p17 {
+public class p17 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public WeakReference<Drawable> a;
     public int b;
-    public n17 c;
-    public b d;
-    public kb e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(n17 n17Var);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p17 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(p17 p17Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p17Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p17Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            n17 n17Var = null;
-            if (responsedMessage instanceof HotUserRankHttpResMsg) {
-                n17Var = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
-            } else if (responsedMessage instanceof HotUserRankSocketResMsg) {
-                n17Var = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
-            }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (n17Var == null || ListUtils.isEmpty(n17Var.b))) {
-                    if (this.a.d != null) {
-                        this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e1f));
-                    }
-                } else if (n17Var != null) {
-                    this.a.c.a = n17Var.a;
-                    this.a.c.b.addAll(n17Var.b);
-                    this.a.c.c = n17Var.c;
-                    this.a.c.d = n17Var.d;
-                    this.a.c.e = n17Var.e;
-                    this.a.c.f = n17Var.f;
-                    if (!ListUtils.isEmpty(n17Var.b)) {
-                        this.a.c.g = n17Var.g;
-                        p17.c(this.a);
-                    } else {
-                        this.a.c.g = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(n17Var);
-                    }
-                }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public p17(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p17(@NonNull Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        m();
-        l();
-        this.c = new n17();
     }
 
-    public static /* synthetic */ int c(p17 p17Var) {
-        int i = p17Var.b;
-        p17Var.b = i + 1;
-        return i;
-    }
-
-    public void h(long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p17(@NonNull Drawable drawable, int i, int i2) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.forumId = j;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.b = i2;
     }
 
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.category = str;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
-        }
-    }
-
-    public void n(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public int f() {
+    public final Drawable a() {
         InterceptResult invokeV;
+        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            WeakReference<Drawable> weakReference = this.a;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
+            }
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        return invokeV.intValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    public n17 g() {
-        InterceptResult invokeV;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (n17) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            av5 av5Var = new av5(309652);
-            av5Var.setResponsedClass(HotUserRankSocketResMsg.class);
-            av5Var.g(true);
-            av5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(av5Var);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i6 = fontMetricsInt.descent;
+            canvas.translate(f, ((i4 + i6) - ((i6 - fontMetricsInt.ascent) / 2)) - ((a.getBounds().bottom - a.getBounds().top) / 2));
+            a.draw(canvas);
+            canvas.restore();
         }
     }
 
-    public final void l() {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, gca.a(TbConfig.HOT_USER_RANK_URL, 309652));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.descent;
+                int i4 = fontMetricsInt2.ascent;
+                int i5 = i4 + ((i3 - i4) / 2);
+                int i6 = (bounds.bottom - bounds.top) / 2;
+                int i7 = i5 - i6;
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                int i8 = i5 + i6;
+                fontMetricsInt.bottom = i8;
+                fontMetricsInt.descent = i8;
+            }
+            return bounds.right + this.b;
         }
+        return invokeCommon.intValue;
     }
 }

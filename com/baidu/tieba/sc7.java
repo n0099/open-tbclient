@@ -1,103 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class sc7 {
+public class sc7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948146690, "Lcom/baidu/tieba/sc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948146690, "Lcom/baidu/tieba/sc7;");
-                return;
+    public sc7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
+                byte[] a = new qc7().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
+                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
+                try {
+                    bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+                return bawuTeamReadCacheResponseMessage;
             }
+            return null;
         }
-
-        public final void a(u97 u97Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, u97Var) == null) && u97Var != null) {
-                u97Var.a().a(u97Var.b());
-                String c = u97Var.c();
-                if (c != null && c.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return;
-                }
-                StatisticItem statisticItem = new StatisticItem(u97Var.c());
-                for (Map.Entry<String, String> entry : u97Var.b().entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-                for (Map.Entry<String, String> entry2 : u97Var.d().entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        public final void b(u97 statData, int i) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, statData, i) == null) {
-                Intrinsics.checkNotNullParameter(statData, "statData");
-                if (statData.e().length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z && (statData.b() instanceof HashMap)) {
-                    ((HashMap) statData.b()).put(statData.e(), String.valueOf(i));
-                }
-            }
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

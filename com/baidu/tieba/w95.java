@@ -1,46 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.logsys.LogFile;
-import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes8.dex */
-public class w95 extends ProcessEventSceneHandler {
+public class w95 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
-            return null;
-        }
-        return (Set) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
+    public int[] v;
+    public boolean w;
 
     public w95() {
         Interceptable interceptable = $ic;
@@ -52,22 +29,86 @@ public class w95 extends ProcessEventSceneHandler {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.w = false;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return t(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
+            this.b = R.color.CAM_X0101;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
-        InterceptResult invokeLL;
+    public void s(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
-            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
-                HashSet hashSet = new HashSet(1);
-                hashSet.add(ProcessSnapshotType.PROCESS_MEMORY_STATUS);
-                return hashSet;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
-            return null;
         }
-        return (Set) invokeLL.objValue;
+    }
+
+    public void u(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
+            this.v = iArr;
+            this.w = true;
+        }
+    }
+
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        int i;
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            if (!this.r) {
+                this.b = SkinManager.getColor(this.s, (int) R.color.CAM_X0101);
+            }
+            if (this.r) {
+                i = SkinManager.getColor(this.s, this.d);
+            } else {
+                i = this.d;
+            }
+            if (!this.w) {
+                this.v = new int[]{i, i};
+            }
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.t);
+                gradientDrawable.setColors(this.v);
+            } else {
+                gradientDrawable = new GradientDrawable(this.t, this.v);
+            }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
     }
 }

@@ -1,174 +1,234 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.btb;
+import com.baidu.tieba.usb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.internal.ImmutableList;
-import com.squareup.wire2.internal.MutableOnWriteList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.yalog.LoggerManager;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import kotlin.Unit;
 /* loaded from: classes8.dex */
 public final class tsb {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "CrashSdkUtil";
+    public static final long b = 600;
+    public static final tsb c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int e(Object obj, Object obj2, Object obj3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
-            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
+    /* loaded from: classes8.dex */
+    public static final class a implements ctb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeLLL.intValue;
+
+        @Override // com.baidu.tieba.ctb
+        public void d(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && str2 != null) {
+                usb.b.b(tsb.b(tsb.c), str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void e(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && str2 != null) {
+                usb.b.d(tsb.b(tsb.c), str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void i(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && str2 != null) {
+                usb.b.g(tsb.b(tsb.c), str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void w(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && str2 != null) {
+                usb.b.j(tsb.b(tsb.c), str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void e(String str, String str2, Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th) == null) && str2 != null) {
+                usb.b.d(tsb.b(tsb.c), str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void i(String str, String str2, Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) && str2 != null) {
+                usb.b.g(tsb.b(tsb.c), str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ctb
+        public void w(String str, String str2, Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) && str2 != null) {
+                usb.b.j(tsb.b(tsb.c), str2);
+            }
+        }
     }
 
-    public static void a(List<?> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            if (list != null) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) == null) {
-                        throw new NullPointerException("Element at index " + i + " is null");
-                    }
+    /* loaded from: classes8.dex */
+    public static final class b implements btb.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        @Override // com.baidu.tieba.btb.e
+        public void a(String str, boolean z, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4}) == null) {
+                usb.b.g(tsb.b(tsb.c), "afterCrashCallback");
+            }
+        }
+
+        @Override // com.baidu.tieba.btb.e
+        public void b(String str, boolean z, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4}) == null) {
+                usb.b.g(tsb.b(tsb.c), "crashCallback");
+            }
+        }
+
+        @Override // com.baidu.tieba.btb.e
+        public void c(boolean z, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, str2, str3}) == null) {
+                try {
+                    usb.b.g(tsb.b(tsb.c), "preCrashCallback");
+                    btb.s(tsb.c.e(tsb.a(tsb.c)));
+                } catch (Throwable th) {
+                    usb.b.d(tsb.b(tsb.c), th.toString());
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193190, "Lcom/baidu/tieba/tsb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948193190, "Lcom/baidu/tieba/tsb;");
                 return;
             }
-            throw new NullPointerException("list == null");
         }
+        c = new tsb();
     }
 
-    public static void b(Map<?, ?> map) {
+    public tsb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            if (map != null) {
-                for (Map.Entry<?, ?> entry : map.entrySet()) {
-                    if (entry.getKey() != null) {
-                        if (entry.getValue() == null) {
-                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
-                        }
-                    } else {
-                        throw new NullPointerException("map.containsKey(null)");
-                    }
-                }
-                return;
-            }
-            throw new NullPointerException("map == null");
-        }
-    }
-
-    public static <T> List<T> c(String str, List<T> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            if (list != null) {
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    return new ArrayList(list);
-                }
-                return new MutableOnWriteList(list);
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (map != null) {
-                return new LinkedHashMap(map);
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static boolean f(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                list.set(i, protoAdapter.redact(list.get(i)));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static <T> List<T> g(String str, List<T> list) {
-        InterceptResult invokeLL;
+    public static final /* synthetic */ long a(tsb tsbVar) {
+        return b;
+    }
+
+    public static final /* synthetic */ String b(tsb tsbVar) {
+        return a;
+    }
+
+    public final void d(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (list != null) {
-                if (list instanceof MutableOnWriteList) {
-                    list = ((MutableOnWriteList) list).mutableList;
-                }
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    ImmutableList immutableList = new ImmutableList(list);
-                    if (!immutableList.contains(null)) {
-                        return immutableList;
-                    }
-                    throw new IllegalArgumentException(str + ".contains(null)");
-                }
-                return list;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, str3) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("processName", str);
+            try {
+                btb.f fVar = new btb.f();
+                fVar.g(context);
+                fVar.f("baidu-yyremoteview");
+                fVar.i(str2);
+                fVar.h(new a());
+                btb.n(fVar);
+                gtb.W(str3);
+                btb.r(hashMap);
+                btb.q(new b());
+            } catch (Throwable th) {
+                usb.a aVar = usb.b;
+                String str4 = a;
+                th.printStackTrace();
+                aVar.d(str4, Unit.INSTANCE.toString());
             }
-            throw new NullPointerException(str + " == null");
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
+    public final List<String> e(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
-            if (map != null) {
-                if (map.isEmpty()) {
-                    return Collections.emptyMap();
-                }
-                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
-                if (!linkedHashMap.containsKey(null)) {
-                    if (!linkedHashMap.containsValue(null)) {
-                        return Collections.unmodifiableMap(linkedHashMap);
-                    }
-                    throw new IllegalArgumentException(str + ".containsValue(null)");
-                }
-                throw new IllegalArgumentException(str + ".containsKey(null)");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            long j2 = currentTimeMillis - j;
+            usb.b.e(true);
+            String baseDir = LoggerManager.getBaseDir();
+            List<String> queryLogFiles = LoggerManager.queryLogFiles(j2, currentTimeMillis, "yylivesdk", "*");
+            ArrayList arrayList = new ArrayList();
+            Iterator<String> it = queryLogFiles.iterator();
+            while (it.hasNext()) {
+                arrayList.add(baseDir + WebvttCueParser.CHAR_SLASH + it.next());
             }
-            throw new NullPointerException(str + " == null");
+            return arrayList;
         }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static <T> List<T> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new MutableOnWriteList(Collections.emptyList());
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static <K, V> Map<K, V> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new LinkedHashMap();
-        }
-        return (Map) invokeV.objValue;
+        return (List) invokeJ.objValue;
     }
 }

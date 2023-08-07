@@ -15,22 +15,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa9;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.p78;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.sy;
-import com.baidu.tieba.z99;
+import com.baidu.tieba.j58;
+import com.baidu.tieba.qg5;
+import com.baidu.tieba.qx;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.w79;
+import com.baidu.tieba.x79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements sy, ry<aa9>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements rx, qx<x79>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements sy, ry<aa
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public z99 j;
-    public aa9 k;
+    public w79 j;
+    public x79 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -67,20 +67,20 @@ public class NearbyForumFriendCardView extends LinearLayout implements sy, ry<aa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: d */
-    public void b(aa9 aa9Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: c */
+    public void onBindDataToView(x79 x79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aa9Var) == null) {
-            this.k = aa9Var;
-            z99 z99Var = this.j;
-            if (z99Var != null) {
-                z99Var.D(aa9Var.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x79Var) == null) {
+            this.k = x79Var;
+            w79 w79Var = this.j;
+            if (w79Var != null) {
+                w79Var.D(x79Var.a);
             }
-            this.i.setData(aa9Var.b);
-            if (aa9Var.c) {
+            this.i.setData(x79Var.b);
+            if (x79Var.c) {
                 this.d.setVisibility(0);
-                p78.q();
+                j58.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -90,9 +90,9 @@ public class NearbyForumFriendCardView extends LinearLayout implements sy, ry<aa
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0918d7 && getContext() != null && this.k != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0918eb && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            p78.j();
+            j58.j();
         }
     }
 
@@ -143,28 +143,28 @@ public class NearbyForumFriendCardView extends LinearLayout implements sy, ry<aa
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06e4, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06eb, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09271d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09271c);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09120b);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0918d7);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0918d5);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918d4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091494);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091e6a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092736);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092735);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09121e);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0918eb);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0918e9);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918e8);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0914a7);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091e81);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
-            c(context);
+            b(context);
         }
     }
 
-    public final void c(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new z99(context, ei5.l, 1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.j = new w79(context, qg5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -174,35 +174,27 @@ public class NearbyForumFriendCardView extends LinearLayout implements sy, ry<aa
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            aa9 aa9Var = this.k;
-            if (aa9Var != null) {
-                aa9Var.a = z;
+            x79 x79Var = this.k;
+            if (x79Var != null) {
+                x79Var.a = z;
             }
-            z99 z99Var = this.j;
-            if (z99Var != null) {
-                z99Var.D(z);
+            w79 w79Var = this.j;
+            if (w79Var != null) {
+                w79Var.D(z);
             }
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
             HomeGroupUbsUIHelper.handleLineColor(this.g);
-            d85 d = d85.d(this.c);
-            d.x(R.color.CAM_X0105);
-            d.C(R.dimen.T_X07);
-            d.D(R.string.F_X02);
-            d85 d2 = d85.d(this.e);
-            d2.x(R.color.CAM_X0109);
-            d2.C(R.dimen.T_X08);
-            d2.D(R.string.F_X01);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X02);
+            EMManager.from(this.e).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.a = i;
-            d85 d3 = d85.d(this.h);
-            d3.o(R.string.J_X06);
-            d3.f(R.color.CAM_X0205);
+            EMManager.from(this.h).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 }

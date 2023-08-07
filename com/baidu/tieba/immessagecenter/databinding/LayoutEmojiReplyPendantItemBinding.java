@@ -1,6 +1,6 @@
 package com.baidu.tieba.immessagecenter.databinding;
 
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.viewbinding.ViewBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +11,18 @@ public final class LayoutEmojiReplyPendantItemBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final LinearLayout a;
+    public final RelativeLayout a;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewbinding.ViewBinding
     @NonNull
     /* renamed from: a */
-    public LinearLayout getRoot() {
+    public RelativeLayout getRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (LinearLayout) invokeV.objValue;
+        return (RelativeLayout) invokeV.objValue;
     }
 }

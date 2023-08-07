@@ -1,148 +1,360 @@
 package com.baidu.tieba;
 
-import android.content.res.AssetManager;
-import android.graphics.BitmapFactory;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.WebpForceSwitch;
-import com.baidu.tbadk.switchs.WebpSwitch;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
 /* loaded from: classes5.dex */
 public class ey5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
+    public int g;
+    public int h;
+    public b i;
+    public int j;
+    public int k;
+    public float l;
+    public final boolean m;
+    public final boolean n;
+    public final int o;
+    public final int p;
+    public final int q;
+    public final boolean r;
+    public final boolean s;
+    public Random t;
+    public Bitmap u;
 
-    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        float a();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Bitmap b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+        public boolean f;
+        public int g;
+        public int h;
+        public int i;
+        public c j;
+
+        public b(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 10;
+            this.b = bitmap;
+            this.c = false;
+            this.d = false;
+            this.e = false;
+            this.f = false;
+        }
+
+        public b m(c cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+                this.j = cVar;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public ey5 k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ey5(this, null);
+            }
+            return (ey5) invokeV.objValue;
+        }
+
+        public b l(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                this.h = i;
+                this.i = i2;
+                return this;
+            }
+            return (b) invokeII.objValue;
+        }
+
+        public b o(int i, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+                this.a = i;
+                this.c = z;
+                return this;
+            }
+            return (b) invokeCommon.objValue;
+        }
+
+        public b p(boolean z, boolean z2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                this.e = z;
+                this.f = z2;
+                return this;
+            }
+            return (b) invokeCommon.objValue;
+        }
+
+        public b n(int i, int i2, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                this.g = i;
+                this.b = ey5.a(this.b, i, i2);
+                this.d = z;
+                return this;
+            }
+            return (b) invokeCommon.objValue;
         }
     }
 
-    public static void g(@NonNull String str, @Nullable String str2) {
+    public ey5(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.c = 0;
+        this.i = bVar;
+        this.u = bVar.b;
+        this.o = bVar.g;
+        this.p = bVar.h;
+        this.a = bVar.j;
+        this.q = bVar.i;
+        this.b = bVar.a;
+        this.n = bVar.d;
+        this.r = bVar.e;
+        this.s = bVar.f;
+        this.m = bVar.c;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public ey5(b bVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return TbadkCoreApplication.getInst().getCapabilityOfWebp();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        this.c = 0;
+        this.i = bVar;
+        this.j = i;
+        this.k = i2;
+        Random random = new Random();
+        this.t = random;
+        this.g = random.nextInt((i * 8) / 9);
+        int nextInt = this.t.nextInt(i2) - i2;
+        this.h = nextInt;
+        this.d = this.g;
+        this.e = nextInt;
+        this.m = bVar.c;
+        this.n = bVar.d;
+        this.a = bVar.j;
+        this.p = bVar.h;
+        this.q = bVar.i;
+        this.o = bVar.g;
+        this.r = bVar.e;
+        this.s = bVar.f;
+        this.b = bVar.a;
+        g();
+        f();
+        h();
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public /* synthetic */ ey5(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!WebpForceSwitch.isOn() && (!a() || !h())) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bitmap, i, i2)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public boolean b(Canvas canvas, Paint paint) {
+        InterceptResult invokeLL;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, canvas, paint)) == null) {
+            float f = this.e;
+            if (f <= this.k && f >= 0.0f) {
+                canvas.drawBitmap(this.u, this.d, f, (Paint) null);
+                return true;
+            } else if (this.e > this.k && (bitmap = this.u) != null && !bitmap.isRecycled()) {
+                this.u.recycle();
+                return false;
+            } else {
                 return false;
             }
-            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
-            if (loadInt > 5) {
-                TbadkCoreApplication.getInst().setCapableOfWebp(false);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
-                return;
-            }
-            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d();
+            e();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c() {
-        boolean z;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            int i = 0;
-            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
-                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
-                if (assets != null) {
-                    InputStream inputStream = null;
-                    try {
-                        inputStream = assets.open("webp_test/test.webp");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
-                        z = true;
-                        if (!z) {
-                            TiebaStatic.log("LocalWebpUnSupport");
-                            i = 6;
-                        }
-                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
-                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
-                        return;
-                    }
-                }
-                z = false;
-                if (!z) {
-                }
-                TbadkCoreApplication.getInst().setCapableOfWebp(z);
-                TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
-                return;
-            }
-            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.e += this.f;
         }
     }
 
-    @NonNull
-    public static Pair<Boolean, String> d(@Nullable String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
+    public final void d() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!f()) {
-                return new Pair<>(Boolean.FALSE, str);
-            }
-            if (str != null && str.length() != 0) {
-                int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0) {
-                    indexOf = str.indexOf("tiebapic.baidu.com");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = (float) (this.d + (Math.sin(this.l) * 10.0d));
+            if (this.s) {
+                double d = this.l;
+                if (this.t.nextBoolean()) {
+                    i = -1;
+                } else {
+                    i = 1;
                 }
-                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
-                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
-                }
-                return new Pair<>(Boolean.FALSE, str);
+                this.l = (float) (d + (i * Math.random() * 0.0025d));
             }
-            return new Pair<>(Boolean.FALSE, str);
+            float f = this.d;
+            int i2 = this.j;
+            int i3 = this.o;
+            if (f > i2 - i3) {
+                this.d = i2 - i3;
+            }
         }
-        return (Pair) invokeL.objValue;
+    }
+
+    public final void h() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.r) {
+                if (this.t.nextBoolean()) {
+                    i = -1;
+                } else {
+                    i = 1;
+                }
+                this.l = (float) (((i * Math.random()) * this.c) / 50.0d);
+            } else {
+                this.l = this.c / 50.0f;
+            }
+            float f = this.l;
+            if (f > 1.5707964f) {
+                this.l = 1.5707964f;
+            } else if (f < -1.5707964f) {
+                this.l = -1.5707964f;
+            }
+        }
+    }
+
+    public final void f() {
+        float nextInt;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.n) {
+                c cVar = this.a;
+                if (cVar != null) {
+                    nextInt = cVar.a();
+                } else {
+                    nextInt = (this.t.nextInt(10) + 1) * 0.1f;
+                }
+                int i = this.p;
+                float f2 = 0.0f;
+                if (i > 0) {
+                    f = Math.max(i, this.i.b.getWidth() * nextInt);
+                } else {
+                    f = 0.0f;
+                }
+                if (this.q > 0) {
+                    f2 = Math.max(nextInt * this.i.b.getHeight(), this.q);
+                }
+                this.u = a(this.i.b, (int) f, (int) f2);
+            } else {
+                this.u = this.i.b;
+            }
+            this.u.getHeight();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.m) {
+                this.f = ((float) (((this.t.nextInt(3) + 1) * 0.1d) + 1.0d)) * this.b;
+            } else {
+                this.f = this.b;
+            }
+        }
     }
 }

@@ -1,87 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c21;
+import android.content.Context;
+import android.media.AudioManager;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class b21<T extends c21> {
+public class b21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object[] a;
-    public int b;
 
-    public abstract T b();
-
-    public b21(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Object[i <= 0 ? 2 : i];
-    }
-
-    @NonNull
-    public T a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            if (i <= 0) {
-                T b = b();
-                b.onInit();
-                return b;
-            }
-            int i2 = i - 1;
-            Object[] objArr = this.a;
-            T t = (T) objArr[i2];
-            objArr[i2] = null;
-            this.b = i - 1;
-            t.onInit();
-            return t;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final boolean c(T t) {
+    @Nullable
+    public static AudioManager a(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            for (int i = 0; i < this.b; i++) {
-                if (this.a[i] == t) {
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
-            return false;
+            try {
+                return (AudioManager) context.getSystemService("audio");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return invokeL.booleanValue;
+        return (AudioManager) invokeL.objValue;
     }
 
-    public void d(@NonNull T t) {
+    public static int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            AudioManager a = a(context);
+            if (a != null) {
+                return a.getStreamMaxVolume(3);
+            }
+            return -1;
         }
-        int i = this.b;
-        Object[] objArr = this.a;
-        if (i < objArr.length) {
-            objArr[i] = t;
-            this.b = i + 1;
+        return invokeL.intValue;
+    }
+
+    public static int c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            AudioManager a = a(context);
+            if (a != null) {
+                return a.getStreamVolume(3);
+            }
+            return -1;
         }
-        t.onRelease();
+        return invokeL.intValue;
+    }
+
+    public static void d(Context context, int i) {
+        AudioManager a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
+            a.setStreamVolume(3, i, 8);
+        }
     }
 }

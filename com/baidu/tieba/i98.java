@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
+import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes6.dex */
-public class i98 {
+public class i98 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
 
     public i98() {
         Interceptable interceptable = $ic;
@@ -30,20 +29,21 @@ public class i98 {
         }
     }
 
-    public void a(TimeLineInfo timeLineInfo) {
-        String str;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
+                return null;
+            }
+            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
+            try {
+                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
+            } catch (Exception unused) {
+            }
+            return hotSelectCacheResponseMessage;
         }
-        this.b = timeLineInfo.tid.longValue();
-        this.c = timeLineInfo.title;
-        if (xi.isEmpty(timeLineInfo.small_title)) {
-            str = timeLineInfo.show_time;
-        } else {
-            str = timeLineInfo.small_title;
-        }
-        this.d = str;
-        this.e = timeLineInfo.bg_color;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,133 +1,163 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a65;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ForumGroup;
+import tbclient.FrsPage.GroupFeedCard;
 /* loaded from: classes8.dex */
-public class zj7 {
+public final class zj7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public y55 a;
-    public a65 b;
-    public String c;
-    public String[] d;
-    public String e;
-    public a65.f f;
-    public l9 g;
+    public final GroupFeedCard a;
+    public final String b;
 
-    public zj7(l9 l9Var) {
+    @JvmStatic
+    public static final void f(ForumGroup forumGroup, List<ym> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, forumGroup, list, str) == null) {
+            c.b(forumGroup, list, str);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final BdUniqueId a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (BdUniqueId) invokeV.objValue;
+            }
+            return zj7.d;
+        }
+
+        @JvmStatic
+        public final void b(ForumGroup frsForumGroup, List<ym> newList, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsForumGroup, newList, str) == null) {
+                Intrinsics.checkNotNullParameter(frsForumGroup, "frsForumGroup");
+                Intrinsics.checkNotNullParameter(newList, "newList");
+                int i = 0;
+                int i2 = 0;
+                for (ym ymVar : newList) {
+                    Integer num = frsForumGroup.feed_card.index;
+                    Intrinsics.checkNotNullExpressionValue(num, "frsForumGroup.feed_card.index");
+                    if (i >= num.intValue()) {
+                        break;
+                    }
+                    if (!Intrinsics.areEqual(ymVar.getType(), ThreadData.TYPE_TOP) && !tu5.p(ymVar)) {
+                        i++;
+                    }
+                    i2++;
+                }
+                if (i2 <= newList.size()) {
+                    GroupFeedCard groupFeedCard = frsForumGroup.feed_card;
+                    Intrinsics.checkNotNullExpressionValue(groupFeedCard, "frsForumGroup.feed_card");
+                    newList.add(i2, new zj7(groupFeedCard, str));
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361954, "Lcom/baidu/tieba/zj7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948361954, "Lcom/baidu/tieba/zj7;");
+                return;
+            }
+        }
+        c = new a(null);
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        d = gen;
+    }
+
+    public zj7(GroupFeedCard data, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {data, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = l9Var;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = str;
     }
 
-    public static zj7 c(l9 l9Var) {
-        InterceptResult invokeL;
+    public final GroupFeedCard d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l9Var)) == null) {
-            return new zj7(l9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (zj7) invokeL.objValue;
+        return (GroupFeedCard) invokeV.objValue;
     }
 
-    public zj7 d(String str) {
-        InterceptResult invokeL;
+    public final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.e = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (zj7) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public zj7 e(a65.f fVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
-            this.f = fVar;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return d;
         }
-        return (zj7) invokeL.objValue;
-    }
-
-    public zj7 f(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
-            this.d = strArr;
-            return this;
-        }
-        return (zj7) invokeL.objValue;
-    }
-
-    public zj7 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (zj7) invokeL.objValue;
-    }
-
-    public final List<w55> a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < strArr.length; i++) {
-                String str = strArr[i];
-                w55 w55Var = new w55(i, str, this.b);
-                if (!StringUtils.isNull(this.e) && this.e.equals(str)) {
-                    w55Var.q(R.color.CAM_X0304);
-                    w55Var.p();
-                }
-                arrayList.add(w55Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void b() {
-        y55 y55Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (y55Var = this.a) != null) {
-            y55Var.dismiss();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a65 a65Var = new a65(this.g.getPageActivity());
-            this.b = a65Var;
-            a65Var.t(this.c);
-            this.b.q(this.f);
-            this.b.l(a(this.d));
-            this.b.n(yi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f0708e9));
-            y55 y55Var = new y55(this.g, this.b);
-            this.a = y55Var;
-            y55Var.l();
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

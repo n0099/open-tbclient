@@ -1,84 +1,139 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class cy8 {
+public class cy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<by8<ChatMsg, cw8<?>>> a;
-    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
-    public cy8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new SparseArray<>();
-        this.b = new HashMap<>();
-    }
-
-    public final void a(int i, by8<ChatMsg, cw8<?>> converter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
-            Intrinsics.checkNotNullParameter(converter, "converter");
-            this.a.put(i, converter);
-        }
-    }
-
-    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            this.b.put(sdkMsg, Integer.valueOf(i));
-        }
-    }
-
-    public final ChatMsg c(cw8<?> tbMsg) {
+    public static boolean h(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            by8<ChatMsg, cw8<?>> by8Var = this.a.get(tbMsg.e().getType());
-            if (by8Var == null) {
-                return null;
-            }
-            return by8Var.b(tbMsg);
-        }
-        return (ChatMsg) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj == null : invokeL.booleanValue;
     }
 
-    public final cw8<?> d(ChatMsg sdkMsg) {
+    public static <T> void a(List<T> list, T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, list, t) != null) || h(list)) {
+            return;
+        }
+        try {
+            list.add(t);
+        } catch (Exception e) {
+            BdLog.e(e);
+            j(e);
+        }
+    }
+
+    public static <T> T d(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
+            if (e(list) || !g(list, i)) {
+                return null;
+            }
+            try {
+                return list.get(i);
+            } catch (Exception e) {
+                BdLog.e(e);
+                j(e);
+                return null;
+            }
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static boolean g(List list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
+            if (h(list) || i < 0 || i >= list.size()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static <T> void b(List<T> list, T t, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, list, t, i) == null) && !h(list) && i >= 0 && i <= list.size()) {
+            try {
+                list.add(i, t);
+            } catch (Exception e) {
+                BdLog.e(e);
+                j(e);
+            }
+        }
+    }
+
+    public static void c(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || e(list)) {
+            return;
+        }
+        try {
+            list.clear();
+        } catch (Exception e) {
+            BdLog.e(e);
+            j(e);
+        }
+    }
+
+    public static boolean e(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Integer num = this.b.get(sdkMsg.getClass());
-            if (num == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (!h(list) && !list.isEmpty()) {
+                return false;
             }
-            by8<ChatMsg, cw8<?>> by8Var = this.a.get(num.intValue());
-            if (by8Var == null) {
-                return null;
-            }
-            return by8Var.a(sdkMsg);
+            BdLog.e("list is empty");
+            return true;
         }
-        return (cw8) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (!h(map) && !map.isEmpty()) {
+                return false;
+            }
+            BdLog.e("map is empty");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int i(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
+            if (!h(list) && !list.isEmpty()) {
+                try {
+                    return list.size();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    j(e);
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void j(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, exc) == null) && BdBaseApplication.getInst().isDebugMode() && (exc instanceof RuntimeException)) {
+            throw ((RuntimeException) exc);
+        }
     }
 }

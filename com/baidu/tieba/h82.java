@@ -1,175 +1,354 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class h82 extends c72 {
+public abstract class h82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile h82 b;
+    public static eh3 c;
+    public static Timer d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public int M;
-    public String N;
-    public String O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public boolean S;
 
-    /* renamed from: T  reason: collision with root package name */
-    public boolean f1107T;
-    public int U;
-    public int V;
-    public boolean W;
-    public boolean X;
+    public abstract void f(String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h82() {
-        super("textArea", "componentId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h82 a;
+
+        public a(h82 h82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h82Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (h82.a) {
+                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
+                }
+                this.a.c();
+                this.a.h();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends h82 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.h82
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (h82.a) {
+                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 50335962) {
+                if (hashCode != 1109597094) {
+                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
+                        c = 1;
+                    }
+                } else if (str.equals("downloadfail")) {
+                    c = 2;
+                }
+            } else if (str.equals("downloadstart")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (h82.c != null) {
+                            fh3.d(h82.c, str, d());
+                            return;
+                        }
+                        return;
+                    }
+                    if (h82.c != null) {
+                        fh3.d(h82.c, "downloadfail", d());
+                    }
+                    c();
+                    h();
+                    return;
+                }
+                if (h82.c != null) {
+                    fh3.d(h82.c, "downloadsuccess", d());
+                }
+                c();
+                h();
+                return;
+            }
+            i();
+            fh3.d(h82.c, str, d());
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends h82 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.h82
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !j82.k().m()) {
+                if (h82.a) {
+                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+                }
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 900970612) {
+                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
+                        c = 0;
+                    }
+                } else if (str.equals("pageready")) {
+                    c = 1;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (h82.c != null) {
+                            fh3.d(h82.c, str, d());
+                            return;
+                        }
+                        return;
+                    } else if (h82.c != null) {
+                        fh3.d(h82.c, str, d());
+                        c();
+                        h();
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                i();
+                fh3.d(h82.c, str, d());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777511, "Lcom/baidu/tieba/h82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947777511, "Lcom/baidu/tieba/h82;");
                 return;
             }
         }
-        this.L = "";
-        this.N = "";
-        this.O = "";
+        a = ir1.a;
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    public h82() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            int g = mp3.g(c(jSONObject, "minHeight", 0.0f));
-            if (g < 0) {
-                g = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            this.U = g;
-            int g2 = mp3.g(c(this.j, "maxHeight", 2.1474836E9f));
-            if (g2 < 0) {
-                g2 = Integer.MAX_VALUE;
-            }
-            this.V = g2;
         }
     }
 
-    @Override // com.baidu.tieba.c72, com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72, com.baidu.tieba.u13
-    public void a(JSONObject jSONObject) throws JSONException {
-        b23 b23Var;
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Timer timer = d;
+            if (timer != null) {
+                timer.cancel();
+                d = null;
+            }
+            b = null;
+            c = null;
+        }
+    }
+
+    public /* synthetic */ h82(a aVar) {
+        this();
+    }
+
+    public static h82 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (b == null) {
+                synchronized (lw2.class) {
+                    if (b == null) {
+                        if (hk1.g()) {
+                            b = new b(null);
+                        } else {
+                            b = new c(null);
+                        }
+                    }
+                }
+            }
+            return b;
+        }
+        return (h82) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("LocalDebugStatistic", "add event content fail", e);
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
             return;
         }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("placeholder");
-        o(jSONObject);
-        boolean z = false;
-        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
-        this.Q = optBoolean;
-        if (optBoolean && (b23Var = this.h) != null) {
-            b23Var.j(-2);
-            this.h.k(true);
-        }
-        boolean optBoolean2 = jSONObject.optBoolean("fixed");
-        this.R = optBoolean2;
-        b23 b23Var2 = this.h;
-        if (b23Var2 != null) {
-            b23Var2.i(optBoolean2);
-        }
-        this.S = jSONObject.optBoolean("showConfirmBar", true);
-        this.f1107T = jSONObject.optBoolean("adjustPosition", true);
-        this.W = jSONObject.optBoolean("disabled", false);
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        }
-        this.X = z;
-        i();
-    }
-
-    @Override // com.baidu.tieba.c72, com.baidu.tieba.h72, com.baidu.tieba.j72, com.baidu.tieba.l72
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.W = jSONObject.optBoolean("disabled", this.W);
-            this.L = jSONObject.optString("placeholder", this.L);
-            this.t = jSONObject.optString("value", this.t);
-            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
-            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
-            this.f1107T = jSONObject.optBoolean("adjustPosition", this.f1107T);
-            n(jSONObject);
-            p(jSONObject);
-            o(jSONObject);
-            i();
-        }
-    }
-
-    public final void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
-            this.Q = optBoolean;
-            b23 b23Var = this.h;
-            if (b23Var != null) {
-                if (optBoolean) {
-                    b23Var.j(-2);
-                    this.h.k(true);
-                    return;
-                }
-                int c = b23Var.c();
-                int i = this.K;
-                if (i > 0) {
-                    c = i;
-                }
-                this.h.j(c);
-                this.h.k(false);
+        c = rh3.c("1153");
+        a aVar = new a(this);
+        Timer timer = new Timer();
+        d = timer;
+        try {
+            timer.schedule(aVar, 40000L);
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
             }
         }
     }
 
-    public final void o(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public static void g(JSONArray jSONArray) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) != null) {
-            this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
-            this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.O = optJSONObject.optString("color");
-        }
-    }
-
-    public final void p(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
-            this.R = optBoolean;
-            b23 b23Var = this.h;
-            if (b23Var != null) {
-                b23Var.i(optBoolean);
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(0);
+            if (optJSONObject != null) {
+                str = optJSONObject.optString("actionId");
+            } else {
+                str = "";
+            }
+            if (!TextUtils.isEmpty(str) && b != null) {
+                b.f(str);
             }
         }
     }
 
-    public void q(boolean z) {
+    public void c() {
+        String appId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.P = z;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
+            return;
         }
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            ya3 b0 = ya3.b0();
+            if (b0 == null) {
+                appId = "";
+            } else {
+                appId = b0.getAppId();
+            }
+            jSONObject2.putOpt("appid", appId);
+            jSONObject2.putOpt("from", "local-debug");
+            qh3.a(jSONObject2);
+            jSONObject.putOpt("from", "swan");
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException unused) {
+            if (a) {
+                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
+            }
+        }
+        fh3.f(c, jSONObject.toString());
+        fh3.c(c);
     }
 }

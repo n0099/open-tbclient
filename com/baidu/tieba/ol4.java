@@ -1,55 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.channels.ReadableByteChannel;
-import okhttp3.ResponseBody;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ol4 implements ql4 {
+public class ol4 extends ek4<ul4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
 
-    public ol4(@NonNull ResponseBody responseBody) {
+    @Override // com.baidu.tieba.ek4
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getplugin" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ol4(ti4 ti4Var, em4 em4Var) {
+        super(ti4Var, em4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody};
+            Object[] objArr = {ti4Var, em4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ti4) objArr2[0], (em4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = responseBody;
     }
 
-    @Override // com.baidu.tieba.ql4
-    public ReadableByteChannel a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ek4
+    /* renamed from: u */
+    public boolean e(ul4 ul4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.source();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ul4Var)) == null) {
+            if (ul4Var == null) {
+                return false;
+            }
+            zj4 zj4Var = ul4Var.a;
+            if (zj4Var != null && !zj4Var.a()) {
+                return false;
+            }
+            return true;
         }
-        return (ReadableByteChannel) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ql4
-    public long b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ek4
+    /* renamed from: w */
+    public ul4 t(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.contentLength();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            return fo4.h(jSONObject);
         }
-        return invokeV.longValue;
+        return (ul4) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ek4
+    /* renamed from: v */
+    public sj4 s(ul4 ul4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ul4Var)) == null) {
+            this.a.E();
+            go4 go4Var = new go4();
+            p(ul4Var.a, go4Var);
+            if (go4Var.n() == 0) {
+                this.a.F();
+                return null;
+            }
+            this.a.G(go4Var);
+            jk4.c(ul4Var, this.a);
+            return null;
+        }
+        return (sj4) invokeL.objValue;
     }
 }

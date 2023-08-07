@@ -10,12 +10,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.ep8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
+import com.baidu.tieba.ym8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,8 +54,8 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09253e);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916ae);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092556);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916c2);
         }
     }
 
@@ -88,7 +88,7 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e2, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e5, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -115,15 +115,11 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, tipsSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            d85 d = d85.d(holder.b);
-            d.o(R.string.J_X04);
-            d.f(R.color.CAM_X0625);
-            d85 d2 = d85.d(holder.a);
-            d2.x(R.color.CAM_X0101);
-            d2.C(R.dimen.T_X09);
+            EMManager.from(holder.b).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0625);
+            EMManager.from(holder.a).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09);
             holder.a.setText(tipsSysMsg.getTips());
             if (-7014 == tipsSysMsg.getSysMsgType()) {
-                ep8.d("c15095", 1, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+                ym8.d("c15095", 1, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

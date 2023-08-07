@@ -1,52 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
+import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
+import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes6.dex */
-public class le9 implements ne9 {
+public class le9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserInfo a;
-    public ExcellentPbThreadInfo b;
-    public List<Post> c;
-    public List<User> d;
+    public TbPageContext a;
 
-    @Override // com.baidu.tieba.ne9
-    public int getErroCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ne9
-    public String getErrorText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public le9(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
+    public le9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,64 +34,23 @@ public class le9 implements ne9 {
                 return;
             }
         }
-        this.a = userInfo;
-        this.b = excellentPbThreadInfo;
-        this.c = list;
-        this.d = list2;
+        this.a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
+        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, zaa.a(TbConfig.URL_THREAD_PUBLISH, 309644));
+        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    @Override // com.baidu.tieba.ne9
-    public List<Post> getPostList() {
-        InterceptResult invokeV;
+    public void a(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
+            threadPublishReqMessage.tid = j;
+            threadPublishReqMessage.fid = j2;
+            threadPublishReqMessage.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ne9
-    public ExcellentPbThreadInfo getThreadInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (ExcellentPbThreadInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ne9
-    public UserInfo getUserInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (UserInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ne9
-    public List<User> getUserList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ne9
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        List<ExcContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
-            if (excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class me9 implements CustomMessageTask.CustomRunnable<Object> {
+public class me9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<qba> a;
+    public final List<Long> b;
+    public int c;
 
     public me9() {
         Interceptable interceptable = $ic;
@@ -27,35 +25,20 @@ public class me9 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            le9 le9Var = null;
-            if (customMessage == null || customMessage.getCmd() != 2001314) {
-                return null;
-            }
-            o55.e();
-            byte[] bArr = o55.c("tb.pb_normal").get("chosen_pb_page_cache");
-            if (bArr != null) {
-                try {
-                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                } catch (Exception unused) {
-                    excPbPageResIdl = null;
-                }
-                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                    le9Var = new le9(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
-                }
-            }
-            return new ReadChosenPbCacheResponse(le9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.intValue;
     }
 }

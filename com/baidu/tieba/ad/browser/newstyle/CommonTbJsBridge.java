@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.mda;
-import com.baidu.tieba.qda;
+import com.baidu.tieba.fca;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.jca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class CommonTbJsBridge implements mda {
+public class CommonTbJsBridge implements fca {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements mda {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mda
+    @Override // com.baidu.tieba.fca
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements mda {
         return invokeLLLL.booleanValue;
     }
 
-    public qda getSupplementInfo() {
+    public jca getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements mda {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = fj.c(sb.toString());
+            String c = hi.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements mda {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                qdaVar.o(jSONObject.toString());
-                return qdaVar;
+                jcaVar.o(jSONObject.toString());
+                return jcaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                qdaVar.o("");
-                return qdaVar;
+                jcaVar.o("");
+                return jcaVar;
             }
         }
-        return (qda) invokeV.objValue;
+        return (jca) invokeV.objValue;
     }
 }

@@ -1,39 +1,105 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.text.TextUtils;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationManagerCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
+import com.baidu.tieba.pb.pb.main.pendantrecord.PbPendantRecordCacheModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ek9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public View.OnClickListener b;
-    public RelativeLayout c;
-    public HeadImageView d;
-    public TextView e;
-    public TextView f;
-    public ImageView g;
+    public TbPageContext a;
+    public PbPendantRecordCacheModel b;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public String f;
+    public ArrayList<tj9> g;
+    public long h;
+    public final CacheModel.CacheModelCallback<tj9> i;
 
-    public ek9(PbFragment pbFragment, View.OnClickListener onClickListener) {
+    /* loaded from: classes5.dex */
+    public class a implements CacheModel.CacheModelCallback<tj9> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ek9 a;
+
+        public a(ek9 ek9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ek9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ek9Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
+        public void onCacheDataGet(ReadCacheRespMsg<List<tj9>> readCacheRespMsg, ReadCacheMessage<tj9> readCacheMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) {
+                this.a.c = true;
+                if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
+                    this.a.g.clear();
+                    this.a.g.addAll(readCacheRespMsg.getData());
+                }
+                if (this.a.d) {
+                    this.a.d = false;
+                    if (!TextUtils.isEmpty(this.a.e) && !TextUtils.isEmpty(this.a.f)) {
+                        ek9 ek9Var = this.a;
+                        ek9Var.n(ek9Var.e, this.a.f);
+                        this.a.e = null;
+                        this.a.f = null;
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
+        public void onCacheDataWrite(WriteCacheRespMsg<List<tj9>> writeCacheRespMsg, WriteCacheMessage<tj9> writeCacheMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
+                if (writeCacheMessage != null && writeCacheMessage.getData() != null) {
+                    this.a.j(writeCacheMessage.getData().getCacheKey(), writeCacheMessage.getData().b(), ListUtils.getCount(writeCacheMessage.getData().c()));
+                }
+                this.a.p();
+            }
+        }
+    }
+
+    public ek9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, onClickListener};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,99 +109,130 @@ public class ek9 {
                 return;
             }
         }
-        this.b = null;
-        this.a = pbFragment;
-        this.b = onClickListener;
-        b();
+        this.c = false;
+        this.d = false;
+        this.g = new ArrayList<>();
+        this.h = 0L;
+        this.i = new a(this);
+        this.a = tbPageContext;
     }
 
-    public void a(BdTypeListView bdTypeListView, int i) {
-        RelativeLayout relativeLayout;
+    public final ArrayList<String> k(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.w(relativeLayout, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(str);
+            return arrayList;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public void b() {
+    @MainThread
+    public void q(@NonNull String str) {
+        PbPendantRecordCacheModel pbPendantRecordCacheModel;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (pbPendantRecordCacheModel = this.b) == null) {
             return;
         }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07ae, (ViewGroup) null);
-        this.c = relativeLayout;
-        HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09120f);
-        this.d = headImageView;
-        headImageView.setIsRound(true);
-        this.d.setPlaceHolder(1);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09272e);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09272d);
-        this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09120e);
-        this.c.setOnClickListener(this.b);
+        pbPendantRecordCacheModel.addCache(new tj9(str, "", new ArrayList()));
     }
 
-    public void c(int i) {
+    public final void j(@NonNull String str, @NonNull String str2, int i) {
+        sv9 g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            RelativeLayout relativeLayout = this.c;
-            if (relativeLayout != null) {
-                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) && (g = tv9.e().g("pb_to_personalize")) != null && g.e() > 0 && tv9.e().b("pb_to_personalize") && i >= g.e()) {
+            rr6.b().b(new se9(true, JavaTypesHelper.toLong(str2, 0L)));
+            if (this.a != null && !TextUtils.isEmpty(str)) {
+                String string = this.a.getResources().getString(R.string.push_tip_default_title);
+                String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ff6, str);
+                g.h(string);
+                g.g(string2);
             }
-            HeadImageView headImageView = this.d;
-            if (headImageView != null) {
-                headImageView.setSkinType(i);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            }
-            TextView textView2 = this.f;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            }
-            ImageView imageView = this.g;
-            if (imageView != null) {
-                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
-            }
+            q(str);
         }
     }
 
-    public void d(BdTypeListView bdTypeListView) {
-        RelativeLayout relativeLayout;
+    @NonNull
+    public final ArrayList l(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.removeHeaderView(relativeLayout);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (ListUtils.isEmpty(this.g)) {
+                this.g = new ArrayList<>();
+            }
+            Iterator<tj9> it = this.g.iterator();
+            while (it.hasNext()) {
+                tj9 next = it.next();
+                if (next != null && str.equals(next.a())) {
+                    ArrayList<String> c = next.c();
+                    if (next.d() < this.h) {
+                        c.clear();
+                        c.add(str2);
+                        return c;
+                    } else if (c.contains(str2)) {
+                        return c;
+                    } else {
+                        c.add(str2);
+                        return c;
+                    }
+                }
+            }
+            return k(str2);
         }
+        return (ArrayList) invokeLL.objValue;
     }
 
-    public void e(ze9 ze9Var, BdTypeListView bdTypeListView) {
-        String charSequence;
+    public ek9 m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, ze9Var, bdTypeListView) == null) && ze9Var != null && bdTypeListView != null) {
-            if (ze9Var.N().isVideoThreadType() && ze9Var.N().getSmartApp() != null) {
-                SmartApp smartApp = ze9Var.N().getSmartApp();
-                this.c.setVisibility(0);
-                d(bdTypeListView);
-                a(bdTypeListView, 1);
-                if (!xi.isEmpty(smartApp.avatar)) {
-                    this.d.O(smartApp.avatar, 10, false, false);
-                }
-                if (!xi.isEmpty(smartApp.name)) {
-                    charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.smart_app_suffix));
-                } else {
-                    charSequence = this.a.getText(R.string.intelligent_smart_app).toString();
-                }
-                this.e.setText(charSequence);
-                if (!xi.isEmpty(smartApp._abstract)) {
-                    this.f.setText(smartApp._abstract);
-                } else {
-                    this.f.setText(this.a.getText(R.string.smart_app_default_abstract));
-                }
-                this.c.setTag(smartApp);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null) {
+                PbPendantRecordCacheModel pbPendantRecordCacheModel = new PbPendantRecordCacheModel(this.a);
+                this.b = pbPendantRecordCacheModel;
+                pbPendantRecordCacheModel.setCallback(this.i);
+                this.h = UtilHelper.getTodayZeroTime();
+                p();
+            }
+            return this;
+        }
+        return (ek9) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            TbPageContext tbPageContext = this.a;
+            if (tbPageContext != null && tbPageContext.getPageActivity() != null && NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void p() {
+        PbPendantRecordCacheModel pbPendantRecordCacheModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (pbPendantRecordCacheModel = this.b) == null) {
+            return;
+        }
+        pbPendantRecordCacheModel.loadCache();
+    }
+
+    @MainThread
+    public void n(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.b != null && !TextUtils.isEmpty(str)) {
+            if (!this.c) {
+                this.d = true;
+                this.e = str;
+                this.f = str2;
+                p();
                 return;
             }
-            this.c.setVisibility(8);
-            d(bdTypeListView);
+            this.b.addCache(new tj9(str, str2, l(str, str2)));
         }
     }
 }

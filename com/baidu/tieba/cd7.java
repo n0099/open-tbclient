@@ -1,60 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardMountView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cd7 extends vb7<CardMountView, e77> {
+public class cd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ne<byte[]> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cd7(String str) {
-        super(str);
+    public cd7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        b();
     }
 
-    @Override // com.baidu.tieba.vb7, com.baidu.tieba.lc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            zd7.j(a);
-            return a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            l45.e();
+            this.a = l45.c("tb.forum_member_info");
         }
-        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: e */
-    public void b(@NonNull CardMountView cardMountView, @NonNull e77 e77Var) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        ne.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMountView, e77Var) == null) {
-            cardMountView.a(e77Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            ne<byte[]> neVar = this.a;
+            if (neVar != null) {
+                bVar = neVar.h(str2);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            ne<byte[]> neVar = this.a;
+            neVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

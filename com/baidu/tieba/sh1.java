@@ -1,48 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.ImageView;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sh1 extends Handler {
+public class sh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sh1() {
-        super(Looper.getMainLooper());
+    public static int a(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
         }
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            th1 th1Var = (th1) message.obj;
-            ImageView imageView = th1Var.a;
-            if (((String) imageView.getTag()).equals(th1Var.b)) {
-                imageView.setImageBitmap(th1Var.c);
-            } else {
-                ui1.g("不是最新数据");
-            }
-        }
+        return invokeLF.intValue;
     }
 }

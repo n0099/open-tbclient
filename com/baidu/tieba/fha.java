@@ -1,52 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fha extends CustomMessageListener {
+public class fha implements l97 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public final int a;
+    public TbPageContext b;
+    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fha(MainTabActivity mainTabActivity) {
-        super(2921654);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765514, "Lcom/baidu/tieba/fha;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947765514, "Lcom/baidu/tieba/fha;");
+                return;
+            }
+        }
+        ArrayList arrayList = new ArrayList();
+        d = arrayList;
+        arrayList.add(2);
+        d.add(8);
+        d.add(6);
+        d.add(7);
+        d.add(14);
+    }
+
+    public fha(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.l97
+    @NonNull
+    public List<t97<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            fk5 fk5Var = null;
-            if (customResponsedMessage.getData() instanceof fk5) {
-                fk5Var = (fk5) customResponsedMessage.getData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < sx8.a.size(); i++) {
+                int keyAt = sx8.a.keyAt(i);
+                if (keyAt != 17 && keyAt != 33 && keyAt != 34) {
+                    hha hhaVar = new hha(keyAt, this.a);
+                    hhaVar.f(this.b);
+                    hhaVar.e(this.c);
+                    arrayList.add(hhaVar);
+                } else {
+                    for (Integer num : d) {
+                        hha hhaVar2 = new hha(keyAt, num.intValue(), this.a);
+                        hhaVar2.f(this.b);
+                        hhaVar2.e(this.c);
+                        arrayList.add(hhaVar2);
+                    }
+                }
             }
-            if (fk5Var != null && fk5Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new ek5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09232f), fk5Var).m();
-            }
+            return arrayList;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public fha b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (fha) invokeL.objValue;
+    }
+
+    public fha c(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
+            this.b = tbPageContext;
+            return this;
+        }
+        return (fha) invokeL.objValue;
     }
 }

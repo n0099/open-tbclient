@@ -1,86 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.utils.AlaStringHelper;
+import android.annotation.SuppressLint;
+import android.webkit.WebView;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class mi6 {
+public class mi6 extends ni6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public LinearLayout g;
-    public LinearLayout h;
-    public TextView i;
-    public b j;
-    public AlaEnterEffectData k;
-    public Context l;
+    public final WebView a;
+    public final Map<String, AbsJsInterface> b;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mi6 a;
-
-        public a(mi6 mi6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mi6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mi6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
-                this.a.j.a();
-            }
-        }
-    }
-
-    public mi6(Context context, AlaEnterEffectData alaEnterEffectData) {
+    public mi6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaEnterEffectData};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,111 +36,92 @@ public class mi6 {
                 return;
             }
         }
-        if (alaEnterEffectData != null && context != null) {
-            this.l = context;
-            this.k = alaEnterEffectData;
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f0, (ViewGroup) null);
-            this.a = relativeLayout;
-            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090983);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0914d2);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09158f);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090796);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092321);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092322);
-            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09081d);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09081c);
-            c(alaEnterEffectData);
-        }
+        this.a = webView;
+        this.b = new ArrayMap();
     }
 
-    public void d(b bVar) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.j = bVar;
-        }
-    }
-
-    public RelativeLayout b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    public void c(AlaEnterEffectData alaEnterEffectData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
-            return;
-        }
-        this.k = alaEnterEffectData;
-        this.e.setEnabled(true);
-        int i = this.k.categoryType;
-        if (3 != i) {
-            if (2 == i) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801ef);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
-                this.g.setVisibility(0);
-                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
-                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
-                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
-                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
-                this.h.setVisibility(0);
-                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
-                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
-            } else {
-                this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f69);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607c7));
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            cl6.c("newHybrid", "remove k:" + str);
+            AbsJsInterface absJsInterface = this.b.get(str);
+            if (absJsInterface != null) {
+                absJsInterface.deAttachWebView();
             }
+            this.a.removeJavascriptInterface(str);
         }
-        AlaEnterEffectData alaEnterEffectData2 = this.k;
-        if (alaEnterEffectData2.isOwn) {
-            if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f66);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607c6));
-                this.e.setText(R.string.obfuscated_res_0x7f0f027b);
-                if (2 == this.k.categoryType) {
-                    this.h.setVisibility(8);
+    }
+
+    public static mi6 g(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
+            return new mi6(webView);
+        }
+        return (mi6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.li6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.b.keySet()) {
+                h(str);
+            }
+            this.b.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.li6
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Map<String, Class<? extends AbsJsInterface>> b = sk6.a().b();
+            if (!b.isEmpty()) {
+                try {
+                    e(b);
+                } catch (JsInterfaceException e) {
+                    if (!fk6.a()) {
+                        ((dl6) ServiceManager.getService(dl6.a)).a(e);
+                        return;
+                    }
+                    throw e;
                 }
-            } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f024c);
             }
-        } else {
-            int i2 = alaEnterEffectData2.categoryType;
-            if (3 == i2) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0266);
-                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f023e, alaEnterEffectData.nobilityName));
-            } else if (2 == i2) {
-                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0243);
-                } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f023c);
+        }
+    }
+
+    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            if (d()) {
+                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
+                    Class<? extends AbsJsInterface> value = entry.getValue();
+                    if (c(value)) {
+                        try {
+                            f(entry.getKey(), value);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
+                    }
                 }
-            } else {
-                this.e.setBackgroundDrawable(null);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
-                this.e.setText(R.string.obfuscated_res_0x7f0f0240);
-                this.e.setEnabled(false);
+                return;
             }
+            throw new JsInterfaceException("The injected object is not safe, give up injection");
         }
-        this.e.setOnClickListener(new a(this));
-        if (!StringUtils.isNull(alaEnterEffectData.name)) {
-            this.b.setText(alaEnterEffectData.name);
-        }
-        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
-        if (currentTimeMillis >= 0) {
-            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f024f, StringHelper.formatDayOrHourTime(currentTimeMillis)));
-        }
-        if (!StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
-            this.d.setText(alaEnterEffectData.effect_range_name);
+    }
+
+    @SuppressLint({"JavascriptInterface"})
+    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
+            cl6.c("newHybrid", "inject k:" + str + "  v:" + cls);
+            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            newInstance.attachWebView(this.a);
+            this.b.put(str, newInstance);
+            this.a.addJavascriptInterface(newInstance, str);
         }
     }
 }

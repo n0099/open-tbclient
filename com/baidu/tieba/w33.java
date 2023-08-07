@@ -1,110 +1,102 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class w33 {
+public class w33 implements rp3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static final class a implements s33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-        public final /* synthetic */ String b;
-
-        public a(Function1 function1, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948219602, "Lcom/baidu/tieba/w33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = function1;
-            this.b = str;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948219602, "Lcom/baidu/tieba/w33;");
+                return;
+            }
         }
+        a = ir1.a;
+    }
 
-        @Override // com.baidu.tieba.s33
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray a = w33.a();
-                if (a != null && a.length() != 0) {
-                    int length = a.length();
-                    for (int i = 0; i < length; i++) {
-                        if (Intrinsics.areEqual(this.b, a.get(i))) {
-                            Function1 function1 = this.a;
-                            if (function1 != null) {
-                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
-                                return;
-                            }
-                            return;
+    public w33() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+                jSONObject.put("flowId", hybridUbcFlow.l());
+                JSONArray jSONArray = new JSONArray();
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
+                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
+                        if (a) {
+                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
+                        }
+                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
+                    }
+                }
+                jSONObject.put("data", jSONArray);
+            }
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rp3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
+            }
+            if (lw2.T().X()) {
+                if (a || lw2.T().M()) {
+                    try {
+                        f43.e().c(b(hybridUbcFlow));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
                         }
                     }
-                    Function1 function12 = this.a;
-                    if (function12 != null) {
-                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
-                        return;
-                    }
-                    return;
-                }
-                Function1 function13 = this.a;
-                if (function13 != null) {
-                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
                 }
             }
         }
-    }
-
-    public static final /* synthetic */ JSONArray a() {
-        return c();
-    }
-
-    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
-            r33.g().z(new a(function1, str));
-        }
-    }
-
-    public static final JSONArray c() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return null;
-            }
-            String q = b0.e0().q("note_data_pay_check_list", "");
-            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return new JSONObject(q).optJSONArray("pay_keys");
-        }
-        return (JSONArray) invokeV.objValue;
     }
 }

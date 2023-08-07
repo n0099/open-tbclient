@@ -9,18 +9,18 @@ import android.view.ViewPropertyAnimator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.headViewPendant.LightInteractiveManager;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.lb5;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,8 +79,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = yi.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds118);
         this.o = 3;
         this.w = true;
         d(context);
@@ -106,8 +106,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = yi.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds118);
         this.o = 3;
         this.w = true;
         d(context);
@@ -163,8 +163,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = yi.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds118);
         this.o = 3;
         this.w = true;
         d(context);
@@ -193,7 +193,7 @@ public class HeadCustomImageView extends RelativeLayout {
             if (this.c != null && TbSingleton.getInstance().getLightEmotionInfo() != null && TbSingleton.getInstance().getLightEmotionInfo().size() != 0) {
                 Rect rect = new Rect();
                 this.c.getGlobalVisibleRect(rect);
-                lb5.b(this.n, rect.centerX(), rect.bottom, this.v, 1, this.u, this.w);
+                LightInteractiveManager.show(this.n, rect.centerX(), rect.bottom, this.v, 1, this.u, this.w);
                 return true;
             }
             return false;
@@ -238,7 +238,7 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0 && this.n != null && this.d != null) {
             this.a.setDefaultBgResource(R.color.transparent);
-            this.a.setBackgroundColor(dba.a(dba.f(str), 0.3f));
+            this.a.setBackgroundColor(x9a.a(x9a.f(str), 0.3f));
         }
     }
 
@@ -253,9 +253,9 @@ public class HeadCustomImageView extends RelativeLayout {
             this.b = (TbImageView) findViewById(R.id.head_image_view);
             this.a = (TbImageView) findViewById(R.id.head_image_background);
             this.d = (RoundRelativeLayout) findViewById(R.id.head_image_background_container);
-            int g = yi.g(context, R.dimen.tbds90);
-            this.e = g;
-            this.d.setRoundLayoutRadius(new float[]{g, g, g, g, g, g, g, g});
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds90);
+            this.e = dimens;
+            this.d.setRoundLayoutRadius(new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens});
             RoundRelativeLayout roundRelativeLayout = this.c;
             int i = this.e;
             roundRelativeLayout.setRoundLayoutRadius(new float[]{0.0f, 0.0f, 0.0f, 0.0f, i, i, i, i});
@@ -317,7 +317,7 @@ public class HeadCustomImageView extends RelativeLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0) {
-            this.a.N(str, 45, false);
+            this.a.startLoad(str, 45, false);
         }
     }
 
@@ -325,7 +325,7 @@ public class HeadCustomImageView extends RelativeLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (tbImageView = this.b) != null && tbImageView.getVisibility() == 0 && str != null) {
-            this.b.J(str, 10, 0, 0, true);
+            this.b.startLoad(str, 10, 0, 0, true);
             invalidate();
         }
     }

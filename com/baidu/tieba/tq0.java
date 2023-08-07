@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.NestedEvent;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,81 +11,55 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class tq0 implements pk0 {
+public final class tq0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final tq0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NestedEvent a;
-    public final int b;
-    public final int c;
-    public final int d;
 
-    public tq0(NestedEvent type, float f, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948189718, "Lcom/baidu/tieba/tq0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948189718, "Lcom/baidu/tieba/tq0;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
+        a = new tq0();
     }
 
-    @Override // com.baidu.tieba.pk0
-    public String a() {
-        InterceptResult invokeV;
+    public tq0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = tq0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedMoveViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public final boolean a(uq0 uq0Var, Context context, Intent intent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uq0Var, context, intent)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            int b = r91.b(context.getApplicationContext(), null);
+            if (b == 0) {
+                return false;
+            }
+            if ((2 == b || 1 == b || 4 == b) && intent != null) {
+                intent.putExtra("downgrade_to_native", "1");
+            }
+            return true;
         }
-        return invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final NestedEvent getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (NestedEvent) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

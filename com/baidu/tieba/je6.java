@@ -1,59 +1,152 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
+import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class je6 extends BaseCardInfo {
+public class je6 extends lm<ze6, CardViewHolder<uf6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ie6> a;
+    public TbPageContext a;
+    public df6 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880462, "Lcom/baidu/tieba/je6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ze6 a;
+        public final /* synthetic */ je6 b;
+
+        public a(je6 je6Var, ze6 ze6Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {je6Var, ze6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947880462, "Lcom/baidu/tieba/je6;");
-                return;
+            this.b = je6Var;
+            this.a = ze6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.u(this.a);
             }
         }
-        b = BdUniqueId.gen();
     }
 
-    public je6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public je6(TbPageContext tbPageContext, df6 df6Var) {
+        super(tbPageContext.getPageActivity(), ze6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, df6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.b = df6Var;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: x */
+    public CardViewHolder<uf6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new uf6(this.a));
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public final void t(ze6 ze6Var, uf6 uf6Var) {
+        ne6 c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ze6Var, uf6Var) == null) && (c = ze6Var.c()) != null && c.b() != null) {
+            uf6Var.y(0);
+            uf6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0270));
+            int i = c.b().certify_status;
+            if (i == 0) {
+                uf6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0274));
+                uf6Var.x(0);
+            } else if (1 == i) {
+                uf6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0273));
+                uf6Var.x(4);
+            } else if (2 == i) {
+                uf6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0271));
+                uf6Var.x(4);
+            } else if (3 == i) {
+                uf6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0272));
+                uf6Var.x(0);
+            }
+            uf6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void u(ze6 ze6Var) {
+        AlaUserInfoData b;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ze6Var) == null) && ze6Var != null && ze6Var.c() != null && ze6Var.c().b() != null && 1 != (i = (b = ze6Var.c().b()).certify_status) && 2 != i) {
+            Context context = this.mContext;
+            String str = b.user_id;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
+            df6 df6Var = this.b;
+            if (df6Var != null) {
+                df6Var.a(1);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ze6 ze6Var, CardViewHolder<uf6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ze6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.b() == null) {
+                return null;
+            }
+            t(ze6Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this, ze6Var));
+            return cardViewHolder.b().h();
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

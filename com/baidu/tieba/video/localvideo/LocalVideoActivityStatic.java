@@ -7,6 +7,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
@@ -19,14 +20,13 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lm;
-import com.baidu.tieba.mm;
+import com.baidu.tieba.bla;
+import com.baidu.tieba.bma;
+import com.baidu.tieba.er6;
+import com.baidu.tieba.ml;
+import com.baidu.tieba.nl;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-import com.baidu.tieba.xla;
-import com.baidu.tieba.xma;
-import com.baidu.tieba.xt6;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +77,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    yi.Q(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.libso_load_faild);
                 }
             }
 
@@ -86,7 +86,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    yi.Q(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.libso_load_faild);
                 }
             }
 
@@ -155,9 +155,9 @@ public class LocalVideoActivityStatic {
             arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
             arrayList.add("com.baidu.tieba.resloader.v3.mp3");
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(mm.a);
+            requestParams.setRunType(nl.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new lm(arrayList, new a(this, customResponsedMessage)));
+            requestParams.addChannel(new ml(arrayList, new a(this, customResponsedMessage)));
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -182,12 +182,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<xt6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<er6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof xla)) {
-                    return new CustomResponsedMessage<>(2921466, new xma((xla) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof bla)) {
+                    return new CustomResponsedMessage<>(2921466, new bma((bla) customMessage.getData()));
                 }
                 return null;
             }

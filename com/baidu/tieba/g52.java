@@ -2,9 +2,7 @@ package com.baidu.tieba;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class g52 extends b52 {
+public class g52 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Paint b;
-    public PorterDuffXfermode c;
+    public Paint.Join a;
 
     public g52() {
         Interceptable interceptable = $ic;
@@ -29,36 +25,30 @@ public class g52 extends b52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
-    @Override // com.baidu.tieba.b52
-    public void a(c52 c52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.e42
+    public void a(f42 f42Var, Canvas canvas) {
+        Paint.Join join;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) && this.a != null) {
-            this.b.setXfermode(this.c);
-            canvas.drawRect(this.a, this.b);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && (join = this.a) != null) {
+            f42Var.c.setStrokeJoin(join);
         }
     }
 
-    @Override // com.baidu.tieba.b52
+    @Override // com.baidu.tieba.e42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = mp3.g((float) jSONArray.optDouble(0));
-                    int g2 = mp3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, mp3.g((float) jSONArray.optDouble(2)) + g, mp3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (fs1.a) {
-                    e.printStackTrace();
-                }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "bevel")) {
+                this.a = Paint.Join.BEVEL;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Join.ROUND;
+            } else if (TextUtils.equals(optString, "miter")) {
+                this.a = Paint.Join.MITER;
             }
         }
     }

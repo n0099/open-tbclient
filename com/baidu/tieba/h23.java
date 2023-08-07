@@ -1,103 +1,145 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.sw2;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes6.dex */
-public class h23 {
+public class h23 extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ResponseBody a;
+    public final e23 b;
+    public BufferedSource c;
 
-    public static JSONObject a(f23 f23Var, boolean z, Bitmap bitmap, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{f23Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
-            JSONObject e = e23.e();
-            if (f23Var != null) {
-                try {
-                    e.put("page", f23Var.b);
-                } catch (JSONException e2) {
-                    if (vb3.v) {
-                        e2.printStackTrace();
-                    }
+    /* loaded from: classes6.dex */
+    public class a extends ForwardingSource {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public final /* synthetic */ h23 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(h23 h23Var, Source source) {
+            super(source);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h23Var, source};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Source) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            e.put("firstPage", z2);
-            if (z && bitmap != null) {
-                e.put("image", e23.c(bitmap));
-            }
-            return e;
+            this.b = h23Var;
+            this.a = 0L;
         }
-        return (JSONObject) invokeCommon.objValue;
+
+        @Override // okio.ForwardingSource, okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            InterceptResult invokeLJ;
+            long j2;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
+                long read = super.read(buffer, j);
+                long j3 = this.a;
+                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
+                if (i != 0) {
+                    j2 = read;
+                } else {
+                    j2 = 0;
+                }
+                this.a = j3 + j2;
+                e23 e23Var = this.b.b;
+                long j4 = this.a;
+                long contentLength = this.b.a.contentLength();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                e23Var.a(j4, contentLength, z);
+                return read;
+            }
+            return invokeLJ.longValue;
+        }
     }
 
-    public static JSONObject b(f23 f23Var) {
+    public h23(ResponseBody responseBody, e23 e23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {responseBody, e23Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = responseBody;
+        this.b = e23Var;
+    }
+
+    public final Source c(Source source) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f23Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (f23Var != null) {
-                try {
-                    if (f23Var.g == 0) {
-                        str = "0";
-                    } else {
-                        str = "1";
-                    }
-                    jSONObject.put("isH5Componet", str);
-                } catch (JSONException e) {
-                    if (vb3.v) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) {
+            return new a(this, source);
         }
-        return (JSONObject) invokeL.objValue;
+        return (Source) invokeL.objValue;
     }
 
-    public static void c(f23 f23Var, int i, boolean z, int i2) {
+    @Override // okhttp3.ResponseBody
+    public long contentLength() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{f23Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            d(f23Var, i, false, null, z, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.contentLength();
         }
+        return invokeV.longValue;
     }
 
-    public static void d(f23 f23Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
-        sw2.a W;
+    @Override // okhttp3.ResponseBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{f23Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
-            on3 on3Var = new on3();
-            on3Var.k(5L);
-            on3Var.i(i);
-            if (!ji3.d || z2) {
-                on3Var.f(a(f23Var, z, bitmap, z2).toString());
-            }
-            String valueOf = String.valueOf(i2);
-            wi3 wi3Var = new wi3();
-            wi3Var.p(on3Var);
-            wi3Var.q(oi3.n(ub3.K().k()));
-            wi3Var.m(ub3.K().getAppId());
-            wi3Var.s = f23Var.b;
-            wi3Var.n(false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                W = null;
-            } else {
-                W = b0.W();
-            }
-            if (!ji3.d || z2) {
-                wi3Var.s(valueOf);
-                wi3Var.r(W);
-                wi3Var.e(b(f23Var));
-                wi3Var.e(vh3.d().e());
-                wi3Var.e(vh3.d().g());
-            }
-            oi3.R(wi3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.contentType();
         }
+        return (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public BufferedSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                this.c = Okio.buffer(c(this.a.source()));
+            }
+            return this.c;
+        }
+        return (BufferedSource) invokeV.objValue;
     }
 }

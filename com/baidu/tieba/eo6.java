@@ -1,63 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.player.assistant.KernelCacheAssistant;
+import com.baidu.tbadk.switchs.BaseNormalSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+@Service
 /* loaded from: classes5.dex */
-public class eo6 {
+public final class eo6 extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            vn6.b("newHybrid", "基础版本：" + str + ",当前版本：" + str2);
-            if (TextUtils.equals(str, str2)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741117, "Lcom/baidu/tieba/eo6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    String[] split = str.split("[._]");
-                    String[] split2 = str2.split("[._]");
-                    int min = Math.min(split.length, split2.length);
-                    long j = 0;
-                    for (int i = 0; i < min; i++) {
-                        j = b(split2[i]).longValue() - b(split[i]).longValue();
-                        if (j != 0) {
-                            break;
-                        }
-                    }
-                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i2 == 0) {
-                        if (split2.length > split.length) {
-                            return true;
-                        }
-                        return false;
-                    } else if (i2 > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } catch (Exception unused) {
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741117, "Lcom/baidu/tieba/eo6;");
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        a = new a(null);
     }
 
-    public static Long b(String str) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return Long.valueOf(Long.parseLong(str));
-            } catch (NumberFormatException unused) {
-                return 0L;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.a();
+        }
+    }
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "12.42_klayer_cache_clean_switch" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return (Long) invokeL.objValue;
+
+        @JvmStatic
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !b()) {
+                return;
+            }
+            KernelCacheAssistant.get().release();
+        }
+
+        @JvmStatic
+        public final boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (SwitchManager.getInstance().findType("12.42_klayer_cache_clean_switch") == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    public eo6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 }

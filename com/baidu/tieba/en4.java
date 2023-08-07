@@ -1,88 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class en4 implements hn4 {
-    public static /* synthetic */ Interceptable $ic;
+public class en4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b = "0";
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    @Nullable
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public en4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740094, "Lcom/baidu/tieba/en4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740094, "Lcom/baidu/tieba/en4;");
+                return;
             }
         }
+        hi4 b2 = ji4.b();
+        if (b2 != null) {
+            b = b2.i().getString("key_h2_heart_beat_version", "0");
+        }
     }
 
-    public static <T> T e(@Nullable T t, @Nullable fn4<T> fn4Var) {
-        InterceptResult invokeLL;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, fn4Var)) == null) {
-            if (t != null && fn4Var != null) {
-                fn4Var.a(t);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            hi4 b2 = ji4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timespan", i);
             }
-            return t;
+            return i;
         }
-        return (T) invokeLL.objValue;
+        return invokeI.longValue;
     }
 
-    @Override // com.baidu.tieba.hn4
-    @Nullable
-    public JSONObject a(@Nullable fn4<JSONObject> fn4Var) {
-        InterceptResult invokeL;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fn4Var)) == null) {
-            JSONObject d = d();
-            e(d, fn4Var);
-            return d;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            hi4 b2 = ji4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timeout", i);
+            }
+            return i;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.hn4
-    @Nullable
-    public JSONArray b(@Nullable fn4<JSONArray> fn4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fn4Var)) == null) {
-            JSONArray c = c();
-            e(c, fn4Var);
-            return c;
-        }
-        return (JSONArray) invokeL.objValue;
+        return invokeI.longValue;
     }
 }

@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.searchbox.player.helper.ViewOpUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class cy0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile by0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2) {
-        InterceptResult invokeL;
+    public static synchronized by0 a() {
+        InterceptResult invokeV;
+        by0 by0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view2.getParent();
-                if (viewGroup.indexOfChild(view2) != -1) {
-                    try {
-                        v21.b(ViewOpUtils.TAG, "removeView " + view2.hashCode());
-                        viewGroup.removeView(view2);
-                        return true;
-                    } catch (Exception e) {
-                        v21.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
-                        return true;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (cy0.class) {
+                if (a == null) {
+                    a = new by0();
                 }
-                return false;
+                by0Var = a;
             }
-            return false;
+            return by0Var;
         }
-        return invokeL.booleanValue;
+        return (by0) invokeV.objValue;
     }
 }

@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.qb8;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.l45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qb8 mBangTopic;
-    public qb8 mSugTopic;
-    public qb8 mUserHisTopic;
-    public qb8 mVideoTopic;
+    public k98 mBangTopic;
+    public k98 mSugTopic;
+    public k98 mUserHisTopic;
+    public k98 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectHttpResponseMessage(int i) {
@@ -51,8 +51,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0 && getError() == 0) {
-                o55.e();
-                o55.d("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
+                l45.e();
+                l45.d("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
             }
         }
     }
@@ -75,69 +75,69 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         if (dataRes.user_his_topic != null) {
-            qb8 qb8Var = new qb8();
-            qb8Var.d(getSugTopicResIdl.data.user_his_topic);
-            qb8Var.f(0);
-            this.mUserHisTopic = qb8Var;
+            k98 k98Var = new k98();
+            k98Var.d(getSugTopicResIdl.data.user_his_topic);
+            k98Var.f(0);
+            this.mUserHisTopic = k98Var;
         }
         if (getSugTopicResIdl.data.bang_topic != null) {
-            qb8 qb8Var2 = new qb8();
-            qb8Var2.f(1);
-            qb8Var2.d(getSugTopicResIdl.data.bang_topic);
-            this.mBangTopic = qb8Var2;
+            k98 k98Var2 = new k98();
+            k98Var2.f(1);
+            k98Var2.d(getSugTopicResIdl.data.bang_topic);
+            this.mBangTopic = k98Var2;
         }
         if (getSugTopicResIdl.data.sug_topic != null) {
-            qb8 qb8Var3 = new qb8();
-            qb8Var3.d(getSugTopicResIdl.data.sug_topic);
-            this.mSugTopic = qb8Var3;
+            k98 k98Var3 = new k98();
+            k98Var3.d(getSugTopicResIdl.data.sug_topic);
+            this.mSugTopic = k98Var3;
         }
         if (getSugTopicResIdl.data.video_topic != null) {
-            qb8 qb8Var4 = new qb8();
-            qb8Var4.d(getSugTopicResIdl.data.video_topic);
-            this.mVideoTopic = qb8Var4;
+            k98 k98Var4 = new k98();
+            k98Var4.d(getSugTopicResIdl.data.video_topic);
+            this.mVideoTopic = k98Var4;
         }
     }
 
-    public qb8 getBangTopic() {
+    public k98 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mBangTopic;
         }
-        return (qb8) invokeV.objValue;
+        return (k98) invokeV.objValue;
     }
 
-    public qb8 getSugTopic() {
+    public k98 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mSugTopic;
         }
-        return (qb8) invokeV.objValue;
+        return (k98) invokeV.objValue;
     }
 
-    public qb8 getUserHisTopic() {
+    public k98 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mUserHisTopic;
         }
-        return (qb8) invokeV.objValue;
+        return (k98) invokeV.objValue;
     }
 
-    public qb8 getVideoTopic() {
+    public k98 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mVideoTopic;
         }
-        return (qb8) invokeV.objValue;
+        return (k98) invokeV.objValue;
     }
 
-    public void setVideoTopic(qb8 qb8Var) {
+    public void setVideoTopic(k98 k98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qb8Var) == null) {
-            this.mVideoTopic = qb8Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k98Var) == null) {
+            this.mVideoTopic = k98Var;
         }
     }
 }

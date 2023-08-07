@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d46;
-import com.baidu.tieba.v36;
-import com.baidu.tieba.wu5;
+import com.baidu.tieba.d16;
+import com.baidu.tieba.k16;
+import com.baidu.tieba.ls5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectClassDialogView extends ViewGroup implements wu5 {
+public class SelectClassDialogView extends ViewGroup implements ls5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public d46<String> b;
+    public k16<String> b;
 
-    @Override // com.baidu.tieba.wu5
-    public boolean Q0() {
+    @Override // com.baidu.tieba.ls5
+    public boolean R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -37,7 +37,7 @@ public class SelectClassDialogView extends ViewGroup implements wu5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wu5
+    @Override // com.baidu.tieba.ls5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,8 +76,8 @@ public class SelectClassDialogView extends ViewGroup implements wu5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.wu5
-    public boolean A() {
+    @Override // com.baidu.tieba.ls5
+    public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -92,10 +92,10 @@ public class SelectClassDialogView extends ViewGroup implements wu5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0204, this.a, true);
-            d46<String> d46Var = new d46<>(this.a, true);
-            this.b = d46Var;
-            d46Var.t(9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0207, this.a, true);
+            k16<String> k16Var = new k16<>(this.a, true);
+            this.b = k16Var;
+            k16Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -108,8 +108,8 @@ public class SelectClassDialogView extends ViewGroup implements wu5 {
         }
     }
 
-    @Override // com.baidu.tieba.wu5
-    public void q(int i) {
+    @Override // com.baidu.tieba.ls5
+    public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
@@ -133,11 +133,11 @@ public class SelectClassDialogView extends ViewGroup implements wu5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(v36 v36Var) {
-        d46<String> d46Var;
+    public void setOnOptionsSelectChangeListener(d16 d16Var) {
+        k16<String> k16Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, v36Var) == null) && (d46Var = this.b) != null) {
-            d46Var.w(v36Var);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, d16Var) == null) && (k16Var = this.b) != null) {
+            k16Var.w(d16Var);
         }
     }
 }

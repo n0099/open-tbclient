@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.tracker.core.data.IEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetPendantByCategory.ThemePendantInMain;
-import tbclient.ThemeBgProp;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class xia {
+public final class xia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
+    public IEventNode a;
 
     public xia() {
         Interceptable interceptable = $ic;
@@ -32,33 +28,54 @@ public class xia {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public List<DressItemData> b() {
+    public final IEventNode b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (IEventNode) invokeV.objValue;
     }
 
-    public void c(ThemePendantInMain themePendantInMain) {
+    public final xia c(IEventNode node) {
+        InterceptResult invokeL;
+        IEventNode iEventNode;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, node)) == null) {
+            Intrinsics.checkNotNullParameter(node, "node");
+            IEventNode iEventNode2 = this.a;
+            if (iEventNode2 == null) {
+                this.a = node;
+            } else {
+                while (true) {
+                    if (iEventNode2 != null) {
+                        iEventNode = iEventNode2.getNext();
+                    } else {
+                        iEventNode = null;
+                    }
+                    if (iEventNode == null) {
+                        break;
+                    }
+                    IEventNode iEventNode3 = this.a;
+                    if (iEventNode3 != null) {
+                        iEventNode2 = iEventNode3.getNext();
+                    } else {
+                        iEventNode2 = null;
+                    }
+                }
+                if (iEventNode2 != null) {
+                    iEventNode2.setNext(node);
+                }
+            }
+            return this;
         }
-        this.a = themePendantInMain.pendant_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
-        }
+        return (xia) invokeL.objValue;
     }
 }

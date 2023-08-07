@@ -1,13 +1,14 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.wg;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class TimeHelper {
@@ -17,7 +18,7 @@ public class TimeHelper {
     public static boolean isTargetTimeInTimeBlock(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j > j2 && j < j3 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j > j2 && j < j3 : invokeCommon.booleanValue;
     }
 
     public TimeHelper() {
@@ -38,7 +39,7 @@ public class TimeHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return wg.g(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L);
+            return JavaTypesHelper.toLong(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L);
         }
         return invokeV.longValue;
     }
@@ -46,7 +47,7 @@ public class TimeHelper {
     public static Date getNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             return new Date(System.currentTimeMillis());
         }
         return (Date) invokeV.objValue;
@@ -75,7 +76,7 @@ public class TimeHelper {
     public static long getSecondDifference(Date date, Date date2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, date, date2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, date, date2)) == null) {
             long time = date.getTime() - date2.getTime();
             long j = (time / 86400000) * 24;
             long j2 = (time / 3600000) - j;
@@ -89,7 +90,7 @@ public class TimeHelper {
     public static boolean isInTimeBlock(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (currentTimeMillis > j && currentTimeMillis < j2) {
                 return true;
@@ -102,7 +103,7 @@ public class TimeHelper {
     public static boolean isSameDay(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             new SimpleDateFormat("yyyy-MM-dd");
             return isSameDay(new Date(j), new Date(j2));
         }
@@ -127,10 +128,33 @@ public class TimeHelper {
         return invokeLL.longValue;
     }
 
+    public static Date getNDaysAgoDate(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(5, i);
+            return calendar.getTime();
+        }
+        return (Date) invokeI.objValue;
+    }
+
+    public static boolean isSameYear(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
+            if (new Date(j).getYear() != new Date(System.currentTimeMillis()).getYear()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
     public static boolean isAdjacentDays(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             Date date = new Date(j);
             Date date2 = new Date(j2);
             if (date.getDate() + 1 == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()) {
@@ -144,24 +168,12 @@ public class TimeHelper {
     public static boolean isSameDay(Date date, Date date2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, date, date2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, date, date2)) == null) {
             if (date.getYear() != date2.getYear() || date.getMonth() != date2.getMonth() || date.getDay() != date2.getDay()) {
                 return false;
             }
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static boolean isSameYear(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65548, null, j)) == null) {
-            if (new Date(j).getYear() != new Date(System.currentTimeMillis()).getYear()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeJ.booleanValue;
     }
 }

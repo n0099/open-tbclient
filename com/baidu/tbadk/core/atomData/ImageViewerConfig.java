@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.kx5;
+import com.baidu.tieba.k85;
+import com.baidu.tieba.l85;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.q95;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.yu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,29 +101,29 @@ public class ImageViewerConfig extends IntentConfig {
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<String> a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public boolean f;
-        public String g;
-        public boolean h;
-        public ConcurrentHashMap<String, ImageUrlData> i;
-        public boolean j;
-        public boolean k;
-        public boolean l;
-        public ThreadData m;
-        public String n;
-        public String o;
-        public String p;
-        public boolean q;
-        public Rect r;
-        public RectF s;
-        public boolean t;
-        public boolean u;
-        public boolean v;
-        public boolean w;
+        public ConcurrentHashMap<String, ImageUrlData> assistUrls;
+        public String bjhPostId;
+        public ArrayList<String> data;
+        public RectF drawableRect;
+        public String forumId;
+        public String forumName;
+        public String fromFormId;
+        public int index;
+        public boolean isCDN;
+        public boolean isCanDrag;
+        public boolean isDynamicCard;
+        public boolean isFromAiApp;
+        public boolean isReserve;
+        public boolean isSeeHost;
+        public boolean isShowAd;
+        public boolean isShowHost;
+        public String lastId;
+        public boolean needBroadCaset;
+        public boolean needRequestAd;
+        public String postId;
+        public ThreadData threadData;
+        public String threadId;
+        public Rect viewRect;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -138,228 +138,238 @@ public class ImageViewerConfig extends IntentConfig {
                     return;
                 }
             }
-            this.b = 0;
-            this.d = "";
-            this.e = "";
-            this.l = false;
-            this.q = true;
-            this.t = true;
-            this.w = true;
+            this.index = 0;
+            this.forumId = "";
+            this.threadId = "";
+            this.isSeeHost = false;
+            this.isCanDrag = true;
+            this.isShowHost = true;
+            this.needRequestAd = true;
         }
 
-        public Builder A(ArrayList<String> arrayList) {
+        public ImageViewerConfig bulid(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-                this.a = arrayList;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new ImageViewerConfig(context, this, null);
+            }
+            return (ImageViewerConfig) invokeL.objValue;
+        }
+
+        public Builder setAssistUrls(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, concurrentHashMap)) == null) {
+                this.assistUrls = concurrentHashMap;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder B(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder C(String str) {
+        public Builder setBjhPostId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
+                this.bjhPostId = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder D(String str) {
+        public Builder setData(ArrayList<String> arrayList) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.n = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
+                this.data = arrayList;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder E(int i) {
+        public Builder setForumId(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.forumId = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setForumName(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.forumName = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setFromForumId(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.fromFormId = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.b = i;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                this.index = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder F(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder G(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.q = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder H(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.u = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder I(boolean z) {
+        public Builder setIsCDN(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.h = z;
+                this.isCDN = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder J(boolean z) {
+        public Builder setIsCanDrag(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.l = z;
+                this.isCanDrag = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder K(boolean z) {
+        public Builder setIsDynamicCard(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.j = z;
+                this.isDynamicCard = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder L(boolean z) {
+        public Builder setIsFromAiApp(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.t = z;
+                this.isFromAiApp = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder M(String str) {
-            InterceptResult invokeL;
+        public Builder setIsReserve(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.g = str;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+                this.isReserve = z;
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            return (Builder) invokeZ.objValue;
         }
 
-        public Builder N(boolean z) {
+        public Builder setIsSeeHost(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-                this.k = z;
+                this.isSeeHost = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder O(String str) {
+        public Builder setIsShowAd(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+                this.isShowAd = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setIsShowHost(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+                this.isShowHost = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setLastId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-                this.o = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+                this.lastId = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder Q(ThreadData threadData) {
-            InterceptResult invokeL;
+        public Builder setNeedBroadCaset(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, threadData)) == null) {
-                this.m = threadData;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+                this.needBroadCaset = z;
                 return this;
             }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder R(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-                this.e = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            return (Builder) invokeZ.objValue;
         }
 
         @Keep
         public void setNeedRequestAd(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-                this.w = z;
+                this.needRequestAd = z;
             }
         }
 
-        public ImageViewerConfig x(Context context) {
+        public Builder setPostId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
-                return new ImageViewerConfig(context, this, null);
-            }
-            return (ImageViewerConfig) invokeL.objValue;
-        }
-
-        public Builder y(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, concurrentHashMap)) == null) {
-                this.i = concurrentHashMap;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+                this.postId = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder z(String str) {
+        public Builder setThreadData(ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-                this.p = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, threadData)) == null) {
+                this.threadData = threadData;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder P(Rect rect, RectF rectF) {
+        public Builder setThreadId(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+                this.threadId = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setSrcRectInScreen(Rect rect, RectF rectF) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, rect, rectF)) == null) {
-                this.r = rect;
-                this.s = rectF;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, rect, rectF)) == null) {
+                this.viewRect = rect;
+                this.drawableRect = rectF;
                 return this;
             }
             return (Builder) invokeLL.objValue;
@@ -390,28 +400,28 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (builder.a != null && builder.a.size() > 0) {
+        if (builder.data != null && builder.data.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", builder.a);
-            intent.putExtra("index", builder.b);
+            intent.putStringArrayListExtra("url", builder.data);
+            intent.putExtra("index", builder.index);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, builder.f);
-            intent.putExtra("fname", builder.c);
-            intent.putExtra("fid", builder.d);
-            intent.putExtra("tid", builder.e);
-            intent.putExtra(LAST_ID, builder.g);
-            intent.putExtra(REVERSE_MODE, builder.h);
-            intent.putExtra(ASSIST_URLS, builder.i);
-            intent.putExtra(IS_SHOW_AD, builder.j);
-            intent.putExtra(NEED_BROADCAST, builder.k);
-            intent.putExtra(SEE_HOST, builder.l);
-            intent.putExtra(NEED_REQUEST_AD, builder.w);
-            int size = builder.a.size();
+            intent.putExtra(PARAM_IS_CDN, builder.isCDN);
+            intent.putExtra("fname", builder.forumName);
+            intent.putExtra("fid", builder.forumId);
+            intent.putExtra("tid", builder.threadId);
+            intent.putExtra(LAST_ID, builder.lastId);
+            intent.putExtra(REVERSE_MODE, builder.isReserve);
+            intent.putExtra(ASSIST_URLS, builder.assistUrls);
+            intent.putExtra(IS_SHOW_AD, builder.isShowAd);
+            intent.putExtra(NEED_BROADCAST, builder.needBroadCaset);
+            intent.putExtra(SEE_HOST, builder.isSeeHost);
+            intent.putExtra(NEED_REQUEST_AD, builder.needRequestAd);
+            int size = builder.data.size();
             for (int i4 = 0; i4 < size; i4++) {
-                String str = (String) builder.a.get(i4);
+                String str = (String) builder.data.get(i4);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = builder.i != null ? (ImageUrlData) builder.i.get(str) : null;
+                    ImageUrlData imageUrlData = builder.assistUrls != null ? (ImageUrlData) builder.assistUrls.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
@@ -431,63 +441,63 @@ public class ImageViewerConfig extends IntentConfig {
         } else {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
-        if (builder.m != null) {
-            intent.putExtra(IS_BJH, builder.m.isUgcThreadType());
-            if (builder.m.isUgcThreadType()) {
+        if (builder.threadData != null) {
+            intent.putExtra(IS_BJH, builder.threadData.isUgcThreadType());
+            if (builder.threadData.isUgcThreadType()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
-            intent.putExtra("nid", builder.m.getNid());
-            intent.putExtra("card_type", builder.m.getRecomCardType());
-            intent.putExtra("recom_source", builder.m.mRecomSource);
-            intent.putExtra("ab_tag", builder.m.mRecomAbTag);
-            intent.putExtra("weight", builder.m.mRecomWeight);
-            intent.putExtra("extra", builder.m.mRecomExtra);
-            if (builder.m.isVideoWorksInfo()) {
+            intent.putExtra("nid", builder.threadData.getNid());
+            intent.putExtra("card_type", builder.threadData.getRecomCardType());
+            intent.putExtra("recom_source", builder.threadData.mRecomSource);
+            intent.putExtra("ab_tag", builder.threadData.mRecomAbTag);
+            intent.putExtra("weight", builder.threadData.mRecomWeight);
+            intent.putExtra("extra", builder.threadData.mRecomExtra);
+            if (builder.threadData.isVideoWorksInfo()) {
                 intent.putExtra(IS_VIDEO_WORKS_INFO, true);
             }
         }
-        if (!TextUtils.isEmpty(builder.o)) {
-            intent.putExtra("post_id", builder.o);
+        if (!TextUtils.isEmpty(builder.postId)) {
+            intent.putExtra("post_id", builder.postId);
         }
-        if (!TextUtils.isEmpty(builder.p)) {
-            intent.putExtra(IntentConfig.BJH_POST_ID, builder.p);
+        if (!TextUtils.isEmpty(builder.bjhPostId)) {
+            intent.putExtra(IntentConfig.BJH_POST_ID, builder.bjhPostId);
         }
-        intent.putExtra(IS_CAN_DRAG, builder.q);
-        if (builder.r != null && builder.s != null) {
+        intent.putExtra(IS_CAN_DRAG, builder.isCanDrag);
+        if (builder.viewRect != null && builder.drawableRect != null) {
             if (!UtilHelper.canUseStyleImmersiveSticky()) {
                 i = UtilHelper.getStatusBarHeight();
             } else {
                 i = 0;
             }
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put((int) builder.s.left);
+            jSONArray.put((int) builder.drawableRect.left);
             float f = i;
-            jSONArray.put((int) (builder.s.top - f));
-            jSONArray.put((int) builder.s.right);
-            jSONArray.put((int) (builder.s.bottom - f));
-            jSONArray.put(builder.r.left);
-            jSONArray.put(builder.r.top - i);
-            jSONArray.put(builder.r.right);
-            jSONArray.put(builder.r.bottom - i);
+            jSONArray.put((int) (builder.drawableRect.top - f));
+            jSONArray.put((int) builder.drawableRect.right);
+            jSONArray.put((int) (builder.drawableRect.bottom - f));
+            jSONArray.put(builder.viewRect.left);
+            jSONArray.put(builder.viewRect.top - i);
+            jSONArray.put(builder.viewRect.right);
+            jSONArray.put(builder.viewRect.bottom - i);
             intent.putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, jSONArray.toString());
         }
-        intent.putExtra(IS_SHOW_HOST, builder.t);
-        if (builder.u) {
+        intent.putExtra(IS_SHOW_HOST, builder.isShowHost);
+        if (builder.isDynamicCard) {
             intent.putExtra(IS_DYNAMIC_CARD, true);
             intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
             intent.putExtra(IS_SHOW_HOST, false);
         }
         intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
-        intent.putExtra(IS_FROM_AI_APP, builder.v);
-        intent.putExtra("from_forum_id", builder.n);
+        intent.putExtra(IS_FROM_AI_APP, builder.isFromAiApp);
+        intent.putExtra("from_forum_id", builder.fromFormId);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, kx5.c());
-        if (q95.a() != null && q95.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, q95.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, yu5.c());
+        if (k85.a() != null && k85.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, k85.a().a);
         }
-        if (r95.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, r95.b().a());
+        if (l85.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, l85.b().a());
         }
         intent.putExtra(KEY_IS_BROWSE_MODE, PermissionUtil.isBrowseMode());
     }

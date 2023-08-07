@@ -1,113 +1,167 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+import java.util.Objects;
 /* loaded from: classes7.dex */
-public class qf0 extends lf0 {
+public class qf0 {
     public static /* synthetic */ Interceptable $ic;
+    public static qf0 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface l;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948089774, "Lcom/baidu/tieba/qf0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948089774, "Lcom/baidu/tieba/qf0;");
-        }
-    }
+    public File a;
+    public File b;
+    public File c;
+    public File d;
+    public File e;
+    public File f;
+    public File g;
 
     public qf0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public Surface k() {
+    public static synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            synchronized (qf0.class) {
+                if (h == null) {
+                    h = new qf0();
+                }
+            }
+        }
+    }
+
+    public static qf0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (h == null) {
+                a();
+            }
+            return h;
+        }
+        return (qf0) invokeV.objValue;
+    }
+
+    public static File f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d().g;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public File g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
+            return this.c;
         }
-        return (Surface) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lf0
-    public void j() {
+    public File h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h == 0) {
-                this.h = this.e.presentationTimeUs;
-                lf0.j = 0L;
-            }
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            long j = bufferInfo.presentationTimeUs - this.h;
-            bufferInfo.presentationTimeUs = j;
-            lf0.j = j;
-            gf0.x().V(lf0.j / 1000);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (File) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void l(nf0 nf0Var, of0 of0Var) {
-        mf0 mf0Var;
+    public static File b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nf0Var, of0Var) == null) {
-            boolean z = true;
-            if (nf0Var != null && of0Var != null) {
-                this.c = of0Var;
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(nf0Var.j(), nf0Var.n(), nf0Var.l());
-                createVideoFormat.setInteger("color-format", 2130708361);
-                createVideoFormat.setInteger("bitrate", nf0Var.i());
-                createVideoFormat.setInteger("frame-rate", nf0Var.k());
-                createVideoFormat.setInteger("i-frame-interval", nf0Var.m());
-                try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(nf0Var.j());
-                    this.d = createEncoderByType;
-                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                    this.l = this.d.createInputSurface();
-                    this.g = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                mf0Var = this.f;
-                if (mf0Var == null) {
-                    mf0Var.b(z);
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                return d().f;
             }
-            z = false;
-            mf0Var = this.f;
-            if (mf0Var == null) {
+            return d().e;
+        }
+        return (File) invokeZ.objValue;
+    }
+
+    public static File e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            File file = new File(context.getFilesDir(), FileUtils.DIR_DUAR);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public File c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                return ((Context) Objects.requireNonNull(context)).getExternalFilesDir(FileUtils.DIR_DUAR);
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.a = e(context);
+            File c = c(context);
+            this.b = c;
+            if (c == null) {
+                this.b = this.a;
+            }
+            if (this.b != null) {
+                this.c = new File(this.b, "sdk");
+                File file = new File(this.c, "arsource");
+                this.d = file;
+                if (!file.exists()) {
+                    this.d.mkdirs();
+                }
+            }
+            if (this.a != null) {
+                new File(this.a, "sdk");
+                File file2 = new File(this.a, "sdklibs/armeabi-v7a");
+                this.e = file2;
+                if (!file2.exists()) {
+                    this.e.mkdirs();
+                }
+                File file3 = new File(this.a, "sdklibs/arm64-v8a");
+                this.f = file3;
+                if (!file3.exists()) {
+                    this.f.mkdirs();
+                }
+                File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
+                this.g = file4;
+                if (!file4.exists()) {
+                    this.g.mkdirs();
+                }
             }
         }
     }

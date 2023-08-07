@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
@@ -18,12 +20,10 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj6;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
-import com.baidu.tieba.cj6;
-import com.baidu.tieba.jj6;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.gg6;
+import com.baidu.tieba.ig6;
+import com.baidu.tieba.pg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,15 +67,15 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            aj6 aj6Var;
+            gg6 gg6Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aj6Var = this.a.c) != null && aj6Var.l() != 0) {
-                long g = wg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (gg6Var = this.a.c) != null && gg6Var.l() != 0) {
+                long j = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.c.l();
                 if ((this.a.getContext() instanceof Activity) && this.a.c.f() != 2) {
                     PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(this.a.getContext());
-                    if (l == g) {
+                    if (l == j) {
                         z = true;
                     } else {
                         z = false;
@@ -138,11 +138,11 @@ public class CandidateInfoLayout extends CardBasicLayout {
             if (bazhuHeadView.getHeadView() != null) {
                 this.e.getHeadView().setIsRound(true);
             }
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092813);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09282d);
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092996);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09016c);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e5a);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0929b0);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09016d);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6c);
         }
     }
 
@@ -154,9 +154,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             setClipToPadding(false);
             setOrientation(0);
             setGravity(80);
-            setMinimumHeight(yi.g(getContext(), R.dimen.tbds90));
+            setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0193, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0196, (ViewGroup) this, true);
             a();
         }
     }
@@ -167,9 +167,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            aj6 aj6Var = this.c;
-            if (aj6Var != null) {
-                setGrade(aj6Var.d());
+            gg6 gg6Var = this.c;
+            if (gg6Var != null) {
+                setGrade(gg6Var.d());
             }
         }
     }
@@ -182,29 +182,29 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, cj6 cj6Var) {
+    public void setData(int i, ig6 ig6Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, cj6Var) == null) {
-            super.setData(i, cj6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ig6Var) == null) {
+            super.setData(i, ig6Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == jj6.c) {
-                    int g = yi.g(this.d, R.dimen.tbds191);
-                    int g2 = yi.g(this.d, R.dimen.tbds157);
-                    int g3 = yi.g(this.d, R.dimen.tbds6);
-                    int g4 = yi.g(this.d, R.dimen.tbds24);
-                    int g5 = yi.g(this.d, R.dimen.tbds30);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g);
-                    layoutParams.setMargins(layoutParams.leftMargin - g3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                if (i2 == pg6.c) {
+                    int dimens = BdUtilHelper.getDimens(this.d, R.dimen.tbds191);
+                    int dimens2 = BdUtilHelper.getDimens(this.d, R.dimen.tbds157);
+                    int dimens3 = BdUtilHelper.getDimens(this.d, R.dimen.tbds6);
+                    int dimens4 = BdUtilHelper.getDimens(this.d, R.dimen.tbds24);
+                    int dimens5 = BdUtilHelper.getDimens(this.d, R.dimen.tbds30);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens2, dimens);
+                    layoutParams.setMargins(layoutParams.leftMargin - dimens3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     this.e.setLayoutParams(layoutParams);
                     this.e.p(true);
-                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f0811b2);
-                    this.e.setPendantView(R.drawable.obfuscated_res_0x7f08087a);
-                    this.g.setTextSize(0, yi.g(this.d, R.dimen.tbfontsize46));
+                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f0811b8);
+                    this.e.setPendantView(R.drawable.obfuscated_res_0x7f080879);
+                    this.g.setTextSize(0, BdUtilHelper.getDimens(this.d, R.dimen.tbfontsize46));
                     setGravity(16);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams2.setMargins(g5, g4, layoutParams2.rightMargin, g3);
+                    layoutParams2.setMargins(dimens5, dimens4, layoutParams2.rightMargin, dimens3);
                     this.e.setLayoutParams(layoutParams);
                     this.f.setLayoutParams(layoutParams2);
                 } else {

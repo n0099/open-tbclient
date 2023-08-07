@@ -1,51 +1,77 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class yx3 {
+public class yx3 implements ISchemeIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (!SwanAppInitHelper.entranceOK()) {
-                Log.w("SwanAppLaunchHelper", "entrance not open");
-                nb3.g(AppRuntime.getAppContext(), "not support for this android version").G();
-            } else if (TextUtils.isEmpty(str)) {
-                nb3.g(AppRuntime.getAppContext(), ExceptionMessage.URL_EMPTY).G();
-            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-                b(str);
-            } else if (str.startsWith("bdswan")) {
-                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
-            } else if (!str.startsWith("https") && !str.startsWith("http")) {
-                nb3.g(AppRuntime.getAppContext(), "not support this uri").G();
-            } else {
-                c(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void showSchemeNotSupportDialog(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+        }
+    }
+
+    public yx3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(String str) {
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void doStatistic(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            fh3.h(str, str2);
         }
     }
 
-    public static void c(String str) {
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            xx3.e(str);
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, context, confirmDialogCallback) != null) || confirmDialogCallback == null) {
+            return;
         }
+        confirmDialogCallback.onConfirm();
     }
 }

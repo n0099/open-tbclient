@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.ForumInfo;
 /* loaded from: classes6.dex */
-public class m29 {
+public class m29 extends sk1<ExtLiveLogService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,15 +26,15 @@ public class m29 {
         }
     }
 
-    public void a(ForumInfo forumInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public ExtLiveLogService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
-            String str = forumInfo.avatar;
-            forumInfo.forum_id.longValue();
-            String str2 = forumInfo.forum_name;
-            forumInfo.time_out.longValue();
-            forumInfo.member_count.longValue();
-            forumInfo.thread_count.longValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new n29();
         }
+        return (ExtLiveLogService) invokeV.objValue;
     }
 }

@@ -1,91 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentValues;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class al2 {
+public class al2 extends zk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, Integer> a;
+    @Nullable
+    public ContentValues d;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final al2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-943952987, "Lcom/baidu/tieba/al2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-943952987, "Lcom/baidu/tieba/al2$a;");
-                    return;
-                }
-            }
-            a = new al2();
-        }
-    }
-
-    public al2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al2(@NonNull ContentValues contentValues) {
+        super("lifecycle", null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.d = contentValues;
     }
 
-    public static al2 b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al2(@Nullable Map<String, String> map) {
+        super("lifecycle", map);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (al2) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
-            v82.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
-        }
-    }
-
-    public int c(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Integer num = this.a.get(Integer.valueOf(i));
-            if (num != null) {
-                i2 = num.intValue();
-            } else {
-                i2 = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            v82.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
-            return i2;
         }
-        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.zk2, com.baidu.tieba.yk2
+    public void m(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("cuid", fu2.h0().i(fu2.c()));
+            map.put("mtjCuid", fu2.h0().i(fu2.c()));
+            ContentValues contentValues = this.d;
+            if (contentValues != null) {
+                for (String str : contentValues.keySet()) {
+                    Object obj = this.d.get(str);
+                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                        map.put(str, String.valueOf(obj));
+                    } else {
+                        map.put(str, obj);
+                    }
+                }
+                return;
+            }
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
+            }
+        }
     }
 }

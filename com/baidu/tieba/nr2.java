@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.content.FileProvider;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nr2 extends pp2<gs2> {
+public class nr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.pp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onRoomRelease" : (String) invokeV.objValue;
-    }
+    public long a;
+    public String b;
+    public String c;
+    public int d;
 
     public nr2() {
         Interceptable interceptable = $ic;
@@ -35,14 +32,21 @@ public class nr2 extends pp2<gs2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
-            d(gs2Var, command.what, null, true);
-            gs2Var.onRelease();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("userId", this.a);
+                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
+                jSONObject.put(Config.EVENT_ATTR, this.c);
+                jSONObject.put("role", this.d);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

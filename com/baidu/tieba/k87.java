@@ -1,102 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class k87 {
+public class k87 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Class> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
-    public final String c;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867039, "Lcom/baidu/tieba/k87;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (obj instanceof k87) {
-                k87 k87Var = (k87) obj;
-                return this.a == k87Var.a && Intrinsics.areEqual(this.b, k87Var.b) && Intrinsics.areEqual(this.c, k87Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a * 31;
-            String str = this.b;
-            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public k87(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947867039, "Lcom/baidu/tieba/k87;");
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.c = str2;
+        HashMap<String, Class> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("common_text", m87.class);
+        a.put("text_with_bg", p87.class);
+        a.put("common_icon", l87.class);
+        a.put("emoji", n87.class);
+        a.put("tie_plus", q87.class);
     }
 
-    public final String a() {
+    public static HashMap<String, Class> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return (HashMap) invokeV.objValue;
     }
 }

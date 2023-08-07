@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yx6 extends BaseCardInfo {
+public class yx6 extends q15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public String d;
+    public List<xx6> e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,7 @@ public class yx6 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        BdUniqueId.gen();
     }
 
     public yx6() {
@@ -44,33 +45,55 @@ public class yx6 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        d(13);
+        this.e = new ArrayList();
     }
 
-    public ThreadData getThreadData() {
+    public List<xx6> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.e;
         }
-        return (ThreadData) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+            return this.d;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c(ThreadData threadData) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_game), R.drawable.obfuscated_res_0x7f0809a3));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_comic), R.drawable.obfuscated_res_0x7f08099f));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_sport), R.drawable.obfuscated_res_0x7f0809ab));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_digita), R.drawable.obfuscated_res_0x7f0809a0));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_entertainment), R.drawable.obfuscated_res_0x7f0809ac));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_moviezong), R.drawable.obfuscated_res_0x7f0809a6));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_campus), R.drawable.obfuscated_res_0x7f0809a1));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_motion), R.drawable.obfuscated_res_0x7f0809a2));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_local), R.drawable.obfuscated_res_0x7f0809a8));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_science), R.drawable.obfuscated_res_0x7f0809a7));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_history), R.drawable.obfuscated_res_0x7f0809a4));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_novel), R.drawable.obfuscated_res_0x7f0809a5));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_industry), R.drawable.obfuscated_res_0x7f0809aa));
+            this.e.add(new xx6(TbadkApplication.getInst().getString(R.string.interested_class_name_music), R.drawable.obfuscated_res_0x7f0809a9));
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.d = str;
         }
     }
 }

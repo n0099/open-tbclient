@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.rv;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class sv implements rv {
+/* loaded from: classes8.dex */
+public class sv extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
+    public static sv b;
     public transient /* synthetic */ FieldHolder $fh;
+    public yv a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sv() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,39 +26,62 @@ public final class sv implements rv {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.rv
-    public void a(SubTaskState subTaskState) {
-        dv d;
+    public static synchronized sv a() {
+        InterceptResult invokeV;
+        sv svVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            rv.a.c(this, subTaskState);
-            cv v = BDPTask.m.v();
-            if (v != null && (d = v.d()) != null) {
-                d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (sv.class) {
+                if (b == null) {
+                    b = new sv();
+                }
+                svVar = b;
             }
+            return svVar;
+        }
+        return (sv) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.attachBaseContext(context);
         }
     }
 
-    @Override // com.baidu.tieba.rv
-    public boolean b(TaskInfo taskInfo, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.content.ContextWrapper, android.content.Context
+    public yv getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = new yv(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+            }
+            return this.a;
+        }
+        return (yv) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
-            return rv.a.b(this, taskInfo, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            if (iw.c(this)) {
+                return uv.a(str, this);
+            }
+            return super.getSharedPreferences(str, i);
         }
-        return invokeLI.booleanValue;
-    }
-
-    public void c(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            rv.a.a(this, subTaskState);
-        }
+        return (SharedPreferences) invokeLI.objValue;
     }
 }

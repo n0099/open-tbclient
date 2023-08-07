@@ -1,133 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vz5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static PostWriteCallBackData a;
-    @Nullable
-    public static ve5 b;
-    @Nullable
-    public static WriteData c;
-    @Nullable
-    public static AntiData d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public wz5 c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int i;
+    public vz5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            int indexOf = str.indexOf("(");
-            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
-            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
-                return null;
-            }
-            return str.substring(i, indexOf2);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            if (!str.equals("4") && !str.equals("5") && !str.equals("6")) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || bi.isEmpty(str)) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(int i, int i2, @Nullable Intent intent) {
-        InterceptResult invokeIIL;
-        boolean z;
-        PostWriteCallBackData postWriteCallBackData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
-            if (i != 12006) {
-                return false;
-            }
-            if (i2 == -1 && intent != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (a != null && b != null && c != null && d != null && z) {
-                try {
-                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    postWriteCallBackData = null;
-                }
-                if (postWriteCallBackData == null) {
-                    return false;
-                }
-                uea.k().j(true, postWriteCallBackData, b, c, d);
-            } else {
-                uea.k().j(false, a, null, c, d);
-            }
-            a = null;
-            b = null;
-            c = null;
-            d = null;
-            return true;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            jSONObject.optInt("error_code");
+            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            wz5 wz5Var = new wz5();
+            this.c = wz5Var;
+            wz5Var.a(jSONObject.optJSONObject("info"));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return invokeIIL.booleanValue;
-    }
-
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable ve5 ve5Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
-        InterceptResult invokeLLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, ve5Var, writeData, antiData)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && writeData != null && ve5Var != null && !TextUtils.isEmpty(ve5Var.c())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                a = postWriteCallBackData;
-                b = ve5Var;
-                c = writeData;
-                d = antiData;
-                writeData.setVcodeMD5(ve5Var.b());
-                writeData.setVcodeUrl(ve5Var.c());
-                writeData.setVcodeExtra(ve5Var.a());
-                if (b(ve5Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, ve5Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
-                }
-            }
-            return z;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

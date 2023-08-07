@@ -1,143 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.tieba.privacy.PrivacyParamType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.util.Base64Encoder;
 import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.TuplesKt;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public class bv9 {
+public final class bv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final bv9 a;
+    public static final HashMap<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public HashMap<String, Integer> c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bv9 bv9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947658564, "Lcom/baidu/tieba/bv9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bv9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947658564, "Lcom/baidu/tieba/bv9;");
+                return;
             }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
-            }
-        }
+        a = new bv9();
+        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("TBBRAND", "DNARBBT"));
     }
 
     public bv9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public boolean b() {
+    @JvmStatic
+    public static final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a) {
-                ev9.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (PrivacyParamType.d()) {
+                return true;
             }
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            HashMap<String, Integer> hashMap = this.c;
-            if (hashMap != null && uri != null) {
-                return hashMap.containsKey(uri.getHost());
+            if (PrivacyParamType.b() != 1 && PrivacyParamType.b() != 2) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(JSONObject jSONObject) {
-        boolean z;
-        boolean z2;
+    @JvmStatic
+    public static final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (PrivacyParamType.d() || PrivacyParamType.b() != 1) {
+                return "0";
+            }
+            return "1";
         }
-        boolean z3 = this.a;
-        if (jSONObject.optInt("switch", 0) == 1) {
-            z = true;
-        } else {
-            z = false;
+        return (String) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String model = DeviceInfoHelper.getModel();
+            Intrinsics.checkNotNullExpressionValue(model, "getModel()");
+            return a(model);
         }
-        this.a = z;
-        if (jSONObject.optInt("p2p_config", 0) == 1) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        this.b = z2;
-        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
-        if (optJSONArray != null) {
-            this.c = new HashMap<>();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                String optString = optJSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    this.c.put(optString, 0);
+        return (String) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final String a(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return "";
+            }
+            if (PrivacyParamType.d()) {
+                return str;
+            }
+            int b2 = PrivacyParamType.b();
+            if (b2 != 1) {
+                if (b2 == 2) {
+                    return "";
                 }
+                return str;
             }
-        }
-        if (this.a) {
-            ev9.f();
-            if (!z3) {
-                Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
-                intent.putExtra("pcdn", true);
-                TbadkCoreApplication.getInst().getContext().startService(intent);
-                zg.a().postDelayed(new a(this), 3000L);
+            byte[] bytes = str.getBytes(Charsets.UTF_8);
+            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
+            byte[] B64Encode = Base64Encoder.B64Encode(bytes);
+            if (B64Encode == null) {
+                return "";
             }
+            return new String(B64Encode, Charsets.UTF_8);
         }
+        return (String) invokeL.objValue;
+    }
+
+    @JvmStatic
+    public static final String d(String key) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            if (PrivacyParamType.d()) {
+                return key;
+            }
+            int b2 = PrivacyParamType.b();
+            if (b2 != 1) {
+                if (b2 == 2) {
+                    return "";
+                }
+                return key;
+            }
+            String str = b.get(key);
+            if (str != null) {
+                return str;
+            }
+            return key;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import java.util.List;
-import java.util.Map;
+import com.baidu.mario.audio.AudioParams;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public interface jd0<T> {
-    void onNetResponse(NetResponse netResponse, T t, Map<String, String> map, List<String> list);
+public interface jd0 {
+    void a(boolean z, AudioParams audioParams);
 
-    T onParseResponseInBackground(NetResponse netResponse);
+    void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j);
+
+    void onAudioStop(boolean z);
 }

@@ -19,7 +19,7 @@ import com.baidu.searchbox.wordscommand.runtime.WordCommandRuntime;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.searchbox.wordscommand.util.InvokeParamsSpUtil;
 import com.baidu.searchbox.wordscommand.util.WordCommandNetRequest;
-import com.baidu.tieba.m90;
+import com.baidu.tieba.k80;
 import java.util.HashMap;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
@@ -112,8 +112,8 @@ public class WordCommandRequest {
                     Log.d(WordCommandRequest.TAG, "WordCommandRequest getWordCommandContent() Fail, Exception: " + exc.toString());
                 }
                 BdEventBus.Companion.getDefault().post(new WordCommandEvent(201));
-                m90.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
-                m90.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
+                k80.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
+                k80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

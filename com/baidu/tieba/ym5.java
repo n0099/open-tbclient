@@ -1,46 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes8.dex */
-public class ym5 extends an5 {
+public final class ym5 {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static final ym5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
+    public final Map<String, xm5> a;
 
-    public ym5(Context context, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334984, "Lcom/baidu/tieba/ym5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334984, "Lcom/baidu/tieba/ym5;");
+                return;
+            }
+        }
+        b = new ym5();
+    }
+
+    public ym5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-        this.b = str;
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.an5
-    public InputStream b() throws IOException {
-        InterceptResult invokeV;
+    public static void a(@NonNull String str, @NonNull xm5 xm5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getAssets().open(this.b);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, xm5Var) == null) {
+            b.a.put(str, xm5Var);
         }
-        return (InputStream) invokeV.objValue;
+    }
+
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (T) b.a.get(str);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (T) Objects.requireNonNull(b(str));
+        }
+        return (T) invokeL.objValue;
     }
 }

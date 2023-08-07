@@ -1,109 +1,121 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class k6a implements NetworkInfoRecord {
+public final class k6a implements re5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public n6a a;
-    public n6a b;
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public boolean shouldRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public k6a() {
-        this(new l6a(10, 100));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((n6a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866419, "Lcom/baidu/tieba/k6a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866419, "Lcom/baidu/tieba/k6a;");
                 return;
             }
         }
+        a = new a(null);
     }
 
-    public k6a(n6a n6aVar) {
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (SharedPrefHelper.getInstance().getInt("key_sprite_is_new_user", 0) != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @JvmStatic
+        public final boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (SharedPrefHelper.getInstance().getInt("key_sprite_is_white_user", 0) != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    public k6a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n6aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = n6aVar;
-        this.b = new m6a();
     }
 
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public void doRecord(NetworkStatRecord networkStatRecord) {
-        JSONObject uBCJson;
+    @Override // com.baidu.tieba.re5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
-            String jSONObject = uBCJson.toString();
-            j6a a = j6a.a();
-            if (a.g()) {
-                a.c(jSONObject);
-            }
-            if (a.f(networkStatRecord)) {
-                a.b(jSONObject);
-            }
-            n6a n6aVar = this.a;
-            if (n6aVar != null && n6aVar.a(networkStatRecord)) {
-                int i = 0;
-                if (x5a.a) {
-                    i = 64;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                SharedPrefHelper.getInstance().putInt("key_sprite_is_new_user", json.optInt("is_sprite_new_user"));
+                SharedPrefHelper.getInstance().putInt("key_sprite_is_white_user", json.optInt("is_sprite_white_user"));
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return;
                 }
-                UBC.onEvent(b(), jSONObject, i);
-            }
-            if (x5a.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
-                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
-            }
-            n6a n6aVar2 = this.b;
-            if (n6aVar2 != null && n6aVar2.a(networkStatRecord)) {
-                UBC.onEvent(a(), jSONObject);
+                throw e;
             }
         }
     }

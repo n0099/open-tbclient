@@ -1,135 +1,135 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-/* loaded from: classes6.dex */
-public final class m81 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class m81 extends NadWebFeature {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<Activity, l81> b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onEvent(String str, String str2);
+    @Override // com.baidu.nadcore.webarch.feature.NadWebFeature
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BdSailorConfig.SAILOR_BASE_UPLOAD : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926435, "Lcom/baidu/tieba/m81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947926435, "Lcom/baidu/tieba/m81;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m81(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
+        this.b = new HashMap();
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public l81 d(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            Map<Activity, l81> map = this.b;
+            if (map != null) {
+                return map.get(activity);
             }
-            if (i < 21) {
-                return false;
-            }
-            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-            if (strArr.length <= 0) {
-                return false;
-            }
-            return Build.CPU_ABI.equals(strArr[0]);
+            return null;
         }
-        return invokeV.booleanValue;
+        return (l81) invokeL.objValue;
     }
 
-    public static long a(InputStream inputStream, OutputStream outputStream, int i) {
-        InterceptResult invokeLLI;
+    public l81 e(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, inputStream, outputStream, i)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[i * 1024];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            l81 d = d(activity);
+            if (d == null) {
+                l81 l81Var = new l81(activity);
+                this.b.put(activity, l81Var);
+                return l81Var;
+            }
+            return d;
+        }
+        return (l81) invokeL.objValue;
+    }
+
+    public void f(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            l81 d = d(activity);
+            if (activity != null && d != null) {
+                this.b.remove(activity);
+                if (!d.o()) {
+                    d.p(-1, null);
                 }
             }
-            return 0L;
         }
-        return invokeLLI.longValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public void g(Activity activity, int i, Intent intent) {
+        l81 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!str.startsWith("lib")) {
-                str2 = "lib" + str;
-            } else {
-                str2 = str;
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, activity, i, intent) == null) && (d = d(activity)) != null) {
+            d.p(i, intent);
+            this.b.remove(activity);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0014  */
+    @RequiresApi(api = 21)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean h(Activity activity, @NonNull ValueCallback<Uri[]> valueCallback, k81 k81Var) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Map<Activity, l81> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, valueCallback, k81Var)) == null) {
+            if (activity != null) {
+                l81 e = e(activity);
+                if (k81Var != null) {
+                    z = e.q(valueCallback, k81Var);
+                    if (!z) {
+                        valueCallback.onReceiveValue(null);
+                        if (activity != null && (map = this.b) != null) {
+                            map.remove(activity);
+                        }
+                    }
+                    return z;
+                }
             }
-            if (!str.endsWith(".so")) {
-                return str2 + ".so";
+            z = false;
+            if (!z) {
             }
-            return str2;
+            return z;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split("\\.")) != null && split.length == 2) {
-                return split[0].substring(3);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(String str, String str2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && (aVar = a) != null) {
-            aVar.onEvent(str, str2);
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && !TextUtils.isEmpty(str)) {
-            e("24", str);
-        }
+        return invokeLLL.booleanValue;
     }
 }

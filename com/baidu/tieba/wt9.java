@@ -1,167 +1,197 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import android.content.Context;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 /* loaded from: classes8.dex */
-public class wt9 extends wo6<vs9> {
+public class wt9 {
     public static /* synthetic */ Interceptable $ic;
+    public static OkHttpClient a;
+    public static y0b b;
+    public static long c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long i;
-    public View j;
-    public TextView k;
-    public HTypeListView l;
-    public nr9 m;
-    public View.OnClickListener n;
 
-    @Override // com.baidu.tieba.wo6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01cf : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt9 a;
-
-        public a(wt9 wt9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wt9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.s();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wt9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.n = new a(this);
-        this.h = 4;
-        View h = h();
-        this.j = h;
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090609);
-        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f09060a);
-        this.l = hTypeListView;
-        this.m = new nr9(this.b, hTypeListView);
-    }
-
-    public final List<yn> u(List<yn> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            int count = ListUtils.getCount(list);
-            if (count <= 0) {
-                return list;
-            }
-            List<yn> arrayList = new ArrayList<>(list);
-            int g = yi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0703e8);
-            int g2 = yi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
-            if (count > 3) {
-                arrayList = arrayList.subList(0, 3);
-                qs9 qs9Var = new qs9();
-                qs9Var.a = yi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070364);
-                qs9Var.b = yi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d4);
-                ListUtils.add(arrayList, qs9Var);
-            }
-            zn9 zn9Var = new zn9(g2, g);
-            ListUtils.add(arrayList, 0, zn9Var);
-            ListUtils.add(arrayList, zn9Var);
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || i == this.a) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948282253, "Lcom/baidu/tieba/wt9;")) == null) {
             return;
         }
-        this.a = i;
-        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.c).createNormalCfg(this.i, "personal")));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948282253, "Lcom/baidu/tieba/wt9;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: t */
-    public void i(vs9 vs9Var) {
+    public static OkHttpClient a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vs9Var) == null) {
-            if (vs9Var != null && !ListUtils.isEmpty(vs9Var.b)) {
-                this.i = vs9Var.a;
-                this.k.setText(R.string.video_title_str);
-                this.l.setData(u(vs9Var.b));
-                this.m.b(this.n);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            b = g();
+            d1b d1bVar = new d1b(b);
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(d1bVar);
+            return builder.build();
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static y0b g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            y0b y0bVar = new y0b(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
+            b = y0bVar;
+            return y0bVar;
+        }
+        return (y0b) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b() {
+        InterceptResult invokeV;
+        String path;
+        boolean equalsIgnoreCase;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            try {
+                String externalStorageState = Environment.getExternalStorageState();
+                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
+                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            } catch (Exception unused) {
+                File cacheDir = context.getCacheDir();
+                if (cacheDir == null) {
+                    return null;
+                }
+                path = cacheDir.getPath();
             }
-            this.j.setVisibility(8);
+            if (!equalsIgnoreCase && !z) {
+                path = context.getCacheDir().getPath();
+                if (!path.endsWith(File.separator)) {
+                    return path.substring(0, path.length() - 1);
+                }
+                return path;
+            }
+            path = context.getExternalCacheDir().getPath();
+            if (!path.endsWith(File.separator)) {
+            }
+        } else {
+            return (String) invokeV.objValue;
         }
+    }
+
+    public static OkHttpClient c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = a();
+            }
+            return a;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            y0b y0bVar = b;
+            if (y0bVar != null && c == 0) {
+                c = y0bVar.c();
+            }
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || d) {
+            return;
+        }
+        d = true;
+        try {
+            c();
+        } catch (Throwable th) {
+            d = false;
+            th.printStackTrace();
+        }
+    }
+
+    public static x0b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            x0b x0bVar = new x0b();
+            x0bVar.j(15);
+            x0bVar.c(true);
+            x0bVar.b(true);
+            x0bVar.e(true);
+            x0bVar.a("http://tb-video.bdstatic.com|2");
+            x0bVar.f(true);
+            x0bVar.i("bdns", "bce_http_dns_account_id", "119799");
+            x0bVar.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
+            x0bVar.i("bdns", "bce_http_dns_tag", "tieba");
+            x0bVar.i("bdbus", "min_trigger_interval", 180);
+            x0bVar.i("bdns", "dual_stack_bdns_cache_policy", 1);
+            File file = new File(b(), "turbonetcache");
+            if (file.exists()) {
+                if (file.isFile()) {
+                    file.delete();
+                    file.mkdirs();
+                }
+            } else {
+                file.mkdirs();
+            }
+            x0bVar.k(file.getAbsolutePath());
+            x0bVar.d(3, Config.FULL_TRACE_LOG_LIMIT);
+            x0bVar.i(LocalFilesFilterKt.FILTER_NAME_LOG, "lite_log_in_response_header", Boolean.TRUE);
+            x0bVar.i("app", "app_package_name", "com.baidu.tieba");
+            x0bVar.i("nq", "network_quality_enabled", Boolean.TRUE);
+            x0bVar.i("nq", "watch_all", Boolean.TRUE);
+            x0bVar.i("nq", "rejudge_interval_sec", 10);
+            x0bVar.i("nq", "weak_window_sec", 30);
+            x0bVar.i("nq", "weak_min_cnt", 10);
+            x0bVar.i("nq", "probe_enabled", Boolean.FALSE);
+            x0bVar.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
+            x0bVar.i("nq", "weak_policy_tcp_retrans_percentage", 30);
+            x0bVar.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
+            x0bVar.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
+            x0bVar.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
+            x0bVar.i("nq", "weak_policy_http_ttfb_percentage", 30);
+            x0bVar.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
+            x0bVar.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
+            x0bVar.i("nq", "weak_policy_tcp_rtt_percentage", 30);
+            x0bVar.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
+            return x0bVar;
+        }
+        return (x0b) invokeV.objValue;
     }
 }

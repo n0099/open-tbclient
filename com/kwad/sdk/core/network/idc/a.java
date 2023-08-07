@@ -26,7 +26,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.core.network.idc.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C0683a {
+    public static final class C0684a {
         public static final a Zf = new a((byte) 0);
     }
 
@@ -133,7 +133,7 @@ public final class a {
     }
 
     public static a tH() {
-        return C0683a.Zf;
+        return C0684a.Zf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

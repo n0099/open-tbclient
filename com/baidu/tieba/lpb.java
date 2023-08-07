@@ -1,33 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class lpb implements npb {
+public final class lpb<TResult> implements bpb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kpb a;
-    public SecretKey b;
+    public dpb a;
+    public Executor b;
+    public final Object c;
 
-    public lpb(kpb kpbVar) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fpb a;
+        public final /* synthetic */ lpb b;
+
+        public a(lpb lpbVar, fpb fpbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lpbVar, fpbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lpbVar;
+            this.a = fpbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onFailure(this.a.d());
+                    }
+                }
+            }
+        }
+    }
+
+    public lpb(Executor executor, dpb dpbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kpbVar};
+            Object[] objArr = {executor, dpbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,72 +68,27 @@ public class lpb implements npb {
                 return;
             }
         }
-        this.a = kpbVar;
-        b();
+        this.c = new Object();
+        this.a = dpbVar;
+        this.b = executor;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bpb
+    public final void cancel() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.npb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    @Override // com.baidu.tieba.bpb
+    public final void onComplete(fpb<TResult> fpbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(ppb.b(this.b, fpb.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
-                }
-            }
-            Log.e("ExclamationMark", str3);
-            return str2;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fpbVar) == null) || fpbVar.h() || fpbVar.f()) {
+            return;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public final SecretKey b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = ppb.a(fpb.b(a), fpb.b(a2), fpb.b(a3), fpb.b(a4), 10000);
-                }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
-            }
-            return this.b;
-        }
-        return (SecretKey) invokeV.objValue;
+        this.b.execute(new a(this, fpbVar));
     }
 }

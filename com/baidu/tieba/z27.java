@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,121 +15,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class z27 implements AbsListView.OnScrollListener {
+public class z27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public int b;
-    public c c;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public final List<lm> c;
+    public y27 d;
+    public a37 e;
+    public final List<ym> f;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(AbsListView absListView, int i, int i2);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<d> a;
-
-        public b(z27 z27Var, AbsListView absListView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z27Var, absListView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList();
-            int childCount = absListView.getChildCount();
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = absListView.getChildAt(i4);
-                if (childAt != null) {
-                    this.a.add(new d(z27Var, childAt, i + i4, null));
-                }
-            }
-        }
-
-        public /* synthetic */ b(z27 z27Var, AbsListView absListView, int i, a aVar) {
-            this(z27Var, absListView, i);
-        }
-
-        public final int b(b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                if (bVar == null) {
-                    return 0;
-                }
-                for (d dVar : this.a) {
-                    for (d dVar2 : bVar.a) {
-                        if (dVar.a == dVar2.a) {
-                            return dVar.b - dVar2.b;
-                        }
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public d(z27 z27Var, View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z27Var, view2, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = view2.getTop();
-        }
-
-        public /* synthetic */ d(z27 z27Var, View view2, int i, a aVar) {
-            this(z27Var, view2, i);
-        }
-    }
-
-    public z27() {
+    public z27(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,53 +40,92 @@ public class z27 implements AbsListView.OnScrollListener {
                 return;
             }
         }
-        this.b = 0;
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        c(forumEmotionModel);
     }
 
-    public void a(c cVar) {
+    public void a(List<ym> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.c = cVar;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        d();
+    }
+
+    public void f(x27 x27Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, x27Var) == null) {
+            this.d.u(x27Var);
+            this.e.u(x27Var);
         }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        View childAt;
-        c cVar;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) != null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void d() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public final void c(ForumEmotionModel forumEmotionModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
+            y27 y27Var = new y27(this.a, forumEmotionModel.P(), d37.b);
+            this.d = y27Var;
+            this.c.add(y27Var);
+            a37 a37Var = new a37(this.a, forumEmotionModel.P(), b37.a);
+            this.e = a37Var;
+            this.c.add(a37Var);
+            this.b.addAdapters(this.c);
+        }
+    }
+
+    public void e(List<ym> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-            int i4 = this.b;
-            if (i4 != 0 && (cVar = this.c) != null) {
-                cVar.a(absListView, 0, -i4);
-            }
-            this.b = 0;
-            this.a = null;
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        d();
+    }
+
+    public void g(ForumEmotionPackageData forumEmotionPackageData) {
+        ForumEmotionPackageData forumEmotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, forumEmotionPackageData) != null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
             return;
         }
-        b bVar = new b(this, absListView, i, null);
-        b bVar2 = this.a;
-        if (bVar2 != null) {
-            int b2 = bVar2.b(bVar);
-            this.a = bVar;
-            int i5 = this.b + b2;
-            this.b = i5;
-            c cVar2 = this.c;
-            if (cVar2 != null) {
-                cVar2.a(absListView, i5, b2);
+        for (ym ymVar : this.f) {
+            if (ymVar != null && (ymVar instanceof d37) && (forumEmotionPackageData2 = ((d37) ymVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+                forumEmotionPackageData2.download = forumEmotionPackageData.download;
+                forumEmotionPackageData2.share = forumEmotionPackageData.share;
+                d();
                 return;
             }
-            return;
-        }
-        this.a = bVar;
-        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
-        this.b = paddingTop;
-        c cVar3 = this.c;
-        if (cVar3 != null) {
-            cVar3.a(absListView, paddingTop, 0);
         }
     }
 }

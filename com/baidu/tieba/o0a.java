@@ -1,91 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class o0a {
+public final class o0a implements y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
 
-    public o0a(Context context, ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10705" : (String) invokeV.objValue;
+    }
+
+    public o0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public p0a b(zz9 zz9Var, p0a p0aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zz9Var, p0aVar)) == null) {
-            if (zz9Var == null) {
-                return p0aVar;
-            }
-            String str = zz9Var.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(x0a.a.a(businessInfo));
+            String str = a.get("pic_count");
+            String str2 = "0";
             if (str == null) {
-                return p0aVar;
+                str = "0";
             }
-            if (p0aVar != null && a(str, p0aVar.a)) {
-                return p0aVar;
+            hashMap.put("obj_type", str);
+            hashMap.put(TiebaStatic.Params.AB_ACTION, "show");
+            String str3 = a.get("has_concerned");
+            if (str3 == null) {
+                str3 = "0";
             }
-            ViewGroup viewGroup = this.c;
-            if (viewGroup == null) {
-                return null;
+            hashMap.put(TiebaStatic.Params.AB_TYPE, str3);
+            hashMap.put(TiebaStatic.Params.IS_FULL, "");
+            String str4 = a.get("author_is_living");
+            if (str4 == null) {
+                str4 = "0";
             }
-            viewGroup.removeAllViews();
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(zz9Var.a)) {
-                if (this.a == 2) {
-                    return new n0a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09cc, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                }
-                return new l0a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0951, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-            } else if (!"apk_download".equals(zz9Var.a)) {
-                return null;
-            } else {
-                if (this.a == 2) {
-                    return new m0a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09cb, this.c, true), "apk_download");
-                }
-                return new k0a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0950, this.c, true), "apk_download");
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM6, str4);
+            String str5 = a.get(TiebaStatic.Params.GUA_TYPE);
+            if (str5 != null) {
+                str2 = str5;
             }
+            hashMap.put(TiebaStatic.Params.GUA_TYPE, str2);
+            return hashMap;
         }
-        return (p0a) invokeLL.objValue;
+        return (Map) invokeL.objValue;
     }
 }

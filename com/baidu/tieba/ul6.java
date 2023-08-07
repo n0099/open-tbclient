@@ -1,54 +1,24 @@
 package com.baidu.tieba;
 
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class ul6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Object> a;
+    public final qh6<WebView> a;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ul6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-371250772, "Lcom/baidu/tieba/ul6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-371250772, "Lcom/baidu/tieba/ul6$b;");
-                    return;
-                }
-            }
-            a = new ul6(null);
-        }
-    }
-
-    public ul6() {
+    public ul6(qh6<WebView> qh6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qh6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,69 +28,56 @@ public class ul6 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = qh6Var;
     }
 
-    public static ul6 b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ul6) invokeV.objValue;
-    }
-
-    public /* synthetic */ ul6(a aVar) {
-        this();
-    }
-
-    public synchronized void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, new Object());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WebView call = this.a.call();
+            if (call != null) {
+                return call.canGoBack();
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WebView call = this.a.call();
+            if (call != null) {
+                return call.getTitle();
             }
-            return containsKey;
+            return "";
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void e(String str) {
-        Object remove;
+    public void c() {
+        WebView call;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
-            try {
-                synchronized (remove) {
-                    remove.notifyAll();
-                }
-            } catch (Exception unused) {
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (call = this.a.call()) != null) {
+            call.goBack();
         }
     }
 
-    public void d(String str, long j) {
-        Object obj;
+    public void d() {
+        WebView call;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
-            try {
-                synchronized (obj) {
-                    obj.wait(j);
-                }
-            } catch (InterruptedException unused) {
-            }
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (call = this.a.call()) != null) {
+            call.reload();
+        }
+    }
+
+    public void e() {
+        WebView call;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (call = this.a.call()) != null) {
+            call.stopLoading();
         }
     }
 }

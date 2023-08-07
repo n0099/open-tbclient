@@ -1,96 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.searchbox.live.frame.PageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.FeedItem;
 /* loaded from: classes7.dex */
-public final class r77 implements mc7<r77> {
+public final class r77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final aa7 a;
-    public final j55 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948074615, "Lcom/baidu/tieba/r77;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948074615, "Lcom/baidu/tieba/r77;");
-        }
-    }
-
-    @Override // com.baidu.tieba.mc7
-    public String a() {
-        InterceptResult invokeV;
+    public static final i47 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "card_vote" : (String) invokeV.objValue;
-    }
-
-    public r77 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (r77) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            JSONObject jSONObject = new JSONObject(apkDetailStr);
+            j57 j57Var = new j57();
+            j57Var.l = jSONObject.optString("appid");
+            j57Var.m = item.name;
+            j57Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                j57Var.c = (float) item.icon_ratio.doubleValue();
             }
-            if (obj instanceof r77) {
-                r77 r77Var = (r77) obj;
-                return Intrinsics.areEqual(this.a, r77Var.a) && Intrinsics.areEqual(this.b, r77Var.b);
+            j57Var.n = jSONObject.optString("apk_name");
+            j57Var.o = jSONObject.optString("version");
+            j57Var.p = jSONObject.optInt("version_code");
+            j57Var.q = jSONObject.optLong("size");
+            j57Var.r = item.button_link;
+            j57Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                j57Var.f = (float) item.score.doubleValue();
             }
-            return false;
+            j57Var.g = item.tags;
+            j57Var.s = jSONObject.optString("developer");
+            j57Var.t = jSONObject.optString("publisher");
+            j57Var.u = jSONObject.optString("authority_url");
+            j57Var.v = jSONObject.optString("privacy_url");
+            j57Var.w = jSONObject.optInt("pkg_source");
+            j57Var.h = item.button_name;
+            j57Var.a = j;
+            j57Var.k = forumName;
+            s87 s87Var = new s87();
+            s87Var.a = tid;
+            s87Var.b = pageFrom;
+            return new i47(j57Var, s87Var, false, 4, null);
         }
-        return invokeL.booleanValue;
+        return (i47) invokeCommon.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static final m47 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            j55 j55Var = this.b;
-            return hashCode + (j55Var == null ? 0 : j55Var.hashCode());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            t67 t67Var = new t67();
+            t67Var.a = j;
+            t67Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                t67Var.c = (float) item.icon_ratio.doubleValue();
+            }
+            t67Var.d = item.name;
+            t67Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                t67Var.f = (float) item.score.doubleValue();
+            }
+            t67Var.g = item.tags;
+            t67Var.h = item.button_name;
+            t67Var.i = item.button_link;
+            t67Var.k = forumName;
+            t87 t87Var = new t87();
+            t87Var.a = tid;
+            t87Var.b = pageFrom;
+            return new m47(t67Var, t87Var, false, 4, null);
         }
-        return invokeV.intValue;
+        return (m47) invokeCommon.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static final void c(FeedItem feedItem, List<u97<?>> dataList, a67 feedExtraData) {
+        String str;
+        String str2;
+        String str3;
+        Map<String, String> a;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardVoteUiState(voteData=" + this.a + ", voteSchemeData=" + this.b + ')';
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedItem, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            HashMap<String, String> a2 = z87.a.a(feedItem.business_info);
+            String str5 = a2.get("apk_detail");
+            String str6 = feedExtraData.a().a().get("thread_id");
+            if (str6 == null) {
+                str = "";
+            } else {
+                str = str6;
+            }
+            long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
+            String str7 = a2.get("forum_name");
+            if (str7 == null) {
+                str2 = "";
+            } else {
+                str2 = str7;
+            }
+            y97 y97Var = feedExtraData.e().get(PageInfo.KEY);
+            if (y97Var == null || (a = y97Var.a(new l57())) == null || (str4 = a.get("page_from")) == null) {
+                str3 = "";
+            } else {
+                str3 = str4;
+            }
+            if (str5 == null) {
+                dataList.add(new v97(b(feedItem, j, str, str2, str3), "mount"));
+            } else {
+                dataList.add(new v97(a(feedItem, str5, j, str, str2, str3), "mount_app"));
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.mc7
-    public /* bridge */ /* synthetic */ r77 b() {
-        c();
-        return this;
-    }
-
-    public final aa7 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (aa7) invokeV.objValue;
     }
 }

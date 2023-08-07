@@ -51,7 +51,7 @@ public final class ExecutorCoroutineDispatcherImpl extends ExecutorCoroutineDisp
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void mo2341dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public void mo2342dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         Runnable wrapTask;
         try {
             Executor executor = getExecutor();
@@ -67,13 +67,13 @@ public final class ExecutorCoroutineDispatcherImpl extends ExecutorCoroutineDisp
                 timeSource2.unTrackTask();
             }
             cancelJobOnRejection(coroutineContext, e);
-            Dispatchers.getIO().mo2341dispatch(coroutineContext, runnable);
+            Dispatchers.getIO().mo2342dispatch(coroutineContext, runnable);
         }
     }
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay */
-    public void mo2342scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+    public void mo2343scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
         ScheduledExecutorService scheduledExecutorService;
         Executor executor = getExecutor();
         ScheduledFuture<?> scheduledFuture = null;
@@ -88,7 +88,7 @@ public final class ExecutorCoroutineDispatcherImpl extends ExecutorCoroutineDisp
         if (scheduledFuture != null) {
             JobKt.cancelFutureOnCancellation(cancellableContinuation, scheduledFuture);
         } else {
-            DefaultExecutor.INSTANCE.mo2342scheduleResumeAfterDelay(j, cancellableContinuation);
+            DefaultExecutor.INSTANCE.mo2343scheduleResumeAfterDelay(j, cancellableContinuation);
         }
     }
 

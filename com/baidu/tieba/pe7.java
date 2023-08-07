@@ -1,20 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes7.dex */
-public interface pe7 extends re7 {
-    void f(int i, int i2);
+public class pe7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<ym> c;
+    public String d;
 
-    void g(Canvas canvas);
+    public pe7(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = str;
+    }
 
-    void k(Canvas canvas);
+    public ArrayList<ym> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
 
-    void m(Context context, AttributeSet attributeSet, View view2);
-
-    void setRadiusPx(int i);
-
-    void setRadiusPx(int i, int i2, int i3, int i4);
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        oe7 oe7Var = new oe7(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            oe7Var.l(searchForum);
+            this.c.add(oe7Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                oe7 oe7Var2 = new oe7(this.d);
+                oe7Var2.l(searchForum2);
+                this.c.add(oe7Var2);
+            }
+        }
+    }
 }

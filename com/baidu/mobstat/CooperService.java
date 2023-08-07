@@ -335,7 +335,7 @@ public class CooperService implements ICooperService {
 
     private String c(Context context) {
         String e = bp.a().e(context);
-        if (TextUtils.isEmpty(e) || e.equals(Config.NULL_DEVICE_ID)) {
+        if (TextUtils.isEmpty(e) || e.equals("000000000000000")) {
             String str = new Date().getTime() + "";
             String str2 = "hol" + str.hashCode() + "mes";
             bp.a().a(context, str2);
@@ -559,7 +559,7 @@ public class CooperService implements ICooperService {
             } catch (Exception unused) {
             }
         }
-        if (!TextUtils.isEmpty(t) && !t.equals(Config.NULL_DEVICE_ID)) {
+        if (!TextUtils.isEmpty(t) && !t.equals("000000000000000")) {
             this.b.i = getSecretValue(t);
             return this.b.i;
         } else if (filterCuid(context, a(context), false)) {

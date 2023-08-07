@@ -4,40 +4,40 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.bq7;
-import com.baidu.tieba.es5;
+import com.baidu.tieba.jn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, bq7, T> {
+public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, jn7, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int i0() {
+    public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CmdConfigHttp.CMD_FRS_ITEM_TAB : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.CMD_FRS_ITEM_TAB : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String l0() {
+    public String d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbConfig.ITEM_PAGE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbConfig.ITEM_PAGE : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int m0() {
+    public int e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 309673;
         }
         return invokeV.intValue;
@@ -56,7 +56,7 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, b
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (es5) objArr2[1]);
+                super((TbPageContext) objArr2[0], (INetRequestData) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,31 +65,31 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, b
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class getResponseDataClass() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return bq7.class;
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return FrsItemTabHttpResponseMessage.class;
         }
         return (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> n0() {
+    public Class<? extends MvcSocketResponsedMessage> f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return FrsItemTabSocketResponseMessage.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return FrsItemTabSocketResponseMessage.class;
+            return jn7.class;
         }
         return (Class) invokeV.objValue;
     }

@@ -2,15 +2,15 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.pmb;
-import com.baidu.tieba.qmb;
-import com.baidu.tieba.umb;
+import com.baidu.tieba.slb;
+import com.baidu.tieba.tlb;
+import com.baidu.tieba.xlb;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ umb b;
+    public final /* synthetic */ xlb b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -20,8 +20,8 @@ public final class x extends com.google.a.b.a.a.a.e {
     public final void b(Bundle bundle) {
     }
 
-    public x(umb umbVar, AtomicBoolean atomicBoolean) {
-        this.b = umbVar;
+    public x(xlb xlbVar, AtomicBoolean atomicBoolean) {
+        this.b = xlbVar;
         this.a = atomicBoolean;
     }
 
@@ -40,13 +40,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            umb umbVar = this.b;
-            pmb pmbVar = umbVar.c;
-            pmb.n(umbVar.a, umbVar.b);
+            xlb xlbVar = this.b;
+            slb slbVar = xlbVar.c;
+            slb.n(xlbVar.a, xlbVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            umb umbVar2 = this.b;
-            pmb pmbVar2 = umbVar2.c;
-            pmb.b(umbVar2.a, bundle, umbVar2.b);
+            xlb xlbVar2 = this.b;
+            slb slbVar2 = xlbVar2.c;
+            slb.b(xlbVar2.a, bundle, xlbVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -64,11 +64,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.CANCELLED);
                     return;
                 default:
-                    qmb qmbVar = this.b.b;
+                    tlb tlbVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    qmbVar.b(new FatalException(sb2.toString()));
+                    tlbVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

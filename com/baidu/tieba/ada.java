@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,11 +8,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ada {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
+    public String a;
+    public int b;
 
     public ada() {
         Interceptable interceptable = $ic;
@@ -25,9 +21,7 @@ public class ada {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 }

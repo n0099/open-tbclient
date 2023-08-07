@@ -1,39 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 /* loaded from: classes8.dex */
-public final class z63 {
+public class z63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile z63 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> a;
-    public Set<String> b;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,175 +32,98 @@ public final class z63 {
                 return;
             }
         }
-        c = fs1.a;
+        a = ir1.a;
     }
 
-    public z63() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new SparseArray<>();
-        this.b = new HashSet();
-    }
-
-    public static z63 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (z63.class) {
-                    if (d == null) {
-                        d = new z63();
-                    }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            y63 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
                 }
+                throw new RuntimeException("Messenger创建代理类失败");
             }
-            return d;
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
         }
-        return (z63) invokeV.objValue;
     }
 
-    @NonNull
-    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                int[] iArr = new int[strArr.length];
-                for (int i2 = 0; i2 < strArr.length; i2++) {
-                    if (rs4.a(activity, strArr[i2])) {
-                        i = 0;
-                    } else {
-                        i = -1;
-                    }
-                    iArr[i2] = i;
-                }
-                return iArr;
-            }
-            return new int[0];
-        }
-        return (int[]) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
-            for (String str : strArr) {
-                if (!rs4.a(activity, str)) {
-                    if (fp4.f(activity, str)) {
-                        return str;
-                    }
-                    if (!e(str)) {
-                        return str;
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(String str) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static y63 b(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            dk3 a2 = jk3.a();
-            return a2.getBoolean("first#" + str, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            dk3 a2 = jk3.a();
-            a2.putBoolean("first#" + str, true);
-        }
-    }
-
-    public final boolean a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (strArr == null || strArr.length <= 0) {
-                return true;
-            }
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
                 }
+                return null;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
-            boolean z = !a(strArr);
-            if (Build.VERSION.SDK_INT >= 23) {
-                h(activity, strArr, iArr);
-            }
-            a aVar = this.a.get(i);
-            if (aVar != null) {
-                this.a.remove(i);
-                if ((aVar instanceof u63) && z) {
-                    aVar = ((u63) aVar).s();
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (!a) {
+                        return null;
+                    }
+                    throw new RuntimeException("Messenger代理类不存在：" + str);
                 }
-                aVar.onRequestPermissionsResult(i, strArr, iArr);
-            }
-            if (c) {
-                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-                StringBuilder sb = new StringBuilder();
-                sb.append("onRequestPermissionsResult grantResults: ");
-                sb.append(Arrays.toString(iArr));
-                Log.d("SwanAppPermission", sb.toString());
-            }
-        }
-    }
-
-    @RequiresApi(api = 23)
-    public final void h(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, strArr, iArr) == null) && Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
-            for (int i = 0; i < length; i++) {
-                int i2 = iArr[i];
-                String str = strArr[i];
-                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.b.add(str);
+                int modifiers = cls.getModifiers();
+                if (y63.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof y63)) {
+                        if (!a) {
+                            return null;
+                        }
+                        throw new RuntimeException("Messenger代理类不是:" + y63.class.getName());
+                    }
+                    return (y63) newInstance;
                 }
+                if (!a) {
+                    return null;
+                }
+                throw new RuntimeException("Messenger代理类不合法：" + str);
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (!a) {
+                    return null;
+                }
+                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
+        return (y63) invokeL.objValue;
     }
 
-    @TargetApi(23)
-    public void requestPermissions(Activity activity, int i, @NonNull String[] strArr, a aVar) {
+    public static void c(int i, String str, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048579, this, activity, i, strArr, aVar) == null) && aVar != null && activity != null) {
-            String d2 = d(activity, strArr);
-            if (d2 != null) {
-                this.a.put(i, aVar);
-                activity.requestPermissions(strArr, i);
-                g(d2);
-            } else {
-                aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
-            }
-            if (c) {
-                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
-            }
+        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || g73.a(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            r73.f(bundle2);
+        } else {
+            r73.e(i, bundle2);
         }
     }
 }

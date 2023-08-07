@@ -86,9 +86,9 @@ public final class KTypeImpl implements KType {
     /* JADX INFO: Access modifiers changed from: private */
     public final KClassifier convert(KotlinType kotlinType) {
         KotlinType type;
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if (mo2101getDeclarationDescriptor instanceof ClassDescriptor) {
-            Class<?> javaClass = UtilKt.toJavaClass((ClassDescriptor) mo2101getDeclarationDescriptor);
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (mo2102getDeclarationDescriptor instanceof ClassDescriptor) {
+            Class<?> javaClass = UtilKt.toJavaClass((ClassDescriptor) mo2102getDeclarationDescriptor);
             if (javaClass == null) {
                 return null;
             }
@@ -112,10 +112,10 @@ public final class KTypeImpl implements KType {
             } else {
                 return new KClassImpl(javaClass);
             }
-        } else if (mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-            return new KTypeParameterImpl((TypeParameterDescriptor) mo2101getDeclarationDescriptor);
+        } else if (mo2102getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+            return new KTypeParameterImpl((TypeParameterDescriptor) mo2102getDeclarationDescriptor);
         } else {
-            if (!(mo2101getDeclarationDescriptor instanceof TypeAliasDescriptor)) {
+            if (!(mo2102getDeclarationDescriptor instanceof TypeAliasDescriptor)) {
                 return null;
             }
             throw new NotImplementedError("An operation is not implemented: Type alias classifiers are not yet supported");

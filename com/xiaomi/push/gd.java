@@ -19,18 +19,18 @@ public class gd extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo752a() {
+    public String mo753a() {
         return "check the ping-pong." + this.b;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo469a() {
+    public void mo470a() {
         Thread.yield();
-        if (!this.f430a.m506c() || this.f430a.a(this.a)) {
+        if (!this.f430a.m507c() || this.f430a.a(this.a)) {
             return;
         }
-        com.xiaomi.push.service.o.a(this.f430a.b).m819b();
+        com.xiaomi.push.service.o.a(this.f430a.b).m820b();
         this.f430a.b.a(22, (Exception) null);
     }
 }

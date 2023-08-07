@@ -1,159 +1,209 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.business.inserting.NadImageInsertingView;
-import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URLDecoder;
 /* loaded from: classes8.dex */
 public class wi0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes8.dex */
-    public interface d {
-        void a(@NonNull NadInsertingBaseView nadInsertingBaseView);
-
-        void onFail();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements NadRequester.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRequester.b a;
-
-        public a(NadRequester.b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271403, "Lcom/baidu/tieba/wi0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                this.a.a(error);
-            }
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                if (list.size() > 0 && list.get(0) != null) {
-                    AdBaseModel adBaseModel = (AdBaseModel) x31.d(list, 0);
-                    if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                        yr0 yr0Var = (yr0) x31.d(adBaseModel.f.k, 0);
-                        if (yr0Var != null && !TextUtils.isEmpty(yr0Var.a)) {
-                            nc1.a().d(yr0Var.a);
-                        } else {
-                            this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
-                            return;
-                        }
-                    }
-                    this.a.b(list);
-                    return;
-                }
-                this.a.a(new NadRequester.Error("返回数据为空"));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ NadInsertingBaseView b;
-
-        public b(d dVar, NadInsertingBaseView nadInsertingBaseView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, nadInsertingBaseView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = nadInsertingBaseView;
-        }
-
-        @Override // com.baidu.tieba.wi0.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFail();
-            }
-        }
-
-        @Override // com.baidu.tieba.wi0.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
-
-    public static void a(String str, NadRequester.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, bVar) == null) {
-            RequestParameters.b bVar2 = new RequestParameters.b();
-            bVar2.q(str);
-            bVar2.p(1);
-            NadRequester.a(bVar2.o(), new a(bVar));
-        }
-    }
-
-    public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull vi0 vi0Var, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, vi0Var, dVar) == null) {
-            if (x31.l(list) < 1) {
-                dVar.onFail();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948271403, "Lcom/baidu/tieba/wi0;");
                 return;
             }
-            AdBaseModel adBaseModel = (AdBaseModel) x31.d(list, 0);
-            if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, vi0Var);
-                nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));
+        }
+        a = new String[]{"tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "smsto:", "mailto:", "file:"};
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int indexOf = str.indexOf(63);
+            boolean z = false;
+            if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
+                i = str.indexOf(UrlSchemaHelper.SCHEMA_TYPE_SMS) + 4;
+            } else if (str.startsWith("smsto:")) {
+                i = str.indexOf("smsto:") + 6;
+            } else {
+                i = 0;
+            }
+            if (indexOf - i > 1) {
+                z = true;
+            }
+            if (indexOf > -1) {
+                if (z) {
+                    return str.substring(i, indexOf);
+                }
+                return "";
+            }
+            return str.substring(i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            String e = e(str);
+            if (!z && !c(e)) {
+                return false;
+            }
+            if (e.startsWith("tel:")) {
+                return h(context, e);
+            }
+            if (!e.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !e.startsWith("smsto:")) {
+                if (e.startsWith("mailto:")) {
+                    return f(context, e);
+                }
+                if (!e.startsWith("file:")) {
+                    return false;
+                }
+                return d(context, e);
+            }
+            return g(context, e);
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (ej0.a().c() != null) {
+                strArr = ej0.a().c();
+            } else {
+                strArr = a;
+            }
+            for (String str2 : strArr) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str.startsWith("wtai://") && str.length() > 13) {
+                return "tel:" + str.substring(13);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (Build.VERSION.SDK_INT >= 24) {
+                    String path = Uri.parse(str).getPath();
+                    if (path == null) {
+                        return false;
+                    }
+                    z51.a(context, new File(path), parseUri);
+                }
+                return z51.d(context, parseUri);
+            } catch (IllegalArgumentException | URISyntaxException unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            if (context != null && str != null) {
+                return z51.d(context, new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            return z51.d(context, intent);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            String str2 = UrlSchemaHelper.SCHEMA_TYPE_SMS;
+            try {
+                int indexOf = str.indexOf("body=");
+                String str3 = null;
+                if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
+                    if (str.startsWith("smsto:")) {
+                        str2 = "smsto:";
+                    } else {
+                        str2 = null;
+                    }
+                }
+                String a2 = a(str);
+                if (indexOf > -1) {
+                    str3 = str.substring(indexOf + 5);
+                    if (!TextUtils.isEmpty(str3)) {
+                        str3 = URLDecoder.decode(str3, "UTF-8");
+                    }
+                }
+                Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str2 + a2));
+                intent.putExtra("sms_body", str3);
+                z51.d(context, intent);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

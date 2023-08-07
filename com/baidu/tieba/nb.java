@@ -1,109 +1,95 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.gif.NSGif;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class nb extends pb<CustomMessage<?>, CustomMessageTask, ab, CustomResponsedMessage<?>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ga i;
+public interface nb {
+    BdImage a(byte[] bArr, int i, int i2);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nb(MessageManager messageManager) {
-        super(messageManager);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    BdImage get(String str);
+
+    /* loaded from: classes7.dex */
+    public static class a implements nb {
+        public static /* synthetic */ Interceptable $ic;
+        public static nb c;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final qb b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.b = new qb();
+            if (NSGif.f) {
+                this.a = 0;
+            } else {
+                this.a = 1;
             }
         }
-        this.i = null;
-        this.i = new ga(messageManager);
-        this.e = sb.c();
-    }
 
-    public <T> CustomResponsedMessage<T> A(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, customMessage, customMessageTask, cls)) == null) {
-            return this.i.k(customMessage, customMessageTask, cls);
+        public static synchronized nb b() {
+            InterceptResult invokeV;
+            nb nbVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                synchronized (a.class) {
+                    if (c == null) {
+                        c = new a();
+                    }
+                    nbVar = c;
+                }
+                return nbVar;
+            }
+            return (nb) invokeV.objValue;
         }
-        return (CustomResponsedMessage) invokeLLL.objValue;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ca
-    /* renamed from: B */
-    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage, customMessageTask) == null) {
-            this.i.f(customMessage, customMessageTask);
+        @Override // com.baidu.tieba.nb
+        public BdImage a(byte[] bArr, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+                if (this.a == 0) {
+                    try {
+                        return this.b.a(bArr, i, i2);
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (BdImage) invokeLII.objValue;
         }
-    }
 
-    @Override // com.baidu.tieba.ca
-    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId)) == null) {
-            return this.i.e(i, bdUniqueId);
-        }
-        return (LinkedList) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ca
-    public void h(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pb
-    /* renamed from: y */
-    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, customMessage, customMessageTask)) == null) {
-            return this.a.getController().e(customMessage, customMessageTask);
-        }
-        return (CustomMessage) invokeLL.objValue;
-    }
-
-    public LinkedList<CustomMessage<?>> x(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) {
-            return this.i.i(bdUniqueId);
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public void z(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.i.j(bdUniqueId);
+        @Override // com.baidu.tieba.nb
+        public BdImage get(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (this.a == 0) {
+                    try {
+                        return this.b.get(str);
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (BdImage) invokeL.objValue;
         }
     }
 }

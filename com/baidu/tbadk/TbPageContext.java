@@ -1,53 +1,13 @@
 package com.baidu.tbadk;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Animatable;
 import android.view.View;
 import android.view.animation.Animation;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.q05;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
 /* loaded from: classes4.dex */
-public interface TbPageContext<T> extends l9<T> {
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ Context getContext();
-
-    q05 getLayoutMode();
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ T getOrignalPage();
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ Activity getPageActivity();
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ Resources getResources();
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ String getString(int i);
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ BdUniqueId getUniqueId();
-
-    /* synthetic */ void registerListener(int i, MessageListener<?> messageListener);
-
-    /* synthetic */ void registerListener(int i, kb kbVar);
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ void registerListener(MessageListener<?> messageListener);
-
-    /* synthetic */ void registerListener(kb kbVar);
-
-    @Override // com.baidu.tieba.l9
-    /* synthetic */ void sendMessage(Message<?> message);
-
-    /* synthetic */ void sendMessage(NetMessage netMessage);
+public interface TbPageContext<T> extends BdPageContext<T> {
+    BDLayoutMode getLayoutMode();
 
     void showToast(int i);
 

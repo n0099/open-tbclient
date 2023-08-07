@@ -1,18 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.scheduled.NadScheduledConfirmView;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,170 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kn0 {
+public class kn0 implements un0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    @NonNull
+    public final jn0 b;
+    public boolean c;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kn0 a;
-
-        public a(kn0 kn0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kn0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kn0Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                kn0 kn0Var = this.a;
-                kn0Var.a = !kn0Var.a;
-                if (view2 instanceof RadioButton) {
-                    ((RadioButton) view2).setChecked(this.a.a);
-                }
-            }
-        }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Dialog c;
-        public final /* synthetic */ kn0 d;
-
-        public b(kn0 kn0Var, String str, String str2, Dialog dialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kn0Var, str, str2, dialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = kn0Var;
-            this.a = str;
-            this.b = str2;
-            this.c = dialog;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ln0.b().c(this.a, this.d.a);
-                kn0 kn0Var = this.d;
-                kn0Var.f(true, this.b, kn0Var.a);
-                this.c.dismiss();
-                if (this.d.a) {
-                    View inflate = LayoutInflater.from(rk0.b()).inflate(R.layout.nad_scheduled_confirm_toast_view, (ViewGroup) null);
-                    ((TextView) inflate.findViewById(R.id.nad_scheduled_confirm_toast_view)).setText(rk0.b().getResources().getString(R.string.nad_scheduled_dialog_toast_text));
-                    Toast toast = new Toast(view2.getContext());
-                    toast.setView(inflate);
-                    toast.setGravity(17, 0, 0);
-                    toast.show();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ kn0 c;
-
-        public c(kn0 kn0Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kn0Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = kn0Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                ln0.b().c(this.a, false);
-                kn0 kn0Var = this.c;
-                kn0Var.f(false, this.b, kn0Var.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(kn0 kn0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kn0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                do0.a().a(new on0(false));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final kn0 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,13 +38,13 @@ public class kn0 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-655873893, "Lcom/baidu/tieba/kn0$e;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-655873986, "Lcom/baidu/tieba/kn0$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-655873893, "Lcom/baidu/tieba/kn0$e;");
+                    classClinitInterceptable.invokePostClinit(-655873986, "Lcom/baidu/tieba/kn0$b;");
                     return;
                 }
             }
@@ -205,73 +52,168 @@ public class kn0 {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918716, "Lcom/baidu/tieba/kn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947918716, "Lcom/baidu/tieba/kn0;");
+                return;
+            }
+        }
+        d = new Object();
+    }
+
     public kn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = new jn0();
+        this.c = false;
     }
 
     public static kn0 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return e.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
         return (kn0) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.d = true;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.d = false;
+        }
     }
 
     public /* synthetic */ kn0(a aVar) {
         this();
     }
 
-    public void e(String str, String str2, Context context) {
+    @Override // com.baidu.tieba.un0
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, str2, context) != null) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            g("global");
+            if (!c31.a(this.b.a(), str)) {
+                return i;
+            }
+            String str2 = (String) c31.b(this.b.a(), str);
+            if (str2 != null) {
+                try {
+                    return Integer.parseInt(str2);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return i;
         }
-        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f10010c);
-        NadScheduledConfirmView nadScheduledConfirmView = new NadScheduledConfirmView(context);
-        this.a = true;
-        nadScheduledConfirmView.setOnWifiBtnClickListener(new a(this));
-        nadScheduledConfirmView.setOnPosBtnClickListener(new b(this, str, str2, dialog));
-        dialog.setContentView(nadScheduledConfirmView);
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setCancelable(true);
-        dialog.setOnCancelListener(new c(this, str, str2));
-        dialog.setOnDismissListener(new d(this));
-        dialog.show();
-        do0.a().a(new on0(true));
+        return invokeLI.intValue;
     }
 
-    public final void f(boolean z, String str, boolean z2) {
-        String str2;
+    @Override // com.baidu.tieba.un0
+    public double b(String str, double d2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.u(ClogBuilder.Page.SCHEDULED_DOWNLOAD);
-            clogBuilder.y(ClogBuilder.LogType.NAVIDEO_POP_CLOSE);
-            clogBuilder.p(str);
-            clogBuilder.j("ScheduledPop");
-            String str3 = "0";
-            if (z) {
-                str2 = "0";
-            } else {
-                str2 = "1";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return d2;
             }
-            if (z2) {
-                str3 = "1";
+            g("global");
+            if (!c31.a(this.b.a(), str)) {
+                return d2;
             }
-            clogBuilder.k(str2);
-            clogBuilder.l(str3);
-            n41.e(clogBuilder);
+            String str2 = (String) c31.b(this.b.a(), str);
+            if (str2 != null) {
+                try {
+                    return Double.parseDouble(str2);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return d2;
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public void e(@Nullable String str) throws ADConfigError {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str != null && !TextUtils.isEmpty(str)) {
+                JSONObject c = b31.c(str);
+                if (c.has("error_code")) {
+                    if (TextUtils.equals(c.optString("error_code"), "0")) {
+                        if (c.has("error_message")) {
+                            if (TextUtils.equals(c.optString("error_message"), "success")) {
+                                String optString = c.optString("data");
+                                if (!TextUtils.isEmpty(optString)) {
+                                    JSONObject c2 = b31.c(optString);
+                                    String optString2 = c2.optString("sign");
+                                    if (!TextUtils.isEmpty(optString2)) {
+                                        if (TextUtils.equals(optString2, n31.a().b("nad_app_quick_config").getString("_ad_adc_conf_sign", ""))) {
+                                            return;
+                                        }
+                                        n31.a().b("nad_app_quick_config").h("_ad_adc_conf_sign", optString2);
+                                        synchronized (d) {
+                                            this.b.update(c2);
+                                        }
+                                        return;
+                                    }
+                                    throw ADConfigError.error("2", ADConfigError.REASON_NULL_SIGN);
+                                }
+                                throw ADConfigError.error("7", ADConfigError.REASON_NULL_DATA);
+                            }
+                            throw ADConfigError.error("5", ADConfigError.REASON_WRONG_MSG);
+                        }
+                        throw ADConfigError.error("6", ADConfigError.REASON_NULL_MSG);
+                    }
+                    throw ADConfigError.error("3", ADConfigError.REASON_WRONG_CODE);
+                }
+                throw ADConfigError.error("4", ADConfigError.REASON_NULL_CODE);
+            }
+            throw ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE_BODY);
+        }
+    }
+
+    public final void g(String str) {
+        Map<String, ?> all;
+        Map<String, ?> all2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            n31 a2 = n31.a();
+            k31 b2 = a2.b("nad.launch.config." + str);
+            if ("global".equals(str)) {
+                if (!this.c && (all2 = b2.getAll()) != null) {
+                    c31.f(this.b.a(), all2);
+                    this.c = true;
+                }
+            } else if (((Map) c31.b(this.b.b(), str)) == null && (all = b2.getAll()) != null) {
+                c31.e(this.b.b(), str, all);
+            }
         }
     }
 }

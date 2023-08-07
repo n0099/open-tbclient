@@ -1,90 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.zip.ZipException;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class k17 {
+public final class k17 extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public RankListViewController.RankListViewHolder c;
-    public TextView d;
-    public TextView e;
-    public String f;
-    public int g;
-    public View.OnClickListener h;
+    public final String a;
+    public final String b;
+    public final a c;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k17 a;
-
-        public a(k17 k17Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k17Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k17Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.load_error_retry);
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
-                if (this.a.g == 0) {
-                    return;
-                }
-                if (this.a.g == 2) {
-                    StatisticItem statisticItem = new StatisticItem("c13658");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem);
-                } else if (this.a.g == 1) {
-                    StatisticItem statisticItem2 = new StatisticItem("c13669");
-                    statisticItem2.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem2);
-                }
-            }
-        }
+    public interface a {
+        void a(boolean z);
     }
 
-    public k17(TbPageContext tbPageContext, View view2) {
+    @JvmOverloads
+    public k17(String dataPath, String desPath, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {dataPath, desPath, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,48 +42,49 @@ public class k17 {
                 return;
             }
         }
-        this.h = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f09283a));
-        this.c = rankListViewHolder;
-        rankListViewHolder.m(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e0b);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091df5);
-        this.e = textView;
-        textView.setTextSize(0, yi.g(this.a.getPageActivity(), R.dimen.tbfontsize46));
-        this.d.setOnClickListener(this.h);
+        Intrinsics.checkNotNullParameter(dataPath, "dataPath");
+        Intrinsics.checkNotNullParameter(desPath, "desPath");
+        this.a = dataPath;
+        this.b = desPath;
+        this.c = aVar;
     }
 
-    public void d(int i) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.j(i);
-            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void e(n17 n17Var) {
-        m17 m17Var;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n17Var) == null) {
-            if (n17Var != null && (m17Var = n17Var.c) != null && (metaData = m17Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.b.setVisibility(0);
-                this.c.f(n17Var.c);
-                this.c.i();
-                this.f = n17Var.e;
-                return;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.onPostExecute(Boolean.valueOf(z));
+            a aVar = this.c;
+            if (aVar != null) {
+                aVar.a(z);
             }
-            this.b.setVisibility(8);
         }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public /* bridge */ /* synthetic */ void onPostExecute(Boolean bool) {
+        b(bool.booleanValue());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean doInBackground(Void... params) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params)) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            d85.c(new File(this.a), this.b);
+            boolean z = false;
+            try {
+                d85.c(new File(this.a), this.b);
+                z = true;
+            } catch (ZipException e) {
+                BdLog.e(e);
+            } catch (IOException e2) {
+                BdLog.e(e2);
+            }
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeL.objValue;
     }
 }

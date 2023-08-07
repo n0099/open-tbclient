@@ -1,71 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class h01 extends zz0 {
+public class h01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public h01() {
+    public static int a(BdVideoSeries bdVideoSeries) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
+            if (bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
+                return u11.c(bdVideoSeries.getSelectedVideo().getTotalLength());
             }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) && bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
+            bdVideoSeries.setPositionMs(i);
+            bdVideoSeries.setDurationMs(i2);
+            BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
+            selectedVideo.setCurrentLength((i / 1000) + "");
+            BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
+            selectedVideo2.setTotalLength((i2 / 1000) + "");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zz0
     @NonNull
-    /* renamed from: M */
-    public tu0 u() {
-        InterceptResult invokeV;
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (tu0) super.u();
-        }
-        return (tu0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zz0, com.baidu.tieba.m01
-    public void onLayerRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onLayerRelease();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h01(@NonNull Activity activity) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    int d = u11.d(str, -1);
+                    if (d < 0) {
+                        return "";
+                    }
+                    return u11.b(d, false);
+                } catch (Exception e) {
+                    y11.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
+                }
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,57 +1,116 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.tf4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.sx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268644, "Lcom/baidu/tieba/wf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948268644, "Lcom/baidu/tieba/wf4;");
-                return;
-            }
-        }
-        a = fs1.a;
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ig4 a;
+        public final /* synthetic */ sx2 b;
 
-    public static void a(@NonNull vb3 vb3Var, @NonNull tf4.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, vb3Var, eVar) == null) {
-            long l = vb3Var.W().l("launch_time", 0L);
-            if (l <= 0) {
-                if (a) {
-                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+        public a(ig4 ig4Var, sx2 sx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ig4Var, sx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                return;
             }
-            xi3 xi3Var = new xi3();
-            xi3Var.a = oi3.n(vb3Var.W().G());
-            xi3Var.f = vb3Var.getAppId();
-            xi3Var.c = vb3Var.W().T();
-            xi3Var.b = "startup";
-            xi3Var.g = eVar.a;
-            xi3Var.e = eVar.b;
-            xi3Var.a("na_start", Long.valueOf(l));
-            xi3Var.a("h5_start", Long.valueOf(eVar.c));
-            xi3Var.a("h5_finish", Long.valueOf(eVar.d));
-            oi3.x("1235", xi3Var);
+            this.a = ig4Var;
+            this.b = sx2Var;
         }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                dg4.a(this.a, this.b);
+            }
+        }
+    }
+
+    public static View a(ig4 ig4Var, sx2 sx2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ig4Var, sx2Var)) == null) {
+            y72.i("map", "creatCallout start");
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setColor(sx2Var.i.b);
+            paint.setTextSize(sx2Var.i.c);
+            sx2.b bVar = sx2Var.i;
+            float f = bVar.e;
+            float f2 = bVar.f;
+            Paint paint2 = new Paint();
+            paint2.setAntiAlias(true);
+            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint2.setColor(sx2Var.i.h);
+            String str = sx2Var.i.a;
+            int g = po3.g(6.0f);
+            float f3 = f * 2.0f;
+            float measureText = paint.measureText(str) + f3;
+            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
+            float f5 = g + f4 + f3;
+            if (f5 > 0.0f && measureText > 0.0f) {
+                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
+                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                RectF rectF = new RectF();
+                rectF.left = 0.0f;
+                rectF.top = 0.0f;
+                float f6 = f4 + f3;
+                rectF.bottom = f6;
+                rectF.right = measureText;
+                canvas.drawRoundRect(rectF, f2, f2, paint2);
+                Path path = new Path();
+                float f7 = measureText / 2.0f;
+                float f8 = g / 2;
+                path.moveTo(f7 - f8, f6);
+                path.lineTo(f7, f5);
+                path.lineTo(f7 + f8, f6);
+                path.close();
+                canvas.drawPath(path, paint2);
+                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
+                ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                imageView.setImageBitmap(createBitmap);
+                imageView.setOnClickListener(new a(ig4Var, sx2Var));
+                y72.i("map", "creatCallout end");
+                return imageView;
+            }
+            y72.o("map", "callout height or wodth is 0");
+            return new ImageView(AppRuntime.getAppContext());
+        }
+        return (View) invokeLL.objValue;
     }
 }

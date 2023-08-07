@@ -1,39 +1,55 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ny4 implements in6 {
+public final class ny4 extends AbsJsInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.in6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        hn6.a(this, webView, str, jSONObject);
-    }
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ny4 b;
 
-    @Override // com.baidu.tieba.in6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            return false;
+        public a(ny4 ny4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ny4Var;
+            this.a = str;
         }
-        return invokeLLLLL.booleanValue;
-    }
 
-    @Override // com.baidu.tieba.in6
-    public /* synthetic */ void onDestroy() {
-        hn6.b(this);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("TbNativeInvokeJsInterface", "js注入端能力开始执行失败:" + this.a + " " + this.b.mWebView);
+                qk6.a().c(this.b.mWebView, this.a, null);
+            }
+        }
     }
 
     public ny4() {
@@ -50,22 +66,16 @@ public class ny4 implements in6 {
         }
     }
 
-    public qda c(WebView webView, String str) {
-        InterceptResult invokeLL;
+    @JavascriptInterface
+    public void process(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            return new qda();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.mWebView != null && !TextUtils.isEmpty(str)) {
+                SafeHandler.getInst().post(new a(this, str));
+                return;
+            }
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("TbNativeInvokeJsInterface", "js注入端能力执行失败:" + str + " " + this.mWebView);
         }
-        return (qda) invokeLL.objValue;
-    }
-
-    public qda d(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
-            return new qda();
-        }
-        return (qda) invokeLL.objValue;
     }
 }

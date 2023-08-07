@@ -1,210 +1,392 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.app.Activity;
 import android.text.TextUtils;
-import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.gna;
-import com.baidu.tieba.kna;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.m45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class fna extends gna {
+public class fna extends m45 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+    public ImageView b;
+    public TextView c;
+    public ViewGroup d;
+    public TbCheckBox e;
+    public TextView f;
+    public Button g;
+    public Button h;
+    public ImageView i;
+    public String j;
+    public String k;
+    public String l;
+    public m45.e m;
+    public String n;
+    public m45.e o;
+    public String p;
+    public CompoundButton.OnCheckedChangeListener q;
+    public boolean r;
+    public TbCheckBox.b s;
+    public final BdResourceCallback<BdImage> t;
+
+    /* loaded from: classes5.dex */
+    public class a implements TbCheckBox.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fna a;
+
+        public a(fna fnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fnaVar;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
+        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) && this.a.q != null) {
+                this.a.q.onCheckedChanged(null, z);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BdResourceCallback<BdImage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fna a;
+
+        public b(fna fnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fnaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((b) bdImage, str, i);
+                if (bdImage != null && bdImage.isValidNow()) {
+                    this.a.b.setBackgroundResource(0);
+                    this.a.b.setImageDrawable(null);
+                    bdImage.drawImageTo(this.a.b);
+                    return;
+                }
+                this.a.b.setImageResource(R.drawable.obfuscated_res_0x7f0806ce);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements TbCheckBox.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        public c(fna fnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public void setChecked(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a = z;
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public boolean isChecked() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fna(String str) {
-        super(str);
+    public fna(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.r = false;
+        this.s = new a(this);
+        this.t = new b(this);
+        c();
+        setContentViewSize(1);
+        setCanceledOnTouchOutside(false);
+        setCancelable(false);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public gna.b a(String str, boolean z, kna.a aVar, kna.a aVar2) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        double d;
-        int dequeueOutputBuffer;
-        byte[] bArr;
-        byte[] bArr2;
-        byte[] bArr3;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
-            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = this.a;
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str2);
-            boolean z2 = false;
-            int i = 0;
-            while (true) {
-                if (i < mediaExtractor.getTrackCount()) {
-                    mediaFormat = mediaExtractor.getTrackFormat(i);
-                    if (mediaFormat.getString("mime").startsWith("audio/")) {
-                        mediaExtractor.selectTrack(i);
-                        break;
-                    }
-                    i++;
-                } else {
-                    mediaFormat = null;
-                    break;
-                }
-            }
-            if (mediaFormat == null) {
-                BdLog.e("not a valid file with audio track..");
-                mediaExtractor.release();
-                return null;
-            }
-            BdLog.e("mediaFormat " + mediaFormat);
-            gna.b bVar = new gna.b();
-            int i2 = aVar2.b;
-            int i3 = aVar2.a;
-            int i4 = aVar2.c;
-            bVar.a = str;
-            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-            double d2 = mediaFormat.getLong("durationUs");
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            ByteBuffer[] byteBufferArr = outputBuffers;
-            boolean z3 = false;
-            boolean z4 = false;
-            while (!z3) {
-                long j = currentTimeMillis;
-                if (!z4) {
-                    try {
-                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                        if (dequeueInputBuffer >= 0) {
-                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
-                            if (readSampleData < 0) {
-                                BdLog.i("saw input EOS.");
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                z4 = true;
-                            } else {
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                                mediaExtractor.advance();
-                            }
-                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                            if (dequeueOutputBuffer < 0) {
-                                if ((bufferInfo.flags & 2) != 0) {
-                                    BdLog.i("audio encoder: codec config buffer");
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                } else {
-                                    if (bufferInfo.size != 0) {
-                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
-                                        byteBuffer.position(bufferInfo.offset);
-                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                        byte[] bArr4 = new byte[bufferInfo.size];
-                                        byteBuffer.get(bArr4);
-                                        if (!z) {
-                                            if (aVar2.a()) {
-                                                bArr2 = kna.b(aVar2.c / 8, aVar.c / 8, bArr4);
-                                            } else {
-                                                bArr2 = null;
-                                            }
-                                            if (aVar2.b()) {
-                                                int i5 = aVar2.b;
-                                                int i6 = aVar.b;
-                                                int i7 = aVar.c / 8;
-                                                if (bArr2 == null) {
-                                                    bArr3 = bArr4;
-                                                } else {
-                                                    bArr3 = bArr2;
-                                                }
-                                                bArr = kna.c(i5, i6, i7, bArr3);
-                                            } else {
-                                                bArr = null;
-                                            }
-                                        } else {
-                                            bArr = null;
-                                            bArr2 = null;
-                                        }
-                                        if (bArr == null) {
-                                            if (bArr2 == null) {
-                                                bArr = bArr4;
-                                            } else {
-                                                bArr = bArr2;
-                                            }
-                                        }
-                                        fileOutputStream.write(bArr);
-                                        if (this.b != null) {
-                                            this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
-                                        }
-                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                        z2 = false;
-                                    }
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                    if ((bufferInfo.flags & 4) != 0) {
-                                        BdLog.i("saw output EOS.");
-                                        z3 = true;
-                                    }
-                                }
-                            } else if (dequeueOutputBuffer == -3) {
-                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
-                                BdLog.i("output buffers have changed.");
-                                byteBufferArr = outputBuffers2;
-                            } else if (dequeueOutputBuffer == -2) {
-                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
-                            }
-                            currentTimeMillis = j;
-                            d2 = d;
-                        }
-                    } finally {
-                        fileOutputStream.close();
-                        createDecoderByType.stop();
-                        createDecoderByType.release();
-                        mediaExtractor.release();
-                    }
-                }
-                d = d2;
-                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                if (dequeueOutputBuffer < 0) {
-                }
-                currentTimeMillis = j;
-                d2 = d;
-            }
-            long j2 = currentTimeMillis;
-            if (this.b != null) {
-                this.b.a(null, 1.0d);
-            }
-            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
-            return bVar;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+            return;
         }
-        return (gna.b) invokeCommon.objValue;
+        int id = view2.getId();
+        if (id == R.id.obfuscated_res_0x7f091ce7) {
+            m45.e eVar = this.m;
+            if (eVar != null) {
+                eVar.onClick(this);
+            }
+        } else if (id == R.id.obfuscated_res_0x7f0918ee) {
+            m45.e eVar2 = this.o;
+            if (eVar2 != null) {
+                eVar2.onClick(this);
+            }
+        } else if (id == R.id.obfuscated_res_0x7f09072f) {
+            dismiss();
+        } else if (id == R.id.obfuscated_res_0x7f0906ec) {
+            TbCheckBox tbCheckBox = this.e;
+            tbCheckBox.setChecked(!tbCheckBox.d());
+        }
+    }
+
+    public fna e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.j = str;
+            return this;
+        }
+        return (fna) invokeL.objValue;
+    }
+
+    public fna f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.k = str;
+            return this;
+        }
+        return (fna) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m45
+    public /* bridge */ /* synthetic */ m45 setMessage(String str) {
+        f(str);
+        return this;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0280, (ViewGroup) null);
+            this.a = viewGroup;
+            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09089e);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091740);
+            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0918ee);
+            this.h = button;
+            button.setOnClickListener(this);
+            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091ce7);
+            this.g = button2;
+            button2.setOnClickListener(this);
+            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09072f);
+            this.i = imageView;
+            imageView.setOnClickListener(this);
+            this.d = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906ec);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ee);
+            TbCheckBox tbCheckBox = (TbCheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f0906ea);
+            this.e = tbCheckBox;
+            tbCheckBox.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0808e4, R.drawable.obfuscated_res_0x7f0808e5);
+            this.e.setStatedChangedListener(this.s);
+            this.e.setTagData(new c(this));
+            this.d.setClickable(true);
+            this.d.setOnClickListener(this);
+            setContentView(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.m45
+    public m45 create(BdPageContext<?> bdPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdPageContext)) == null) {
+            if (this.r) {
+                return this;
+            }
+            this.r = true;
+            super.create(bdPageContext);
+            if (!bi.isEmpty(this.k)) {
+                this.c.setText(this.k);
+            }
+            if (!bi.isEmpty(this.p)) {
+                this.f.setText(this.p);
+            } else {
+                this.d.setVisibility(4);
+            }
+            if (!bi.isEmpty(this.n)) {
+                this.h.setText(this.n);
+            }
+            if (!bi.isEmpty(this.l)) {
+                this.g.setText(this.l);
+            }
+            if (!TextUtils.isEmpty(this.j)) {
+                BdResourceLoader.getInstance().loadResource(this.j, 10, this.t, bdPageContext.getUniqueId());
+            } else {
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0806ce);
+            }
+            getRealView().setBackgroundDrawable(null);
+            return this;
+        }
+        return (m45) invokeL.objValue;
+    }
+
+    public fna d(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, onCheckedChangeListener)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.p = activity.getResources().getString(i);
+                this.q = onCheckedChangeListener;
+            }
+            return this;
+        }
+        return (fna) invokeIL.objValue;
+    }
+
+    public fna g(@StringRes int i, m45.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.n = activity.getResources().getString(i);
+                this.o = eVar;
+            }
+            return this;
+        }
+        return (fna) invokeIL.objValue;
+    }
+
+    public fna h(int i, m45.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.l = activity.getResources().getString(i);
+                this.m = eVar;
+            }
+            return this;
+        }
+        return (fna) invokeIL.objValue;
+    }
+
+    public fna i(String str, m45.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
+            this.l = str;
+            this.m = eVar;
+            return this;
+        }
+        return (fna) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m45
+    public /* bridge */ /* synthetic */ m45 setNegativeButton(@StringRes int i, m45.e eVar) {
+        g(i, eVar);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.m45
+    public /* bridge */ /* synthetic */ m45 setPositiveButton(int i, m45.e eVar) {
+        h(i, eVar);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.m45
+    public m45 setNegativeButton(String str, m45.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
+            this.n = str;
+            this.o = eVar;
+            return this;
+        }
+        return (m45) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m45
+    public /* bridge */ /* synthetic */ m45 setPositiveButton(String str, m45.e eVar) {
+        i(str, eVar);
+        return this;
     }
 }

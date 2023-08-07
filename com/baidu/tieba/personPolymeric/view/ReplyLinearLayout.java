@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
@@ -16,7 +17,6 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -141,17 +141,17 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
             if (i == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10039, 1);
-                textView.setPadding(0, yi.d(getContext(), 10.0f), 0, yi.d(getContext(), 10.0f));
+                textView.setPadding(0, BdUtilHelper.dip2px(getContext(), 10.0f), 0, BdUtilHelper.dip2px(getContext(), 10.0f));
                 return;
             }
             int i2 = i % 3;
             if (i2 == 2) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10081, 1);
                 textView.setBackgroundResource(R.color.CAM_X0201);
-                textView.setPadding(0, yi.d(getContext(), 10.0f), 0, yi.d(getContext(), 2.0f));
+                textView.setPadding(0, BdUtilHelper.dip2px(getContext(), 10.0f), 0, BdUtilHelper.dip2px(getContext(), 2.0f));
             } else if (i2 == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10005, 1);
-                textView.setPadding(0, yi.d(getContext(), 2.0f), 0, yi.d(getContext(), 10.0f));
+                textView.setPadding(0, BdUtilHelper.dip2px(getContext(), 2.0f), 0, BdUtilHelper.dip2px(getContext(), 10.0f));
             }
         }
     }

@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class yy7 {
+public final class yy7 implements ue5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<f35> b;
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
 
     public yy7() {
         Interceptable interceptable = $ic;
@@ -34,35 +29,23 @@ public class yy7 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ue5
+    public void parseJson(JSONObject json) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<f35> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void e(List<f35> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject = json.optJSONObject("click_back_card");
+                if (optJSONObject != null) {
+                    i = optJSONObject.optInt("show_times");
+                } else {
+                    i = 0;
+                }
+                SharedPrefHelper.getInstance().putInt("key_recom_topic_card_show_times", i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

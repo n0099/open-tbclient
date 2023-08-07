@@ -1,93 +1,60 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.filedownloader.FileDownloaderProxy;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class xe7 {
+public class xe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<ThreadData> a;
+    public boolean b;
+    public vg7 c;
+    public AntiData d;
+    public String e;
+    public String f;
+    public boolean g;
+    public boolean h;
 
     /* loaded from: classes8.dex */
-    public static final class a implements af7 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DownloadData a;
+    }
 
-        @Override // com.baidu.tieba.af7
-        public void a(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-            }
-        }
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static xe7 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.af7
-        public void b(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-            }
-        }
-
-        @Override // com.baidu.tieba.af7
-        public void f(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-            }
-        }
-
-        public a(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {downloadData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-291798175, "Lcom/baidu/tieba/xe7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-291798175, "Lcom/baidu/tieba/xe7$b;");
                     return;
                 }
             }
-            this.a = downloadData;
-        }
-
-        @Override // com.baidu.tieba.af7
-        public void c(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                rz4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_COMPLETION, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
-            }
-        }
-
-        @Override // com.baidu.tieba.af7
-        public void d(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                rz4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_PAUSE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
-            }
-        }
-
-        @Override // com.baidu.tieba.af7
-        public void e(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                rz4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_DELETE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
-            }
+            a = new xe7(null);
         }
     }
 
@@ -101,87 +68,226 @@ public final class xe7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.a = new ArrayList<>();
     }
 
-    public final ze7 c() {
+    public static xe7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (xe7) invokeV.objValue;
+    }
+
+    public AntiData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return FileDownloaderProxy.b.a(1);
+            return this.d;
         }
-        return (ze7) invokeV.objValue;
+        return (AntiData) invokeV.objValue;
     }
 
-    public final void a(af7 callback) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            c().a(callback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ThreadData> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            p(false, false);
+            b();
         }
     }
 
-    public final void b(DownloadData data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            c().c(data);
-        }
+    public /* synthetic */ xe7(a aVar) {
+        this();
     }
 
-    public final int d(DownloadData data) {
-        InterceptResult invokeL;
+    public void l(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return c().f(data);
-        }
-        return invokeL.intValue;
-    }
-
-    public final int e(DownloadData data) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return c().d(data);
-        }
-        return invokeL.intValue;
-    }
-
-    public final void f(DownloadData data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            c().e(data);
-        }
-    }
-
-    public final void g(af7 callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            c().g(callback);
-        }
-    }
-
-    public final boolean h(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadData)) == null) {
-            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-            int d = c().d(downloadData);
-            boolean b = c().b(downloadData, new a(downloadData));
-            if (b) {
-                if (d == 7) {
-                    rz4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
-                } else {
-                    rz4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
-                }
+        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
+            this.a.remove(threadData);
+            vg7 vg7Var = this.c;
+            if (vg7Var != null) {
+                vg7Var.c(this.a.size(), 1);
             }
-            return b;
+        }
+    }
+
+    public void n(AntiData antiData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, antiData) == null) {
+            this.d = antiData;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void s(vg7 vg7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, vg7Var) == null) {
+            this.c = vg7Var;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            if (this.a.size() > 29) {
+                vg7 vg7Var = this.c;
+                if (vg7Var != null) {
+                    vg7Var.b(1);
+                }
+                return false;
+            }
+            this.a.add(threadData);
+            vg7 vg7Var2 = this.c;
+            if (vg7Var2 != null) {
+                vg7Var2.c(this.a.size(), 1);
+            }
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Iterator<ThreadData> it = this.a.iterator();
+            while (it.hasNext()) {
+                ThreadData next = it.next();
+                if (next != null) {
+                    next.setMarkToDel(false);
+                }
+            }
+            this.a.clear();
+            vg7 vg7Var = this.c;
+            if (vg7Var != null) {
+                vg7Var.c(0, 1);
+            }
+        }
+    }
+
+    public void k(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || ListUtils.isEmpty(list) || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        Iterator<ThreadData> it = this.a.iterator();
+        while (it.hasNext()) {
+            ThreadData next = it.next();
+            int i = 0;
+            while (true) {
+                if (i >= list.size()) {
+                    break;
+                } else if (StringHelper.equals(list.get(i), next.getId())) {
+                    it.remove();
+                    break;
+                } else {
+                    i++;
+                }
+            }
+        }
+        vg7 vg7Var = this.c;
+        if (vg7Var != null) {
+            vg7Var.c(this.a.size(), 1);
+        }
+    }
+
+    public void p(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.b = z;
+            vg7 vg7Var = this.c;
+            if (vg7Var != null) {
+                vg7Var.a(z, z2, 1);
+            }
+        }
     }
 }

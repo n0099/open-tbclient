@@ -35,7 +35,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.NoProguard;
@@ -711,13 +710,13 @@ public class SapiUtils implements NoProguard {
             } else {
                 str = Build.SERIAL;
             }
-            if (Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) && !Build.FINGERPRINT.contains("test-keys") && !Build.FINGERPRINT.startsWith("unknown") && !Build.BRAND.startsWith("generic") && !Build.BOARD.equals("unknown") && !"unknown".equals(str)) {
+            if ("000000000000000".equals(SapiDeviceUtils.getIMEI(context)) && !Build.FINGERPRINT.contains("test-keys") && !Build.FINGERPRINT.startsWith("unknown") && !Build.BRAND.startsWith("generic") && !Build.BOARD.equals("unknown") && !"unknown".equals(str)) {
                 return false;
             }
             return true;
         }
         str = null;
-        if (Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context))) {
+        if ("000000000000000".equals(SapiDeviceUtils.getIMEI(context))) {
         }
         return true;
     }

@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r39 extends pl1<AppInfoService> {
+public class r39 extends sk1<ThirdPartAliRechargeService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class r39 extends pl1<AppInfoService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
+    @Override // com.baidu.tieba.sk1
     /* renamed from: a */
-    public AppInfoService createService() throws ServiceNotFoundException {
+    public ThirdPartAliRechargeService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new s39();
         }
-        return (AppInfoService) invokeV.objValue;
+        return (ThirdPartAliRechargeService) invokeV.objValue;
     }
 }

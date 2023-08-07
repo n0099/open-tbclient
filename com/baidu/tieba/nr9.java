@@ -1,63 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class nr9 {
+public class nr9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public er9 a;
-    public kr9 b;
-    public fr9 c;
-    public do9 d;
-    public List<ln> e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    public nr9(TbPageContext tbPageContext, HTypeListView hTypeListView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012212, "Lcom/baidu/tieba/nr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012212, "Lcom/baidu/tieba/nr9;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public nr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, hTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = new ArrayList();
-        this.a = new er9(tbPageContext, xs9.c);
-        this.b = new kr9(tbPageContext);
-        this.c = new fr9(tbPageContext, qs9.c);
-        this.d = new do9(tbPageContext.getPageActivity(), zn9.d);
-        this.e.add(this.a);
-        this.e.add(this.b);
-        this.e.add(this.c);
-        this.e.add(this.d);
-        hTypeListView.a(this.e);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.u(onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
         }
-    }
-
-    public void b(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.c.u(onClickListener);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

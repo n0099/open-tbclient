@@ -1,20 +1,67 @@
 package com.baidu.tieba;
 
+import android.os.FileObserver;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.media2.session.SessionCommand;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class bl3 {
+public final class bl3 extends FileObserver {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static JSONObject b;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public int b;
+    public int c;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ bl3 b;
+
+        public a(bl3 bl3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bl3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bl3Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gh3.b bVar = new gh3.b(SessionCommand.COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM);
+                bVar.l(String.valueOf(this.b.c));
+                bVar.j(this.a);
+                bVar.h(xa3.K().getAppId());
+                bVar.m();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,68 +76,57 @@ public class bl3 {
                 return;
             }
         }
-        a = fs1.a;
+        d = ir1.a;
     }
 
-    public static JSONObject b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl3(@NonNull String str) {
+        super(str, 1792);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("abTestSwitch", a());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        this.c = 0;
+        this.b = 0;
+        this.a = str;
     }
 
-    public static synchronized void c() {
+    public void b(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (bl3.class) {
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
-                }
-                b = null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            sn3.f().execute(new a(this, this.a + File.separator + str));
         }
     }
 
-    public static synchronized JSONObject a() {
-        InterceptResult invokeV;
+    @Override // android.os.FileObserver
+    public void onEvent(int i, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (bl3.class) {
-                if (b != null) {
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
-                    }
-                    return b;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            if ((i & 256) == 256) {
+                this.b++;
+                if (d) {
+                    Log.i("SwanPkgFileObserver", "onEvent: create " + this.b + " " + str);
+                    return;
                 }
-                JSONObject rawSwitch = cv2.g0().getRawSwitch();
-                if (rawSwitch == null) {
-                    b = new JSONObject();
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
-                    }
-                    return b;
-                }
-                Iterator<String> keys = rawSwitch.keys();
-                while (keys.hasNext()) {
-                    if (!keys.next().startsWith("swanswitch")) {
-                        keys.remove();
-                    }
-                }
-                b = rawSwitch;
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
-                }
-                return b;
+                return;
             }
+            this.c++;
+            if (d) {
+                Log.i("SwanPkgFileObserver", "onEvent: delete " + this.b + " " + str);
+            }
+            b(str);
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

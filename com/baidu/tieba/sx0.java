@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface sx0 {
-    void switchToFullStyle();
 
-    void switchToNormalStyle();
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+/* loaded from: classes8.dex */
+public interface sx0 {
+    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
+
+    void b(BdThumbSeekBar bdThumbSeekBar);
+
+    void c(BdThumbSeekBar bdThumbSeekBar);
 }

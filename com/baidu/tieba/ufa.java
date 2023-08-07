@@ -1,87 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.splashad.SplashAdView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import com.baidu.tieba.im.model.IMUserListModel;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class ufa {
+public class ufa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static ufa b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
+    public IMUserListModel a;
 
-    public ufa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ufa(MainTabActivity mainTabActivity) {
+        super(2016003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new IMUserListModel(mainTabActivity.getPageContext(), mainTabActivity.getUniqueId());
     }
 
-    public static ufa a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MemoryModifyLastMsgMessage.ModifyData data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new ufa();
-            }
-            return b;
-        }
-        return (ufa) invokeV.objValue;
-    }
-
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
-        }
-    }
-
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
-        }
-    }
-
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
-        }
-    }
-
-    public void e(MainTabActivity mainTabActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
-            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
-            this.a = new WeakReference<>(splashAdView);
-            mainTabActivity.getWindow().setFlags(1024, 1024);
-            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092238);
-            if (viewGroup != null) {
-                viewGroup.setVisibility(0);
-                viewGroup.addView(splashAdView);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null && vb8.f().g(data.id, 2) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(data.id);
+            this.a.request(false, arrayList);
         }
     }
 }

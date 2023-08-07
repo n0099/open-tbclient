@@ -1,55 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pbextra.praise.PraiseListResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class un9 {
+public class un9 extends lm<ro9, CardViewHolder<zo9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
-    public final List<rn9> h;
-    public b i;
-    public final HttpMessageListener j;
+    public TbPageContext a;
+    public CustomMessageListener b;
+    public zo9 c;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void M0(int i, List<rn9> list, int i2, int i3);
-
-        void h(String str);
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ un9 a;
@@ -77,221 +53,78 @@ public class un9 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001400) {
-                    if (httpResponsedMessage.getError() == 0 && (httpResponsedMessage instanceof PraiseListResponsedMessage)) {
-                        PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
-                        if (praiseListResponsedMessage.getError() == 0) {
-                            List<rn9> list = praiseListResponsedMessage.getmZanItemDataList();
-                            if (list != null) {
-                                for (rn9 rn9Var : list) {
-                                    this.a.h.add(rn9Var);
-                                }
-                            }
-                            un9 un9Var = this.a;
-                            un9Var.g = un9Var.h.size();
-                            this.a.f = praiseListResponsedMessage.getTotalNum();
-                            un9.h(this.a);
-                            int i = 1001;
-                            if (this.a.e > 5) {
-                                i = 1003;
-                            }
-                            if (this.a.g >= this.a.f) {
-                                i = 1002;
-                            }
-                            if (this.a.i != null) {
-                                this.a.i.M0(this.a.f, this.a.h, i, this.a.f - this.a.g);
-                            }
-                        } else if (this.a.i != null) {
-                            this.a.i.h(praiseListResponsedMessage.getErrMsg());
-                        }
-                    } else if (this.a.i != null) {
-                        this.a.i.h(null);
-                    }
-                } else if (this.a.i != null) {
-                    this.a.i.h(null);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921741 && this.a.c != null) {
+                this.a.c.D();
             }
         }
     }
 
-    public un9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public un9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = true;
-        this.e = 1;
-        this.f = 0;
-        this.g = 0;
-        this.h = new ArrayList(100);
-        this.i = null;
-        this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.a = "";
-        this.b = "";
+        this.a = tbPageContext;
+        t();
     }
 
-    public final void n() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: u */
+    public CardViewHolder<zo9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-            httpMessage.addParam("post_id", this.b + "");
-            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.e + "");
-            httpMessage.addParam("res_num", PayUVEventType.PAY_WALLET_BANNER_SHOW);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new zo9(this.a));
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public un9(String str, String str2, String str3, boolean z, b bVar) {
+    public final void t() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Boolean.valueOf(z), bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.b != null) {
+                MessageManager.getInstance().unRegisterListener(this.b);
             }
+            a aVar = new a(this, 2921741);
+            this.b = aVar;
+            this.a.registerListener(aVar);
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = true;
-        this.e = 1;
-        this.f = 0;
-        this.g = 0;
-        this.h = new ArrayList(100);
-        this.i = null;
-        this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.i = bVar;
-        this.d = z;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/u/zan/getuserlist");
-        tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.j);
     }
 
-    public static /* synthetic */ int h(un9 un9Var) {
-        int i = un9Var.e;
-        un9Var.e = i + 1;
-        return i;
-    }
-
-    public rn9 j(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ro9 ro9Var, CardViewHolder<zo9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i > -1 && i < this.h.size()) {
-                return this.h.get(i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ro9Var, cardViewHolder})) == null) {
+            if (cardViewHolder != null && cardViewHolder.b() != null) {
+                cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+                zo9 b = cardViewHolder.b();
+                this.c = b;
+                b.i(ro9Var);
+                this.c.B();
+                return cardViewHolder.getView();
             }
             return null;
         }
-        return (rn9) invokeI.objValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            n();
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void o(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, str) == null) {
-            bundle.putBoolean(str, this.d);
-        }
-    }
-
-    public void p(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
-            bundle.putString(str, this.c);
-        }
-    }
-
-    public void q(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, str) == null) {
-            bundle.putString(str, this.b);
-        }
-    }
-
-    public void r(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, bundle, str) == null) {
-            bundle.putInt(str, this.f);
-        }
-    }
-
-    public void s(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, bundle, str) == null) {
-            bundle.putString(str, this.a);
-        }
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            messageManager.unRegisterListener(this.j);
-            messageManager.unRegisterTask(CmdConfigHttp.CMD_GRAFFITI_LIST);
-            messageManager.unRegisterTask(309326);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

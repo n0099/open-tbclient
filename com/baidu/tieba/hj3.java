@@ -1,56 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Deprecated
 /* loaded from: classes6.dex */
-public class hj3 extends sd3 {
+public class hj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hj3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/clearStorageSync");
+    public hj3(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = i;
+        this.c = str2;
+        this.d = str3;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public static Bundle a(String str, int i, String str2, String str3) {
+        InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (vb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            vb3Var.f0().g().edit().clear().apply();
-            rn3.h.update();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-            return true;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, str, i, str2, str3)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("bundle_sp_name_key", str);
+            bundle.putString("bundle_prefs_key", str2);
+            bundle.putInt("bundle_data_type_key", i);
+            bundle.putString("bundle_data_value_key", str3);
+            return bundle;
         }
-        return invokeLLLL.booleanValue;
+        return (Bundle) invokeLILL.objValue;
+    }
+
+    public static hj3 b(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
+            if (bundle.isEmpty()) {
+                return null;
+            }
+            return new hj3(bundle.getString("bundle_sp_name_key"), bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
+        }
+        return (hj3) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SpMethodInfo{mDataType=" + this.b + ", mPrefName='" + this.c + "', mDataValue='" + this.d + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.yl5;
-import com.baidu.tieba.zl5;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.lk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yl5 mData;
+    public kk5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoHttpResponseMessage(int i) {
@@ -46,9 +46,9 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            yl5 yl5Var = this.mData;
-            if (yl5Var != null && yl5Var.a() != null) {
-                zl5.d().i(this.mData.a());
+            kk5 kk5Var = this.mData;
+            if (kk5Var != null && kk5Var.a() != null) {
+                lk5.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -71,18 +71,18 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            yl5 yl5Var = new yl5();
-            this.mData = yl5Var;
-            yl5Var.b(getUserInfoResIdl.data);
+            kk5 kk5Var = new kk5();
+            this.mData = kk5Var;
+            kk5Var.b(getUserInfoResIdl.data);
         }
     }
 
-    public yl5 getData() {
+    public kk5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mData;
         }
-        return (yl5) invokeV.objValue;
+        return (kk5) invokeV.objValue;
     }
 }

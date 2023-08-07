@@ -1,185 +1,566 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.DownloadListener;
+import android.webkit.JsPromptResult;
+import android.webkit.RenderProcessGoneDetail;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.ScheduleStrategy;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
+import com.baidu.tbadk.loading.LoadingView;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tbadk.widget.floatball.FloatWebLayout;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ky5 {
+public class ky5 implements oy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final Context a;
+    public LinearLayout b;
+    public final FloatWebLayout c;
+    public final NestedScrollWebView d;
+    public final FrameLayout e;
+    public om5 f;
+    public LoadingView g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public final eca m;
+    public final gca n;
 
-    public static void a(Object obj, boolean z) {
+    @Override // com.baidu.tieba.ks5
+    public void Q(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
-            b(obj, z, false);
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
         }
     }
 
-    public static void b(Object obj, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.ls5
+    public boolean R0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(obj, z, z2, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ls5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ls5
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
         }
     }
 
-    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+    /* loaded from: classes6.dex */
+    public class a implements gca {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky5 a;
+
+        public a(ky5 ky5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky5Var;
+        }
+
+        @Override // com.baidu.tieba.gca
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
+                if (this.a.m != null) {
+                    return this.a.m.c(this.a.d, str, jsPromptResult);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky5 a;
+
+        public b(ky5 ky5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    BdUtilHelper.showToast(this.a.a, (int) R.string.obfuscated_res_0x7f0f0e21);
+                } else {
+                    this.a.t();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky5 a;
+
+        @Override // android.webkit.WebViewClient
+        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public c(ky5 ky5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky5Var;
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+                this.a.h = false;
+                if (this.a.d != null && this.a.e != null) {
+                    if (this.a.i) {
+                        this.a.d.stopLoading();
+                        this.a.d.setVisibility(8);
+                        this.a.e.setVisibility(0);
+                        this.a.u();
+                        this.a.y();
+                        return;
+                    }
+                    this.a.j = false;
+                    this.a.d.setVisibility(0);
+                    this.a.e.setVisibility(8);
+                    this.a.u();
+                    this.a.v();
+                    this.a.c.setCenterTitle(webView.getTitle());
+                    if (this.a.d.canGoBack()) {
+                        this.a.c.k();
+                    } else {
+                        this.a.c.d();
+                    }
+                }
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                super.onPageStarted(webView, str, bitmap);
+                if (this.a.d != null && this.a.e != null) {
+                    this.a.i = false;
+                    if (this.a.j) {
+                        this.a.h = true;
+                        this.a.e.setVisibility(0);
+                        this.a.x();
+                    }
+                }
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+                super.onReceivedError(webView, i, str, str2);
+                this.a.i = true;
+                if (this.a.d != null && this.a.e != null) {
+                    this.a.d.stopLoading();
+                    this.a.d.setVisibility(8);
+                    this.a.e.setVisibility(0);
+                    this.a.u();
+                    this.a.y();
+                }
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+                if (TextUtils.isEmpty(str) || this.a.d == null) {
+                    return false;
+                }
+                if (this.a.j) {
+                    this.a.j = false;
+                    return false;
+                } else if (this.a.s(str) && !TbadkCoreApplication.isLogin()) {
+                    ViewHelper.skipToLoginActivity(this.a.a);
+                    return false;
+                } else {
+                    return super.shouldOverrideUrlLoading(webView, str);
+                }
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements DownloadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky5 a;
+
+        public d(ky5 ky5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky5Var;
+        }
+
+        public /* synthetic */ d(ky5 ky5Var, a aVar) {
+            this(ky5Var);
+        }
+
+        @Override // android.webkit.DownloadListener
+        public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) || StringUtils.isNull(str)) {
+                return;
+            }
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
+            if (!UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+                return;
+            }
+            this.a.a.startActivity(intent);
+        }
+    }
+
+    public ky5(@NonNull Context context, LinearLayout linearLayout, FloatWebLayout floatWebLayout) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, linearLayout, floatWebLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = true;
+        this.k = true;
+        this.n = new a(this);
+        this.a = context;
+        this.b = linearLayout;
+        this.c = floatWebLayout;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_float_web_content_view, (ViewGroup) linearLayout, true);
+        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0929dc);
+        this.e = (FrameLayout) inflate.findViewById(R.id.load_state_container);
+        eca ecaVar = new eca();
+        this.m = ecaVar;
+        ecaVar.a(new CommonTbJsBridge(context));
+        this.m.a(new UegTbJsBridge(context));
+        BrowserHelper.initCookie(context);
+        w();
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.d != null) {
+            try {
+                WebView.class.getMethod(str, new Class[0]).invoke(this.d, new Object[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            return str.contains("tieba_check_login=1");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.oy5
+    public void n1(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && this.d != null) {
+            if (z || this.j) {
+                this.l = str;
+                CompatibleUtile.getInstance().loadUrl(this.d, str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ls5
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d.getScrollY() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.oy5
+    public boolean goBack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NestedScrollWebView nestedScrollWebView = this.d;
+            if (nestedScrollWebView != null && nestedScrollWebView.canGoBack()) {
+                this.d.goBack();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.oy5
+    public void onDestroy() {
+        eca ecaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ecaVar = this.m) != null) {
+            ecaVar.h();
+        }
+    }
+
+    @Override // com.baidu.tieba.oy5
+    public void onPause() {
+        NestedScrollWebView nestedScrollWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (nestedScrollWebView = this.d) == null) {
             return;
         }
         try {
-            Field field = obj.getClass().getField("common");
-            int i = 1;
-            if (!field.isAccessible()) {
-                field.setAccessible(true);
+            nestedScrollWebView.onPause();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        q(MissionEvent.MESSAGE_PAUSE);
+        eca ecaVar = this.m;
+        if (ecaVar != null) {
+            ecaVar.i(this.d, CommonTbJsBridge.RE_HIDE, null);
+        }
+    }
+
+    public final void u() {
+        LoadingView loadingView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (loadingView = this.g) != null) {
+            loadingView.dettachView(this.e);
+        }
+    }
+
+    public final void v() {
+        om5 om5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (om5Var = this.f) != null) {
+            om5Var.dettachView(this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.oy5
+    public void onResume() {
+        NestedScrollWebView nestedScrollWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (nestedScrollWebView = this.d) == null) {
+            return;
+        }
+        try {
+            nestedScrollWebView.onResume();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        q("onResume");
+        eca ecaVar = this.m;
+        if (ecaVar != null) {
+            ecaVar.i(this.d, CommonTbJsBridge.RE_SHOW, null);
+            if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
+                this.m.i(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
             }
-            CommonReq.Builder builder = new CommonReq.Builder();
-            builder._client_type = 2;
-            builder._client_version = TbConfig.getVersion();
-            builder._client_id = TbadkCoreApplication.getClientId();
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                builder.subapp_type = TbConfig.getSubappType();
+        }
+        this.k = false;
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.e != null && this.d != null && !this.h && !TextUtils.isEmpty(this.l) && BdNetTypeUtil.isNetWorkAvailable()) {
+            this.h = true;
+            this.j = true;
+            this.e.setVisibility(0);
+            this.d.setVisibility(8);
+            v();
+            x();
+            n1(this.l, true);
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (this.f == null) {
+                this.f = new om5(this.a, new b(this));
             }
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                builder.apid = TbConfig.SW_APID;
+            this.f.m(this.a.getString(R.string.url_not_found));
+            this.f.f(this.a.getString(R.string.obfuscated_res_0x7f0f11fc));
+            this.f.h(R.drawable.new_pic_emotion_08);
+            this.f.attachView(this.e, false);
+            this.f.o();
+        }
+    }
+
+    public void w() {
+        NestedScrollWebView nestedScrollWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (nestedScrollWebView = this.d) != null) {
+            nestedScrollWebView.setNeedDisAllowParentInterceptTouchEvent(false);
+            this.d.getSettings().setJavaScriptEnabled(true);
+            this.d.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.d.getSettings().setAllowFileAccess(true);
+            this.d.getSettings().setDatabaseEnabled(true);
+            this.d.getSettings().setDomStorageEnabled(true);
+            this.d.getSettings().setSupportZoom(true);
+            this.d.getSettings().setBuiltInZoomControls(true);
+            this.d.getSettings().setUseWideViewPort(true);
+            this.d.getSettings().setLoadWithOverviewMode(true);
+            this.d.getSettings().setDatabasePath(this.a.getApplicationContext().getDir("databases", 0).getAbsolutePath());
+            this.d.setHorizontalScrollBarEnabled(false);
+            this.d.setHorizontalScrollbarOverlay(false);
+            this.d.setInitialScale(100);
+            this.d.setScrollBarStyle(33554432);
+            this.d.setWebViewClient(new c(this));
+            this.d.setDownloadListener(new d(this, null));
+            if (this.a instanceof Activity) {
+                jy5 jy5Var = new jy5((Activity) this.a);
+                jy5Var.b(this.n);
+                this.d.setWebChromeClient(jy5Var);
             }
-            builder.from = TbadkCoreApplication.getFrom();
-            builder.cuid = TbadkCoreApplication.getInst().getCuid();
-            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-            builder._timestamp = Long.valueOf(System.currentTimeMillis());
-            builder.user_agent = pz5.b();
-            if (z) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = uq5.b();
-                    if (!StringUtils.isNull(uq5.e())) {
-                        builder.stoken = uq5.e();
-                    }
-                } else {
-                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                    if (currentAccountInfo != null) {
-                        builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a = e15.a(currentAccountInfo);
-                        if (!StringUtils.isNull(a)) {
-                            builder.stoken = a;
-                        }
-                    }
-                }
+            CompatibleUtile.getInstance().removeJavascriptInterface(this.d);
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            LoadingView loadingView = this.g;
+            if (loadingView != null && loadingView.isViewAttached()) {
+                return;
             }
-            if (z2) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = uq5.f();
-                } else {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
+            if (this.g == null) {
+                LoadingView loadingView2 = new LoadingView(this.a);
+                this.g = loadingView2;
+                loadingView2.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+                this.g.onChangeSkinType();
             }
-            if (z3) {
-                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-            }
-            builder.pversion = "1.0.3";
-            builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (da5.p().q("android_safe_sdk_open", 0) == 1) {
-                builder.z_id = TbadkCoreApplication.getInst().getZid();
-            }
-            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
-            builder.sample_id = TbSingleton.getInstance().getSampleId();
-            builder.is_teenager = 0;
-            if (lw9.b()) {
-                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-                builder.model = aj.g();
-                builder._os_version = aj.k();
-                builder.brand = Build.BRAND;
-                builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-                builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
-            } else {
-                builder.need_decrypt = Integer.valueOf(wg.e(lw9.c(), 0));
-                String g = lw9.g(HttpRequest.PHONE_IMEI);
-                if (HttpRequest.PHONE_IMEI.equals(g)) {
-                    builder._phone_imei = lw9.f();
-                } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                    builder.iemi = lw9.f();
-                }
-                String g2 = lw9.g("model");
-                if ("model".equals(g2)) {
-                    builder.model = lw9.h();
-                } else if ("ledom".equals(g2)) {
-                    builder.ledom = lw9.h();
-                }
-                String g3 = lw9.g(HttpRequest.OS_VERSION);
-                if (HttpRequest.OS_VERSION.equals(g3)) {
-                    builder._os_version = lw9.j();
-                } else if ("noisrev_so".equals(g3)) {
-                    builder.noisrev_so = lw9.j();
-                }
-                String g4 = lw9.g("brand");
-                if ("brand".equals(g4)) {
-                    builder.brand = lw9.e();
-                } else if ("dnarb".equals(g4)) {
-                    builder.dnarb = lw9.e();
-                }
-                String g5 = lw9.g("oaid");
-                if ("oaid".equals(g5)) {
-                    builder.oaid = lw9.i();
-                } else if ("diao".equals(g5)) {
-                    builder.diao = lw9.i();
-                }
-                String g6 = lw9.g(HttpRequest.ANDROID_ID);
-                if (HttpRequest.ANDROID_ID.equals(g6)) {
-                    builder.android_id = lw9.d();
-                } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                    builder.di_diordna = lw9.d();
-                }
-            }
-            if (kw9.b()) {
-                builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            } else {
-                builder.need_cam_decrypt = Integer.valueOf(wg.e(kw9.c(), 0));
-                String d = kw9.d("mac");
-                if ("mac".equals(d)) {
-                    builder.mac = kw9.e();
-                } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
-                    builder.cam = kw9.e();
-                }
-            }
-            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
-            builder.q_type = Integer.valueOf(a15.c().e());
-            builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(yi.i(TbadkCoreApplication.getInst()));
-            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            builder.event_day = TbSingleton.getInstance().getData();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                i = 2;
-            }
-            builder.cmode = Integer.valueOf(i);
-            builder.start_type = Integer.valueOf(r85.f);
-            builder.start_scheme = r85.e();
-            builder.extra = da5.p().w("key_sync_extra_field", "");
-            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
-            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
-            field.set(obj, builder.build(false));
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                th.printStackTrace();
-            }
+            this.g.attachView(this.e, false);
         }
     }
 }

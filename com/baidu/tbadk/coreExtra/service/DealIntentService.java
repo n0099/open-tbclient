@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -14,12 +15,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +175,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!xi.isEmpty(stringExtra2) && j == 0) {
+                if (!bi.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -233,9 +233,9 @@ public class DealIntentService extends BdBaseService {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
-                if (h9.f().b() != null) {
+                if (BdActivityStack.getInst().currentActivity() != null) {
                     if (5 == this.a.getIntExtra("class", -1)) {
-                        if (h9.f().b().getClass().getName().equalsIgnoreCase(y95.c())) {
+                        if (BdActivityStack.getInst().currentActivity().getClass().getName().equalsIgnoreCase(MainEntrance.getMainTabClassName())) {
                             this.a.putExtra("class", 5);
                         } else {
                             this.a.putExtra("class", 21);

@@ -4,13 +4,13 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,7 +156,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09188c);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918a0);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (!this.isSupportNight) {
@@ -165,7 +165,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 this.mNavigationBar.onCenterTextOnChangeSkin(0);
             }
             setNavigationBar(this.mNavigationBar);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09232f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092347);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setVisibility(0);
             this.mTabHost.setup(getSupportFragmentManager());
@@ -261,8 +261,8 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             this.mTabHost.t();
             this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
             this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
-            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070258));
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070224));
+            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070258));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
             initTabSpec();
             this.mTabHost.setCurrentTab(getCurrentIndex());

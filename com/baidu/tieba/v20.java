@@ -1,21 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.boxdownload.IBoxDownloadDbOperator;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class v20 implements IBoxDownloadDbOperator {
+public class v20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, u20> a;
 
-    public v20() {
+    /* loaded from: classes8.dex */
+    public interface a {
+        List<u20> a();
+    }
+
+    public v20(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +35,15 @@ public final class v20 implements IBoxDownloadDbOperator {
                 return;
             }
         }
-        Intrinsics.checkNotNullExpressionValue(AppRuntime.getAppContext().getContentResolver(), "getAppContext().contentResolver");
+        this.a = new HashMap();
+        for (u20 u20Var : aVar.a()) {
+            this.a.put(u20Var.c(), u20Var);
+        }
+    }
+
+    public List<u20> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
     }
 }

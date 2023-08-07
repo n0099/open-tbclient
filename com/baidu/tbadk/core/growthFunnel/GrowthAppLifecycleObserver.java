@@ -5,8 +5,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.r85;
-import com.baidu.tieba.v85;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +53,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r85.o();
-            r85.r(null, true);
-            v85.a().j(true);
+            GrowthFunnelHelper.logRecall();
+            GrowthFunnelHelper.updateAppStartInfo(null, true);
+            o75.a().j(true);
         }
     }
 
@@ -64,10 +63,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            r85.r(null, true);
+            GrowthFunnelHelper.updateAppStartInfo(null, true);
             b = System.currentTimeMillis();
-            r85.b = false;
-            v85.a().j(false);
+            GrowthFunnelHelper.hotSplash = false;
+            o75.a().j(false);
         }
     }
 
@@ -77,18 +76,18 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                r85.k("lifecycle-1st-create", false);
-                r85.v();
+                GrowthFunnelHelper.logClientDau("lifecycle-1st-create", false);
+                GrowthFunnelHelper.updateRealAppStartInfo();
                 return;
             }
-            r85.b = true;
+            GrowthFunnelHelper.hotSplash = true;
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            r85.j(currentTimeMillis);
-            r85.k("lifecycle", true);
-            r85.v();
+            GrowthFunnelHelper.logAppHotStart(currentTimeMillis);
+            GrowthFunnelHelper.logClientDau("lifecycle", true);
+            GrowthFunnelHelper.updateRealAppStartInfo();
         }
     }
 }

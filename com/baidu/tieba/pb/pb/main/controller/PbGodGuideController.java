@@ -7,18 +7,18 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab5;
-import com.baidu.tieba.bb5;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.gl9;
-import com.baidu.tieba.yg5;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.ze9;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.q95;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.sd9;
+import com.baidu.tieba.zj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,30 +79,30 @@ public class PbGodGuideController implements LifecycleObserver {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || BreatheTipWidget.f() || this.a == null) {
                 return;
             }
-            ab5 ab5Var = new ab5();
-            ab5Var.b = R.raw.lottie_bubble_breath_tip;
-            ab5Var.a = BreatheTipWidget.PointType.LOTTIE;
-            ab5Var.c = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
-            bb5 bb5Var = new bb5();
-            bb5Var.a = this.a.getString(R.string.obfuscated_res_0x7f0f0fd1);
-            bb5Var.b = this.a.getString(R.string.obfuscated_res_0x7f0f0fd0);
-            bb5Var.e = R.drawable.god_post_guide_bg;
-            bb5Var.f = yi.g(this.a, R.dimen.tbds140);
-            bb5Var.g = yi.g(this.a, R.dimen.tbds460);
-            bb5Var.h = yi.g(this.a, R.dimen.tbds286);
-            bb5Var.i = yi.g(this.a, R.dimen.tbds100);
+            q95 q95Var = new q95();
+            q95Var.b = R.raw.lottie_bubble_breath_tip;
+            q95Var.a = BreatheTipWidget.PointType.LOTTIE;
+            q95Var.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
+            r95 r95Var = new r95();
+            r95Var.a = this.a.getString(R.string.obfuscated_res_0x7f0f0fd4);
+            r95Var.b = this.a.getString(R.string.obfuscated_res_0x7f0f0fd3);
+            r95Var.e = R.drawable.god_post_guide_bg;
+            r95Var.f = BdUtilHelper.getDimens(this.a, R.dimen.tbds140);
+            r95Var.g = BdUtilHelper.getDimens(this.a, R.dimen.tbds460);
+            r95Var.h = BdUtilHelper.getDimens(this.a, R.dimen.tbds286);
+            r95Var.i = BdUtilHelper.getDimens(this.a, R.dimen.tbds100);
             if (this.b == null) {
                 return;
             }
             BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
             breatheTipWidget.j(this.b);
             breatheTipWidget.i(BreatheTipWidget.FromType.GOD);
-            breatheTipWidget.h(bb5Var, ab5Var);
+            breatheTipWidget.h(r95Var, q95Var);
             breatheTipWidget.g(false);
             this.e = breatheTipWidget;
             if (breatheTipWidget.k((Activity) this.a, 3000L)) {
-                da5.p().F(gl9.a, da5.p().q(gl9.a, 0) + 1);
-                yg5.b("c15280", this.c, this.d);
+                SharedPrefHelper.getInstance().putInt(zj9.a, SharedPrefHelper.getInstance().getInt(zj9.a, 0) + 1);
+                jf5.b("c15280", this.c, this.d);
             }
         }
     }
@@ -125,21 +125,21 @@ public class PbGodGuideController implements LifecycleObserver {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null) {
-            zg.a().removeCallbacks(this.a);
+            SafeHandler.getInst().removeCallbacks(this.a);
             this.a.a();
         }
     }
 
-    public boolean b(ze9 ze9Var, Context context, View view2, String str, String str2) {
+    public boolean c(sd9 sd9Var, Context context, View view2, String str, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, ze9Var, context, view2, str, str2)) == null) {
-            gl9.a();
-            if (!gl9.c(ze9Var)) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, sd9Var, context, view2, str, str2)) == null) {
+            zj9.a();
+            if (!zj9.c(sd9Var)) {
                 return false;
             }
             this.a = new a(context, view2, str, str2);
-            zg.a().postDelayed(this.a, 1000L);
+            SafeHandler.getInst().postDelayed(this.a, 1000L);
             return true;
         }
         return invokeLLLLL.booleanValue;

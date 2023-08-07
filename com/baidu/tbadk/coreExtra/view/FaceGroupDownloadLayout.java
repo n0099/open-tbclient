@@ -15,17 +15,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.EmotionPackageDetailActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.eh5;
-import com.baidu.tieba.m9;
+import com.baidu.tieba.of5;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +99,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 if (this.a.f.getId().equals(faceGroupInfoData.getId())) {
                     this.a.f.updateStatus(faceGroupInfoData.getStatus());
                     this.a.f.setProgress(faceGroupInfoData.getProgress());
-                    this.a.k();
+                    this.a.m();
                 }
             }
         }
@@ -164,14 +163,14 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         c(context);
     }
 
-    public void l(boolean z) {
+    public void n(boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || this.f == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048587, this, z) != null) || this.f == null) {
             return;
         }
         this.h = z;
-        g();
+        h();
         if (z) {
             i = 8;
         } else {
@@ -183,20 +182,20 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             if (view2.getId() == R.id.face_group_download_root_layout) {
                 e();
             } else if (view2.getId() == R.id.face_group_download_btn) {
-                f();
+                g();
             }
         }
     }
 
     public void setFloorImageTextViewVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.g = z;
-            g();
+            h();
         }
     }
 
@@ -204,7 +203,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.face_group_download_layout, (ViewGroup) this, true);
-            setPadding(yi.g(getContext(), R.dimen.M_H_X009), 0, yi.g(getContext(), R.dimen.M_H_X009), yi.g(getContext(), R.dimen.M_H_X005));
+            setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X009), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X009), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005));
             this.a = findViewById(R.id.face_group_download_root_layout);
             this.b = (TbImageView) findViewById(R.id.face_group_download_cover);
             this.c = (TextView) findViewById(R.id.face_group_download_name);
@@ -213,7 +212,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
             this.a.setOnClickListener(this);
             this.e.setOnClickListener(this);
             setVisibility(8);
-            h();
+            i();
             d();
         }
     }
@@ -221,99 +220,18 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d85 d = d85.d(this.a);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0215);
-            d85 d2 = d85.d(this.e);
-            d2.x(R.color.CAM_X0101);
-            d2.C(R.dimen.T_X08);
-            d2.D(R.string.F_X01);
-            d85 d3 = d85.d(this.c);
-            d3.x(R.color.CAM_X0101);
-            d3.C(R.dimen.T_X06);
-            d3.D(R.string.F_X01);
-            d85.d(this.b).x(R.string.J_X04);
+            EMManager.from(this.a).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0215);
+            EMManager.from(this.e).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X01);
+            EMManager.from(this.b).setTextColor(R.string.J_X04);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_emotion_arrow, R.color.CAM_X0101, null);
         }
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(getContext(), Integer.parseInt(this.f.getId()), 25024)));
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.g && !this.h) {
-                ((ViewGroup.MarginLayoutParams) getLayoutParams()).bottomMargin = -yi.g(TbadkApplication.getInst(), R.dimen.tbds174);
-                return;
-            }
-            ((ViewGroup.MarginLayoutParams) getLayoutParams()).bottomMargin = 0;
-        }
-    }
-
-    public final void f() {
+    public final void m() {
         FaceGroupInfoData faceGroupInfoData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (faceGroupInfoData = this.f) == null) {
-            return;
-        }
-        if (faceGroupInfoData.getStatus() == FaceGroupInfoData.Status.FAIL || this.f.getStatus() == FaceGroupInfoData.Status.NEW) {
-            i();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (getContext() instanceof m9)) {
-            ((m9) getContext()).getPageContext().registerListener(this.i);
-        }
-    }
-
-    public final void i() {
-        FaceGroupInfoData faceGroupInfoData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (faceGroupInfoData = this.f) == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921702, faceGroupInfoData));
-    }
-
-    public void j(ImageUrlData imageUrlData) {
-        FaceGroupInfoData faceGroupInfoData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, imageUrlData) == null) {
-            if (imageUrlData != null && (faceGroupInfoData = imageUrlData.faceGroupInfoData) != null) {
-                this.f = faceGroupInfoData;
-                setVisibility(0);
-                if (!TextUtils.isEmpty(this.f.getCover())) {
-                    this.b.N(this.f.getCover(), 10, false);
-                } else {
-                    this.b.setDefaultBgResource(R.drawable.icon_pic_datu);
-                }
-                int g = (((getResources().getDisplayMetrics().widthPixels - yi.g(TbadkApplication.getInst(), R.dimen.tbds94)) - yi.g(TbadkApplication.getInst(), R.dimen.tbds180)) - yi.g(TbadkApplication.getInst(), R.dimen.tbds75)) - yi.g(TbadkApplication.getInst(), R.dimen.tbds200);
-                TextPaint paint = this.c.getPaint();
-                String name = this.f.getName();
-                this.c.setText(eh5.a(name, "..." + j, g, paint));
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
-                if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
-                    this.f.updateStatus(FaceGroupInfoData.Status.FINISH);
-                }
-                k();
-                return;
-            }
-            this.f = null;
-            setVisibility(8);
-        }
-    }
-
-    public final void k() {
-        FaceGroupInfoData faceGroupInfoData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (faceGroupInfoData = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (faceGroupInfoData = this.f) == null) {
             return;
         }
         this.e.setStatus(faceGroupInfoData.getStatus());
@@ -328,9 +246,96 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 this.e.setText(String.format(getResources().getString(R.string.item_download_progress), Integer.valueOf(this.f.getProgress())));
                 return;
             }
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0706));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0707));
             return;
         }
         this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0105));
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(getContext(), Integer.parseInt(this.f.getId()), 25024)));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.g && !this.h) {
+                ((ViewGroup.MarginLayoutParams) getLayoutParams()).bottomMargin = -BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds174);
+                return;
+            }
+            ((ViewGroup.MarginLayoutParams) getLayoutParams()).bottomMargin = 0;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            k();
+        }
+    }
+
+    public final void g() {
+        FaceGroupInfoData faceGroupInfoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (faceGroupInfoData = this.f) == null) {
+            return;
+        }
+        if (faceGroupInfoData.getStatus() == FaceGroupInfoData.Status.FAIL || this.f.getStatus() == FaceGroupInfoData.Status.NEW) {
+            j();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            MessageManager.getInstance().registerListener(this.i);
+        }
+    }
+
+    public final void j() {
+        FaceGroupInfoData faceGroupInfoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (faceGroupInfoData = this.f) == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921702, faceGroupInfoData));
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.i);
+        }
+    }
+
+    public void l(ImageUrlData imageUrlData) {
+        FaceGroupInfoData faceGroupInfoData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, imageUrlData) == null) {
+            if (imageUrlData != null && (faceGroupInfoData = imageUrlData.faceGroupInfoData) != null) {
+                this.f = faceGroupInfoData;
+                setVisibility(0);
+                if (!TextUtils.isEmpty(this.f.getCover())) {
+                    this.b.startLoad(this.f.getCover(), 10, false);
+                } else {
+                    this.b.setDefaultBgResource(R.drawable.icon_pic_datu);
+                }
+                int dimens = (((getResources().getDisplayMetrics().widthPixels - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds94)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds180)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds75)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds200);
+                TextPaint paint = this.c.getPaint();
+                String name = this.f.getName();
+                this.c.setText(of5.a(name, "..." + j, dimens, paint));
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
+                if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
+                    this.f.updateStatus(FaceGroupInfoData.Status.FINISH);
+                }
+                m();
+                return;
+            }
+            this.f = null;
+            setVisibility(8);
+        }
     }
 }

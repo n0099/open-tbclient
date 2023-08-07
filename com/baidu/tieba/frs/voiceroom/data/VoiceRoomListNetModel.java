@@ -4,41 +4,41 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.es5;
-import com.baidu.tieba.ox7;
-import com.baidu.tieba.px7;
+import com.baidu.tieba.wu7;
+import com.baidu.tieba.xu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<ox7, px7, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<wu7, xu7, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int i0() {
+    public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CmdConfigHttp.CMD_GET_VOICE_ROOM_LIST : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.CMD_GET_VOICE_ROOM_LIST : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String l0() {
+    public String d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "c/f/forum/voiceRoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c/f/forum/voiceRoom" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int m0() {
+    public int e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 309724;
         }
         return invokeV.intValue;
@@ -55,7 +55,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<ox7, px7, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (es5) objArr[1]);
+                super((TbPageContext) objArr[0], (INetRequestData) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,39 +64,39 @@ public class VoiceRoomListNetModel extends NetAutoModel<ox7, px7, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<px7> getResponseDataClass() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return px7.class;
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return VoiceRoomListHttpResponseMessage.class;
         }
         return (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> n0() {
+    public Class<? extends MvcSocketResponsedMessage> f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return VoiceRoomListSocketResponseMessage.class;
         }
         return (Class) invokeV.objValue;
     }
 
-    public void y0(ox7 ox7Var) {
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<xu7> getResponseDataClass() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ox7Var) == null) {
-            this.c = ox7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return xu7.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public void q0(wu7 wu7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, wu7Var) == null) {
+            this.c = wu7Var;
         }
     }
 }

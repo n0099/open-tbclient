@@ -3,30 +3,30 @@ package com.baidu.tbadk.template.message;
 import android.util.Log;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dw5;
-import com.baidu.tieba.ew5;
-import com.baidu.tieba.fw5;
+import com.baidu.tieba.rt5;
+import com.baidu.tieba.st5;
+import com.baidu.tieba.tt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TemplateNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
-    public dw5 mIReq;
-    public ew5 mIResp;
+    public rt5 mIReq;
+    public st5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TemplateNetMessage(fw5 fw5Var, dw5 dw5Var, ew5 ew5Var) {
-        super(fw5Var.e(), fw5Var.a());
+    public TemplateNetMessage(tt5 tt5Var, rt5 rt5Var, st5 st5Var) {
+        super(tt5Var.e(), tt5Var.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fw5Var, dw5Var, ew5Var};
+            Object[] objArr = {tt5Var, rt5Var, st5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,8 +39,8 @@ public class TemplateNetMessage extends NetMessage {
             }
         }
         this.isNeedCache = false;
-        this.mIReq = dw5Var;
-        this.mIResp = ew5Var;
+        this.mIReq = rt5Var;
+        this.mIResp = st5Var;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -61,22 +61,22 @@ public class TemplateNetMessage extends NetMessage {
         }
     }
 
-    public dw5 getIReq() {
+    public rt5 getIReq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mIReq;
         }
-        return (dw5) invokeV.objValue;
+        return (rt5) invokeV.objValue;
     }
 
-    public ew5 getIResp() {
+    public st5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mIResp;
         }
-        return (ew5) invokeV.objValue;
+        return (st5) invokeV.objValue;
     }
 
     public boolean isNeedCache() {

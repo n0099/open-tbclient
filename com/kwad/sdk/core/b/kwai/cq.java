@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.kwad.sdk.commercial.model.HybridLoadMsg;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -10,8 +9,8 @@ public final class cq implements com.kwad.sdk.core.d<HybridLoadMsg> {
         if (jSONObject == null) {
             return;
         }
-        hybridLoadMsg.sceneId = jSONObject.optString(MemberPayActivityConfig.SCENE_ID);
-        if (jSONObject.opt(MemberPayActivityConfig.SCENE_ID) == JSONObject.NULL) {
+        hybridLoadMsg.sceneId = jSONObject.optString("scene_id");
+        if (jSONObject.opt("scene_id") == JSONObject.NULL) {
             hybridLoadMsg.sceneId = "";
         }
         hybridLoadMsg.h5Version = jSONObject.optString("h5_version");
@@ -47,7 +46,7 @@ public final class cq implements com.kwad.sdk.core.d<HybridLoadMsg> {
         }
         String str = hybridLoadMsg.sceneId;
         if (str != null && !str.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, MemberPayActivityConfig.SCENE_ID, hybridLoadMsg.sceneId);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "scene_id", hybridLoadMsg.sceneId);
         }
         String str2 = hybridLoadMsg.h5Version;
         if (str2 != null && !str2.equals("")) {

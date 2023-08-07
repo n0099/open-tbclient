@@ -1,135 +1,77 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e8b implements x7b {
+public class e8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z7b a;
-    public y7b b;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
 
-    public e8b(z7b z7bVar, w7b w7bVar) {
+    public e8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z7bVar, w7bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = z7bVar;
-        y7b y7bVar = new y7b();
-        this.b = y7bVar;
-        y7bVar.k(w7bVar);
     }
 
-    @Override // com.baidu.tieba.x7b
-    public void a(DownloadException downloadException) {
+    public JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
-            this.b.m(downloadException);
-            this.b.r(108);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("doReport", this.b);
+                    jSONObject.put("name", this.c);
+                    jSONObject.put("code", this.d);
+                    jSONObject.put("msg", this.e);
+                    jSONObject.put("data", this.f);
+                    jSONObject.put("isShowSpecialToast", this.g);
+                    jSONObject.put("specialToast", this.h);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x7b
-    public void b(DownloadException downloadException) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            this.b.m(downloadException);
-            this.b.r(108);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
         }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onDownloadCompleted(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b.r(105);
-            this.b.q(str);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onConnectCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.r(107);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onConnecting() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.r(102);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onDownloadCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.r(107);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onDownloadPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.r(106);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.r(101);
-            this.b.a().h();
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onConnected(long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.b.s(j);
-            this.b.j(z);
-            this.b.r(103);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.x7b
-    public void onDownloadProgress(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            this.b.n(j);
-            this.b.o(j2);
-            this.b.p(i);
-            this.b.r(104);
-            this.a.a(this.b);
-        }
+        return (String) invokeV.objValue;
     }
 }

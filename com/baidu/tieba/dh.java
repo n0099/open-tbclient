@@ -1,117 +1,89 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
+import com.baidu.searchbox.retrieve.core.task.UploadTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class dh {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dh() {
+    public static ArrayList<wg> a(tg tgVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static Handler a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (dh.class) {
-                    if (b == null) {
-                        HandlerThread handlerThread = new HandlerThread("UiUtils-Background");
-                        handlerThread.start();
-                        b = new Handler(handlerThread.getLooper());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tgVar)) == null) {
+            ArrayList arrayList = new ArrayList();
+            File[] b = vg.b(tgVar.C());
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name) && name.startsWith(tgVar.h()) && name.contains("Uploading")) {
+                            arrayList.add(new wg(name, file.length(), file.lastModified()));
+                        }
                     }
                 }
             }
-            return b;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static Handler b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (dh.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
+            long currentTimeMillis = System.currentTimeMillis();
+            ArrayList<wg> arrayList2 = new ArrayList<>();
+            ArrayList arrayList3 = new ArrayList();
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                wg wgVar = (wg) it.next();
+                if (wgVar != null) {
+                    long j = wgVar.c;
+                    if (j != 0 && j + 604800000 < currentTimeMillis) {
+                        arrayList3.add(wgVar.b);
+                    } else {
+                        arrayList2.add(wgVar);
                     }
                 }
             }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            b().post(runnable);
-        }
-    }
-
-    public static void d(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
-            a().removeCallbacks(runnable);
-        }
-    }
-
-    public static void e(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, runnable) == null) {
-            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
+            if (arrayList3.size() > 0) {
+                vg.a(arrayList3, tgVar.C());
             }
+            return arrayList2;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static void g(Runnable runnable) {
+    public static BdUploadingLogInfo b(tg tgVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                b().post(runnable);
-            } else {
-                runnable.run();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tgVar)) == null) {
+            ArrayList<wg> a = a(tgVar);
+            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), tgVar.C(), tgVar.A());
+            if (a != null && a.size() > 0) {
+                if (a.size() > 1) {
+                    Collections.sort(a, new xg());
+                }
+                ArrayList arrayList = new ArrayList();
+                int size = a.size();
+                long j = 0;
+                for (int i = 0; i < size; i++) {
+                    wg wgVar = a.get(i);
+                    j += wgVar.a;
+                    arrayList.add(wgVar);
+                    if (j >= UploadTask.SIZE_LIMIT_DEFAULT) {
+                        bdUploadingLogInfo.add(arrayList);
+                        arrayList = new ArrayList();
+                        j = 0;
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    bdUploadingLogInfo.add(arrayList);
+                }
             }
+            return bdUploadingLogInfo;
         }
-    }
-
-    public static void f(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, runnable, j) == null) {
-            a().postDelayed(runnable, j);
-        }
-    }
-
-    public static void h(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65544, null, runnable, j) == null) {
-            b().postDelayed(runnable, j);
-        }
+        return (BdUploadingLogInfo) invokeL.objValue;
     }
 }

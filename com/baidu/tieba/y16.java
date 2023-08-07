@@ -1,11 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import java.util.List;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface y16 {
-    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+public class y16 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b(int i);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long j = SharedPrefHelper.getInstance().getLong("key_youngster_use_time_dialog_show_time", 0L);
+            if (j > System.currentTimeMillis() || System.currentTimeMillis() - j <= 600000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 }

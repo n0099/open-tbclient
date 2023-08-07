@@ -1,38 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes8.dex */
-public class yx5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yx5 {
+    void a();
 
-    @NonNull
-    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
-            beginTransaction.commitAllowingStateLoss();
-            return fragment;
-        }
-        return (Fragment) invokeLIL.objValue;
-    }
+    void b(Canvas canvas);
 
-    @Nullable
-    public static <T extends Fragment> T b(@NonNull FragmentManager fragmentManager, @NonNull Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fragmentManager, cls)) == null) {
-            return (T) fragmentManager.findFragmentByTag(cls.getCanonicalName());
-        }
-        return (T) invokeLL.objValue;
-    }
+    void c(ListView listView, Context context, AttributeSet attributeSet);
+
+    void onDraw(Canvas canvas);
+
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+
+    void onMeasure(int i, int i2);
+
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

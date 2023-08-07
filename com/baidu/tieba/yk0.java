@@ -1,257 +1,58 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public interface yk0 {
-    public static final yk0 a = new a();
+public class yk0 extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String A();
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+        }
+    }
 
-    boolean B();
-
-    String a();
-
-    String b();
-
-    String c();
-
-    String d();
-
-    String e();
-
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String l();
-
-    boolean n();
-
-    String o();
-
-    String p();
-
-    String packageName();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
-
-    @NonNull
-    String v();
-
-    String w();
-
-    /* loaded from: classes8.dex */
-    public class a implements yk0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.yk0
-        public String A() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yk0() {
+        super(pj0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((Context) objArr[0], (String) objArr[1], (SQLiteDatabase.CursorFactory) objArr[2], ((Integer) objArr[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (String) invokeV.objValue;
         }
+    }
 
-        @Override // com.baidu.tieba.yk0
-        public boolean B() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String l() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public boolean n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String o() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String p() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String packageName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String q() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        @NonNull
-        public String r() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String s() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String t() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        @NonNull
-        public String v() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String w() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "1.0" : (String) invokeV.objValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            i41[] i41VarArr = {new o31().b()};
+            for (int i = 0; i < 1; i++) {
+                i41 i41Var = i41VarArr[i];
+                sQLiteDatabase.execSQL(f41.b(i41Var));
+                Iterator<String> it = f41.a(i41Var).iterator();
+                while (it.hasNext()) {
+                    sQLiteDatabase.execSQL(it.next());
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return Build.VERSION.RELEASE;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yk0
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return Build.MODEL;
-            }
-            return (String) invokeV.objValue;
         }
     }
 }

@@ -9,11 +9,11 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -140,7 +140,7 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.i();
                 this.a.setVisibility(8);
-                zg.a().postDelayed(this.a.e, 600L);
+                SafeHandler.getInst().postDelayed(this.a.e, 600L);
             }
         }
     }
@@ -310,7 +310,7 @@ public class CommonTipView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeCallbacks(this.d);
-            zg.a().removeCallbacks(this.e);
+            SafeHandler.getInst().removeCallbacks(this.e);
             e();
         }
     }

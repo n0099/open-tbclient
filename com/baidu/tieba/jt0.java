@@ -1,17 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes6.dex */
-public class jt0 {
+public final class jt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Application application) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
-            il1.b(application);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,5 +1,71 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface y32 {
-    void a(String str, String str2, String str3);
+public class y32 extends v32 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y32(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/canvas/insert");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vb3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            v52 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                y72.c("SwanAppCanvas", "insert action parse model is null");
+                return false;
+            } else if (context == null) {
+                y72.c("SwanAppCanvas", "context is null");
+                unitedSchemeEntity.result = l(1001);
+                return false;
+            } else {
+                String str = k.b;
+                e13 e13Var = k.h;
+                if (!TextUtils.isEmpty(str) && e13Var != null && e13Var.h()) {
+                    p62 insert = new y62(context, k).insert();
+                    boolean a = insert.a();
+                    if (!a) {
+                        y72.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
+                    }
+                    j(unitedSchemeEntity, callbackHandler, a);
+                    return a;
+                }
+                y72.c("SwanAppCanvas", "canvas id is empty or position is null");
+                unitedSchemeEntity.result = l(202);
+                return false;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
 }

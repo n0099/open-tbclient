@@ -1,61 +1,142 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.feedpage.interfaces.ILiveFeedOther;
-import com.baidu.live.feedpage.interfaces.ILiveFeedPageView;
-import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class sc0 implements ILiveFeedPageView {
+public class sc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eb0 a;
-    public final int b;
-    public boolean c;
+    public boolean a;
+    public boolean b;
+    public Window c;
+    public View d;
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onSelectedRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(sc0 sc0Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sc0Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View view2 = this.a;
+                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + sc0.b(this.a.getContext()), this.a.getPaddingRight(), this.a.getPaddingBottom());
+                this.a.getLayoutParams().height += sc0.b(this.a.getContext());
+            }
         }
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Window a;
+        public boolean b;
+        public View c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = false;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new sc0(this.a, this.b, true, this.c).d();
+            }
+            return invokeV.booleanValue;
+        }
+
+        /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+            java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+            */
+        public static /* synthetic */ com.baidu.tieba.sc0.b a(com.baidu.tieba.sc0.b r0, android.app.Activity r1) {
+            /*
+                r0.d(r1)
+                return r0
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.sc0.b.a(com.baidu.tieba.sc0$b, android.app.Activity):com.baidu.tieba.sc0$b");
+        }
+
+        public b c(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.b = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public final b d(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+                this.a = activity.getWindow();
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-        }
-    }
-
-    public sc0() {
+    public sc0(Window window, boolean z, boolean z2, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,193 +146,195 @@ public class sc0 implements ILiveFeedPageView {
                 return;
             }
         }
-        this.b = pd0.a().b();
+        this.a = z;
+        this.b = z2;
+        this.c = window;
+        this.d = view2;
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public boolean canSlideDown() {
+    /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+        jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.sc0.b.a(com.baidu.tieba.sc0$b, android.app.Activity):com.baidu.tieba.sc0$b
+        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+        	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+        Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+        	... 1 more
+        */
+    public static com.baidu.tieba.sc0.b a(android.app.Activity r4) {
+        /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.sc0.$ic
+            if (r0 != 0) goto Ld
+        L4:
+            com.baidu.tieba.sc0$b r0 = new com.baidu.tieba.sc0$b
+            r0.<init>()
+            com.baidu.tieba.sc0.b.a(r0, r4)
+            return r0
+        Ld:
+            r1 = r0
+            r2 = 65537(0x10001, float:9.1837E-41)
+            r3 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeL(r2, r3, r4)
+            if (r0 == 0) goto L4
+            java.lang.Object r1 = r0.objValue
+            com.baidu.tieba.sc0$b r1 = (com.baidu.tieba.sc0.b) r1
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.sc0.a(android.app.Activity):com.baidu.tieba.sc0$b");
+    }
+
+    public void e(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 != null && this.b && !c()) {
+            view2.post(new a(this, view2));
+        }
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (c() || (identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android")) <= 0) {
+                return 0;
+            }
+            return context.getResources().getDimensionPixelSize(identifier);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            eb0 eb0Var = this.a;
-            if (eb0Var != null) {
-                return eb0Var.w();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (Build.VERSION.SDK_INT < 19) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public boolean canSlideUp() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            eb0 eb0Var = this.a;
-            if (eb0Var != null) {
-                return eb0Var.x();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (!j() && !h()) {
+                return false;
             }
-            return false;
+            if (i == 19) {
+                g();
+            }
+            e(this.d);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public boolean hasMore() {
+    @TargetApi(19)
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            WindowManager.LayoutParams attributes = this.c.getAttributes();
+            if (this.b) {
+                attributes.flags |= 67108864;
+            } else {
+                attributes.flags &= -67108865;
+            }
+            this.c.setAttributes(attributes);
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!f(this.a) && !i(this.a)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            WindowManager.LayoutParams attributes = this.c.getAttributes();
+            try {
+                Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
+                int i = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
+                Field declaredField = cls.getDeclaredField("meizuFlags");
+                declaredField.setAccessible(true);
+                int i2 = declaredField.getInt(attributes);
+                if (z) {
+                    declaredField.set(attributes, Integer.valueOf(i2 | i));
+                } else {
+                    declaredField.set(attributes, Integer.valueOf((~i) & i2));
+                }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public final boolean i(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            Class<?> cls = this.c.getClass();
+            try {
+                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                Window window = this.c;
+                Object[] objArr = new Object[2];
+                if (z) {
+                    i = i2;
+                } else {
+                    i = 0;
+                }
+                objArr[0] = Integer.valueOf(i);
+                objArr[1] = Integer.valueOf(i2);
+                method.invoke(window, objArr);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @TargetApi(21)
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            eb0 eb0Var = this.a;
-            if (eb0Var != null) {
-                return eb0Var.M();
+            if (Build.VERSION.SDK_INT < 23) {
+                return false;
             }
-            return false;
+            int systemUiVisibility = this.c.getDecorView().getSystemUiVisibility();
+            if (this.a) {
+                systemUiVisibility |= -2147475456;
+            }
+            if (this.b) {
+                systemUiVisibility |= 1280;
+            }
+            this.c.getDecorView().setSystemUiVisibility(systemUiVisibility);
+            this.c.setStatusBarColor(0);
+            return true;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void lazyLoad() {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (eb0Var = this.a) != null) {
-            eb0Var.Q();
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onExternalRefresh() {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (eb0Var = this.a) != null) {
-            eb0Var.W(null);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewDestroy() {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (eb0Var = this.a) != null) {
-            eb0Var.T();
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewPause() {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (eb0Var = this.a) != null) {
-            eb0Var.a0();
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewResume() {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (eb0Var = this.a) != null) {
-            eb0Var.b0();
-        }
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPageViewImpl " + str + GlideException.IndentedAppendable.INDENT + this.a);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public void addLiveFeedStatusListener(ILiveFeedOther.LiveFeedStatusListener liveFeedStatusListener) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedStatusListener) == null) && (eb0Var = this.a) != null) {
-            eb0Var.v(liveFeedStatusListener);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onDarkModeChange(String str) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (eb0Var = this.a) != null) {
-            eb0Var.S(str);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onExternalLoadMore(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onLoadMoreListener) == null) && (eb0Var = this.a) != null) {
-            eb0Var.U(onLoadMoreListener);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onExternalRefresh(ILiveFeedRefresh.OnRefreshListener onRefreshListener) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, onRefreshListener) == null) && (eb0Var = this.a) != null) {
-            eb0Var.W(onRefreshListener);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onFontSizeChanged(int i) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (eb0Var = this.a) != null) {
-            eb0Var.X(i);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onUserVisibleHint(boolean z) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (eb0Var = this.a) != null) {
-            eb0Var.e0(z);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public void setIsHKTopBar(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public View onCreateView(FragmentActivity fragmentActivity, Fragment fragment, String str, String str2, String str3, String str4, boolean z) {
-        InterceptResult invokeCommon;
-        FragmentManager supportFragmentManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{fragmentActivity, fragment, str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
-            a("onCreateView hostType:   page: " + str);
-            if (this.a == null) {
-                int i = this.b;
-                if (fragment != null) {
-                    supportFragmentManager = fragment.getChildFragmentManager();
-                } else {
-                    supportFragmentManager = fragmentActivity.getSupportFragmentManager();
-                }
-                this.a = new eb0(fragmentActivity, i, supportFragmentManager, str, str2, this.c, str3, str4, z);
-                kb0.u(fragmentActivity, "", "zhibopindao");
-            }
-            return this.a.A();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onTabSelectedEvent(String str, String str2) {
-        eb0 eb0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) && (eb0Var = this.a) != null) {
-            eb0Var.d0(str, str2);
-        }
     }
 }

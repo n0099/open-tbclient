@@ -1,70 +1,166 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.res.Resources;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
+import tbclient.ApkDetail;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class ao7 {
+public class ao7 extends q05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<fo7> a;
 
-    public static List<ho7> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q05
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                ho7 ho7Var = new ho7();
-                if (gameForumSubTab != null) {
-                    ho7Var.a = gameForumSubTab.id.intValue();
-                    ho7Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    ho7Var.c = labelDataList;
-                    arrayList.add(ho7Var);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    public static List<yn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q05
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621984, "Lcom/baidu/tieba/ao7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            LinkedList linkedList = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                yn7 yn7Var = new yn7();
-                ThreadData threadData = new ThreadData();
-                yn7Var.c(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    l35 l35Var = new l35();
-                    l35Var.e(threadData.getLegoCard());
-                    linkedList.add(l35Var);
-                } else {
-                    linkedList.add(yn7Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947621984, "Lcom/baidu/tieba/ao7;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public ao7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setSupportType(BaseCardInfo.SupportType.FULL);
+    }
+
+    public ArrayList<fo7> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !ListUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(ItemInfo itemInfo) {
+        ApkDetail apkDetail;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
+                if (!bi.isEmpty(apkDetail.developer)) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0589), itemInfo.apk_detail.developer, null));
+                }
+                if (!bi.isEmpty(itemInfo.apk_detail.publisher)) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1170), itemInfo.apk_detail.publisher, null));
+                }
+                if (!bi.isEmpty(itemInfo.apk_detail.version)) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0519), itemInfo.apk_detail.version, null));
+                }
+                if (!bi.isEmpty(itemInfo.apk_detail.update_time)) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f179a), itemInfo.apk_detail.update_time, null));
+                }
+                if (JavaTypesHelper.toLong(itemInfo.apk_detail.size, 0L) > 0) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f072d), StringHelper.getFormatSize(JavaTypesHelper.toLong(itemInfo.apk_detail.size, 0L)), null));
+                }
+                int intValue = itemInfo.apk_detail.need_network.intValue();
+                int i2 = R.string.editor_dialog_yes;
+                if (intValue > 0) {
+                    ArrayList<fo7> arrayList = this.a;
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b1b);
+                    Resources resources = TbadkCoreApplication.getInst().getResources();
+                    if (itemInfo.apk_detail.need_network.intValue() == 1) {
+                        i = R.string.editor_dialog_yes;
+                    } else {
+                        i = R.string.editor_dialog_no;
+                    }
+                    arrayList.add(new fo7(string, resources.getString(i), null));
+                }
+                if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
+                    ArrayList<fo7> arrayList2 = this.a;
+                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f099e);
+                    Resources resources2 = TbadkCoreApplication.getInst().getResources();
+                    if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
+                        i2 = R.string.editor_dialog_no;
+                    }
+                    arrayList2.add(new fo7(string2, resources2.getString(i2), null));
+                }
+                if (!bi.isEmpty(itemInfo.apk_detail.authority_url)) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
+                }
+                if (!bi.isEmpty(itemInfo.apk_detail.privacy_url)) {
+                    this.a.add(new fo7(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
                 }
             }
-            return linkedList;
         }
-        return (List) invokeL.objValue;
     }
 }

@@ -1,171 +1,191 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.AtomicFile;
+import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ip3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861149, "Lcom/baidu/tieba/ip3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861149, "Lcom/baidu/tieba/ip3;");
-                return;
-            }
-        }
-        a = fs1.a;
-    }
-
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
+        InterceptResult invokeLLI;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
+        FileLock fileLock;
+        AtomicFile atomicFile;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            return b(file, str, null);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) {
-            return d(readableByteChannel, str, null);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, publicKey);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static boolean b(File file, String str, cq3 cq3Var) {
-        InterceptResult invokeLLL;
-        boolean z;
-        Object valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, cq3Var)) == null) {
-            if (file == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z && file.exists() && !TextUtils.isEmpty(str)) {
-                ReadableByteChannel readableByteChannel = null;
-                try {
-                    readableByteChannel = Channels.newChannel(new FileInputStream(file));
-                    return d(readableByteChannel, str, cq3Var);
-                } catch (IOException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                } finally {
-                    zr4.d(readableByteChannel);
-                }
-            }
-            if (cq3Var != null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("zipfile: isEmpty=");
-                sb.append(z);
-                sb.append("; exists=");
-                if (z) {
-                    valueOf = "";
-                } else {
-                    valueOf = Boolean.valueOf(file.exists());
-                }
-                sb.append(valueOf);
-                cq3Var.a = sb.toString();
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean d(ReadableByteChannel readableByteChannel, String str, cq3 cq3Var) throws IOException {
-        InterceptResult invokeLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, cq3Var)) == null) {
-            if (readableByteChannel == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z && !TextUtils.isEmpty(str)) {
-                String c = bs4.c(false, readableByteChannel);
-                if (cq3Var != null) {
-                    cq3Var.a = c;
-                }
-                try {
-                    String str2 = new String(e(Base64.decode(str.getBytes("utf-8"), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
-                    if (cq3Var != null) {
-                        cq3Var.b = str2;
-                    }
-                    return TextUtils.equals(str2, c);
-                } catch (Exception e) {
-                    if (a) {
-                        Log.i("SwanAppSignChecker", e.toString());
-                        e.printStackTrace();
-                    }
-                    if (cq3Var != null) {
-                        cq3Var.b = e.getLocalizedMessage();
-                    }
-                    return false;
-                }
-            }
-            if (cq3Var != null) {
-                cq3Var.a = "zipSource isNullIs=" + z;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static PublicKey f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            AtomicFile atomicFile2 = null;
+            r1 = null;
+            FileLock fileLock2 = null;
+            FileChannel fileChannel2 = null;
             try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                return null;
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                    SparseArray sparseArray = new SparseArray(i);
+                    ArrayList arrayList = new ArrayList();
+                    for (int i2 = 0; i2 < i; i2++) {
+                        arrayList.add(bufferedReader.readLine());
+                    }
+                    for (int i3 = 0; i3 < i; i3++) {
+                        String str = (String) arrayList.get(i3);
+                        if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
+                            return false;
+                        }
+                        HashMap hashMap = new HashMap();
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
+                            hashMap.put(jSONObject.optString("name"), jSONObject);
+                        }
+                        sparseArray.put(i3, hashMap);
+                    }
+                    for (int i5 = 0; i5 < jSONArray.length(); i5++) {
+                        JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
+                        String optString = jSONObject2.optString("name");
+                        int i6 = 0;
+                        while (true) {
+                            if (i6 >= i) {
+                                break;
+                            } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
+                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                                break;
+                            } else {
+                                if (i6 == i - 1) {
+                                    ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                                }
+                                i6++;
+                            }
+                        }
+                    }
+                    for (int i7 = 0; i7 < i; i7++) {
+                        JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
+                        JSONArray jSONArray2 = new JSONArray();
+                        jSONObject3.optJSONArray("descriptions");
+                        for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
+                            jSONArray2.put(entry.getValue());
+                        }
+                        jSONObject3.put("descriptions", jSONArray2);
+                        if (i7 != i - 1) {
+                            sb.append(jSONObject3.toString());
+                            sb.append("\n");
+                        } else {
+                            sb.append(jSONObject3.toString());
+                        }
+                    }
+                    bufferedReader.close();
+                    atomicFile = new AtomicFile(file);
+                    try {
+                        atomicFile.startWrite();
+                        fileOutputStream = atomicFile.startWrite();
+                        try {
+                            fileChannel = fileOutputStream.getChannel();
+                        } catch (IOException | JSONException unused) {
+                            fileChannel = null;
+                            fileLock = fileChannel;
+                            atomicFile2 = atomicFile;
+                            if (atomicFile2 != null) {
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException unused2) {
+                                    }
+                                }
+                                atomicFile2.failWrite(fileOutputStream);
+                            }
+                            if (fileChannel != null) {
+                                try {
+                                    fileChannel.close();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            return false;
+                        }
+                    } catch (IOException | JSONException unused4) {
+                        fileOutputStream = null;
+                        fileChannel = null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (fileChannel2 != null) {
+                        try {
+                            fileChannel2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+                try {
+                    try {
+                        fileLock = fileChannel.lock();
+                    } catch (IOException | JSONException unused6) {
+                        fileLock = fileLock2;
+                    }
+                    try {
+                        fileOutputStream.write(sb.toString().getBytes());
+                        if (fileLock != null) {
+                            fileLock.release();
+                        } else {
+                            fileLock2 = fileLock;
+                        }
+                        atomicFile.finishWrite(fileOutputStream);
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                                return true;
+                            } catch (IOException unused7) {
+                                return true;
+                            }
+                        }
+                        return true;
+                    } catch (IOException | JSONException unused8) {
+                        atomicFile2 = atomicFile;
+                        if (atomicFile2 != null) {
+                        }
+                        if (fileChannel != null) {
+                        }
+                        return false;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel2 = fileChannel;
+                    if (fileChannel2 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException | JSONException unused9) {
+                fileOutputStream = null;
+                fileChannel = null;
+                fileLock = null;
             }
+        } else {
+            return invokeLLI.booleanValue;
         }
-        return (PublicKey) invokeL.objValue;
     }
 }

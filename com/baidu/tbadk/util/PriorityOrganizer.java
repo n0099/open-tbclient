@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.py5;
+import com.baidu.tieba.cw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,85 +25,86 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PriorityOrganizer implements LifecycleObserver {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEFAULT_INITIAL_CAPACITY = 11;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Comparator<Task> a;
-    public final PriorityBlockingQueue<Task> b;
-    public final ConcurrentHashMap<String, List<Task>> c;
+    public final Comparator<Task> comparator;
+    public int executedTaskCount;
     @NonNull
-    public final Timer d;
+    public final Handler handler;
+    public final int oncePageExecuteTaskCount;
+    public final PriorityBlockingQueue<Task> queue;
     @NonNull
-    public final Handler e;
-    public final int f;
-    public int g;
+    public final Timer timer;
+    public final ConcurrentHashMap<String, List<Task>> waitingTasks;
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     private void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Task {
         public static /* synthetic */ Interceptable $ic;
-        public static int l;
+        public static int taskInitNumber;
         public transient /* synthetic */ FieldHolder $fh;
+        public long autoFinishTime;
+        public long executeDelayTime;
         @NonNull
-        public String a;
+        public String name;
         @Nullable
-        public PriorityOrganizer b;
+        public Task next;
+        @Nullable
+        public PriorityOrganizer organizer;
+        @Nullable
+        public Task prev;
         @IntRange(from = 0, to = 100)
-        public int c;
-        public long d;
-        public long e;
-        @Nullable
-        public String f;
-        public long g;
+        public int priority;
         @NonNull
-        public Status h;
+        public Status status;
         @NonNull
-        public final List<TimerTask> i;
+        public final List<TimerTask> timerTaskList;
         @Nullable
-        public Task j;
-        @Nullable
-        public Task k;
+        public String waitTaskName;
+        public long waitTaskTimeout;
 
-        public void A() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public void B() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public boolean u() {
+        public boolean isDataReady() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return true;
             }
             return invokeV.booleanValue;
         }
 
-        public abstract boolean w();
+        public abstract boolean isNeedExecute();
 
-        public void y() {
+        public void onCancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             }
         }
 
-        public abstract void z();
+        public abstract void onExecute();
+
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            }
+        }
+
+        public void onReset() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            }
+        }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class Status {
             public static final /* synthetic */ Status[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -220,7 +221,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -248,12 +249,12 @@ public class PriorityOrganizer implements LifecycleObserver {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.r();
+                    this.a.delayExecute();
                 }
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +282,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.t();
+                    this.a.finish();
                 }
             }
         }
@@ -299,156 +300,234 @@ public class PriorityOrganizer implements LifecycleObserver {
                     return;
                 }
             }
-            this.c = 50;
-            this.h = Status.UN_START;
-            this.i = new ArrayList();
-            this.a = getClass().getSimpleName() + "-" + x();
+            this.priority = 50;
+            this.status = Status.UN_START;
+            this.timerTaskList = new ArrayList();
+            this.name = getClass().getSimpleName() + "-" + nextTaskNum();
         }
 
-        public static void D(@NonNull Task task) {
+        /* JADX INFO: Access modifiers changed from: private */
+        public void attachOrganizer(@NonNull PriorityOrganizer priorityOrganizer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, null, task) == null) {
-                task.p();
-                task.B();
-                task.h = Status.UN_START;
-                task.b = null;
+            if (interceptable == null || interceptable.invokeL(65551, this, priorityOrganizer) == null) {
+                this.organizer = priorityOrganizer;
             }
         }
 
-        public void E(boolean z) {
+        public static void reset(@NonNull Task task) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                if (z) {
-                    for (Task task = this; task != null; task = task.k) {
-                        D(task);
-                    }
-                    return;
-                }
-                D(this);
+            if (interceptable == null || interceptable.invokeL(65556, null, task) == null) {
+                task.cancel();
+                task.onReset();
+                task.status = Status.UN_START;
+                task.organizer = null;
             }
         }
 
-        public final void o(@NonNull PriorityOrganizer priorityOrganizer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, priorityOrganizer) == null) {
-                this.b = priorityOrganizer;
-            }
-        }
-
-        public boolean v(boolean z) {
+        public boolean isExecuting(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
                 if (z) {
-                    for (Task task = this; task != null; task = task.k) {
-                        if (task.h.isExecuting()) {
+                    for (Task task = this; task != null; task = task.next) {
+                        if (task.status.isExecuting()) {
                             return true;
                         }
                     }
                     return false;
                 }
-                return this.h.isExecuting();
+                return this.status.isExecuting();
             }
             return invokeZ.booleanValue;
         }
 
-        public static synchronized int x() {
+        public void setAutoFinishTime(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+                this.autoFinishTime = j;
+            }
+        }
+
+        public void setExecuteDelayTime(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+                this.executeDelayTime = j;
+            }
+        }
+
+        public void setName(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+                this.name = str;
+            }
+        }
+
+        public void setPriority(@IntRange(from = 0, to = 100) int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+                this.priority = i;
+            }
+        }
+
+        public void setWaitTask(@Nullable String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048594, this, str, j) == null) {
+                this.waitTaskName = str;
+                this.waitTaskTimeout = j;
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void cancelTimerTaskList() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+                for (TimerTask timerTask : this.timerTaskList) {
+                    timerTask.cancel();
+                }
+                this.timerTaskList.clear();
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void delayExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+                onExecute();
+                if (this.autoFinishTime > 0) {
+                    this.timerTaskList.add(requireOrganizer().schedule(new b(this), this.autoFinishTime));
+                }
+            }
+        }
+
+        public static synchronized int nextTaskNum() {
             InterceptResult invokeV;
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
                 synchronized (Task.class) {
-                    i = l;
-                    l = i + 1;
+                    i = taskInitNumber;
+                    taskInitNumber = i + 1;
                 }
                 return i;
             }
             return invokeV.intValue;
         }
 
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.status = Status.CANCELED;
+                cancelTimerTaskList();
+                onCancel();
+                PriorityOrganizer priorityOrganizer = this.organizer;
+                if (priorityOrganizer != null) {
+                    priorityOrganizer.remove(this);
+                }
+            }
+        }
+
+        public void finish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.status = Status.FINISHED;
+                cancelTimerTaskList();
+                onFinish();
+                requireOrganizer().remove(this);
+            }
+        }
+
         @NonNull
-        public PriorityOrganizer C() {
+        public String getName() {
             InterceptResult invokeV;
-            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.b != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                py5.e(z, "任务需先添加到 PriorityOrganizer");
-                return this.b;
+                return this.name;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Nullable
+        public PriorityOrganizer getOrganizer() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.organizer;
             }
             return (PriorityOrganizer) invokeV.objValue;
         }
 
-        public void p() {
+        @NonNull
+        public Status getStatus() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.h = Status.CANCELED;
-                q();
-                y();
-                PriorityOrganizer priorityOrganizer = this.b;
-                if (priorityOrganizer != null) {
-                    priorityOrganizer.v(this);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.status;
             }
+            return (Status) invokeV.objValue;
         }
 
-        public final void q() {
+        @NonNull
+        public PriorityOrganizer requireOrganizer() {
+            InterceptResult invokeV;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                for (TimerTask timerTask : this.i) {
-                    timerTask.cancel();
-                }
-                this.i.clear();
-            }
-        }
-
-        public final void r() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                z();
-                if (this.d > 0) {
-                    this.i.add(C().w(new b(this), this.d));
-                }
-            }
-        }
-
-        public void t() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.h = Status.FINISHED;
-                q();
-                A();
-                C().v(this);
-            }
-        }
-
-        public final void s() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.h = Status.EXECUTING;
-                if (this.e > 0) {
-                    this.i.add(C().w(new a(this), this.e));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                if (this.organizer != null) {
+                    z = true;
                 } else {
-                    r();
+                    z = false;
                 }
+                cw5.e(z, "任务需先添加到 PriorityOrganizer");
+                return this.organizer;
+            }
+            return (PriorityOrganizer) invokeV.objValue;
+        }
+
+        public void tryReAddToOrganizer() {
+            PriorityOrganizer priorityOrganizer;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (priorityOrganizer = this.organizer) != null) {
+                priorityOrganizer.tryAdd(this);
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void execute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+                this.status = Status.EXECUTING;
+                if (this.executeDelayTime > 0) {
+                    this.timerTaskList.add(requireOrganizer().schedule(new a(this), this.executeDelayTime));
+                } else {
+                    delayExecute();
+                }
+            }
+        }
+
+        public void reset(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+                if (z) {
+                    for (Task task = this; task != null; task = task.next) {
+                        reset(task);
+                    }
+                    return;
+                }
+                reset(this);
             }
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return "Task{name='" + this.a + "', priority=" + this.c + ", autoFinishTime=" + this.d + ", executeDelayTime=" + this.e + ", waitTaskName=" + this.f + ", waitTaskTimeout=" + this.g + ", status=" + this.h + '}';
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return "Task{name='" + this.name + "', priority=" + this.priority + ", autoFinishTime=" + this.autoFinishTime + ", executeDelayTime=" + this.executeDelayTime + ", waitTaskName=" + this.waitTaskName + ", waitTaskTimeout=" + this.waitTaskTimeout + ", status=" + this.status + '}';
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Comparator<Task> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -476,16 +555,16 @@ public class PriorityOrganizer implements LifecycleObserver {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, task, task2)) == null) {
-                if (task2.h.isExecuting()) {
+                if (task2.status.isExecuting()) {
                     return Integer.MAX_VALUE;
                 }
-                return task2.c - task.c;
+                return task2.priority - task.priority;
             }
             return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -515,16 +594,16 @@ public class PriorityOrganizer implements LifecycleObserver {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List list = (List) this.b.c.get(this.a.f);
+                List list = (List) this.b.waitingTasks.get(this.a.waitTaskName);
                 if (list != null) {
                     list.remove(this.a);
                 }
-                this.b.q(this.a, true);
+                this.b.doTryAdd(this.a, true);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -554,7 +633,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.e.post(this.a);
+                this.b.handler.post(this.a);
             }
         }
     }
@@ -574,98 +653,110 @@ public class PriorityOrganizer implements LifecycleObserver {
                 return;
             }
         }
-        this.a = new a(this);
-        this.b = new PriorityBlockingQueue<>(11, this.a);
-        this.c = new ConcurrentHashMap<>();
-        this.d = new Timer();
-        this.e = new Handler(Looper.getMainLooper());
-        this.g = 0;
-        this.f = i;
+        this.comparator = new a(this);
+        this.queue = new PriorityBlockingQueue<>(11, this.comparator);
+        this.waitingTasks = new ConcurrentHashMap<>();
+        this.timer = new Timer();
+        this.handler = new Handler(Looper.getMainLooper());
+        this.executedTaskCount = 0;
+        this.oncePageExecuteTaskCount = i;
     }
 
-    public void A(@NonNull Task task) {
+    public void tryAdd(@NonNull Task task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, task) == null) {
-            if (task.g > 0) {
-                if (task.f != null) {
-                    List<Task> list = this.c.get(task.f);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            if (task.waitTaskTimeout > 0) {
+                if (task.waitTaskName != null) {
+                    List<Task> list = this.waitingTasks.get(task.waitTaskName);
                     if (list == null) {
                         list = new ArrayList<>();
                     }
                     if (!list.contains(task)) {
                         list.add(task);
-                        this.c.put(task.f, list);
+                        this.waitingTasks.put(task.waitTaskName, list);
                     }
                 }
-                task.i.add(w(new b(this, task), task.g));
+                task.timerTaskList.add(schedule(new b(this, task), task.waitTaskTimeout));
                 return;
             }
-            q(task, true);
+            doTryAdd(task, true);
         }
     }
 
-    public final void m(@NonNull List<Task> list) {
+    private void addTaskInTheList(@NonNull List<Task> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, list) == null) {
             for (Task task : list) {
-                task.q();
-                q(task, false);
+                task.cancelTimerTaskList();
+                doTryAdd(task, false);
             }
         }
     }
 
-    public final Task s(@NonNull Task task) {
+    @NonNull
+    public static PriorityOrganizer create(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            return new PriorityOrganizer(i);
+        }
+        return (PriorityOrganizer) invokeI.objValue;
+    }
+
+    private Task getChainHead(@NonNull Task task) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, task)) == null) {
-            while (task.j != null) {
-                task = task.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, task)) == null) {
+            while (task.prev != null) {
+                task = task.prev;
             }
             return task;
         }
         return (Task) invokeL.objValue;
     }
 
-    public final void v(@NonNull Task task) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void remove(@NonNull Task task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, task) == null) {
-            this.b.remove(task);
-            r();
+        if (interceptable == null || interceptable.invokeL(65551, this, task) == null) {
+            this.queue.remove(task);
+            executeNext();
         }
     }
 
-    public static Task u(@NonNull Task task, @NonNull Task... taskArr) {
+    public static Task makeChain(@NonNull Task task, @NonNull Task... taskArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, task, taskArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, task, taskArr)) == null) {
             Task task2 = task;
             for (Task task3 : taskArr) {
-                task3.j = task2;
-                task2.k = task3;
-                task2 = task2.k;
+                task3.prev = task2;
+                task2.next = task3;
+                task2 = task2.next;
             }
             return task;
         }
         return (Task) invokeLL.objValue;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public final TimerTask w(@NonNull Runnable runnable, long j) {
+    public TimerTask schedule(@NonNull Runnable runnable, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, runnable, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65552, this, runnable, j)) == null) {
             c cVar = new c(this, runnable);
-            this.d.schedule(cVar, j);
+            this.timer.schedule(cVar, j);
             return cVar;
         }
         return (TimerTask) invokeLJ.objValue;
     }
 
     @NonNull
-    public static PriorityOrganizer o() {
+    public static PriorityOrganizer create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             return new PriorityOrganizer(Integer.MAX_VALUE);
         }
         return (PriorityOrganizer) invokeV.objValue;
@@ -674,17 +765,17 @@ public class PriorityOrganizer implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.g = 0;
-            r();
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            this.executedTaskCount = 0;
+            executeNext();
         }
     }
 
-    public boolean t() {
+    public boolean hasDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.g <= 0 && this.b.size() <= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.executedTaskCount <= 0 && this.queue.size() <= 0) {
                 return false;
             }
             return true;
@@ -692,37 +783,38 @@ public class PriorityOrganizer implements LifecycleObserver {
         return invokeV.booleanValue;
     }
 
-    public final void q(@NonNull Task task, boolean z) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doTryAdd(@NonNull Task task, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, task, z) == null) {
-            Task task2 = task.j;
+        if (interceptable == null || interceptable.invokeLZ(65545, this, task, z) == null) {
+            Task task2 = task.prev;
             if (task2 != null) {
-                if (!this.b.contains(task2) && task2.u()) {
-                    if (task2.h.isUnStart() && task2.w()) {
+                if (!this.queue.contains(task2) && task2.isDataReady()) {
+                    if (task2.status.isUnStart() && task2.isNeedExecute()) {
                         return;
                     }
                 } else {
                     return;
                 }
             }
-            String str = s(task).a;
+            String str = getChainHead(task).name;
             while (task != null) {
-                task.o(this);
-                if (!this.b.contains(task) && task.u()) {
-                    if (!task.h.isUnStart() || !task.w()) {
-                        task = task.k;
+                task.attachOrganizer(this);
+                if (!this.queue.contains(task) && task.isDataReady()) {
+                    if (!task.status.isUnStart() || !task.isNeedExecute()) {
+                        task = task.next;
                     } else {
-                        this.b.add(task);
-                        List<Task> remove = this.c.remove(str);
+                        this.queue.add(task);
+                        List<Task> remove = this.waitingTasks.remove(str);
                         if (remove != null) {
-                            m(remove);
+                            addTaskInTheList(remove);
                         }
-                        List<Task> remove2 = this.c.remove(task.a);
+                        List<Task> remove2 = this.waitingTasks.remove(task.name);
                         if (remove2 != null) {
-                            m(remove2);
+                            addTaskInTheList(remove2);
                         }
                         if (z) {
-                            r();
+                            executeNext();
                             return;
                         }
                         return;
@@ -734,12 +826,12 @@ public class PriorityOrganizer implements LifecycleObserver {
         }
     }
 
-    public final void r() {
+    private void executeNext() {
         Task peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.g < this.f && (peek = this.b.peek()) != null && peek.h.isUnStart()) {
-            this.g++;
-            peek.s();
+        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.executedTaskCount < this.oncePageExecuteTaskCount && (peek = this.queue.peek()) != null && peek.status.isUnStart()) {
+            this.executedTaskCount++;
+            peek.execute();
         }
     }
 }

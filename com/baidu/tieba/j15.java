@@ -1,65 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.PersonPrivateData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class j15 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830459, "Lcom/baidu/tieba/j15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947830459, "Lcom/baidu/tieba/j15;");
-                return;
+    public j15() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new HashMap<>();
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
-            if (a.containsKey(str)) {
-                return a.get(str).intValue();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            a.put(str, 1);
-            return 1;
         }
-        return invokeI.intValue;
     }
 
-    public static void b(PersonPrivateData personPrivateData) {
+    public final void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, personPrivateData) != null) || personPrivateData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-        int V = personPrivateData.V();
-        if (!a.containsKey(str)) {
-            a.put(str, Integer.valueOf(V));
-        }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
+        try {
+            jSONObject.optInt("switch");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
+            if (optJSONObject != null) {
+                this.c = optJSONObject.optInt("num");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
+            if (optJSONObject2 != null) {
+                this.b = optJSONObject2.optInt("time");
+                this.a = optJSONObject2.optInt("num");
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(MultiRatePlayUrlHelper.RANK);
+            if (optJSONObject3 != null) {
+                optJSONObject3.optInt("succ");
+                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                optJSONObject3.optInt("slow");
+            }
+            if (this.b > 0 && this.a > 0) {
+                int i = this.c;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

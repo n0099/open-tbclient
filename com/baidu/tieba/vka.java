@@ -1,96 +1,93 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.Application;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vka {
+public final class vka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public static final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            lka.b();
+        }
     }
 
-    public static void a(c65 c65Var, int i) {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, c65Var, i) == null) && c65Var != null && i >= 0) {
-            int i2 = 1;
-            int i3 = i + 1;
-            boolean d = c65Var.d();
-            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-            if (d) {
-                i2 = 2;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
             }
-            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
+            SharedPrefHelper.getInstance().clear();
         }
     }
 
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
+    public static final Application d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return wka.a();
         }
-        return invokeLIL.booleanValue;
+        return (Application) invokeV.objValue;
     }
 
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
+    public static final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
-            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-            bdTopToast.h(z);
-            bdTopToast.g(str);
-            bdTopToast.i(viewGroup);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return jka.a();
         }
+        return (String) invokeV.objValue;
     }
 
-    public static String c(View view2) {
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String cacheDir = FileHelper.getCacheDir();
+            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
+            return cacheDir;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return rka.a();
+        }
+        return invokeV.intValue;
+    }
+
+    public static final boolean c(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof yca) {
-                yca ycaVar = (yca) tag;
-                if (ycaVar.q() != null) {
-                    return ycaVar.q().getUserId();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            return FileHelper.deleteFileOrDir(file);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void e(Activity activity, String str) {
+    public static final File g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
-            g((ViewGroup) activity.findViewById(16908290), str, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
+            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
+            return GetFileByAbsolutePath;
         }
-    }
-
-    public static void f(View view2, yca ycaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, ycaVar) != null) || view2 == null) {
-            return;
-        }
-        view2.setTag(ycaVar);
+        return (File) invokeL.objValue;
     }
 }

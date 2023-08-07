@@ -1,57 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes6.dex */
-public final class jw6 extends fw6 {
+public class jw6 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public List<aw6> a;
+    public List<aw6> b;
+    public Integer c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw6(boolean z) {
-        super(64);
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        }
+    }
+
+    public jw6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
     }
 
-    public /* synthetic */ jw6(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z);
-    }
-
-    @Override // com.baidu.tieba.fw6
-    public boolean b(ov6 item, rx6 timer, iv6 config) {
-        InterceptResult invokeLLL;
-        Long p;
+    public void a(jw6 jw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (this.b && (p = item.e().p()) != null && p.longValue() == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jw6Var) == null) {
+            this.a.addAll(jw6Var.a);
+            this.b = jw6Var.b;
+            this.c = jw6Var.c;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(aw6.c(manageInfo));
+            }
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(aw6.c(manageInfo2));
+            }
+            this.c = dataRes.has_more;
+        }
     }
 }

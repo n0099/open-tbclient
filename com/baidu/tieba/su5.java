@@ -1,65 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class su5 extends bb {
+/* loaded from: classes8.dex */
+public class su5 {
     public static /* synthetic */ Interceptable $ic;
+    public static su5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public qb5 a;
+    public ABTestExtraData b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public su5(int i) {
-        super(i);
+    public su5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fb
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
+    public static su5 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
-                return httpResponsedMessage;
-            }
-            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                ReloginManager g = ReloginManager.g();
-                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                    if (httpMessage.removeParam("reloin_key") == null) {
-                        httpMessage.addParam("reloin_key", "reloin_value");
-                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                    } else {
-                        g.f(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (su5.class) {
+                    if (c == null) {
+                        c = new su5();
                     }
-                    return null;
                 }
             }
-            return httpResponsedMessage;
+            return c;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return (su5) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
+            }
+            return this.b.getABTestResult();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void a(qb5 qb5Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qb5Var) == null) {
+            if (qb5Var != null && this.a != null && qb5Var.a() == this.a.a()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.a = qb5Var;
+            if (z) {
+                b("zan_or_cai_smallflow");
+            }
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        }
+    }
+
+    public void e(qb5 qb5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qb5Var) == null) {
+            a(qb5Var);
+        }
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.b = aBTestExtraData;
+        }
     }
 }

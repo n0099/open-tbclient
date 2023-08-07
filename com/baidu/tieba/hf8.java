@@ -1,95 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
-import com.baidu.tieba.im.message.RequestMemoryListMessage;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
-import com.baidu.tieba.zf5;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.HashMap;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.App;
+import tbclient.GoodsInfo;
 /* loaded from: classes6.dex */
 public class hf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hf8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImMessageCenterPojo> a;
-    public final CustomMessageListener b;
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hf8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(hf8 hf8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hf8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hf8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-                return;
-            }
-            if (customResponsedMessage.getCmd() == 2016002) {
-                this.a.r(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.a.q(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.a.s(customResponsedMessage);
-            } else if (customResponsedMessage.getCmd() == 2016001) {
-                if (this.a.a != null) {
-                    this.a.a.clear();
-                }
-                nf5.p0().o0(new zf5());
-                nf5.p0().i0(0);
-                nf5.p0().a();
-                nf5.p0().k();
-                nf5.p0().a0();
-            } else if (customResponsedMessage.getCmd() == 2016010 && this.a.a != null) {
-                this.a.t(false);
-            }
-        }
-    }
+    public ForumData a;
+    public int b;
+    public LinkedList<ff8> c;
+    public AdvertAppInfo d;
+    public String e;
+    public String f;
+    public LinkedList<AlaInfoData> g;
+    public int h;
+    public String i;
+    public String j;
+    public MetaData k;
+    public int l;
+    public int m;
+    public LinkedList<sf8> n;
 
     public hf8() {
         Interceptable interceptable = $ic;
@@ -104,361 +62,295 @@ public class hf8 {
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = new a(this, 0);
-        u();
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        this.c = new LinkedList<>();
+        this.g = new LinkedList<>();
+        this.n = new LinkedList<>();
     }
 
-    public final void g(ImMessageCenterPojo imMessageCenterPojo, zf5 zf5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo, zf5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && sf8.a().b()) {
-            zf5Var.O(imMessageCenterPojo.getUnread_count());
-        }
-    }
-
-    public final void j(ImMessageCenterPojo imMessageCenterPojo, zf5 zf5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, zf5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && vf8.a().b()) {
-            zf5Var.T(imMessageCenterPojo.getUnread_count());
-        }
-    }
-
-    public final void k(ImMessageCenterPojo imMessageCenterPojo, zf5 zf5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, zf5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
-            zf5Var.L(imMessageCenterPojo.getUnread_count());
-            zf5Var.F(imMessageCenterPojo.getLast_content());
-            zf5Var.B(imMessageCenterPojo.getGroup_name());
-        }
-    }
-
-    public final void n(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, imMessageCenterPojo, list) == null) && imMessageCenterPojo != null && list != null) {
-            v(imMessageCenterPojo, list);
-            list.add(imMessageCenterPojo);
-        }
-    }
-
-    public final boolean f(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static hf8 m() {
+    public AdvertAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (c == null) {
-                synchronized (hf8.class) {
-                    if (c == null) {
-                        c = new hf8();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (hf8) invokeV.objValue;
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00fd  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void h(ImMessageCenterPojo imMessageCenterPojo, zf5 zf5Var) {
-        int userType;
-        String str;
-        String str2;
-        String str3;
-        JSONArray jSONArray;
+    public LinkedList<AlaInfoData> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, zf5Var) != null) || imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || !tf8.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) || StringUtils.isNull(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getUnread_count() <= 0 || (userType = imMessageCenterPojo.getUserType()) == 3) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ForumData f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (ForumData) invokeV.objValue;
+    }
+
+    public LinkedList<ff8> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public LinkedList<sf8> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.n;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void b(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONArray = jSONObject.optJSONArray("app")) == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
             return;
         }
-        zf5.a aVar = new zf5.a();
-        aVar.a = imMessageCenterPojo.getGid();
-        aVar.e = imMessageCenterPojo.getGroup_name();
-        if (userType == 4) {
-            String str4 = null;
+        App.Builder builder = new App.Builder();
+        builder.id = optJSONObject.optString("id");
+        builder.type = Integer.valueOf(optJSONObject.optInt("type", 0));
+        builder.pos = Integer.valueOf(optJSONObject.optInt("pos", 0));
+        builder.icon_url = optJSONObject.optString("icon_url");
+        builder.icon_link = optJSONObject.optString("icon_link");
+        builder.app_name = optJSONObject.optString("app_name");
+        builder.app_desc = optJSONObject.optString("app_desc");
+        builder.p_name = optJSONObject.optString("p_name");
+        builder.p_url = optJSONObject.optString("p_url");
+        builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
+        builder.app_time = Integer.valueOf(optJSONObject.optInt("app_time", 0));
+        builder.web_url = optJSONObject.optString("web_url");
+        builder.ad_id = optJSONObject.optString(LegoListActivityConfig.AD_ID);
+        builder.id = optJSONObject.optString("id");
+        builder.name = optJSONObject.optString("name");
+        builder.url_type = Integer.valueOf(optJSONObject.optInt("url_type", 0));
+        builder.url = optJSONObject.optString("url");
+        builder.ios_url = optJSONObject.optString("ios_url");
+        builder.apk_url = optJSONObject.optString("apk_url");
+        builder.apk_name = optJSONObject.optString("apk_name");
+        builder.pos_name = optJSONObject.optString("pos_name");
+        builder.first_name = optJSONObject.optString("first_name");
+        builder.second_name = optJSONObject.optString("second_name");
+        builder.cpid = Integer.valueOf(optJSONObject.optInt("cpid", 0));
+        builder.abtest = optJSONObject.optString("abtest");
+        builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
+        builder.user_id = optJSONObject.optString("user_id");
+        builder.price = optJSONObject.optString("price");
+        builder.verify = optJSONObject.optString(SmsLoginView.f.j);
+        builder.ext_info = optJSONObject.optString(MigrateStatisticUtils.EXT_INFO);
+        builder.pos_name = optJSONObject.optString("pos_name");
+        GoodsInfo c = c(optJSONObject);
+        if (c != null) {
+            ArrayList arrayList = new ArrayList();
+            builder.goods_info = arrayList;
+            arrayList.add(c);
+        }
+        builder.loc_code = optJSONObject.optString("loc_code");
+        App build = builder.build(true);
+        AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+        this.d = advertAppInfo;
+        advertAppInfo.l(build);
+        this.d.f = "c0111";
+    }
+
+    public final GoodsInfo c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
+            if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
+                return null;
+            }
+            GoodsInfo.Builder builder = new GoodsInfo.Builder();
+            builder.id = Integer.valueOf(optJSONObject.optInt("id", 0));
+            builder.user_name = optJSONObject.optString("user_name");
+            builder.user_portrait = optJSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+            builder.thread_title = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+            builder.thread_pic = optJSONObject.optString("thread_pic");
+            builder.pop_window_text = optJSONObject.optString("pop_window_text");
+            builder.goods_style = Integer.valueOf(optJSONObject.optInt("goods_style", 0));
+            builder.label_visible = Integer.valueOf(optJSONObject.optInt("label_visible", 0));
+            builder.label_text = optJSONObject.optString("label_text");
+            builder.rank_level = Integer.valueOf(optJSONObject.optInt("rank_level", 0));
+            builder.thread_type = optJSONObject.optString("thread_type");
+            builder.button_text = optJSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            builder.card_desc = optJSONObject.optString("card_desc");
+            builder.card_tag = optJSONObject.optString("card_tag");
+            builder.tag_name = optJSONObject.optString(PushConstants.SUB_TAGS_STATUS_NAME);
+            builder.ad_source = optJSONObject.optString(TiebaStatic.Params.T_PLUS_AD_SOURCE);
+            builder.tag_name_url = optJSONObject.optString("tag_name_url");
+            builder.tag_name_wh = optJSONObject.optString("tag_name_wh");
+            builder.lego_card = optJSONObject.optString("lego_card");
+            return builder.build(true);
+        }
+        return (GoodsInfo) invokeL.objValue;
+    }
+
+    public final void l(JSONObject jSONObject, boolean z) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048587, this, jSONObject, z) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("recom_ala_info")) != null) {
+            if (z) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    AlaInfoData alaInfoData = new AlaInfoData();
+                    alaInfoData.parserJson(optJSONArray.optJSONObject(i));
+                    this.g.addLast(alaInfoData);
+                }
+                return;
+            }
+            for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                AlaInfoData alaInfoData2 = new AlaInfoData();
+                alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
+                this.g.addFirst(alaInfoData2);
+            }
+        }
+    }
+
+    public final void m(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("recom_live_list")) != null) {
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                    if (jSONObject2 != null) {
+                        sf8 sf8Var = new sf8();
+                        sf8Var.h(jSONObject2);
+                        this.n.add(sf8Var);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void n(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048589, this, str, z) == null) {
             try {
-                jSONArray = new JSONArray(imMessageCenterPojo.getLastContentRawData());
+                o(new JSONObject(str), Boolean.valueOf(z));
             } catch (Exception e) {
-                e = e;
-                str = null;
-                str2 = null;
+                BdLog.detailException(e);
             }
-            if (jSONArray.length() == 1) {
-                JSONObject jSONObject = jSONArray.getJSONObject(0);
-                str = jSONObject.optString("title", null);
-                try {
-                    str2 = jSONObject.optString("text", null);
-                } catch (Exception e2) {
-                    e = e2;
-                    str2 = null;
-                }
-                try {
-                    str3 = jSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, null);
-                } catch (Exception e3) {
-                    e = e3;
-                    BdLog.e(e, true);
-                    str3 = null;
-                    str4 = str;
-                    if (str2 == null) {
-                    }
-                    if (str4 == null) {
-                    }
-                    aVar.b = str4;
-                    aVar.c = str2;
-                    aVar.i = str3;
-                    aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-                    aVar.f = userType;
-                    aVar.g = imMessageCenterPojo.getUnread_count();
-                    zf5Var.g().add(aVar);
-                    if (userType == 4) {
-                    }
-                    zf5Var.P(zf5Var.u() + imMessageCenterPojo.getUnread_count());
-                }
-                str4 = str;
-                if (str2 == null) {
-                    str4 = imMessageCenterPojo.getGroup_name();
-                    str2 = imMessageCenterPojo.getLast_content();
-                }
-                if (str4 == null) {
-                    str4 = imMessageCenterPojo.getGroup_name();
-                }
-                aVar.b = str4;
-                aVar.c = str2;
-                aVar.i = str3;
-                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-            } else {
-                str3 = null;
-                str2 = null;
-                if (str2 == null) {
-                }
-                if (str4 == null) {
-                }
-                aVar.b = str4;
-                aVar.c = str2;
-                aVar.i = str3;
-                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-            }
-        } else {
-            String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
-            aVar.c = str5;
-            aVar.d = str5;
-        }
-        aVar.f = userType;
-        aVar.g = imMessageCenterPojo.getUnread_count();
-        zf5Var.g().add(aVar);
-        if (userType == 4) {
-            zf5Var.N(zf5Var.s() + imMessageCenterPojo.getUnread_count());
-        }
-        zf5Var.P(zf5Var.u() + imMessageCenterPojo.getUnread_count());
-    }
-
-    public final void i(ImMessageCenterPojo imMessageCenterPojo, zf5 zf5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, zf5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && uf8.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
-            if (imMessageCenterPojo.getUnread_count() > 0) {
-                zf5Var.E(imMessageCenterPojo.getLast_content());
-                String nameShow = imMessageCenterPojo.getNameShow();
-                HashMap<String, String> h = zf5Var.h();
-                if (h != null) {
-                    h.put(imMessageCenterPojo.getGid(), nameShow);
-                }
-            }
-            zf5Var.R(zf5Var.w() + imMessageCenterPojo.getUnread_count());
         }
     }
 
-    public final void l(List<zf5.a> list, List<zf5.a> list2) {
+    public void o(JSONObject jSONObject, Boolean bool) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) && list != null && list.size() != 0 && list2 != null && list2.size() != 0) {
-            for (zf5.a aVar : list) {
-                if (aVar != null) {
-                    for (zf5.a aVar2 : list2) {
-                        if (aVar2 != null && StringHelper.equals(aVar.a, aVar2.a)) {
-                            aVar.h = aVar2.g;
+        if ((interceptable != null && interceptable.invokeLL(1048590, this, jSONObject, bool) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("forum");
+            if (optJSONObject != null) {
+                ForumData forumData = new ForumData();
+                this.a = forumData;
+                forumData.parserJson(optJSONObject);
+                this.e = optJSONObject.optString("frist_class");
+                this.f = optJSONObject.optString("second_class");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
+            if (optJSONObject2 != null) {
+                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
+                if (optJSONObject3 != null) {
+                    MetaData metaData = new MetaData();
+                    this.k = metaData;
+                    metaData.setUserId(optJSONObject3.optString("user_id"));
+                    this.k.setUserName(optJSONObject3.optString("user_name"));
+                    this.k.setName_show(optJSONObject3.optString("nickname"));
+                }
+                this.j = optJSONObject2.optString("first_post_id");
+                this.l = optJSONObject2.optInt("is_multiforum_thread");
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
+            if (optJSONObject4 != null) {
+                this.h = optJSONObject4.optInt("reply_private_flag");
+                this.i = optJSONObject4.optString("voice_message");
+            }
+            this.m = jSONObject.optInt("show_adsense", 0);
+            this.b = jSONObject.optInt("pic_amount", 0);
+            JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
+            if (optJSONArray != null) {
+                if (bool.booleanValue()) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ff8 ff8Var = new ff8();
+                        ff8Var.y(optJSONArray.optJSONObject(i));
+                        int i2 = ff8Var.i();
+                        if (i2 >= 1 && i2 <= this.b) {
+                            this.c.addLast(ff8Var);
+                        }
+                    }
+                } else {
+                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                        ff8 ff8Var2 = new ff8();
+                        ff8Var2.y(optJSONArray.getJSONObject(length));
+                        int i3 = ff8Var2.i();
+                        if (i3 >= 1 && i3 <= this.b) {
+                            this.c.addFirst(ff8Var2);
                         }
                     }
                 }
             }
-        }
-    }
-
-    public final boolean o(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo == null) {
-                return false;
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == -4) {
-                return true;
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                return f(imMessageCenterPojo);
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == -8) {
-                return true;
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                return f(imMessageCenterPojo);
-            }
-            if (imMessageCenterPojo.getCustomGroupType() != -7) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean p(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1) {
-                return uf8.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            }
-            if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                return tf8.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void q(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof MemoryChangedMessage)) {
-            return;
-        }
-        MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-        ImMessageCenterPojo data = memoryChangedMessage.getData();
-        boolean p = p(data);
-        if (memoryChangedMessage.getType() == 1) {
-            n(data, this.a);
-        } else if (memoryChangedMessage.getType() == 2) {
-            v(data, this.a);
-        }
-        t(p);
-    }
-
-    public final void r(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, customResponsedMessage) == null) && (customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
-            MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
-        }
-    }
-
-    public final void s(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof ResponsedMemoryListMessage)) {
-            return;
-        }
-        ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-        List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-        if (responsedMemoryListMessage.getType() == 1) {
-            this.a.clear();
-            for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                if (o(imMessageCenterPojo)) {
-                    this.a.add(imMessageCenterPojo);
-                }
-            }
-        }
-    }
-
-    public final void w(zf5 zf5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, zf5Var) != null) || zf5Var == null) {
-            return;
-        }
-        for (ImMessageCenterPojo imMessageCenterPojo : this.a) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && o(imMessageCenterPojo)) {
-                h(imMessageCenterPojo, zf5Var);
-                i(imMessageCenterPojo, zf5Var);
-                k(imMessageCenterPojo, zf5Var);
-                g(imMessageCenterPojo, zf5Var);
-                j(imMessageCenterPojo, zf5Var);
-            }
-        }
-    }
-
-    public final void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            zf5 zf5Var = new zf5();
-            zf5Var.H(z);
-            w(zf5Var);
-            zf5Var.C();
-            zf5Var.D();
-            zf5Var.S(nf5.p0().H().w());
-            zf5Var.J(nf5.p0().H().k());
-            zf5Var.Q(nf5.p0().H().u());
-            zf5Var.M(nf5.p0().H().q());
-            zf5Var.K(nf5.p0().H().n());
-            l(zf5Var.g(), nf5.p0().H().g());
-            if (!pf5.d().u()) {
-                zf5Var.I(0);
-            }
-            if (!pf5.d().w()) {
-                zf5Var.R(0);
-            }
-            if (!pf5.d().o()) {
-                zf5Var.P(0);
-                zf5Var.O(0);
-                zf5Var.N(0);
-            }
-            if (pf5.d().f() <= 0) {
-                zf5Var.I(0);
-                zf5Var.R(0);
-                zf5Var.O(0);
-                zf5Var.P(0);
-                zf5Var.N(0);
-                zf5Var.T(0);
-                zf5Var.H(false);
-            }
-            if ((((((zf5Var.w() + zf5Var.j()) + zf5Var.n()) + zf5Var.q()) + zf5Var.t()) + zf5Var.u()) - zf5Var.l() <= 0) {
-                zf5Var.H(false);
-            }
-            nf5.p0().Y(zf5Var);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().registerListener(2016004, this.b);
-            MessageManager.getInstance().registerListener(2016007, this.b);
-            MessageManager.getInstance().registerListener(2016001, this.b);
-            MessageManager.getInstance().registerListener(2016010, this.b);
-            MessageManager.getInstance().registerListener(2016002, this.b);
-        }
-    }
-
-    public final void v(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, imMessageCenterPojo, list) == null) && imMessageCenterPojo != null && list != null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                ImMessageCenterPojo imMessageCenterPojo2 = list.get(i);
-                if (imMessageCenterPojo2 != null && imMessageCenterPojo2.getGid().equals(imMessageCenterPojo.getGid()) && imMessageCenterPojo2.getCustomGroupType() == imMessageCenterPojo.getCustomGroupType()) {
-                    list.remove(i);
-                    return;
-                }
-            }
+            l(jSONObject, bool.booleanValue());
+            b(jSONObject);
+            m(jSONObject);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

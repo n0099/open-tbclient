@@ -3,13 +3,13 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.uid = Long.valueOf(wg.g(this.uid, 0L));
+            builder.uid = Long.valueOf(JavaTypesHelper.toLong(this.uid, 0L));
             builder.portrait = this.portrait;
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
@@ -106,7 +106,7 @@ public class UserPostPageRequestMessage extends NetMessage {
                 builder.begin_thread_id = l;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ky5.a(builder, true);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             }
             UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
             builder2.data = builder.build(false);

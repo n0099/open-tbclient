@@ -1,36 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigGdt;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class eib extends tib {
+public class eib extends aib<NativeUnifiedADData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eib(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigGdt);
+    public eib(NativeUnifiedADData nativeUnifiedADData) {
+        super(nativeUnifiedADData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigGdt};
+            Object[] objArr = {nativeUnifiedADData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigGdt) objArr2[2]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,26 +34,36 @@ public class eib extends tib {
         }
     }
 
-    @Override // com.baidu.tieba.tib, com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aib
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new xhb(pid) : (AdRipper) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((NativeUnifiedADData) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tib
-    public void f(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
+    @Override // com.baidu.tieba.aib
+    public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, unifiedInterstitialAD) == null) {
-            unifiedInterstitialAD.showFullScreenAD(activity);
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((NativeUnifiedADData) this.a).sendLossNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.tib
-    public void k(UnifiedInterstitialAD unifiedInterstitialAD) {
+    @Override // com.baidu.tieba.aib
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unifiedInterstitialAD) == null) {
-            unifiedInterstitialAD.loadFullScreenAD();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((NativeUnifiedADData) this.a).sendWinNotification(map);
         }
+    }
+
+    @Override // com.baidu.tieba.aib
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((NativeUnifiedADData) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

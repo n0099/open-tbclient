@@ -6,22 +6,59 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class e77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l97 a;
-    public final lb7 b;
-    public boolean c;
+    public String a;
+    public final s57 b;
+    public final s57 c;
 
-    public e77(l97 data, lb7 statData, boolean z) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof e77) {
+                e77 e77Var = (e77) obj;
+                return Intrinsics.areEqual(this.a, e77Var.a) && Intrinsics.areEqual(this.b, e77Var.b) && Intrinsics.areEqual(this.c, e77Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            s57 s57Var = this.b;
+            int hashCode2 = (hashCode + (s57Var == null ? 0 : s57Var.hashCode())) * 31;
+            s57 s57Var2 = this.c;
+            return hashCode2 + (s57Var2 != null ? s57Var2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "TextData(text=" + this.a + ", colorData=" + this.b + ", bgColorData=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public e77(String text, s57 s57Var, s57 s57Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, statData, Boolean.valueOf(z)};
+            Object[] objArr = {text, s57Var, s57Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,48 +68,44 @@ public final class e77 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(statData, "statData");
-        this.a = data;
-        this.b = statData;
-        this.c = z;
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = text;
+        this.b = s57Var;
+        this.c = s57Var2;
     }
 
-    public /* synthetic */ e77(l97 l97Var, lb7 lb7Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(l97Var, lb7Var, (i & 4) != 0 ? true : z);
-    }
-
-    public final l97 a() {
+    public final s57 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (l97) invokeV.objValue;
+        return (s57) invokeV.objValue;
     }
 
-    public final boolean b() {
+    public final s57 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (s57) invokeV.objValue;
     }
 
-    public final lb7 c() {
+    public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (lb7) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void d(boolean z) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
         }
     }
 }

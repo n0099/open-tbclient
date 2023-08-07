@@ -33,14 +33,14 @@ public abstract class AbstractLongTimeSource implements TimeSource {
 
         @Override // kotlin.time.TimeMark
         /* renamed from: elapsedNow-UwyO8pc */
-        public long mo2136elapsedNowUwyO8pc() {
-            return Duration.m2178minusLRDsOJo(DurationKt.toDuration(this.timeSource.read() - this.startedAt, this.timeSource.getUnit()), this.offset);
+        public long mo2137elapsedNowUwyO8pc() {
+            return Duration.m2179minusLRDsOJo(DurationKt.toDuration(this.timeSource.read() - this.startedAt, this.timeSource.getUnit()), this.offset);
         }
 
         @Override // kotlin.time.TimeMark
         /* renamed from: plus-LRDsOJo */
-        public TimeMark mo2137plusLRDsOJo(long j) {
-            return new LongTimeMark(this.startedAt, this.timeSource, Duration.m2179plusLRDsOJo(this.offset, j), null);
+        public TimeMark mo2138plusLRDsOJo(long j) {
+            return new LongTimeMark(this.startedAt, this.timeSource, Duration.m2180plusLRDsOJo(this.offset, j), null);
         }
     }
 
@@ -55,6 +55,6 @@ public abstract class AbstractLongTimeSource implements TimeSource {
 
     @Override // kotlin.time.TimeSource
     public TimeMark markNow() {
-        return new LongTimeMark(read(), this, Duration.Companion.m2245getZEROUwyO8pc(), null);
+        return new LongTimeMark(read(), this, Duration.Companion.m2246getZEROUwyO8pc(), null);
     }
 }

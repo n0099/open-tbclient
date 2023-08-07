@@ -4,9 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,12 +20,9 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.nx5;
+import com.baidu.tieba.bv5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yba;
-import com.baidu.tieba.yea;
+import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +53,7 @@ public class LikeModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -64,14 +63,14 @@ public class LikeModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Object, Integer, yba> {
+    public class b extends BdAsyncTask<Object, Integer, LikeReturnData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
@@ -103,7 +102,7 @@ public class LikeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public yba doInBackground(Object... objArr) {
+        public LikeReturnData doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
@@ -133,57 +132,57 @@ public class LikeModel extends BdBaseModel {
                     this.b.setErrorString(errorString);
                     AuthTokenData.parse(postNetData);
                     if (postNetData != null) {
-                        yba ybaVar = new yba();
-                        ybaVar.r(postNetData);
+                        LikeReturnData likeReturnData = new LikeReturnData();
+                        likeReturnData.parserJson(postNetData);
                         BdToastData bdToastData = new BdToastData();
                         bdToastData.parserJson(postNetData);
-                        ybaVar.z(bdToastData);
+                        likeReturnData.setToastData(bdToastData);
                         if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            ybaVar.t(null);
+                            likeReturnData.setBlockPopInfoData(null);
                         }
-                        this.b.j = ybaVar.a();
-                        ybaVar.v(this.b.b);
-                        return ybaVar;
+                        this.b.j = likeReturnData.getBlockPopInfoData();
+                        likeReturnData.setFid(this.b.b);
+                        return likeReturnData;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                yba ybaVar2 = new yba();
-                ybaVar2.y(0);
-                ybaVar2.v(this.b.b);
-                return ybaVar2;
+                LikeReturnData likeReturnData2 = new LikeReturnData();
+                likeReturnData2.setLike(0);
+                likeReturnData2.setFid(this.b.b);
+                return likeReturnData2;
             }
-            return (yba) invokeL.objValue;
+            return (LikeReturnData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(yba ybaVar) {
+        public void onPostExecute(LikeReturnData likeReturnData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ybaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, likeReturnData) == null) {
                 this.b.i = null;
                 this.b.setNeedShowSeverToast(true);
-                if (this.a == null || ybaVar == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), ybaVar.b())) {
+                if (this.a == null || likeReturnData == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), likeReturnData.getBlockUrl())) {
                     return;
                 }
-                yea yeaVar = new yea();
-                yeaVar.a = wg.g(ybaVar.g(), 0L);
-                ybaVar.j();
-                if (ybaVar != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(wg.g(ybaVar.g(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new nx5.a(this.b.a, ybaVar.m())));
+                AttentionBarData attentionBarData = new AttentionBarData();
+                attentionBarData.forumId = JavaTypesHelper.toLong(likeReturnData.getFid(), 0L);
+                attentionBarData.likeNum = likeReturnData.getLikeNum();
+                if (likeReturnData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(JavaTypesHelper.toLong(likeReturnData.getFid(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new bv5.a(this.b.a, likeReturnData.getUserLevel())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
-                    yeaVar.b = true;
-                    yeaVar.c = this.b.getErrorString();
+                    attentionBarData.isSuccess = true;
+                    attentionBarData.errorMessage = this.b.getErrorString();
                 } else {
-                    yeaVar.b = false;
-                    yeaVar.c = this.b.getErrorString();
+                    attentionBarData.isSuccess = false;
+                    attentionBarData.errorMessage = this.b.getErrorString();
                 }
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(ybaVar);
+                    this.b.mLoadDataCallBack.c(likeReturnData);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, yeaVar));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, attentionBarData));
             }
         }
 
@@ -217,7 +216,7 @@ public class LikeModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -231,9 +230,9 @@ public class LikeModel extends BdBaseModel {
         this.h = tbPageContext;
     }
 
-    public void m0(int i) {
+    public void e0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.f = i;
         }
     }
@@ -245,10 +244,40 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public Context getContext() {
+    public void b0() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.i) != null) {
+            bVar.cancel();
+            this.i = null;
+        }
+    }
+
+    public BlockPopInfoData c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
+        }
+        return (BlockPopInfoData) invokeV.objValue;
+    }
+
+    public boolean d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.i != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             TbPageContext tbPageContext = this.h;
             if (tbPageContext != null) {
                 return tbPageContext.getPageActivity();
@@ -258,47 +287,17 @@ public class LikeModel extends BdBaseModel {
         return (Context) invokeV.objValue;
     }
 
-    public void j0() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bVar = this.i) != null) {
-            bVar.cancel();
-            this.i = null;
-        }
-    }
-
-    public BlockPopInfoData k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (BlockPopInfoData) invokeV.objValue;
-    }
-
-    public boolean l0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.i != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            j0();
+            b0();
             this.h = null;
         }
     }
 
-    public void n0(String str, String str2) {
+    public void f0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.i == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.i == null) {
             this.a = str;
             this.b = str2;
             b bVar = new b(this, null);
@@ -308,10 +307,10 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public void o0(String str, String str2, String str3) {
+    public void g0(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
-            n0(str, str2);
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            f0(str, str2);
             this.c = str3;
         }
     }

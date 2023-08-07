@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y19 {
+public final class y19 extends sk1<LiveUserSecurityDeviceInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public String c;
 
     public y19() {
         Interceptable interceptable = $ic;
@@ -24,5 +24,17 @@ public class y19 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public LiveUserSecurityDeviceInfoService createService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityDeviceInfoServiceImpl();
+        }
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 }

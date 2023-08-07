@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wj2 implements V8FileSystemDelegatePolicy {
+public class wj2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile wj2 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
 
     public wj2() {
         Interceptable interceptable = $ic;
@@ -33,11 +26,38 @@ public class wj2 implements V8FileSystemDelegatePolicy {
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
-    public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
+    public static wj2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            uj2.e().g(str, valueCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (wj2.class) {
+                    if (a == null) {
+                        a = new wj2();
+                    }
+                }
+            }
+            return a;
         }
+        return (wj2) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            y72.k("SwanRecoveryManager", "RecoverPlatform");
+            ek2 ek2Var = new ek2();
+            ek2Var.a = 1;
+            uj2.c(ek2Var);
+        }
+    }
+
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return ck2.c(i);
+        }
+        return invokeI.intValue;
     }
 }

@@ -1,397 +1,334 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
-import com.baidu.tieba.e71;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.xq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ed1 {
+public class ed1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public boolean d;
-    public BubblePosition e;
-    public boolean f;
+    public d a;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface d {
+        void a(List<xq0.a> list);
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-836854342, "Lcom/baidu/tieba/ed1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-836854342, "Lcom/baidu/tieba/ed1$a;");
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ AdBaseModel b;
+        public final /* synthetic */ ed1 c;
+
+        public a(ed1 ed1Var, List list, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ed1Var, list, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[BubblePosition.values().length];
-            a = iArr;
-            try {
-                iArr[BubblePosition.UP.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[BubblePosition.DOWN.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[BubblePosition.LEFT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[BubblePosition.RIGHT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            this.c = ed1Var;
+            this.a = list;
+            this.b = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.c.a != null) {
+                    this.c.a.a(this.a);
+                }
+                this.c.g(this.b, this.a);
+                this.c.dismiss();
             }
         }
     }
 
-    public ed1() {
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ ed1 b;
+
+        public b(ed1 ed1Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ed1Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ed1Var;
+            this.a = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.dismiss();
+                yi0.c(this.a.g.c, this.b.getContext());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xq0.a a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ TextView c;
+        public final /* synthetic */ TextView d;
+        public final /* synthetic */ ed1 e;
+
+        public c(ed1 ed1Var, xq0.a aVar, List list, TextView textView, TextView textView2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ed1Var, aVar, list, textView, textView2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ed1Var;
+            this.a = aVar;
+            this.b = list;
+            this.c = textView;
+            this.d = textView2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.c()) {
+                    this.a.f(false);
+                    if (this.b.contains(this.a)) {
+                        a31.j(this.b, this.a);
+                    }
+                    if (this.b.size() == 0) {
+                        this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_dislike));
+                    }
+                    this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC1));
+                    return;
+                }
+                this.a.f(true);
+                if (!this.b.contains(this.a)) {
+                    a31.b(this.b, this.a);
+                }
+                this.d.setTextColor(view2.getContext().getResources().getColor(R.color.NAD_FC13));
+                this.c.setText(view2.getContext().getResources().getText(R.string.nad_dislike_done));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ed1(Context context, @NonNull AdBaseModel adBaseModel) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = 0.0f;
-        this.d = true;
-        this.e = BubblePosition.INVALID;
-        this.f = true;
+        f(adBaseModel);
     }
 
-    public int[] a(md1 md1Var, int[] iArr, BubblePosition bubblePosition) {
-        InterceptResult invokeLLL;
-        float f;
+    public final void g(AdBaseModel adBaseModel, List<xq0.a> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, md1Var, iArr, bubblePosition)) == null) {
-            if (md1Var == null) {
-                return new int[]{0, 0};
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, adBaseModel, list) != null) || adBaseModel == null) {
+            return;
+        }
+        q31.e(new u31().e(e(list)).g(adBaseModel.f.d).f(pj0.a().g()));
+    }
+
+    public final List<xq0.a> d(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        xq0 xq0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel)) == null) {
+            if (adBaseModel != null && (xq0Var = adBaseModel.g) != null) {
+                return xq0Var.b;
             }
-            if (bubblePosition == BubblePosition.INVALID) {
-                return iArr;
-            }
-            Context context = md1Var.a.getContext();
-            int i = iArr[0];
-            int i2 = iArr[1];
-            int[] iArr2 = new int[2];
-            int measuredWidth = md1Var.b.getMeasuredWidth();
-            int measuredHeight = md1Var.b.getMeasuredHeight();
-            int measuredWidth2 = md1Var.a.getMeasuredWidth();
-            int measuredHeight2 = md1Var.a.getMeasuredHeight();
-            if (this.f) {
-                f = 0.0f;
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void h(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.a = dVar;
+        }
+    }
+
+    public final void c(AdBaseModel adBaseModel) {
+        int i;
+        xq0 xq0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            ArrayList arrayList = new ArrayList();
+            ViewGroup viewGroup = null;
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_dialog_menu_new_dislike, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.tv_bottom);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091515);
+            textView.setText(getContext().getString(R.string.nad_dislike_dislike));
+            textView.setOnClickListener(new a(this, arrayList, adBaseModel));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.nad_bg_bottom_popup_ffffff));
+            Resources resources = inflate.getContext().getResources();
+            int i2 = R.color.NAD_FC1;
+            textView.setTextColor(resources.getColor(R.color.NAD_FC1));
+            findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.NAD_FC96));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.layout_enum);
+            LayoutInflater from = LayoutInflater.from(inflate.getContext());
+            TextView textView2 = (TextView) inflate.findViewById(R.id.tv_why_show_ad);
+            if (adBaseModel != null && (xq0Var = adBaseModel.g) != null && !TextUtils.isEmpty(xq0Var.c)) {
+                if (!TextUtils.isEmpty(adBaseModel.g.a)) {
+                    textView2.setText(adBaseModel.g.a);
+                }
+                textView2.setVisibility(0);
+                textView2.setOnClickListener(new b(this, adBaseModel));
             } else {
-                f = 15.0f;
+                textView2.setVisibility(8);
             }
-            if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
-                if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
-                    int i3 = measuredHeight / 2;
-                    if (i3 >= i2) {
-                        iArr2[1] = e71.c.a(context, f);
-                    } else if (i3 >= measuredHeight2 - i2) {
-                        iArr2[1] = (measuredHeight2 - measuredHeight) - e71.c.a(context, f);
+            List<xq0.a> d2 = d(adBaseModel);
+            if (d2 == null) {
+                linearLayout.setVisibility(8);
+                return;
+            }
+            int min = Math.min(d2.size(), 7);
+            int i3 = 0;
+            while (i3 < min) {
+                xq0.a aVar = (xq0.a) a31.d(d2, i3);
+                if (aVar != null && !TextUtils.isEmpty(aVar.a())) {
+                    View inflate2 = from.inflate(R.layout.nad_item_menu_new_dislike, viewGroup);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.tv_enum);
+                    textView3.setText(aVar.a());
+                    textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
+                    i = i3;
+                    inflate2.setOnClickListener(new c(this, aVar, arrayList, textView, textView3));
+                    linearLayout.addView(inflate2);
+                } else {
+                    i = i3;
+                }
+                i3 = i + 1;
+                viewGroup = null;
+                i2 = R.color.NAD_FC1;
+            }
+            setContentView(inflate);
+        }
+    }
+
+    public String e(List<xq0.a> list) {
+        InterceptResult invokeL;
+        xq0.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list == null) {
+                return "{}";
+            }
+            String str = "";
+            for (int i = 0; i < list.size(); i++) {
+                if (((xq0.a) a31.d(list, i)) != null) {
+                    if (!TextUtils.isEmpty(str)) {
+                        str = str + "," + aVar.b();
                     } else {
-                        iArr2[1] = iArr[1] - (md1Var.b.getMeasuredHeight() / 2);
-                    }
-                    if (bubblePosition == BubblePosition.LEFT) {
-                        iArr2[0] = iArr[0] - md1Var.b.getMeasuredWidth();
-                    } else {
-                        iArr2[0] = iArr[0];
+                        str = str + aVar.b();
                     }
                 }
-            } else {
-                int i4 = measuredWidth / 2;
-                if (i4 >= i) {
-                    iArr2[0] = e71.c.a(context, f);
-                } else if (i4 >= measuredWidth2 - i) {
-                    iArr2[0] = (measuredWidth2 - measuredWidth) - e71.c.a(context, f);
-                } else {
-                    iArr2[0] = iArr[0] - (md1Var.b.getMeasuredWidth() / 2);
-                }
-                if (bubblePosition == BubblePosition.UP) {
-                    iArr2[1] = iArr[1] - md1Var.b.getMeasuredHeight();
-                } else {
-                    iArr2[1] = iArr[1];
-                }
             }
-            return iArr2;
-        }
-        return (int[]) invokeLLL.objValue;
-    }
-
-    public BubblePosition b(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, md1Var)) == null) {
-            if (!md1Var.i()) {
-                return BubblePosition.INVALID;
+            if (TextUtils.isEmpty(str)) {
+                return "{}";
             }
-            if (this.d) {
-                if (n(md1Var)) {
-                    return BubblePosition.UP;
-                }
-                if (j(md1Var)) {
-                    return BubblePosition.DOWN;
-                }
-                if (k(md1Var)) {
-                    return BubblePosition.LEFT;
-                }
-                if (m(md1Var)) {
-                    return BubblePosition.RIGHT;
-                }
-                return BubblePosition.INVALID;
-            } else if (l(md1Var, this.e)) {
-                return this.e;
-            } else {
-                return BubblePosition.INVALID;
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void f(@NonNull AdBaseModel adBaseModel) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || (window = getWindow()) == null) {
+            return;
+        }
+        window.requestFeature(1);
+        c(adBaseModel);
+        window.getDecorView().setPadding(0, 0, 0, 0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -2;
+        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003e0;
+        attributes.gravity = 80;
+        window.setAttributes(attributes);
+        window.setBackgroundDrawableResource(17170445);
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                z51.b(this);
+                return;
             }
+            window.setFlags(8, 8);
+            z51.b(this);
+            z61.a(window);
+            window.clearFlags(8);
         }
-        return (BubblePosition) invokeL.objValue;
-    }
-
-    public final boolean o(md1 md1Var) {
-        InterceptResult invokeL;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, md1Var)) == null) {
-            if (this.f) {
-                f = 0.0f;
-            } else {
-                f = 15.0f;
-            }
-            Context context = md1Var.c.getContext();
-            int a2 = e71.c.a(context, f) + context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius) + (context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_horizontal_arrow_view_height) / 2);
-            if (a2 <= f(md1Var) && a2 <= c(md1Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean p(md1 md1Var) {
-        InterceptResult invokeL;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, md1Var)) == null) {
-            if (this.f) {
-                f = 0.0f;
-            } else {
-                f = 15.0f;
-            }
-            Context context = md1Var.c.getContext();
-            int a2 = e71.c.a(context, f) + (h(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_vertical_arrow_view_width) / 2);
-            if (a2 <= d(md1Var) && a2 <= e(md1Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final int c(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, md1Var)) == null) {
-            return (md1Var.a.getMeasuredHeight() - g(md1Var)[1]) - (md1Var.c.getMeasuredHeight() / 2);
-        }
-        return invokeL.intValue;
-    }
-
-    public final int d(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, md1Var)) == null) {
-            return g(md1Var)[0] + (md1Var.c.getMeasuredWidth() / 2);
-        }
-        return invokeL.intValue;
-    }
-
-    public int e(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, md1Var)) == null) {
-            return (md1Var.a.getMeasuredWidth() - g(md1Var)[0]) - (md1Var.c.getMeasuredWidth() / 2);
-        }
-        return invokeL.intValue;
-    }
-
-    public final int f(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, md1Var)) == null) {
-            return g(md1Var)[1] + (md1Var.c.getMeasuredHeight() / 2);
-        }
-        return invokeL.intValue;
-    }
-
-    public final int h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            if (this.f) {
-                return context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius_d20);
-            }
-            return context.getResources().getDimensionPixelSize(R.dimen.nad_bubble_radius);
-        }
-        return invokeL.intValue;
-    }
-
-    public void q(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.b = f;
-        }
-    }
-
-    public final int[] g(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, md1Var)) == null) {
-            int[] iArr = new int[2];
-            md1Var.c.getLocationOnScreen(iArr);
-            int[] iArr2 = new int[2];
-            md1Var.a.getLocationOnScreen(iArr2);
-            return new int[]{iArr[0] - iArr2[0], iArr[1] - iArr2[1]};
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public final boolean j(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, md1Var)) == null) {
-            if (md1Var.b.getMeasuredHeight() + e71.c.a(md1Var.c.getContext(), this.b) <= (md1Var.a.getMeasuredHeight() - md1Var.c.getMeasuredHeight()) - g(md1Var)[1] && p(md1Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean k(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, md1Var)) == null) {
-            if (md1Var.b.getMeasuredWidth() + e71.c.a(md1Var.c.getContext(), this.b) > g(md1Var)[0] || !o(md1Var)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean m(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, md1Var)) == null) {
-            if (md1Var.b.getMeasuredWidth() + e71.c.a(md1Var.c.getContext(), this.b) > (md1Var.a.getMeasuredWidth() - md1Var.c.getMeasuredWidth()) - g(md1Var)[0] || !o(md1Var)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean n(md1 md1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, md1Var)) == null) {
-            if (md1Var.b.getMeasuredHeight() + e71.c.a(md1Var.c.getContext(), this.b) <= g(md1Var)[1] && p(md1Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int[] i(BubblePosition bubblePosition, md1 md1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bubblePosition, md1Var)) == null) {
-            if (bubblePosition != null && md1Var != null) {
-                int[] iArr = new int[2];
-                md1Var.c.getLocationOnScreen(iArr);
-                int[] iArr2 = new int[2];
-                md1Var.a.getLocationOnScreen(iArr2);
-                int[] iArr3 = new int[2];
-                if (bubblePosition == BubblePosition.UP) {
-                    iArr3[0] = iArr[0] - iArr2[0];
-                    if (!this.a) {
-                        iArr3[0] = iArr3[0] + (md1Var.c.getMeasuredWidth() / 2);
-                    }
-                    iArr3[1] = (iArr[1] - iArr2[1]) - e71.c.a(md1Var.c.getContext(), this.b);
-                } else if (bubblePosition == BubblePosition.DOWN) {
-                    iArr3[0] = iArr[0] - iArr2[0];
-                    if (!this.a) {
-                        iArr3[0] = iArr3[0] + (md1Var.c.getMeasuredWidth() / 2);
-                    }
-                    iArr3[1] = (iArr[1] - iArr2[1]) + md1Var.c.getMeasuredHeight() + e71.c.a(md1Var.c.getContext(), this.b);
-                } else if (bubblePosition == BubblePosition.LEFT) {
-                    iArr3[0] = ((iArr[0] - iArr2[0]) - (md1Var.i.getMeasuredWidth() / 2)) - e71.c.a(md1Var.c.getContext(), this.b);
-                    iArr3[1] = (iArr[1] - iArr2[1]) + (md1Var.c.getMeasuredHeight() / 2);
-                } else if (bubblePosition == BubblePosition.RIGHT) {
-                    iArr3[0] = (iArr[0] - iArr2[0]) + md1Var.c.getMeasuredWidth() + e71.c.a(md1Var.c.getContext(), this.b);
-                    iArr3[1] = (iArr[1] - iArr2[1]) + (md1Var.c.getMeasuredHeight() / 2);
-                }
-                int[] a2 = a(md1Var, iArr3, bubblePosition);
-                if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
-                    if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
-                        md1Var.g.setY(((iArr3[1] - a2[1]) - Math.max(md1Var.j.getMeasuredHeight() / 2, md1Var.k.getMeasuredHeight() / 2)) + this.c);
-                    }
-                } else {
-                    md1Var.g.setX(((iArr3[0] - a2[0]) - Math.max(md1Var.i.getMeasuredWidth() / 2, md1Var.h.getMeasuredWidth() / 2)) + this.c);
-                }
-                return a2;
-            }
-            return new int[]{0, 0};
-        }
-        return (int[]) invokeLL.objValue;
-    }
-
-    public final boolean l(md1 md1Var, BubblePosition bubblePosition) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, md1Var, bubblePosition)) == null) {
-            int i = a.a[bubblePosition.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return false;
-                        }
-                        return m(md1Var);
-                    }
-                    return k(md1Var);
-                }
-                return j(md1Var);
-            }
-            return n(md1Var);
-        }
-        return invokeLL.booleanValue;
     }
 }

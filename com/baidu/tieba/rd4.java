@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.jz1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes7.dex */
-public final class rd4 {
+public class rd4 extends jz1 implements ks1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DatagramPacket a;
-    public wd4 b;
+    public ArrayList<jz1.a> a;
 
-    public rd4(DatagramPacket datagramPacket, wd4 udpsocket) {
+    public rd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {datagramPacket, udpsocket};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,24 +31,67 @@ public final class rd4 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(udpsocket, "udpsocket");
-        this.a = datagramPacket;
-        this.b = udpsocket;
+        this.a = new ArrayList<>();
     }
 
-    public final void a() {
-        DatagramSocket C;
+    @Nullable
+    public static rd4 c() {
+        InterceptResult invokeV;
+        v64 v64Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                wd4 wd4Var = this.b;
-                if (wd4Var != null && (C = wd4Var.C()) != null) {
-                    C.send(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ha2 U = lw2.T().U();
+            if (U == null || (v64Var = (v64) U.n(v64.class)) == null) {
+                return null;
+            }
+            return v64Var.w3();
+        }
+        return (rd4) invokeV.objValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Iterator<jz1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
                 }
-            } catch (Throwable unused) {
-                wd4 wd4Var2 = this.b;
-                if (wd4Var2 != null) {
-                    wd4Var2.D("send", "send failed");
+                this.a.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ks1
+    public jz1 getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c();
+        }
+        return (jz1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jz1
+    public synchronized void a(jz1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jz1
+    public synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                Iterator<jz1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
                 }
             }
         }

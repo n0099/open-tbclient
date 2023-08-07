@@ -1,27 +1,108 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.mo3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qv2 {
+public class qv2 implements cw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pv2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized pv2 a() {
-        InterceptResult invokeV;
-        pv2 pv2Var;
+    public static SwanAppConfigData a(File file) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (qv2.class) {
-                if (a == null) {
-                    a = new pv2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file != null && file.exists()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                SwanAppConfigData b = kb3.b(file.getAbsolutePath());
+                if (cw2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("buildAppJsonConfig cost = ");
+                    sb.append(currentTimeMillis2 - currentTimeMillis);
+                    sb.append("ms ; current thread is main = ");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    sb.append(" ; path = ");
+                    sb.append(file);
+                    Log.d("SwanPerformance", sb.toString());
                 }
-                pv2Var = a;
+                return b;
             }
-            return pv2Var;
+            return null;
         }
-        return (pv2) invokeV.objValue;
+        return (SwanAppConfigData) invokeL.objValue;
+    }
+
+    public static SwanAppConfigData b(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file != null && file.exists()) {
+                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) rv2.c().b(file.getAbsolutePath());
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = b53.e().j(file);
+                    if (swanAppConfigData == null) {
+                        swanAppConfigData = a(file);
+                    }
+                    rv2.c().d(file.getAbsolutePath(), swanAppConfigData);
+                } else if (cw2.a) {
+                    Log.d("SwanPerformance", "adopt cached app.json");
+                }
+                return swanAppConfigData;
+            }
+            return null;
+        }
+        return (SwanAppConfigData) invokeL.objValue;
+    }
+
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) rv2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(fu2.M().a());
+            }
+            if (z) {
+                rv2.c().e("getNightModeStateCache");
+            }
+            return bool;
+        }
+        return (Boolean) invokeZ.objValue;
+    }
+
+    public static List<mo3.a> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List<mo3.a> list = (List) rv2.c().b("getStorageListCache");
+            if (list == null) {
+                List<mo3.a> d = mo3.d();
+                rv2.c().d("getStorageListCache", d);
+                return d;
+            }
+            return list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void e(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            rv2.c().d("getNightModeStateCache", bool);
+        }
     }
 }

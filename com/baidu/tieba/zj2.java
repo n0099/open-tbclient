@@ -1,42 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
+import com.baidu.tieba.ut2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class zj2 implements ak2 {
+public class zj2 implements xj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ak2
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ak2
-    public void c(dj2 dj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dj2Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ak2
-    public void d(dj2 dj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dj2Var) == null) {
-        }
-    }
+    public String[] a;
 
     public zj2() {
         Interceptable interceptable = $ic;
@@ -48,7 +24,27 @@ public abstract class zj2 implements ak2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new String[]{ut2.i(), ut2.l(), ut2.r(), ut2.b.f(), r82.f(), r82.d(), c82.c(), ut2.f.f(), ut2.f.d(), qo2.d};
+    }
+
+    @Override // com.baidu.tieba.xj2
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = cr4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            y72.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
     }
 }

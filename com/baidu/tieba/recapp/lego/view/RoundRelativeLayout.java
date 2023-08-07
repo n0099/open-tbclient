@@ -6,10 +6,10 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,9 +41,9 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.a = g;
-        this.d = new float[]{g, g, g, g, g, g, g, g};
+        float dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.a = dimens;
+        this.d = new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens};
         a();
     }
 
@@ -66,9 +66,9 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.a = g;
-        this.d = new float[]{g, g, g, g, g, g, g, g};
+        float dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.a = dimens;
+        this.d = new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens};
         a();
     }
 
@@ -91,9 +91,9 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.a = g;
-        this.d = new float[]{g, g, g, g, g, g, g, g};
+        float dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.a = dimens;
+        this.d = new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens};
         a();
     }
 

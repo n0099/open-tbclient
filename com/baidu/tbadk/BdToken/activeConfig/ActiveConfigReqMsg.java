@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class ActiveConfigReqMsg extends NetMessage {
                 } else {
                     builder.is_schema_up = 0;
                 }
-                ky5.c(builder, true, true, false);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true, true, false);
                 ActiveConfigReqIdl.Builder builder2 = new ActiveConfigReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

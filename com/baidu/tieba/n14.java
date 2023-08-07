@@ -1,139 +1,187 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.download.util.ApkUtil;
+import com.baidu.down.manage.Download;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n14 {
+public class n14 extends s14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949592, "Lcom/baidu/tieba/n14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                if (context.getPackageManager() == null) {
-                    return false;
-                }
-                context.getPackageManager().getPackageInfo(str, 0);
-                return true;
-            } catch (Exception unused) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947949592, "Lcom/baidu/tieba/n14;");
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        d = ir1.a;
     }
 
-    public static boolean c(String str, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n14(int i) {
+        super("onSuccess", 0, f(null, i, false));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n14(Download download) {
+        super("onSuccess", 0, f(d(download), -1, false));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n14(Download download, boolean z) {
+        super("onSuccess", 0, f(e(download, z), -1, false));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n14(boolean z) {
+        super("onSuccess", 0, f(null, -1, z));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static JSONObject d(Download download) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
+            return e(download, false);
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject e(Download download, boolean z) {
         InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return b(AppRuntime.getAppContext(), new File(str), z);
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static boolean b(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra(ApkUtil.KEY_INSTALLER_PACKAGE_NAME, context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (!o14.m()) {
-                        intent.setComponent(new ComponentName(ApkUtil.PACKAGE_INSTALLER, ApkUtil.PACKAGE_INSTALLER_ACTIVITY));
-                    }
-                    e(context, file, intent);
-                    context.startActivity(intent);
-                } catch (Exception unused) {
-                    intent.setComponent(null);
-                    e(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                    } catch (Exception unused2) {
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static String d(Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageArchiveInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) != null) {
-                return packageArchiveInfo.packageName;
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
-            if (o14.m()) {
-                try {
-                    Uri l = n04.b().l(context, file);
-                    if (l == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(l, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, l, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    return false;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, download, z)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (download == null) {
+                return jSONObject;
+            }
+            try {
+                jSONObject.put("apkId", new g14(download).h());
+                jSONObject.put("downloadId", download.getId());
+                jSONObject.put("packageName", download.getKeyByUser());
+                jSONObject.put("url", download.getUrl());
+                if (z) {
+                    jSONObject.put("status", Download.DownloadState.CANCEL.ordinal());
+                } else {
+                    jSONObject.put("status", download.getState().ordinal());
+                }
+                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
+                jSONObject.put("total", download.getTotalbytes());
+                if (h14.d(download)) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject.put("fileExist", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
                 }
             }
-            return true;
+            return jSONObject;
         }
-        return invokeLLL.booleanValue;
+        return (JSONObject) invokeLZ.objValue;
+    }
+
+    public static String f(Object obj, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{obj, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", obj);
+                if (i > -1) {
+                    jSONObject.put("progress", i);
+                }
+                jSONObject.put("installed", z);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeCommon.objValue;
     }
 }

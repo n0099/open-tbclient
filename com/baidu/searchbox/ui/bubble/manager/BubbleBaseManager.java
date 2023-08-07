@@ -227,7 +227,7 @@ public abstract class BubbleBaseManager {
         if (!this.mIsShowing) {
             return;
         }
-        UiThreadUtils.getMainHandler().post(new Runnable() { // from class: com.baidu.tieba.so1
+        UiThreadUtils.getMainHandler().post(new Runnable() { // from class: com.baidu.tieba.vn1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

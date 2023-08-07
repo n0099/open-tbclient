@@ -1,71 +1,187 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.FixedNinePatchLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
-import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
 public class v05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
 
-    public static void a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948186990, "Lcom/baidu/tieba/v05;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948186990, "Lcom/baidu/tieba/v05;");
+                return;
+            }
+        }
+        i = new HashSet();
+    }
+
+    public v05() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            sg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
-            sg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
-            sg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
-            sg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
-            sg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
-            sg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
-            sg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
-            sg.h().o(39, new SimpleBlurLoaderProc(true, 39));
-            sg.h().o(12, new PortraitLoaderProc(false, false, 12));
-            sg.h().o(26, new PortraitLoaderProc(true, false, 26));
-            sg.h().o(28, new PortraitLoaderProc(false, false, 26));
-            sg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
-            sg.h().o(19, new NinePatchLoaderProc(19));
-            sg.h().o(59, new FixedNinePatchLoaderProc(59));
-            sg.h().o(24, new LocalPicDrawableLoaderProc(24));
-            sg.h().o(25, new PortraitLoaderProc(false, true, 26));
-            sg.h().o(27, new BigImageLoaderProc(27));
-            sg.h().o(29, new SimpleForeverLoaderProc(true, 29));
-            sg.h().o(32, new LocalFileDrawableLoaderProc(32));
-            sg.h().o(23, new tc5());
-            sg.h().o(33, new MemeLoaderProc2());
-            sg.h().o(34, new EmotionShareLoaderProc());
-            sg.h().o(35, new LocalFileImageLoaderProc(160, 160));
-            sg.h().o(36, new LocalFileImageLoaderProc());
-            sg.h().o(43, new LocalFileImageLoaderProc2());
-            sg.h().o(37, new LocalVideoThumbLoaderProc());
-            sg.h().o(38, new ImageLoaderProc());
-            sg.h().o(41, new BigdayImageLoaderProc());
-            sg.h().o(44, new FlutterLoaderProc(true, 44, false));
-            sg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
-            sg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
-            sg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
-            sg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
-            sg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
-            sg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
-            sg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
-            sg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return i.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(AdvertAppInfo advertAppInfo) {
+        v05 v05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) && advertAppInfo != null && (v05Var = advertAppInfo.i) != null && !v05Var.h && !a(v05Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(v05Var.d).s(v05Var.e).t(v05Var.c).w(String.valueOf(v05Var.b)).p(advertAppInfo.g);
+            q31.e(clogBuilder);
+            xx8.b(xx8.a(advertAppInfo));
+            v05Var.h = true;
+            i.add(v05Var.g);
+        }
+    }
+
+    public static void d(AdvertAppInfo advertAppInfo) {
+        v05 v05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, advertAppInfo) == null) && advertAppInfo != null && (v05Var = advertAppInfo.i) != null && !v05Var.h && !a(v05Var.g)) {
+            advertAppInfo.j = advertAppInfo.i.a;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(advertAppInfo.i.b)).p(advertAppInfo.i.g);
+            q31.e(clogBuilder);
+            xx8.b(xx8.a(advertAppInfo));
+            v05 v05Var2 = advertAppInfo.i;
+            v05Var2.h = true;
+            i.add(v05Var2.g);
+        }
+    }
+
+    public static void g(pba pbaVar) {
+        v05 v05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, pbaVar) == null) && pbaVar != null && pbaVar.getAdvertAppInfo() != null && (v05Var = pbaVar.getAdvertAppInfo().i) != null && !v05Var.h && !a(v05Var.g)) {
+            pbaVar.i1 = v05Var.d;
+            pbaVar.j1 = v05Var.e;
+            pbaVar.h1 = v05Var.c;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(pbaVar.n1 + 1)).w(String.valueOf(pbaVar.l1)).v(v05Var.a).r(v05Var.d).s(v05Var.e).t(v05Var.c).p(v05Var.g);
+            q31.e(clogBuilder);
+            v05Var.h = true;
+            i.add(v05Var.g);
+        }
+    }
+
+    public static void c(v05 v05Var, int i2, boolean z) {
+        ClogBuilder.LogType logType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{v05Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && v05Var != null && !v05Var.h && !a(v05Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (z) {
+                logType = ClogBuilder.LogType.STOCK;
+            } else {
+                logType = ClogBuilder.LogType.SHOW;
+            }
+            clogBuilder.y(logType).v(v05Var.a).q(String.valueOf(i2 + 1)).r(v05Var.d).s(v05Var.e).t(v05Var.c).w(String.valueOf(v05Var.b)).p(v05Var.g);
+            q31.e(clogBuilder);
+            v05Var.h = true;
+            i.add(v05Var.g);
+        }
+    }
+
+    public static void f(v05 v05Var, int i2, boolean z) {
+        ClogBuilder.LogType logType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{v05Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && v05Var != null && !v05Var.h && !a(v05Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (z) {
+                logType = ClogBuilder.LogType.STOCK;
+            } else {
+                logType = ClogBuilder.LogType.SHOW;
+            }
+            clogBuilder.y(logType).v(v05Var.a).q(String.valueOf(i2 + 1)).w(String.valueOf(v05Var.b)).p(v05Var.g);
+            q31.e(clogBuilder);
+            v05Var.h = true;
+            i.add(v05Var.g);
+        }
+    }
+
+    public static void h(v05 v05Var, int i2, boolean z) {
+        ClogBuilder.LogType logType;
+        int i3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{v05Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && v05Var != null && !v05Var.h && !a(v05Var.g)) {
+            boolean equals = "PB_BANNER".equals(v05Var.a);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (z) {
+                logType = ClogBuilder.LogType.STOCK;
+            } else {
+                logType = ClogBuilder.LogType.SHOW;
+            }
+            ClogBuilder y = clogBuilder.y(logType);
+            int i4 = -1;
+            if (equals) {
+                i3 = -1;
+            } else {
+                i3 = i2 + 1;
+            }
+            ClogBuilder q = y.q(String.valueOf(i3));
+            if (!equals) {
+                i4 = v05Var.b;
+            }
+            q.w(String.valueOf(i4)).v(v05Var.a).r(v05Var.d).s(v05Var.e).t(v05Var.c).p(v05Var.g);
+            q31.e(clogBuilder);
+            v05Var.h = true;
+            i.add(v05Var.g);
+        }
+    }
+
+    public static void e(ln6 ln6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, ln6Var) == null) && ln6Var != null && ln6Var.c() != null && ln6Var.c().i != null && !ln6Var.c().i.h && !a(ln6Var.c().i.g)) {
+            ln6Var.c().j = ln6Var.c().i.a;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(ln6Var.c().j).q(String.valueOf(ln6Var.c().position + 1)).w(String.valueOf(ln6Var.c().i.b)).p(ln6Var.c().i.g);
+            q31.e(clogBuilder);
+            xx8.b(xx8.a(ln6Var.c()));
+            ln6Var.c().i.h = true;
+            i.add(ln6Var.c().i.g);
         }
     }
 }

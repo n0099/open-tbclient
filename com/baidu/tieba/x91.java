@@ -1,17 +1,9 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public interface x91 {
-    void a();
+    boolean a(@NonNull w91 w91Var, @NonNull String str);
 
-    void b();
-
-    void c();
-
-    void d();
-
-    void dismiss();
-
-    void e();
-
-    void f();
+    void b(@NonNull w91 w91Var, @NonNull String str);
 }

@@ -1,153 +1,172 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gda {
+public abstract class gda {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, ida> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public fda a;
+    public final String b;
+    public final int c;
+    public final long d;
+    public final String e;
+    public final int f;
 
-    public static void d() {
+    public abstract void a();
+
+    public abstract boolean c();
+
+    public abstract jda g(ArrayList<Integer> arrayList, String str, int i);
+
+    public gda(String str, int i, int i2, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                gda.a(1);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947791461, "Lcom/baidu/tieba/gda;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947791461, "Lcom/baidu/tieba/gda;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2001011));
-        a = new HashMap<>();
+        this.b = str;
+        this.c = i2;
+        this.d = j;
+        this.e = str2;
+        this.f = i;
     }
 
-    public static void a(int i) {
+    public byte[] b(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            for (String str : a.keySet()) {
-                b(a.get(str), i);
-            }
-        }
-    }
-
-    public static void b(ida idaVar, int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, idaVar, i) == null) {
-            hda hdaVar = idaVar.d;
-            hda hdaVar2 = idaVar.e;
-            hda hdaVar3 = idaVar.f;
-            if (hdaVar.b + hdaVar2.b + hdaVar3.b >= i) {
-                eh ehVar = new eh("dbg");
-                ehVar.b("act", idaVar.c);
-                ehVar.b("httpTimeCost", String.valueOf(hdaVar.a));
-                ehVar.b("httpNum", String.valueOf(hdaVar.b));
-                ehVar.b("httpFailnum", String.valueOf(hdaVar.c));
-                ehVar.b("httpSize", String.valueOf(hdaVar.d));
-                ehVar.b("socketTimeCost", String.valueOf(hdaVar2.a));
-                ehVar.b("socketNum", String.valueOf(hdaVar2.b));
-                ehVar.b("socketFailnum", String.valueOf(hdaVar2.c));
-                ehVar.b("socketSize", String.valueOf(hdaVar2.d));
-                ehVar.b("abortTimeCost", String.valueOf(hdaVar3.a));
-                ehVar.b("abortNum", String.valueOf(hdaVar3.b));
-                ehVar.b("netType", idaVar.b);
-                if (idaVar.a) {
-                    str = "1";
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                if (i == this.c) {
+                    i2 = (int) (this.d - ((i - 1) * this.f));
                 } else {
-                    str = "0";
+                    i2 = this.f;
                 }
-                ehVar.b("isJson", str);
-                BdStatisticsManager.getInstance().debug("frs", ehVar);
-                hdaVar.a();
-                hdaVar2.a();
-                hdaVar3.a();
+                byte[] bArr = new byte[i2];
+                boolean z = false;
+                try {
+                    synchronized (randomAccessFile) {
+                        randomAccessFile.seek((i - 1) * this.f);
+                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
+                            z = true;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (z) {
+                    return bArr;
+                }
             }
+            return null;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public void d(int i) {
+        fda fdaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (fdaVar = this.a) != null) {
+            fdaVar.onProgressUpdate(i / 100.0f);
         }
     }
 
-    public static void c(String str, String str2, boolean z) {
+    public void f(fda fdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new ida(str, str2, z));
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, fdaVar) == null) {
+            this.a = fdaVar;
         }
     }
 
-    public static ida e(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public final String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
-            if (str2 == null) {
-                str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new ida(str, str2, z));
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                if (optJSONObject != null) {
+                    return optJSONObject.optString("video_url");
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
-            return a.get(str3);
+            return null;
         }
-        return (ida) invokeLLZ.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public jda h(RandomAccessFile randomAccessFile, int i, long j, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
+            byte[] b = b(randomAccessFile, i);
+            if (b == null) {
+                jda jdaVar = new jda();
+                jdaVar.b = -1;
+                jdaVar.c = "上传文件不存在";
+                return jdaVar;
+            } else if (c()) {
+                return null;
+            } else {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+                netWork.addPostData("chunk_no", String.valueOf(i));
+                netWork.addPostData("chunk_sum", String.valueOf(this.c));
+                netWork.addPostData("chunk_size", String.valueOf(b.length));
+                netWork.addPostData("video_size", String.valueOf(this.d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
+                netWork.addPostData("video_len", String.valueOf(j));
+                netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+                netWork.addPostData("video_chunk", b);
+                netWork.addPostData("upload_id", str);
+                if (c()) {
+                    return null;
+                }
+                String postMultiNetData = netWork.postMultiNetData();
+                if (c()) {
+                    return null;
+                }
+                jda jdaVar2 = new jda();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    jdaVar2.a = e(postMultiNetData);
+                } else {
+                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                        jdaVar2.b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    } else {
+                        jdaVar2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    }
+                    jdaVar2.c = netWork.getNetContext().getResponse().mErrorString;
+                }
+                return jdaVar2;
+            }
+        }
+        return (jda) invokeCommon.objValue;
     }
 }

@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.messages.CustomMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wv8 {
+public final class wv8 extends uv8<CustomMsg, vt8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+
+    @Override // com.baidu.tieba.uv8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Integer.MAX_VALUE;
+        }
+        return invokeV.intValue;
+    }
 
     public wv8() {
         Interceptable interceptable = $ic;
@@ -31,74 +36,31 @@ public class wv8 {
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uv8
+    /* renamed from: h */
+    public CustomMsg e(vt8 vt8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vt8Var)) == null) {
+            CustomMsg customMsg = new CustomMsg();
+            customMsg.setMsgId(Long.MAX_VALUE);
+            customMsg.setMsgKey(String.valueOf(System.currentTimeMillis()));
+            return customMsg;
         }
-        return (String) invokeV.objValue;
+        return (CustomMsg) invokeL.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uv8
+    /* renamed from: i */
+    public vt8 g(CustomMsg sdkMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            return new vt8();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(String contentExtra) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, contentExtra) == null) {
-            Intrinsics.checkNotNullParameter(contentExtra, "contentExtra");
-            if (contentExtra.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(contentExtra);
-                jSONObject.optString("big_size");
-                this.b = jSONObject.optString("thumb_size");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
+        return (vt8) invokeL.objValue;
     }
 }

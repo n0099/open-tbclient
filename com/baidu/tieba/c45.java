@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.BirthdayInfo;
 /* loaded from: classes5.dex */
 public class c45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public w35 c;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
 
     public c45() {
         Interceptable interceptable = $ic;
@@ -28,54 +26,29 @@ public class c45 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new w35();
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
         }
     }
 
-    public void b(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    UserData userData = new UserData();
-                    userData.parserJson(optJSONArray.getJSONObject(i));
-                    userData.mAttentionType = 2;
-                    this.a.add(userData);
-                }
-            }
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    UserData userData2 = new UserData();
-                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                    userData2.mAttentionType = 1;
-                    this.b.add(userData2);
-                }
-            }
-            this.c.i(jSONObject.optJSONObject("page"));
-            jSONObject.optInt("tafriendnum", 0);
-            jSONObject.optInt("commonfriendnum", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        this.a = jSONObject.optLong("birthday_time", 0L);
+        this.d = jSONObject.optInt("birthday_show_status", 0);
+        this.b = jSONObject.optString("constellation", "");
+        this.c = jSONObject.optInt("age", 0);
+    }
+
+    public void b(BirthdayInfo birthdayInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) != null) || birthdayInfo == null) {
+            return;
         }
+        this.a = birthdayInfo.birthday_time.longValue();
+        this.d = birthdayInfo.birthday_show_status.intValue();
+        this.b = birthdayInfo.constellation;
+        this.c = birthdayInfo.age.intValue();
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -98,9 +98,9 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = (LinearLayout) view2.findViewById(R.id.pb_more_view);
         this.c = (TextView) view2.findViewById(R.id.pb_more_text);
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
-        this.h = yi.g(this.a.getContext(), R.dimen.tbds156);
+        this.h = BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d48);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091d5e);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -119,7 +119,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0be2));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0be4));
         }
     }
 

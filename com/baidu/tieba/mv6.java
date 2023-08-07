@@ -1,120 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.Unit;
 /* loaded from: classes7.dex */
 public final class mv6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final mv6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Set<kv6> b;
-    public int c;
 
-    public mv6(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public interface a extends c41 {
+        Cursor b(String str, String... strArr);
+
+        /* synthetic */ long insert(j41 j41Var);
+
+        /* synthetic */ boolean query(j41 j41Var, a41... a41VarArr);
+
+        @Override // com.baidu.tieba.c41
+        /* synthetic */ int update(j41 j41Var, a41... a41VarArr);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986172, "Lcom/baidu/tieba/mv6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986172, "Lcom/baidu/tieba/mv6;");
                 return;
             }
         }
-        this.a = i;
-        this.b = new LinkedHashSet();
+        a = new mv6();
     }
 
-    public final kv6 a(int i, int i2) {
+    public mv6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final a41 a(int i, int i2) {
         InterceptResult invokeII;
-        kv6 kv6Var;
-        Object obj;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            synchronized (this) {
-                Iterator<T> it = this.b.iterator();
-                while (true) {
-                    kv6Var = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        kv6 kv6Var2 = (kv6) obj;
-                        if (kv6Var2.k() >= i && kv6Var2.i() >= i2 && kv6Var2.k() - i < 5 && kv6Var2.i() - i2 < 5) {
-                            z = true;
-                            continue;
-                        } else {
-                            z = false;
-                            continue;
-                        }
-                        if (z) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                kv6 kv6Var3 = (kv6) obj;
-                if (kv6Var3 != null) {
-                    this.b.remove(kv6Var3);
-                    this.c -= kv6Var3.j();
-                    kv6Var = kv6Var3;
-                }
-            }
-            return kv6Var;
+            return new a41(i, "", "", i2, 0);
         }
-        return (kv6) invokeII.objValue;
+        return (a41) invokeII.objValue;
     }
 
-    public final void b() {
+    public final IntegerColumn b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (kv6 kv6Var : this.b) {
-                    kv6Var.e();
-                }
-                this.b.clear();
-                this.c = 0;
-                Unit unit = Unit.INSTANCE;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new IntegerColumn(a(2, i));
         }
+        return (IntegerColumn) invokeI.objValue;
     }
 
-    public final boolean c(kv6 kv6Var) {
-        InterceptResult invokeL;
+    public final LongColumn c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kv6Var)) == null) {
-            if (kv6Var == null || kv6Var.g() == null) {
-                return true;
-            }
-            if (this.b.contains(kv6Var)) {
-                return false;
-            }
-            if (kv6Var.j() + this.c > this.a) {
-                BdLog.v("DrawingCache [Release][+] OOM Pool");
-                return false;
-            }
-            synchronized (this) {
-                this.b.add(kv6Var);
-                kv6Var.f();
-                this.c += kv6Var.j();
-                Unit unit = Unit.INSTANCE;
-            }
-            return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return new LongColumn(a(3, i));
         }
-        return invokeL.booleanValue;
+        return (LongColumn) invokeI.objValue;
+    }
+
+    public final StringColumn d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return new StringColumn(a(4, i));
+        }
+        return (StringColumn) invokeI.objValue;
     }
 }

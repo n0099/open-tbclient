@@ -18,10 +18,14 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -33,7 +37,9 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -44,11 +50,9 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.dh8;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.ho5;
+import com.baidu.tieba.i95;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
@@ -58,25 +62,24 @@ import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterSlice;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
-import com.baidu.tieba.ms8;
-import com.baidu.tieba.mu8;
-import com.baidu.tieba.ns8;
-import com.baidu.tieba.nu8;
-import com.baidu.tieba.os8;
-import com.baidu.tieba.qf8;
-import com.baidu.tieba.rr8;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.sa5;
-import com.baidu.tieba.ta5;
-import com.baidu.tieba.uc8;
+import com.baidu.tieba.iq8;
+import com.baidu.tieba.is8;
+import com.baidu.tieba.j95;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.jq8;
+import com.baidu.tieba.js8;
+import com.baidu.tieba.kq8;
+import com.baidu.tieba.lp8;
+import com.baidu.tieba.o45;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.qb8;
+import com.baidu.tieba.rs8;
+import com.baidu.tieba.sn8;
+import com.baidu.tieba.tracker.core.data.ErrCode;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.ve8;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.vu8;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.xd8;
-import com.baidu.tieba.y55;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yp8;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,19 +92,21 @@ import java.util.List;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
+import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000ó\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010 \n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\b*\u00013\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u00012\u00020\u00052\u00020\u0006:\u0002\u0090\u0001B\u001d\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\f¢\u0006\u0002\u0010\rJ\u000e\u0010S\u001a\u00020T2\u0006\u0010U\u001a\u00020VJ\b\u0010W\u001a\u00020TH\u0002J\u0006\u0010X\u001a\u00020TJ\b\u0010Y\u001a\u00020TH\u0002J\u0010\u0010Z\u001a\u00020T2\u0006\u0010\u000e\u001a\u00020\u000fH\u0014J\b\u0010[\u001a\u00020TH\u0002J\b\u0010\\\u001a\u00020TH\u0002J\b\u0010]\u001a\u00020\u0004H\u0014J\u0016\u0010^\u001a\u00020T2\u0006\u0010U\u001a\u00020V2\u0006\u0010_\u001a\u00020`J\u0006\u0010a\u001a\u00020TJ\u0010\u0010b\u001a\u00020T2\u0006\u0010c\u001a\u00020LH\u0016J\u0006\u0010d\u001a\u00020TJ\b\u0010e\u001a\u00020TH\u0007J\b\u0010f\u001a\u00020TH\u0007J\b\u0010g\u001a\u00020TH\u0016J\u000e\u0010h\u001a\u00020T2\u0006\u0010i\u001a\u00020\u0015J\u0010\u0010j\u001a\u00020T2\b\u0010k\u001a\u0004\u0018\u00010lJ\u0006\u0010m\u001a\u00020TJ\u0010\u0010n\u001a\u00020T2\u0006\u0010o\u001a\u00020\u0002H\u0014J\b\u0010p\u001a\u00020TH\u0007J\b\u0010q\u001a\u00020TH\u0007J\b\u0010r\u001a\u00020TH\u0007J\u0006\u0010s\u001a\u00020TJ\u000e\u0010t\u001a\u00020\u00152\u0006\u0010U\u001a\u00020VJ\b\u0010u\u001a\u00020TH\u0002J\u0006\u0010v\u001a\u00020TJ\u0006\u0010w\u001a\u00020TJ\b\u0010x\u001a\u00020TH\u0002J\u0014\u0010y\u001a\u00020T2\f\u0010U\u001a\b\u0012\u0004\u0012\u00020V0zJ\u0006\u0010{\u001a\u00020TJ\u0010\u0010|\u001a\u00020T2\u0006\u0010}\u001a\u00020\u0015H\u0002J\u000e\u0010~\u001a\u00020T2\u0006\u0010\u007f\u001a\u00020\u0015J\u0010\u0010\u0080\u0001\u001a\u00020T2\u0007\u0010\u0081\u0001\u001a\u00020\u0015J\u000f\u0010\u0082\u0001\u001a\u00020T2\u0006\u0010\u0017\u001a\u00020\u0015J\u0012\u0010\u0083\u0001\u001a\u00020T2\u0007\u0010\u0084\u0001\u001a\u00020\u0015H\u0002J\u0012\u0010\u0085\u0001\u001a\u00020T2\t\u0010\u0086\u0001\u001a\u0004\u0018\u00010HJ\u0011\u0010\u0087\u0001\u001a\u00020T2\b\u0010\u0088\u0001\u001a\u00030\u0089\u0001J\u0011\u0010\u008a\u0001\u001a\u00020T2\u0006\u0010U\u001a\u00020VH\u0002J\t\u0010\u008b\u0001\u001a\u00020TH\u0002J\t\u0010\u008c\u0001\u001a\u00020TH\u0002J\u0012\u0010\u008d\u0001\u001a\u00020T2\u0007\u0010\u008e\u0001\u001a\u00020\u0015H\u0016J\t\u0010\u008f\u0001\u001a\u00020TH\u0002R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010 \u001a\u00020!8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b\"\u0010#R\u000e\u0010&\u001a\u00020'X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010(\u001a\u0004\u0018\u00010)X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R\u0010\u0010.\u001a\u0004\u0018\u00010/X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00100\u001a\u0004\u0018\u000101X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00102\u001a\u000203X\u0082\u0004¢\u0006\u0004\n\u0002\u00104R\u000e\u00105\u001a\u000206X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u00107\u001a\u0002088BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b;\u0010%\u001a\u0004\b9\u0010:R\u0010\u0010<\u001a\u0004\u0018\u00010=X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010>\u001a\u00020?8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bB\u0010%\u001a\u0004\b@\u0010AR2\u0010C\u001a&\u0012\f\u0012\n F*\u0004\u0018\u00010E0E F*\u0012\u0012\f\u0012\n F*\u0004\u0018\u00010E0E\u0018\u00010D0DX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010G\u001a\u0004\u0018\u00010HX\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\t\u001a\u00020\n¢\u0006\b\n\u0000\u001a\u0004\bI\u0010JR\u000e\u0010K\u001a\u00020LX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010M\u001a\u0004\u0018\u00010NX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010O\u001a\n F*\u0004\u0018\u00010P0PX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010Q\u001a\u00020RX\u0082.¢\u0006\u0002\n\u0000¨\u0006\u0091\u0001"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView;", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterChatTabUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterChatTabUiIntent;", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgChatCenterSliceViewModel;", "Landroidx/lifecycle/LifecycleObserver;", "Lcom/baidu/tieba/immessagecenter/msgtab/adapt/IMsgAdapterProxy;", "frag", "Lcom/baidu/tbadk/core/BaseFragment;", "slice", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "pageSource", "", "(Lcom/baidu/tbadk/core/BaseFragment;Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;Ljava/lang/String;)V", "context", "Landroid/content/Context;", "dialog", "Landroidx/appcompat/app/AlertDialog;", "getFrag", "()Lcom/baidu/tbadk/core/BaseFragment;", "isEnterGroupChatPage", "", "isFirstPrimary", "isNeedRefresh", "isPageShowBeStatistic", "isRefresh", "isShowOpenNotification", "isShowShutDownValidate", "mChatListAdapter", "Lcom/baidu/tieba/immessagecenter/im/chat/notify/MessageAggregationListAdapter;", "mFooterView", "Landroid/view/View;", "mHeaderContainer", "Landroid/widget/RelativeLayout;", "getMHeaderContainer", "()Landroid/widget/RelativeLayout;", "mHeaderContainer$delegate", "Lkotlin/Lazy;", "mIProcessImpl", "Lcom/baidu/tieba/im/chat/notify/IProcess;", "mMenuDialog", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "getMMenuDialog", "()Lcom/baidu/tbadk/core/dialog/PopupDialog;", "setMMenuDialog", "(Lcom/baidu/tbadk/core/dialog/PopupDialog;)V", "mMenuListener", "Lcom/baidu/tbadk/core/dialog/PopupDialogView$OnItemClickListener;", "mNoDataView", "Lcom/baidu/tbadk/core/view/NoDataView;", "mOnNotificationViewCloseListener", "com/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView$mOnNotificationViewCloseListener$1", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView$mOnNotificationViewCloseListener$1;", "mOnPullRefreshListener", "Lcom/baidu/tbadk/core/view/TbListCommonPullView$ListPullRefreshListener;", "mOpenNotificationView", "Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView;", "getMOpenNotificationView", "()Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView;", "mOpenNotificationView$delegate", "mProgressDialog", "Lcom/baidu/tbadk/core/dialog/BdProgressDialog1080;", "mPullView", "Lcom/baidu/tbadk/core/view/TbListViewPullView;", "getMPullView", "()Lcom/baidu/tbadk/core/view/TbListViewPullView;", "mPullView$delegate", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "kotlin.jvm.PlatformType", "renderCallBack", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/listener/MsgChatDataChangedCallBack;", "getSlice", "()Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "srcNotifyId", "", "tbAlertBuilder", "Lcom/baidu/tbadk/core/dialog/TBAlertBuilder;", "uniqueId", "Lcom/baidu/adp/BdUniqueId;", "viewBinding", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView$ViewBinding;", "actionToGroupChatPage", "", "data", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "dismissDialog", "exitMsgGroupChat", "hideNotificationView", "init", "initNoDataView", "initView", "initViewModel", "jumpGroupChatPageStatistic", "roomId", "", "notifyDataSetChanged", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCompleteProcess", "onCreate", MissionEvent.MESSAGE_DESTROY, "onFinishInflate", "onNetworkChange", "hasNetwork", "onNewIntent", "intent", "Landroid/content/Intent;", "onPrimary", "onRender", "state", "onResumes", "onStart", MissionEvent.MESSAGE_STOP, "onViewCreated", "prepareMenuDialog", "pullRefreshData", "reenterMsgGroupChat", "refreshPageData", "refreshUserList", "renderData", "", "resetDispatcher", "setChatListViewVisible", "isVisible", "setIsFirstPrimary", "isFirst", "setIsRefreshing", "isRefreshing", "setNeedRefresh", "setNoDataViewVisible", UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, "setRenderCallBack", "callBack", "setSrcNotifyId", StateManager.KEY_STATE, "Landroid/os/Bundle;", "showDeleteConfirmDialog", "showNotificationView", "showProgressDialog", "shutDownValidate", "isValid", "stateInvitationEntranceShow", "ViewBinding", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000ó\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\t\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010 \n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\b*\u00015\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u00012\u00020\u00052\u00020\u0006:\u0002\u0092\u0001B\u001d\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\f¢\u0006\u0002\u0010\rJ\u000e\u0010T\u001a\u00020U2\u0006\u0010V\u001a\u00020WJ\b\u0010X\u001a\u00020UH\u0002J\u0006\u0010Y\u001a\u00020UJ\b\u0010Z\u001a\u00020UH\u0002J\u0010\u0010[\u001a\u00020U2\u0006\u0010\u0010\u001a\u00020\u0011H\u0014J\b\u0010\\\u001a\u00020UH\u0002J\b\u0010]\u001a\u00020UH\u0002J\b\u0010^\u001a\u00020\u0004H\u0014J\u001e\u0010_\u001a\u00020U2\u0006\u0010V\u001a\u00020W2\u0006\u0010`\u001a\u00020a2\u0006\u0010b\u001a\u00020\u000fJ\u0006\u0010c\u001a\u00020UJ\u0010\u0010d\u001a\u00020U2\u0006\u0010e\u001a\u00020\u000fH\u0016J\u0006\u0010f\u001a\u00020UJ\b\u0010g\u001a\u00020UH\u0007J\b\u0010h\u001a\u00020UH\u0007J\b\u0010i\u001a\u00020UH\u0016J\u000e\u0010j\u001a\u00020U2\u0006\u0010k\u001a\u00020\u0017J\u0010\u0010l\u001a\u00020U2\b\u0010m\u001a\u0004\u0018\u00010nJ\u0006\u0010o\u001a\u00020UJ\u0010\u0010p\u001a\u00020U2\u0006\u0010q\u001a\u00020\u0002H\u0014J\b\u0010r\u001a\u00020UH\u0007J\b\u0010s\u001a\u00020UH\u0007J\b\u0010t\u001a\u00020UH\u0007J\u0006\u0010u\u001a\u00020UJ\u000e\u0010v\u001a\u00020\u00172\u0006\u0010V\u001a\u00020WJ\b\u0010w\u001a\u00020UH\u0002J\u0006\u0010x\u001a\u00020UJ\u0006\u0010y\u001a\u00020UJ\b\u0010z\u001a\u00020UH\u0002J\u0016\u0010{\u001a\u00020U2\f\u0010V\u001a\b\u0012\u0004\u0012\u00020W0|H\u0002J\u0006\u0010}\u001a\u00020UJ\u0010\u0010~\u001a\u00020U2\u0006\u0010\u007f\u001a\u00020\u0017H\u0002J\u0010\u0010\u0080\u0001\u001a\u00020U2\u0007\u0010\u0081\u0001\u001a\u00020\u0017J\u0010\u0010\u0082\u0001\u001a\u00020U2\u0007\u0010\u0083\u0001\u001a\u00020\u0017J\u000f\u0010\u0084\u0001\u001a\u00020U2\u0006\u0010\u0019\u001a\u00020\u0017J\u0012\u0010\u0085\u0001\u001a\u00020U2\u0007\u0010\u0086\u0001\u001a\u00020\u0017H\u0002J\u0012\u0010\u0087\u0001\u001a\u00020U2\t\u0010\u0088\u0001\u001a\u0004\u0018\u00010JJ\u0011\u0010\u0089\u0001\u001a\u00020U2\b\u0010\u008a\u0001\u001a\u00030\u008b\u0001J\u0011\u0010\u008c\u0001\u001a\u00020U2\u0006\u0010V\u001a\u00020WH\u0002J\t\u0010\u008d\u0001\u001a\u00020UH\u0002J\t\u0010\u008e\u0001\u001a\u00020UH\u0002J\u0012\u0010\u008f\u0001\u001a\u00020U2\u0007\u0010\u0090\u0001\u001a\u00020\u0017H\u0016J\t\u0010\u0091\u0001\u001a\u00020UH\u0002R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0015R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\"\u001a\u00020#8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010'\u001a\u0004\b$\u0010%R\u000e\u0010(\u001a\u00020)X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010*\u001a\u0004\u0018\u00010+X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010-\"\u0004\b.\u0010/R\u0010\u00100\u001a\u0004\u0018\u000101X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00102\u001a\u0004\u0018\u000103X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00104\u001a\u000205X\u0082\u0004¢\u0006\u0004\n\u0002\u00106R\u000e\u00107\u001a\u000208X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u00109\u001a\u00020:8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b=\u0010'\u001a\u0004\b;\u0010<R\u0010\u0010>\u001a\u0004\u0018\u00010?X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010@\u001a\u00020A8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\bD\u0010'\u001a\u0004\bB\u0010CR2\u0010E\u001a&\u0012\f\u0012\n H*\u0004\u0018\u00010G0G H*\u0012\u0012\f\u0012\n H*\u0004\u0018\u00010G0G\u0018\u00010F0FX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010I\u001a\u0004\u0018\u00010JX\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\t\u001a\u00020\n¢\u0006\b\n\u0000\u001a\u0004\bK\u0010LR\u000e\u0010M\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010N\u001a\u0004\u0018\u00010OX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010P\u001a\n H*\u0004\u0018\u00010Q0QX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010R\u001a\u00020SX\u0082.¢\u0006\u0002\n\u0000¨\u0006\u0093\u0001"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView;", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterChatTabUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterChatTabUiIntent;", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgChatCenterSliceViewModel;", "Landroidx/lifecycle/LifecycleObserver;", "Lcom/baidu/tieba/immessagecenter/msgtab/adapt/IMsgAdapterProxy;", "frag", "Lcom/baidu/tbadk/core/BaseFragment;", "slice", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "pageSource", "", "(Lcom/baidu/tbadk/core/BaseFragment;Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;Ljava/lang/String;)V", "CHAT_TAB_CLICK", "", "context", "Landroid/content/Context;", "dialog", "Landroidx/appcompat/app/AlertDialog;", "getFrag", "()Lcom/baidu/tbadk/core/BaseFragment;", "isEnterGroupChatPage", "", "isFirstPrimary", "isNeedRefresh", "isPageShowBeStatistic", "isRefresh", "isShowOpenNotification", "isShowShutDownValidate", "mChatListAdapter", "Lcom/baidu/tieba/immessagecenter/im/chat/notify/MessageAggregationListAdapter;", "mFooterView", "Landroid/view/View;", "mHeaderContainer", "Landroid/widget/RelativeLayout;", "getMHeaderContainer", "()Landroid/widget/RelativeLayout;", "mHeaderContainer$delegate", "Lkotlin/Lazy;", "mIProcessImpl", "Lcom/baidu/tieba/im/chat/notify/IProcess;", "mMenuDialog", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "getMMenuDialog", "()Lcom/baidu/tbadk/core/dialog/PopupDialog;", "setMMenuDialog", "(Lcom/baidu/tbadk/core/dialog/PopupDialog;)V", "mMenuListener", "Lcom/baidu/tbadk/core/dialog/PopupDialogView$OnItemClickListener;", "mNoDataView", "Lcom/baidu/tbadk/core/view/NoDataView;", "mOnNotificationViewCloseListener", "com/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView$mOnNotificationViewCloseListener$1", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView$mOnNotificationViewCloseListener$1;", "mOnPullRefreshListener", "Lcom/baidu/tbadk/core/view/TbListCommonPullView$ListPullRefreshListener;", "mOpenNotificationView", "Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView;", "getMOpenNotificationView", "()Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView;", "mOpenNotificationView$delegate", "mProgressDialog", "Lcom/baidu/tbadk/core/dialog/BdProgressDialog1080;", "mPullView", "Lcom/baidu/tbadk/core/view/TbListViewPullView;", "getMPullView", "()Lcom/baidu/tbadk/core/view/TbListViewPullView;", "mPullView$delegate", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "kotlin.jvm.PlatformType", "renderCallBack", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/listener/MsgChatDataChangedCallBack;", "getSlice", "()Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "srcNotifyId", "tbAlertBuilder", "Lcom/baidu/tbadk/core/dialog/TBAlertBuilder;", "uniqueId", "Lcom/baidu/adp/BdUniqueId;", "viewBinding", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView$ViewBinding;", "actionToGroupChatPage", "", "data", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "dismissDialog", "exitMsgGroupChat", "hideNotificationView", "init", "initNoDataView", "initView", "initViewModel", "jumpGroupChatPageStatistic", "roomId", "", "type", "notifyDataSetChanged", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCompleteProcess", "onCreate", MissionEvent.MESSAGE_DESTROY, "onFinishInflate", "onNetworkChange", "hasNetwork", "onNewIntent", "intent", "Landroid/content/Intent;", "onPrimary", "onRender", "state", "onResumes", "onStart", MissionEvent.MESSAGE_STOP, "onViewCreated", "prepareMenuDialog", "pullRefreshData", "reenterMsgGroupChat", "refreshPageData", "refreshUserList", "renderData", "", "resetDispatcher", "setChatListViewVisible", "isVisible", "setIsFirstPrimary", "isFirst", "setIsRefreshing", "isRefreshing", "setNeedRefresh", "setNoDataViewVisible", UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, "setRenderCallBack", "callBack", "setSrcNotifyId", StateManager.KEY_STATE, "Landroid/os/Bundle;", "showDeleteConfirmDialog", "showNotificationView", "showProgressDialog", "shutDownValidate", "isValid", "stateInvitationEntranceShow", "ViewBinding", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCenterSliceViewModel> implements LifecycleObserver, rr8 {
+public final class MsgChatCenterSliceView extends BaseView<js8, is8, MsgChatCenterSliceViewModel> implements LifecycleObserver, lp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public boolean B;
-    public final uc8 C;
-    public final b D;
-    public final sa5.g E;
+    public boolean C;
+    public final oa8 D;
+    public final b E;
+    public final i95.g F;
     public final BaseFragment e;
     public final String f;
     public final Context g;
@@ -111,17 +116,17 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     public MessageAggregationListAdapter k;
     public View l;
     public NoDataView m;
-    public final Lazy n;
+    public final int n;
     public final Lazy o;
     public final Lazy p;
-    public y55 q;
-    public a65.f r;
-    public AlertDialog s;
-    public TBAlertBuilder t;
-    public s55 u;
-    public int v;
-    public ms8 w;
-    public boolean x;
+    public final Lazy q;
+    public u45 r;
+    public w45.f s;
+    public AlertDialog t;
+    public TBAlertBuilder u;
+    public o45 v;
+    public int w;
+    public iq8 x;
     public boolean y;
     public boolean z;
 
@@ -141,7 +146,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0353a f;
+        public static final C0359a f;
         public transient /* synthetic */ FieldHolder $fh;
         public RelativeLayout a;
         public RoundRelativeLayout b;
@@ -162,20 +167,20 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                     return;
                 }
             }
-            f = new C0353a(null);
+            f = new C0359a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0353a {
+        public static final class C0359a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0353a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0359a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0353a() {
+            public C0359a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,19 +200,19 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, root)) == null) {
                     Intrinsics.checkNotNullParameter(root, "root");
                     a aVar = new a();
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f092209);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f092221);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.slice_msg_chat_root)");
                     aVar.j((RelativeLayout) findViewById);
-                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0917cf);
+                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0917e3);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.msg_round_corner_container)");
                     aVar.g((RoundRelativeLayout) findViewById2);
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f09179a);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0917ae);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.msg_center_chat_list)");
                     aVar.f((BdListView) findViewById3);
-                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f09179b);
+                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0917af);
                     Intrinsics.checkNotNullExpressionValue(findViewById4, "root.findViewById(R.id.m…nter_chat_refresh_layout)");
                     aVar.h((BdSwipeRefreshLayout) findViewById4);
-                    View findViewById5 = root.findViewById(R.id.obfuscated_res_0x7f0917e0);
+                    View findViewById5 = root.findViewById(R.id.obfuscated_res_0x7f0917f4);
                     Intrinsics.checkNotNullExpressionValue(findViewById5, "root.findViewById(R.id.msg_view_no_validate)");
                     aVar.i((ShutDownValidateTipView) findViewById5);
                     return aVar;
@@ -377,13 +382,13 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 aVar = null;
             }
             aVar.a().removeHeaderView(this.a.a0());
-            this.a.z = false;
+            this.a.A = false;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgChatCenterSliceView(BaseFragment frag, MsgChatCenterSlice slice, String pageSource) {
-        super(R.layout.obfuscated_res_0x7f0d08ba);
+        super(R.layout.obfuscated_res_0x7f0d08c4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -409,7 +414,8 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         this.g = pageActivity;
         this.h = this.e.getPageContext();
         this.i = this.e.getPageContext().getUniqueId();
-        this.n = LazyKt__LazyJVMKt.lazy(new Function0<NotificationView>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mOpenNotificationView$2
+        this.n = 1;
+        this.o = LazyKt__LazyJVMKt.lazy(new Function0<NotificationView>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mOpenNotificationView$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MsgChatCenterSliceView this$0;
@@ -449,7 +455,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 return new NotificationView(context, null, 0, 6, null);
             }
         });
-        this.o = LazyKt__LazyJVMKt.lazy(new Function0<RelativeLayout>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mHeaderContainer$2
+        this.p = LazyKt__LazyJVMKt.lazy(new Function0<RelativeLayout>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mHeaderContainer$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MsgChatCenterSliceView this$0;
@@ -496,7 +502,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 return relativeLayout;
             }
         });
-        this.p = LazyKt__LazyJVMKt.lazy(new Function0<ta5>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mPullView$2
+        this.q = LazyKt__LazyJVMKt.lazy(new Function0<j95>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mPullView$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MsgChatCenterSliceView this$0;
@@ -525,21 +531,21 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final ta5 invoke() {
+            public final j95 invoke() {
                 InterceptResult invokeV;
                 TbPageContext tbPageContext;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (ta5) invokeV.objValue;
+                    return (j95) invokeV.objValue;
                 }
                 tbPageContext = this.this$0.h;
-                return new ta5(tbPageContext);
+                return new j95(tbPageContext);
             }
         });
-        this.v = 16;
-        this.y = true;
-        this.A = true;
-        this.C = new uc8(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mIProcessImpl$1
+        this.w = 16;
+        this.z = true;
+        this.B = true;
+        this.D = new oa8(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView$mIProcessImpl$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MsgChatCenterSliceView a;
@@ -562,7 +568,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 this.a = this;
             }
 
-            @Override // com.baidu.tieba.uc8
+            @Override // com.baidu.tieba.oa8
             public void onCanceled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
@@ -571,7 +577,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 this.a.Y();
             }
 
-            @Override // com.baidu.tieba.uc8
+            @Override // com.baidu.tieba.oa8
             public void onPostExecute() {
                 TbPageContext tbPageContext;
                 Interceptable interceptable2 = $ic;
@@ -584,7 +590,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 this.a.m0();
             }
 
-            @Override // com.baidu.tieba.uc8
+            @Override // com.baidu.tieba.oa8
             public void onPreExecute() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
@@ -594,31 +600,31 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             }
 
             /* JADX WARN: Code restructure failed: missing block: B:6:0x0011, code lost:
-                r6 = r4.a.u;
+                r6 = r4.a.v;
              */
-            @Override // com.baidu.tieba.uc8
+            @Override // com.baidu.tieba.oa8
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public void onProgressUpdate(int i3, String id, int i4) {
-                s55 s55Var;
-                s55 s55Var2;
+                o45 o45Var;
+                o45 o45Var2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i3), id, Integer.valueOf(i4)}) == null) {
                     Intrinsics.checkNotNullParameter(id, "id");
-                    s55Var = this.a.u;
-                    if (s55Var != null && s55Var2 != null) {
-                        s55Var2.b(i3);
+                    o45Var = this.a.v;
+                    if (o45Var != null && o45Var2 != null) {
+                        o45Var2.b(i3);
                     }
                 }
             }
         };
-        this.D = new b(this);
-        this.E = new sa5.g() { // from class: com.baidu.tieba.ht8
+        this.E = new b(this);
+        this.F = new i95.g() { // from class: com.baidu.tieba.er8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.sa5.g
+            @Override // com.baidu.tieba.i95.g
             public final void e(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
@@ -632,7 +638,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            AlertDialog alertDialog = this$0.s;
+            AlertDialog alertDialog = this$0.t;
             if (alertDialog != null) {
                 alertDialog.dismiss();
             }
@@ -659,20 +665,28 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, data, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(data, "$data");
-            AlertDialog alertDialog = this$0.s;
+            AlertDialog alertDialog = this$0.t;
             if (alertDialog != null) {
                 alertDialog.dismiss();
             }
             StatisticItem statisticItem = new StatisticItem("c14670");
-            if (yp8.a(data)) {
+            if (sn8.a(data)) {
                 statisticItem.param("obj_type", 1);
-            } else if (yp8.b(data)) {
+            } else if (sn8.b(data)) {
                 statisticItem.param("obj_type", 3);
             } else {
                 statisticItem.param("obj_type", 2);
             }
             TiebaStatic.log(statisticItem);
-            this$0.o().m(data, this$0.C);
+            this$0.p().m(data, this$0.D);
+        }
+    }
+
+    public final void j0(ImMessageCenterShowItemData data, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{data, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 3).param("fid", data.getForumId()).param("room_id", j).param("obj_type", i));
         }
     }
 
@@ -691,30 +705,30 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
 
     public final void A0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.y = z;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.z = z;
         }
     }
 
     public final void C0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.x = z;
+            this.y = z;
         }
     }
 
-    public final void E0(ms8 ms8Var) {
+    public final void E0(iq8 iq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ms8Var) == null) {
-            this.w = ms8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iq8Var) == null) {
+            this.x = iq8Var;
         }
     }
 
     public final void F0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             Intrinsics.checkNotNullParameter(bundle, "bundle");
-            this.v = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, 16);
+            this.w = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, 16);
         }
     }
 
@@ -727,7 +741,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             } else {
                 i = 16;
             }
-            this.v = i;
+            this.w = i;
             if (i == -1) {
                 return;
             }
@@ -736,13 +750,13 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         }
     }
 
-    public final void x0(List<? extends ImMessageCenterShowItemData> data) {
+    public final void x0(List<? extends ImMessageCenterShowItemData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
+        if (interceptable == null || interceptable.invokeL(1048620, this, list) == null) {
+            hja.f(this.e, new Pair[0]);
             MessageAggregationListAdapter messageAggregationListAdapter = this.k;
             if (messageAggregationListAdapter != null) {
-                messageAggregationListAdapter.u(data);
+                messageAggregationListAdapter.u(list);
             }
         }
     }
@@ -751,8 +765,8 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            da5.p().A("is_shut_down_validate", true);
-            this$0.A = false;
+            SharedPrefHelper.getInstance().putBoolean("is_shut_down_validate", true);
+            this$0.B = false;
             a aVar = this$0.j;
             if (aVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
@@ -762,19 +776,11 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         }
     }
 
-    public final void j0(ImMessageCenterShowItemData data, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048600, this, data, j) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 3).param("fid", data.getForumId()).param("room_id", j));
-        }
-    }
-
-    public static final void t0(MsgChatCenterSliceView this$0, String menuDelete, ImMessageCenterShowItemData data, String menuMarkTop, String menuMarkCancelTop, String menuNoTip, String menuNoTipCancel, a65 a65Var, int i, View view2) {
+    public static final void t0(MsgChatCenterSliceView this$0, String menuDelete, ImMessageCenterShowItemData data, String menuMarkTop, String menuMarkCancelTop, String menuNoTip, String menuNoTipCancel, w45 w45Var, int i, View view2) {
         boolean z;
-        y55 y55Var;
+        u45 u45Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{this$0, menuDelete, data, menuMarkTop, menuMarkCancelTop, menuNoTip, menuNoTipCancel, a65Var, Integer.valueOf(i), view2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{this$0, menuDelete, data, menuMarkTop, menuMarkCancelTop, menuNoTip, menuNoTipCancel, w45Var, Integer.valueOf(i), view2}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(menuDelete, "$menuDelete");
             Intrinsics.checkNotNullParameter(data, "$data");
@@ -782,23 +788,23 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             Intrinsics.checkNotNullParameter(menuMarkCancelTop, "$menuMarkCancelTop");
             Intrinsics.checkNotNullParameter(menuNoTip, "$menuNoTip");
             Intrinsics.checkNotNullParameter(menuNoTipCancel, "$menuNoTipCancel");
-            y55 y55Var2 = this$0.q;
-            if (y55Var2 != null && y55Var2.isShowing()) {
+            u45 u45Var2 = this$0.r;
+            if (u45Var2 != null && u45Var2.isShowing()) {
                 z = true;
             } else {
                 z = false;
             }
-            if (z && (y55Var = this$0.q) != null) {
-                y55Var.dismiss();
+            if (z && (u45Var = this$0.r) != null) {
+                u45Var.dismiss();
             }
             if (view2 != null) {
                 String obj = ((EMTextView) view2).getText().toString();
                 if (Intrinsics.areEqual(menuDelete, obj)) {
                     TiebaStatic.log("c12933");
                     StatisticItem statisticItem = new StatisticItem("c14665");
-                    if (yp8.a(data)) {
+                    if (sn8.a(data)) {
                         statisticItem.param("obj_type", 1);
-                    } else if (yp8.b(data)) {
+                    } else if (sn8.b(data)) {
                         statisticItem.param("obj_type", 3);
                     } else {
                         statisticItem.param("obj_type", 2);
@@ -809,63 +815,63 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 } else if (Intrinsics.areEqual(menuMarkTop, obj)) {
                     StatisticItem statisticItem2 = new StatisticItem("c14664");
                     statisticItem2.param("obj_type", 1);
-                    if (yp8.b(data)) {
+                    if (sn8.b(data)) {
                         statisticItem2.param("obj_source", 2);
                         long currentTimeMillis = System.currentTimeMillis();
-                        qf8.b().g(Long.valueOf(wg.g(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), currentTimeMillis);
+                        jd8.b().g(Long.valueOf(JavaTypesHelper.toLong(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), currentTimeMillis);
                         data.setMarkTopIndex(currentTimeMillis);
-                        this$0.o().B(true);
+                        this$0.p().B(true);
                     } else {
                         statisticItem2.param("obj_source", 1);
-                        dh8.c(data.getFriendId(), true);
+                        ve8.c(data.getFriendId(), true);
                     }
                     TiebaStatic.log(statisticItem2);
                     return;
                 } else if (Intrinsics.areEqual(menuMarkCancelTop, obj)) {
                     StatisticItem statisticItem3 = new StatisticItem("c14664");
                     statisticItem3.param("obj_type", 2);
-                    if (yp8.b(data)) {
+                    if (sn8.b(data)) {
                         statisticItem3.param("obj_source", 2);
-                        qf8.b().g(Long.valueOf(wg.g(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), 0L);
+                        jd8.b().g(Long.valueOf(JavaTypesHelper.toLong(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), 0L);
                         data.setMarkTopIndex(0L);
-                        this$0.o().B(true);
+                        this$0.p().B(true);
                     } else {
                         statisticItem3.param("obj_source", 1);
-                        dh8.c(data.getFriendId(), false);
+                        ve8.c(data.getFriendId(), false);
                     }
                     TiebaStatic.log(statisticItem3);
                     return;
                 } else if (Intrinsics.areEqual(menuNoTip, obj)) {
                     StatisticItem statisticItem4 = new StatisticItem("c14669");
                     statisticItem4.param("obj_type", 1);
-                    if (yp8.c(data)) {
+                    if (sn8.c(data)) {
                         statisticItem4.param("obj_source", 1);
                         String friendId = data.getFriendId();
                         Intrinsics.checkNotNullExpressionValue(friendId, "data.friendId");
-                        this$0.o().r(true, friendId);
-                    } else if (yp8.b(data)) {
+                        this$0.p().r(true, friendId);
+                    } else if (sn8.b(data)) {
                         statisticItem4.param("obj_source", 2);
-                        qf8.b().f(Long.valueOf(wg.g(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), false);
+                        jd8.b().f(Long.valueOf(JavaTypesHelper.toLong(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), false);
                         data.setNotify(false);
-                        this$0.o().B(false);
-                        this$0.o().E(null, data, 5);
+                        this$0.p().B(false);
+                        this$0.p().E(null, data, 5);
                     }
                     TiebaStatic.log(statisticItem4);
                     return;
                 } else if (Intrinsics.areEqual(menuNoTipCancel, obj)) {
                     StatisticItem statisticItem5 = new StatisticItem("c14669");
                     statisticItem5.param("obj_type", 2);
-                    if (yp8.c(data)) {
+                    if (sn8.c(data)) {
                         statisticItem5.param("obj_source", 1);
                         String friendId2 = data.getFriendId();
                         Intrinsics.checkNotNullExpressionValue(friendId2, "data.friendId");
-                        this$0.o().r(false, friendId2);
-                    } else if (yp8.b(data)) {
+                        this$0.p().r(false, friendId2);
+                    } else if (sn8.b(data)) {
                         statisticItem5.param("obj_source", 2);
-                        qf8.b().f(Long.valueOf(wg.g(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), true);
+                        jd8.b().f(Long.valueOf(JavaTypesHelper.toLong(data.getFriendId(), 0L)), data.getFriendNameShow(), data.getFriendBjhAvatar(), true);
                         data.setNotify(true);
-                        this$0.o().B(false);
-                        this$0.o().E(null, data, 5);
+                        this$0.p().B(false);
+                        this$0.p().E(null, data, 5);
                     }
                     TiebaStatic.log(statisticItem5);
                     return;
@@ -877,14 +883,14 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         }
     }
 
-    @Override // com.baidu.tieba.rr8
-    public void A(boolean z) {
+    @Override // com.baidu.tieba.lp8
+    public void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            rr8.a.a(this, z);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            lp8.a.a(this, z);
             a aVar = null;
             if (z) {
-                if (this.A) {
+                if (this.B) {
                     a aVar2 = this.j;
                     if (aVar2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
@@ -938,7 +944,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 }
                 NoDataView noDataView2 = this.m;
                 if (noDataView2 != null) {
-                    noDataView2.setTextOption(NoDataViewFactory.e.d(null, this.g.getResources().getString(R.string.obfuscated_res_0x7f0f0cb2)));
+                    noDataView2.setTextOption(NoDataViewFactory.e.d(null, this.g.getResources().getString(R.string.obfuscated_res_0x7f0f0cb4)));
                 }
                 NoDataView noDataView3 = this.m;
                 if (noDataView3 != null) {
@@ -963,9 +969,9 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 String friendId = data.getFriendId();
                 Intrinsics.checkNotNullExpressionValue(friendId, "data.friendId");
                 long parseLong = Long.parseLong(friendId);
-                cq5.a().c(this.g, parseLong, "source_from_message_tab", 3);
-                j0(data, parseLong);
-                o().o().u(true);
+                ho5.a().d(this.g, parseLong, "source_from_message_tab", 3);
+                j0(data, parseLong, this.n);
+                p().o().u(true);
             }
         }
     }
@@ -991,7 +997,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             aVar2 = aVar3;
         }
         if (aVar2.a().getWrappedAdapter().getCount() <= 0) {
-            zg.a().post(new Runnable() { // from class: com.baidu.tieba.nt8
+            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.kr8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1003,31 +1009,6 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                     }
                 }
             });
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: q0 */
-    public void F(nu8 state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, state) == null) {
-            Intrinsics.checkNotNullParameter(state, "state");
-            if (state instanceof nu8.f) {
-                x0(((nu8.f) state).a());
-            } else if (state instanceof nu8.d) {
-                m0();
-            } else if (state instanceof nu8.c) {
-                l0();
-            } else if (state instanceof nu8.e) {
-                B0(((nu8.e) state).a());
-            } else if (state instanceof nu8.b) {
-                if (((nu8.b) state).a()) {
-                    J0();
-                } else {
-                    e0();
-                }
-            }
         }
     }
 
@@ -1078,25 +1059,25 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.j = a.f.a(m());
             g0();
         }
     }
 
     public final void Y() {
-        s55 s55Var;
+        o45 o45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (s55Var = this.u) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (o45Var = this.v) != null) {
             boolean z = true;
-            if ((s55Var == null || !s55Var.isShowing()) ? false : false) {
-                s55 s55Var2 = this.u;
-                if (s55Var2 != null) {
-                    s55Var2.dismiss();
+            if ((o45Var == null || !o45Var.isShowing()) ? false : false) {
+                o45 o45Var2 = this.v;
+                if (o45Var2 != null) {
+                    o45Var2.dismiss();
                 }
-                this.u = null;
+                this.v = null;
             }
         }
     }
@@ -1104,7 +1085,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            o().o().L();
+            p().o().K();
         }
     }
 
@@ -1112,36 +1093,36 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return (RelativeLayout) this.o.getValue();
+            return (RelativeLayout) this.p.getValue();
         }
         return (RelativeLayout) invokeV.objValue;
     }
 
-    public final y55 b0() {
+    public final u45 b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.q;
+            return this.r;
         }
-        return (y55) invokeV.objValue;
+        return (u45) invokeV.objValue;
     }
 
     public final NotificationView c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return (NotificationView) this.n.getValue();
+            return (NotificationView) this.o.getValue();
         }
         return (NotificationView) invokeV.objValue;
     }
 
-    public final ta5 d0() {
+    public final j95 d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return (ta5) this.p.getValue();
+            return (j95) this.q.getValue();
         }
-        return (ta5) invokeV.objValue;
+        return (j95) invokeV.objValue;
     }
 
     public final void e0() {
@@ -1153,7 +1134,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 aVar = null;
             }
             aVar.a().removeHeaderView(a0());
-            this.z = false;
+            this.A = false;
         }
     }
 
@@ -1183,7 +1164,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            o().s();
+            p().s();
         }
     }
 
@@ -1237,7 +1218,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     public final void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            o().C();
+            p().C();
         }
     }
 
@@ -1245,33 +1226,28 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             TbSingleton.getInstance().setNeedJoinChatRoom(false);
-            o().o().L();
+            p().o().K();
         }
     }
 
     public final void G0(final ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, imMessageCenterShowItemData) != null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterShowItemData) != null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
             return;
         }
-        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.unfriend_del, TBAlertConfig.OperateBtnStyle.ALERT);
-        TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.unfriend_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
-        int i = R.string.obfuscated_res_0x7f0f1488;
+        TBAlertConfig.OperateBtnConfig operateBtnConfig = new TBAlertConfig.OperateBtnConfig((int) R.string.unfriend_del, TBAlertConfig.OperateBtnStyle.ALERT);
+        TBAlertConfig.OperateBtnConfig operateBtnConfig2 = new TBAlertConfig.OperateBtnConfig((int) R.string.unfriend_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
+        int i = R.string.obfuscated_res_0x7f0f148c;
         if (Intrinsics.areEqual("9", imMessageCenterShowItemData.getOwnerName())) {
-            i = R.string.obfuscated_res_0x7f0f1489;
+            i = R.string.obfuscated_res_0x7f0f148d;
         }
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         Intrinsics.checkNotNull(currentActivity);
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(currentActivity);
-        this.t = tBAlertBuilder;
+        this.u = tBAlertBuilder;
         Intrinsics.checkNotNull(tBAlertBuilder);
-        tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f169d);
-        tBAlertBuilder.m(i);
-        tBAlertBuilder.o(true);
-        tBAlertBuilder.u(aVar2, aVar);
-        tBAlertBuilder.j(false);
-        this.s = tBAlertBuilder.z();
-        aVar2.c(new View.OnClickListener() { // from class: com.baidu.tieba.et8
+        this.t = tBAlertBuilder.setTitle(R.string.obfuscated_res_0x7f0f16a1).setDesc(i).setDescLightStyle(true).setOperateBtn(operateBtnConfig2, operateBtnConfig).setCancelable(false).show();
+        operateBtnConfig2.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.br8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1283,7 +1259,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 }
             }
         });
-        aVar.c(new View.OnClickListener() { // from class: com.baidu.tieba.st8
+        operateBtnConfig.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.pr8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1297,17 +1273,46 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         });
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    /* renamed from: q0 */
+    public void H(js8 state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, state) == null) {
+            Intrinsics.checkNotNullParameter(state, "state");
+            if (!(state instanceof js8.a)) {
+                if (state instanceof js8.f) {
+                    x0(((js8.f) state).a());
+                } else if (state instanceof js8.d) {
+                    m0();
+                } else if (state instanceof js8.c) {
+                    l0();
+                } else if (state instanceof js8.e) {
+                    B0(((js8.e) state).a());
+                } else if (state instanceof js8.b) {
+                    if (((js8.b) state).a()) {
+                        J0();
+                    } else {
+                        e0();
+                    }
+                } else {
+                    hja.b(this.e, new Pair(StatConstants.KEY_EXT_ERR_CODE, ErrCode.NET_ERROR.getValue()));
+                }
+            }
+        }
+    }
+
     public final void J0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.z) {
-            c0().setOnCloseListener(this.D);
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.A) {
+            c0().setOnCloseListener(this.E);
             a aVar = this.j;
             if (aVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar = null;
             }
             aVar.a().w(a0(), 0);
-            this.z = true;
+            this.A = true;
         }
     }
 
@@ -1315,16 +1320,16 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             Y();
-            if (this.u == null) {
-                this.u = xd8.l().o(this.g);
+            if (this.v == null) {
+                this.v = qb8.l().o(this.g);
             }
-            s55 s55Var = this.u;
-            if (s55Var != null) {
-                s55Var.show();
+            o45 o45Var = this.v;
+            if (o45Var != null) {
+                o45Var.show();
             }
-            s55 s55Var2 = this.u;
-            if (s55Var2 != null) {
-                s55Var2.b(0);
+            o45 o45Var2 = this.v;
+            if (o45Var2 != null) {
+                o45Var2.b(0);
             }
         }
     }
@@ -1342,9 +1347,9 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             if (z) {
                 C0(true);
             }
-            if (this.y || this.x) {
+            if (this.z || this.y) {
+                this.z = false;
                 this.y = false;
-                this.x = false;
                 u0();
             }
         }
@@ -1353,14 +1358,14 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
     public final void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            int g = yi.g(this.g, R.dimen.tbds385);
+            int dimens = BdUtilHelper.getDimens(this.g, R.dimen.tbds385);
             Context context = this.g;
             a aVar = this.j;
             if (aVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar = null;
             }
-            NoDataView a2 = NoDataViewFactory.a(context, aVar.e(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g), NoDataViewFactory.e.d(null, this.g.getResources().getString(R.string.obfuscated_res_0x7f0f0cb2)), null);
+            NoDataView a2 = NoDataViewFactory.a(context, aVar.e(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, dimens), NoDataViewFactory.e.d(null, this.g.getResources().getString(R.string.obfuscated_res_0x7f0f0cb4)), null);
             this.m = a2;
             if (a2 != null) {
                 a2.f(this.h, TbadkCoreApplication.getInst().getSkinType());
@@ -1377,7 +1382,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             f0();
             this.l = new View(this.g);
-            AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, yi.g(this.g, R.dimen.obfuscated_res_0x7f070375));
+            AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, BdUtilHelper.getDimens(this.g, R.dimen.obfuscated_res_0x7f070375));
             View view2 = this.l;
             if (view2 != null) {
                 view2.setLayoutParams(layoutParams);
@@ -1387,7 +1392,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar = null;
             }
-            aVar.d().setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lt8
+            aVar.d().setShutDownClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ir8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1429,7 +1434,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             }
             aVar3.a().setOnItemLongClickListener(null);
             TbSingleton.getInstance().setNeedJoinChatRoom(false);
-            o().y();
+            p().y();
         }
     }
 
@@ -1442,37 +1447,37 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 aVar = null;
             }
             aVar.a().z(0L);
-            if (o().n().getData() != null && ListUtils.getCount(o().n().getData()) > 0) {
-                ms8 ms8Var = this.w;
-                if (ms8Var != null) {
-                    ms8Var.a(true);
+            if (p().n().getData() != null && ListUtils.getCount(p().n().getData()) > 0) {
+                iq8 iq8Var = this.x;
+                if (iq8Var != null) {
+                    iq8Var.a(true);
                 }
                 D0(false);
-                MessageAggregationListAdapter messageAggregationListAdapter = this.k;
-                Intrinsics.checkNotNull(messageAggregationListAdapter);
-                messageAggregationListAdapter.u(o().n().getData());
-                if (!this.B) {
-                    this.B = true;
-                    vu8.a.a("0");
+                List<ImMessageCenterShowItemData> data = p().n().getData();
+                Intrinsics.checkNotNullExpressionValue(data, "viewModel.getMessageCenterModel().data");
+                x0(data);
+                if (!this.C) {
+                    this.C = true;
+                    rs8.a.a("0");
                     return;
                 }
                 return;
             }
-            ms8 ms8Var2 = this.w;
-            if (ms8Var2 != null) {
-                ms8Var2.a(false);
+            iq8 iq8Var2 = this.x;
+            if (iq8Var2 != null) {
+                iq8Var2.a(false);
             }
             D0(true);
-            vu8.a.a("1");
+            rs8.a.a("1");
         }
     }
 
-    @Override // com.baidu.tieba.oi8
+    @Override // com.baidu.tieba.gg8
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
             l0();
-            d0().H(i);
+            d0().C(i);
             NoDataView noDataView = this.m;
             if (noDataView != null) {
                 noDataView.f(this.h, i);
@@ -1496,32 +1501,28 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar4 = null;
             }
-            d85 d = d85.d(aVar4.e());
-            d.o(R.string.J_X19);
-            d.f(R.color.CAM_X0201);
+            EMManager.from(aVar4.e()).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
             a aVar5 = this.j;
             if (aVar5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar5 = null;
             }
-            d85.d(aVar5.c()).f(R.color.CAM_X0201);
+            EMManager.from(aVar5.c()).setBackGroundColor(R.color.CAM_X0201);
             a aVar6 = this.j;
             if (aVar6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar6 = null;
             }
-            d85.d(aVar6.b()).f(R.color.CAM_X0201);
+            EMManager.from(aVar6.b()).setBackGroundColor(R.color.CAM_X0201);
             a aVar7 = this.j;
             if (aVar7 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
                 aVar7 = null;
             }
-            d85 d2 = d85.d(aVar7.a());
-            d2.o(R.string.J_X19);
-            d2.f(R.color.CAM_X0201);
+            EMManager.from(aVar7.a()).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
             if (Intrinsics.areEqual("FRS", this.f)) {
-                float g = yi.g(this.g, R.dimen.tbds52);
-                float[] fArr = {g, g, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+                float dimens = BdUtilHelper.getDimens(this.g, R.dimen.tbds52);
+                float[] fArr = {dimens, dimens, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
                 a aVar8 = this.j;
                 if (aVar8 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
@@ -1548,7 +1549,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             } else {
                 aVar2 = aVar11;
             }
-            aVar2.a().setPadding(0, yi.g(this.g, R.dimen.M_H_X003), 0, 0);
+            aVar2.a().setPadding(0, BdUtilHelper.getDimens(this.g, R.dimen.M_H_X003), 0, 0);
         }
     }
 
@@ -1587,7 +1588,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             BdListView a2 = aVar3.a();
             BdUniqueId uniqueId = this.i;
             Intrinsics.checkNotNullExpressionValue(uniqueId, "uniqueId");
-            a2.setOnItemClickListener(new ns8(context, uniqueId, this, this.k, o()));
+            a2.setOnItemClickListener(new jq8(context, uniqueId, this, this.k, p()));
             a aVar4 = this.j;
             if (aVar4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
@@ -1596,7 +1597,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             BdListView a3 = aVar4.a();
             TbPageContext<BaseFragmentActivity> pageContext = this.h;
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            a3.setOnItemLongClickListener(new os8(pageContext, this, this.k));
+            a3.setOnItemLongClickListener(new kq8(pageContext, this, this.k));
             a aVar5 = this.j;
             if (aVar5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewBinding");
@@ -1609,8 +1610,8 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 aVar6 = null;
             }
             aVar6.a().setAdapter((ListAdapter) this.k);
-            d0().f(this.E);
-            d0().a0(this.h.getUniqueId());
+            d0().a(this.F);
+            d0().V(this.h.getUniqueId());
             View view2 = d0().getView();
             if (view2 != null && (parent = view2.getParent()) != null) {
                 if (parent instanceof ViewGroup) {
@@ -1642,7 +1643,7 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
             Intrinsics.checkNotNullParameter(data, "data");
             final String string = this.g.getString(R.string.delete_user_chat);
             Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.string.delete_user_chat)");
-            final String string2 = this.g.getString(R.string.obfuscated_res_0x7f0f16b0);
+            final String string2 = this.g.getString(R.string.obfuscated_res_0x7f0f16b4);
             Intrinsics.checkNotNullExpressionValue(string2, "context.getString(R.string.top)");
             final String string3 = this.g.getString(R.string.cancel_top);
             Intrinsics.checkNotNullExpressionValue(string3, "context.getString(R.string.cancel_top)");
@@ -1668,40 +1669,40 @@ public final class MsgChatCenterSliceView extends BaseView<nu8, mu8, MsgChatCent
                 }
             }
             String str3 = str2;
-            a65.f fVar = new a65.f() { // from class: com.baidu.tieba.ct8
+            w45.f fVar = new w45.f() { // from class: com.baidu.tieba.zq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.a65.f
-                public final void L0(a65 a65Var, int i, View view2) {
+                @Override // com.baidu.tieba.w45.f
+                public final void K0(w45 w45Var, int i, View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, a65Var, i, view2) == null) {
-                        MsgChatCenterSliceView.t0(MsgChatCenterSliceView.this, string, data, string2, string3, string4, string5, a65Var, i, view2);
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, w45Var, i, view2) == null) {
+                        MsgChatCenterSliceView.t0(MsgChatCenterSliceView.this, string, data, string2, string3, string4, string5, w45Var, i, view2);
                     }
                 }
             };
             ArrayList arrayList = new ArrayList(5);
-            if (yp8.a(data)) {
+            if (sn8.a(data)) {
                 arrayList.add(str);
                 arrayList.add(string);
-            } else if (yp8.c(data)) {
+            } else if (sn8.c(data)) {
                 arrayList.add(str3);
                 arrayList.add(string);
-            } else if (!yp8.b(data)) {
+            } else if (!sn8.b(data)) {
                 return false;
             } else {
                 arrayList.add(str);
                 arrayList.add(str3);
                 arrayList.add(string);
             }
-            this.r = fVar;
-            this.q = new y55(this.h);
+            this.s = fVar;
+            this.r = new u45(this.h);
             Object[] array = arrayList.toArray(new String[0]);
             if (array != null) {
                 String[] strArr = (String[]) array;
-                y55 y55Var = this.q;
-                if (y55Var != null) {
-                    y55Var.i(null, strArr, this.r);
+                u45 u45Var = this.r;
+                if (u45Var != null) {
+                    u45Var.i(null, strArr, this.s);
                     return true;
                 }
                 return true;

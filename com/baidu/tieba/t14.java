@@ -1,171 +1,116 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.tieba.vv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class t14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static t14 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128338, "Lcom/baidu/tieba/t14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948128338, "Lcom/baidu/tieba/t14;");
-                return;
-            }
-        }
-        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        b = new t14();
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
 
     public t14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (ya3.b0() == null) {
+            return;
+        }
+        vv2.a W = ya3.b0().W();
+        this.a = rh3.n(W.G());
+        this.c = W.H();
+        this.b = W.T();
+        this.f = W.s0().getString("aiapp_extra_need_download", "");
+        this.g = W.W();
+        this.h = W.e0();
+        this.i = W.V();
+        this.d = W.v1();
+        this.e = W.w1();
+    }
+
+    public t14(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (jSONObject != null && jSONObject.length() != 0) {
+            this.a = jSONObject.optString("from", "swan");
+            this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            this.b = jSONObject.optString("source");
+            this.f = jSONObject.optString("needDown");
+            this.g = jSONObject.optString("scheme");
+            this.h = jSONObject.optString("extPage");
+            this.i = jSONObject.optString("launchId", null);
+            this.d = jSONObject.optString("appVersion");
+            this.e = jSONObject.optString("thirdVersion");
         }
     }
 
-    public static t14 c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (t14) invokeV.objValue;
-    }
-
-    public synchronized void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
-                    File file = new File(a);
-                    if (!file.exists() && !file.mkdirs()) {
-                        if (fs1.a) {
-                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
-                        }
-                        return;
-                    }
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null && listFiles.length > 0) {
-                        for (File file2 : listFiles) {
-                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
-                                zr4.j(file2);
-                            }
-                        }
-                    }
-                    boolean N = zr4.N(str2, new File(a, b(str, j)));
-                    if (fs1.a) {
-                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
-                    }
-                    return;
-                }
-                if (fs1.a) {
-                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", this.a);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
+                jSONObject.put("source", this.b);
+                jSONObject.put("needDown", this.f);
+                jSONObject.put("scheme", this.g);
+                jSONObject.put("extPage", this.h);
+                jSONObject.put("launchId", this.i);
+                jSONObject.put("appVersion", this.d);
+                jSONObject.put("thirdVersion", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject.toString();
         }
-    }
-
-    public final String b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return str + "_" + j;
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public final boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && file.exists()) {
-                String[] split = file.getName().split("_");
-                if (split.length != 2) {
-                    return true;
-                }
-                try {
-                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    if (fs1.a) {
-                        th.printStackTrace();
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    if (fs1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
-                    }
-                    return null;
-                }
-                File file = new File(a);
-                if (!file.exists()) {
-                    if (fs1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
-                    }
-                    return null;
-                }
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    File file2 = null;
-                    for (File file3 : listFiles) {
-                        if (d(file3)) {
-                            zr4.j(file3);
-                        } else if (file3.getName().startsWith(str)) {
-                            file2 = file3;
-                        }
-                    }
-                    if (file2 == null) {
-                        return null;
-                    }
-                    return zr4.E(file2);
-                }
-                if (fs1.a) {
-                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
-                }
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba.square.flist;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
@@ -10,9 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.ye;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,8 +96,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                o55.e();
-                ye<String> f = o55.f("tb.forum_rank");
+                l45.e();
+                ne<String> f = l45.f("tb.forum_rank");
                 if (f != null) {
                     str = f.get("forum_rank_cache_key_" + this.a.a);
                 } else {
@@ -143,7 +143,7 @@ public class ForumRankModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,7 +168,7 @@ public class ForumRankModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -181,7 +181,7 @@ public class ForumRankModel extends BdBaseModel {
         this.c = bundle.getString("st_type");
     }
 
-    public void c0(Bundle bundle) {
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             bundle.putString("id", this.a);

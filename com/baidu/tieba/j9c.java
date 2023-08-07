@@ -1,101 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.utils.CommonUtils;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes6.dex */
 public class j9c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public boolean b;
-    public Runnable c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j9c a;
-
-        public a(j9c j9cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j9cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static w8c a(int i, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeIL;
+        MiddleRevenueConfig middleRevenueConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
+            ProductInfo productInfo = new ProductInfo();
+            productInfo.cid = 0;
+            productInfo.productId = "";
+            productInfo.srcCurrencySymbol = "";
+            productInfo.srcAmount = i / 100.0d;
+            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
+                productInfo.destAmount = i;
+                return new w8c(productInfo, 4);
             }
-            this.a = j9cVar;
+            productInfo.destAmount = i;
+            return new w8c(productInfo);
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
-                this.a.b = false;
-            }
-        }
+        return (w8c) invokeIL.objValue;
     }
 
-    public j9c() {
+    public static IAppPayService b(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error(CommonUtils.TAG, "getAppPayService null iRevenue", new Object[0]);
+                return null;
             }
+            return revenue.getAppPayService();
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = false;
-        this.c = new a(this);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
-            this.b = false;
-            this.a.removeCallbacks(this.c);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
-            this.b = z;
-            this.a.removeCallbacks(this.c);
-            if (this.b) {
-                this.a.postDelayed(this.c, 3000L);
-            }
-        }
+        return (IAppPayService) invokeII.objValue;
     }
 }

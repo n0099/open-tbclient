@@ -4,48 +4,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
 /* loaded from: classes5.dex */
-public final class as0 {
+public class as0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
     public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
+    public int b;
 
-    public as0() {
+    public as0(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.c = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-        }
+        this.a = str;
+        this.b = i;
     }
 }

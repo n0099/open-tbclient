@@ -28,7 +28,7 @@ public class LogoActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        v46.h();
+        c26.h();
     }
 
     public LogoActivityStatic() {

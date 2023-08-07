@@ -3,8 +3,8 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,9 +45,9 @@ public class ABTestExtraData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                String w = da5.p().w("abtest_extra_info_json", null);
-                if (!TextUtils.isEmpty(w)) {
-                    parseJson(new JSONObject(w));
+                String string = SharedPrefHelper.getInstance().getString("abtest_extra_info_json", null);
+                if (!TextUtils.isEmpty(string)) {
+                    parseJson(new JSONObject(string));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -64,7 +64,7 @@ public class ABTestExtraData implements Serializable {
             } else {
                 str = "";
             }
-            da5.p().J("abtest_extra_info_json", str);
+            SharedPrefHelper.getInstance().putString("abtest_extra_info_json", str);
         }
     }
 

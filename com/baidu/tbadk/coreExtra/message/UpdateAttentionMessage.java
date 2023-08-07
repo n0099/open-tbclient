@@ -6,9 +6,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.lu6;
-import com.baidu.tieba.xi;
+import com.baidu.tbadk.core.util.httpNet.HttpResponse;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.od5;
+import com.baidu.tieba.rr6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +19,102 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class UpdateAttentionMessage extends CustomResponsedMessage<b> {
+public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttentionData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class UpdateAttentionData {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int EACH_ATTENTION = 2;
+        public static final int NOT_ATTENTION = 0;
+        public static final int SINGLE_ATTENTION = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+        public BlockPopInfoData blockData;
+        public String blockUrl;
+        public String errorString;
+        public boolean hasShownForbiddenAlert;
+        public boolean interceptToast;
+        public boolean isAttention;
+        public boolean isFromLive;
+        public boolean isGod;
+        public boolean isShowMessage;
+        public boolean isSucc;
+        public HttpResponse response;
+        public JSONObject resultJson;
+        public String showMsg;
+        public int status;
+        public String toUid;
+
+        public UpdateAttentionData() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.isFromLive = false;
+            this.isGod = false;
+            this.isShowMessage = false;
+            this.status = 0;
+        }
+
+        private void parseBlockAnti(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(65537, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.blockUrl = jSONObject.optString("block_dealurl");
+            String optString = jSONObject.optString("block_content");
+            String optString2 = jSONObject.optString("block_confirm");
+            String optString3 = jSONObject.optString("block_cancel");
+            if (!bi.isEmpty(optString) && !bi.isEmpty(this.blockUrl) && !bi.isEmpty(optString2) && !bi.isEmpty(optString3)) {
+                BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+                this.blockData = blockPopInfoData;
+                blockPopInfoData.block_info = optString;
+                blockPopInfoData.ahead_url = this.blockUrl;
+                blockPopInfoData.ahead_info = optString2;
+                blockPopInfoData.ok_info = optString3;
+            }
+        }
+
+        public void parserJson(String str, boolean z) {
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || str == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.resultJson = jSONObject;
+                JSONObject optJSONObject = jSONObject.optJSONObject("info");
+                if (optJSONObject == null) {
+                    return;
+                }
+                this.status = jSONObject.optInt("status");
+                boolean z3 = false;
+                if (optJSONObject.optInt("is_toast", 0) == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z && z2) {
+                    z3 = true;
+                }
+                this.isShowMessage = z3;
+                this.showMsg = optJSONObject.optString("toast_text");
+                parseBlockAnti(optJSONObject);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
@@ -50,84 +144,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<b> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            b data;
+            UpdateAttentionData data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
-                lu6.b().b(new af5(data));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public String c;
-        public boolean d;
-        public boolean e;
-        public boolean f;
-        public boolean g;
-        public String h;
-        public BlockPopInfoData i;
-        public int j;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = false;
-            this.f = false;
-            this.j = 0;
-        }
-
-        public final void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.h = jSONObject.optString("block_dealurl");
-            String optString = jSONObject.optString("block_content");
-            String optString2 = jSONObject.optString("block_confirm");
-            String optString3 = jSONObject.optString("block_cancel");
-            if (!xi.isEmpty(optString) && !xi.isEmpty(this.h) && !xi.isEmpty(optString2) && !xi.isEmpty(optString3)) {
-                BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                this.i = blockPopInfoData;
-                blockPopInfoData.block_info = optString;
-                blockPopInfoData.ahead_url = this.h;
-                blockPopInfoData.ahead_info = optString2;
-                blockPopInfoData.ok_info = optString3;
-            }
-        }
-
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) != null) || str == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject("info");
-                if (optJSONObject == null) {
-                    return;
-                }
-                this.j = jSONObject.optInt("status");
-                if (optJSONObject.optInt("is_toast", 0) == 1) {
-                }
-                optJSONObject.optString("toast_text");
-                a(optJSONObject);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                rr6.b().b(new od5(data));
             }
         }
     }
@@ -152,8 +172,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getData() != null && (getData() instanceof b)) {
-                return getData().d;
+            if (getData() != null && (getData() instanceof UpdateAttentionData)) {
+                return getData().isAttention;
             }
             return false;
         }
@@ -164,8 +184,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (getData() != null && (getData() instanceof b)) {
-                return getData().f;
+            if (getData() != null && (getData() instanceof UpdateAttentionData)) {
+                return getData().isGod;
             }
             return false;
         }
@@ -176,8 +196,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getData() != null && (getData() instanceof b)) {
-                return getData().a;
+            if (getData() != null && (getData() instanceof UpdateAttentionData)) {
+                return getData().isSucc;
             }
             return false;
         }
@@ -185,13 +205,13 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<b> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UpdateAttentionMessage(b bVar) {
-        super(2001115, bVar);
+    public UpdateAttentionMessage(UpdateAttentionData updateAttentionData) {
+        super(2001115, updateAttentionData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {updateAttentionData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

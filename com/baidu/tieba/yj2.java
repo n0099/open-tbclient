@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yj2 implements gj2 {
+public class yj2 implements xj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String[] a;
 
     public yj2() {
         Interceptable interceptable = $ic;
@@ -21,31 +23,27 @@ public class yj2 implements gj2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new String[]{fu2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), fu2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
-    @Override // com.baidu.tieba.gj2
-    @SuppressLint({"BDThrowableCheck"})
-    public lj2 a(kj2 kj2Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xj2
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kj2Var)) == null) {
-            int type = kj2Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (!fs1.a) {
-                            return new bk2();
-                        }
-                        throw new IllegalArgumentException("invalid model object:" + kj2Var);
-                    }
-                    return new pd2();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = cr4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
                 }
-                return dv2.b();
             }
-            return new bk2();
+            y72.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (lj2) invokeL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

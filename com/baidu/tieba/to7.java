@@ -1,31 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ap6;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.PraiseModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class to7 extends ln<ay6, CardViewHolder<ap6>> {
+public class to7 extends vo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ap6 b;
-    public up6 c;
-    public String d;
+    public ThreadData h;
+    public boolean i;
+    public String j;
+    public PraiseModel k;
+    public final CustomMessageListener l;
 
     /* loaded from: classes8.dex */
-    public class a implements ap6.a {
+    public class a implements PraiseModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ to7 a;
@@ -48,73 +55,187 @@ public class to7 extends ln<ay6, CardViewHolder<ap6>> {
             this.a = to7Var;
         }
 
-        @Override // com.baidu.tieba.ap6.a
-        public void a(View view2, BaseCardInfo baseCardInfo) {
+        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
+        public void a(int i, String str) {
+            FrsFragment frsFragment;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && this.a.c != null) {
-                this.a.c.a(view2, baseCardInfo);
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (frsFragment = this.a.b) != null && frsFragment.getPageContext() != null && this.a.i && !TextUtils.isEmpty(str)) {
+                if (AntiHelper.m(i, str)) {
+                    AntiHelper.u(this.a.b.getPageContext().getPageActivity(), str);
+                } else {
+                    this.a.b.showToast(str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.a.i) {
+                    int i = 1;
+                    if (this.a.h != null && this.a.h.getPraise().getIsLike() == 1) {
+                        i = 0;
+                    }
+                    this.a.h(i);
+                }
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ to7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(to7 to7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {to7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = to7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ThreadData)) {
+                ThreadData threadData = (ThreadData) customResponsedMessage.getData();
+                this.a.j = threadData.getId();
+                if (!TextUtils.isEmpty(this.a.j) && threadData.getPraise() != null) {
+                    this.a.h(threadData.getPraise().getIsLike());
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public to7(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), ay6.b);
+    public to7(FrsFragment frsFragment) {
+        super(frsFragment);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = str;
+        b bVar = new b(this, 2004004);
+        this.l = bVar;
+        this.b.registerListener(bVar);
+        this.k = e();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public CardViewHolder<ap6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new ap6(this.a, this.d);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void x(up6 up6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, up6Var) == null) {
-            this.c = up6Var;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.i = z;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ay6 ay6Var, CardViewHolder<ap6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final PraiseModel e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ay6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.b() == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.k == null) {
+                this.k = new PraiseModel(this.b.getPageContext(), new a(this));
             }
-            cardViewHolder.b().i(ay6Var);
-            cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.b().u(new a(this));
-            return cardViewHolder.b().h();
+            return this.k;
         }
-        return (View) invokeCommon.objValue;
+        return (PraiseModel) invokeV.objValue;
+    }
+
+    public void g(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, threadData, i) != null) || threadData == null) {
+            return;
+        }
+        if (i == 1) {
+            PraiseData praise = threadData.getPraise();
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                MetaData metaData = new MetaData();
+                metaData.setName_show(currentAccountObj.getAccount());
+                metaData.setPortrait(currentAccountObj.getPortrait());
+                metaData.setUserId(currentAccountObj.getID());
+                if (praise == null) {
+                    PraiseData praiseData = new PraiseData();
+                    praiseData.setIsLike(i);
+                    praiseData.setNum(1L);
+                    praiseData.getUser().add(0, metaData);
+                    threadData.setPraise(praiseData);
+                    return;
+                }
+                threadData.getPraise().getUser().add(0, metaData);
+                threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
+                threadData.getPraise().setIsLike(i);
+            }
+        } else if (threadData.getPraise() != null) {
+            threadData.getPraise().setIsLike(i);
+            threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
+            ArrayList<MetaData> user = threadData.getPraise().getUser();
+            if (user != null) {
+                Iterator<MetaData> it = user.iterator();
+                while (it.hasNext()) {
+                    MetaData next = it.next();
+                    if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                        threadData.getPraise().getUser().remove(next);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void h(int i) {
+        FrsViewData d1;
+        ArrayList<ym> threadList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (d1 = this.b.d1()) != null && this.a != null && (threadList = d1.getThreadList()) != null) {
+            Iterator<ym> it = threadList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                ym next = it.next();
+                if (next instanceof w35) {
+                    ThreadData threadData = ((w35) next).t;
+                    if (threadData == this.h) {
+                        g(threadData, i);
+                        this.h = null;
+                        break;
+                    } else if (threadData.getId() != null && threadData.getId().equals(this.j)) {
+                        g(threadData, i);
+                        this.j = null;
+                        break;
+                    }
+                }
+            }
+            this.a.a0().g(threadList, d1);
+            this.a.a0().notifyDataSetChanged();
+        }
     }
 }

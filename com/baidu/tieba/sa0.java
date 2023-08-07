@@ -1,219 +1,234 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
 import java.util.Map;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class sa0 extends ra0 {
+public class sa0 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public int c;
+    public SharedPreferences a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, int i);
-
-        void b(int i, String str, int i2);
-    }
-
-    @Override // com.baidu.tieba.ta0.b
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ta0.b
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
-    public sa0(Context context, a aVar, int i) {
+    @JvmOverloads
+    public sa0(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, Integer.valueOf(i)};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = aVar;
-        this.c = i;
+        this.a = context.getSharedPreferences(str, 0);
     }
 
-    @Override // com.baidu.tieba.ta0.b
-    public String getHost() {
+    public final void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putBoolean(str, z).apply();
+        }
+    }
+
+    public final void d(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putLong(str, j).apply();
+        }
+    }
+
+    public final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putString(str, str2).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getFloat(str, f);
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getLong(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getStringSet(str, set);
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().remove(str).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, onSharedPreferenceChangeListener) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int a2 = xa0.a(this.a);
-            if (a2 == 1) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
-            } else if (a2 == 2) {
-                return "http://sz-shaheenv-al-b.bcc-szwg.baidu.com:8911/rest/5.0/generate_lcm_token";
-            } else if (xa0.b(this.a)) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
-            } else {
-                return "https://pim.baidu.com/rest/5.0/generate_lcm_token";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.edit();
         }
-        return (String) invokeV.objValue;
+        return (SharedPreferences.Editor) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ta0.b
-    public byte[] getRequestParameter() {
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                JSONObject jSONObject = (JSONObject) wa0.b(this.a, true);
-                if (jSONObject != null) {
-                    return jSONObject.toString().getBytes();
-                }
-                return new byte[0];
-            } catch (Exception unused) {
-                return new byte[0];
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.getAll();
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ta0.d
-    public void onFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            this.b.b(i, str, this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.ta0.d
-    public void onSuccess(byte[] bArr) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(new String(bArr));
-                if (xa0.a) {
-                    ya0.a("GetTokenRequest", "onSuccess :" + jSONObject.toString());
-                }
-                int optInt = jSONObject.optInt("error_code", -1);
-                String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                p90 g = o90.h(this.a).g(601110);
-                g.c("token_end", System.currentTimeMillis());
-                g.b("connect_state", 1);
-                g.d("P2", jSONObject.toString());
-                g.d("con_err_code", "P2");
-                if (optInt == 0) {
-                    boolean z = false;
-                    za0.z(this.a, jSONObject.optBoolean("bddns_enable", false));
-                    String optString2 = jSONObject.optString("token");
-                    JSONArray jSONArray = jSONObject.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-                    if (!TextUtils.isEmpty(optString2) && jSONArray != null && jSONArray.length() >= 1) {
-                        za0.N(this.a, jSONArray.length());
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
-                            String optString3 = jSONObject2.optString(ProbeTB.PROTOCOL);
-                            String optString4 = jSONObject2.optString("domain");
-                            String optString5 = jSONObject2.optString(ClientCookie.PORT_ATTR);
-                            if (!TextUtils.isEmpty(optString3) && TextUtils.equals(optString3, "quic")) {
-                                str = optString3 + ":" + optString4 + ":" + optString5 + ":" + jSONObject2.optString("version");
-                            } else {
-                                str = optString3 + ":" + optString4 + ":" + optString5;
-                            }
-                            za0.M(this.a, str, i);
-                        }
-                        za0.B(this.a, jSONObject.optInt("ipv6_strategy", 3));
-                        za0.O(this.a, optString2);
-                        this.b.a(optString2, this.c);
-                        try {
-                            String optString6 = jSONObject.optString("client_log_config", "");
-                            JSONObject jSONObject3 = new JSONObject(optString6);
-                            if (!TextUtils.isEmpty(optString6)) {
-                                s90.i(this.a, jSONObject3.optInt("client_upload_log_switch", 0));
-                                JSONArray jSONArray2 = jSONObject3.getJSONArray("realtime_log_switch");
-                                if (jSONArray2.length() <= 0) {
-                                    return;
-                                }
-                                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                                    JSONObject jSONObject4 = jSONArray2.getJSONObject(i2);
-                                    if (jSONObject4 == null) {
-                                        return;
-                                    }
-                                    s90.h(this.a, jSONObject4.optInt("id", 0), jSONObject4.optInt("switch", 0));
-                                }
-                                if (jSONObject3.optInt("client_ping_switch", 0) == 1) {
-                                    z = true;
-                                }
-                                ca0.d(this.a, z);
-                                if (!z) {
-                                    return;
-                                }
-                                String optString7 = jSONObject3.optString("client_ping_config", "");
-                                if (!TextUtils.isEmpty(optString7)) {
-                                    JSONObject jSONObject5 = new JSONObject(optString7);
-                                    int optInt2 = jSONObject5.optInt("ping_times");
-                                    int optInt3 = jSONObject5.optInt("ping_body_size");
-                                    long optLong = jSONObject5.optLong("ping_timeout_ms");
-                                    long optLong2 = jSONObject5.optLong("ping_interval_ms");
-                                    long optLong3 = jSONObject5.optLong("ping_deadline_ms");
-                                    String string = jSONObject5.getString("ping_target");
-                                    ca0.k(this.a, optInt2);
-                                    ca0.e(this.a, optInt3);
-                                    ca0.j(this.a, optLong);
-                                    ca0.h(this.a, optLong2);
-                                    ca0.g(this.a, optLong3);
-                                    ca0.i(this.a, string);
-                                    s90.h(this.a, 601112, 1);
-                                    if (xa0.a) {
-                                        ya0.a("GetTokenRequest", "client_ping_switch pingTimes :" + optInt2 + ", pingTarget ：" + string);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        } catch (Exception unused) {
-                            if (xa0.a) {
-                                ya0.b("GetTokenRequest", "client_log_config Json Exception");
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    this.b.b(10002, "token or protocol is empty", this.c);
-                    return;
-                }
-                this.b.b(optInt, optString, this.c);
-            } catch (JSONException e) {
-                this.b.b(10001, "parse response exception ：" + e, this.c);
-            }
-        }
+        return (Map) invokeV.objValue;
     }
 }

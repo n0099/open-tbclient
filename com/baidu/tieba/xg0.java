@@ -1,508 +1,334 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class xg0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "MediaTrackUtils";
+    public static String b = "FILTER_MATRIX";
+    public static String c = "FILTER_LUT";
+    public static String d = "FILTER_SUB_LUT";
+    public static String e = "FILTER_SUBTITLE";
+    public static String f = "FILTER_STICKER";
+    public static String g = "FILTER_GAUSSIAN_BLUR_H";
+    public static String h = "FILTER_GAUSSIAN_BLUR_V";
+    public static boolean i = false;
+    public static int j = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public File b;
-    public File c;
-    public List<c> d;
-    public b e;
-    public ng0 f;
-    public long g;
-    public int h;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public boolean i(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b<T> implements ng0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public boolean b;
-        public final /* synthetic */ xg0 c;
-
-        /* loaded from: classes8.dex */
-        public class a extends Thread {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.c.s(this.a);
-                    this.b.f(null);
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.xg0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0537b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-            public final /* synthetic */ Exception b;
-            public final /* synthetic */ b c;
-
-            public RunnableC0537b(b bVar, boolean z, Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, Boolean.valueOf(z), exc};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = z;
-                this.b = exc;
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r0v17, resolved type: com.baidu.tieba.xg0$c */
-            /* JADX DEBUG: Multi-variable search result rejected for r0v32, resolved type: com.baidu.tieba.xg0$c */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int i = 0;
-                    if (this.a) {
-                        while (i < this.c.c.d.size()) {
-                            c cVar = (c) this.c.c.d.get(i);
-                            if (cVar != 0) {
-                                cVar.a(this.c.a, this.c.c.b.getAbsolutePath());
-                            }
-                            i++;
-                        }
-                        if (this.c.c.f != null) {
-                            this.c.c.f.b(this.c.c.b.getAbsolutePath());
-                            return;
-                        }
-                        return;
-                    }
-                    while (i < this.c.c.d.size()) {
-                        c cVar2 = (c) this.c.c.d.get(i);
-                        if (cVar2 != 0) {
-                            cVar2.b(this.c.a, this.b);
-                        }
-                        i++;
-                    }
-                    if (this.c.c.f != null) {
-                        this.c.c.f.onFailed(this.b);
-                    }
-                }
-            }
-        }
-
-        public b(xg0 xg0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xg0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = xg0Var;
-        }
-
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                xg0.j("res:" + str);
-            }
-        }
-
-        public void g(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.a = t;
-            }
-        }
-
-        public /* synthetic */ b(xg0 xg0Var, a aVar) {
-            this(xg0Var);
-        }
-
-        @Override // com.baidu.tieba.ng0
-        public void a(long j, long j2, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) && i != this.c.h) {
-                this.c.g = j2;
-                this.c.h = i;
-                for (int i2 = 0; i2 < this.c.d.size(); i2++) {
-                    c cVar = (c) this.c.d.get(i2);
-                    if (cVar != null) {
-                        cVar.c(this.a, j, j2, i);
-                    }
-                }
-                if (this.c.f != null) {
-                    this.c.f.a(j, j2, i);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ng0
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.c.p()) {
-                    d("onCompleted(download): " + str);
-                }
-                new a(this, str).start();
-                this.b = false;
-            }
-        }
-
-        public void f(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && this.c.d != null && !this.c.d.isEmpty()) {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0537b(this, this.c.q(), exc));
-            }
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.b;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ng0
-        public void onFailed(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
-                if (this.c.p()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("onFailed: ");
-                    sb.append(this.c.a);
-                    sb.append("\n");
-                    if (exc != null) {
-                        str = exc.getMessage();
-                    } else {
-                        str = "";
-                    }
-                    sb.append(str);
-                    d(sb.toString());
-                }
-                if (this.c.c.exists()) {
-                    this.c.c.delete();
-                }
-                for (int i = 0; i < this.c.d.size(); i++) {
-                    c cVar = (c) this.c.d.get(i);
-                    if (cVar != null) {
-                        cVar.b(this.a, exc);
-                    }
-                }
-                if (this.c.f != null) {
-                    this.c.f.onFailed(exc);
-                }
-                this.b = false;
-            }
-        }
-
-        @Override // com.baidu.tieba.ng0
-        public void onStarted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.b = true;
-                if (this.c.p()) {
-                    d("onStarted");
-                }
-                for (int i = 0; i < this.c.d.size(); i++) {
-                    c cVar = (c) this.c.d.get(i);
-                    if (cVar != null) {
-                        cVar.d(this.a);
-                    }
-                }
-                if (this.c.f != null) {
-                    this.c.f.onStarted();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void a(T t, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, t, str) == null) {
-            }
-        }
-
-        public void b(T t, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, exc) == null) {
-            }
-        }
-
-        public void c(T t, long j, long j2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{t, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            }
-        }
-
-        public void d(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            }
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public xg0(String str, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = file;
-        this.d = new ArrayList();
-        this.c = new File(this.b.getAbsolutePath() + ".loading");
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            Log.d("DuAr_FileLoader", str);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || q() || r()) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948299272, "Lcom/baidu/tieba/xg0;")) == null) {
             return;
         }
-        synchronized (this) {
-            if (!q() && !r()) {
-                if (this.e == null) {
-                    b bVar = new b(this, null);
-                    this.e = bVar;
-                    bVar.g(this);
-                }
-                og0 c2 = hg0.c();
-                if (c2 != null) {
-                    c2.a(this.a, this.c.getParent(), this.c.getName(), this.e);
-                }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948299272, "Lcom/baidu/tieba/xg0;");
+        }
+    }
+
+    public static void a(MediaTrack mediaTrack, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, mediaTrack, j2) == null) {
+            vg0.b(mediaTrack, j2);
+            n(mediaTrack);
+        }
+    }
+
+    public static void c(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, mediaTrack, mediaTrackConfig) == null) {
+            vg0.g(mediaTrack, mediaTrackConfig);
+        }
+    }
+
+    public static boolean k(List<MediaTrack> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, list, str)) == null) {
+            return vg0.x(list, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean m(MediaTrack mediaTrack, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, mediaTrack, str)) == null) {
+            return vg0.E(mediaTrack, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void b(MediaTrack mediaTrack, Map<String, ShaderConfig> map, MediaTrack mediaTrack2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, mediaTrack, map, mediaTrack2) == null) {
+            vg0.f(mediaTrack, map, mediaTrack2);
+        }
+    }
+
+    public static void d(MediaTrack mediaTrack, List<MediaSegment> list, MediaTrackConfig mediaTrackConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrack, list, mediaTrackConfig) == null) {
+            vg0.h(mediaTrack, list, mediaTrackConfig);
+        }
+    }
+
+    public static List<MediaTrack> e(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, Map<String, ShaderConfig> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, mediaTrack, mediaTrackConfig, map)) == null) {
+            List<MediaTrack> j2 = vg0.j(mediaTrack, mediaTrackConfig, map);
+            for (MediaTrack mediaTrack2 : j2) {
+                n(mediaTrack2);
             }
+            return j2;
         }
+        return (List) invokeLLL.objValue;
     }
 
-    public void l(c cVar) {
+    public static String j(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            if (q()) {
-                if (cVar != null) {
-                    cVar.a(this, this.b.getAbsolutePath());
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
+            return vg0.v(context, str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String f(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, str2, str3)) == null) {
+            return vg0.o(context, str, str2, str3);
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static Bitmap g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (cVar != null && !this.d.contains(cVar)) {
-                this.d.add(cVar);
+            if (!str.contains(File.separator)) {
+                return BitmapFactory.decodeResource(context.getResources(), h(str, context));
             }
-            k();
+            return BitmapFactory.decodeFile(str);
         }
+        return (Bitmap) invokeLL.objValue;
     }
 
-    public File m() {
-        InterceptResult invokeV;
+    public static int h(String str, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return hg0.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            File file = this.b;
-            if (file != null && file.exists()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b bVar = this.e;
-            if (bVar != null && bVar.e()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean s(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            File file = new File(str);
-            boolean z2 = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
             try {
-                if (p()) {
-                    j("onCompleted-unzip:" + str + "\nto " + this.b.getAbsolutePath());
+                ApplicationInfo applicationInfo = context.getApplicationInfo();
+                int identifier = context.getResources().getIdentifier(str, ResourceManager.DRAWABLE, applicationInfo.packageName);
+                if (identifier == 0) {
+                    return context.getResources().getIdentifier(str, "mipmap", applicationInfo.packageName);
                 }
-                File file2 = new File(this.b + ".ziping");
-                if (file2.exists()) {
-                    if (p()) {
-                        j("delete older exists " + file2);
-                    }
-                    gh0.e(file2);
-                }
-                boolean z3 = true;
-                try {
-                    mh0.a(file, file2);
-                    z = true;
-                } catch (Exception e) {
-                    j("unzipFile Exception : " + e.getMessage() + " " + str);
-                    z = false;
-                }
-                if (!z || !i(file2)) {
-                    z3 = false;
-                }
-                if (!z3) {
-                    if (p()) {
-                        j("faild on afterUnziped " + file2);
-                    }
-                    gh0.e(file2);
-                    z2 = z3;
-                } else {
-                    z2 = file2.renameTo(this.b) & z3;
-                }
+                return identifier;
             } catch (Exception e2) {
-                j("Exception on onFileLoaderCompledted " + e2.getMessage());
                 e2.printStackTrace();
+                return 0;
             }
-            gh0.d(file);
-            return z2;
         }
-        return invokeL.booleanValue;
+        return invokeLL.intValue;
+    }
+
+    public static MediaAEffect i(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, String str, int i2, int i3, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{mediaTrack, mediaTrackConfig, str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+            return vg0.t(mediaTrack, mediaTrackConfig, str, i2, i3, j2);
+        }
+        return (MediaAEffect) invokeCommon.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void n(MediaTrack mediaTrack) {
+        String str;
+        String str2;
+        ShaderParams next;
+        Iterator<ShaderParams> it;
+        String str3;
+        MediaSegment mediaSegment;
+        String str4;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65550, null, mediaTrack) != null) || !i) {
+            return;
+        }
+        Log.d(a, "---------------------start----------------------------");
+        List<MediaSegment> list = mediaTrack.mediaSegments;
+        String str5 = PreferencesUtil.LEFT_MOUNT;
+        String str6 = ": ";
+        if (list != null) {
+            int i2 = 0;
+            while (i2 < mediaTrack.mediaSegments.size()) {
+                MediaSegment mediaSegment2 = mediaTrack.mediaSegments.get(i2);
+                Log.d(a, " --> segment : " + i2 + str6 + mediaSegment2.type + "--->" + mediaSegment2.start + "----" + mediaSegment2.end + "---> scaleType --->" + mediaSegment2.scaleType + " shaderConfigKey --->" + mediaSegment2.shaderConfigKey + " effectConfigKey --->" + mediaSegment2.effectConfigKey);
+                MediaAEffect mediaAEffect = mediaSegment2.mediaAEffect;
+                if (mediaAEffect != null && mediaAEffect.mediaOneAEffects != null) {
+                    int i3 = 0;
+                    while (i3 < mediaSegment2.mediaAEffect.mediaOneAEffects.size()) {
+                        MediaOneAEffect mediaOneAEffect = mediaSegment2.mediaAEffect.mediaOneAEffects.get(i3);
+                        String str7 = a;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("effect : ");
+                        sb.append(i2);
+                        sb.append("->");
+                        sb.append(i3);
+                        sb.append(str6);
+                        String str8 = str5;
+                        String str9 = str6;
+                        sb.append(mediaOneAEffect.start);
+                        sb.append("----");
+                        sb.append(mediaOneAEffect.end);
+                        sb.append(" shaderConfigKey --->");
+                        sb.append(mediaSegment2.mediaAEffect.shaderConfigKey);
+                        Log.d(str7, sb.toString());
+                        List<ShaderParams> list2 = mediaOneAEffect.aParams;
+                        if (list2 != null) {
+                            Iterator<ShaderParams> it2 = list2.iterator();
+                            while (it2.hasNext()) {
+                                float[] fArr = it2.next().values;
+                                if (fArr != null) {
+                                    int length = fArr.length;
+                                    it = it2;
+                                    str4 = str8;
+                                    int i4 = 0;
+                                    while (true) {
+                                        str3 = str8;
+                                        if (i4 >= length) {
+                                            break;
+                                        }
+                                        str4 = str4 + fArr[i4] + "---";
+                                        i4++;
+                                        str8 = str3;
+                                        mediaSegment2 = mediaSegment2;
+                                    }
+                                    mediaSegment = mediaSegment2;
+                                } else {
+                                    it = it2;
+                                    str3 = str8;
+                                    mediaSegment = mediaSegment2;
+                                    str4 = str3;
+                                }
+                                Log.d(a, "ShaderParams ------> type: " + next.type + " name: " + next.name + " values: " + (str4 + PreferencesUtil.RIGHT_MOUNT));
+                                it2 = it;
+                                str8 = str3;
+                                mediaSegment2 = mediaSegment;
+                            }
+                        }
+                        i3++;
+                        str6 = str9;
+                        str5 = str8;
+                        mediaSegment2 = mediaSegment2;
+                    }
+                }
+                i2++;
+                str6 = str6;
+                str5 = str5;
+            }
+        }
+        String str10 = str5;
+        String str11 = str6;
+        if (mediaTrack.mediaTransitions != null) {
+            for (int i5 = 0; i5 < mediaTrack.mediaTransitions.size(); i5++) {
+                MediaTransition mediaTransition = mediaTrack.mediaTransitions.get(i5);
+                Log.d(a, " --> transition : " + i5 + " ---> " + i5 + str11 + mediaTransition.start + "----" + mediaTransition.end + "---- duration : " + mediaTransition.duration);
+            }
+        }
+        if (mediaTrack.superpositionHeader != null) {
+            Log.d(a, " --> superposition header : " + mediaTrack.superpositionHeader.start + "----" + mediaTrack.superpositionHeader.end + "----" + mediaTrack.superpositionHeader.superpositionType);
+            MediaAEffect mediaAEffect2 = mediaTrack.superpositionHeader.mediaAEffect;
+            if (mediaAEffect2 != null && mediaAEffect2.mediaOneAEffects != null) {
+                for (int i6 = 0; i6 < mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.size(); i6++) {
+                    MediaOneAEffect mediaOneAEffect2 = mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.get(i6);
+                    Log.d(a, "superposition header effect : + ->" + i6 + str11 + mediaOneAEffect2.start + "----" + mediaOneAEffect2.end);
+                    List<ShaderParams> list3 = mediaOneAEffect2.aParams;
+                    if (list3 != null) {
+                        for (ShaderParams shaderParams : list3) {
+                            float[] fArr2 = shaderParams.values;
+                            if (fArr2 != null) {
+                                str2 = str10;
+                                for (float f2 : fArr2) {
+                                    str2 = str2 + f2 + "---";
+                                }
+                            } else {
+                                str2 = str10;
+                            }
+                            Log.d(a, "superposition header ShaderParams ------> type: " + shaderParams.type + " name: " + shaderParams.name + " values: " + (str2 + PreferencesUtil.RIGHT_MOUNT));
+                        }
+                    }
+                }
+            }
+        }
+        if (mediaTrack.superpositionFooter != null) {
+            Log.d(a, " --> superposition footer : " + mediaTrack.superpositionFooter.start + "----" + mediaTrack.superpositionFooter.end + "----" + mediaTrack.superpositionFooter.superpositionType);
+            MediaAEffect mediaAEffect3 = mediaTrack.superpositionFooter.mediaAEffect;
+            if (mediaAEffect3 != null && mediaAEffect3.mediaOneAEffects != null) {
+                for (int i7 = 0; i7 < mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.size(); i7++) {
+                    MediaOneAEffect mediaOneAEffect3 = mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.get(i7);
+                    Log.d(a, "superposition footer effect : + ->" + i7 + str11 + mediaOneAEffect3.start + "----" + mediaOneAEffect3.end);
+                    List<ShaderParams> list4 = mediaOneAEffect3.aParams;
+                    if (list4 != null) {
+                        for (ShaderParams shaderParams2 : list4) {
+                            float[] fArr3 = shaderParams2.values;
+                            if (fArr3 != null) {
+                                str = str10;
+                                for (float f3 : fArr3) {
+                                    str = str + f3 + "---";
+                                }
+                            } else {
+                                str = str10;
+                            }
+                            Log.d(a, "superposition footer ShaderParams ------> type: " + shaderParams2.type + " name: " + shaderParams2.name + " values: " + (str + PreferencesUtil.RIGHT_MOUNT));
+                        }
+                    }
+                }
+            }
+        }
+        Log.d(a, "--------------------end-----------------------------");
     }
 }

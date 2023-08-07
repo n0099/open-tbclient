@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +10,11 @@ public class ka4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public JsArrayBuffer data;
+    public String errMsg;
     @V8JavascriptField
-    public Object header;
+    public String errNo;
     @V8JavascriptField
-    public int statusCode;
+    public boolean result;
 
     public ka4() {
         Interceptable interceptable = $ic;

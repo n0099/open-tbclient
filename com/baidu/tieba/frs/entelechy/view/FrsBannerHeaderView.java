@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n16;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.ph7;
-import com.baidu.tieba.qla;
+import com.baidu.tieba.uka;
+import com.baidu.tieba.wy5;
+import com.baidu.tieba.xe7;
+import com.baidu.tieba.xy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -189,7 +189,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            n16 a = o16.a.a();
+                            wy5 a = xy5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -305,7 +305,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            n16 a = o16.a.a();
+                            wy5 a = xy5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -416,7 +416,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             FrsBannerHeaderData frsBannerHeaderData = this.j;
             if (frsBannerHeaderData != null && (iconUrl = frsBannerHeaderData.getIconUrl()) != null && (tbImageView = this.c) != null) {
-                tbImageView.N(iconUrl, 10, false);
+                tbImageView.startLoad(iconUrl, 10, false);
             }
             FrsBannerHeaderData frsBannerHeaderData2 = this.j;
             String str6 = null;
@@ -550,8 +550,8 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 themeColorInfo = null;
             }
             if (themeColorInfo != null) {
-                str2 = qla.d(themeColorInfo);
-                str = qla.f(themeColorInfo);
+                str2 = uka.d(themeColorInfo);
+                str = uka.f(themeColorInfo);
             } else {
                 str = null;
                 str2 = null;
@@ -639,53 +639,53 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         TbImage tbImage2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0346, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0349, (ViewGroup) this, true);
             this.b = inflate;
             ImageView imageView = null;
             if (inflate != null) {
-                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c51);
+                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c63);
             } else {
                 tbImageView = null;
             }
             this.c = tbImageView;
             View view2 = this.b;
             if (view2 != null) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c4e);
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c60);
             } else {
                 textView = null;
             }
             this.d = textView;
             View view3 = this.b;
             if (view3 != null) {
-                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090c4f);
+                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090c61);
             } else {
                 textView2 = null;
             }
             this.e = textView2;
             View view4 = this.b;
             if (view4 != null) {
-                tbImage = (TbImage) view4.findViewById(R.id.obfuscated_res_0x7f090c4c);
+                tbImage = (TbImage) view4.findViewById(R.id.obfuscated_res_0x7f090c5e);
             } else {
                 tbImage = null;
             }
             this.f = tbImage;
             View view5 = this.b;
             if (view5 != null) {
-                textView3 = (TextView) view5.findViewById(R.id.obfuscated_res_0x7f090c50);
+                textView3 = (TextView) view5.findViewById(R.id.obfuscated_res_0x7f090c62);
             } else {
                 textView3 = null;
             }
             this.g = textView3;
             View view6 = this.b;
             if (view6 != null) {
-                tbImage2 = (TbImage) view6.findViewById(R.id.obfuscated_res_0x7f090c54);
+                tbImage2 = (TbImage) view6.findViewById(R.id.obfuscated_res_0x7f090c66);
             } else {
                 tbImage2 = null;
             }
             this.h = tbImage2;
             View view7 = this.b;
             if (view7 != null) {
-                imageView = (ImageView) view7.findViewById(R.id.obfuscated_res_0x7f090c52);
+                imageView = (ImageView) view7.findViewById(R.id.obfuscated_res_0x7f090c64);
             }
             this.i = imageView;
             TbImageView tbImageView2 = this.c;
@@ -735,7 +735,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                     Context context = getContext();
                     if (context != null) {
                         TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
-                        if (pageContext == null || ph7.f().i()) {
+                        if (pageContext == null || xe7.f().i()) {
                             return;
                         }
                         UrlManager urlManager = UrlManager.getInstance();

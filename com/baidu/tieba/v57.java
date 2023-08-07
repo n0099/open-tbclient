@@ -1,58 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class v57 implements yn {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ForumEmotionPackageData a;
+public interface v57 extends Comparable<v57> {
+    boolean D();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191857, "Lcom/baidu/tieba/v57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948191857, "Lcom/baidu/tieba/v57;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    boolean E();
 
-    public v57() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    String F();
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+    boolean L();
+
+    int getPriority();
+
+    void hide();
+
+    int m(int i, int i2);
+
+    void reset();
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static int a(v57 v57Var, v57 other) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, v57Var, other)) == null) {
+                Intrinsics.checkNotNullParameter(other, "other");
+                return Intrinsics.compare(other.getPriority(), v57Var.getPriority());
+            }
+            return invokeLL.intValue;
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

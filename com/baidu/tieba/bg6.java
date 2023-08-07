@@ -1,111 +1,191 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.annotation.FloatRange;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.yf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class bg6 extends yh7<gba, FrsPageAlaInsertRecLiveHolder> implements sp6 {
+public final class bg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-    public mg6 m;
+    public double a;
+    public double b;
+    public boolean c;
+    public double d;
+    public double e;
+    public double f;
+    public double g;
+    public double h;
+    public double i;
+    public final yf6.h j;
 
-    @Override // com.baidu.tieba.sp6
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public bg6(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = "";
+        this.a = Math.sqrt(1500.0d);
+        this.b = 0.5d;
+        this.c = false;
+        this.i = Double.MAX_VALUE;
+        this.j = new yf6.h();
+        this.i = f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public FrsPageAlaInsertRecLiveHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            TbPageContext<?> tbPageContext = this.c;
-            if (tbPageContext == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (float) this.i;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
+        }
+        if (this.i != Double.MAX_VALUE) {
+            double d = this.b;
+            if (d > 1.0d) {
+                double d2 = this.a;
+                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
+                double d3 = this.b;
+                double d4 = this.a;
+                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
+            } else if (d >= 0.0d && d < 1.0d) {
+                this.h = this.a * Math.sqrt(1.0d - (d * d));
             }
-            mg6 mg6Var = new mg6(tbPageContext);
-            this.m = mg6Var;
-            mg6Var.a(this.l);
-            return new FrsPageAlaInsertRecLiveHolder(this.m);
+            this.c = true;
+            return;
         }
-        return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
+        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
     }
 
-    @Override // com.baidu.tieba.sp6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public View H(int i, View view2, ViewGroup viewGroup, gba gbaVar, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean c(float f, float f2) {
         InterceptResult invokeCommon;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gbaVar, frsPageAlaInsertRecLiveHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) gbaVar, (gba) frsPageAlaInsertRecLiveHolder);
-            if (gbaVar != null) {
-                FrsViewData frsViewData = this.b;
-                if (frsViewData != null) {
-                    i2 = frsViewData.getTopThreadSize();
-                } else {
-                    i2 = 0;
-                }
-                List<ThreadData> list = gbaVar.a;
-                if (list != null && list.get(0) != null) {
-                    gbaVar.a.get(0).statFloor = (i + 1) - i2;
-                }
-                frsPageAlaInsertRecLiveHolder.a.a(this.l);
-                frsPageAlaInsertRecLiveHolder.a.i(gbaVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (Math.abs(f2) < this.e && Math.abs(f - a()) < this.d) {
+                return true;
             }
-            return view2;
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (gba) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
-        return view2;
+    public bg6 d(@FloatRange(from = 0.0d) float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            if (f >= 0.0f) {
+                this.b = f;
+                this.c = false;
+                return this;
+            }
+            throw new IllegalArgumentException("Damping ratio must be non-negative");
+        }
+        return (bg6) invokeF.objValue;
+    }
+
+    public bg6 e(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            this.i = f;
+            return this;
+        }
+        return (bg6) invokeF.objValue;
+    }
+
+    public bg6 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f > 0.0f) {
+                this.a = Math.sqrt(f);
+                this.c = false;
+                return this;
+            }
+            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
+        }
+        return (bg6) invokeF.objValue;
+    }
+
+    public void g(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
+            double abs = Math.abs(d);
+            this.d = abs;
+            this.e = abs * 62.5d;
+        }
+    }
+
+    public yf6.h h(double d, double d2, long j) {
+        InterceptResult invokeCommon;
+        double cos;
+        double d3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
+            b();
+            double d4 = j / 1000.0d;
+            double d5 = d - this.i;
+            double d6 = this.b;
+            if (d6 > 1.0d) {
+                double d7 = this.g;
+                double d8 = this.f;
+                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
+                double d10 = ((d5 * d7) - d2) / (d7 - d8);
+                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
+                double d11 = this.g;
+                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
+                double d12 = this.f;
+                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
+            } else if (d6 == 1.0d) {
+                double d13 = this.a;
+                double d14 = d2 + (d13 * d5);
+                double d15 = d5 + (d14 * d4);
+                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
+                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
+                double d16 = this.a;
+                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
+            } else {
+                double d17 = 1.0d / this.h;
+                double d18 = this.a;
+                double d19 = d17 * ((d6 * d18 * d5) + d2);
+                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
+                double d20 = this.a;
+                double d21 = this.b;
+                double d22 = (-d20) * pow3 * d21;
+                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
+                double d23 = this.h;
+                double sin = (-d23) * d5 * Math.sin(d23 * d4);
+                double d24 = this.h;
+                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
+                d3 = pow3;
+            }
+            yf6.h hVar = this.j;
+            hVar.a = (float) (d3 + this.i);
+            hVar.b = (float) cos;
+            return hVar;
+        }
+        return (yf6.h) invokeCommon.objValue;
     }
 }

@@ -32,11 +32,11 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     @Override // com.baidu.searchbox.ui.BaseLoadingDialog
     public void initView() {
         int i;
-        setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d023f);
-        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f5c);
-        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09161e);
-        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09172c);
-        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090720);
+        setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0242);
+        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f73);
+        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091631);
+        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091740);
+        this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09072f);
         this.mMsgTxtView.setText(this.mMsgText);
         this.mCloseImgView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.SimpleLoadingDialog.1
             @Override // android.view.View.OnClickListener

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface uu7 {
-    void a(int i);
 
-    void b(int i);
+import android.view.View;
+/* loaded from: classes8.dex */
+public interface uu7<T> {
+    void a(View view2, T t, int i);
+
+    void b(View view2, T t, int i);
 }

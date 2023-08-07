@@ -9,19 +9,20 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.au4;
-import com.baidu.tieba.bu4;
-import com.baidu.tieba.kh;
-import com.baidu.tieba.mx5;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.av4;
+import com.baidu.tieba.av5;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.dt4;
+import com.baidu.tieba.et4;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.wt4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -149,14 +150,14 @@ public class BdUniDispatchSchemeController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface OnSchemeParsedCallback {
+        void onCallBack(HashMap<String, Object> hashMap);
     }
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a(HashMap<String, Object> hashMap);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -175,7 +176,7 @@ public class BdUniDispatchSchemeController {
     }
 
     /* loaded from: classes4.dex */
-    public static class c {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniDispatchSchemeController a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,13 +184,13 @@ public class BdUniDispatchSchemeController {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1042402702, "Lcom/baidu/tbadk/BdToken/BdUniDispatchSchemeController$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1042402671, "Lcom/baidu/tbadk/BdToken/BdUniDispatchSchemeController$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1042402702, "Lcom/baidu/tbadk/BdToken/BdUniDispatchSchemeController$c;");
+                    classClinitInterceptable.invokePostClinit(1042402671, "Lcom/baidu/tbadk/BdToken/BdUniDispatchSchemeController$b;");
                     return;
                 }
             }
@@ -215,7 +216,7 @@ public class BdUniDispatchSchemeController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c.a;
+            return b.a;
         }
         return (BdUniDispatchSchemeController) invokeV.objValue;
     }
@@ -239,8 +240,8 @@ public class BdUniDispatchSchemeController {
     private void processSchemeFrom(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            mx5.m().u(true);
-            mx5.m().k();
+            av5.m().u(true);
+            av5.m().k();
         }
     }
 
@@ -269,9 +270,9 @@ public class BdUniDispatchSchemeController {
         }
     }
 
-    public void parseWebViewScheme(String str, Uri uri, b bVar) {
+    public void parseWebViewScheme(String str, Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, uri, bVar) == null) && uri != null && isUniScheme(uri) && PATH_WEBVIEW.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri) && PATH_WEBVIEW.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str2 = PARAM_URL;
             hashMap.put(str2, uri.getQueryParameter(str2));
@@ -283,7 +284,7 @@ public class BdUniDispatchSchemeController {
             String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
             processActivityMissionInfo(queryParameter, queryParameter2, uri.getQueryParameter(PARAM_TOKEN), uri);
             addStaticForShemeFormH5(str, uri, queryParameter2);
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
@@ -296,16 +297,16 @@ public class BdUniDispatchSchemeController {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, str, str2, str3, uri) == null) {
-            yv4.f().i(uri);
-            if (xi.isEmpty(str)) {
+            av4.f().i(uri);
+            if (bi.isEmpty(str)) {
                 return;
             }
-            au4 au4Var = new au4(str);
-            au4Var.m0(str3);
-            if (au4Var.d() != 0 && au4Var.q() != 0) {
-                TbSingleton.getInstance().setInvokeSource(au4Var.e());
-                kh.f(String.valueOf(au4Var.d()));
-                kh.i(String.valueOf(au4Var.q()));
+            dt4 dt4Var = new dt4(str);
+            dt4Var.m0(str3);
+            if (dt4Var.d() != 0 && dt4Var.q() != 0) {
+                TbSingleton.getInstance().setInvokeSource(dt4Var.e());
+                qg.f(String.valueOf(dt4Var.d()));
+                qg.i(String.valueOf(dt4Var.q()));
                 if (StringHelper.equals(str2, SCHEME_FROM_TB_TOKEN)) {
                     i = 2;
                 } else {
@@ -324,32 +325,32 @@ public class BdUniDispatchSchemeController {
                     str7 = uri.getQueryParameter("hightlight_anchor_pid");
                     str4 = uri.getQueryParameter("refer");
                 }
-                if (au4Var.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+                if (dt4Var.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                     if (currentActivity instanceof BaseFragmentActivity) {
                         ((BaseFragmentActivity) currentActivity).showFloatingWindow();
                     } else if (currentActivity instanceof BaseActivity) {
                         ((BaseActivity) currentActivity).showFloatingWindow();
                     }
                 }
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", au4Var.e()).param("obj_type", au4Var.d()).param("obj_param1", au4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, au4Var.s()).param("extra", au4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param("refer", str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, au4Var.G()));
-                bu4.w().m(au4Var);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", dt4Var.e()).param("obj_type", dt4Var.d()).param("obj_param1", dt4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, dt4Var.s()).param("extra", dt4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param("refer", str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, dt4Var.G()));
+                et4.w().m(dt4Var);
             }
         }
     }
 
-    public void parseForumSquareScheme(Uri uri, b bVar) {
+    public void parseForumSquareScheme(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, uri, bVar) == null) && uri != null && isUniScheme(uri) && UrlSchemaHelper.SCHEMA_PATH_FROM_FORUM_SQUARE.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri) && UrlSchemaHelper.SCHEMA_PATH_FROM_FORUM_SQUARE.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_TAB_NAME;
             hashMap.put(str, uri.getQueryParameter(str));
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
-    public void parseFrsScheme(Uri uri, b bVar) {
+    public void parseFrsScheme(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, bVar) == null) && uri != null && isUniScheme(uri) && PATH_FRS.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri) && PATH_FRS.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_KW;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -362,13 +363,13 @@ public class BdUniDispatchSchemeController {
             String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
             processActivityMissionInfo(queryParameter, queryParameter2, uri.getQueryParameter(PARAM_TOKEN), uri);
             addStaticForShemeFormH5("", uri, queryParameter2);
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
-    public void parseMainTabScheme(Uri uri, b bVar) {
+    public void parseMainTabScheme(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, bVar) == null) && uri != null && isUniScheme(uri)) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri)) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String queryParameter = uri.getQueryParameter(PARAM_EXT_DATA);
             String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
@@ -378,7 +379,7 @@ public class BdUniDispatchSchemeController {
             processActivityMissionInfo(queryParameter, queryParameter2, queryParameter3, uri);
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
             addStaticForShemeFormH5("", uri, queryParameter2);
-            uu4.c(uri);
+            wt4.c(uri);
             if (PATH_HOMEPAGE.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 String str = PARAM_NEW_GOD_FROM;
@@ -391,7 +392,7 @@ public class BdUniDispatchSchemeController {
                 hashMap.put(NATIVE_PARAM_MAINTAB_SUBTAB, queryParameter4);
             } else if (PATH_RECOMMEND_FORUM.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 1);
-                hashMap.put(NATIVE_PARAM_MAINTAB_SUBTAB, "1_recommend");
+                hashMap.put(NATIVE_PARAM_MAINTAB_SUBTAB, MainEntrance.GOTO_RECOMMEND_FORUM);
             } else if (PATH_ACTIVITY_PAGE.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 hashMap.put(PARAM_TAB_NAME, queryParameter4);
@@ -401,18 +402,18 @@ public class BdUniDispatchSchemeController {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 3);
             } else if (PATH_VIDEO_TAB.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 22);
-                hashMap.put(NATIVE_PARAM_MAINTAB_SUBTAB, "22_recommend");
+                hashMap.put(NATIVE_PARAM_MAINTAB_SUBTAB, MainEntrance.GOTO_VIDEO_CHANNEL_RECOMMEND);
             } else if (PATH_HOME_TAB.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 hashMap.put(PARAM_TAB_CODE, queryParameter5);
             }
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
-    public void parsePbScheme(Uri uri, b bVar) {
+    public void parsePbScheme(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, bVar) == null) && uri != null && isUniScheme(uri) && PATH_PB.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri) && PATH_PB.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_TID;
             hashMap.put(str, uri.getQueryParameter(str));
@@ -438,45 +439,45 @@ public class BdUniDispatchSchemeController {
             String queryParameter3 = uri.getQueryParameter(PARAM_SCHEME_FROM);
             processActivityMissionInfo(queryParameter2, queryParameter3, uri.getQueryParameter(PARAM_TOKEN), uri);
             addStaticForShemeFormH5("", uri, queryParameter3);
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
-    public void parseTopicDetailScheme(Uri uri, b bVar) {
+    public void parseTopicDetailScheme(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, uri, bVar) == null) && uri != null && isUniScheme(uri) && PATH_TOPIC_DETAIL.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri) && PATH_TOPIC_DETAIL.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_TOPIC_ID;
             hashMap.put(str, uri.getQueryParameter(str));
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
             processActivityMissionInfo(uri.getQueryParameter(PARAM_EXT_DATA), uri.getQueryParameter(PARAM_SCHEME_FROM), uri.getQueryParameter(PARAM_TOKEN), uri);
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
-    public void parseUserCenterScheme(Uri uri, b bVar) {
+    public void parseUserCenterScheme(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, bVar) == null) && uri != null && isUniScheme(uri) && PATH_USER_CENTER.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, onSchemeParsedCallback) == null) && uri != null && isUniScheme(uri) && PATH_USER_CENTER.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_PORTRAIT;
             hashMap.put(str, uri.getQueryParameter(str));
             String str2 = PARAM_USE_MAIN_STATE;
             hashMap.put(str2, Boolean.valueOf(uri.getBooleanQueryParameter(str2, false)));
             processActivityMissionInfo(uri.getQueryParameter(PARAM_EXT_DATA), uri.getQueryParameter(PARAM_SCHEME_FROM), uri.getQueryParameter(PARAM_TOKEN), uri);
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 
-    public void parseUserCenterScheme2(Uri uri, b bVar) {
+    public void parseUserCenterScheme2(Uri uri, OnSchemeParsedCallback onSchemeParsedCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, uri, bVar) == null) && uri != null && uri.toString().startsWith("tiebaapp://router/portal") && bVar != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, uri, onSchemeParsedCallback) == null) && uri != null && uri.toString().startsWith("tiebaapp://router/portal") && onSchemeParsedCallback != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_PORTRAIT;
             hashMap.put(str, uri.getQueryParameter(str));
             String str2 = PARAM_USE_MAIN_STATE;
             hashMap.put(str2, Boolean.valueOf(uri.getBooleanQueryParameter(str2, false)));
             processActivityMissionInfo(uri.getQueryParameter(PARAM_EXT_DATA), uri.getQueryParameter(PARAM_SCHEME_FROM), uri.getQueryParameter(PARAM_TOKEN), uri);
-            bVar.a(hashMap);
+            onSchemeParsedCallback.onCallBack(hashMap);
         }
     }
 }

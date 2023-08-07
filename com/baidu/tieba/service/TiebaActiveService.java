@@ -7,14 +7,14 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -132,7 +132,7 @@ public class TiebaActiveService extends BdBaseService {
                     this.a = netWork;
                     netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
                     this.a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                    this.a.addPostData("model", aj.g());
+                    this.a.addPostData("model", DeviceInfoHelper.getModel());
                     this.a.addPostData("edition", TbConfig.getVersion());
                     this.a.addPostData("system", Build.VERSION.SDK);
                     this.a.getNetContext().getRequest().mIsBaiduServer = false;
@@ -142,7 +142,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e) {
-                    da5.p().F("active", 1);
+                    SharedPrefHelper.getInstance().putInt("active", 1);
                     BdLog.e(e.getMessage());
                     return null;
                 }
@@ -163,11 +163,11 @@ public class TiebaActiveService extends BdBaseService {
                         this.b.mHandler.removeCallbacks(this.b.mRunnable);
                         this.b.mHandler.postDelayed(this.b.mRunnable, 60000L);
                     } else {
-                        da5.p().F("active", 1);
+                        SharedPrefHelper.getInstance().putInt("active", 1);
                         this.b.stopSelf();
                     }
                 }
-                da5.p().F("active", 2);
+                SharedPrefHelper.getInstance().putInt("active", 2);
                 this.b.stopSelf();
             }
         }
@@ -250,7 +250,7 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToShare(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && str != null && str.length() > 0) {
-            da5.p().J("channel_id", str);
+            SharedPrefHelper.getInstance().putString("channel_id", str);
         }
     }
 
@@ -259,7 +259,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (isActived() && da5.p().q("active", 2) != 1) {
+            if (isActived() && SharedPrefHelper.getInstance().getInt("active", 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();
@@ -271,7 +271,7 @@ public class TiebaActiveService extends BdBaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            return da5.p().w("channel_id", null);
+            return SharedPrefHelper.getInstance().getString("channel_id", null);
         }
         return (String) invokeV.objValue;
     }

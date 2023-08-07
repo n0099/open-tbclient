@@ -1,51 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.CurrencyJumpHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public class ai6 {
+public abstract class ai6<T extends zl6> implements bi6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public int a;
+    public final T[] b;
 
-    public ai6(TbPageContext tbPageContext) {
+    public ai6(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = 0;
+        if (i > 0) {
+            this.b = (T[]) new zl6[i];
+        } else {
+            this.b = (T[]) new zl6[5];
+        }
+        Arrays.fill(this.b, (Object) null);
     }
 
-    public void a(long j) {
+    public synchronized T b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
-            if (j2 <= 0) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a <= 0) {
+                    return null;
+                }
+                T[] tArr = this.b;
+                int i = this.a - 1;
+                this.a = i;
+                T t = tArr[i];
+                this.b[i] = null;
+                return t;
             }
-            if (j2 > 200000000) {
-                yi.R(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f027d, 20L));
-                return;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a < this.b.length) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
-            if (j2 % 1000 != 0) {
-                j2 = ((j2 / 1000) + 1) * 1000;
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Arrays.fill(this.b, (Object) null);
+                this.a = 0;
             }
-            CurrencyJumpHelper.gotoBuyTBeanPage(this.a.getPageActivity(), j2);
+        }
+    }
+
+    public boolean e(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            for (int i = 0; i < this.a; i++) {
+                if (Objects.equals(this.b[i], t)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            synchronized (this) {
+                T[] tArr = this.b;
+                int i = this.a;
+                this.a = i + 1;
+                tArr[i] = t;
+            }
         }
     }
 }

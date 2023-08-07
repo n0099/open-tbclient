@@ -3,7 +3,7 @@ package com.kwad.components.ad.feed.kwai;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
 import com.kwad.sdk.core.config.item.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static d da = new d("feedAdClickGuideSwitch", false);
     public static j db = new j("feedDownloadBtnAnimType", 0);

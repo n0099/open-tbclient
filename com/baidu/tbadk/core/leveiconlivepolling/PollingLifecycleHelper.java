@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.leveiconlivepolling;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.l;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,10 +88,10 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                 } else {
                     PollingModel pollingModel = this.a.e;
                     if (pollingModel != null) {
-                        pollingModel.D0(this.a.b);
+                        pollingModel.getData(this.a.b);
                     }
                 }
-                zg.a().postDelayed(this, this.a.c);
+                SafeHandler.getInst().postDelayed(this, this.a.c);
             }
         }
     }
@@ -113,7 +113,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         this.f = new b(this);
     }
 
-    public final PollingLifecycleHelper l(a loopCallback) {
+    public final PollingLifecycleHelper k(a loopCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, loopCallback)) == null) {
@@ -139,7 +139,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            zg.a().removeCallbacks(this.f);
+            SafeHandler.getInst().removeCallbacks(this.f);
             l.$default$onDestroy(this, owner);
         }
     }
@@ -154,10 +154,10 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) owner;
                 this.e = new PollingModel(tbPageContextSupport.getPageContext(), tbPageContextSupport.getPageContext().getUniqueId());
                 if (this.a > 0) {
-                    zg.a().postDelayed(this.f, this.a);
+                    SafeHandler.getInst().postDelayed(this.f, this.a);
                     return;
                 } else {
-                    zg.a().post(this.f);
+                    SafeHandler.getInst().post(this.f);
                     return;
                 }
             }

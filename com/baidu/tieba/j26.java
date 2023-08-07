@@ -1,151 +1,177 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.multidelmenu.model.MultiDelPostNetModel;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j26 extends h26 {
+public class j26 implements ym, m26, i25 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseArray<BdUniqueId> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, k26> b;
-    public i26 c;
-    public String d;
-    public String e;
+    public Object a;
+    public int b;
 
-    /* loaded from: classes6.dex */
-    public class a extends k9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j26 a;
-
-        public a(j26 j26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j26Var;
+    @Override // com.baidu.tieba.i25
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
         }
-
-        @Override // com.baidu.tieba.k9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof m26)) {
-                this.a.j((m26) obj);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    public j26(i26 i26Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831451, "Lcom/baidu/tieba/j26;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947831451, "Lcom/baidu/tieba/j26;");
+                return;
+            }
+        }
+        c = new SparseArray<>();
+    }
+
+    public j26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i26Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new ArrayMap();
-        this.c = i26Var;
     }
 
-    @Override // com.baidu.tieba.h26
-    public i26 b() {
+    public static List<BdUniqueId> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < c.size(); i++) {
+                arrayList.add(c.valueAt(i));
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i25
+    public AdvertAppInfo B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            if (a() instanceof i25) {
+                return (AdvertAppInfo) a();
+            }
+            return null;
         }
-        return (i26) invokeV.objValue;
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h26
-    public int c() {
+    @Override // com.baidu.tieba.m26
+    public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.size();
+            return this.a;
+        }
+        return invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.h26
-    public void e() {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MultiDelPostNetModel multiDelPostNetModel = new MultiDelPostNetModel();
-            l26 l26Var = new l26();
-            for (k26 k26Var : this.b.values()) {
-                l26Var.d(k26Var.a());
-                l26Var.e(k26Var.c());
-                l26Var.b(this.d);
-                l26Var.c(this.e);
-                l26Var.a(k26Var.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c.get(this.b);
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i25
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!(a() instanceof AdvertAppInfo)) {
+                return -1;
             }
-            multiDelPostNetModel.c0(l26Var);
-            multiDelPostNetModel.setLoadDataCallBack(new a(this));
-            multiDelPostNetModel.loadData();
+            return ((i25) a()).p();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void b(List<Integer> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && c.size() <= 0 && list != null) {
+            for (Integer num : list) {
+                c.put(num.intValue(), BdUniqueId.gen());
+            }
         }
     }
 
-    @Override // com.baidu.tieba.h26
-    public void f(k26 k26Var) {
+    public static int e(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
+        int indexOfValue;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, k26Var) == null) && k26Var != null && !TextUtils.isEmpty(k26Var.b())) {
-            this.b.put(k26Var.b(), k26Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
+            if (c.size() == 0 || (indexOfValue = c.indexOfValue(bdUniqueId)) == -1 || c.size() <= indexOfValue) {
+                return -1;
+            }
+            return c.keyAt(indexOfValue);
+        }
+        return invokeL.intValue;
+    }
+
+    public void f(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            this.a = obj;
         }
     }
 
-    @Override // com.baidu.tieba.h26
-    public void g(String str) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
     }
 
-    @Override // com.baidu.tieba.h26
-    public void h(String str) {
+    @Override // com.baidu.tieba.i25
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || !(a() instanceof i25)) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.h26
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.b.remove(str);
-        }
-    }
-
-    public void j(m26 m26Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, m26Var) == null) && d() != null) {
-            d().h(m26Var);
-        }
+        ((i25) a()).setPosition(i);
     }
 }

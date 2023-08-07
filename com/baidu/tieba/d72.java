@@ -1,219 +1,189 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.graphics.drawable.Animatable;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.e72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
-import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public abstract class d72<V extends SimpleDraweeView, M extends e72> extends i72<V, M> {
+public final class d72 extends g62<SimpleDraweeView, e72> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c72 i;
+    public SwanAppComponentContainerView j;
+    public SimpleDraweeView k;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends BaseControllerListener<ImageInfo> {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ SimpleDraweeView b;
+        public final /* synthetic */ d72 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-907012147, "Lcom/baidu/tieba/d72$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-907012147, "Lcom/baidu/tieba/d72$a;");
+        public a(d72 d72Var, boolean z, SimpleDraweeView simpleDraweeView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d72Var, Boolean.valueOf(z), simpleDraweeView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.BD_FILE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.c = d72Var;
+            this.a = z;
+            this.b = simpleDraweeView;
+        }
+
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFailure(String str, Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
+                super.onFailure(str, th);
+                if (this.a && this.c.i != null) {
+                    this.c.i.a(0, this.b, null);
+                }
             }
-            try {
-                a[PathType.RELATIVE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.NETWORK.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
+                super.onFinalImageSet(str, (String) imageInfo, animatable);
+                if (this.a && this.c.i != null) {
+                    this.c.i.a(1, this.b, null);
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d72(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public d72(@NonNull Context context, @NonNull e72 e72Var) {
+        super(context, e72Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
+            Object[] objArr = {context, e72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (j72) objArr2[1]);
+                super((Context) objArr2[0], (h62) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public static Uri W(@NonNull String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PathType s = dj3.s(str);
-            vb3 M = vb3.M();
-            if (M != null) {
-                str2 = M.b;
-                str3 = M.k0();
-            } else {
-                str2 = null;
-                str3 = null;
-            }
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            int i = a.a[s.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return Uri.parse(str);
-                }
-                File file = new File(str);
-                if (file.exists()) {
-                    return Uri.fromFile(file);
-                }
-                String L = dj3.L(str, M, str3);
-                if (TextUtils.isEmpty(L)) {
-                    return null;
-                }
-                return Uri.fromFile(new File(L));
-            }
-            String M2 = dj3.M(str, str2);
-            if (TextUtils.isEmpty(M2)) {
-                return null;
-            }
-            return Uri.fromFile(new File(M2));
-        }
-        return (Uri) invokeL.objValue;
+        g(4);
+        this.j = new SwanAppComponentContainerView(context);
+        this.k = new SimpleDraweeView(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i72
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull n82 n82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, n82Var) == null) {
-            super.C(v, m, n82Var);
-            if (n82Var.a(9)) {
-                U(v, m);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i72, com.baidu.tieba.k72
+    @Override // com.baidu.tieba.n62
     @NonNull
-    /* renamed from: S */
-    public n82 k(@NonNull M m, @NonNull M m2) {
+    /* renamed from: a0 */
+    public SimpleDraweeView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return this.k;
+        }
+        return (SimpleDraweeView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.n62
+    /* renamed from: b0 */
+    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
+            super.A(simpleDraweeView);
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        }
+    }
+
+    public void e0(c72 c72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, c72Var) == null) {
+            this.i = c72Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.n62
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return this.j;
+        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g62
+    /* renamed from: c0 */
+    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull e72 e72Var, @NonNull q72 q72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, e72Var, q72Var) == null) {
+            super.O(simpleDraweeView, e72Var, q72Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g62, com.baidu.tieba.l62, com.baidu.tieba.n62
+    @NonNull
+    /* renamed from: Y */
+    public q72 k(@NonNull e72 e72Var, @NonNull e72 e72Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            n82 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, e72Var, e72Var2)) == null) {
+            q72 k = super.k(e72Var, e72Var2);
+            if (e72Var.u != e72Var2.u) {
                 k.b(9);
             }
             return k;
         }
-        return (n82) invokeLL.objValue;
+        return (q72) invokeLL.objValue;
     }
 
-    public void U(@NonNull V v, @NonNull M m) {
+    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull e72 e72Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            V(v, m, null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, e72Var)) == null) {
+            return new a(this, e72Var.u, simpleDraweeView);
         }
+        return (BaseControllerListener) invokeLL.objValue;
     }
 
-    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
-        Uri W;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g62
+    /* renamed from: d0 */
+    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull e72 e72Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, e72Var) == null) {
+            super.V(simpleDraweeView, e72Var, Z(simpleDraweeView, e72Var));
         }
-        if (k72.h) {
-            Log.d("Component-SimpleDrawee", "renderImageStyle");
-        }
-        String str = m.t;
-        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
-            return;
-        }
-        v82.i("Component-SimpleDrawee", "Image Uri:" + W);
-        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
-        if (baseControllerListener != null) {
-            oldController.setControllerListener(baseControllerListener);
-        }
-        HashMap hashMap = new HashMap();
-        String g0 = pi2.U().g0();
-        if (!TextUtils.isEmpty(g0)) {
-            hashMap.put("User-Agent", g0);
-        }
-        String b = cp3.b();
-        if (!TextUtils.isEmpty(b) && cp3.c(W.toString())) {
-            hashMap.put("Referer", b);
-        }
-        pw1 C = cv2.C();
-        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
-        C.e(newBuilderWithSource, hashMap);
-        oldController.setImageRequest(newBuilderWithSource.build());
-        AbstractDraweeController build = oldController.build();
-        RoundingParams roundingParams = new RoundingParams();
-        roundingParams.setCornersRadius(m.n);
-        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
-        build2.setRoundingParams(roundingParams);
-        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        v.setHierarchy(build2);
-        v.setController(build);
     }
 }

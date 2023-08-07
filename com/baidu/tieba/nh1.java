@@ -1,74 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class nh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nh1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fi1 a;
+        public final /* synthetic */ nh1 a;
 
-        /* renamed from: com.baidu.tieba.nh1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0417a extends fi1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONArray a;
-            public final /* synthetic */ a b;
-
-            public C0417a(a aVar, JSONArray jSONArray) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONArray};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = jSONArray;
-            }
-
-            @Override // com.baidu.tieba.fi1
-            public void a(int i, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                    fi1 fi1Var = this.b.a;
-                    if (fi1Var != null) {
-                        fi1Var.a(i, str);
-                    }
-                    if (i == 1) {
-                        nh1.e(this.a);
-                    }
-                }
-            }
-        }
-
-        public a(fi1 fi1Var) {
+        public a(nh1 nh1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fi1Var};
+                Object[] objArr = {nh1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -78,86 +39,84 @@ public class nh1 {
                     return;
                 }
             }
-            this.a = fi1Var;
+            this.a = nh1Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONArray a;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a = nh1.a()) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xh1.g("开始重试");
+                if (oh1.n()) {
+                    xh1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                nh1.c(this.a);
+                if (this.a.c < 3) {
+                    xh1.g("重试失败继续重试");
+                    this.a.b.postDelayed(this, this.a.d);
+                    return;
+                }
+                this.a.c = 0;
+                xh1.g("重试三次结束重试");
+                this.a.a.quitSafely();
+                this.a.b.removeCallbacks(this);
+            }
+        }
+    }
+
+    public nh1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            jh1.d(a, new C0417a(this, a));
         }
+        this.d = 10000;
+        this.e = new a(this);
     }
 
-    public static /* synthetic */ JSONArray a() {
-        return c();
-    }
-
-    public static void f(fi1 fi1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, fi1Var) == null) {
-            mi1.a(new a(fi1Var));
-        }
-    }
-
-    public static synchronized JSONArray c() {
+    public static nh1 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (nh1.class) {
-                File file = new File(yi1.a().getFilesDir(), "poly_cashier_commission_record_cache.json");
-                JSONArray jSONArray = null;
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    JSONArray jSONArray2 = new JSONArray(si1.b(file));
-                    try {
-                        file.delete();
-                    } catch (JSONException unused) {
-                    }
-                    jSONArray = jSONArray2;
-                } catch (JSONException unused2) {
-                }
-                return jSONArray;
-            }
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public static void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
-        } catch (JSONException unused) {
-        }
-        JSONArray c = c();
-        if (c == null) {
-            c = new JSONArray();
-        }
-        c.put(jSONObject);
-        if (c.length() > 100) {
-            c.remove(0);
-        }
-        e(c);
-    }
-
-    public static synchronized void e(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) {
-            synchronized (nh1.class) {
-                if (jSONArray != null) {
-                    if (jSONArray.length() != 0) {
-                        si1.d(jSONArray.toString(), new File(yi1.a().getFilesDir(), "poly_cashier_commission_record_cache.json"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (f == null) {
+                synchronized (nh1.class) {
+                    if (f == null) {
+                        f = new nh1();
                     }
                 }
             }
+            return f;
+        }
+        return (nh1) invokeV.objValue;
+    }
+
+    public static /* synthetic */ int c(nh1 nh1Var) {
+        int i = nh1Var.c;
+        nh1Var.c = i + 1;
+        return i;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            xh1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
         }
     }
 }

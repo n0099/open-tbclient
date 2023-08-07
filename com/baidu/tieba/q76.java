@@ -1,18 +1,36 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class q76 {
+public class q76 extends et1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public v15 b;
-    public String c;
+
+    @Override // com.baidu.tieba.iv1
+    @Nullable
+    public String A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iv1
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "flFqXclepWs7RdugAszy9eERL7G5dS0I" : (String) invokeV.objValue;
+    }
 
     public q76() {
         Interceptable interceptable = $ic;
@@ -28,19 +46,13 @@ public class q76 {
         }
     }
 
-    public static q76 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.iv1
+    public boolean N() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            q76 q76Var = new q76();
-            q76Var.a = jSONObject.optInt("download_state");
-            q76Var.b = v15.b(jSONObject.optJSONObject("app_info"));
-            q76Var.c = jSONObject.optString("download_hint");
-            return q76Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return isDebug();
         }
-        return (q76) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

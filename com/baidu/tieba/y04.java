@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public abstract class y04 {
+public class y04 implements g84 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String k = "ug_";
-    public static String l = "ug_business";
-    public static String m = "ctkey";
-    public static String n = "CTK";
-    public static String o = "sid_eid";
-    public static String p = "exps";
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public Context b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public w04 i;
-    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -56,16 +36,10 @@ public abstract class y04 {
         }
     }
 
-    public abstract HashMap<String, String> a();
-
-    public abstract String e();
-
-    public y04(Context context, w04 w04Var) {
+    public y04() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, w04Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,162 +49,48 @@ public abstract class y04 {
                 return;
             }
         }
-        this.a = "https://mobads.baidu.com/cpro/ui/mads.php";
-        this.f = "1";
-        this.g = "2";
-        this.h = "8.800201";
-        this.b = context;
-        this.i = w04Var;
-        if (w04Var != null) {
-            this.c = w04Var.b();
-            this.d = this.i.e();
-            this.e = this.i.g();
-        }
-        if (!o14.o()) {
-            this.j = o14.b();
-        }
+        this.a = "com.baidu.gamenow";
     }
 
-    public final HashMap<String, String> b() {
-        InterceptResult invokeV;
-        String str;
-        JSONArray optJSONArray;
-        JSONObject jSONObject;
+    @Override // com.baidu.tieba.g84
+    public boolean a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                hashMap.put("lw", String.valueOf(Math.round(o14.i(this.b) / o14.d(this.b))));
-                hashMap.put(MultiRatePlayUrlHelper.ABBR_FLV_HEVC_LIST, String.valueOf(Math.round(o14.h(this.b) / o14.d(this.b))));
-                StringBuilder sb = new StringBuilder();
-                sb.append("");
-                sb.append(NetworkUtils.c(false));
-                hashMap.put("net", sb.toString());
-                hashMap.put("n", this.f);
-                hashMap.put(PushConstants.URI_PACKAGE_NAME, this.e);
-                hashMap.put("appid", this.d);
-                hashMap.put(TbConfig.SW_APID, "" + o14.i(this.b));
-                hashMap.put("sh", "" + o14.h(this.b));
-                hashMap.put(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, "" + f());
-                hashMap.put("os", "android");
-                hashMap.put("pa", n04.b().c());
-                hashMap.put("apid", "" + this.c);
-                hashMap.put("chid", "0");
-                String m2 = n04.b().m();
-                if (m2.equals("0")) {
-                    m2 = "";
-                }
-                hashMap.put("imei", m2);
-                hashMap.put("cuid", n04.b().e());
-                hashMap.put("osv", o14.f());
-                hashMap.put("tp", o14.e());
-                hashMap.put("app_ver", o14.l());
-                String c = o14.c(d(), "BAIDUID");
-                if (TextUtils.isEmpty(c) || c.split(":").length <= 0) {
-                    str = "";
-                } else {
-                    str = c.split(":")[0];
-                }
-                hashMap.put("baiduid", str);
-                hashMap.put("p_ver", this.h);
-                hashMap.put("rpt", this.g);
-                hashMap.put("tab", "2");
-                hashMap.put("req_id", "");
-                hashMap.put("scene", n04.b().getScene());
-                String e = e();
-                hashMap.put(p, e);
-                hashMap.put(TiebaStatic.Params.EQID, n04.b().g());
-                JSONObject n2 = n04.b().n();
-                if (n2 != null) {
-                    if (n2.has(l) && (jSONObject = n2.getJSONObject(l)) != null) {
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys != null && keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next)) {
-                                String optString = jSONObject.optString(next, "none");
-                                if (n.equals(next)) {
-                                    hashMap.put(m, optString);
-                                    this.j = optString;
-                                } else {
-                                    hashMap.put(k + next, optString);
-                                }
-                            }
-                        }
-                    }
-                    if (n2.has(o) && (optJSONArray = n2.optJSONArray(o)) != null && optJSONArray.length() > 0) {
-                        StringBuilder sb2 = new StringBuilder();
-                        if (!TextUtils.isEmpty(e)) {
-                            sb2.append(e + ",");
-                        }
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            String optString2 = optJSONArray.optString(i);
-                            if (!TextUtils.isEmpty(optString2)) {
-                                sb2.append(optString2);
-                                if (i >= 0 && i < optJSONArray.length() - 1) {
-                                    sb2.append(",");
-                                }
-                            }
-                        }
-                        if (sb2.length() > 0) {
-                            hashMap.put(p, sb2.toString());
-                        }
-                    }
-                }
-                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.j)) {
-                    hashMap.put(n, this.j);
-                }
-                hashMap.put("con_name", n04.b().a());
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Download)) {
+                return false;
             }
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return n04.b().f(".baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                String m2 = n04.b().m();
-                String e = NetworkUtils.e(this.b);
-                if (TextUtils.isEmpty(m2)) {
-                    return e;
-                }
-                return m2;
-            } catch (Exception unused) {
-                return "";
+            Download download = (Download) obj;
+            if (TextUtils.equals(c14.a, download.getKeyByUser())) {
+                return true;
             }
+            return TextUtils.isEmpty(yn3.d(download.getFromParam()).optString("apk_id"));
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g84
+    public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HashMap<String, String> b = b();
-            b.putAll(a());
-            return l14.a(this.a, b);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        g14 g14Var = new g14((Download) obj);
+        u14.n().f("reallyDownloaded", new t14(), g14Var.m(), g14Var.j(), g14Var.l());
+    }
+
+    @Override // com.baidu.tieba.g84
+    public void c(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        Download download = (Download) obj;
+        g14 g14Var = new g14(download);
+        u14.n().f("statusInstalled", new t14(), download.getKeyByUser(), g14Var.j(), g14Var.l());
+        if (TextUtils.equals(g14Var.m(), this.a)) {
+            mj3.a().putBoolean(b, true);
+            u14.n().p(13, g14Var.m(), g14Var.h(), g14Var.l());
+        }
     }
 }

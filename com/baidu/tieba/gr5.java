@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
+import com.baidu.tbadk.pay.IyyPayResultCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gr5 implements qq5<HistoryEvent> {
+public abstract class gr5 implements IyyPayResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(byte b);
 
     public gr5() {
         Interceptable interceptable = $ic;
@@ -24,21 +24,5 @@ public class gr5 implements qq5<HistoryEvent> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qq5
-    /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
-            if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
-                gp6.a(historyEvent.tid);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -1,31 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class rz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rz4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, JSONObject> a;
+    public ArrayList<FragmentDelegate> a;
+    public Context b;
 
-    public rz4() {
+    public rz4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,64 +32,39 @@ public class rz4 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = new ArrayList<>();
+        this.b = context;
     }
 
-    public static rz4 c() {
+    public void a(FragmentDelegate fragmentDelegate) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, fragmentDelegate) == null) && fragmentDelegate != null && fragmentDelegate.getFragmentTabStructure() != null) {
+            Iterator<FragmentDelegate> it = this.a.iterator();
+            while (it.hasNext()) {
+                FragmentDelegate next = it.next();
+                if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().type == fragmentDelegate.getFragmentTabStructure().type) {
+                    return;
+                }
+            }
+            this.a.add(fragmentDelegate);
+        }
+    }
+
+    public ArrayList<FragmentDelegate> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (rz4.class) {
-                    if (b == null) {
-                        b = new rz4();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (rz4) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void a(String str, String str2, String str3, String str4) {
-        HashMap<String, JSONObject> hashMap;
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) && StringUtils.isNotNull(str) && (hashMap = this.a) != null && hashMap.get(str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("apkName", str2);
-                jSONObject.put("source", str3 + "");
-                jSONObject.put("apkUrl", str4);
-                this.a.put(str, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-    }
-
-    public void b(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            StatisticItem param = new StatisticItem(str).param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
-            if (StringUtils.isNotNull(str4)) {
-                param.param(TiebaStatic.Params.OBJ_URL, str4);
-            }
-            TiebaStatic.log(param);
-        }
-    }
-
-    public void d(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
-            String g = un5.g(intent);
-            HashMap<String, JSONObject> hashMap = this.a;
-            if (hashMap != null && hashMap.get(g) != null) {
-                JSONObject jSONObject = this.a.get(g);
-                if (jSONObject != null) {
-                    b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, jSONObject.optString("source"), jSONObject.optString("apkName"), jSONObject.optString("apkUrl"));
-                }
-                this.a.remove(g);
-            }
-        }
+        return (Context) invokeV.objValue;
     }
 }

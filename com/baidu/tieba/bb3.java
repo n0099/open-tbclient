@@ -1,271 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.BdTimePicker;
-import com.baidu.tieba.ab3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.tieba.cb3;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class bb3 extends ab3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public BdTimePicker c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public Date h;
-    public Date i;
+public interface bb3 {
+    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
+    void A(cb3.a aVar);
 
-    /* loaded from: classes5.dex */
-    public static class a extends ab3.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Date e;
-        public Date f;
-        public Date g;
-        public String h;
-        public boolean i;
+    id3 B();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    boolean E();
 
-        @Override // com.baidu.tieba.ab3.a
-        public ab3 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                bb3 bb3Var = (bb3) super.a();
-                bb3Var.j(this.h);
-                bb3Var.h(this.i);
-                Date date = this.g;
-                if (date != null) {
-                    bb3Var.k(date.getHours());
-                    bb3Var.l(this.g.getMinutes());
-                }
-                Date date2 = this.e;
-                if (date2 != null) {
-                    bb3Var.m(date2);
-                }
-                Date date3 = this.f;
-                if (date3 != null) {
-                    bb3Var.i(date3);
-                }
-                return bb3Var;
-            }
-            return (ab3) invokeV.objValue;
-        }
+    void G();
 
-        @Override // com.baidu.tieba.ab3.a
-        public ab3 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new bb3(context);
-            }
-            return (ab3) invokeL.objValue;
-        }
+    String getAppId();
 
-        public a l(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.i = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
+    int k();
 
-        public a m(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
+    void l(Bundle bundle, String str);
 
-        public a n(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.h = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
+    SwanAppCores m();
 
-        public a o(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.g = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
+    String n(String... strArr);
 
-        public a p(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.e = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
+    void o(rp3<cb3.a> rp3Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bb3(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001bc);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = false;
-    }
+    void p(String str);
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdTimePicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams.gravity = 17;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setScrollCycle(true);
-            this.c.setStartDate(this.h);
-            this.c.setmEndDate(this.i);
-            this.c.setHour(this.d);
-            this.c.setMinute(this.e);
-            this.c.l();
-            this.c.setDisabled(this.g);
-        }
-    }
+    ya3 q();
 
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.getHour();
-        }
-        return invokeV.intValue;
-    }
+    void r(SwanAppActivity swanAppActivity);
 
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.getMinute();
-        }
-        return invokeV.intValue;
-    }
+    void s();
 
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
-        }
-    }
+    void t(SwanAppActivity swanAppActivity);
 
-    public void i(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, date) == null) {
-            this.i = date;
-        }
-    }
+    void u(rp3<cb3.a> rp3Var);
 
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
+    void v(String str, Bundle bundle);
 
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
-        }
-    }
+    SwanAppActivity w();
 
-    public void m(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
-            this.h = date;
-        }
-    }
+    bs1 x();
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            if (this.f) {
-                getWindow().addFlags(4718592);
-            }
-            e();
-            b().j(this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.ua3, android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            BdTimePicker bdTimePicker = this.c;
-            if (bdTimePicker != null) {
-                if (this.d != bdTimePicker.getHour()) {
-                    this.c.setHour(this.d);
-                }
-                if (this.e != this.c.getMinute()) {
-                    this.c.setMinute(this.e);
-                }
-            }
-            super.show();
-        }
-    }
+    t73 y();
 }

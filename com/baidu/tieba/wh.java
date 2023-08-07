@@ -1,96 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class wh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<qh> a(nh nhVar, boolean z) {
-        InterceptResult invokeLZ;
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, nhVar, z)) == null) {
-            ArrayList<qh> arrayList = new ArrayList<>();
-            File[] b = oh.b(nhVar.E(), z);
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith(nhVar.h()) && name.contains("Uploading")) {
-                            long length = file.length();
-                            if (z && file.getPath().contains("/notUpload")) {
-                                name = "notUpload/" + file.getName();
-                            }
-                            arrayList.add(new qh(name, length, file.lastModified()));
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!BdUtilHelper.deviceDataInited) {
+                BdUtilHelper.initDeviceData(context);
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            ArrayList<qh> arrayList2 = new ArrayList<>();
-            ArrayList arrayList3 = new ArrayList();
-            if (nhVar.h() != "stat") {
-                Iterator<qh> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    qh next = it.next();
-                    if (next != null) {
-                        long j = next.c;
-                        if (j != 0 && j + 604800000 < currentTimeMillis) {
-                            arrayList3.add(next.b);
-                        } else {
-                            arrayList2.add(next);
-                        }
-                    }
-                }
-                arrayList = arrayList2;
-            }
-            if (arrayList3.size() > 0) {
-                oh.a(arrayList3, nhVar.E());
-            }
-            return arrayList;
+            return BdUtilHelper.displayMetricsWidthPixels;
         }
-        return (ArrayList) invokeLZ.objValue;
-    }
-
-    public static BdUploadingLogInfo b(nh nhVar, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, nhVar, z)) == null) {
-            ArrayList<qh> a = a(nhVar, z);
-            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), nhVar.E(), nhVar.A());
-            if (a != null && a.size() > 0) {
-                if (a.size() > 1) {
-                    Collections.sort(a, new rh());
-                }
-                ArrayList arrayList = new ArrayList();
-                int size = a.size();
-                long j = 0;
-                for (int i = 0; i < size; i++) {
-                    qh qhVar = a.get(i);
-                    j += qhVar.a;
-                    arrayList.add(qhVar);
-                    if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
-                        bdUploadingLogInfo.add(arrayList);
-                        arrayList = new ArrayList();
-                        j = 0;
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    bdUploadingLogInfo.add(arrayList);
-                }
-            }
-            return bdUploadingLogInfo;
-        }
-        return (BdUploadingLogInfo) invokeLZ.objValue;
+        return invokeL.intValue;
     }
 }

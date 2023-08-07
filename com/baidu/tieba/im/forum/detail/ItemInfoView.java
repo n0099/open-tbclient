@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,9 +77,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f2, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f5, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09110e);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091121);
         }
     }
 
@@ -88,12 +88,12 @@ public class ItemInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
             boolean z = true;
             SkinManager.setViewTextColor(this.a, R.color.common_color_10177, 1);
-            q05 layoutMode = forumDetailActivity.getLayoutMode();
+            BDLayoutMode layoutMode = forumDetailActivity.getLayoutMode();
             if (i != 4) {
                 z = false;
             }
-            layoutMode.l(z);
-            forumDetailActivity.getLayoutMode().k(this);
+            layoutMode.setNightMode(z);
+            forumDetailActivity.getLayoutMode().onModeChanged(this);
         }
     }
 
@@ -129,10 +129,10 @@ public class ItemInfoView extends LinearLayout {
         List<PbContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
-            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !xi.isEmpty(recommendForumInfo.slogan))) {
+            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !bi.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0783));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0784));
             }
             setVisibility(0);
         }

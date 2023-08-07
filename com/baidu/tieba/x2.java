@@ -74,7 +74,7 @@ public class x2 extends t0 implements l2 {
     public final s2 z;
 
     @Override // com.baidu.tieba.l2
-    public void s(boolean z) {
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
         }
@@ -444,7 +444,7 @@ public class x2 extends t0 implements l2 {
     }
 
     @Override // com.baidu.tieba.l2
-    public void T0() {
+    public void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();
@@ -452,9 +452,9 @@ public class x2 extends t0 implements l2 {
     }
 
     @Override // com.baidu.tieba.l2
-    public void c0() {
+    public void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             k();
             Arrays.fill(this.q, -1);
             Arrays.fill(this.o, false);
@@ -482,7 +482,7 @@ public class x2 extends t0 implements l2 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int length = this.q.length;
             for (int i = 0; i < length; i++) {
                 if (this.q[i] == -1) {
@@ -558,10 +558,31 @@ public class x2 extends t0 implements l2 {
         }
     }
 
-    @Override // com.baidu.tieba.l2
-    public void e1() {
+    public int f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            int length = this.q.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (this.q[i2] == i) {
+                    return i2;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i3 = 0; i3 < length; i3++) {
+                sb.append(i3 + ":" + this.q[i3] + " ");
+            }
+            Application application = x0.a;
+            application.log("AndroidInput", "Pointer ID lookup failed: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb.toString());
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.l2
+    public void f1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
                 if (this.F) {
                     this.F = false;
@@ -721,27 +742,6 @@ public class x2 extends t0 implements l2 {
             }
             x0.a.log("AndroidInput", "sensor listener setup");
         }
-    }
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            int length = this.q.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (this.q[i2] == i) {
-                    return i2;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            for (int i3 = 0; i3 < length; i3++) {
-                sb.append(i3 + ":" + this.q[i3] + " ");
-            }
-            Application application = x0.a;
-            application.log("AndroidInput", "Pointer ID lookup failed: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb.toString());
-            return -1;
-        }
-        return invokeI.intValue;
     }
 
     public final float[] h(float[] fArr) {

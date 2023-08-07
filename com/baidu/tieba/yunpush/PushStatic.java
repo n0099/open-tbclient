@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.core.app.NotificationManagerCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.SocketMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.pushservice.PushManager;
@@ -12,14 +13,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.mb;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.w0b;
-import com.baidu.tieba.zu6;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.fs6;
+import com.baidu.tieba.zza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class PushStatic {
     public static CustomMessageListener b;
     public static CustomMessageListener c;
     public static CustomMessageListener d;
-    public static mb e;
+    public static SocketMessageListener e;
     public static CustomMessageListener f;
     public static CustomMessageListener g;
     public static CustomMessageListener h;
@@ -47,11 +47,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0551a implements Runnable {
+        public class RunnableC0549a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0551a(a aVar) {
+            public RunnableC0549a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class PushStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            zu6.a(new RunnableC0551a(this), "processPushBySwitch", 3);
+            fs6.a(new RunnableC0549a(this), "processPushBySwitch", 3);
         }
     }
 
@@ -311,7 +311,7 @@ public class PushStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class f extends mb {
+    public static class f extends SocketMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -522,7 +522,7 @@ public class PushStatic {
         }
         boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
         if (TbadkCoreApplication.isLogin()) {
-            z = pf5.d().l();
+            z = de5.d().l();
         } else {
             z = false;
         }
@@ -536,7 +536,7 @@ public class PushStatic {
     public static void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            YunPushLog.getInstance().c(BaiduYunPushMessageReceiver.TAG, "startPushSdk");
+            YunPushLog.getInstance().i(BaiduYunPushMessageReceiver.TAG, "startPushSdk");
             PushManager.enableHuaweiProxy(context, true);
             PushManager.enableXiaomiProxy(context, true, "2882303761517130520", "5651713089520");
             if (YunPushOppoproxyEnableSwitch.isOn()) {
@@ -545,7 +545,7 @@ public class PushStatic {
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
             PushManager.enableHonorProxy(context, true);
-            PushManager.startWork(context, 0, w0b.a(context, "api_key"));
+            PushManager.startWork(context, 0, zza.a(context, "api_key"));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }
@@ -554,9 +554,9 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            YunPushLog.getInstance().b(BaiduYunPushMessageReceiver.TAG, "stopPushSdk");
-            da5 p = da5.p();
-            if (p.l(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+            YunPushLog.getInstance().e(BaiduYunPushMessageReceiver.TAG, "stopPushSdk");
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            if (sharedPrefHelper.getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
         }
@@ -592,7 +592,7 @@ public class PushStatic {
         if ((interceptable != null && interceptable.invokeV(65550, null) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !TbadkCoreApplication.isLogin()) {
             return;
         }
-        boolean n = pf5.d().n();
+        boolean n = de5.d().n();
         PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), n ? 1 : 0, new b());
     }
 }

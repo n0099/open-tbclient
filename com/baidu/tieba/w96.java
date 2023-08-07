@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.advert.sdk.uad.UadDonwloadProxy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w96 extends pl1<bn0> {
+public class w96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<a> a;
 
     /* loaded from: classes8.dex */
-    public class a implements bn0 {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,17 +34,13 @@ public class w96 extends pl1<bn0> {
             }
         }
 
-        @Override // com.baidu.tieba.bn0
-        public IAdDownloader a() {
-            InterceptResult invokeV;
+        public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (so0.b().a().a("tb_new_downloader_switch", 0) == 1) {
-                    return new UadDonwloadProxy();
-                }
-                return new dn0();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
             }
-            return (IAdDownloader) invokeV.objValue;
+            jSONObject.optString("user_id");
+            jSONObject.optString("portrait");
         }
     }
 
@@ -62,15 +58,30 @@ public class w96 extends pl1<bn0> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public bn0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (bn0) invokeV.objValue;
+        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("has_follow_live");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.a = new ArrayList<>(optJSONArray.length());
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null) {
+                        a aVar = new a(this);
+                        aVar.a(optJSONObject2);
+                        this.a.add(aVar);
+                    }
+                }
+            }
+        }
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
+        if (optJSONObject3 != null) {
+            optJSONObject3.optString("url");
+        }
     }
 }

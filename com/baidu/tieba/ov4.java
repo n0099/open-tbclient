@@ -1,147 +1,150 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class ov4 implements nv4 {
+public class ov4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ov4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) && strArr != null && strArr.length > i && map != null && sb != null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            while (i < strArr.length) {
-                String str = "@" + strArr[i];
-                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        Map.Entry<String, String> next = it.next();
-                        if (str.startsWith(next.getKey())) {
-                            String replace = str.replace(next.getKey(), "");
-                            if ("@p".equals(next.getKey())) {
-                                String d = d(replace);
-                                if (!StringUtils.isNull(d)) {
-                                    linkedHashMap.put(next.getValue(), d);
-                                }
-                            } else {
-                                linkedHashMap.put(next.getValue(), replace);
-                            }
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getTag() != null && (view2.getTag() instanceof mv4)) {
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    BdUtilHelper.showToast(view2.getContext(), (int) R.string.no_network_guide);
+                    return;
+                }
+                mv4 mv4Var = (mv4) view2.getTag();
+                AlaUserInfoData alaUserInfoData = mv4Var.a;
+                if (alaUserInfoData == null) {
+                    return;
+                }
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                long j = alaUserInfoData.anchor_live;
+                if (j != 0) {
+                    alaLiveInfoCoreData.liveID = j;
+                } else {
+                    long j2 = alaUserInfoData.enter_live;
+                    if (j2 != 0) {
+                        alaLiveInfoCoreData.liveID = j2;
+                    } else {
+                        long j3 = alaUserInfoData.live_id;
+                        if (j3 != 0) {
+                            alaLiveInfoCoreData.liveID = j3;
+                        } else {
+                            return;
                         }
                     }
                 }
-                i++;
-            }
-            for (Map.Entry entry : linkedHashMap.entrySet()) {
-                if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
-                    String str2 = "?";
-                    if (sb.toString().contains("?")) {
-                        str2 = "&";
-                    }
-                    sb.append(str2);
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                }
-            }
-        }
-    }
-
-    public final String d(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 81) {
-                if (hashCode != 104) {
-                    if (hashCode != 112) {
-                        if (hashCode != 119) {
-                            if (hashCode != 122) {
-                                if (hashCode != 98) {
-                                    if (hashCode == 99 && str.equals("c")) {
-                                        c = 1;
-                                    }
-                                    c = 65535;
-                                } else {
-                                    if (str.equals("b")) {
-                                        c = 2;
-                                    }
-                                    c = 65535;
+                int i = mv4Var.b;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (i != 1) {
+                    if (i != 2 && i != 3 && i != 4) {
+                        if (i != 5) {
+                            if (i == 7) {
+                                if (alaUserInfoData.ala_id != 0) {
+                                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
                                 }
-                            } else {
-                                if (str.equals("z")) {
-                                    c = 5;
+                                TiebaStatic.log(new StatisticItem("c12542"));
+                                if (mv4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                    BdToast.makeText(view2.getContext(), String.format(view2.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex)).setIcon(BdToast.ToastIcon.FAILURE).show();
+                                    return;
                                 }
-                                c = 65535;
                             }
                         } else {
-                            if (str.equals("w")) {
-                                c = 0;
-                            }
-                            c = 65535;
+                            TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
                         }
                     } else {
-                        if (str.equals("p")) {
-                            c = 4;
-                        }
-                        c = 65535;
+                        TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
                     }
                 } else {
-                    if (str.equals("h")) {
-                        c = 3;
-                    }
-                    c = 65535;
+                    TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
                 }
-            } else {
-                if (str.equals("Q")) {
-                    c = 6;
+                int i2 = mv4Var.b;
+                if (i2 == 5) {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION;
+                } else if (i2 == 7) {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY;
+                } else {
+                    str = AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT;
                 }
-                c = 65535;
-            }
-            switch (c) {
-                case 0:
-                    return PbModel.WISE;
-                case 1:
-                    return ThirdPartyUtil.TYPE_WEIXIN;
-                case 2:
-                    return "shoubai";
-                case 3:
-                    return "tbShareH5";
-                case 4:
-                    return "pc";
-                case 5:
-                    return "zhongjianye";
-                case 6:
-                    return com.tencent.connect.common.Constants.SOURCE_QQ;
-                default:
-                    return null;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, str, null, false, "")));
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045692, "Lcom/baidu/tieba/ov4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948045692, "Lcom/baidu/tieba/ov4;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public static TextView a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
+            }
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
+        }
+        return (TextView) invokeL.objValue;
     }
 }

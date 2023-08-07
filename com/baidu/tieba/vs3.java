@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vs3 {
+public class vs3 extends ActivityDelegation implements kr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public vs3() {
         Interceptable interceptable = $ic;
@@ -21,6 +25,38 @@ public class vs3 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ws3.b();
+            finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
+            intent.putExtras(this.mParams);
+            getAgent().startActivity(intent);
+            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100b5, 0);
+            ws3.c(this);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kr1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mResult.putInt("loginStatusCode", i);
+            c();
         }
     }
 }

@@ -1,42 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Rect;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
-import com.baidu.tieba.rv8;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.tencent.open.SocialConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class vx8<T, V extends View, M extends rv8<T>> implements lc7<PersonalMsgContainer<T, V>, M> {
+public class vx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public String a;
+    public Rect b;
+    public String c;
+    public Rect d;
 
-    public abstract void d(V v, M m);
-
-    public void f(ViewGroup container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-        }
-    }
-
-    public abstract V g(ViewGroup viewGroup);
-
-    public vx8(String name) {
+    public vx8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,76 +35,116 @@ public abstract class vx8<T, V extends View, M extends rv8<T>> implements lc7<Pe
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(name, "name");
-        this.a = name;
+        this.a = "";
+        this.b = new Rect(0, 0, 0, 0);
+        this.c = "";
+        this.d = new Rect(0, 0, 0, 0);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: e */
-    public void b(PersonalMsgContainer<T, V> view2, M data) {
+    public vx8(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(data, "data");
-            view2.h(data);
-            d(view2.getChild(), data);
-            f(view2.getChildContainer());
-        }
-    }
-
-    @Override // com.baidu.tieba.lc7
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: h */
-    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            if (i()) {
-                Context context = parent.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
-                personalMsgContainer.e(g(parent));
-                return personalMsgContainer;
-            } else if (j()) {
-                Context context2 = parent.getContext();
-                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
-                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
-                personalMsgContainer2.e(g(parent));
-                return personalMsgContainer2;
-            } else {
-                throw new IllegalArgumentException("unknown template: " + c());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (PersonalMsgContainer) invokeL.objValue;
+        this.a = jSONObject.optString("pic_url");
+        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
+            if (optJSONArray == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
+                if (jSONObject == null) {
+                    return;
+                }
+                this.c = jSONObject.optString("pic_url");
+                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public static vx8 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new vx8();
+            }
+            try {
+                return new vx8(new JSONObject(str));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return new vx8();
+            }
+        }
+        return (vx8) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !this.d.isEmpty()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !this.b.isEmpty()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!c()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("pic_url", this.a);
+                jSONObject.put("rect_left", this.b.left);
+                jSONObject.put("rect_top", this.b.top);
+                jSONObject.put("rect_right", this.b.right);
+                jSONObject.put("rect_bottom", this.b.bottom);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,47 +1,50 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.MultipartBody;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.common.internal.Sets;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import rx.schedulers.Schedulers;
 /* loaded from: classes7.dex */
-public class qa4 extends ba4 {
+public class qa4 extends y63 implements v73 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
+    public static final Set<String> h;
+    public static long i;
     public transient /* synthetic */ FieldHolder $fh;
-    public long h;
+    public int f;
 
     /* loaded from: classes7.dex */
-    public class a implements Callback {
+    public class a implements l1c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ca4 b;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ Bundle b;
         public final /* synthetic */ qa4 c;
 
-        public a(qa4 qa4Var, String str, ca4 ca4Var) {
+        public a(qa4 qa4Var, boolean z, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qa4Var, str, ca4Var};
+                Object[] objArr = {qa4Var, Boolean.valueOf(z), bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,268 +55,120 @@ public class qa4 extends ba4 {
                 }
             }
             this.c = qa4Var;
-            this.a = str;
-            this.b = ca4Var;
+            this.a = z;
+            this.b = bundle;
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.l1c
+        public void call(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.b.cancelTag(this.c.c);
-                this.c.W(this.a, 0, iOException.getMessage());
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:21:0x007c  */
-        @Override // okhttp3.Callback
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onResponse(Call call, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    try {
-                        JSEvent jSEvent = new JSEvent("headersReceived");
-                        jSEvent.data = new oa4(this.c.I(response.headers()));
-                        this.c.dispatchEvent(jSEvent);
-                    } catch (JSONException e) {
-                        try {
-                            if (ba4.e) {
-                                e.printStackTrace();
-                            }
-                        } catch (JSONException e2) {
-                            e = e2;
-                            if (ba4.e) {
-                                Log.d("UploadFileTask", Log.getStackTraceString(e));
-                            }
-                            this.c.C(this.a, -1, e.getMessage());
-                        }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.a) {
+                    if (qa4.g) {
+                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + qa4.i);
                     }
-                    pa4 pa4Var = new pa4();
-                    pa4Var.statusCode = response.code();
-                    pa4Var.header = this.c.I(response.headers());
-                    pa4Var.data = this.c.X(response.body());
-                    if (ba4.e) {
-                        Log.d("UploadFileTask", "onResponse = " + pa4Var.data);
-                    }
-                    this.c.D(pa4Var);
-                } catch (IOException e3) {
-                    e = e3;
-                    if (ba4.e) {
-                    }
-                    this.c.C(this.a, -1, e.getMessage());
+                    z73.k().c(this.c, qa4.i);
+                }
+                ij2 d = kj2.c().d();
+                if (d != null) {
+                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+                    tk2 l = tk2.l();
+                    l.i(6);
+                    d.h(singletonList, true, l.k());
+                }
+                if (qa4.g) {
+                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
+                }
+                if (!this.a) {
+                    this.c.h();
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements p33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ qa4 c;
-
-        public b(qa4 qa4Var, long j, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948085093, "Lcom/baidu/tieba/qa4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qa4Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = qa4Var;
-            this.a = j;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.p33
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeJ(1048576, this, j) != null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948085093, "Lcom/baidu/tieba/qa4;");
                 return;
             }
-            this.c.V(this.a, j, this.b);
+        }
+        g = ir1.a;
+        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
+        i = TimeUnit.SECONDS.toMillis(10L);
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String string = this.a.getString("scheme");
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
+            }
+            if (!TextUtils.isEmpty(string)) {
+                SchemeRouter.invoke(AppRuntime.getAppContext(), string);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qa4(fj2 fj2Var, c42 c42Var) {
-        super(fj2Var, c42Var);
+    public qa4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fj2Var, c42Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((fj2) objArr2[0], (c42) objArr2[1]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = 0L;
-        this.a = 3;
+        this.f = SwanAppProcessInfo.UNKNOWN.index;
     }
 
-    public final Object X(ResponseBody responseBody) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v73
+    public void timeout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, responseBody)) == null) {
-            if (responseBody == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "timeout");
             }
-            String string = responseBody.string();
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                return new JSONObject(string);
-            } catch (JSONException unused) {
-                return string;
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public static void Y(MultipartBody.Builder builder, c42 c42Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, builder, c42Var) == null) && builder != null && c42Var != null && c42Var.k() >= 1) {
-            for (String str : c42Var.j()) {
-                if (!TextUtils.isEmpty(str)) {
-                    String H = c42Var.H(str);
-                    if (!TextUtils.isEmpty(H)) {
-                        builder.addFormDataPart(str, H);
-                    }
-                }
-            }
+            h();
         }
     }
 
-    @Override // com.baidu.tieba.ba4
-    public void C(String str, int i, String str2) {
+    @Override // com.baidu.tieba.v73
+    public void a(String str, x73 x73Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            super.C(str, i, str2);
-            pc4.k(str, i, str2, SwanAppNetworkUtils.i(null));
-        }
-    }
-
-    public final Request T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String z = z();
-            if (!TextUtils.isEmpty(z)) {
-                String B = this.b.B("filePath");
-                if (TextUtils.isEmpty(B)) {
-                    C(z, -1, "uploadFile:filePath is empty or invalid");
-                    return null;
-                } else if (zr4.x(B)) {
-                    C(z, -1, "uploadFile:filePath is empty or invalid");
-                    return null;
-                } else if (this.b.b("header") && this.b.getType("header") != 9) {
-                    C(z, -1, "uploadFile:header is invalid");
-                    return null;
-                } else {
-                    File U = U(z, B);
-                    if (U != null) {
-                        c42 w = this.b.w("formData");
-                        Request.Builder builder = new Request.Builder();
-                        z23 z23Var = new z23(U, IMAudioTransRequest.CONTENT_TYPE, new b(this, U.length(), z));
-                        MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                        Y(type, w);
-                        type.addFormDataPart(this.b.B("name"), U.getName(), z23Var);
-                        MultipartBody build = type.build();
-                        G(builder, this.b.w("header"), new HashMap(), false);
-                        return builder.url(z).tag(this.c).post(build).build();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, x73Var) == null) && x73Var.b.index == this.f && h.contains(str)) {
+            z73.k().h(this);
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
             }
-            return null;
+            h();
         }
-        return (Request) invokeV.objValue;
     }
 
-    public final File U(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.y63
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            String a2 = ix2.T().G().a(str2);
-            if (!TextUtils.isEmpty(a2) && !TextUtils.equals(str2, a2)) {
-                File file = new File(a2);
-                if (file.exists() && file.isFile()) {
-                    if (file.length() > 26214400) {
-                        C(str, -1, "request:file size > 25 MB");
-                        return null;
-                    } else if (TextUtils.isEmpty(this.b.B("name"))) {
-                        C(str, -1, "uploadFile:name is invalid");
-                        return null;
-                    } else if (this.b.b("formData") && this.b.getType("formData") != 9) {
-                        C(str, -1, "uploadFile:formData is invalid");
-                        return null;
-                    } else {
-                        return file;
-                    }
-                }
-                C(str, -1, "request:file not exists or not file");
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
+            this.f = i2;
+            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
+                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            C(str, -1, "uploadFile:filePath is empty or invalid");
-            return null;
+            x0c.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
         }
-        return (File) invokeLL.objValue;
-    }
-
-    public final void V(long j, long j2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) && j > 0 && j2 <= j && j2 != 0) {
-            int floor = (int) Math.floor((100 * j2) / j);
-            if (System.currentTimeMillis() - this.h > 500 || floor == 100) {
-                if (floor <= 100) {
-                    dispatchEvent(new JSEvent("progressUpdate", new ra4(floor, j, j2)));
-                }
-                this.h = System.currentTimeMillis();
-            }
-        }
-    }
-
-    public final void W(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
-            if (ba4.e) {
-                Log.d("UploadFileTask", "onFailure: " + str2);
-            }
-            C(str, i, ("Socket is closed".equalsIgnoreCase(str2) || "Canceled".equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
-        }
-    }
-
-    public void start() {
-        Request T2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.b == null || (T2 = T()) == null) {
-            return;
-        }
-        if (vb3.M() == null) {
-            C("", -1, "request:swanApp is null");
-            return;
-        }
-        String httpUrl = T2.url().toString();
-        ca4 ca4Var = (ca4) vb3.M().i0();
-        ca4Var.call(T2, new a(this, httpUrl, ca4Var));
     }
 }

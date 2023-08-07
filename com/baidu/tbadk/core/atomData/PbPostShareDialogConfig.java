@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.mf9;
+import com.baidu.tieba.fe9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mf9 mPbPostData;
+    public fe9 mPbPostData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, mf9 mf9Var) {
+    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, fe9 fe9Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), mf9Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), fe9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class PbPostShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mPbPostData = mf9Var;
+        this.mPbPostData = fe9Var;
     }
 
-    public mf9 getPbPostData() {
+    public fe9 getPbPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPbPostData;
         }
-        return (mf9) invokeV.objValue;
+        return (fe9) invokeV.objValue;
     }
 }

@@ -42,7 +42,7 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

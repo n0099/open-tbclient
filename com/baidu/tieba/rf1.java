@@ -1,37 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.searchbox.download.lightdownload.LightFileUtils;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rf1 {
+public class rf1 implements li1 {
     public static /* synthetic */ Interceptable $ic;
+    public static rf1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
-    public sf1 b;
-    public tf1 c;
+    public b a;
+    public boolean b;
 
-    public rf1(BundleInfo bundleInfo) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rf1 this$0;
+
+        public b(rf1 rf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = rf1Var;
+        }
+
+        public /* synthetic */ b(rf1 rf1Var, a aVar) {
+            this(rf1Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
+                this.this$0.b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.g.startActivity(intent2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public rf1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,171 +85,63 @@ public class rf1 {
                 return;
             }
         }
-        this.c = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
-            return;
-        }
-        mf1.j().s(bundleInfo);
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
+        this.b = false;
     }
 
-    public static rf1 b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            rf1 rf1Var = new rf1(bundleInfo);
-            rf1Var.d();
-            return rf1Var;
-        }
-        return (rf1) invokeL.objValue;
-    }
-
-    public final boolean a(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
-                return false;
-            }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            if (!ag1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ClassLoader c() {
+    public static rf1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.b = qf1.d().b(this.a, ContextHolder.getApplicationContext());
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    if (!g()) {
-                        throw new InitException(20, "resources init error");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (rf1.class) {
+                    if (c == null) {
+                        c = new rf1();
                     }
-                    return;
-                } else if (f()) {
-                    return;
-                } else {
-                    throw new InitException(20, "resources init error");
                 }
             }
-            throw new InitException(16, "class loader init error");
+            return c;
+        }
+        return (rf1) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
         }
     }
 
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = bf1.c().a();
-                    Resources b = bf1.c().b();
-                    Resources[] d = bf1.c().d();
-                    vf1.a().b(applicationContext);
-                    String absolutePath = ag1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
-                    if (d != null) {
-                        for (Resources resources : d) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
+            try {
+                PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    public final synchronized boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.li1
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = ag1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                String str = applicationContext.getApplicationInfo().sourceDir;
-                try {
-                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
-                    Resources a = bf1.c().a();
-                    this.c = new tf1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
-                } catch (Exception e) {
-                    if (zf1.a()) {
-                        Log.e("Runtime", LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE, e);
-                        return false;
-                    }
-                    return false;
-                }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            xh1.b("WECHAT signWechatAutoRenew appId=" + str);
+            yf1 a2 = of1.a();
+            if (a2 == null) {
+                return;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return this.c;
-                }
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = ag1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
-                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
-                        if (this.c != null) {
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
-                                this.c = new tf1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                            }
-                        } else {
-                            this.c = new tf1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                        }
-                    }
-                    return this.c;
-                }
-                throw new InitException(21, "resources hook error");
+            if (!a2.b(activity)) {
+                vi1.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
+                return;
             }
+            this.b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
         }
-        return (Resources) invokeL.objValue;
     }
 }

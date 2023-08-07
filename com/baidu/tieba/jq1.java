@@ -1,39 +1,52 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.api.CallBack;
 /* loaded from: classes6.dex */
-public abstract class jq1<T> implements CallBack<T> {
+public class jq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
 
-    public jq1() {
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = oq1.b(bArr, bArr2)) != null) {
+                        if (bArr3.length > 0) {
+                            return bArr3;
+                        }
+                    }
+                } catch (Throwable th) {
+                    hq1.d(th);
+                }
             }
+            return bArr3;
         }
-        this.a = System.currentTimeMillis();
+        return (byte[]) invokeLL.objValue;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = oq1.c(bArr, bArr2)) != null) {
+                        if (bArr3.length > 0) {
+                            return bArr3;
+                        }
+                    }
+                } catch (Throwable th) {
+                    hq1.d(th);
+                }
+            }
+            return bArr3;
         }
-        return invokeV.longValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

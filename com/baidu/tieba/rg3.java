@@ -1,55 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class rg3 {
+public final class rg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948120619, "Lcom/baidu/tieba/rg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948120619, "Lcom/baidu/tieba/rg3;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-        a = -1;
-    }
-
-    public static int a() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a < 0) {
-                cv2.g0().getSwitch("swan_app_request_opendata_retry", 0);
-                a = 0;
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return fu2.e0().c();
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a() > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
         }
         return invokeV.booleanValue;
+    }
+
+    public static tg3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!fu2.w0().d()) {
+                return yg2.c(false);
+            }
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
+        }
+        return (tg3) invokeV.objValue;
     }
 }

@@ -29,11 +29,11 @@ public class AlaUtilHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(65537, null, tbImageView, str, z) == null) && tbImageView != null && !TextUtils.isEmpty(str)) {
             if (str.toLowerCase().startsWith("http")) {
-                tbImageView.N(str, 10, false);
+                tbImageView.startLoad(str, 10, false);
             } else if (z) {
-                tbImageView.N(str, 25, false);
+                tbImageView.startLoad(str, 25, false);
             } else {
-                tbImageView.N(str, 12, false);
+                tbImageView.startLoad(str, 12, false);
             }
         }
     }
@@ -42,11 +42,11 @@ public class AlaUtilHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbImageView, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && tbImageView != null && !TextUtils.isEmpty(str)) {
             if (z2 && str.toLowerCase().startsWith("http")) {
-                tbImageView.N(str, 10, false);
+                tbImageView.startLoad(str, 10, false);
             } else if (z) {
-                tbImageView.N(str, 25, false);
+                tbImageView.startLoad(str, 25, false);
             } else {
-                tbImageView.N(str, 12, false);
+                tbImageView.startLoad(str, 12, false);
             }
         }
     }

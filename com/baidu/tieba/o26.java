@@ -1,13 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes7.dex */
-public interface o26 {
-    boolean a(String str);
+public interface o26<T> {
+    void b(Map<String, String> map);
 
-    void b(int i);
-
-    boolean c(k26 k26Var);
-
-    void dismiss();
-
-    void show();
+    void f(T t, String str);
 }

@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import com.baidu.tieba.eh6;
+import com.baidu.tieba.ke6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public eh6 b;
+    public ke6 b;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            eh6 eh6Var = this.b;
-            if (eh6Var != null) {
-                eh6Var.p();
+            ke6 ke6Var = this.b;
+            if (ke6Var != null) {
+                ke6Var.p();
             }
         }
     }
@@ -86,9 +86,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
             super.onCreate(bundle);
             TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
             this.a = pageContext;
-            eh6 eh6Var = new eh6(pageContext, false);
-            this.b = eh6Var;
-            setContentView(eh6Var.i());
+            ke6 ke6Var = new ke6(pageContext, false);
+            this.b = ke6Var;
+            setContentView(ke6Var.i());
             Intent intent = getIntent();
             if (intent != null) {
                 this.b.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));

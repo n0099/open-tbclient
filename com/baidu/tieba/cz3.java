@@ -1,41 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.ty3;
 /* loaded from: classes5.dex */
-public class cz3 implements jv1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cz3 {
+    void a(DownloadInfo downloadInfo);
 
-    public cz3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(DownloadInfo downloadInfo);
 
-    @Override // com.baidu.tieba.jv1
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
-        }
-        return (String) invokeL.objValue;
-    }
+    void c(DownloadInfo downloadInfo);
+
+    void d(DownloadInfo downloadInfo);
+
+    void destroy();
+
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull ty3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

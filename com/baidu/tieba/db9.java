@@ -1,127 +1,43 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 /* loaded from: classes5.dex */
-public class db9 {
+public class db9 extends ab9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements ui5 {
+    public class a extends OneKeyLoginCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hb9 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ib9 c;
+        public final /* synthetic */ db9 a;
 
-        @Override // com.baidu.tieba.ui5
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ui5
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.db9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0270a extends BdAsyncTask<Void, Void, Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DownloadData a;
-            public final /* synthetic */ a b;
-
-            public C0270a(a aVar, DownloadData downloadData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, downloadData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = downloadData;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Boolean doInBackground(Void... voidArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.b.b));
-                    if (db9.g(this.a.getPath(), this.b.c)) {
-                        a aVar = this.b;
-                        return Boolean.valueOf(db9.f(aVar.c, aVar.b));
-                    }
-                    return Boolean.FALSE;
-                }
-                return (Boolean) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                    if (bool.booleanValue()) {
-                        a aVar = this.b;
-                        aVar.a.onSuccess(aVar.b);
-                        return;
-                    }
-                    this.b.a.onFail("fail to download");
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
             }
         }
 
-        public a(hb9 hb9Var, String str, ib9 ib9Var) {
+        public a(db9 db9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hb9Var, str, ib9Var};
+                Object[] objArr = {db9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -131,190 +47,122 @@ public class db9 {
                     return;
                 }
             }
-            this.a = hb9Var;
-            this.b = str;
-            this.c = ib9Var;
+            this.a = db9Var;
         }
 
-        @Override // com.baidu.tieba.ui5
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                cb9.a("【表情下载】 onFileDownloadFailed = " + str);
-                if (this.a != null) {
-                    String str2 = "faile to download:";
-                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
-                        str2 = "faile to download:" + downloadData.getUrl();
-                    }
-                    this.a.onFail(str2);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+                this.a.f();
             }
         }
 
-        @Override // com.baidu.tieba.ui5
-        public void onFileDownloadSucceed(DownloadData downloadData) {
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                cb9.a("【表情下载】 onFileDownloadSucceed = " + this.b);
-                new C0270a(this, downloadData).execute(new Void[0]);
-            }
-        }
-
-        @Override // com.baidu.tieba.ui5
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-                hb9 hb9Var = this.a;
-                if (hb9Var != null) {
-                    hb9Var.onProgress(downloadData.getProcess());
-                }
-                cb9.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
+            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                this.a.b.closeLoadingDialog();
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0ee0), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
         }
     }
 
-    public static void c(ib9 ib9Var, hb9 hb9Var) {
-        List<jb9> list;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public db9(TbPageContext tbPageContext, bb9 bb9Var) {
+        super(tbPageContext, bb9Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ib9Var, hb9Var) == null) {
-            if (ib9Var != null && (list = ib9Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(ib9Var.d)) {
-                cb9.a("【表情下载】 url = " + ib9Var.d);
-                a aVar = new a(hb9Var, eb9.c + ib9Var.a + "/", ib9Var);
-                new File(eb9.c).mkdirs();
-                d(ib9Var, eb9.c, aVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bb9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (bb9) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (hb9Var != null) {
-                hb9Var.onFail("group data null");
-            }
-            cb9.a("【表情下载】 fail = 参数异常");
         }
     }
 
-    public static void d(ib9 ib9Var, String str, ui5 ui5Var) {
+    @Override // com.baidu.tieba.ab9
+    public void j(cb9 cb9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, ib9Var, str, ui5Var) == null) {
-            if (ib9Var != null && !TextUtils.isEmpty(ib9Var.d)) {
-                String str2 = ib9Var.a + ".zip";
-                DownloadData downloadData = new DownloadData(ib9Var.a, str2, Uri.encode(ib9Var.d, "-![.:/,%?&=]"), ui5Var);
-                downloadData.setPath(str + str2);
-                vi5.k().l(downloadData);
-            } else if (ui5Var != null) {
-                ui5Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cb9Var) == null) {
+            this.e = cb9Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.ab9
+    public void n(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f09165e) {
+                s();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919dc) {
+                t();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090179) {
+                r();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d37) {
+                u();
             }
         }
     }
 
-    public static String e(String str, String str2, Bitmap bitmap, int i) {
-        InterceptResult invokeLLLI;
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
-            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str + str2);
-                try {
-                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
-                        return null;
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    return file.getPath();
-                } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BaseActivity baseActivity = this.b;
+            BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ed7), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            BaseActivity baseActivity = this.b;
+            passportSDK.loadOneKeyLogin(baseActivity, ib9.j(baseActivity, this.e.c), new a(this));
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BaseActivity baseActivity = this.b;
+            BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0edb), "http://privacy.baidu.com/mdetail?id=288", false);
+        }
+    }
+
+    public final void t() {
+        cb9 cb9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (cb9Var = this.e) == null) {
+            return;
+        }
+        int a2 = cb9Var.a();
+        if (a2 != 1) {
+            if (a2 != 2) {
+                if (a2 == 3) {
+                    BaseActivity baseActivity = this.b;
+                    BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0eda), "https://wap.cmpassport.com/resources/html/contract.html", false);
+                    return;
                 }
+                return;
             }
-            return null;
+            BaseActivity baseActivity2 = this.b;
+            BrowserHelper.startWebActivity((Context) baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ed9), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false);
+            return;
         }
-        return (String) invokeLLLI.objValue;
-    }
-
-    public static boolean f(ib9 ib9Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, ib9Var, str)) == null) {
-            File file = new File(str + "panel.png");
-            File file2 = new File(str + "panel_momo.png");
-            if (file.exists() && file2.exists()) {
-                cb9.a("【表情下载】 savePanelImage");
-                return true;
-            }
-            if (!new File(str + ib9Var.c).exists()) {
-                return false;
-            }
-            Bitmap bitmap = null;
-            try {
-                bitmap = BitmapFactory.decodeFile(str + ib9Var.c);
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
-                return false;
-            }
-            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
-                return false;
-            }
-            cb9.a("【表情下载】 savePanelImage = " + ib9Var.c);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, ib9 ib9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, ib9Var)) == null) {
-            ZipInputStream zipInputStream = null;
-            try {
-                try {
-                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
-                    while (true) {
-                        try {
-                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                            if (nextEntry != null) {
-                                if (!nextEntry.isDirectory()) {
-                                    String str2 = ".emotions/" + ib9Var.a;
-                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
-                                    FileHelper.saveFileByStream(str3, zipInputStream2);
-                                    cb9.a("【表情下载】 unZipEmotion = " + str3);
-                                }
-                            } else {
-                                zipInputStream2.close();
-                                FileHelper.deleteFile(new File(str));
-                                zi.e(zipInputStream2);
-                                return true;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            zi.e(zipInputStream);
-                            return false;
-                        } catch (IOException e2) {
-                            e = e2;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            zi.e(zipInputStream);
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            zipInputStream = zipInputStream2;
-                            zi.e(zipInputStream);
-                            throw th;
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-            } catch (IOException e4) {
-                e = e4;
-            }
-        } else {
-            return invokeLL.booleanValue;
-        }
+        BaseActivity baseActivity3 = this.b;
+        BrowserHelper.startWebActivity((Context) baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0ed8), "https://ms.zzx9.cn/html/oauth/protocol2.html", false);
     }
 }

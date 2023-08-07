@@ -1,163 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.sw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ni3 {
+public class ni3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948003377, "Lcom/baidu/tieba/ni3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948003377, "Lcom/baidu/tieba/ni3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ni3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/file/getSavedFileList");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = fs1.a;
-        a = 0;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        sw2.a W = ub3.K().q().W();
-        String i = al3.i(W.j0(), W.G());
-        if (!jSONObject.has("appid")) {
-            vo3.f(jSONObject, "appid", W.H());
-        }
-        if (!jSONObject.has("swan")) {
-            vo3.f(jSONObject, "swan", i);
-        }
-        if (!jSONObject.has("appversion")) {
-            vo3.f(jSONObject, "appversion", W.v1());
-        }
-        if (!jSONObject.has("swanNativeVersion")) {
-            vo3.f(jSONObject, "swanNativeVersion", gs1.a());
-        }
-        if (!jSONObject.has("thirdversion")) {
-            vo3.f(jSONObject, "thirdversion", W.w1());
-        }
-        if (ub3.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
-            vo3.f(jSONObject, "isWebDowngrade", "1");
-        }
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (context != null && callbackHandler != null && ya3Var != null && ya3Var.f0() != null) {
+                ArrayList arrayList = (ArrayList) ya3Var.f0().i();
+                JSONArray jSONArray = new JSONArray();
+                if (arrayList != null && arrayList.size() != 0) {
+                    Iterator it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        fi3 fi3Var = (fi3) it.next();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("filePath", gi3.J(fi3Var.b(), ya3.g0()));
+                            jSONObject.put(FileMetaUtil.CREATE_TIME, fi3Var.a());
+                            jSONObject.put("size", fi3Var.c());
+                            if (vc3.b) {
+                                Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get(FileMetaUtil.CREATE_TIME) + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
+                            }
+                        } catch (JSONException e) {
+                            y72.o("getSavedFileList", "file info to json fail");
+                            e.printStackTrace();
+                        }
+                        jSONArray.put(jSONObject);
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("fileList", jSONArray);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
+                        return true;
+                    } catch (JSONException e2) {
+                        y72.c("getSavedFileList", "file list to json fail");
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, sb3.a(2003)));
+                        if (vc3.b) {
+                            Log.d("GetSavedFileListAction", "——> handle: jsonException " + e2.getMessage());
+                        }
+                        return false;
+                    }
+                }
+                y72.c("getSavedFileList", "file list is null");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
+                return true;
             }
-            String o = np3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
-            }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = np3.i(o, hashSet);
-            String f = np3.f(str);
-            return f + "?" + i;
+            y72.c("getSavedFileList", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
-        }
-    }
-
-    public static <EvenT extends xi3> EvenT f(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(ub3.K().q().F0() ? 1 : 0));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends xi3> EvenT g(EvenT event) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            if (c() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                str = "2";
-            } else {
-                str = "1";
-            }
-            e(event, "launchType", str);
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends xi3> EvenT h(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(ub3.K().q().E0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends xi3> EvenT i(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(pi2.B0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends xi3> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
-            }
-            return event;
-        }
-        return (EvenT) invokeLLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

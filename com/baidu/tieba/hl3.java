@@ -1,189 +1,163 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.gl3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hl3 implements SensorEventListener {
+public class hl3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile hl3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public SensorManager b;
-    public Sensor c;
-    public a d;
-    public double[] e;
-    public boolean f;
-    public long g;
-    public int h;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(double[] dArr);
-    }
+    public class a implements gl3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ q12 c;
+        public final /* synthetic */ hl3 d;
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
+        public a(hl3 hl3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, q12 q12Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hl3Var, unitedSchemeEntity, callbackHandler, q12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = hl3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = q12Var;
+        }
+
+        @Override // com.baidu.tieba.gl3.b
+        public void a(float[] fArr) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
+                this.d.k(this.a, this.b, this.c, fArr);
+            }
         }
     }
 
-    public hl3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hl3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/startDeviceMotion");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new double[3];
-        this.f = false;
-        this.g = 0L;
     }
 
-    public static hl3 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (i == null) {
-                synchronized (hl3.class) {
-                    if (i == null) {
-                        i = new hl3();
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.c("StartDeviceMotionAction", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
+                return false;
+            } else if (context == null) {
+                y72.c("StartDeviceMotionAction", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y72.c("StartDeviceMotionAction", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-            }
-            return i;
-        }
-        return (hl3) invokeV.objValue;
-    }
-
-    public static synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (hl3.class) {
-                if (i == null) {
-                    return;
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    y72.c("StartDeviceMotionAction", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
-                i.c();
-            }
-        }
-    }
-
-    public final synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                v82.i("accelerometer", "release");
-                if (this.f) {
-                    g();
-                }
-                this.a = null;
-                i = null;
-            }
-        }
-    }
-
-    public synchronized void b(Context context, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            synchronized (this) {
-                this.a = context;
-                this.h = i2;
-            }
-        }
-    }
-
-    public synchronized void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this) {
-                this.d = aVar;
-            }
-        }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    v82.c("accelerometer", "start error, none context");
-                } else if (this.f) {
-                    v82.o("accelerometer", "has already start");
+                String optString2 = optParamsAsJo.optString("interval");
+                if (TaskUIData.key.equals(optString2)) {
+                    i = 2;
+                } else if ("game".equals(optString2)) {
+                    i = 1;
                 } else {
-                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
-                    this.b = sensorManager;
-                    if (sensorManager != null) {
-                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
-                        this.c = defaultSensor;
-                        this.b.registerListener(this, defaultSensor, 1);
-                        this.f = true;
-                        v82.i("accelerometer", "start listen");
-                    } else {
-                        v82.c("accelerometer", "none sensorManager");
-                    }
+                    i = 3;
                 }
+                y72.i("StartDeviceMotionAction", "startSensor===");
+                q12 q12Var = new q12("deviceMotionChange", optParamsAsJo, optString);
+                if (!gl3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, q12Var))) {
+                    y72.c("StartDeviceMotionAction", "start system sensor fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
+                    return false;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                q12Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public synchronized void g() {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, q12 q12Var, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (!this.f) {
-                    v82.o("accelerometer", "has already stop");
-                    return;
-                }
-                if (this.b != null) {
-                    this.b.unregisterListener(this);
-                }
-                this.b = null;
-                this.c = null;
-                this.f = false;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, q12Var, fArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] dArr = new double[3];
+            double d = fArr[0] - 1.5707963267948966d;
+            if (d < 0.0d) {
+                d += 6.283185307179586d;
             }
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-            float[] fArr = sensorEvent.values;
-            if (fArr != null && fArr.length == 3) {
-                synchronized (this) {
-                    if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
-                        this.e[0] = (-sensorEvent.values[0]) / 9.8d;
-                        this.e[1] = (-sensorEvent.values[1]) / 9.8d;
-                        this.e[2] = (-sensorEvent.values[2]) / 9.8d;
-                        this.d.a(this.e);
-                        this.g = System.currentTimeMillis();
-                    }
-                    if (vb3.v) {
-                        Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
-                    }
-                }
-                return;
+            dArr[0] = Math.toDegrees(d);
+            dArr[1] = Math.toDegrees(-fArr[2]);
+            dArr[2] = Math.toDegrees(-fArr[1]);
+            if (vc3.b) {
+                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
             }
-            v82.o("accelerometer", "illegal accelerometer event");
+            try {
+                jSONObject.put(Key.ALPHA, (float) dArr[0]);
+                jSONObject.put("beta", (float) dArr[1]);
+                jSONObject.put("gamma", (float) dArr[2]);
+                q12Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                y72.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
+                q12Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            }
         }
     }
 }

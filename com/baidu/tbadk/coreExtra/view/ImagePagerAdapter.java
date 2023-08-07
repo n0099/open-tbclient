@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -17,9 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.wx7;
-import com.baidu.tieba.xx9;
+import com.baidu.tieba.ev7;
+import com.baidu.tieba.ow9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +111,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 return null;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
-            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091067)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09107a)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.o);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.d);
@@ -352,7 +352,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             } else {
                 str = null;
             }
-            if (StringUtils.isNull(str) || xx9.j(str) || wx7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
+            if (StringUtils.isNull(str) || ow9.j(str) || ev7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);
@@ -392,7 +392,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 if (imageUrlData2 != null && !StringUtils.isNull(imageUrlData2.imageUrl)) {
                     urlDragImageView.setAssistUrl(d(imageUrlData2.imageUrl));
                 }
-                String str = (String) ListUtils.getItem(this.c, wg.e(String.valueOf(urlDragImageView.getTag()), -1));
+                String str = (String) ListUtils.getItem(this.c, JavaTypesHelper.toInt(String.valueOf(urlDragImageView.getTag()), -1));
                 if (imageUrlData2 != null && str != null && (imageUrlData = this.b.get(str)) != null && (imageUrlData == imageUrlData2 || Objects.equals(imageUrlData.imageUrl, imageUrlData2.imageUrl))) {
                     return super.getItemPosition(obj);
                 }

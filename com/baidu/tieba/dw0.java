@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dw0 extends ew0 {
+public class dw0 extends pw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xv0 c;
 
     public dw0() {
         Interceptable interceptable = $ic;
@@ -28,81 +24,12 @@ public class dw0 extends ew0 {
         }
     }
 
-    public void A() {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onVideoSwitchToHalf();
-        }
-    }
-
-    @Override // com.baidu.tieba.ew0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.r();
-            this.c = null;
-        }
-    }
-
-    public void t() {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onBeforeSwitchToFull();
-        }
-    }
-
-    public void u() {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onBeforeSwitchToHalf();
-        }
-    }
-
-    public void v() {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onGestureActionEnd();
-        }
-    }
-
-    public void w() {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onGestureActionStart();
-        }
-    }
-
-    public void z() {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onVideoSwitchToFull();
-        }
-    }
-
-    public boolean x(MotionEvent motionEvent) {
+    public static pw0 w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            xv0 xv0Var = this.c;
-            if (xv0Var != null) {
-                return xv0Var.onGestureDoubleClick(motionEvent);
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return pw0.m(str, 8);
         }
-        return invokeL.booleanValue;
-    }
-
-    public void y(boolean z) {
-        xv0 xv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (xv0Var = this.c) != null) {
-            xv0Var.onPanelVisibilityChanged(z);
-        }
+        return (pw0) invokeL.objValue;
     }
 }

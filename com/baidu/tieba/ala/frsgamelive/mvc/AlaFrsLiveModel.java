@@ -3,6 +3,7 @@ package com.baidu.tieba.ala.frsgamelive.mvc;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
@@ -11,9 +12,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.pf6;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.vc6;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public int f;
     public boolean g;
     public int h;
-    public List<yn> i;
+    public List<ym> i;
     public boolean j;
     public b k;
     public HttpMessageListener l;
@@ -54,7 +54,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -64,7 +64,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -117,12 +117,12 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 }
                 return;
             }
-            List<yn> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
+            List<ym> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
             if (this.a.i == null) {
                 this.a.i = new ArrayList();
             }
             if (this.a.b == 1 && ListUtils.getCount(liveList) == 0 && this.a.f == 2) {
-                List<yn> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
+                List<ym> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
                 this.a.g = false;
                 this.a.b = alaGameFrsLiveThreadsRequestMessage.getPn();
                 this.a.h = 0;
@@ -139,7 +139,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 if (this.a.b != 1 && ListUtils.getCount(this.a.i) != 0) {
                     if (ListUtils.getCount(liveList) > 0) {
                         AlaFrsLiveModel alaFrsLiveModel = this.a;
-                        alaFrsLiveModel.i = alaFrsLiveModel.j0(alaFrsLiveModel.i, liveList);
+                        alaFrsLiveModel.i = alaFrsLiveModel.b0(alaFrsLiveModel.i, liveList);
                     }
                 } else if (liveList != null) {
                     this.a.i.clear();
@@ -153,18 +153,18 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaFrsLiveModel(l9 l9Var) {
-        super(l9Var);
+    public AlaFrsLiveModel(BdPageContext bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -180,16 +180,16 @@ public class AlaFrsLiveModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void m0(int i) {
+    public void e0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.f = i;
         }
     }
 
-    public void n0(b bVar) {
+    public void f0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             this.k = bVar;
         }
     }
@@ -215,85 +215,85 @@ public class AlaFrsLiveModel extends BdBaseModel {
         }
     }
 
-    public void clearData() {
-        List<yn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.i) != null) {
-            list.clear();
-        }
-    }
-
-    public int g0() {
+    public int Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.h;
         }
         return invokeV.intValue;
     }
 
-    public List<yn> getData() {
+    public int Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public boolean hasMore() {
+    public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.j;
         }
         return invokeV.booleanValue;
     }
 
-    public final List<yn> j0(List<yn> list, List<yn> list2) {
+    public void clearData() {
+        List<ym> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (list = this.i) != null) {
+            list.clear();
+        }
+    }
+
+    public List<ym> getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final List<ym> b0(List<ym> list, List<ym> list2) {
         InterceptResult invokeLL;
         ThreadData threadData;
         ThreadData threadData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, list2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, list, list2)) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            for (yn ynVar : list2) {
-                if (ynVar != null && (ynVar instanceof pf6) && (threadData = ((pf6) ynVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+            for (ym ymVar : list2) {
+                if (ymVar != null && (ymVar instanceof vc6) && (threadData = ((vc6) ymVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
-                        Iterator<yn> it = list.iterator();
+                        Iterator<ym> it = list.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
-                            yn next = it.next();
-                            if (next != null && (next instanceof pf6) && (threadData2 = ((pf6) next).a) != null && tid.equals(threadData2.getTid())) {
+                            ym next = it.next();
+                            if (next != null && (next instanceof vc6) && (threadData2 = ((vc6) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }
                         }
                         if (!z) {
-                            linkedList.add(ynVar);
+                            linkedList.add(ymVar);
                         }
                     }
                 }
@@ -303,10 +303,10 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return (List) invokeLL.objValue;
     }
 
-    public boolean k0() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (!this.g) {
                 return false;
             }
@@ -323,9 +323,9 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void l0() {
+    public void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();
             alaGameFrsLiveThreadsRequestMessage.setForumId(this.a);
             alaGameFrsLiveThreadsRequestMessage.setPn(1);

@@ -1,18 +1,34 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rc7;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class i1a implements rc7 {
+public final class i1a implements y97, w97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.w97
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10708" : (String) invokeV.objValue;
+    }
 
     public i1a() {
         Interceptable interceptable = $ic;
@@ -28,89 +44,35 @@ public final class i1a implements rc7 {
         }
     }
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return rc7.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 d87Var) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d87Var)) == null) {
-            return rc7.a.a(this, d87Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(x0a.a.a(businessInfo));
+            String str = a.get("is_vertical_video");
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
+            String str2 = a.get("author_is_living");
+            if (str2 == null) {
+                str2 = "1";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
+            String str3 = a.get("live_type");
+            if (str3 == null) {
+                str3 = "5";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM7, str3);
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().getHdid()");
+            hashMap.put("hdid", hdid);
+            return hashMap;
         }
         return (Map) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:
-        if (r5.equals("video_forum") == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
-        if (r5.equals("live_forum") == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0048, code lost:
-        if (r5.equals("common_forum") == false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004b, code lost:
-        return "forum_head_click";
-     */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0067  */
-    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.rc7
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(d87 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    if (str.equals("common_user")) {
-                        return "";
-                    }
-                    if (s05.e()) {
-                        return "";
-                    }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
-                case -1617812209:
-                    if (str.equals("video_user")) {
-                        return "video_user_head_click";
-                    }
-                    if (s05.e()) {
-                    }
-                    break;
-                case 448970189:
-                    break;
-                case 1009035070:
-                    if (str.equals("live_user")) {
-                        return "live_user_head_click";
-                    }
-                    if (s05.e()) {
-                    }
-                    break;
-                case 1201356814:
-                    break;
-                case 1373469789:
-                    break;
-                default:
-                    if (s05.e()) {
-                    }
-                    break;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
     }
 }

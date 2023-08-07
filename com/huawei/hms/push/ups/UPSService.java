@@ -2,8 +2,8 @@ package com.huawei.hms.push.ups;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.cqb;
-import com.baidu.tieba.zpb;
+import com.baidu.tieba.cpb;
+import com.baidu.tieba.fpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +64,7 @@ public final class UPSService {
             if (!s.b()) {
                 uPSTurnCallBack.onResult(new TokenResult(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.getExternalCode()));
             } else {
-                HmsMessaging.getInstance(context).turnOffPush().a(new zpb<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.2
+                HmsMessaging.getInstance(context).turnOffPush().a(new cpb<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UPSTurnCallBack a;
@@ -87,15 +87,15 @@ public final class UPSService {
                         this.a = uPSTurnCallBack;
                     }
 
-                    @Override // com.baidu.tieba.zpb
-                    public void onComplete(cqb<Void> cqbVar) {
+                    @Override // com.baidu.tieba.cpb
+                    public void onComplete(fpb<Void> fpbVar) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, cqbVar) == null) {
-                            if (cqbVar.h()) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, fpbVar) == null) {
+                            if (fpbVar.h()) {
                                 this.a.onResult(new CodeResult());
                                 return;
                             }
-                            ApiException apiException = (ApiException) cqbVar.d();
+                            ApiException apiException = (ApiException) fpbVar.d();
                             this.a.onResult(new CodeResult(apiException.getStatusCode(), apiException.getMessage()));
                         }
                     }
@@ -112,7 +112,7 @@ public final class UPSService {
             if (!s.b()) {
                 uPSTurnCallBack.onResult(new TokenResult(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.getExternalCode()));
             } else {
-                HmsMessaging.getInstance(context).turnOnPush().a(new zpb<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.1
+                HmsMessaging.getInstance(context).turnOnPush().a(new cpb<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UPSTurnCallBack a;
@@ -135,15 +135,15 @@ public final class UPSService {
                         this.a = uPSTurnCallBack;
                     }
 
-                    @Override // com.baidu.tieba.zpb
-                    public void onComplete(cqb<Void> cqbVar) {
+                    @Override // com.baidu.tieba.cpb
+                    public void onComplete(fpb<Void> fpbVar) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, cqbVar) == null) {
-                            if (cqbVar.h()) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, fpbVar) == null) {
+                            if (fpbVar.h()) {
                                 this.a.onResult(new CodeResult());
                                 return;
                             }
-                            ApiException apiException = (ApiException) cqbVar.d();
+                            ApiException apiException = (ApiException) fpbVar.d();
                             this.a.onResult(new CodeResult(apiException.getStatusCode(), apiException.getMessage()));
                         }
                     }

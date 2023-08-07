@@ -26,15 +26,15 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class EdgeFloatLifecycle {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
-    public static final Lazy<EdgeFloatLifecycle> c;
+    public static final a Companion;
+    public static final Lazy<EdgeFloatLifecycle> instance$delegate;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<EdgeFloat> a;
+    public final ArrayList<EdgeFloat> floatList;
 
-    public static final EdgeFloatLifecycle c() {
+    public static final EdgeFloatLifecycle getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a() : (EdgeFloatLifecycle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Companion.a() : (EdgeFloatLifecycle) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
@@ -64,7 +64,7 @@ public final class EdgeFloatLifecycle {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return (EdgeFloatLifecycle) EdgeFloatLifecycle.c.getValue();
+                return (EdgeFloatLifecycle) EdgeFloatLifecycle.instance$delegate.getValue();
             }
             return (EdgeFloatLifecycle) invokeV.objValue;
         }
@@ -83,8 +83,8 @@ public final class EdgeFloatLifecycle {
                 return;
             }
         }
-        b = new a(null);
-        c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) EdgeFloatLifecycle$Companion$instance$2.INSTANCE);
+        Companion = new a(null);
+        instance$delegate = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) EdgeFloatLifecycle$Companion$instance$2.INSTANCE);
     }
 
     public EdgeFloatLifecycle() {
@@ -100,102 +100,102 @@ public final class EdgeFloatLifecycle {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.floatList = new ArrayList<>();
     }
 
-    public final void d() {
+    public final void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.v();
             }
         }
     }
 
-    public final void b(MotionEvent ev) {
+    public final void dispatchTouchEvent(MotionEvent ev) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ev) == null) {
             Intrinsics.checkNotNullParameter(ev, "ev");
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.g(ev);
             }
         }
     }
 
-    public final void e(int i) {
+    public final void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.onChangeSkinType(i);
             }
         }
     }
 
-    public final void h(boolean z) {
+    public final void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.z(z);
             }
         }
     }
 
-    public final void i(EdgeFloat edgeFloat) {
+    public final void register(EdgeFloat edgeFloat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, edgeFloat) == null) {
             Intrinsics.checkNotNullParameter(edgeFloat, "edgeFloat");
-            if (this.a.contains(edgeFloat)) {
+            if (this.floatList.contains(edgeFloat)) {
                 return;
             }
-            this.a.add(edgeFloat);
+            this.floatList.add(edgeFloat);
         }
     }
 
-    public final void k(Activity activity) {
+    public final void switchActivity(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.E(activity);
             }
         }
     }
 
-    public final boolean l(EdgeFloat edgeFloat) {
+    public final boolean unRegister(EdgeFloat edgeFloat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, edgeFloat)) == null) {
             Intrinsics.checkNotNullParameter(edgeFloat, "edgeFloat");
-            if (!this.a.contains(edgeFloat)) {
+            if (!this.floatList.contains(edgeFloat)) {
                 return false;
             }
-            return this.a.remove(edgeFloat);
+            return this.floatList.remove(edgeFloat);
         }
         return invokeL.booleanValue;
     }
 
-    public final void f(boolean z, int i) {
+    public final void onKeyboardVisibilityChanged(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.w(z, i);
             }
         }
     }
 
-    public final void g(int i, int i2) {
+    public final void onScreenSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            for (EdgeFloat edgeFloat : this.a) {
+            for (EdgeFloat edgeFloat : this.floatList) {
                 edgeFloat.x(i, i2);
             }
         }
     }
 
-    public final void j() {
+    public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Iterator<EdgeFloat> it = this.a.iterator();
+            Iterator<EdgeFloat> it = this.floatList.iterator();
             Intrinsics.checkNotNullExpressionValue(it, "floatList.iterator()");
             while (it.hasNext()) {
                 EdgeFloat next = it.next();

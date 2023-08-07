@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.kja;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
+import com.baidu.tieba.bia;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-import com.baidu.tieba.zl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public kja b;
+    public bia b;
     public int c;
     public int d;
     public int e;
     public BackgroundPreviewModel.b f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.gt5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,19 +137,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.f = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public jt5 getPageStayDurationItem() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
+    public PageStayDurationItem getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jt5 pageStayDurationItem = super.getPageStayDurationItem();
+            PageStayDurationItem pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.a = true;
-                pageStayDurationItem.i = String.valueOf(this.c);
+                pageStayDurationItem.isRouteStat = true;
+                pageStayDurationItem.objID = String.valueOf(this.c);
             }
             return pageStayDurationItem;
         }
-        return (jt5) invokeV.objValue;
+        return (PageStayDurationItem) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -161,19 +161,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            kja kjaVar = this.b;
-            if (kjaVar != null) {
-                kjaVar.h();
+            bia biaVar = this.b;
+            if (biaVar != null) {
+                biaVar.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        kja kjaVar;
+        bia biaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (kjaVar = this.b) != null) {
-            showLoadingView(kjaVar.f());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (biaVar = this.b) != null) {
+            showLoadingView(biaVar.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            kja kjaVar = this.b;
-            if (kjaVar != null) {
-                kjaVar.g();
+            bia biaVar = this.b;
+            if (biaVar != null) {
+                biaVar.g();
             }
         }
     }
@@ -205,7 +205,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                zl5.d().h();
+                lk5.d().h();
             }
         }
     }
@@ -224,10 +224,10 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             }
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
-            backgroundPreviewModel.a0(this.f);
-            kja kjaVar = new kja(this);
-            this.b = kjaVar;
-            showLoadingView(kjaVar.f());
+            backgroundPreviewModel.S(this.f);
+            bia biaVar = new bia(this);
+            this.b = biaVar;
+            showLoadingView(biaVar.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

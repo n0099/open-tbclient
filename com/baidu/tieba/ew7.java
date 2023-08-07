@@ -1,183 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes5.dex */
 public class ew7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public ArrayList<Integer> c;
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public ew7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i != 7) {
-                                return i != 8 ? -1 : 4;
-                            }
-                            return 3;
-                        }
-                        return 2;
-                    }
-                    return 0;
-                }
-                return 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            return i != 4 ? -1 : 8;
-                        }
-                        return 7;
-                    }
-                    return 6;
-                }
-                return 3;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return 1;
-                        }
-                        if (i != 4) {
-                            return -1;
-                        }
-                    }
-                    return 4;
-                }
-                return 3;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            try {
-                SharedPreferences.Editor edit = c().edit();
-                edit.clear();
-                edit.commit();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public static SharedPreferences c() {
+    public ArrayList<Integer> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences(b(), 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (SharedPreferences) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static int e(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
+    public void d(PresentCategoryList presentCategoryList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, frsRequestData)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 5) {
-                        if (i != 6) {
-                            if (i != 7) {
-                                if (i == 8 && frsRequestData != null) {
-                                    frsRequestData.setSortType(4);
-                                    frsRequestData.k0(0);
-                                }
-                            } else if (frsRequestData != null) {
-                                frsRequestData.setSortType(3);
-                                frsRequestData.k0(0);
-                            }
-                        } else if (frsRequestData != null) {
-                            frsRequestData.setSortType(2);
-                            frsRequestData.k0(0);
-                        }
-                    } else if (frsRequestData != null) {
-                        frsRequestData.setSortType(0);
-                        frsRequestData.k0(1);
-                    }
-                } else if (frsRequestData != null) {
-                    frsRequestData.setSortType(1);
-                    frsRequestData.k0(0);
-                }
-            } else if (frsRequestData != null) {
-                frsRequestData.setSortType(0);
-                frsRequestData.k0(0);
-            }
-            return 1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public static int h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return c().getInt(str, -1);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65544, null, str, i) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, presentCategoryList) != null) || presentCategoryList == null) {
             return;
         }
-        try {
-            SharedPreferences.Editor edit = c().edit();
-            edit.putInt(str, i);
-            edit.apply();
-        } catch (Exception e) {
-            e.printStackTrace();
+        this.a = presentCategoryList.category_id.intValue();
+        this.b = presentCategoryList.category_name;
+        List<Integer> list = presentCategoryList.gift_ids;
+        if (list != null && list.size() > 0) {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            this.c = arrayList;
+            arrayList.addAll(presentCategoryList.gift_ids);
         }
     }
 }

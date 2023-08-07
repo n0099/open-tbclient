@@ -1,214 +1,401 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
+import android.text.SpannableString;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
-import android.widget.EditText;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.view.EBusinessProtocolView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lva {
+public class lva extends uva<mwa> implements wva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
+    @Nullable
+    public LinearLayout g;
+    @Nullable
+    public ImageView h;
+    @Nullable
+    public TextView i;
+    @Nullable
+    public EBusinessProtocolView j;
 
-    public lva() {
+    @Override // com.baidu.tieba.zva
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.zva
+    public void b(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.zva
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lva a;
+
+        /* loaded from: classes6.dex */
+        public class a implements m45.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.m45.e
+            public void onClick(m45 m45Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+                    SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                    sharedPrefHelper.putBoolean(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", true);
+                    m45Var.dismiss();
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.lva$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0390b implements m45.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0390b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.m45.e
+            public void onClick(m45 m45Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+                    SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                    sharedPrefHelper.putBoolean(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false);
+                    m45Var.dismiss();
+                }
+            }
+        }
+
+        public b(lva lvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lvaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.getPageActivity() != null && !this.a.a.getPageActivity().isFinishing()) {
+                if (((mwa) this.a.d).a) {
+                    this.a.M();
+                } else {
+                    this.a.L();
+                }
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                if (!sharedPrefHelper.getBoolean(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false) && ((mwa) this.a.d).a) {
+                    m45 m45Var = new m45(this.a.a.getPageActivity());
+                    m45Var.setNegativeTextColor(R.color.CAM_X0105);
+                    m45Var.setTitle("");
+                    m45Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f1163));
+                    m45Var.setContentViewSize(1);
+                    m45Var.setPositiveButton("同意", new a(this));
+                    m45Var.setNegativeButton("取消", new C0390b(this));
+                    m45Var.create(this.a.a).show();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lva a;
+
+        public a(lva lvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lvaVar;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                jg.i(this.a.j, this.a.a.getPageActivity());
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                textPaint.setUnderlineText(false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements EBusinessProtocolView.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lva a;
+
+        public c(lva lvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lvaVar;
+        }
+
+        @Override // com.baidu.tieba.view.EBusinessProtocolView.f
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    this.a.L();
+                } else {
+                    this.a.M();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lva(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, mwa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public ArrayList<String> c() {
+    public final void N(List<p15> list) {
+        boolean z;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (p15 p15Var : list) {
+                    if (p15Var.b == 2) {
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            z = false;
+            if (!z && (linearLayout = this.g) != null) {
+                linearLayout.setVisibility(8);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wva
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, obj) == null) && (obj instanceof ewa)) {
+            ewa ewaVar = (ewa) obj;
+            int i = ewaVar.a;
+            if (i == 1) {
+                if (this.g != null && !ListUtils.isEmpty(ewaVar.b) && !ListUtils.isEmpty(ewaVar.c)) {
+                    this.g.setVisibility(0);
+                }
+            } else if (i == 3) {
+                N(ewaVar.e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zva
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0107);
+        }
+    }
+
+    public final void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            EBusinessProtocolView eBusinessProtocolView = new EBusinessProtocolView(this.a.getPageActivity(), EBusinessProtocolView.WindowType.PROTOCOL);
+            this.j = eBusinessProtocolView;
+            eBusinessProtocolView.n(this.a.getString(R.string.obfuscated_res_0x7f0f1164));
+            this.j.i("file:///android_asset/protocol.html");
+            SpannableString spannableString = new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f11c6));
+            spannableString.setSpan(new a(this), 6, 17, 34);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), 6, 17, 34);
+            TextView textView = this.i;
+            if (textView == null) {
+                return;
+            }
+            textView.setText(spannableString);
+            this.i.setMovementMethod(LinkMovementMethod.getInstance());
+            ImageView imageView = this.h;
+            if (imageView == null) {
+                return;
+            }
+            imageView.setOnClickListener(new b(this));
+            this.j.l(new c(this));
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            if (sharedPrefHelper.getBoolean(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false)) {
+                L();
+            } else {
+                M();
+            }
+        }
+    }
+
+    public final void L() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ((mwa) this.d).a = true;
+            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a0d, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
+        }
+    }
+
+    public final void M() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ((mwa) this.d).a = false;
+            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080c25, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+        }
+    }
+
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean a(EditText editText) {
-        InterceptResult invokeL;
-        Editable text;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
-            if (editText == null || (text = editText.getText()) == null) {
-                return false;
-            }
-            int d = d(text);
-            if (d > 0) {
-                editText.requestFocus();
-                editText.setSelection(d);
-                return true;
-            }
-            editText.setSelection(editText.getSelectionEnd());
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int d(Spanned spanned) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
-            if (spanned == null) {
-                return 0;
-            }
-            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
-            int length = spanned.length();
-            if (backgroundColorSpanArr != null && backgroundColorSpanArr.length > 0) {
-                return spanned.getSpanEnd(backgroundColorSpanArr[0]);
-            }
-            return length;
-        }
-        return invokeL.intValue;
-    }
-
-    public void m(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public boolean b(EditText editText, EditText editText2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
-            if (ListUtils.isEmpty(c())) {
-                return false;
-            }
-            if (!a(editText) && !a(editText2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            LinearLayout linearLayout = this.g;
+            if (linearLayout != null && linearLayout.getVisibility() == 0 && !((mwa) this.d).a) {
+                TbPageContext<?> tbPageContext = this.a;
+                tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f116a));
                 return false;
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void h(EditText editText, EditText editText2) {
+    @Override // com.baidu.tieba.zva
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
-            i(editText, true);
-            i(editText2, false);
-            b(editText, editText2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0547, viewGroup, false);
+            this.c = inflate;
+            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d79);
+            this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091d7e);
+            this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091d7b);
+            K();
+            return this.c;
         }
-    }
-
-    public void i(EditText editText, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) != null) || editText == null) {
-            return;
-        }
-        f(editText, z);
-    }
-
-    public void l(EditText editText, EditText editText2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
-            h(editText, editText2);
-        }
-    }
-
-    public void f(EditText editText, boolean z) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048581, this, editText, z) != null) || editText == null || (text = editText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        zx5.j(text);
-        j(text);
-    }
-
-    public void g(SpanGroupEditText spanGroupEditText) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, spanGroupEditText) != null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        zx5.k(spanGroupEditText);
-    }
-
-    public final void j(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) && spannable != null && !ListUtils.isEmpty(this.a)) {
-            String obj = spannable.toString();
-            if (TextUtils.isEmpty(obj)) {
-                return;
-            }
-            Iterator<String> it = this.a.iterator();
-            while (it.hasNext()) {
-                k(spannable, obj, it.next());
-            }
-        }
-    }
-
-    public final void k(Spannable spannable, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) && spannable != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            int indexOf = str.indexOf(str2);
-            int length = str2.length();
-            while (indexOf >= 0) {
-                int i = indexOf + length;
-                int color = SkinManager.getColor(R.color.CAM_X0101);
-                int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
-                BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
-                spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
-                spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-                indexOf = str.indexOf(str2, i);
-            }
-        }
+        return (View) invokeL.objValue;
     }
 }

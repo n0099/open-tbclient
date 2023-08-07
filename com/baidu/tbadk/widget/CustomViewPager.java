@@ -11,15 +11,15 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CustomViewPager extends TbViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class CustomViewPager extends TbViewPager {
     public GestureDetector j;
     public int k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public class CustomViewPager extends TbViewPager {
             try {
                 super.onMeasure(i, i2);
             } catch (Exception e) {
-                if (!s05.e() && !s05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                if (!GlobalBuildConfig.isDebug() && !GlobalBuildConfig.isTiebaDebugTool() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();
@@ -294,10 +294,10 @@ public class CustomViewPager extends TbViewPager {
             try {
                 super.onLayout(z, i, i2, i3, i4);
             } catch (Exception e) {
-                if (!s05.e() && !s05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                if (!GlobalBuildConfig.isDebug() && !GlobalBuildConfig.isTiebaDebugTool() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
-                    h29 defaultLog = DefaultLog.getInstance();
-                    defaultLog.b("CustomViewPager", "CustomViewPager onLayout crash, msg=" + e);
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.e("CustomViewPager", "CustomViewPager onLayout crash, msg=" + e);
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();
                     }

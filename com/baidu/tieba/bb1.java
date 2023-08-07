@@ -1,29 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class bb1 {
+public final class bb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a = false;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> void a(@NonNull lb1 lb1Var, String str) {
+    public static final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, lb1Var, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
-        if (!str.startsWith("javascript:")) {
-            str = "javascript:" + str;
-        }
-        lb1Var.loadUrl(str, null);
-    }
-
-    public static void b(@NonNull lb1 lb1Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{lb1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            a(lb1Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
-        }
+        return invokeV.booleanValue;
     }
 }

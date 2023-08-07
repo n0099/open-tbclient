@@ -1,8 +1,8 @@
 package com.baidu.nadcore.download.proxy;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.cn0;
-import com.baidu.tieba.gm0;
+import com.baidu.tieba.am0;
+import com.baidu.tieba.el0;
 /* loaded from: classes3.dex */
 public interface IAdDownloader {
 
@@ -15,11 +15,11 @@ public interface IAdDownloader {
         DOWNLOAD_FAILED
     }
 
-    int a(@NonNull gm0 gm0Var, @NonNull cn0 cn0Var);
+    int a(@NonNull el0 el0Var, @NonNull am0 am0Var);
 
-    void b(@NonNull gm0 gm0Var);
+    void b(@NonNull el0 el0Var);
 
-    void c(@NonNull gm0 gm0Var);
+    void c(@NonNull el0 el0Var);
 
-    void d(@NonNull gm0 gm0Var, @NonNull cn0 cn0Var);
+    void d(@NonNull el0 el0Var, @NonNull am0 am0Var);
 }

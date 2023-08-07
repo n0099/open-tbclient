@@ -1,182 +1,68 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcelable;
-import android.util.SparseArray;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.TbadkCore;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ke {
+public class ke extends o9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final qd a(Object obj) {
-        InterceptResult invokeL;
-        ObjectOutputStream objectOutputStream;
-        Exception e;
+    @Override // com.baidu.tieba.o9
+    public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            ObjectOutputStream objectOutputStream2 = 0;
-            if (obj == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ke(Context context, String str) {
+        super(context, str, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (obj instanceof Boolean) {
-                return new kd(((Boolean) obj).booleanValue());
-            }
-            if (obj instanceof Bundle) {
-                return new ld((Bundle) obj);
-            }
-            if (obj instanceof Byte) {
-                return new md(((Byte) obj).byteValue());
-            }
-            if (obj instanceof Character) {
-                return new nd(((Character) obj).charValue());
-            }
-            if (obj instanceof Double) {
-                return new od(((Double) obj).doubleValue());
-            }
-            if (obj instanceof Float) {
-                return new pd(((Float) obj).floatValue());
-            }
-            if (obj instanceof Integer) {
-                return new rd(((Integer) obj).intValue());
-            }
-            if (obj instanceof JSONArray) {
-                return new sd((JSONArray) obj);
-            }
-            if (obj instanceof JSONObject) {
-                return new td((JSONObject) obj);
-            }
-            if (obj instanceof Long) {
-                return new vd(((Long) obj).longValue());
-            }
-            if (obj instanceof Short) {
-                return new be(((Short) obj).shortValue());
-            }
-            if (obj instanceof String) {
-                return new de((String) obj);
-            }
-            if (obj instanceof SparseArray) {
-                return new ce((SparseArray) obj);
-            }
-            if (obj instanceof List) {
-                return new ud((List) obj);
-            }
-            if (obj instanceof Queue) {
-                return new zd((Queue) obj);
-            }
-            if (obj instanceof Set) {
-                return new ae((Set) obj);
-            }
-            if (obj instanceof Map) {
-                return new wd((Map) obj);
-            }
-            if (obj instanceof Message) {
-                return new yd((Message) obj);
-            }
-            if (obj.getClass().isArray()) {
-                return new jd(obj);
-            }
-            if (obj instanceof CharSequence) {
-                return new de(((CharSequence) obj).toString());
-            }
-            if (obj instanceof Serializable) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    try {
-                        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                        try {
-                            objectOutputStream.writeObject(obj);
-                            objectOutputStream.flush();
-                            jd jdVar = new jd(byteArrayOutputStream.toByteArray());
-                            try {
-                                objectOutputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                            return jdVar;
-                        } catch (Exception e4) {
-                            e = e4;
-                            e.printStackTrace();
-                            xd xdVar = new xd(obj);
-                            if (objectOutputStream != null) {
-                                try {
-                                    objectOutputStream.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                            return xdVar;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        objectOutputStream2 = interceptable;
-                        if (objectOutputStream2 != 0) {
-                            try {
-                                objectOutputStream2.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e9) {
-                    objectOutputStream = null;
-                    e = e9;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (objectOutputStream2 != 0) {
-                    }
-                    byteArrayOutputStream.close();
-                    throw th;
-                }
-            } else if (obj instanceof IBinder) {
-                return new xd(obj);
-            } else {
-                if (obj instanceof Parcelable) {
-                    return new xd(obj);
-                }
-                return new xd(obj);
-            }
-        } else {
-            return (qd) invokeL.objValue;
+        }
+    }
+
+    public void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
+        }
+    }
+
+    @Override // com.baidu.tieba.o9
+    public void createAllTables(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            a(sQLiteDatabase);
+            ((TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE)).createAllTablesMessage(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.m9
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && i < 1) {
+            a(sQLiteDatabase);
         }
     }
 }

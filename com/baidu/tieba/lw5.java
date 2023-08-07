@@ -1,80 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.sw5;
+import com.baidu.tbadk.core.util.StatusbarColorUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lw5 extends wn5 {
+public class lw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView a;
+    @NonNull
+    public final Activity a;
+    @Nullable
+    public Boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lw5(Context context) {
-        super(new NoDataView(context));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947957311, "Lcom/baidu/tieba/lw5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947957311, "Lcom/baidu/tieba/lw5;");
+        }
+    }
+
+    public lw5(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = (NoDataView) getView();
+        this.a = activity;
     }
 
-    public void a(int i) {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.f(r9.a(getView().getContext()), i);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b = Boolean.valueOf(z);
+            StatusbarColorUtils.setStatusBarDarkIcon(this.a, z);
         }
     }
 
-    public void b(sw5.a aVar) {
-        String str;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || aVar == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || c) {
             return;
         }
-        this.a.setVisibility(0);
-        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
-        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
-        aVar2.h(aVar.c);
-        aVar2.j(aVar.g);
-        this.a.setImgOption(aVar2.f());
-        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
-            str = aVar.a;
-        } else {
-            str = aVar.d;
+        if (z) {
+            Boolean bool = this.b;
+            if (bool != null) {
+                a(bool.booleanValue());
+                return;
+            }
+            return;
         }
-        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
-        aVar3.g(str);
-        this.a.setTextOption(aVar3.f());
-        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
-            String str2 = aVar.e;
-            View.OnClickListener onClickListener = aVar.h;
-            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
-            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
-            this.a.setButtonOption(aVar4.e());
-        } else {
-            this.a.setButtonOption(null);
+        StatusbarColorUtils.setStatusBarDarkIcon(this.a, !UtilHelper.isNightOrDarkMode());
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            c = z;
         }
-        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -1,44 +1,162 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class mab {
-    public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, HashMap> a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String c = "UnionIDHelper";
+    public static boolean d;
+    public static final String e;
+    public static final String f;
+    public static final Object g;
+    public static mab h;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile pab a;
+    public AtomicBoolean b;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str);
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ mab c;
 
-        void b();
+        public a(mab mabVar, Context context, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mabVar, context, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = mabVar;
+            this.a = context;
+            this.b = bVar;
+        }
 
-        void c(String str);
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (mab.d) {
+                    Log.d(mab.c, "asyncRequest, Thread runn！");
+                }
+                nab m = this.c.m(this.a);
+                if (mab.d) {
+                    String str = mab.c;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("asyncRequest, cachedBean == null ？");
+                    if (m == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d(str, sb.toString());
+                }
+                if (m == null || this.c.q(m)) {
+                    if (mab.d) {
+                        Log.d(mab.c, "asyncRequest, requestFromManufacturer");
+                    }
+                    this.c.r();
+                    if (mab.d) {
+                        Log.d(mab.c, "asyncRequest, trySaveFiles！");
+                    }
+                    this.c.b.set(this.c.t(this.a));
+                    if (mab.d) {
+                        Log.d(mab.c, "asyncRequest, trySaveFiles done");
+                    }
+                }
+                if (mab.d) {
+                    Log.d(mab.c, "asyncRequest, send  innerHandler message");
+                }
+                this.b.obtainMessage(100, this.c.a).sendToTarget();
+            }
+        }
+    }
 
-        void d();
+    /* loaded from: classes7.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public oab a;
 
-        void e(boolean z);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper, oab oabVar) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, oabVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oabVar;
+        }
 
-        void f(boolean z);
-
-        void g(int i);
-
-        void h();
-
-        void i();
-
-        void j(String str);
-
-        void k(int i);
-
-        void onRecordEnd();
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            String oaid;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 100) {
+                    pab pabVar = (pab) message.obj;
+                    if (mab.d) {
+                        String str = mab.c;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("handleMessage ，what：");
+                        if (pabVar == null) {
+                            oaid = "";
+                        } else {
+                            oaid = pabVar.getOAID();
+                        }
+                        sb.append(oaid);
+                        Log.d(str, sb.toString());
+                    }
+                    oab oabVar = this.a;
+                    if (oabVar != null) {
+                        oabVar.a(pabVar);
+                    }
+                }
+            }
+        }
     }
 
     static {
@@ -54,356 +172,334 @@ public class mab {
                 return;
             }
         }
-        a = new HashMap<>();
+        d = iab.e();
+        e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+        f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+        g = new Object();
     }
 
-    public static HashMap a() {
+    public mab() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static mab o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_clear");
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (h == null) {
+                synchronized (mab.class) {
+                    if (h == null) {
+                        h = new mab();
+                    }
+                }
+            }
+            return h;
         }
-        return (HashMap) invokeV.objValue;
+        return (mab) invokeV.objValue;
     }
 
-    public static HashMap b() {
+    public final long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_start");
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return iab.a(jab.a()) * 60 * 1000;
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static HashMap c(int i) {
-        InterceptResult invokeI;
+    public final boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("sex_type", Integer.valueOf(i));
-            hashMap.put("event_name", "sex_event");
-            hashMap.put("event_data", hashMap2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return iab.d(jab.a());
         }
-        return (HashMap) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static HashMap e(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "audio_volume");
-            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
-            return hashMap;
-        }
-        return (HashMap) invokeCommon.objValue;
-    }
-
-    public static HashMap d(String str) {
+    public static String j(byte[]... bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (a.get(str) != null) {
-                return a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte[] bArr2 : bArr) {
+                sb.append(new String(wab.a(bArr2)));
             }
-            HashMap hashMap = null;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1909077165:
-                    if (str.equals("startRecord")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1848594969:
-                    if (str.equals("pauseRecord")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -815530368:
-                    if (str.equals("resetRecord")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -793791417:
-                    if (str.equals("startOverRecord")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 473974106:
-                    if (str.equals("capture_timer_clear")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 488985455:
-                    if (str.equals("capture_timer_start")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c == 5) {
-                                    hashMap = i();
-                                }
-                            } else {
-                                hashMap = b();
-                            }
-                        } else {
-                            hashMap = a();
-                        }
-                    } else {
-                        hashMap = g();
-                    }
-                } else {
-                    hashMap = f();
+            try {
+                return wab.c(uab.b(e, f, str.getBytes()), "utf-8");
+            } catch (UnsupportedEncodingException | Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean q(@NonNull nab nabVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, nabVar)) == null) {
+            if (Math.abs(System.currentTimeMillis() - nabVar.a) > n()) {
+                if (d) {
+                    Log.d(c, "isExpireTime ：超过缓存有效期");
+                    return true;
                 }
+                return true;
+            } else if (d) {
+                Log.d(c, "isExpireTime ：没有超过缓存有效期");
+                return false;
             } else {
-                hashMap = h();
+                return false;
             }
-            if (hashMap != null) {
-                a.put(str, hashMap);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static HashMap f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_pause");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_reset");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start_over");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static void j(HashMap<String, Object> hashMap, a aVar) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !kab.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
-            String str = (String) obj;
-            char c = 65535;
-            boolean z = true;
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1903331025:
-                    if (str.equals("show_text")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1768834290:
-                    if (str.equals("game_end")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -1584838740:
-                    if (str.equals("filter_adjust_enable")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -1272940549:
-                    if (str.equals("game_is_ready")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -708270859:
-                    if (str.equals("phone_shake")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -672934016:
-                    if (str.equals("case_reset")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -548493597:
-                    if (str.equals("need_volume")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 902635637:
-                    if (str.equals("child_status")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 967087977:
-                    if (str.equals("game_pause")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 969912325:
-                    if (str.equals("game_score")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1000807605:
-                    if (str.equals("game_http")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 1001154298:
-                    if (str.equals("game_time")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1076032614:
-                    if (str.equals("need_face")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
+            try {
+                return new String(uab.a(e, f, wab.a(str.getBytes())));
+            } catch (Exception e2) {
+                if (d) {
+                    String str2 = c;
+                    Log.d(str2, "getCacheObject ，decryptUnionID：" + e2.getMessage());
+                    return "";
+                }
+                return "";
             }
-            switch (c) {
-                case 0:
-                    if (hashMap.get("text_content") instanceof String) {
-                        aVar.c((String) hashMap.get("text_content"));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public synchronized void i(Context context, @NonNull Looper looper, @Nullable oab oabVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, oabVar) == null) {
+            synchronized (this) {
+                if (looper != null) {
+                    b bVar = new b(looper, oabVar);
+                    if (p()) {
+                        bVar.obtainMessage(100, null).sendToTarget();
                         return;
                     }
-                    return;
-                case 1:
-                    aVar.d();
-                    return;
-                case 2:
-                case 3:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                        return;
-                    }
-                    return;
-                case 4:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                    }
-                    aVar.onRecordEnd();
-                    return;
-                case 5:
-                    aVar.h();
-                    return;
-                case 6:
-                    aVar.b();
-                    return;
-                case 7:
-                    if (hashMap.get("text_content") instanceof Float) {
-                        try {
-                            i = ((Float) hashMap.get("text_content")).intValue();
-                        } catch (Exception e) {
-                            fab.g(e);
+                    if (this.a != null && this.b.get()) {
+                        if (d) {
+                            String str = c;
+                            Log.d(str, "asyncRequest, mIUnionId.getOAID：" + this.a.getOAID());
+                            String str2 = c;
+                            Log.d(str2, "asyncRequest, mIUnionId.isTrackLimited：" + this.a.c());
+                            String str3 = c;
+                            Log.d(str3, "asyncRequest, mIUnionId.getStatusCode：" + this.a.getStatusCode());
                         }
-                        aVar.g(i);
-                        return;
-                    }
-                    return;
-                case '\b':
-                    if (hashMap.get("isDefaultChild") != null) {
-                        String obj2 = hashMap.get("isDefaultChild").toString();
-                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
-                            z = false;
+                        bVar.obtainMessage(100, this.a).sendToTarget();
+                    } else {
+                        if (!this.b.get()) {
+                            this.a = new kab(context).a;
                         }
-                        aVar.f(z);
-                        return;
+                        new Thread(new a(this, context, bVar)).start();
                     }
                     return;
-                case '\t':
-                    if (hashMap.get("volume_ability") != null) {
-                        if (jab.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
-                            z = false;
-                        }
-                        aVar.e(z);
-                        return;
-                    }
-                    return;
-                case '\n':
-                    aVar.i();
-                    return;
-                case 11:
-                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
-                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
-                        return;
-                    }
-                    return;
-                case '\f':
-                    if (hashMap.get("set_content") != null) {
-                        aVar.j(hashMap.get("set_content").toString());
-                        return;
-                    }
-                    return;
-                default:
-                    return;
+                }
+                throw new NullPointerException("param looper not null");
             }
         }
+    }
+
+    public final nab m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d(c, "getCacheObject dir 不存在 , 首次需要创建");
+                }
+                return null;
+            }
+            File file2 = new File(file, ".bd_un_info.so");
+            if (!file2.exists()) {
+                if (d) {
+                    Log.d(c, "getCacheObject  file 不存在, 首次需要创建");
+                }
+                return null;
+            }
+            String a2 = yab.a(file2, g);
+            if (d) {
+                String str = c;
+                Log.d(str, "getCacheObject ，content：" + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                return null;
+            }
+            String k = k(a2);
+            if (d) {
+                String str2 = c;
+                Log.d(str2, "getCacheObject ，json：" + k);
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(k);
+                nab nabVar = new nab();
+                s(nabVar, jSONObject);
+                return nabVar;
+            } catch (Exception e2) {
+                if (d) {
+                    String str3 = c;
+                    Log.d(str3, "getCacheObject , " + e2.getMessage());
+                }
+                return null;
+            }
+        }
+        return (nab) invokeL.objValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = this.a.d();
+            if (d) {
+                String str = c;
+                Log.d(str, "asyncRequest, requestFromManufacturer done :" + this.a.getOAID());
+            }
+        }
+    }
+
+    public final boolean s(nab nabVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, nabVar, jSONObject)) == null) {
+            try {
+                long optLong = jSONObject.optLong(new String(wab.a("dGltZQ==".getBytes())));
+                nabVar.a = optLong;
+                if (d) {
+                    String str = c;
+                    Log.d(str, "tryParseCacheJsonObject ，time：" + optLong);
+                    String str2 = c;
+                    Log.d(str2, "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong));
+                }
+                String str3 = new String(wab.a("dW5pb25JRG9iag==".getBytes()));
+                if (d) {
+                    String str4 = c;
+                    Log.d(str4, "tryParseCacheJsonObject objKey：" + str3);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
+                if (d) {
+                    String str5 = c;
+                    Log.d(str5, "tryParseCacheJsonObject ，jsonObject：" + optJSONObject);
+                }
+                if (optJSONObject != null) {
+                    String str6 = new String(wab.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
+                    String str7 = new String(wab.a("aXNTdXBwb3J0".getBytes()));
+                    String str8 = new String(wab.a("c3RhdHVzY29kZQ==".getBytes()));
+                    String str9 = new String(wab.a("b2FpZA==".getBytes()));
+                    String str10 = new String(wab.a("YWFpZA==".getBytes()));
+                    String str11 = new String(wab.a("dmFpZA==".getBytes()));
+                    boolean optBoolean = optJSONObject.optBoolean(str6);
+                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
+                    int optInt = optJSONObject.optInt(str8);
+                    String optString = optJSONObject.optString(str9);
+                    String optString2 = optJSONObject.optString(str10);
+                    String optString3 = optJSONObject.optString(str11);
+                    this.a.h(optBoolean);
+                    this.a.e(optBoolean2);
+                    this.a.a(optInt);
+                    this.a.g(optString);
+                    this.a.f(optString2);
+                    this.a.b(optString3);
+                    nabVar.b = this.a;
+                    return true;
+                }
+                nabVar.b = null;
+                if (d) {
+                    Log.d(c, "tryParseCacheJsonObject return cause null：");
+                }
+                return false;
+            } catch (Exception e2) {
+                if (d) {
+                    String str12 = c;
+                    Log.d(str12, "tryParseCacheJsonObject ：" + e2.getMessage());
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean t(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            try {
+                if (this.a != null && !TextUtils.isEmpty(this.a.getOAID())) {
+                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    File file2 = new File(file, ".bd_un_info.so");
+                    String str = new String(wab.a("dGltZQ==".getBytes()));
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(str, System.currentTimeMillis());
+                    String str2 = new String(wab.a("dW5pb25JRG9iag==".getBytes()));
+                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
+                    if (optJSONObject == null) {
+                        optJSONObject = new JSONObject();
+                    }
+                    String str3 = new String(wab.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
+                    String str4 = new String(wab.a("aXNTdXBwb3J0".getBytes()));
+                    String str5 = new String(wab.a("c3RhdHVzY29kZQ==".getBytes()));
+                    String str6 = new String(wab.a("b2FpZA==".getBytes()));
+                    String str7 = new String(wab.a("YWFpZA==".getBytes()));
+                    String str8 = new String(wab.a("dmFpZA==".getBytes()));
+                    optJSONObject.put(str3, this.a.c());
+                    optJSONObject.put(str4, this.a.isSupport());
+                    optJSONObject.put(str5, this.a.getStatusCode());
+                    optJSONObject.put(str6, this.a.getOAID());
+                    optJSONObject.put(str7, this.a.getAAID());
+                    optJSONObject.put(str8, this.a.getVAID());
+                    jSONObject.put(str2, optJSONObject);
+                    yab.b(l(jSONObject.toString()), file2, false, g);
+                    if (d) {
+                        String str9 = c;
+                        Log.d(str9, "trySaveFiles, app: " + jSONObject.toString());
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            } catch (Exception e2) {
+                if (d) {
+                    String str10 = c;
+                    Log.d(str10, "trySaveFiles, error " + e2.getMessage());
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

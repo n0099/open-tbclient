@@ -1,118 +1,131 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class pi6 extends wo6<kh6> {
-    public static /* synthetic */ Interceptable $ic;
+public final class pi6 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final pi6 a;
+    public static String b = "";
+    public static final Map<String, Integer> c;
+    public static final Map<String, Long> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ProgressBar j;
-    public FrameLayout k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
 
-    @Override // com.baidu.tieba.wo6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010a : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948063052, "Lcom/baidu/tieba/pi6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948063052, "Lcom/baidu/tieba/pi6;");
+                return;
+            }
         }
+        a = new pi6();
+        c = new LinkedHashMap();
+        d = new LinkedHashMap();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pi6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public pi6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        r(h());
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090217);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e5);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e6);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09022e);
-            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090218);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e9);
-            h().setOnClickListener(this);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: s */
-    public void i(kh6 kh6Var) {
-        hh6 c;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, kh6Var) == null) && (c = kh6Var.c()) != null && c.b() != null) {
-            String str = "LV." + c.b().yy_level_id;
-            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
-                str = c.b().yy_level_name + str;
-                this.m.setText(c.b().yy_level_name);
-            }
-            this.i.setText(str);
-            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
-                this.m.setVisibility(8);
-                this.n.setVisibility(8);
-                this.l.setVisibility(8);
-                this.j.setVisibility(8);
-                return;
-            }
-            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
-                this.n.setText(c.b().yy_level_next_name);
-            }
-            long j = c.b().yy_levelup_exp;
-            long j2 = c.b().yy_level_exp;
-            this.j.setMax((int) j);
-            this.j.setProgress((int) j2);
-            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
-                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0250);
-                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
-                if (i <= 0) {
-                    i = 1;
-                }
-                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c.clear();
+            d.clear();
         }
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c.put(str, Integer.valueOf(e(str) + 1));
+            b = str;
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            d.put(str, Long.valueOf(System.currentTimeMillis()));
+        }
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            Integer num = c.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final long f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Long l = d.get(str);
+            if (l != null) {
+                return l.longValue();
+            }
+            return -1L;
+        }
+        return invokeL.longValue;
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            long f = f(str);
+            if (!b.equals(str)) {
+                d(str);
+            }
+            a(str);
+            int e = e(str);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (e < 3 || currentTimeMillis - f >= 1000) {
+                return false;
+            }
+            c();
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

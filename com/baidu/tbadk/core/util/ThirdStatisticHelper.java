@@ -3,16 +3,16 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.BdCloseHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.pz5;
-import com.baidu.tieba.vg;
+import com.baidu.tbadk.util.WebviewHelper;
+import com.baidu.tieba.qf;
+import com.baidu.tieba.xf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class ThirdStatisticHelper {
                 int i = 0;
                 if (strArr != null && strArr.length != 0) {
                     try {
-                        cg g = new kg().g(strArr[0], 3, 30000, 3000);
+                        qf g = new xf().g(strArr[0], 3, 30000, 3000);
                         if (g != null) {
                             i = g.b;
                         }
@@ -172,7 +172,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", pz5.b());
+                httpURLConnection.setRequestProperty("User-Agent", WebviewHelper.getGlobalUserAgent());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -275,7 +275,7 @@ public class ThirdStatisticHelper {
                                 BdLog.e(e);
                             }
                         } finally {
-                            vg.f(httpURLConnection);
+                            BdCloseHelper.close(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -294,7 +294,7 @@ public class ThirdStatisticHelper {
                                 }
                                 i = httpURLConnection.getResponseCode();
                                 requestStatistic(i2 + 1, String.valueOf(i));
-                                vg.f(httpURLConnection);
+                                BdCloseHelper.close(httpURLConnection);
                             }
                         } else if (httpURLConnection != null) {
                             String headerField = httpURLConnection.getHeaderField("Location");
@@ -308,7 +308,7 @@ public class ThirdStatisticHelper {
                                 httpURLConnection.connect();
                                 i = httpURLConnection.getResponseCode();
                                 requestStatistic(i2 + 1, String.valueOf(i));
-                                vg.f(httpURLConnection);
+                                BdCloseHelper.close(httpURLConnection);
                             }
                         }
                     }

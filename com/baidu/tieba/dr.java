@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dr extends mr {
+public abstract class dr implements cr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static boolean a;
+    public static cr b;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,27 +33,11 @@ public final class dr extends mr {
                 return;
             }
         }
-        f = new a(null);
-    }
-
-    @Override // com.baidu.tieba.as
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskUnRegisterAction" : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
+        c = new a(null);
     }
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public static final class a implements cr {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,81 +55,140 @@ public final class dr extends mr {
             }
         }
 
+        @Override // com.baidu.tieba.cr
+        public gs a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return m().a();
+            }
+            return (gs) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cr
+        public hs b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return m().b();
+            }
+            return (hs) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cr
+        public as c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return m().c();
+            }
+            return (as) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cr
+        public ks e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return m().e();
+            }
+            return (ks) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cr
+        public ds g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return m().g();
+            }
+            return (ds) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cr
+        public bs h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return m().h();
+            }
+            return (bs) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cr
+        public fs i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return m().i();
+            }
+            return (fs) invokeV.objValue;
+        }
+
+        public final boolean l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return dr.a;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final cr m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return dr.m();
+            }
+            return (cr) invokeV.objValue;
+        }
+
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
-        public final dr a(TaskInfo taskInfo, String str) {
-            InterceptResult invokeLL;
+        public final void j(cr crVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
-                return new dr(taskInfo, null, str, null, null, 26, null);
+            if (interceptable == null || interceptable.invokeL(1048583, this, crVar) == null) {
+                n(crVar);
+                k(true);
             }
-            return (dr) invokeLL.objValue;
+        }
+
+        public final void k(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+                dr.a = z;
+            }
+        }
+
+        public final void n(cr crVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, crVar) == null) {
+                dr.b = crVar;
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dr(TaskInfo taskInfo, String str, String str2, Integer num, String str3) {
-        super(str, num, str3);
+    public dr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, str2, num, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = str;
-        this.e = str2;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ dr(TaskInfo taskInfo, String str, String str2, Integer num, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, r2, r3, r4, r5);
-        Integer num2;
-        String str4;
-        String singleKey = (i & 2) != 0 ? taskInfo.getSingleKey() : str;
-        String str5 = (i & 4) != 0 ? "common unregister" : str2;
-        if ((i & 8) != 0) {
-            num2 = null;
-        } else {
-            num2 = num;
+    public static final /* synthetic */ cr m() {
+        cr crVar = b;
+        if (crVar == null) {
+            Intrinsics.throwUninitializedPropertyAccessException(Transition.MATCH_INSTANCE_STR);
         }
-        if ((i & 16) != 0) {
-            str4 = null;
-        } else {
-            str4 = str3;
-        }
-    }
-
-    @Override // com.baidu.tieba.mr
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
+        return crVar;
     }
 }

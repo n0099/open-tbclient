@@ -1,102 +1,69 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.view.menu.SwanImageMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lq3 implements kq3 {
+public class lq3 extends ia3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<jq3> a;
-    public jq3 b;
 
-    public lq3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lq3(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayDeque();
+        s(-1);
+        p(true);
+        q(true);
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.ia3
+    public void l(View view2, List<ja3> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                if (this.b != null) {
-                    return;
-                }
-                e();
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
+            ((SwanImageMenuView) view2).d(list);
         }
     }
 
-    public synchronized void c() {
+    @Override // com.baidu.tieba.ia3
+    public View m(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.b != null) {
-                    this.b.a();
-                    this.b = null;
-                }
-                this.a.clear();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
+            swanImageMenuView.setMenu(this);
+            return swanImageMenuView;
         }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.kq3
-    public void a(jq3 jq3Var) {
+    @Override // com.baidu.tieba.ia3
+    public void u(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jq3Var) == null) {
-            synchronized (this.a) {
-                if (jq3Var == this.b) {
-                    e();
-                }
-            }
-        }
-    }
-
-    public void d(jq3 jq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jq3Var) == null) {
-            if (jq3Var != null) {
-                synchronized (this.a) {
-                    Queue<jq3> queue = this.a;
-                    jq3Var.b(this);
-                    queue.offer(jq3Var);
-                }
-            }
-            b();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                this.b = null;
-                if (this.a.isEmpty()) {
-                    return;
-                }
-                jq3 poll = this.a.poll();
-                this.b = poll;
-                if (poll == null) {
-                    e();
-                } else {
-                    pp3.a0(poll);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
+            popupWindow.showAtLocation(this.a, 80, 0, 0);
         }
     }
 }

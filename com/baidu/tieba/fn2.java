@@ -1,85 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public abstract class fn2 implements en2 {
+public class fn2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.en2
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aiapps/extcore/extension-core.zip" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.en2
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.en2
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aiapps/extcore/extension-config.json" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947769823, "Lcom/baidu/tieba/fn2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947769823, "Lcom/baidu/tieba/fn2;");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                return Long.compare(file.lastModified(), file2.lastModified());
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public static void a() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            String y = in2.y(AppRuntime.getAppContext());
+            if (TextUtils.isEmpty(y)) {
                 return;
             }
-        }
-        a = ru2.g() + File.separator + "extension_core";
-    }
-
-    public fn2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            File file = new File(y);
+            if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
+                    File file3 = new File(str);
+                    if (file3.exists() && file3.isDirectory()) {
+                        String str2 = y + File.separator + "swangame/anonymous/sandbox";
+                        if (!file3.renameTo(new File(str2))) {
+                            in2.e(str, str2);
+                            in2.j(str);
+                        }
+                    }
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.en2
-    @NonNull
-    public File f() {
-        InterceptResult invokeV;
+    public static void b() {
+        File[] d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(a);
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (d = gu2.m().d()) == null) {
+            return;
         }
-        return (File) invokeV.objValue;
+        ArrayList arrayList = new ArrayList();
+        for (File file : d) {
+            String name = file.getName();
+            if (name.startsWith("aigame_storage_") && !name.endsWith("_anonymous.xml")) {
+                arrayList.add(file);
+            }
+        }
+        Collections.sort(arrayList, new a());
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            File file2 = (File) it.next();
+            String absolutePath = file2.getAbsolutePath();
+            int lastIndexOf = absolutePath.lastIndexOf("_");
+            String str = absolutePath.substring(0, lastIndexOf) + "_anonymous.xml";
+            if (!absolutePath.equals(str)) {
+                File file3 = new File(str);
+                if (file3.exists()) {
+                    cr4.L(file3);
+                }
+                if (!file2.renameTo(file3)) {
+                    cr4.f(file2, file3);
+                    cr4.L(file2);
+                }
+            }
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !mj3.a().getBoolean("swan_game_data_migration", true)) {
+            return;
+        }
+        mj3.a().putBoolean("swan_game_data_migration", false);
+        if (bu2.a) {
+            Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
+        }
+        a();
+        if (bu2.a) {
+            Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
+        }
+        b();
+        if (bu2.a) {
+            Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
+        }
     }
 }

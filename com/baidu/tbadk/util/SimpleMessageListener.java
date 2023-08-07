@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class SimpleMessageListener implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +23,12 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     public CustomMessageListener a;
     public boolean b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b<T> {
         void call(@Nullable T t);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    public void b(@NonNull TbPageContext<?> tbPageContext) {
+    public void c(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.a.setSelfListener(true);

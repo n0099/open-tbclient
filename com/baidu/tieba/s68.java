@@ -1,101 +1,78 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
-import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
-import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s68 {
+public class s68 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948103476, "Lcom/baidu/tieba/s68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948103476, "Lcom/baidu/tieba/s68;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
 
     public s68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = null;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, gca.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void c() {
+    public static s68 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            av5 av5Var = new av5(309277);
-            av5Var.setResponsedClass(RealTimeSocketResponse.class);
-            av5Var.g(true);
-            MessageManager.getInstance().registerTask(av5Var);
-        }
-    }
-
-    public void a(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-            b();
-            c();
-        }
-    }
-
-    public final void d(NetMessage netMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, netMessage) != null) || netMessage == null) {
-            return;
-        }
-        if (netMessage.getTag() == null) {
-            netMessage.setTag(this.a);
-        }
-        MessageManager.getInstance().sendMessage(netMessage);
-    }
-
-    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            RealTimeRequest realTimeRequest = new RealTimeRequest();
-            realTimeRequest.setTid(j);
-            realTimeRequest.setWeight(str);
-            realTimeRequest.setSource(str2);
-            realTimeRequest.setLocation(i);
-            realTimeRequest.setAbtest_tag(str3);
-            realTimeRequest.setType(i2);
-            realTimeRequest.setPage(str4);
-            if (baijiahaoData != null && i2 != wg.e("2", 0)) {
-                realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
-                realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
-                realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
-                realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            d(realTimeRequest);
+            s68 s68Var = new s68();
+            s68Var.a = jSONObject.optString("title");
+            s68Var.b = jSONObject.optString("desc");
+            s68Var.c = jSONObject.optString("tag");
+            s68Var.d = jSONObject.optString("img");
+            return s68Var;
         }
+        return (s68) invokeL.objValue;
     }
 }

@@ -1,79 +1,132 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.widget.FrameLayout;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.nb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class i99 extends Animation {
+public class i99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public int b;
-    public int c;
-    public FrameLayout.LayoutParams d;
 
-    public i99(View view2, int i, int i2) {
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    if (c(file)) {
+                        BdImage bdImage = nb.a.b().get(str);
+                        if (bdImage != null) {
+                            bitmap = bdImage.getRawBitmap();
+                        }
+                    } else {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(str, options);
+                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
+                    }
+                }
+            } catch (OutOfMemoryError unused) {
             }
+            return bitmap;
         }
-        if (view2 == null) {
-            return;
-        }
-        this.a = view2;
-        if (view2.getVisibility() == 8 && i2 > 0) {
-            this.b = i2;
-        } else {
-            this.b = this.a.getMeasuredHeight();
-        }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-        this.d = layoutParams;
-        this.c = i;
-        if (i == 0) {
-            layoutParams.bottomMargin = -this.b;
-        } else {
-            layoutParams.bottomMargin = 0;
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // android.view.animation.Animation
-    public void applyTransformation(float f, Transformation transformation) {
+    public static boolean c(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-            super.applyTransformation(f, transformation);
-            if (f < 1.0f) {
-                if (this.c == 0) {
-                    FrameLayout.LayoutParams layoutParams = this.d;
-                    int i = this.b;
-                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
-                } else {
-                    this.d.bottomMargin = -((int) (this.b * f));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            boolean z = false;
+            try {
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (FileNotFoundException e) {
+                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
                 }
-                this.a.requestLayout();
-            } else if (this.c == 0) {
-                this.d.bottomMargin = 0;
-                this.a.requestLayout();
-                this.b = this.a.getMeasuredHeight();
-            } else {
-                this.d.bottomMargin = -this.b;
-                this.a.setVisibility(8);
-                this.a.requestLayout();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
+            try {
+                byte[] bArr = new byte[7];
+                if (fileInputStream.read(bArr, 0, 6) == 6) {
+                    z = BdUtilHelper.isGif(bArr);
+                }
+                fileInputStream.close();
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return z;
+            } catch (IOException e5) {
+                e = e5;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            if (0 != 0) {
+                fileInputStream2.close();
+            }
+            return z;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static Bitmap b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Bitmap f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            tl5 tl5Var = new tl5();
+            BdImage c = tl5Var.c(imageFileInfo, true);
+            if (c != null) {
+                f = c.getRawBitmap();
+            } else {
+                f = tl5Var.f(imageFileInfo, true);
+            }
+            if (f == null) {
+                return a(imageFileInfo.getFilePath());
+            }
+            return f;
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

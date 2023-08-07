@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.MultiForumPerm;
 /* loaded from: classes8.dex */
 public class x15 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile x15 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public boolean d;
+    public boolean a;
+    public int b;
+    public boolean c;
 
     public x15() {
         Interceptable interceptable = $ic;
@@ -30,65 +30,59 @@ public class x15 {
         }
     }
 
-    public static x15 a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (x15.class) {
-                    if (e == null) {
-                        e = new x15();
-                    }
-                }
-            }
-            return e;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (x15) invokeV.objValue;
+        boolean z2 = false;
+        if (jSONObject.optInt("is_bawu") == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
+        if ("manager".equals(jSONObject.optString("bawu_type"))) {
+            i = 1;
+        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
+            i = 2;
+        } else {
+            i = 0;
+        }
+        this.b = i;
+        if (jSONObject.optInt("is_deleted") == 1) {
+            z2 = true;
+        }
+        this.c = z2;
     }
 
-    public float b() {
-        InterceptResult invokeV;
+    public void b(MultiForumPerm multiForumPerm) {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
+            return;
         }
-        return invokeV.floatValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        boolean z2 = false;
+        if (multiForumPerm.is_bawu.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeV.floatValue;
-    }
-
-    public float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        this.a = z;
+        if ("manager".equals(multiForumPerm.bawu_type)) {
+            i = 1;
+        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
+            i = 2;
+        } else {
+            i = 0;
         }
-        return invokeV.floatValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        this.b = i;
+        if (multiForumPerm.is_deleted.intValue() == 1) {
+            z2 = true;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float f, float f2, float f3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = z;
-        }
+        this.c = z2;
     }
 }

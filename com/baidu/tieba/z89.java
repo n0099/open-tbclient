@@ -1,27 +1,16 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface z89 {
-    void a(String str);
+public class z89 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, int i, int i2, String str2);
-
-    void c(String str, int i, String str2);
-
-    boolean d(String str);
-
-    boolean e(String str);
-
-    void f(String str, int i, String str2);
-
-    void g(String str, int i, String str2);
-
-    void h(String str, String str2);
-
-    void i(String str, String str2);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(String str, int i, String str2);
+    public static void a(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+        }
+    }
 }

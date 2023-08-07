@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.h09;
+import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.ThemeElement;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LinearGradientView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -247,12 +247,12 @@ public class LinearGradientView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = h09.b("#2BB8FF");
-            this.c = h09.b("#2BB8FF");
-            this.d = h09.b("#249BD6");
-            this.e = h09.b("#246CD6");
-            this.f = h09.b("#249BD6");
-            this.g = h09.b("#246CD6");
+            this.b = ColorUtils.parseColor("#2BB8FF");
+            this.c = ColorUtils.parseColor("#2BB8FF");
+            this.d = ColorUtils.parseColor("#249BD6");
+            this.e = ColorUtils.parseColor("#246CD6");
+            this.f = ColorUtils.parseColor("#249BD6");
+            this.g = ColorUtils.parseColor("#246CD6");
             this.h = c();
         }
     }
@@ -302,15 +302,15 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                if (this.b == h09.b(str) && this.c == h09.b(str2) && this.d == h09.b(str3) && this.e == h09.b(str4) && this.f == h09.b(str5) && this.g == h09.b(str6)) {
+                if (this.b == ColorUtils.parseColor(str) && this.c == ColorUtils.parseColor(str2) && this.d == ColorUtils.parseColor(str3) && this.e == ColorUtils.parseColor(str4) && this.f == ColorUtils.parseColor(str5) && this.g == ColorUtils.parseColor(str6)) {
                     return;
                 }
-                this.b = h09.b(str);
-                this.c = h09.b(str2);
-                this.d = h09.b(str3);
-                this.e = h09.b(str4);
-                this.f = h09.b(str5);
-                this.g = h09.b(str6);
+                this.b = ColorUtils.parseColor(str);
+                this.c = ColorUtils.parseColor(str2);
+                this.d = ColorUtils.parseColor(str3);
+                this.e = ColorUtils.parseColor(str4);
+                this.f = ColorUtils.parseColor(str5);
+                this.g = ColorUtils.parseColor(str6);
                 this.h = c();
                 invalidate();
                 return;
@@ -320,43 +320,43 @@ public class LinearGradientView extends View {
     }
 
     public void setGradientColor(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3) {
-        int b;
-        int b2;
-        int b3;
+        int parseColor;
+        int parseColor2;
+        int parseColor3;
         int i;
-        int b4;
+        int parseColor4;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, themeElement, themeElement2, themeElement3) == null) {
             if (themeElement == null) {
-                b = h09.b("#2BB8FF");
-                b2 = h09.b("#2BB8FF");
+                parseColor = ColorUtils.parseColor("#2BB8FF");
+                parseColor2 = ColorUtils.parseColor("#2BB8FF");
             } else {
-                b = h09.b(themeElement.common_color);
-                b2 = h09.b(themeElement.common_color);
+                parseColor = ColorUtils.parseColor(themeElement.common_color);
+                parseColor2 = ColorUtils.parseColor(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = h09.b("#249BD6");
-                b3 = h09.b("#246CD6");
+                i = ColorUtils.parseColor("#249BD6");
+                parseColor3 = ColorUtils.parseColor("#246CD6");
             } else {
-                int b5 = h09.b(themeElement2.common_color);
-                b3 = h09.b(themeElement2.common_color);
-                i = b5;
+                int parseColor5 = ColorUtils.parseColor(themeElement2.common_color);
+                parseColor3 = ColorUtils.parseColor(themeElement2.common_color);
+                i = parseColor5;
             }
             if (themeElement3 == null) {
-                i2 = h09.b("#249BD6");
-                b4 = h09.b("#246CD6");
+                i2 = ColorUtils.parseColor("#249BD6");
+                parseColor4 = ColorUtils.parseColor("#246CD6");
             } else {
-                int b6 = h09.b(themeElement3.common_color);
-                b4 = h09.b(themeElement3.common_color);
-                i2 = b6;
+                int parseColor6 = ColorUtils.parseColor(themeElement3.common_color);
+                parseColor4 = ColorUtils.parseColor(themeElement3.common_color);
+                i2 = parseColor6;
             }
-            this.b = b;
-            this.c = b2;
+            this.b = parseColor;
+            this.c = parseColor2;
             this.d = i;
-            this.e = b3;
+            this.e = parseColor3;
             this.f = i2;
-            this.g = b4;
+            this.g = parseColor4;
             this.h = c();
             invalidate();
         }

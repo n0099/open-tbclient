@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.en8;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class mn8 extends np8 {
+public class mn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mn8() {
+    public mn8(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,61 +23,5 @@ public class mn8 extends np8 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.mp8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            i(i);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.np8
-    public void h(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (this.a.isEmpty()) {
-                g(list);
-            } else {
-                super.h(list);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.np8
-    public List<lp8> j(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (Object obj : list) {
-                    if (obj instanceof AbilityItem) {
-                        arrayList.add(new nn8((AbilityItem) obj));
-                    } else {
-                        boolean z = obj instanceof en8.b;
-                        if (z) {
-                            Object obj2 = ((en8.b) obj).a;
-                            if (obj2 instanceof AbilityItem) {
-                                arrayList.add(new nn8((AbilityItem) obj2));
-                            }
-                        }
-                        if (z) {
-                            Object obj3 = ((en8.b) obj).a;
-                            if (obj3 instanceof nn8) {
-                                arrayList.add((nn8) obj3);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
     }
 }

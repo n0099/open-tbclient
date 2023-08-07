@@ -1,31 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes6.dex */
-public class i97 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public u97 e;
-    public String f;
+public interface i97 {
 
-    public i97() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(View view2, u97<?> u97Var, t97<?, ?> t97Var);
     }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(@NonNull u97<?> u97Var, int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(@NonNull u97<?> u97Var, @NonNull t97<?, ?> t97Var, int i);
+
+        void b(@NonNull RecyclerView recyclerView);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        boolean a(View view2, u97<?> u97Var, t97<?, ?> t97Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(@NonNull Object obj);
+    }
+
+    void b(b bVar);
+
+    void e(c cVar);
+
+    void i(a aVar);
+
+    void k(e eVar);
 }

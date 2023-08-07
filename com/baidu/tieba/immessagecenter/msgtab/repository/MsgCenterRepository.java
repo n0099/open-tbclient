@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.bg8;
 import com.baidu.tieba.immessagecenter.arch.base.BaseRepository;
 import com.baidu.tieba.immessagecenter.msgtab.data.CacheDataType;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.ji8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -154,8 +154,8 @@ public final class MsgCenterRepository extends BaseRepository {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
             FastRequest fastRequest = new FastRequest(tbPageContext, CmdConfigHttp.CMD_REQUEST_FOLLOWED_FRS_LIST, TbConfig.REQUEST_FOLLOWED_FRS_LIST);
-            fastRequest.b0(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.Y(this.b);
+            fastRequest.T(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.Q(this.b);
             return fastRequest;
         }
         return (FastRequest) invokeL.objValue;
@@ -216,7 +216,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.c.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                ji8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
+                bg8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -242,7 +242,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.c.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                ji8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
+                bg8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -388,8 +388,8 @@ public final class MsgCenterRepository extends BaseRepository {
             }
             FastRequest fastRequest = this.a;
             if (fastRequest != null) {
-                fastRequest.W(TiebaStatic.Params.FORUM_ID_MERGE, f());
-                fastRequest.X();
+                fastRequest.O(TiebaStatic.Params.FORUM_ID_MERGE, f());
+                fastRequest.P();
             }
         }
     }

@@ -15,9 +15,9 @@ import com.baidu.searchbox.anr.utils.Utils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
-import com.baidu.tieba.olb;
-import com.baidu.tieba.wg1;
-import com.baidu.tieba.yg1;
+import com.baidu.tieba.bg1;
+import com.baidu.tieba.rkb;
+import com.baidu.tieba.zf1;
 import com.github.anrwatchdog.ANRError;
 import com.kwad.sdk.crash.handler.AnrHandler;
 import java.io.File;
@@ -37,17 +37,17 @@ public class ANRMonitor implements IANRMonitor {
     public static String sANRTimeStamp;
     public static long sLastTimes;
     public FileObserver mFileObserver;
-    public wg1 nativeANRListener;
+    public zf1 nativeANRListener;
     public int mAnrWatchTimeOut = 5000;
-    public olb mANRWatchDog = null;
+    public rkb mANRWatchDog = null;
     public boolean mMonitorStarted = false;
 
     /* loaded from: classes3.dex */
-    public static class ANRListenerImpl implements olb.f {
+    public static class ANRListenerImpl implements rkb.f {
         public ANRListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.olb.f
+        @Override // com.baidu.tieba.rkb.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(ANRMonitor.TAG, "ANRWatchDog catch ANR", aNRError);
             ANRMonitor.filiterANR(aNRError.getSTStackTrace());
@@ -60,8 +60,8 @@ public class ANRMonitor implements IANRMonitor {
             Log.w(TAG, "start ANR Signal Monitor");
         }
         if (this.nativeANRListener == null) {
-            wg1 wg1Var = new wg1() { // from class: com.baidu.searchbox.anr.impl.ANRMonitor.3
-                @Override // com.baidu.tieba.wg1
+            zf1 zf1Var = new zf1() { // from class: com.baidu.searchbox.anr.impl.ANRMonitor.3
+                @Override // com.baidu.tieba.zf1
                 public void onNativeANR(int i) {
                     if (AppConfig.isDebug()) {
                         String str = ANRMonitor.TAG;
@@ -70,10 +70,10 @@ public class ANRMonitor implements IANRMonitor {
                     ANRMonitor.filiterANR(null);
                 }
             };
-            this.nativeANRListener = wg1Var;
-            yg1.a(wg1Var);
+            this.nativeANRListener = zf1Var;
+            bg1.a(zf1Var);
         }
-        yg1.b(Build.VERSION.SDK_INT);
+        bg1.b(Build.VERSION.SDK_INT);
     }
 
     private void retryUpload() {
@@ -149,9 +149,9 @@ public class ANRMonitor implements IANRMonitor {
     @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
     public void stopANRMonitor() {
         if (this.mMonitorStarted) {
-            olb olbVar = this.mANRWatchDog;
-            if (olbVar != null) {
-                olbVar.interrupt();
+            rkb rkbVar = this.mANRWatchDog;
+            if (rkbVar != null) {
+                rkbVar.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;
@@ -160,7 +160,7 @@ public class ANRMonitor implements IANRMonitor {
                 this.mMonitorStarted = false;
             }
             if (this.nativeANRListener != null) {
-                yg1.c();
+                bg1.c();
             }
         }
     }
@@ -231,9 +231,9 @@ public class ANRMonitor implements IANRMonitor {
         } else {
             this.mAnrWatchTimeOut = i;
         }
-        olb olbVar = new olb(this.mAnrWatchTimeOut);
-        this.mANRWatchDog = olbVar;
-        olbVar.e();
+        rkb rkbVar = new rkb(this.mAnrWatchTimeOut);
+        this.mANRWatchDog = rkbVar;
+        rkbVar.e();
         this.mANRWatchDog.c(new ANRListenerImpl());
         if (AppConfig.isDebug()) {
             String str = TAG;

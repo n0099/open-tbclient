@@ -1,31 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.location.selectpoi.SearchLocationActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialConstants;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zz8 {
+public class zz8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Rect b;
-    public String c;
-    public Rect d;
+    public wz8 a;
+    public SearchLocationActivity b;
+    public boolean c;
+    public NoDataView d;
 
-    public zz8() {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public View b;
+
+        public b(zz8 zz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(zz8 zz8Var, a aVar) {
+            this(zz8Var);
+        }
+    }
+
+    public zz8(SearchLocationActivity searchLocationActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {searchLocationActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,116 +84,105 @@ public class zz8 {
                 return;
             }
         }
-        this.a = "";
-        this.b = new Rect(0, 0, 0, 0);
-        this.c = "";
-        this.d = new Rect(0, 0, 0, 0);
+        this.c = false;
+        this.b = searchLocationActivity;
     }
 
-    public zz8(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("pic_url");
-        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
-            if (optJSONArray == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
-                if (jSONObject == null) {
-                    return;
-                }
-                this.c = jSONObject.optString("pic_url");
-                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public static zz8 a(String str) {
+    public b b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new zz8();
-            }
-            try {
-                return new zz8(new JSONObject(str));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return new zz8();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            b bVar = new b(this, null);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091654);
+            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091655);
+            return bVar;
         }
-        return (zz8) invokeL.objValue;
+        return (b) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void d(wz8 wz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !this.d.isEmpty()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wz8Var) == null) {
+            this.a = wz8Var;
         }
-        return invokeV.booleanValue;
+    }
+
+    public View a(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1622), null);
+            this.d = a2;
+            a2.f(this.b.getPageContext(), skinType);
+            this.d.setVisibility(0);
+            return this.d;
+        }
+        return (View) invokeL.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !this.b.isEmpty()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    public String toString() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!c()) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            wz8 wz8Var = this.a;
+            if (wz8Var != null && wz8Var.a() != null && !this.a.a().isEmpty()) {
+                this.c = true;
+                return this.a.a().size();
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("pic_url", this.a);
-                jSONObject.put("rect_left", this.b.left);
-                jSONObject.put("rect_top", this.b.top);
-                jSONObject.put("rect_right", this.b.right);
-                jSONObject.put("rect_bottom", this.b.bottom);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            this.c = false;
+            return 1;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            wz8 wz8Var = this.a;
+            if (wz8Var != null && wz8Var.a() != null && !this.a.a().isEmpty()) {
+                return this.a.a().get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (!this.c) {
+                return a(viewGroup);
+            }
+            b bVar = null;
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            }
+            if (bVar == null) {
+                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ef, viewGroup, false);
+                bVar = b(view2);
+                view2.setTag(bVar);
+            }
+            bVar.a.setText(this.a.a().get(i).a());
+            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

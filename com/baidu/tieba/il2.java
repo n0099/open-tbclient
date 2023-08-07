@@ -1,157 +1,95 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uo4;
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class il2 implements uo4 {
+public class il2 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public uo4 c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public il2 a;
-
-        public b() {
+        public a(il2 il2Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {il2Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = context;
+            this.b = str;
         }
 
-        public il2 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                il2 il2Var = this.a;
-                this.a = null;
-                return il2Var;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Toast.makeText(this.a, this.b, 1).show();
             }
-            return (il2) invokeV.objValue;
-        }
-
-        public final il2 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a == null) {
-                    this.a = new il2(null);
-                }
-                return this.a;
-            }
-            return (il2) invokeV.objValue;
-        }
-
-        public b b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) != null) {
-                return (b) invokeZ.objValue;
-            }
-            c().b = z;
-            return this;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
-                return (b) invokeL.objValue;
-            }
-            c().a = str;
-            return this;
-        }
-
-        public b e(uo4 uo4Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, uo4Var)) != null) {
-                return (b) invokeL.objValue;
-            }
-            c().c = uo4Var;
-            return this;
         }
     }
 
-    public il2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public il2(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ il2(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.uo4
-    public void a(String str, uo4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            uo4 uo4Var = this.c;
-            if (uo4Var != null) {
-                uo4Var.a(str, aVar);
-            } else if (aVar != null) {
-                aVar.a(true);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (vc3.b) {
+                Log.d("ExtCore-PublishThread", "handle: publishThread");
             }
+            JSONObject a2 = vc3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
+                return false;
+            }
+            so3.e0(new a(this, context, a2.optString("data", "")));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,29 +1,62 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.c67;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.tr6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rr6 extends pl1<c67.a> {
+public class rr6 {
     public static /* synthetic */ Interceptable $ic;
+    public static tr6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948131283, "Lcom/baidu/tieba/rr6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948131283, "Lcom/baidu/tieba/rr6;");
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public class a implements c67.a {
+    public static class a implements tr6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(rr6 rr6Var) {
+        @Override // com.baidu.tieba.tr6
+        public <T extends sr6> void b(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.tr6
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rr6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,24 +67,35 @@ public class rr6 extends pl1<c67.a> {
             }
         }
 
-        @Override // com.baidu.tieba.c67.a
-        public c67.e a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.tr6
+        public <T extends sr6> void a(@NonNull Object obj, @NonNull ur6<T> ur6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new zr6();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, ur6Var) == null) {
+                throw new IllegalStateException("Unable to find eventbus service!");
             }
-            return (c67.e) invokeV.objValue;
         }
+    }
 
-        @Override // com.baidu.tieba.c67.a
-        public c67.c b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new ur6();
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tr6.a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-451597099, "Lcom/baidu/tieba/rr6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-451597099, "Lcom/baidu/tieba/rr6$b;");
+                    return;
+                }
             }
-            return (c67.c) invokeV.objValue;
+            a = (tr6.a) ServiceManager.getService(tr6.a.a);
         }
     }
 
@@ -59,25 +103,40 @@ public class rr6 extends pl1<c67.a> {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public c67.a createService() throws ServiceNotFoundException {
+    public static void a(@NonNull BdUniqueId bdUniqueId) {
+        tr6.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, bdUniqueId) == null) && (aVar = b.a) != null) {
+            aVar.a(bdUniqueId);
+        }
+    }
+
+    public static tr6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (rr6.class) {
+                    if (a == null) {
+                        a = (tr6) ServiceManager.getService(tr6.a);
+                    }
+                    if (a == null) {
+                        a = new a();
+                    }
+                }
+            }
+            return a;
         }
-        return (c67.a) invokeV.objValue;
+        return (tr6) invokeV.objValue;
     }
 }

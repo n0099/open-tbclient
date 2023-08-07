@@ -1,124 +1,101 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.util.LongSparseArray;
+import android.view.View;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.BdCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
-public final class yw {
+public class yw {
     public static /* synthetic */ Interceptable $ic;
-    public static yw b;
-    public static HashMap<String, lx<String, Integer>> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public View decorView;
+    public int insertIndex;
+    public RelativeLayout.LayoutParams layoutParams;
+    public ky threadCard;
 
-    public static void a(String str, String str2) {
+    public void onAttachCard() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448323151, "Lcom/baidu/tieba/yw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448323151, "Lcom/baidu/tieba/yw;");
-                return;
-            }
+    public void onDetachCard() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
-        c = new HashMap<>();
     }
 
     public yw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        new LongSparseArray();
     }
 
-    public static synchronized yw b() {
-        InterceptResult invokeV;
-        yw ywVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (yw.class) {
-                if (b == null) {
-                    b = new yw();
-                }
-                ywVar = b;
-            }
-            return ywVar;
-        }
-        return (yw) invokeV.objValue;
-    }
-
-    private Context getContext() {
+    public View getDecorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.a == null) {
-                this.a = BdCore.a().getContext();
-            }
-            Context context = this.a;
-            if (context != null) {
-                return context;
-            }
-            throw new RuntimeException("context is null!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.decorView;
         }
-        return (Context) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Deprecated
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
+    public int getInsertIndex() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            a(str2, str);
-            lx<String, Integer> lxVar = c.get(str);
-            if (lxVar == null) {
-                lxVar = new lx<>(100);
-                c.put(str, lxVar);
-            }
-            Integer c2 = lxVar.c(str2);
-            if (c2 == null) {
-                try {
-                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
-                    lxVar.d(str2, Integer.valueOf(identifier));
-                    return identifier;
-                } catch (Error e) {
-                    e.printStackTrace();
-                    return 0;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return 0;
-                }
-            }
-            return c2.intValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.insertIndex;
         }
-        return invokeLL.intValue;
+        return invokeV.intValue;
+    }
+
+    public RelativeLayout.LayoutParams getLayoutParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.layoutParams;
+        }
+        return (RelativeLayout.LayoutParams) invokeV.objValue;
+    }
+
+    public void setDecorView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.decorView = view2;
+        }
+    }
+
+    public void setInsertIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.insertIndex = i;
+        }
+    }
+
+    public void setLayoutParams(RelativeLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
+            this.layoutParams = layoutParams;
+        }
+    }
+
+    public void setThreadCard(ky kyVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kyVar) == null) {
+            this.threadCard = kyVar;
+        }
     }
 }

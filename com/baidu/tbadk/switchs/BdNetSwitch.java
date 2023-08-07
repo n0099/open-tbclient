@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.da5;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +24,7 @@ public class BdNetSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,11 +68,11 @@ public class BdNetSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int q = da5.p().q("key_bd_net_switch", 2);
-                type = q;
-                if (q == 2) {
+                int i = SharedPrefHelper.getInstance().getInt("key_bd_net_switch", 2);
+                type = i;
+                if (i == 2) {
                     switchOn = true;
-                } else if (q == 1) {
+                } else if (i == 1) {
                     if (UbsABTestHelper.isUseTiebaNetABTest()) {
                         switchOn = false;
                     } else if (UbsABTestHelper.isNetABTest()) {

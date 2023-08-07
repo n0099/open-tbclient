@@ -4,18 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qk5;
-import com.baidu.tieba.rk5;
-import com.baidu.tieba.xk5;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.dj5;
+import com.baidu.tieba.jj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class KPSwitchFSPanelFrameLayout extends FrameLayout implements qk5 {
+public class KPSwitchFSPanelFrameLayout extends FrameLayout implements cj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rk5 a;
+    public dj5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -82,7 +82,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements qk5 {
         b();
     }
 
-    @Override // com.baidu.tieba.qk5
+    @Override // com.baidu.tieba.cj5
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -90,18 +90,18 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements qk5 {
         }
     }
 
-    @Override // com.baidu.tieba.qk5
+    @Override // com.baidu.tieba.cj5
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            xk5.d(this, i);
+            jj5.d(this, i);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new rk5(this);
+            this.a = new dj5(this);
         }
     }
 }

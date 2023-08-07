@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import androidx.core.app.NotificationCompat;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,7 +47,7 @@ public class c {
                 intent.setPackage(context.getPackageName());
                 int i2 = SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION;
                 if (context.getApplicationInfo().targetSdkVersion >= 31) {
-                    i2 = 201326592;
+                    i2 = BDImageView.DEFAULT_BORDER_COLOR;
                 }
                 alarmManager.cancel(PendingIntent.getBroadcast(context, i, intent, i2));
             } catch (Throwable unused) {
@@ -64,7 +65,7 @@ public class c {
                 intent.setPackage(context.getPackageName());
                 int i2 = SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION;
                 if (context.getApplicationInfo().targetSdkVersion >= 31) {
-                    i2 = 201326592;
+                    i2 = BDImageView.DEFAULT_BORDER_COLOR;
                 }
                 PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, i2);
                 try {

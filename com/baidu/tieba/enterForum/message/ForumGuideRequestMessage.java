@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class ForumGuideRequestMessage extends NetMessage {
                 builder.sort_type = this.sortType;
                 builder.call_from = this.callFrom;
                 if (z) {
-                    ky5.a(builder, true);
+                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
                 }
                 ForumGuideReqIdl.Builder builder2 = new ForumGuideReqIdl.Builder();
                 builder2.data = builder.build(false);

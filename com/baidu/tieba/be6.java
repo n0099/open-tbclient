@@ -1,46 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.BaseAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class be6 extends BaseAdapter {
+public class be6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public Context b;
-    public List<fe6> c;
-    public int d;
+    public BdTypeListView b;
+    public List<lm> c;
+    public List<ym> d;
+    public df6 e;
+    public he6 f;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    public be6(TbPageContext tbPageContext) {
+    public be6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, df6 df6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView, df6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,60 +37,80 @@ public abstract class be6 extends BaseAdapter {
             }
         }
         this.a = tbPageContext;
-        this.b = tbPageContext.getPageActivity();
+        this.b = bdTypeListView;
         this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = df6Var;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public fe6 getItem(int i) {
-        InterceptResult invokeI;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.get(i);
-        }
-        return (fe6) invokeI.objValue;
-    }
-
-    public void c(List<fe6> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.c.clear();
-        this.c.addAll(list);
-        notifyDataSetChanged();
-    }
-
-    public void b(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
-        String str2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, threadData, str) == null) && tbPageContext != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = threadData.getAuthor().getUserId();
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                z = TextUtils.equals(userId, currentAccount);
-                str2 = currentAccount;
-            } else {
-                str2 = "";
-                z = false;
-            }
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ae6 ae6Var = new ae6(this.a);
+            ee6 ee6Var = new ee6(this.a);
+            fe6 fe6Var = new fe6(this.a);
+            yd6 yd6Var = new yd6(this.a);
+            de6 de6Var = new de6(this.a);
+            ge6 ge6Var = new ge6(this.a);
+            ce6 ce6Var = new ce6(this.a);
+            zd6 zd6Var = new zd6(this.a);
+            this.f = new he6(this.a);
+            je6 je6Var = new je6(this.a, this.e);
+            ie6 ie6Var = new ie6(this.a);
+            this.c.add(ae6Var);
+            this.c.add(this.f);
+            this.c.add(ee6Var);
+            this.c.add(fe6Var);
+            this.c.add(yd6Var);
+            this.c.add(de6Var);
+            this.c.add(ge6Var);
+            this.c.add(ce6Var);
+            this.c.add(zd6Var);
+            this.c.add(je6Var);
+            this.c.add(ie6Var);
+            this.b.addAdapters(this.c);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void b(List<ym> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.size();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.b != null && !ListUtils.isEmpty(list)) {
+            this.d.clear();
+            this.d.addAll(list);
+            this.b.setData(this.d);
         }
-        return invokeV.intValue;
+    }
+
+    public void c(String str) {
+        he6 he6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (he6Var = this.f) != null) {
+            he6Var.B(str);
+        }
+    }
+
+    public void d(String str) {
+        he6 he6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (he6Var = this.f) != null) {
+            he6Var.a(str);
+        }
+    }
+
+    public void e(String str) {
+        he6 he6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (he6Var = this.f) != null) {
+            he6Var.C(str);
+        }
+    }
+
+    public void f(boolean z) {
+        he6 he6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (he6Var = this.f) != null) {
+            he6Var.D(z);
+        }
     }
 }

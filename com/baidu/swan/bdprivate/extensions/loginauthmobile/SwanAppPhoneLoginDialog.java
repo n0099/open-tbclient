@@ -25,12 +25,12 @@ import androidx.fragment.app.FragmentManager;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv2;
-import com.baidu.tieba.mp3;
-import com.baidu.tieba.nb3;
-import com.baidu.tieba.ut3;
-import com.baidu.tieba.wo3;
-import com.baidu.tieba.wr3;
+import com.baidu.tieba.fu2;
+import com.baidu.tieba.po3;
+import com.baidu.tieba.qa3;
+import com.baidu.tieba.xs3;
+import com.baidu.tieba.zn3;
+import com.baidu.tieba.zq3;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
@@ -69,15 +69,15 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         @Override // android.app.Dialog
         public void onBackPressed() {
             SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = SwanAppPhoneLoginDialog.this;
-            swanAppPhoneLoginDialog.O1(!swanAppPhoneLoginDialog.q);
-            SwanAppPhoneLoginDialog.this.I1();
+            swanAppPhoneLoginDialog.P1(!swanAppPhoneLoginDialog.q);
+            SwanAppPhoneLoginDialog.this.J1();
             if (SwanAppPhoneLoginDialog.this.q) {
                 FragmentManager fragmentManager = SwanAppPhoneLoginDialog.this.getFragmentManager();
                 if (fragmentManager != null) {
                     fragmentManager.popBackStackImmediate();
                 }
                 SwanAppPhoneLoginDialog swanAppPhoneLoginDialog2 = SwanAppPhoneLoginDialog.this;
-                ut3.a("show", "quickLogin", null, swanAppPhoneLoginDialog2.h, swanAppPhoneLoginDialog2.i);
+                xs3.a("show", "quickLogin", null, swanAppPhoneLoginDialog2.h, swanAppPhoneLoginDialog2.i);
             }
         }
     }
@@ -89,8 +89,8 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            SwanAppPhoneLoginDialog.this.O1(true);
-            SwanAppPhoneLoginDialog.this.I1();
+            SwanAppPhoneLoginDialog.this.P1(true);
+            SwanAppPhoneLoginDialog.this.J1();
         }
     }
 
@@ -101,14 +101,14 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            SwanAppPhoneLoginDialog.this.O1(false);
-            SwanAppPhoneLoginDialog.this.I1();
+            SwanAppPhoneLoginDialog.this.P1(false);
+            SwanAppPhoneLoginDialog.this.J1();
             FragmentManager fragmentManager = SwanAppPhoneLoginDialog.this.getFragmentManager();
             if (fragmentManager != null) {
                 fragmentManager.popBackStackImmediate();
             }
             SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = SwanAppPhoneLoginDialog.this;
-            ut3.a("show", "quickLogin", null, swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
+            xs3.a("show", "quickLogin", null, swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
         }
     }
 
@@ -132,9 +132,9 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog.g
         public void onFailure() {
             SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = SwanAppPhoneLoginDialog.this;
-            ut3.a("click", "telLogin", "fail", swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
+            xs3.a("click", "telLogin", "fail", swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
             if (SwanAppPhoneLoginDialog.this.p) {
-                SwanAppPhoneLoginDialog.this.I1();
+                SwanAppPhoneLoginDialog.this.J1();
                 return;
             }
             SwanAppLoginAndGetMobileDialog.b bVar = SwanAppPhoneLoginDialog.this.a;
@@ -144,18 +144,18 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             FragmentActivity fragmentActivity = SwanAppPhoneLoginDialog.this.b;
             if (fragmentActivity != null && fragmentActivity.getWindow() != null) {
                 FragmentActivity fragmentActivity2 = SwanAppPhoneLoginDialog.this.b;
-                wo3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
+                zn3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
             }
         }
 
         @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog.g
         public void onSuccess() {
             SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = SwanAppPhoneLoginDialog.this;
-            ut3.a("click", "telLogin", "succ_agree", swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
+            xs3.a("click", "telLogin", "succ_agree", swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
             FragmentActivity fragmentActivity = SwanAppPhoneLoginDialog.this.b;
             if (fragmentActivity != null && fragmentActivity.getWindow() != null) {
                 FragmentActivity fragmentActivity2 = SwanAppPhoneLoginDialog.this.b;
-                wo3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
+                zn3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
             }
             SwanAppLoginAndGetMobileDialog.b bVar = SwanAppPhoneLoginDialog.this.a;
             if (bVar != null) {
@@ -184,17 +184,17 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            nb3.f(SwanAppPhoneLoginDialog.this.b, R.string.obfuscated_res_0x7f0f1578).H(true);
+            qa3.f(SwanAppPhoneLoginDialog.this.b, R.string.obfuscated_res_0x7f0f157c).H(true);
         }
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    public void I1() {
+    public void J1() {
         AccountSmsLoginView accountSmsLoginView = this.l;
         if (accountSmsLoginView != null) {
             accountSmsLoginView.close();
         }
-        super.I1();
+        super.J1();
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog, androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
@@ -207,17 +207,17 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    public void L1(boolean z) {
+    public void M1(boolean z) {
         AccountSmsLoginView accountSmsLoginView;
-        super.L1(z);
+        super.M1(z);
         if (this.m != null && (accountSmsLoginView = this.l) != null) {
             accountSmsLoginView.close();
             this.m.removeView(this.l);
         }
-        J1();
+        K1();
     }
 
-    public void Y1(boolean z) {
+    public void Z1(boolean z) {
         this.q = z;
     }
 
@@ -237,7 +237,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    public void J1() {
+    public void K1() {
         CheckBox checkBox = this.n;
         if (checkBox != null) {
             checkBox.setVisibility(0);
@@ -257,29 +257,29 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        wr3.P(getContext(), new d(), str);
+        zq3.P(getContext(), new d(), str);
         AccountSmsLoginView accountSmsLoginView = new AccountSmsLoginView(getContext());
         this.l = accountSmsLoginView;
         this.m.addView(accountSmsLoginView);
-        this.r = (EditText) this.d.findViewById(R.id.obfuscated_res_0x7f091c43);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, mp3.g(80.0f));
-        layoutParams.setMargins(mp3.g(40.0f), 0, mp3.g(40.0f), 0);
+        this.r = (EditText) this.d.findViewById(R.id.obfuscated_res_0x7f091c59);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, po3.g(80.0f));
+        layoutParams.setMargins(po3.g(40.0f), 0, po3.g(40.0f), 0);
         this.m.addView(this.t, layoutParams);
         this.t.setVisibility(8);
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    public void K1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
-        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0905, viewGroup, false);
+    public void L1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
+        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d090f, viewGroup, false);
         this.d = linearLayout;
-        this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090720);
-        this.k = (BdBaseImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090322);
-        this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091c4a);
-        this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09164d);
+        this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09072f);
+        this.k = (BdBaseImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090323);
+        this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091c60);
+        this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091660);
         this.t = new View(getContext());
-        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092542);
-        this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09282e);
-        Z1();
+        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09255a);
+        this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092848);
+        a2();
         this.j.setOnClickListener(new b());
         if (this.q) {
             this.k.setVisibility(0);
@@ -288,14 +288,14 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    public void R1() {
+    public void S1() {
         int i;
         int i2;
         Resources resources = getContext().getResources();
         if (resources == null) {
             return;
         }
-        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081451));
+        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081457));
         this.k.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08011d));
         TextView textView = this.o;
         boolean z = this.c;
@@ -320,21 +320,21 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         checkBox2.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(i2), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
-    public final void Z1() {
+    public final void a2() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("");
-        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f155e));
-        H1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f155d), cv2.o().G());
-        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f155b));
-        H1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f155a), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
+        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1562));
+        I1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f1561), fu2.o().G());
+        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f155f));
+        I1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f155e), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
         this.s.setMovementMethod(LinkMovementMethod.getInstance());
         this.s.setText(spannableStringBuilder);
     }
 
-    public final void X1() {
-        String string = getContext().getString(R.string.obfuscated_res_0x7f0f153e);
+    public final void Y1() {
+        String string = getContext().getString(R.string.obfuscated_res_0x7f0f1542);
         CheckBox checkBox = this.n;
         if (!TextUtils.isEmpty(this.e)) {
-            string = String.format(getString(R.string.obfuscated_res_0x7f0f1501), this.e);
+            string = String.format(getString(R.string.obfuscated_res_0x7f0f1505), this.e);
         }
         checkBox.setText(string);
         this.l.postDelayed(new e(), 150L);
@@ -351,14 +351,14 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         this.t.setVisibility(0);
         this.t.setOnClickListener(new f());
         this.r.setEnabled(false);
-        nb3.f(this.b, R.string.obfuscated_res_0x7f0f1578).H(true);
+        qa3.f(this.b, R.string.obfuscated_res_0x7f0f157c).H(true);
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         super.onCreateView(layoutInflater, viewGroup, bundle);
-        X1();
+        Y1();
         return this.d;
     }
 }

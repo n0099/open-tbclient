@@ -1,159 +1,86 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.yun.YunTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.concurrent.PriorityBlockingQueue;
-import kotlin.collections.CollectionsKt___CollectionsKt;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class n65 {
+public final class n65 implements f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Comparator<YunTask> b;
-    public final PriorityBlockingQueue<YunTask> c;
 
-    /* loaded from: classes7.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-621554785, "Lcom/baidu/tieba/n65$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-621554785, "Lcom/baidu/tieba/n65$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[YunTask.Type.values().length];
-            iArr[YunTask.Type.DIRECT_EXECUTE.ordinal()] = 1;
-            iArr[YunTask.Type.ENQUEUE.ordinal()] = 2;
-            $EnumSwitchMapping$0 = iArr;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947954428, "Lcom/baidu/tieba/n65;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947954428, "Lcom/baidu/tieba/n65;");
-        }
-    }
-
-    public n65(int i) {
+    public n65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = i;
-        this.b = new Comparator() { // from class: com.baidu.tieba.k65
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.util.Comparator
-            public final int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? n65.b((YunTask) obj, (YunTask) obj2) : invokeLL.intValue;
-            }
-        };
-        this.c = new PriorityBlockingQueue<>(11, this.b);
     }
 
-    public final void c(YunTask yunTask) {
+    @Override // com.baidu.tieba.f65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yunTask) == null) {
-            yunTask.b(this);
-            this.c.add(yunTask);
-            int size = this.c.size();
-            int i = this.a;
-            if (size > i) {
-                int size2 = this.c.size();
-                while (i < size2) {
-                    YunTask yunTask2 = (YunTask) CollectionsKt___CollectionsKt.elementAt(this.c, i);
-                    this.c.remove(yunTask2);
-                    yunTask2.g();
-                    i++;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "updateDialog");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f65
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        JSONObject syncJson;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn() || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+                return false;
+            }
+            VersionData versionData = new VersionData();
+            versionData.parserJson(syncJson.optJSONObject("version"));
+            if (versionData.hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (versionData.forceUpdate()) {
+                    if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+                        return true;
+                    }
+                } else {
+                    long updateNotifyTime = TbadkCoreApplication.getInst().getUpdateNotifyTime();
+                    long time = new Date().getTime();
+                    if (time - updateNotifyTime > 86400000 && versionData.getStrategy() == 0 && TbadkCoreApplication.getInst().getResumeNum() > 0 && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                        TbadkCoreApplication.getInst().setUpdateNotifyTime(time);
+                        return true;
+                    }
                 }
             }
-            d();
+            return false;
         }
-    }
-
-    public static final int b(YunTask yunTask, YunTask yunTask2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, yunTask, yunTask2)) == null) {
-            if (yunTask2.f().isExecuting()) {
-                return Integer.MAX_VALUE;
-            }
-            return yunTask2.e() - yunTask.e();
-        }
-        return invokeLL.intValue;
-    }
-
-    public final void a(YunTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            int i = a.$EnumSwitchMapping$0[task.getType().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    c(task);
-                    return;
-                }
-                return;
-            }
-            task.c();
-        }
-    }
-
-    public final void e(YunTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            this.c.remove(task);
-            d();
-        }
-    }
-
-    public final void d() {
-        YunTask peek;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (peek = this.c.peek()) != null && peek.f().isUnStart()) {
-            peek.c();
-        }
+        return invokeL.booleanValue;
     }
 }

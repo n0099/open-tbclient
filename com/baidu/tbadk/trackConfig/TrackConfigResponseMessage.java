@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     this.isOpenTrack = z;
-                    da5.p().A("key_is_open_track", this.isOpenTrack);
+                    SharedPrefHelper.getInstance().putBoolean("key_is_open_track", this.isOpenTrack);
                     TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
                 } catch (JSONException e) {
                     BdLog.e("open track parese exception " + e.toString());

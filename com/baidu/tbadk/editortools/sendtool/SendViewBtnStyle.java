@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,11 +12,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hb5;
-import com.baidu.tieba.mj5;
-import com.baidu.tieba.vj5;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zi5;
+import com.baidu.tieba.hi5;
+import com.baidu.tieba.lh5;
+import com.baidu.tieba.x95;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
+public class SendViewBtnStyle extends TBSpecificationBtn implements yh5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int t = 1;
     public static int u;
@@ -65,7 +65,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.G(new zi5(8, -1, null));
+                this.a.F(new lh5(8, -1, null));
             }
         }
     }
@@ -83,8 +83,8 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
                 return;
             }
         }
-        v = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds39);
-        w = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        v = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds39);
+        w = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,7 +108,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         this.q = new boolean[]{false, false, false, false, false};
         this.r = new int[]{0, 0};
         this.s = u;
-        setLayoutParams(new FrameLayout.LayoutParams(yi.g(getContext(), R.dimen.tbds151) + v, yi.g(getContext(), R.dimen.tbds75) + (w * 2)));
+        setLayoutParams(new FrameLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds151) + v, BdUtilHelper.getDimens(getContext(), R.dimen.tbds75) + (w * 2)));
         int i3 = v;
         int i4 = w;
         setPadding(i3, i4, 0, i4);
@@ -118,13 +118,13 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.aj5
-    public void B(zi5 zi5Var) {
+    @Override // com.baidu.tieba.mh5
+    public void B(lh5 lh5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zi5Var) != null) || zi5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lh5Var) != null) || lh5Var == null) {
             return;
         }
-        int i = zi5Var.a;
+        int i = lh5Var.a;
         if (i != 4) {
             if (i != 39 && i != 28) {
                 if (i != 29) {
@@ -147,15 +147,15 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
                             this.q[2] = false;
                             break;
                         case 12:
-                            Object obj = zi5Var.c;
-                            if (!(obj instanceof vj5)) {
+                            Object obj = lh5Var.c;
+                            if (!(obj instanceof hi5)) {
                                 return;
                             }
-                            vj5 vj5Var = (vj5) obj;
-                            WriteImagesInfo writeImagesInfo = vj5Var.a;
+                            hi5 hi5Var = (hi5) obj;
+                            WriteImagesInfo writeImagesInfo = hi5Var.a;
                             if (writeImagesInfo != null) {
                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                    this.r[0] = vj5Var.a.getChosedFiles().size();
+                                    this.r[0] = hi5Var.a.getChosedFiles().size();
                                 } else {
                                     this.r[0] = 0;
                                 }
@@ -185,7 +185,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
                 this.q[3] = true;
             }
         } else {
-            Object obj2 = zi5Var.c;
+            Object obj2 = lh5Var.c;
             if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.q[0] = true;
             } else {
@@ -195,26 +195,26 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         q(this.s);
     }
 
-    @Override // com.baidu.tieba.mj5
-    public void G(zi5 zi5Var) {
+    @Override // com.baidu.tieba.yh5
+    public void F(lh5 lh5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zi5Var) == null) && (editorTools = this.o) != null) {
-            editorTools.D(zi5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lh5Var) == null) && (editorTools = this.o) != null) {
+            editorTools.D(lh5Var);
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            hb5 hb5Var = new hb5();
-            hb5Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-            setConfig(hb5Var);
+            x95 x95Var = new x95();
+            x95Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            setConfig(x95Var);
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -222,7 +222,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -237,7 +237,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -245,7 +245,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -263,7 +263,7 @@ public class SendViewBtnStyle extends TBSpecificationBtn implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

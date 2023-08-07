@@ -11,12 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +24,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class BdTopToast extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEFAULT_DURATION = 5000;
+    public static final int DEFAULT_THIRD_DURATION = 3000;
+    public static final int DEFAULT_YOUNGSTER_DURATION = 2000;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BottomShadowLinearLayout b;
-    public ImageView c;
-    public TextView d;
-    public Animation e;
-    public Animation f;
-    public Runnable g;
-    public int h;
-    public boolean i;
+    public TextView mContentView;
+    public int mDuration;
+    public Runnable mHideRunnable;
+    public ImageView mIconView;
+    public Animation mInAnimation;
+    public boolean mIsSuc;
+    public Animation mOutAnimation;
+    public BottomShadowLinearLayout mShadowGroup;
+    public View mStatusBarView;
 
     /* loaded from: classes8.dex */
     public class a implements Animation.AnimationListener {
@@ -80,7 +83,7 @@ public class BdTopToast extends LinearLayout {
             if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
                 return;
             }
-            this.a.f();
+            this.a.release();
             if (this.a.getParent() != null) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
@@ -115,7 +118,7 @@ public class BdTopToast extends LinearLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+                this.a.hide();
             }
         }
     }
@@ -159,7 +162,7 @@ public class BdTopToast extends LinearLayout {
                 return;
             }
         }
-        this.h = i;
+        this.mDuration = i;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -202,45 +205,65 @@ public class BdTopToast extends LinearLayout {
                 return;
             }
         }
-        this.h = -1;
-        c();
+        this.mDuration = -1;
+        init();
     }
 
-    public BdTopToast g(String str) {
+    public BdTopToast setContent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (getContext() != null) {
-                this.d.setText(str);
+                this.mContentView.setText(str);
             }
             return this;
         }
         return (BdTopToast) invokeL.objValue;
     }
 
-    public BdTopToast h(boolean z) {
+    public BdTopToast setIcon(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.i = z;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.mIsSuc = z;
             return this;
         }
         return (BdTopToast) invokeZ.objValue;
     }
 
-    public void b() {
+    private void init() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getContext() == null) {
+        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || getContext() == null) {
             return;
         }
-        f();
-        startAnimation(this.f);
+        setOrientation(1);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.mStatusBarView = new View(getContext());
+            addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+        }
+        LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
+        this.mShadowGroup = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
+        this.mContentView = (TextView) findViewById(R.id.bd_top_toast_content);
+        initAnimation();
     }
 
-    public final void f() {
+    private void initAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            zg.a().removeCallbacks(this.g);
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.mInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010100);
+            this.mOutAnimation = loadAnimation;
+            loadAnimation.setAnimationListener(new a(this));
+            this.mHideRunnable = new b(this);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.mHideRunnable);
             if (getContext() == null) {
                 return;
             }
@@ -248,64 +271,45 @@ public class BdTopToast extends LinearLayout {
         }
     }
 
-    public final void c() {
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getContext() == null) {
+            return;
+        }
+        release();
+        startAnimation(this.mOutAnimation);
+    }
+
+    public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getContext() == null) {
             return;
         }
-        setOrientation(1);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.a = new View(getContext());
-            addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
-        }
-        LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.b = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-        this.c = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.d = (TextView) findViewById(R.id.bd_top_toast_content);
-        d();
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100fe);
-            this.f = loadAnimation;
-            loadAnimation.setAnimationListener(new a(this));
-            this.g = new b(this);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getContext() == null) {
-            return;
-        }
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
-        if (this.i) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        SkinManager.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0207);
+        if (this.mIsSuc) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
+            SkinManager.setViewTextColor(this.mContentView, (int) R.color.CAM_X0302);
         } else {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0301);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
+            SkinManager.setViewTextColor(this.mContentView, (int) R.color.CAM_X0301);
         }
-        this.b.b();
+        this.mShadowGroup.b();
     }
 
-    public void i(ViewGroup viewGroup) {
+    public void show(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, viewGroup) == null) && viewGroup != null && getContext() != null) {
-            f();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) && viewGroup != null && getContext() != null) {
+            release();
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
             viewGroup.addView(this, -1, -2);
-            e();
-            startAnimation(this.e);
-            if (this.h >= 0) {
-                zg.a().postDelayed(this.g, this.h);
+            onChangeSkinType();
+            startAnimation(this.mInAnimation);
+            if (this.mDuration >= 0) {
+                SafeHandler.getInst().postDelayed(this.mHideRunnable, this.mDuration);
             } else {
-                zg.a().postDelayed(this.g, 5000L);
+                SafeHandler.getInst().postDelayed(this.mHideRunnable, 5000L);
             }
         }
     }

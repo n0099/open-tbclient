@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class lb7 {
+public final class lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public lb7() {
+    @JvmOverloads
+    public static final boolean a(View view2, Object obj, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f092935), obj)) {
+                return true;
             }
+            if (z) {
+                view2.setTag(R.id.obfuscated_res_0x7f092935, obj);
+            }
+            return false;
         }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
+        if ((i & 2) != 0) {
+            z = true;
+        }
+        return a(view2, obj, z);
     }
 }

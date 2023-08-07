@@ -1,166 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.gu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eu5 extends fu5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 100;
-    public static int c = 10;
+public class eu5 extends cu5<om5, gu5.b> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947746852, "Lcom/baidu/tieba/eu5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947746852, "Lcom/baidu/tieba/eu5;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public static int b;
-        public static int c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                eh a2 = fu5.a();
-                a2.b("action", "imbusy");
-                a2.b("totalNum", String.valueOf(a));
-                a2.b("tfailNum", String.valueOf(b));
-                a2.b("qfailNum", String.valueOf(c));
-                BdStatisticsManager.getInstance().performance("im", a2);
-                b();
-            }
-        }
-
-        public static void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                a = 0;
-                b = 0;
-                c = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static int a;
-        public static long b;
-        public static long c;
-        public static long d;
-        public static int e;
-        public static int f;
-        public static long g;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                eh a2 = fu5.a();
-                a2.b("action", "imcost");
-                a2.b("dect", String.valueOf(b));
-                a2.b("dlsize", String.valueOf(c));
-                a2.b("dbt", String.valueOf(d));
-                a2.b("pnum", String.valueOf(e));
-                a2.b("reqcost", String.valueOf(g));
-                a2.b("cpu", String.valueOf(f));
-                a2.b("totalNum", String.valueOf(a));
-                BdStatisticsManager.getInstance().performance("im", a2);
-                b();
-            }
-        }
-
-        public static void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                a = 0;
-                b = 0L;
-                c = 0L;
-                d = 0L;
-                e = 0;
-                f = 0;
-            }
-        }
-    }
-
-    public eu5() {
+    public eu5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = tbPageContext;
     }
 
-    public static void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cu5
+    /* renamed from: h */
+    public om5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
+            return new om5(this.e.getPageActivity(), null);
         }
-        if (b.a > c) {
-            b.a();
-        }
-        if (a.a > c) {
-            a.a();
-        }
+        return (om5) invokeLL.objValue;
     }
 
-    public static void b(boolean z, boolean z2, boolean z3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cu5
+    /* renamed from: g */
+    public void d(ViewType viewType, om5 om5Var, gu5.b bVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            a.a++;
-            if (z2) {
-                a.b++;
-            } else if (z3) {
-                a.c++;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, om5Var, bVar) == null) {
+            if (bVar.b && !TextUtils.isEmpty(bVar.a)) {
+                str = bVar.a;
+            } else {
+                str = bVar.g;
             }
-            if (a.a > b) {
-                a.a();
-            }
+            om5Var.l(str);
+            om5Var.j(bVar.d);
+            om5Var.h(bVar.c);
+            om5Var.m(bVar.f);
+            om5Var.f(bVar.e);
+            om5Var.o();
+            om5Var.onChangeSkinType();
+            om5Var.b().setOnClickListener(bVar.h);
         }
-    }
-
-    public void c(bu5 bu5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bu5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (b.a < b) {
-            b.b += bu5Var.b;
-            b.c += bu5Var.c;
-            b.d += bu5Var.d;
-            b.e += bu5Var.e;
-            b.g += bu5Var.f;
-            b.f += bu5Var.g;
-            b.a++;
-            return;
-        }
-        b.a();
     }
 }

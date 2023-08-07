@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +11,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface bl0 {
-    public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
-    public static final bl0 c = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "uad");
+    public static final bl0 b = new a();
 
-    String m();
+    boolean a(Activity activity);
+
+    ViewGroup b(Activity activity);
+
+    fm0 c();
+
+    void d(boolean z);
+
+    void e(Activity activity, long j);
+
+    int f();
+
+    boolean isMainActivity(Activity activity);
 
     /* loaded from: classes5.dex */
     public class a implements bl0 {
@@ -19,10 +34,67 @@ public interface bl0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.bl0
-        public String m() {
+        public boolean a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public ViewGroup b(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+                return null;
+            }
+            return (ViewGroup) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public fm0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (fm0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public void e(Activity activity, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public boolean isMainActivity(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         public a() {

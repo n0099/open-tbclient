@@ -1,256 +1,216 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cy2 {
+public class cy2 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
-    public final int c;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Object b;
-        public int c;
-        public RuntimeException d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public Exception c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Exception) invokeV.objValue;
-        }
-
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public cy2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.d != null) {
-                    if (!cy2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else if (this.a == null) {
-                    this.d = new IllegalStateException("key == null");
-                    if (!cy2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else {
-                    synchronized (a.class) {
-                        if (cy2.e.contains(this.a)) {
-                            this.d = new IllegalStateException("the key of switch has been occupied");
-                            if (!cy2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (this.b == null) {
-                            this.d = new IllegalStateException("defaultValue == null");
-                            if (!cy2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (!cy2.c(this.c, this.b)) {
-                            this.d = new IllegalStateException("valueType error");
-                            if (!cy2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else {
-                            cy2.e.add(this.a);
-                            return new cy2(this);
-                        }
-                    }
-                }
-            }
-            return (cy2) invokeV.objValue;
-        }
-
-        public a b(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.b = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.c = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a d(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.d = new IllegalArgumentException("the key of switch must not be empty");
-                    if (!cy2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else if (TextUtils.equals(Config.SID, str)) {
-                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
-                    if (!cy2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691021, "Lcom/baidu/tieba/cy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947691021, "Lcom/baidu/tieba/cy2;");
-                return;
-            }
-        }
-        d = fs1.a;
-        e = new HashSet();
-    }
-
-    public Object d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public cy2(@NonNull a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cy2(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/backgroundAudio");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
     }
 
-    public static boolean c(int i, Object obj) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                return false;
-                            }
-                            return obj instanceof String;
-                        }
-                        return obj instanceof Long;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (unitedSchemeEntity != null) {
+                by2.b("AudioBGPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.vc3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, ya3 ya3Var) {
+        InterceptResult invokeLLLLL;
+        yx2 b;
+        char c;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, ya3Var)) == null) {
+            if (ya3Var == null) {
+                ei3.b("audio", 2001, "SwanApp is null", 1001, "SwanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            by2.b("AudioBGPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
+            JSONObject j = j(unitedSchemeEntity.getParam("params"));
+            if (j == null) {
+                ei3.b("audio", 2001, "param is null", 201, "param is null");
+                y72.c("backgroundAudio", "param is null!");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            ay2 P = ya3Var.P();
+            if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
+                b = yx2.b(j, new yx2());
+            } else {
+                b = yx2.b(j, P.q());
+            }
+            by2.b("AudioBGPlayerAction", "#handleSubAction playerParams=" + b);
+            JSONObject jSONObject = null;
+            switch (str.hashCode()) {
+                case 312101659:
+                    if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
+                        c = 6;
+                        break;
                     }
-                    return obj instanceof Integer;
-                }
-                return obj instanceof Double;
+                    c = 65535;
+                    break;
+                case 335869926:
+                    if (str.equals("/swanAPI/backgroundAudio/open")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 335895760:
+                    if (str.equals("/swanAPI/backgroundAudio/play")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 335978516:
+                    if (str.equals("/swanAPI/backgroundAudio/seek")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 335993246:
+                    if (str.equals("/swanAPI/backgroundAudio/stop")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 820188005:
+                    if (str.equals("/swanAPI/backgroundAudio/update")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1822525402:
+                    if (str.equals("/swanAPI/backgroundAudio/pause")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return obj instanceof Boolean;
+            switch (c) {
+                case 0:
+                    y72.i("backgroundAudio", "open, audioId " + b.a);
+                    P.z(b, callbackHandler);
+                    z = true;
+                    break;
+                case 1:
+                    y72.i("backgroundAudio", "update, audioId " + b.a);
+                    P.update(b);
+                    z = true;
+                    break;
+                case 2:
+                    y72.i("backgroundAudio", "play, audioId " + b.a);
+                    P.F();
+                    z = true;
+                    break;
+                case 3:
+                    y72.i("backgroundAudio", "pause, audioId " + b.a);
+                    P.A();
+                    z = true;
+                    break;
+                case 4:
+                    y72.i("backgroundAudio", "seek, audioId " + b.a + " position " + b.l);
+                    P.G(b.l);
+                    z = true;
+                    break;
+                case 5:
+                    y72.i("backgroundAudio", "stop, audioId " + b.a);
+                    P.L();
+                    z = true;
+                    break;
+                case 6:
+                    jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt(b.m, P.t(b.m));
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        return true;
+                    } catch (JSONException e) {
+                        ei3.b("audio", 2009, "json exception", -1, "");
+                        y72.c("backgroundAudio", "getParams error " + e.toString());
+                        by2.c("backgroundAudio", "getParamsSync error", e);
+                        break;
+                    }
+                default:
+                    z = false;
+                    break;
+            }
+            by2.b("AudioBGPlayerAction", "#handleSubAction invokeSuccess=" + z);
+            if (z) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            }
+            return super.i(context, unitedSchemeEntity, callbackHandler, str, ya3Var);
         }
-        return invokeIL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public final JSONObject j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (d) {
-                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return new JSONObject(str);
+                } catch (JSONException e) {
+                    if (vc3.b) {
+                        Log.d("AudioBGPlayerAction", Log.getStackTraceString(e));
+                    }
+                }
             }
-            return super.toString();
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

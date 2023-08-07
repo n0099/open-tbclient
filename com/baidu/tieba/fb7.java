@@ -1,45 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.card.FeedCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class fb7 implements za7 {
+public class fb7 extends d97<FeedCardView, m57<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fb7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fb7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.za7
-    public SpannableString b(Context context, r97 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull FeedCardView feedCardView, @NonNull m57<?> m57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = e36.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, m57Var) == null) {
+            feedCardView.g(m57Var);
         }
-        return (SpannableString) invokeLLL.objValue;
     }
 }

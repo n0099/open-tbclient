@@ -35,7 +35,7 @@ import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.searchbox.videoplayer.interfaces.ICyberVideoDownloadManager;
 import com.baidu.searchbox.videoplayer.interfaces.VideoSourceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d90;
+import com.baidu.tieba.b80;
 /* loaded from: classes3.dex */
 public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
     public static final boolean DEBUG = AppConfig.isDebug();
@@ -183,7 +183,7 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, Intent intent) {
-        d90.a().d("downloadConnectivityChangedReceiver");
+        b80.a().d("downloadConnectivityChangedReceiver");
         if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
             NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
             if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
@@ -224,6 +224,6 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
             }
         }
         onDownloadNetworkChange(context, intent);
-        d90.a().b("downloadConnectivityChangedReceiver");
+        b80.a().b("downloadConnectivityChangedReceiver");
     }
 }

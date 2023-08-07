@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class w94 extends JSEvent {
+public final class w94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w94() {
-        super("appLoad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,10 +21,56 @@ public class w94 extends JSEvent {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            }
+        }
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            k23 d = d();
+            if (d != null) {
+                return d.a();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final k23 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ya3 M = ya3.M();
+            if (M != null) {
+                return M.m0();
+            }
+            return null;
+        }
+        return (k23) invokeV.objValue;
+    }
+
+    public final void b(WebSocketTask task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            k23 d = d();
+            if (d != null) {
+                d.b(task);
+            }
+        }
+    }
+
+    public final void c(String taskId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            Intrinsics.checkNotNullParameter(taskId, "taskId");
+            k23 d = d();
+            if (d != null) {
+                d.c(taskId);
             }
         }
     }

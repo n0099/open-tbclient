@@ -1,232 +1,194 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e71;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringNumberConversionsJVMKt;
+import kotlin.text.StringsKt__StringNumberConversionsKt;
+import kotlin.text.StringsKt__StringsJVMKt;
+@Service
 /* loaded from: classes8.dex */
-public class v81 extends u81 {
+public final class v81 extends zi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final t81 u;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint h;
-    public final RectF i;
-    public int j;
-    public float k;
-    public float l;
-    public float m;
-    public float n;
-    public float o;
-    public float p;
-    public float q;
-    public float r;
-    public float s;
-    public float t;
 
-    /* loaded from: classes8.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v81 a;
-
-        public a(v81 v81Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v81Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v81Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationRepeat(animator);
-                this.a.y();
-                v81 v81Var = this.a;
-                v81Var.o = v81Var.n;
-                v81 v81Var2 = this.a;
-                v81Var2.l = (v81Var2.l + 1.0f) % 5.0f;
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.l = 0.0f;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194554, "Lcom/baidu/tieba/v81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948194554, "Lcom/baidu/tieba/v81;");
-                return;
-            }
-        }
-        u = new t81();
-    }
-
-    @Override // com.baidu.tieba.u81
-    public void h() {
+    @Override // com.baidu.tieba.zi0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "webpanel" : (String) invokeV.objValue;
     }
 
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q = 0.0f;
-            this.r = 0.0f;
-            this.n = 0.0f;
-            this.o = 0.0f;
-            this.p = 0.0f;
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h.setAntiAlias(true);
-            this.h.setStrokeWidth(this.s);
-            this.h.setStyle(Paint.Style.STROKE);
-            this.h.setStrokeCap(Paint.Cap.SQUARE);
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            float f = this.n;
-            this.q = f;
-            this.r = f;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v81(Context context) {
-        super(context);
+    public v81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.h = new Paint();
-        this.i = new RectF();
-        u(context);
-        x();
-        b(new a(this));
     }
 
-    @Override // com.baidu.tieba.u81
-    public void c(float f) {
+    @Override // com.baidu.tieba.zi0
+    public boolean b(Context context, dj0 schemeModel, Map<String, Object> map, hj0 hj0Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        double d;
+        int i;
+        String str2;
+        int i2;
+        boolean z;
+        int i3;
+        int i4;
+        boolean z2;
+        Integer intOrNull;
+        Integer intOrNull2;
+        Double doubleOrNull;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            if (f <= 0.5f) {
-                this.o = this.r + (u.a(f / 0.5f) * 288.0f);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, hj0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, hj0Var);
+            HashMap<String, String> d2 = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d2, "schemeModel.params");
+            String str3 = d2.get("url");
+            if (str3 == null) {
+                str = "";
+            } else {
+                str = str3;
             }
-            if (f > 0.5f) {
-                this.n = this.q + (u.a((f - 0.5f) / 0.5f) * 288.0f);
+            Intrinsics.checkNotNullExpressionValue(str, "params[\"url\"] ?: \"\"");
+            String str4 = d2.get("height_ratio");
+            if (str4 != null && (doubleOrNull = StringsKt__StringNumberConversionsJVMKt.toDoubleOrNull(str4)) != null) {
+                d = doubleOrNull.doubleValue();
+            } else {
+                d = 0.7d;
             }
-            if (Math.abs(this.n - this.o) > 0.0f) {
-                this.p = this.n - this.o;
+            String str5 = d2.get("height_calculate_mode");
+            boolean z3 = false;
+            if (str5 != null && (intOrNull2 = StringsKt__StringNumberConversionsKt.toIntOrNull(str5)) != null) {
+                i = intOrNull2.intValue();
+            } else {
+                i = 0;
             }
-            this.m = (f * 216.0f) + ((this.l / 5.0f) * 1080.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.u81
-    public void d(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            int save = canvas.save();
-            this.i.set(this.b);
-            RectF rectF = this.i;
-            float f = this.k;
-            rectF.inset(f, f);
-            canvas.rotate(this.m, this.i.centerX(), this.i.centerY());
-            if (this.p != 0.0f) {
-                this.h.setColor(this.j);
-                canvas.drawArc(this.i, this.o, this.p, false, this.h);
+            String str6 = d2.get(MigrateStatisticUtils.EXT_INFO);
+            if (str6 == null) {
+                str2 = "";
+            } else {
+                str2 = str6;
             }
-            canvas.restoreToCount(save);
+            Intrinsics.checkNotNullExpressionValue(str2, "params[\"ext_info\"] ?: \"\"");
+            b91 b91Var = new b91(str, d, i, str2);
+            String str7 = d2.get("log_switch");
+            if (str7 != null) {
+                StringBuilder sb = new StringBuilder();
+                int length = str7.length();
+                for (int i5 = 0; i5 < length; i5++) {
+                    char charAt = str7.charAt(i5);
+                    if (!StringsKt__StringsJVMKt.isBlank(String.valueOf(charAt))) {
+                        sb.append(charAt);
+                    }
+                }
+                String sb2 = sb.toString();
+                Intrinsics.checkNotNullExpressionValue(sb2, "filterTo(StringBuilder(), predicate).toString()");
+                if (sb2 != null) {
+                    b91Var.E(sb2);
+                }
+            }
+            String str8 = d2.get("top_blank_click_disable");
+            if (str8 != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(str8)) != null) {
+                i2 = intOrNull.intValue();
+            } else {
+                i2 = 0;
+            }
+            if (i2 == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            b91Var.N(z);
+            String str9 = d2.get("panel_control");
+            if (str9 != null) {
+                StringBuilder sb3 = new StringBuilder();
+                int length2 = str9.length();
+                for (int i6 = 0; i6 < length2; i6++) {
+                    char charAt2 = str9.charAt(i6);
+                    if (!StringsKt__StringsJVMKt.isBlank(String.valueOf(charAt2))) {
+                        sb3.append(charAt2);
+                    }
+                }
+                String sb4 = sb3.toString();
+                Intrinsics.checkNotNullExpressionValue(sb4, "filterTo(StringBuilder(), predicate).toString()");
+                if (sb4 != null) {
+                    b91Var.H(sb4);
+                }
+            }
+            String str10 = d2.get("lp_real_url");
+            if (str10 != null) {
+                b91Var.G(str10);
+            }
+            String it = d2.get("support_full_screen");
+            if (it != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                Integer intOrNull3 = StringsKt__StringNumberConversionsKt.toIntOrNull(it);
+                if (intOrNull3 != null) {
+                    i4 = intOrNull3.intValue();
+                } else {
+                    i4 = 1;
+                }
+                if (i4 == 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                b91Var.C(z2);
+            }
+            String str11 = d2.get("charge_url");
+            if (str11 != null) {
+                b91Var.z(str11);
+            }
+            String str12 = d2.get("lp_org_type");
+            if (str12 != null) {
+                b91Var.F(str12);
+            }
+            String str13 = d2.get("ad_invoke_flag");
+            if (str13 != null) {
+                b91Var.y(str13);
+            }
+            String str14 = d2.get("sdk_script");
+            if (str14 != null) {
+                b91Var.K(str14);
+            }
+            String it2 = d2.get("enable_outer_back");
+            if (it2 != null) {
+                Intrinsics.checkNotNullExpressionValue(it2, "it");
+                Integer intOrNull4 = StringsKt__StringNumberConversionsKt.toIntOrNull(it2);
+                if (intOrNull4 != null) {
+                    i3 = intOrNull4.intValue();
+                } else {
+                    i3 = 0;
+                }
+                if (i3 == 0) {
+                    z3 = true;
+                }
+                b91Var.I(z3);
+            }
+            p81.b.d(context, b91Var);
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.u81
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h.setAlpha(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.u81
-    public void l(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, colorFilter) == null) {
-            this.h.setColorFilter(colorFilter);
-        }
-    }
-
-    public final void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            this.s = e71.c.a(context, 2.0f);
-            this.t = e71.c.a(context, 11.5f);
-            this.j = -1;
-            v(this.f, this.g);
-        }
-    }
-
-    public final void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k = Math.max((Math.min(f, f2) / 2.0f) - this.t, (float) Math.ceil(this.s / 2.0f));
-        }
+        return invokeLLLL.booleanValue;
     }
 }

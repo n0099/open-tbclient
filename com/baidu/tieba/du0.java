@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes5.dex */
-public abstract class du0<T> implements cu0<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface du0 extends zt0, bu0 {
+    public static final a a = ub1.a;
 
-    public du0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        du0 a(Context context, int i);
+
+        du0 b(Context context, int i, @Nullable eu0 eu0Var);
     }
 
-    @Override // com.baidu.tieba.bu0
-    public void c(Headers headers, InputStream inputStream, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, headers, inputStream, i) == null) {
-            throw new IllegalStateException("走错路了");
-        }
-    }
+    void a(au0 au0Var);
+
+    void attachToContainer(@NonNull ViewGroup viewGroup);
+
+    void c(@NonNull pr0 pr0Var);
+
+    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+
+    void release();
 }

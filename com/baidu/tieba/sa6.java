@@ -1,27 +1,99 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sa6 {
+public class sa6 extends dm6<ia6> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ra6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ra6 i;
+    public ra6 j;
+    public ra6 k;
+    public ViewGroup l;
 
-    public static synchronized ra6 a() {
+    @Override // com.baidu.tieba.dm6
+    public int d() {
         InterceptResult invokeV;
-        ra6 ra6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (sa6.class) {
-                if (a == null) {
-                    a = new ra6();
-                }
-                ra6Var = a;
-            }
-            return ra6Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d094f : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return (ra6) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sa6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = new ra6(tbPageContext);
+        this.j = new ra6(tbPageContext);
+        this.k = new ra6(tbPageContext);
+        this.l = (ViewGroup) h();
+        new View(getContext());
+        this.l.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+        this.l.addView(this.i.e());
+        this.l.addView(this.j.e());
+        this.l.addView(this.k.e());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dm6
+    /* renamed from: r */
+    public void i(ia6 ia6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ia6Var) == null) && ia6Var != null) {
+            this.i.f(ia6Var.a);
+            this.j.f(ia6Var.b);
+            this.k.f(ia6Var.c);
+        }
+    }
+
+    public void s(ta6 ta6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ta6Var) == null) {
+            this.i.h(ta6Var);
+            this.j.h(ta6Var);
+            this.k.h(ta6Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.dm6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.g(tbPageContext, i);
+            this.j.g(tbPageContext, i);
+            this.k.g(tbPageContext, i);
+        }
     }
 }

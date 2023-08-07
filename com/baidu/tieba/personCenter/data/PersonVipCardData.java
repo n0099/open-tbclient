@@ -100,7 +100,7 @@ public class PersonVipCardData extends BaseCardInfo implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

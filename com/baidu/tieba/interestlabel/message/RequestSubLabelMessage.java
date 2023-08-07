@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class RequestSubLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1129common;
+    public CommonReq f1122common;
     public List<Integer> labelList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,10 +50,10 @@ public class RequestSubLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1508common = this.f1129common;
+            builder.f1507common = this.f1122common;
             builder.arr_tag_id = this.labelList;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ky5.a(builder, true);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             }
             SubTagListReqIdl.Builder builder2 = new SubTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -65,7 +65,7 @@ public class RequestSubLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1129common = commonReq;
+            this.f1122common = commonReq;
         }
     }
 

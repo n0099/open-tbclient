@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,163 +17,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.zip.ZipFile;
 /* loaded from: classes7.dex */
-public abstract class sg3<ResultDataT> {
+public class sg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
+    public static final String b;
+    public static final boolean c;
+    public static final String[] d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yg3<ResultDataT> a;
-    public final Set<oq3<yg3<ResultDataT>>> b;
-    public final LinkedList<ug3> c;
-    public boolean d;
-    public boolean e;
 
-    public abstract void i();
-
-    public boolean j() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
-
-    public sg3<ResultDataT> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (sg3) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "v8.engine" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a extends ug3 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sg3 c;
 
-        public a(sg3 sg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = sg3Var;
-        }
+        /* renamed from: com.baidu.tieba.sg3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public static class RunnableC0473a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ug3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.k()) {
-                    return true;
-                }
-                tg3.k("initialPrepare failed", Boolean.TRUE);
-                throw new OAuthException(10001);
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends ug3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sg3 c;
-
-        public b(sg3 sg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = sg3Var;
-        }
-
-        @Override // com.baidu.tieba.ug3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.c.j()) {
-                    tg3.k("finalPrepare failed", Boolean.TRUE);
-                    if (sg3.f) {
-                        throw new OAuthException(10001);
+            public RunnableC0473a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
-                    return true;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oq3 a;
-        public final /* synthetic */ sg3 b;
-
-        public c(sg3 sg3Var, oq3 oq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sg3Var, oq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = sg3Var;
-            this.a = oq3Var;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    sg3.a();
+                }
+            }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            oq3 oq3Var;
+        public static void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (oq3Var = this.a) != null) {
-                oq3Var.a(this.b.a);
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                ExecutorUtilsExt.postOnElastic(new RunnableC0473a(), "V8SoCleaner", 3);
             }
         }
     }
@@ -187,189 +94,291 @@ public abstract class sg3<ResultDataT> {
                 return;
             }
         }
-        f = fs1.a;
+        a = ir1.a;
+        b = ut2.g() + "/v8_so/";
+        c = fu2.e0().b();
+        d = fu2.e0().a();
+        e = null;
     }
 
-    public final synchronized void a() {
+    public static void a() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                i();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                String D = so3.D();
+                for (File file2 : listFiles) {
+                    if (!TextUtils.equals(file2.getName(), D)) {
+                        cr4.L(file2);
+                    }
+                }
             }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = new b(this);
-            bVar.h(this);
-            bVar.g();
-            this.e = true;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(null);
         }
     }
 
     @NonNull
-    public sg3 call() {
+    public static ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TaskState.INIT == e()) {
-                s(TaskState.CALLING);
-                n();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("v8.engine");
+            arrayList.add("zeusv8");
+            if (c) {
+                arrayList.add("com.baidu.zeus");
             }
-            return this;
+            String[] strArr = d;
+            if (strArr != null && strArr.length != 0) {
+                arrayList.addAll(Arrays.asList(strArr));
+            }
+            return arrayList;
         }
-        return (sg3) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public TaskState e() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c) {
+                return e;
+            }
+            return null;
         }
-        return (TaskState) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void f() {
+    @SuppressLint({"BDSoLoader"})
+    public static boolean e(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a aVar = new a(this);
-            aVar.h(this);
-            aVar.g();
-            this.d = true;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (oq3<yg3<ResultDataT>> oq3Var : this.b) {
-                tg3.l(new c(this, oq3Var));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.loadLibrary(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadLibsSo: " + th.getMessage());
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public void p() {
+    @SuppressLint({"UnsafeDynamicallyLoadedCode", "BDSoLoader"})
+    public static boolean f(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.b = TaskState.INIT;
-            this.d = false;
-            this.e = false;
-        }
-    }
-
-    public sg3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.load(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadSoByPath: " + th.getMessage());
+                return false;
             }
         }
-        this.a = new yg3<>();
-        this.b = new HashSet();
-        this.c = new LinkedList<>();
-        this.d = false;
-        this.e = false;
+        return invokeLL.booleanValue;
     }
 
-    public void d(@Nullable Exception exc) {
+    public static boolean l(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (exc instanceof OAuthException) {
-                this.a.c = (OAuthException) exc;
-            } else if (exc != null) {
-                tg3.t("OAuthTask#finish", exc.getMessage());
-                this.a.c = new OAuthException(exc, 10001);
-            }
-            if (!this.a.c() && f && exc != null) {
-                exc.printStackTrace();
-            }
-            s(TaskState.FINISHED);
-            tg3.k(toString(), Boolean.FALSE);
-            g();
-            this.b.clear();
-        }
-    }
-
-    public sg3 h(@NonNull ug3 ug3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ug3Var)) == null) {
-            ug3Var.h(this);
-            this.c.offer(ug3Var);
-            return this;
-        }
-        return (sg3) invokeL.objValue;
-    }
-
-    public void l(ug3 ug3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ug3Var) == null) {
-            if (ug3Var.c()) {
-                n();
-            } else {
-                d(ug3Var.b());
-            }
-        }
-    }
-
-    public sg3<ResultDataT> o(oq3<yg3<ResultDataT>> oq3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, oq3Var)) == null) {
-            if (this.a.b.isCallbackAvailable()) {
-                this.b.add(oq3Var);
-            }
-            return this;
-        }
-        return (sg3) invokeL.objValue;
-    }
-
-    public void r(ResultDataT resultdatat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
-            this.a.a = resultdatat;
-        }
-    }
-
-    public final void s(TaskState taskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
-            this.a.b = taskState;
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TaskState.CALLING.equals(e())) {
-                if (f) {
-                    tg3.k("IllegalState on prepare", Boolean.FALSE);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, hashMap, soLoader)) == null) {
+            String[] strArr = d;
+            boolean z = true;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (hashMap == null) {
+                        f = e(str, soLoader);
+                    } else {
+                        f = f(hashMap.get(str), soLoader);
+                    }
+                    if (!f) {
+                        z = false;
+                    }
                 }
-            } else if (!this.d) {
-                f();
-            } else if (!this.c.isEmpty()) {
-                this.c.poll().g();
-            } else if (!this.e) {
-                b();
-            } else {
-                a();
             }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, soLoader)) == null) {
+            if (c) {
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
+                if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
+                    return false;
+                }
+                e = findSoFilesInLibrary.getAbsolutePath();
+                m("loadV8EngineSo: v8 dependentFile:" + e);
+            }
+            boolean l = l(null, soLoader);
+            boolean e2 = e("v8.engine", soLoader);
+            if (!l || !e2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static tg3 h(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, soLoader)) == null) {
+            if (g(context, soLoader)) {
+                m("loadV8EngineBySystemMethod:success.");
+                return tg3.e();
+            }
+            tg3 k = k(context, soLoader);
+            if (k.b()) {
+                m("loadV8EngineSoWithSystemPath:success.");
+                return k;
+            }
+            tg3 j = j(context, soLoader);
+            if (!j.b()) {
+                SoUtils.onEvent("26", soLoader.getErrorLog());
+            } else {
+                m("loadV8EngineSoWithCustomPath:success.");
+            }
+            return j;
+        }
+        return (tg3) invokeLL.objValue;
+    }
+
+    public static tg3 k(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            Iterator<String> it = b().iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, next);
+                if (findSoFilesInLibrary != null && findSoFilesInLibrary.exists() && findSoFilesInLibrary.length() != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = findSoFilesInLibrary.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            return i(hashMap, soLoader);
+        }
+        return (tg3) invokeLL.objValue;
+    }
+
+    public static tg3 i(@NonNull HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, hashMap, soLoader)) == null) {
+            m("loadV8EngineSoByMap:" + hashMap);
+            String str = hashMap.get("com.baidu.zeus");
+            boolean z = false;
+            if (c && str == null) {
+                return tg3.d(false, false);
+            }
+            boolean f = f(hashMap.get("zeusv8"), soLoader);
+            boolean l = l(hashMap, soLoader);
+            boolean f2 = f(hashMap.get("v8.engine"), soLoader);
+            if (f2) {
+                e = str;
+            }
+            if (l && f2) {
+                z = true;
+            }
+            return tg3.d(f, z);
+        }
+        return (tg3) invokeLL.objValue;
+    }
+
+    public static tg3 j(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            String D = so3.D();
+            File file = new File(b, D);
+            Iterator<String> it = b().iterator();
+            while (true) {
+                boolean z = true;
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                File file2 = new File(file, SoUtils.getFullName(next));
+                if ((!file2.exists() || file2.length() == 0) ? false : false) {
+                    str = file2.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            if (!hashMap.containsValue(null)) {
+                return i(hashMap, soLoader);
+            }
+            String str2 = "swan_v8so_unzip_times_" + D;
+            int i = mj3.a().getInt(str2, 0);
+            if (i >= 3) {
+                soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:reach max unzip times.");
+                return k(context, soLoader);
+            }
+            mj3.a().putInt(str2, i + 1);
+            String str3 = "lib" + File.separator + SoUtils.getCurrentCpuAbi();
+            ZipFile apkZipFile = soLoader.getApkZipFile(context);
+            try {
+                if (apkZipFile == null) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:zipFile is null.");
+                    return k(context, soLoader);
+                }
+                try {
+                    for (String str4 : hashMap.keySet()) {
+                        if (hashMap.get(str4) == null) {
+                            String fullName = SoUtils.getFullName(str4);
+                            File file3 = new File(file, fullName);
+                            if (soLoader.executeRelease(apkZipFile, fullName, str3, file3)) {
+                                hashMap.put(str4, file3.getAbsolutePath());
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:" + e2.getMessage());
+                    if (a) {
+                        Log.e("V8InnerSoLoader", "loadV8EngineSoWithCustomPath:" + e2);
+                    }
+                }
+                return i(hashMap, soLoader);
+            } finally {
+                cr4.d(apkZipFile);
+            }
+        }
+        return (tg3) invokeLL.objValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && a) {
+            Log.d("V8InnerSoLoader", str);
         }
     }
 }

@@ -12,15 +12,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ShareFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.cw5;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,14 +72,14 @@ public final class MsgChatCenterNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View O(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             Intrinsics.checkNotNullParameter(container, "container");
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d08bb, container, false);
-            this.l = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091747);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d08c5, container, false);
+            this.l = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09175b);
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -90,16 +90,16 @@ public final class MsgChatCenterNavSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.U(view2, bundle);
-            py5.b(view2);
+            cw5.b(view2);
             NavigationBar navigationBar = this.l;
             if (navigationBar != null) {
                 navigationBar.setStatusBarVisibility(8);
-                EMTextView eMTextView = (EMTextView) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d06dd, (View.OnClickListener) null).findViewById(R.id.obfuscated_res_0x7f091898);
+                EMTextView eMTextView = (EMTextView) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d06e4, (View.OnClickListener) null).findViewById(R.id.obfuscated_res_0x7f0918ac);
                 this.m = eMTextView;
                 if (eMTextView != null) {
-                    eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca5));
+                    eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca7));
                 }
-                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06dc, new View.OnClickListener() { // from class: com.baidu.tieba.ws8
+                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06e3, new View.OnClickListener() { // from class: com.baidu.tieba.tq8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -111,11 +111,11 @@ public final class MsgChatCenterNavSlice extends Slice {
                         }
                     }
                 });
-                this.o = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091896);
-                EMTextView eMTextView2 = (EMTextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091897);
+                this.o = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0918aa);
+                EMTextView eMTextView2 = (EMTextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0918ab);
                 this.n = eMTextView2;
                 if (eMTextView2 != null) {
-                    eMTextView2.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca4));
+                    eMTextView2.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0ca6));
                 }
             }
         }
@@ -130,17 +130,10 @@ public final class MsgChatCenterNavSlice extends Slice {
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.j, i);
             }
-            d85 d = d85.d(F());
-            d.o(R.string.J_X19);
-            d.f(R.color.CAM_X0201);
-            d85 d2 = d85.d(this.n);
-            d2.x(R.color.CAM_X0107);
-            d2.C(R.dimen.T_X12);
-            d85 d3 = d85.d(this.m);
-            d3.x(R.color.CAM_X0105);
-            d3.C(R.dimen.T_X04);
-            d3.D(R.string.F_X02);
-            WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f080afd, R.color.CAM_X0107, null);
+            EMManager.from(H()).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.n).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X12);
+            EMManager.from(this.m).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X04).setTextStyle(R.string.F_X02);
+            WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f080afe, R.color.CAM_X0107, null);
         }
     }
 }

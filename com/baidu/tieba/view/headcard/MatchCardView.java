@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -20,11 +23,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.qra;
-import com.baidu.tieba.tra;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.uqa;
+import com.baidu.tieba.xqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,21 +42,21 @@ public class MatchCardView extends LinearLayout {
     public EMTextView g;
     public View h;
     public ImageView i;
-    public qra j;
+    public uqa j;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tra a;
+        public final /* synthetic */ xqa a;
         public final /* synthetic */ MatchCardView b;
 
-        public a(MatchCardView matchCardView, tra traVar) {
+        public a(MatchCardView matchCardView, xqa xqaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {matchCardView, traVar};
+                Object[] objArr = {matchCardView, xqaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,14 +67,14 @@ public class MatchCardView extends LinearLayout {
                 }
             }
             this.b = matchCardView;
-            this.a = traVar;
+            this.a = xqaVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !TextUtils.isEmpty(this.a.c().e())) {
-                nx4.s(this.b.getContext(), this.a.c().e());
+                BrowserHelper.startWebActivity(this.b.getContext(), this.a.c().e());
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COLLECT_COVER_CLICK);
                 statisticItem.param("obj_type", 3);
                 this.b.b(statisticItem, this.a);
@@ -104,18 +104,18 @@ public class MatchCardView extends LinearLayout {
         }
     }
 
-    public final void b(StatisticItem statisticItem, tra traVar) {
+    public final void b(StatisticItem statisticItem, xqa xqaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, statisticItem, traVar) != null) || traVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, statisticItem, xqaVar) != null) || xqaVar == null) {
             return;
         }
         int i = 0;
-        if (traVar.c() != null && traVar.c().g() != null) {
-            i = traVar.c().g().intValue();
+        if (xqaVar.c() != null && xqaVar.c().g() != null) {
+            i = xqaVar.c().g().intValue();
         }
-        int d = traVar.d();
-        String a2 = traVar.a();
-        String b = traVar.b();
+        int d = xqaVar.d();
+        String a2 = xqaVar.a();
+        String b = xqaVar.b();
         statisticItem.addParam("obj_locate", i);
         statisticItem.addParam("obj_source", d);
         statisticItem.addParam("fid", a2);
@@ -168,28 +168,20 @@ public class MatchCardView extends LinearLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d85 d = d85.d(this.b);
+            EMManager from = EMManager.from(this.b);
             int i = R.dimen.T_X12;
-            d.C(R.dimen.T_X12);
-            d.x(R.color.CAM_X0107);
-            d85 d2 = d85.d(this.d);
-            d2.C(R.dimen.T_X12);
-            d2.x(R.color.CAM_X0107);
+            from.setTextSize(R.dimen.T_X12).setTextColor(R.color.CAM_X0107);
+            EMManager.from(this.d).setTextSize(R.dimen.T_X12).setTextColor(R.color.CAM_X0107);
             this.c.setSkinType(TbadkCoreApplication.getInst().getSkinType());
             this.e.setSkinType(TbadkCoreApplication.getInst().getSkinType());
-            d85 d3 = d85.d(this.f);
-            d3.C(R.dimen.T_X09);
-            d3.x(R.color.CAM_X0108);
+            EMManager.from(this.f).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
             WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
-            qra qraVar = this.j;
-            if (qraVar == null || qraVar.g().intValue() != 1) {
+            uqa uqaVar = this.j;
+            if (uqaVar == null || uqaVar.g().intValue() != 1) {
                 i = R.dimen.T_X04;
             }
-            d85 d4 = d85.d(this.g);
-            d4.D(R.string.F_X02);
-            d4.C(i);
-            d4.x(R.color.CAM_X0105);
-            d85.d(this.h).f(R.color.CAM_X0203);
+            EMManager.from(this.g).setTextStyle(R.string.F_X02).setTextSize(i).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.h).setBackGroundColor(R.color.CAM_X0203);
         }
     }
 
@@ -199,7 +191,7 @@ public class MatchCardView extends LinearLayout {
             this.a = LayoutInflater.from(getContext()).inflate(R.layout.recommend_match_card, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.bottomMargin = yi.g(getContext(), R.dimen.tbds4);
+            marginLayoutParams.bottomMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds4);
             setLayoutParams(marginLayoutParams);
             this.b = (EMTextView) findViewById(R.id.team_name_a);
             HeadImageView headImageView = (HeadImageView) findViewById(R.id.team_icon_a);
@@ -218,27 +210,27 @@ public class MatchCardView extends LinearLayout {
         }
     }
 
-    public void setData(tra traVar) {
+    public void setData(xqa xqaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, traVar) == null) && traVar != null && traVar.c() != null) {
-            this.j = traVar.c();
-            this.b.setText(traVar.c().j());
-            this.c.N(traVar.c().h(), 12, false);
-            this.d.setText(traVar.c().k());
-            this.e.N(traVar.c().i(), 12, false);
-            this.f.setText(traVar.c().d());
-            this.f.setOnClickListener(new a(this, traVar));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, xqaVar) == null) && xqaVar != null && xqaVar.c() != null) {
+            this.j = xqaVar.c();
+            this.b.setText(xqaVar.c().j());
+            this.c.startLoad(xqaVar.c().h(), 12, false);
+            this.d.setText(xqaVar.c().k());
+            this.e.startLoad(xqaVar.c().i(), 12, false);
+            this.f.setText(xqaVar.c().d());
+            this.f.setOnClickListener(new a(this, xqaVar));
             int intValue = this.j.g().intValue();
             if (intValue != 2) {
                 if (intValue != 3) {
-                    this.g.setText(traVar.c().f());
+                    this.g.setText(xqaVar.c().f());
                 } else {
-                    this.g.setText(String.format("%d - %d", traVar.c().m(), traVar.c().n()));
+                    this.g.setText(String.format("%d - %d", xqaVar.c().m(), xqaVar.c().n()));
                 }
             } else {
-                this.g.setText(String.format("%d - %d", traVar.c().m(), traVar.c().n()));
+                this.g.setText(String.format("%d - %d", xqaVar.c().m(), xqaVar.c().n()));
             }
-            if (ListUtils.isNotEmpty(traVar.c().l())) {
+            if (ListUtils.isNotEmpty(xqaVar.c().l())) {
                 this.h.setVisibility(8);
             } else {
                 this.h.setVisibility(0);

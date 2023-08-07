@@ -1,8 +1,8 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h09;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,10 +70,10 @@ public class FocusListCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = h09.b(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = h09.b(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = h09.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = h09.b(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = ColorUtils.parseColor(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = ColorUtils.parseColor(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = ColorUtils.parseColor(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = ColorUtils.parseColor(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         if (optJSONArray2 == null) {
             length = 0;
@@ -95,8 +95,8 @@ public class FocusListCard extends BaseCardInfo {
                     if (optJSONArray.length() > 2) {
                         aVar.c = optJSONArray.getString(2);
                     }
-                    aVar.d = h09.b(optJSONObject.optString("focusColor", ""));
-                    aVar.e = h09.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.d = ColorUtils.parseColor(optJSONObject.optString("focusColor", ""));
+                    aVar.e = ColorUtils.parseColor(optJSONObject.optString("focusColorNight", ""));
                     aVar.f = optJSONObject.optString("scheme");
                     aVar.g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);

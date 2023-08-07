@@ -1,41 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ph {
+public class ph extends ue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList<String> arrayList, boolean z) {
+    @Override // com.baidu.tieba.ue
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            mc mcVar = new mc(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            mcVar.setSdCard(z);
-            mcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            fc.f().a(mcVar);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    public static File[] b(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tieba.ue
+    /* renamed from: getCrashKeys */
+    public String[] mo129getCrashKeys() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            fc.f().call(diskFileOperate);
-            File fileInfo = diskFileOperate.getFileInfo();
-            if (fileInfo == null) {
-                return null;
-            }
-            return fileInfo.listFiles();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (File[]) invokeZ.objValue;
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ue
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ue
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ue
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "need_more_logs" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ue
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public ph() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

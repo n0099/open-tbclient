@@ -1,118 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes8.dex */
 public class v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
     public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
+    public r15 c;
 
     public v15() {
         Interceptable interceptable = $ic;
@@ -127,73 +29,45 @@ public class v15 {
                 return;
             }
         }
-        this.e = -1.0f;
+        this.a = "";
+        this.b = "";
     }
 
-    public static boolean a(v15 v15Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v15Var)) == null) {
-            if (v15Var == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(v15Var.f) && TextUtils.isEmpty(v15Var.d) && (((bVar = v15Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = v15Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
-    public static v15 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            v15 v15Var = new v15();
-            v15Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            v15Var.b = jSONObject.optString("app_icon");
-            v15Var.c = jSONObject.optString("app_name");
-            v15Var.d = jSONObject.optString("developer_name");
-            v15Var.f = jSONObject.optString("version");
-            v15Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            v15Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            v15Var.i = jSONObject.optString("apk_size");
-            v15Var.j = jSONObject.optString("apk_url");
-            try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    v15Var.e = parseFloat;
-                } else {
-                    v15Var.e = -1.0f;
-                }
-            } catch (NumberFormatException unused) {
-                v15Var.e = -1.0f;
-            }
-            return v15Var;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+            return;
         }
-        return (v15) invokeL.objValue;
-    }
-
-    public static boolean c(v15 v15Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, v15Var)) == null) {
-            if (v15Var == null || !v15Var.a) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(v15Var.f) && !TextUtils.isEmpty(v15Var.d) && (bVar = v15Var.g) != null && !TextUtils.isEmpty(bVar.b) && (aVar = v15Var.h) != null && !TextUtils.isEmpty(aVar.b)) {
-                return true;
-            }
-            return false;
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new r15();
+        ArrayList<u15> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        String str4 = "";
+        if (str3 == null) {
+            str3 = "";
         }
-        return invokeL.booleanValue;
+        String str5 = this.b;
+        if (str5 != null) {
+            str4 = str5;
+        }
+        u15 u15Var = new u15(str3, str4, null);
+        u15Var.r(true);
+        arrayList.add(u15Var);
+        this.c.g(arrayList);
     }
 }

@@ -11,12 +11,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.ep8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
+import com.baidu.tieba.ym8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091977);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091025);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09102a);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ead);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09197a);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091979);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09198b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091038);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09103d);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ebf);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09198e);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09198d);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -106,7 +106,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f7, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01fa, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -133,36 +133,22 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            d85 d = d85.d(holder.a);
-            d.o(R.string.J_X04);
-            d.f(R.color.CAM_X0625);
-            d85 d2 = d85.d(holder.b);
-            d2.x(R.color.CAM_X0101);
-            d2.C(R.dimen.T_X09);
-            d2.D(R.string.F_X01);
-            d85 d3 = d85.d(holder.c);
-            d3.x(R.color.CAM_X0101);
-            d3.C(R.dimen.T_X09);
-            d3.D(R.string.F_X01);
-            d85 d4 = d85.d(holder.d);
-            d4.x(R.color.CAM_X0101);
-            d4.C(R.dimen.T_X09);
-            d4.D(R.string.F_X01);
-            d85 d5 = d85.d(holder.e);
-            d5.C(R.dimen.T_X09);
-            d5.x(R.color.CAM_X0304);
-            d5.D(R.string.F_X01);
+            EMManager.from(holder.a).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0625);
+            EMManager.from(holder.b).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
+            EMManager.from(holder.c).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
+            EMManager.from(holder.d).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
+            EMManager.from(holder.e).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0304).setTextStyle(R.string.F_X01);
             if (noticeModifySysMsg != null && noticeModifySysMsg.getUserFrom() != null) {
                 holder.c.setText(noticeModifySysMsg.getUserFrom().getUsername());
                 int role = noticeModifySysMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0951);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0952);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0953);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0954);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0949);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f181b);
-                ep8.d("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f094a);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f181f);
+                ym8.d("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

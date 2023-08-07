@@ -1,80 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
-import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
-import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ActiveConfig.DataRes;
+import tbclient.FloatStrategy;
+import tbclient.MissionInfo;
 /* loaded from: classes5.dex */
 public class cu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public kb c;
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, yu4 yu4Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cu4 cu4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cu4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cu4Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (responsedMessage != null && responsedMessage.getError() == 0) {
-                    if (!(responsedMessage instanceof GetTokenSocketResponsedMessage)) {
-                        if (!(responsedMessage instanceof GetTokenHttpResponsedMessage)) {
-                            return;
-                        }
-                        this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
-                        return;
-                    }
-                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
-                    return;
-                }
-                this.a.d(false, null);
-            }
-        }
-    }
+    public DataRes a;
+    public boolean b;
+    public String c;
+    public final ArrayList<dt4> d;
+    public final ArrayList<FloatStrategy> e;
+    public NewUserRedPackageData f;
+    public ActiveCenterData g;
 
     public cu4() {
         Interceptable interceptable = $ic;
@@ -89,51 +38,71 @@ public class cu4 {
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
-        f();
-        e();
+        this.b = false;
+        this.c = "";
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
     }
 
-    public final void d(boolean z, yu4 yu4Var) {
-        b bVar;
+    public ArrayList<FloatStrategy> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, yu4Var) == null) && (bVar = this.b) != null) {
-            bVar.a(z, yu4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public ArrayList<dt4> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        this.a = true;
-        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
-        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
-        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final void e() {
+    public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gca.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            gca.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
-        }
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
+            this.a = dataRes;
+            this.d.clear();
+            this.e.clear();
+            if (dataRes == null) {
+                return;
+            }
+            boolean z = true;
+            if (dataRes.is_new_user.intValue() != 1) {
+                z = false;
+            }
+            this.b = z;
+            this.c = dataRes.active_url;
+            this.e.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.a.mission_list) {
+                if (missionInfo != null) {
+                    dt4 dt4Var = new dt4(missionInfo);
+                    if (missionInfo.tasktype.intValue() == 5) {
+                        t85.e().g(missionInfo);
+                    } else if (missionInfo.tasktype.intValue() == 9) {
+                        rt4.c().f(dt4Var);
+                    } else if (dt4Var.L()) {
+                        this.d.add(dt4Var);
+                    }
+                }
+            }
+            if (ListUtils.isNotEmpty(this.a.task_list)) {
+                ht4.d().h(this.a.task_list);
+            } else {
+                ht4.d().h(null);
+            }
+            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
+            this.f = newUserRedPackageData;
+            newUserRedPackageData.parseProto(dataRes);
+            if (dataRes.active_center != null) {
+                ActiveCenterData activeCenterData = new ActiveCenterData();
+                this.g = activeCenterData;
+                activeCenterData.parseProto(dataRes);
+            }
         }
     }
 }

@@ -1,9 +1,26 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.atomic.AtomicReference;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface uj1 {
-    public static final AtomicReference<uj1> a = new AtomicReference<>();
+public class uj1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a();
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "baiduNaSplash" : (String) invokeV.objValue;
+    }
+
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return pj0.b();
+        }
+        return (Context) invokeV.objValue;
+    }
 }

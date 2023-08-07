@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.tieba.d92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,75 +11,112 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
-public abstract class e92 {
+public class e92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile e92 b;
-    public static bi3 c;
-    public static Timer d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void f(String str);
-
     /* loaded from: classes5.dex */
-    public class a extends TimerTask {
+    public static class a extends d92.b {
         public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e92 a;
 
-        public a(e92 e92Var) {
+        @Override // com.baidu.tieba.d92.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-876535954, "Lcom/baidu/tieba/e92$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-876535954, "Lcom/baidu/tieba/e92$a;");
+                    return;
+                }
+            }
+            b = ir1.a;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(d92.a aVar) {
+            super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((d92.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.a = e92Var;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.d92.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (e92.a) {
-                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+                try {
+                    hashMap.put("Sec-WebSocket-Accept", f92.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
+                    }
                 }
-                this.a.c();
-                this.a.h();
+                return hashMap;
             }
+            return (Map) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends e92 {
+    public static class b extends d92.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        @Override // com.baidu.tieba.d92.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
+        public b(d92.a aVar) {
+            super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
+                    super((d92.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,269 +124,49 @@ public abstract class e92 {
             }
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.e92
-        public void f(String str) {
+        @Override // com.baidu.tieba.d92.b
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (e92.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new a92().toString();
                 }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
+                return this.b;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (e92.c != null) {
-                            ci3.d(e92.c, str, d());
-                            return;
-                        }
-                        return;
-                    }
-                    if (e92.c != null) {
-                        ci3.d(e92.c, "downloadfail", d());
-                    }
-                    c();
-                    h();
-                    return;
-                }
-                if (e92.c != null) {
-                    ci3.d(e92.c, "downloadsuccess", d());
-                }
-                c();
-                h();
-                return;
-            }
-            i();
-            ci3.d(e92.c, str, d());
+            return (String) invokeV.objValue;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public static class c extends e92 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
+        @Override // com.baidu.tieba.d92.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+    }
+
+    public static d92.b a(d92.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null && (map = aVar.a) != null && map.size() >= 1) {
+                if (f92.f(aVar.a)) {
+                    aVar.e = true;
+                    return new a(aVar);
                 }
+                aVar.e = false;
+                return new b(aVar);
             }
+            return null;
         }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.e92
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !g92.k().m()) {
-                if (e92.a) {
-                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 900970612) {
-                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
-                        c = 0;
-                    }
-                } else if (str.equals("pageready")) {
-                    c = 1;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (e92.c != null) {
-                            ci3.d(e92.c, str, d());
-                            return;
-                        }
-                        return;
-                    } else if (e92.c != null) {
-                        ci3.d(e92.c, str, d());
-                        c();
-                        h();
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                i();
-                ci3.d(e92.c, str, d());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689099, "Lcom/baidu/tieba/e92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947689099, "Lcom/baidu/tieba/e92;");
-                return;
-            }
-        }
-        a = fs1.a;
-    }
-
-    public e92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
-            }
-            b = null;
-            c = null;
-        }
-    }
-
-    public /* synthetic */ e92(a aVar) {
-        this();
-    }
-
-    public static e92 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b == null) {
-                synchronized (ix2.class) {
-                    if (b == null) {
-                        if (el1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
-                    }
-                }
-            }
-            return b;
-        }
-        return (e92) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("LocalDebugStatistic", "add event content fail", e);
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
-            return;
-        }
-        c = oi3.c("1153");
-        a aVar = new a(this);
-        Timer timer = new Timer();
-        d = timer;
-        try {
-            timer.schedule(aVar, 40000L);
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void g(JSONArray jSONArray) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("actionId");
-            } else {
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str) && b != null) {
-                b.f(str);
-            }
-        }
-    }
-
-    public void c() {
-        String appId;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                appId = "";
-            } else {
-                appId = b0.getAppId();
-            }
-            jSONObject2.putOpt("appid", appId);
-            jSONObject2.putOpt("from", "local-debug");
-            ni3.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
-            }
-        }
-        ci3.f(c, jSONObject.toString());
-        ci3.c(c);
+        return (d92.b) invokeL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.zs9;
+import com.baidu.tieba.sr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zs9 recommendGodData;
+    public sr9 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodHttpResponseMessage() {
@@ -51,8 +51,8 @@ public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
             }
             setErrorString(getRecommendGodListResIdl.error.usermsg);
         }
-        zs9 zs9Var = new zs9();
-        this.recommendGodData = zs9Var;
-        zs9Var.b(getRecommendGodListResIdl.data);
+        sr9 sr9Var = new sr9();
+        this.recommendGodData = sr9Var;
+        sr9Var.b(getRecommendGodListResIdl.data);
     }
 }

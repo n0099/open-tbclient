@@ -140,16 +140,16 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     };
     public static final ViewPositionComparator POSITION_COMPARATOR = new ViewPositionComparator();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Callback {
         void onScrollNearlyComplete();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface Decor {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ItemInfo {
         public float heightFactor;
         public Object object;
@@ -158,12 +158,12 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         public boolean scrolling;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnAdapterChangeListener {
         void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public int childIndex;
         public int gravity;
@@ -186,7 +186,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class MyAccessibilityDelegate extends AccessibilityDelegateCompat {
         public MyAccessibilityDelegate() {
         }
@@ -246,7 +246,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class PagerObserver extends DataSetObserver {
         public PagerObserver() {
         }
@@ -262,7 +262,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -438,7 +438,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         populate(this.mCurItem);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ViewPositionComparator implements Comparator<View> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator

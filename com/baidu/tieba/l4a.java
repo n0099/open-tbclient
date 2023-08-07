@@ -1,446 +1,342 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.switchs.QqShareH5Switch;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.IClientIPProvider;
+import com.baidu.searchbox.http.IHttpContext;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.model.MultipleConnectParams;
+import com.baidu.searchbox.http.model.PreConnectParams;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStat;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.UbcAddCookieSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QQShare;
-import com.tencent.tauth.IUiListener;
-import com.tencent.tauth.Tencent;
-import com.tencent.tauth.UiError;
-import java.io.File;
-import java.util.Iterator;
+import com.baidu.ubc.UBCManager;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import okhttp3.EventListener;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.internal.WrappedEventListener;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class l4a extends k4a {
+public class l4a implements IHttpContext {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Tencent k;
-    public int l;
-    public IUiListener m;
-    public final rg<EmotionShareLoaderProc.EmotionShare> n;
-    public rg<jn> o;
+    public volatile boolean a;
+    public Context b;
 
-    /* loaded from: classes6.dex */
-    public class b extends rg<jn> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l4a a;
-
-        /* loaded from: classes6.dex */
-        public class a extends BdAsyncTask<jn, Void, Bitmap> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: b */
-            public Bitmap doInBackground(jn... jnVarArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jnVarArr)) == null) {
-                    if (jnVarArr.length > 0 && jnVarArr[0] != null) {
-                        Bitmap p = jnVarArr[0].p();
-                        l4a l4aVar = this.a.a;
-                        return l4aVar.u(p, l4aVar.e, true);
-                    }
-                    return null;
-                }
-                return (Bitmap) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                    super.onPostExecute((a) bitmap);
-                    l4a l4aVar = this.a.a;
-                    l4aVar.I(l4aVar.e, l4aVar.m);
-                }
-            }
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpRequest)) == null) {
+            return false;
         }
-
-        public b(l4a l4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l4aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
-                super.onLoaded((b) jnVar, str, i);
-                if (jnVar != null) {
-                    a aVar = new a(this);
-                    aVar.setPriority(3);
-                    aVar.execute(jnVar);
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends rg<EmotionShareLoaderProc.EmotionShare> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l4a a;
-
-        public a(l4a l4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l4aVar;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public List<HttpUrl> getBrAllowlist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.rg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                super.onCancelled(str);
-                l4a l4aVar = this.a;
-                l4aVar.t(3, l4aVar.l);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        /* renamed from: a */
-        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
-                super.onLoaded(emotionShare, str, i);
-                if (emotionShare != null && emotionShare.image != null && !TextUtils.isEmpty(emotionShare.path)) {
-                    l4a l4aVar = this.a;
-                    l4aVar.J(emotionShare.path, l4aVar.m);
-                    return;
-                }
-                l4a l4aVar2 = this.a;
-                l4aVar2.t(2, l4aVar2.l);
-            }
-        }
+        return (List) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements IUiListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public r4a a;
-        public final /* synthetic */ l4a b;
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onWarning(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            }
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IClientIPProvider getClientIPProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-
-        public c(l4a l4aVar, r4a r4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l4aVar, r4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = l4aVar;
-            this.a = r4aVar;
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FileHelper.deleteFile(new File(k4a.h + k4a.i));
-            }
-        }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                r4a r4aVar = this.a;
-                if (r4aVar != null) {
-                    r4aVar.Y0(this.b.l, 3);
-                }
-                a();
-            }
-        }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onComplete(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                r4a r4aVar = this.a;
-                if (r4aVar != null) {
-                    r4aVar.Y0(this.b.l, 1);
-                }
-                l4a l4aVar = this.b;
-                l4aVar.t(1, l4aVar.l);
-                a();
-            }
-        }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onError(UiError uiError) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) {
-                r4a r4aVar = this.a;
-                if (r4aVar != null) {
-                    r4aVar.Y0(this.b.l, 2);
-                }
-                if (uiError != null) {
-                    str = uiError.errorMessage;
-                } else {
-                    str = null;
-                }
-                l4a l4aVar = this.b;
-                l4aVar.D(2, str, l4aVar.l);
-                a();
-            }
-        }
+        return (IClientIPProvider) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l4a(Context context) {
-        super(context);
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public EventListener getEventListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (EventListener) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public int getFallbackConnectDelayMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public MultipleConnectParams getMultipleConnectParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (MultipleConnectParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public NetworkStat<Request> getNewNetworkStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (NetworkStat) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public String getSimOperator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isBrAllowlistEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isNeedAuthenticateHeader4Tunnel(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isOldHttpUseTurbonet(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isRttLogEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean ok4URLConnectionEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean okHttpPreConnectEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894288, "Lcom/baidu/tieba/l4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894288, "Lcom/baidu/tieba/l4a;");
+                return;
+            }
+        }
+        c = AppConfig.isDebug();
+        d = l4a.class.getSimpleName();
+    }
+
+    @DebugTrace
+    public l4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = 8;
-        this.n = new a(this);
-        this.o = new b(this);
-        this.k = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.a = false;
+        this.b = AppRuntime.getAppContext();
     }
 
-    public final void H(ShareEntity shareEntity, r4a r4aVar) {
-        String str;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, shareEntity, r4aVar) != null) || shareEntity == null) {
-            return;
-        }
-        Intent intent = new Intent("android.intent.action.SEND");
-        intent.setType("text/plain");
-        Iterator<ResolveInfo> it = this.b.getPackageManager().queryIntentActivities(intent, 0).iterator();
-        while (true) {
-            if (it.hasNext()) {
-                ResolveInfo next = it.next();
-                if (TextUtils.equals("com.tencent.mobileqq", next.activityInfo.packageName)) {
-                    str = next.activityInfo.name;
-                    break;
-                }
-            } else {
-                str = "";
-                break;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (UbcAddCookieSwitch.Companion.isOn()) {
+                return new a5a();
             }
+            return null;
         }
-        Intent intent2 = new Intent("android.intent.action.SEND");
-        intent2.setType("text/plain");
-        intent2.putExtra("android.intent.extra.SUBJECT", shareEntity.getTitle());
-        intent2.putExtra("android.intent.extra.TEXT", shareEntity.getContent());
-        intent2.setClassName("com.tencent.mobileqq", str);
-        intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-        if (t4a.startActivity(this.b, intent2)) {
-            if (r4aVar != null) {
-                r4aVar.Y0(this.l, 1);
-                return;
-            }
-            return;
-        }
-        if (r4aVar != null) {
-            r4aVar.Y0(this.l, 2);
-        }
-        t(2, this.l);
+        return (CookieManager) invokeCommon.objValue;
     }
 
-    public final void I(ShareEntity shareEntity, IUiListener iUiListener) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity, iUiListener) == null) && shareEntity != null && iUiListener != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", shareEntity.getTitle());
-            if (shareEntity.getReadCount() >= 0) {
-                if (shareEntity.getReadCount() < 10000) {
-                    bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f139b));
-                } else {
-                    bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.b.getString(R.string.obfuscated_res_0x7f0f139a));
-                }
-            } else {
-                bundle.putString("summary", shareEntity.getContent());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpRequest)) == null) {
+            if (c) {
+                String str = d;
+                Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
             }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            bundle.putInt("req_type", 1);
-            if (shareEntity.getIsVideoThread() && !StringUtils.isNull(shareEntity.getImgUrl()) && !shareEntity.getImgUrl().startsWith("http")) {
-                bundle.putString("imageLocalUrl", shareEntity.getImgUrl());
-            } else {
-                bundle.putString("imageUrl", shareEntity.getImgUrl());
+            if (httpRequest == null) {
+                return null;
             }
-            this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
+            IHttpDns httpDns = HttpManager.getDefault(this.b).getHttpDns();
+            if (!(httpDns instanceof i4a)) {
+                return null;
+            }
+            return new i4a(((i4a) httpDns).a(), true);
         }
+        return (IHttpDns) invokeL.objValue;
     }
 
-    public final void K(ShareEntity shareEntity, IUiListener iUiListener) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewHttpDns() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, shareEntity, iUiListener) == null) && shareEntity != null && iUiListener != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", t4a.a(this.b));
-            if (!StringUtils.isNull(shareEntity.getTitle())) {
-                bundle.putString("summary", shareEntity.getTitle());
-            } else if (!StringUtils.isNull(shareEntity.getContent())) {
-                bundle.putString("summary", shareEntity.getContent());
-            } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f139b));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (c) {
+                Log.i(d, "baidunetwork HttpContext getNewHttpDns!");
             }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            if (!StringUtils.isNull(shareEntity.getImgUrl())) {
-                bundle.putString("imageUrl", shareEntity.getImgUrl());
-            } else {
-                bundle.putString("imageUrl", "http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
-            }
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
-            bundle.putInt("req_type", 7);
-            this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
+            DnsHelper dnsHelper = new DnsHelper(this.b, true);
+            dnsHelper.setHttpDnsConfig(new DnsHelper.DnsConfig(true, true, true, null));
+            return new i4a(dnsHelper, false);
         }
+        return (IHttpDns) invokeV.objValue;
     }
 
-    public final void J(String str, IUiListener iUiListener) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void init() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iUiListener) == null) && !TextUtils.isEmpty(str) && iUiListener != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("imageLocalUrl", str);
-            bundle.putInt("req_type", 5);
-            bundle.putInt("cflag", 2);
-            this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public void a(ShareEntity shareEntity, r4a r4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, r4aVar) == null) {
-            if (shareEntity != null && this.k != null) {
-                this.e = shareEntity;
-                Context context = this.b;
-                if (context != null && (context instanceof Activity)) {
-                    this.m = new c(this, r4aVar);
-                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        K(shareEntity, this.m);
-                        return;
-                    }
-                    String imgUrl = shareEntity.getImgUrl();
-                    if (p(shareEntity.getLocalFile())) {
-                        J(shareEntity.getLocalFile(), this.m);
-                        return;
-                    } else if (shareEntity.getShareType() != 0 && !TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
-                        sg.h().k(imgUrl, 34, this.n, 0, 0, j(), new Object[0]);
-                        return;
-                    } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
-                        if (this.e.getIsVideoThread()) {
-                            sg.h().k(shareEntity.getImgUrl(), 10, this.o, 0, 0, j(), new Object[0]);
-                            return;
-                        } else {
-                            I(shareEntity, this.m);
-                            return;
-                        }
-                    } else if (o(shareEntity.getImageUri())) {
-                        J(shareEntity.getImageUri().getPath(), this.m);
-                        return;
-                    } else {
-                        H(shareEntity, r4aVar);
-                        return;
-                    }
-                }
-                t(2, this.l);
-                if (r4aVar != null) {
-                    r4aVar.Y0(0, 2);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (this.a) {
                     return;
                 }
-                return;
+                this.a = true;
+                if (c) {
+                    Log.i(d, "baidunetwork HttpContext init!");
+                }
+                WrappedEventListener.setGlobalEventListener(b5a.f());
+                DnsUtil.initNetworkStackType();
+                OkHttpClient.setDefaultFallbackConnectDealyMs(300);
+                s4a.d();
             }
-            t(2, this.l);
-            if (r4aVar != null) {
-                r4aVar.Y0(0, 2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public PreConnectParams getPreConnectParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new PreConnectParams.Builder().setPreConnectEnabled(true).setPreConnectUrlsAllowlist(Collections.singletonList(TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS)).setMaxPreConnectNum(20).setMaxSingleHostPreConnectNum(3).setPreConnectDelayTimeMs(5000).setPreConnectPeriodTimeMs(31000).setPreConnectDelayUrlsWithNum(new ArrayList()).setPreConnectNoDelayUrlsWithNum(new ArrayList()).build();
+        }
+        return (PreConnectParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void prefetchDnsResult(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                q4a.a = true;
+            } else {
+                ((i4a) HttpManager.getDefault(this.b).getHttpDns()).a().forceUpdateDomain(str);
             }
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void uploadIllegalUrlBy850(JSONObject jSONObject) {
+        UBCManager uBCManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, jSONObject) == null) && jSONObject != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+            uBCManager.onEvent("850", jSONObject);
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, networkInfoRecord) == null) {
+            if (c) {
+                String str = d;
+                Log.i(str, "baidu_networksetNetworkInfoRecord networkInfoRecord:" + networkInfoRecord);
+            }
+            HttpManager.getDefault(this.b).setNetworkStat(null);
         }
     }
 }

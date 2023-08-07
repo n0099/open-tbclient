@@ -2,20 +2,130 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ne2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.tencent.open.miniapp.MiniApp;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class m63 {
+public abstract class m63 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile m63 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, n63> a;
-    public HashMap<String, n63> b;
-    public HashMap<String, n63> c;
+
+    public abstract y22 b(JSONObject jSONObject);
+
+    public abstract h63 f(i63 i63Var);
+
+    public abstract String g();
+
+    public abstract String h();
+
+    public abstract y22 j(String str, i63 i63Var);
+
+    public abstract boolean k();
+
+    public abstract y22 m(i63 i63Var, kc2<j63> kc2Var);
+
+    /* loaded from: classes6.dex */
+    public class a implements ne2.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i63 a;
+        public final /* synthetic */ kc2 b;
+        public final /* synthetic */ m63 c;
+
+        public a(m63 m63Var, i63 i63Var, kc2 kc2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m63Var, i63Var, kc2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = m63Var;
+            this.a = i63Var;
+            this.b = kc2Var;
+        }
+
+        @Override // com.baidu.tieba.ne2.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q63.b("payment fun page, your pkg is latest");
+            }
+        }
+
+        @Override // com.baidu.tieba.ne2.b
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c.d(this.a, true, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.ne2.b
+        public void b(rm3 rm3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rm3Var) == null) {
+                this.c.d(this.a, false, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements td2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i63 a;
+        public final /* synthetic */ kc2 b;
+        public final /* synthetic */ m63 c;
+
+        public b(m63 m63Var, i63 i63Var, kc2 kc2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m63Var, i63Var, kc2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = m63Var;
+            this.a = i63Var;
+            this.b = kc2Var;
+        }
+
+        @Override // com.baidu.tieba.td2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, true, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.td2
+        public void b(int i, rm3 rm3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, rm3Var) == null) {
+                this.c.d(this.a, false, this.b);
+            }
+        }
+    }
 
     public m63() {
         Interceptable interceptable = $ic;
@@ -27,235 +137,105 @@ public final class m63 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        c();
-    }
-
-    public static m63 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (m63.class) {
-                    if (d == null) {
-                        d = new m63();
-                    }
-                }
-            }
-            return d;
-        }
-        return (m63) invokeV.objValue;
-    }
-
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (m63.class) {
-                if (d != null) {
-                    d.e();
-                    d = null;
-                }
             }
         }
     }
 
-    public final void c() {
+    public final void c(i63 i63Var, String str, kc2<j63> kc2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new HashMap<>();
-            }
-            if (this.b == null) {
-                this.b = new HashMap<>();
-            }
-            if (this.c == null) {
-                this.c = new HashMap<>();
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i63Var, str, kc2Var) == null) {
+            q63.b("local has not main pkg, download fun page main pkg");
+            am4 am4Var = new am4(str, xa3.K().k());
+            am4Var.q(0L);
+            am4Var.t(i63Var.c);
+            am4Var.d("3");
+            ii4.c(am4Var, new ne2(str, new a(this, i63Var, kc2Var)));
         }
     }
 
-    public final void e() {
+    public final void e(i63 i63Var, h63 h63Var, kc2<j63> kc2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<String, n63> hashMap = this.a;
-            if (hashMap != null) {
-                hashMap.clear();
-            }
-            HashMap<String, n63> hashMap2 = this.b;
-            if (hashMap2 != null) {
-                hashMap2.clear();
-            }
-            HashMap<String, n63> hashMap3 = this.c;
-            if (hashMap3 != null) {
-                hashMap3.clear();
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, i63Var, h63Var, kc2Var) == null) {
+            q63.b("main pkg is exist, download fun page sub pkg");
+            String str = h63Var.a;
+            int i = h63Var.d;
+            ii4.h(new dm4(str, i, w63.e(h63Var.c, h63Var.b), 0), new pe2(str, String.valueOf(i), new b(this, i63Var, kc2Var)));
         }
     }
 
-    public final void a(String str, long j) {
+    public final void d(i63 i63Var, boolean z, kc2<j63> kc2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != 767526192) {
-            if (hashCode != 1331686101) {
-                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
-                    c = 2;
-                }
-            } else if (str.equals("PageInitRender")) {
-                c = 1;
-            }
-        } else if (str.equals("PageSwitchCost")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c == 2) {
-                    rn3.f.update((qn3<Long>) Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{i63Var, Boolean.valueOf(z), kc2Var}) == null) {
+            if (z) {
+                h63 f = f(i63Var);
+                if (f != null && f.f) {
+                    q63.b("payment fun page, download success, ready to jump");
+                    j(f.c, i63Var);
                     return;
                 }
+                q63.b("payment fun page, download success, but not exist");
+                j63 j63Var = new j63(i63Var.f);
+                j63Var.a = i63Var.e;
+                kc2Var.a(j63Var);
                 return;
             }
-            rn3.e.update((qn3<Long>) Long.valueOf(j));
-            return;
-        }
-        rn3.d.update((qn3<Long>) Long.valueOf(j));
-    }
-
-    public void d(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            c();
-            char c = 65535;
-            switch (str2.hashCode()) {
-                case -1880922749:
-                    if (str2.equals("pageUpdateEnd")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -964566145:
-                    if (str2.equals("pageSwitchStart")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -410083667:
-                    if (str2.equals("pageInitRenderStart")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 4028902:
-                    if (str2.equals("pageInitRenderEnd")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 627578634:
-                    if (str2.equals("pageUpdateStart")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1719651128:
-                    if (str2.equals("pageSwitchEnd")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c == 3 || c == 4 || c == 5) {
-                    g(str, str2, j);
-                    return;
-                }
-                return;
-            }
-            h(str, str2, j);
+            q63.b("payment fun page, download failed");
+            j63 j63Var2 = new j63(i63Var.f);
+            j63Var2.a = i63Var.e;
+            kc2Var.a(j63Var2);
         }
     }
 
-    public final void g(String str, String str2, long j) {
+    public final boolean i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            n63 n63Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -1880922749) {
-                if (hashCode != 4028902) {
-                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
-                        c = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return TextUtils.equals(str, MiniApp.MINIAPP_VERSION_DEVELOP);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final y22 l(i63 i63Var, kc2<j63> kc2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, i63Var, kc2Var)) == null) {
+            q63.b("open fun page start");
+            if (i63Var != null && i63Var.a()) {
+                y22 b2 = b(i63Var.g);
+                if (b2 != null) {
+                    q63.b("fun page args params invalid");
+                    return b2;
+                } else if (k()) {
+                    q63.b("open payment fun page");
+                    h63 f = f(i63Var);
+                    if (f == null) {
+                        return new y22(1001, "fun page not exists");
                     }
-                } else if (str2.equals("pageInitRenderEnd")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageUpdateEnd")) {
-                c = 2;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        n63Var = this.c.remove(str);
+                    if (!f.f) {
+                        q63.b("payment fun page, " + i63Var.d + " mode");
+                        if (i(i63Var.d)) {
+                            if (f.e) {
+                                e(i63Var, f, kc2Var);
+                            } else {
+                                return new y22(1001, "fun page not exists");
+                            }
+                        } else if (f.e) {
+                            e(i63Var, f, kc2Var);
+                        } else {
+                            c(i63Var, f.a, kc2Var);
+                        }
+                        q63.b("open fun page end");
+                        return new y22(0);
                     }
+                    return j(f.c, i63Var);
                 } else {
-                    n63Var = this.b.remove(str);
+                    q63.b("open user info or choose address fun page");
+                    return m(i63Var, kc2Var);
                 }
-            } else {
-                n63Var = this.a.remove(str);
             }
-            if (n63Var == null) {
-                return;
-            }
-            n63Var.b(j);
-            a(n63Var.getType(), n63Var.a());
+            q63.b("params parse fail");
+            return new y22(202, "params parse fail");
         }
-    }
-
-    public final void h(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            n63 n63Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -964566145) {
-                if (hashCode != -410083667) {
-                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
-                        c = 2;
-                    }
-                } else if (str2.equals("pageInitRenderStart")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageSwitchStart")) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2 && (n63Var = this.c.get(str)) == null) {
-                        n63Var = new l63();
-                        this.c.put(str, n63Var);
-                    }
-                } else {
-                    n63Var = this.b.get(str);
-                    if (n63Var == null) {
-                        n63Var = new j63();
-                        this.b.put(str, n63Var);
-                    }
-                }
-            } else {
-                n63Var = this.a.get(str);
-                if (n63Var == null) {
-                    n63Var = new k63();
-                    this.a.put(str, n63Var);
-                }
-            }
-            if (n63Var != null) {
-                n63Var.c(j);
-            }
-        }
+        return (y22) invokeLL.objValue;
     }
 }

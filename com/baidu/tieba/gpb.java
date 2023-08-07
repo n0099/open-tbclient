@@ -1,148 +1,102 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class gpb {
+public class gpb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final npb<TResult> a;
 
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gpb a;
+
+        public a(gpb gpbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gpbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gpbVar;
         }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
-            Log.e("Utils", "Exception when closing the 'Closeable'.");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.l();
+            }
         }
     }
 
-    public static void b(Reader reader, Writer writer) throws IOException {
+    public gpb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
-            c(reader, writer, new char[4096]);
-        }
-    }
-
-    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
-            return;
-        }
-        while (true) {
-            int read = reader.read(cArr);
-            if (-1 == read) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            writer.write(cArr, 0, read);
+        }
+        this.a = new npb<>();
+    }
+
+    public gpb(apb apbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {apbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new npb<>();
+        apbVar.b(new a(this));
+    }
+
+    public fpb<TResult> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (fpb) invokeV.objValue;
+    }
+
+    public void c(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.a.j(exc);
         }
     }
 
-    public static Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    public void setResult(TResult tresult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                hashMap.put(e(entry.getKey()), entry.getValue());
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tresult) == null) {
+            this.a.k(tresult);
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = 0;
-            if (str.length() > 0) {
-                while (str.charAt(i) == '/') {
-                    i++;
-                }
-            }
-            return "/" + str.substring(i);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static xob f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str != null) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 2155) {
-                    if (hashCode != 2177) {
-                        if (hashCode != 2627) {
-                            if (hashCode == 2644 && str.equals("SG")) {
-                                c = 3;
-                            }
-                        } else if (str.equals("RU")) {
-                            c = 2;
-                        }
-                    } else if (str.equals("DE")) {
-                        c = 1;
-                    }
-                } else if (str.equals("CN")) {
-                    c = 0;
-                }
-                if (c == 0) {
-                    return xob.c;
-                }
-                if (c == 1) {
-                    return xob.d;
-                }
-                if (c == 2) {
-                    return xob.e;
-                }
-                if (c == 3) {
-                    return xob.f;
-                }
-            }
-            if (str2 != null) {
-                if (str2.contains("connect-drcn")) {
-                    return xob.c;
-                }
-                if (str2.contains("connect-dre")) {
-                    return xob.d;
-                }
-                if (str2.contains("connect-drru")) {
-                    return xob.e;
-                }
-                if (str2.contains("connect-dra")) {
-                    return xob.f;
-                }
-            }
-            return xob.b;
-        }
-        return (xob) invokeLL.objValue;
-    }
-
-    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            b(new InputStreamReader(inputStream, str), stringWriter);
-            return stringWriter.toString();
-        }
-        return (String) invokeLL.objValue;
     }
 }

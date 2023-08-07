@@ -1,99 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r73 extends q73 implements Cloneable {
+public class r73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ic3<r73> h;
-    public static final jc3<r73> i;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
-
-    /* loaded from: classes7.dex */
-    public static class a extends ic3<r73> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ic3
-        /* renamed from: b */
-        public r73 a(@NonNull av2 av2Var) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, av2Var)) == null) {
-                r73 r73Var = new r73();
-                r73Var.g = av2Var.g();
-                r73Var.b = av2Var.g();
-                r73Var.c = av2Var.readLong();
-                r73Var.a = av2Var.g();
-                r73Var.d = av2Var.readInt();
-                r73Var.e = av2Var.g();
-                r73Var.f = av2Var.g();
-                return r73Var;
-            }
-            return (r73) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends jc3<r73> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jc3
-        /* renamed from: b */
-        public void a(@NonNull r73 r73Var, @NonNull bv2 bv2Var) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r73Var, bv2Var) == null) {
-                bv2Var.f(r73Var.g);
-                bv2Var.f(r73Var.b);
-                bv2Var.writeLong(r73Var.c);
-                bv2Var.f(r73Var.a);
-                bv2Var.writeInt(r73Var.d);
-                bv2Var.f(r73Var.e);
-                bv2Var.f(r73Var.f);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -108,77 +29,99 @@ public class r73 extends q73 implements Cloneable {
                 return;
             }
         }
-        h = new a();
-        i = new b();
+        a = ir1.a;
     }
 
-    public r73() {
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b))) {
-                return true;
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
-            return false;
+            z63.a(i, str2, str, bundle);
         }
-        return invokeV.booleanValue;
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
-    }
-
-    public r73(JSONObject jSONObject, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
+            z63.a(-1000, str2, str, bundle);
         }
-        if (jSONObject == null) {
-            return;
-        }
-        this.b = jSONObject.optString("version");
-        this.c = jSONObject.optLong("version_code", -1L);
-        this.a = jSONObject.optString("provider");
-        this.e = jSONObject.optString("path");
-        this.f = jSONObject.optString("config");
-        this.d = i2;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            b73 b73Var = new b73(bundle.getString("key_observer_id", ""));
+            b73Var.setResult(bundle.getBundle("key_result_data"));
+            c73.b().c(b73Var);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            b73 b73Var = new b73(bundle.getString("key_observer_id", ""));
+            b73Var.setResult(bundle.getBundle("key_result_data"));
+            c73.b().c(b73Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            o73 e = o73.e();
+            q73 q73Var = new q73(126, bundle);
+            q73Var.a(i);
+            e.h(q73Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            o73.e().h(new q73(21, bundle));
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.pb.main.emotion.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -12,7 +13,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -88,7 +88,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
                     this.a.a.a(str, queryMatchEmotionResponseMessage.getData());
-                    this.a.Z(str, queryMatchEmotionResponseMessage.getData());
+                    this.a.R(str, queryMatchEmotionResponseMessage.getData());
                     return;
                 }
                 return;
@@ -126,18 +126,18 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QueryMatchEmotionModel(l9<Object> l9Var) {
-        super(l9Var);
+    public QueryMatchEmotionModel(BdPageContext<Object> bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -149,7 +149,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public final List<EmotionImageData> X(String str) {
+    public final List<EmotionImageData> P(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -162,14 +162,14 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void Y(String str, b bVar) {
+    public void Q(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
             this.a = bVar;
             if (bVar == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(X(str))) {
+            if (!ListUtils.isEmpty(P(str))) {
                 this.a.a(str, c.get(str));
                 return;
             }
@@ -180,7 +180,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    public final void Z(String str, List<EmotionImageData> list) {
+    public final void R(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && !ListUtils.isEmpty(list)) {
             if (c == null) {

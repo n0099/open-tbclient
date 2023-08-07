@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.sendmessage;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.fd8;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.mf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class VoiceSendModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public ChatMessage b;
-        public mf8 c;
+        public fd8 c;
         public final /* synthetic */ VoiceSendModel d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
@@ -71,7 +71,7 @@ public class VoiceSendModel extends BdBaseModel {
             this.d = voiceSendModel;
             this.a = str;
             this.b = chatMessage;
-            this.c = new mf8();
+            this.c = new fd8();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,7 +115,7 @@ public class VoiceSendModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -123,14 +123,14 @@ public class VoiceSendModel extends BdBaseModel {
         }
     }
 
-    public void W(b bVar) {
+    public void O(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void X(String str, ChatMessage chatMessage) {
+    public void P(String str, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, chatMessage) == null) {
             a aVar = new a(this, str, chatMessage);

@@ -1,106 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class rpb extends qpb {
-    public static /* synthetic */ Interceptable $ic;
+public final class rpb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "SHA";
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
-    public final Object d;
-    public npb e;
-    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rpb(Context context, String str) {
-        super(context, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130725, "Lcom/baidu/tieba/rpb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948130725, "Lcom/baidu/tieba/rpb;");
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = new Object();
-        this.f = true;
-        try {
-            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
-            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
-            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
-            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
-            if (a == null || a2 == null || a3 == null || a4 == null) {
-                this.f = false;
-            } else {
-                this.e = new mpb(a, a2, a3, a4);
-            }
-        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
-            this.e = null;
-        }
+        b = new String[]{"SHA-256", "SHA-384", "SHA-512"};
     }
 
-    private String a(String str) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.qpb, com.baidu.tieba.kpb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!this.f) {
-                String a = a(str);
-                return a != null ? a : str2;
-            } else if (this.e == null) {
-                Log.e("SecurityResourcesReader", "KEY is null return def directly");
-                return str2;
-            } else {
-                synchronized (this.d) {
-                    String str3 = this.c.get(str);
-                    if (str3 != null) {
-                        return str3;
-                    }
-                    String a2 = a(str);
-                    if (a2 == null) {
-                        return str2;
-                    }
-                    String a3 = this.e.a(a2, str2);
-                    this.c.put(str, a3);
-                    return a3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            for (String str2 : b) {
+                if (str2.equals(str)) {
+                    return true;
                 }
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, "SHA-256");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!a(str2)) {
+                    ypb.c(a, "algorithm is not safe or legal");
+                    return "";
+                }
+                try {
+                    bArr = str.getBytes("UTF-8");
+                } catch (UnsupportedEncodingException unused) {
+                    bArr = new byte[0];
+                    ypb.c(a, "Error in generate SHA UnsupportedEncodingException");
+                }
+                return vpb.a(d(bArr, str2));
+            }
+            ypb.c(a, "content or algorithm is null.");
+            return "";
         }
         return (String) invokeLL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static byte[] d(byte[] bArr, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
+            if (bArr != null && !TextUtils.isEmpty(str)) {
+                if (!a(str)) {
+                    ypb.c(a, "algorithm is not safe or legal");
+                    return new byte[0];
+                }
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.update(bArr);
+                    return messageDigest.digest();
+                } catch (NoSuchAlgorithmException unused) {
+                    ypb.c(a, "Error in generate SHA NoSuchAlgorithmException");
+                    return new byte[0];
+                }
+            }
+            ypb.c(a, "content or algorithm is null.");
+            return new byte[0];
         }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

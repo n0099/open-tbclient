@@ -1,52 +1,88 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
-import tv.athena.revenue.RevenueManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes5.dex */
-public class cac {
+public final class cac {
     public static /* synthetic */ Interceptable $ic;
+    public static final cac a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IPayEventStatisticsApi a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("PayUIEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669476, "Lcom/baidu/tieba/cac;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return revenue.getPayEventStatisticApi();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947669476, "Lcom/baidu/tieba/cac;");
+                return;
+            }
         }
-        return (IPayEventStatisticsApi) invokeII.objValue;
+        a = new cac();
     }
 
-    public static void b(int i, int i2, String str) {
+    public cac() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void c(int i, int i2, String str, String str2) {
+    public final int a(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        ThemeColorConfig themeColorConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
+                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
+                if (themeResId == null) {
+                    Intrinsics.throwNpe();
+                }
+                return themeResId.intValue();
             }
+            return R.style.obfuscated_res_0x7f100162;
         }
+        return invokeL.intValue;
+    }
+
+    public final boolean b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        ThemeColorConfig themeColorConfig;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
+                return true;
+            }
+            if (themeColorConfig != null) {
+                num = themeColorConfig.getThemeResId();
+            } else {
+                num = null;
+            }
+            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100162) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

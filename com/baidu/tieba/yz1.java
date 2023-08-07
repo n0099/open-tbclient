@@ -1,441 +1,238 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class yz1 implements vz1 {
+public class yz1 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final JSONObject c;
-    public static final Pair<v32, JSONObject> d;
-    public static final Pair<v32, JSONObject> e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public wz1 a;
-    @NonNull
-    public CallbackHandler b;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        v32 a(vb3 vb3Var, JSONObject jSONObject, @Nullable String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        v32 a(vb3 vb3Var);
-    }
-
-    public abstract String h();
-
-    public abstract String j();
-
-    public boolean o() {
+    @Override // com.baidu.tieba.bz1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "TabBarApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ yz1 d;
+
+        public a(yz1 yz1Var, String str, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz1Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = yz1Var;
+            this.a = str;
+            this.b = z;
+            this.c = z2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean j;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                km3 z = yz1.z();
+                if (z == null) {
+                    y72.c("TabBarApi", "tabBarViewController is null");
+                    this.d.d(this.a, new y22(1001));
+                    return;
+                }
+                if (this.b) {
+                    j = z.r(this.c);
+                } else {
+                    j = z.j(this.c);
+                }
+                if (!j) {
+                    StringBuilder sb = new StringBuilder();
+                    if (this.b) {
+                        str = "open";
+                    } else {
+                        str = "close";
+                    }
+                    sb.append(str);
+                    sb.append("bottom bar fail");
+                    y72.c("TabBarApi", sb.toString());
+                    this.d.d(this.a, new y22(1001));
+                }
+                this.d.d(this.a, new y22(0));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yz1(@NonNull zy1 zy1Var) {
+        super(zy1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zy1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ha2 U = lw2.T().U();
+            if (U != null && U.o() != null && U.o().g2()) {
+                return false;
+            }
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347353, "Lcom/baidu/tieba/yz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948347353, "Lcom/baidu/tieba/yz1;");
-                return;
-            }
-        }
-        c = new JSONObject();
-        d = new Pair<>(v32.d(), c);
-        e = new Pair<>(v32.e(), c);
-    }
-
-    public yz1(@NonNull wz1 wz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = wz1Var;
-        this.b = wz1Var.e();
-    }
-
-    @NonNull
-    public Pair<v32, JSONObject> s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                p("json str is empty", null, true);
-                return d;
-            }
-            try {
-                return new Pair<>(v32.f(), new JSONObject(str));
-            } catch (JSONException e2) {
-                p("json str parse fail", e2, true);
-                return e;
-            }
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    @Nullable
-    public static JSONObject r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static Pair<u32, JSONObject> t(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return new Pair<>(new v32(202, "parseParams(JsObject): jsObject cannot be null"), null);
-            }
-            int type = jsObject.getType();
-            int length = jsObject.length();
-            if (type != 9) {
-                String str = "parseParams(JsObject): jsObject cannot be " + JsObject.typeToString(type) + " ,length " + length;
-                jsObject.release();
-                return new Pair<>(new v32(202, str), null);
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (int i = 0; i < length; i++) {
-                try {
-                    int propertyType = jsObject.getPropertyType(i);
-                    String propertyName = jsObject.getPropertyName(i);
-                    switch (propertyType) {
-                        case 1:
-                            jSONObject.put(propertyName, jsObject.toBoolean(i));
-                            break;
-                        case 2:
-                            jSONObject.put(propertyName, jsObject.toInteger(i));
-                            break;
-                        case 3:
-                            jSONObject.put(propertyName, jsObject.toLong(i));
-                            break;
-                        case 5:
-                            try {
-                                jSONObject.put(propertyName, jsObject.toDouble(i));
-                                break;
-                            } catch (JSONException unused) {
-                                break;
-                            }
-                        case 6:
-                            JsObject[] objectArray = jsObject.toObjectArray(i);
-                            if (objectArray == null) {
-                                break;
-                            } else {
-                                jSONObject.put(propertyName, v(objectArray));
-                                break;
-                            }
-                        case 7:
-                            jSONObject.put(propertyName, jsObject.toString(i));
-                            break;
-                        case 8:
-                            jSONObject.put(propertyName, jsObject.toJsFunction(i));
-                            break;
-                        case 9:
-                            jSONObject.put(propertyName, t(jsObject.toJsObject(i)).second);
-                            break;
-                        case 10:
-                            jSONObject.put(propertyName, jsObject.toJsArrayBuffer(i));
-                            break;
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    String str2 = "parseParams(JsObject): with exception " + e2.getMessage();
-                    jsObject.release();
-                    return new Pair<>(new v32(202, str2), null);
-                }
-            }
-            jsObject.release();
-            return new Pair<>(new v32(0), jSONObject);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    @NonNull
-    public static Pair<u32, JSONObject> u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new Pair<>(new v32(202, "parseParams(String): json string cannot be empty"), null);
-            }
-            try {
-                return new Pair<>(new v32(0), new JSONObject(str));
-            } catch (JSONException unused) {
-                return new Pair<>(new v32(202, "parseParams(String): with json exception "), null);
-            }
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static JSONArray v(@NonNull JsObject[] jsObjectArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jsObjectArr)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (JsObject jsObject : jsObjectArr) {
-                if (jsObject == null) {
-                    jSONArray.put((Object) null);
-                } else {
-                    switch (jsObject.getType()) {
-                        case 0:
-                            jSONArray.put((Object) null);
-                            continue;
-                        case 1:
-                            jSONArray.put(jsObject.toBoolean(0));
-                            continue;
-                        case 2:
-                            jSONArray.put(jsObject.toInteger(0));
-                            continue;
-                        case 3:
-                            jSONArray.put(jsObject.toLong(0));
-                            continue;
-                        case 5:
-                            try {
-                                jSONArray.put(jsObject.toDouble(0));
-                                continue;
-                            } catch (JSONException unused) {
-                                jSONArray.put((Object) null);
-                                break;
-                            }
-                        case 6:
-                            JsObject[] objectArray = jsObject.toObjectArray(0);
-                            if (objectArray == null) {
-                                jSONArray.put((Object) null);
-                                continue;
-                            } else {
-                                jSONArray.put(v(objectArray));
-                                break;
-                            }
-                        case 7:
-                            jSONArray.put(jsObject.toString(0));
-                            continue;
-                        case 8:
-                            jSONArray.put(jsObject.toJsFunction(0));
-                            continue;
-                        case 9:
-                            jSONArray.put(t(jsObject).second);
-                            continue;
-                        case 10:
-                            jSONArray.put(jsObject.toJsArrayBuffer(0));
-                            continue;
-                        case 11:
-                            jSONArray.put((Object) null);
-                            continue;
-                        case 12:
-                            jSONArray.put((Object) null);
-                            continue;
-                    }
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vz1
-    @NonNull
-    public final wz1 a() {
+    public static km3 z() {
         InterceptResult invokeV;
+        ga2 l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (wz1) invokeV.objValue;
-    }
-
-    @NonNull
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "API-" + h();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ha2 U = lw2.T().U();
+            if (U != null && (l = U.l()) != null) {
+                return l.x3();
             }
-            return b0.n0();
+            return null;
         }
-        return invokeV.booleanValue;
+        return (km3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vz1
-    @SuppressLint({"BDThrowableCheck"})
-    public final void d(@NonNull String str, @NonNull v32 v32Var) {
+    public final y22 A(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, v32Var) == null) {
-            if (TextUtils.isEmpty(str)) {
-                p("callback is empty", null, true);
-            } else if (v32Var == null) {
-                p("api result is empty", null, true);
-            } else {
-                w(str, v32Var);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (B()) {
+                y72.c("TabBarApi", "fail not TabBar page");
+                return new y22(1001, "fail not TabBar page");
             }
-        }
-    }
-
-    public void q(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && o()) {
-            v82.j(j(), i(), str, z);
-        }
-    }
-
-    public v32 k(boolean z, @NonNull b bVar) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048582, this, z, bVar)) == null) {
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                p("swan app is null", null, false);
-                return v32.j();
-            } else if (z && b0.w() == null) {
-                p("swan activity is null", null, true);
-                return v32.i();
-            } else {
-                return bVar.a(b0);
-            }
-        }
-        return (v32) invokeZL.objValue;
-    }
-
-    @UiThread
-    public final void w(@NonNull String str, @NonNull v32 v32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, v32Var) == null) {
-            if (TextUtils.isEmpty(str) && !(this.b instanceof NullableCallbackHandler)) {
-                q("#realInvokeCallback check-fail callback=" + str, false);
-                return;
-            }
-            this.b.handleSchemeDispatchCallback(str, v32Var.a());
-        }
-    }
-
-    public v32 l(String str, boolean z, a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), aVar})) == null) {
-            vb3 b0 = vb3.b0();
-            String str2 = null;
-            if (b0 == null) {
-                p("swan app is null", null, false);
-                return new v32(1001, "swan app is null");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                p("json str parse fail", null, true);
-                return v32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (z) {
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    p("cb is empty", null, true);
-                    return new v32(202, "cb is empty");
-                }
-                str2 = optString;
-            }
-            return aVar.a(b0, jSONObject, str2);
-        }
-        return (v32) invokeCommon.objValue;
-    }
-
-    public v32 m(@Nullable String str, @NonNull xz1 xz1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, xz1Var)) == null) {
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                p("json str parse fail", null, true);
-                return v32Var;
+            Pair<y22, JSONObject> s = s(str);
+            y22 y22Var = (y22) s.first;
+            if (!y22Var.isSuccess()) {
+                return y22Var;
             }
             JSONObject jSONObject = (JSONObject) s.second;
             String optString = jSONObject.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                p("cb is empty", null, true);
-                return new v32(202, "cb is empty");
+                y72.c("TabBarApi", "callback is null");
+                return new y22(1001, "callback is null");
             }
-            return xz1Var.f(jSONObject, optString, this);
+            so3.e0(new a(this, optString, z, jSONObject.optBoolean("animation")));
+            return y22.f();
         }
-        return (v32) invokeLL.objValue;
+        return (y22) invokeLZ.objValue;
     }
 
-    public void p(String str, @Nullable Throwable th, boolean z) {
+    public y22 C(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048587, this, str, th, z) == null) && o()) {
-            v82.e(j(), i(), str, th, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#openTabBar", false);
+            return A(str, true);
         }
+        return (y22) invokeL.objValue;
+    }
+
+    public y22 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            q("#closeTabBar", false);
+            return A(str, false);
+        }
+        return (y22) invokeL.objValue;
+    }
+
+    public y22 D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setTabBarItem", false);
+            Pair<y22, JSONObject> s = s(str);
+            y22 y22Var = (y22) s.first;
+            if (!y22Var.isSuccess()) {
+                return y22Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (B()) {
+                y72.c("TabBarApi", "fail not TabBar page");
+                return new y22(1001, "fail not TabBar page");
+            }
+            km3 z = z();
+            if (z == null) {
+                y72.c("TabBarApi", "tabBarViewController is null");
+                return new y22(1001, "tabBarViewController is null");
+            } else if (!z.x(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
+                y72.c("TabBarApi", "set tab bar item fail");
+                return new y22(1001, "set tab bar item fail");
+            } else {
+                return y22.f();
+            }
+        }
+        return (y22) invokeL.objValue;
+    }
+
+    public y22 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#closeTabBarRedDot", false);
+            Pair<y22, JSONObject> s = s(str);
+            y22 y22Var = (y22) s.first;
+            if (!y22Var.isSuccess()) {
+                return y22Var;
+            }
+            int optInt = ((JSONObject) s.second).optInt("index");
+            if (B()) {
+                y72.c("TabBarApi", "fail not TabBar page");
+                return new y22(1001, "fail not TabBar page");
+            }
+            km3 z = z();
+            if (z == null) {
+                y72.c("TabBarApi", "tabBarViewController is null");
+                return new y22(1001, "tabBarViewController is null");
+            } else if (!z.k(optInt)) {
+                y72.c("TabBarApi", "close red dot fail");
+                return new y22(1001, "close red dot fail");
+            } else {
+                return y22.f();
+            }
+        }
+        return (y22) invokeL.objValue;
     }
 }

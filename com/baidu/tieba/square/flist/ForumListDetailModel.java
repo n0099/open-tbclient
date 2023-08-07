@@ -1,6 +1,7 @@
 package com.baidu.tieba.square.flist;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -8,10 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.ne;
 import com.baidu.tieba.square.flist.ForumListModel;
-import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,8 +96,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        o55.e();
-                        ye<String> f = o55.f("tb.my_posts");
+                        l45.e();
+                        ne<String> f = l45.f("tb.my_posts");
                         if (f != null) {
                             str = f.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {
@@ -131,7 +131,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
                 if (forumListModel != null && forumListModel.isOk()) {
                     this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
                 } else {
-                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0e1f), this.b.f);
+                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0e21), this.b.f);
                 }
             }
         }
@@ -149,7 +149,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,16 +161,16 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         this.b = requestParams;
     }
 
-    public void c0(b bVar) {
+    public void U(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void d0(ForumListModel.RequestParams requestParams) {
+    public void V(ForumListModel.RequestParams requestParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestParams) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestParams) == null) {
             this.b = requestParams;
         }
     }
@@ -179,7 +179,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = this.d;
             if (cVar == null) {
                 return false;

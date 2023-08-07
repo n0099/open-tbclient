@@ -1,63 +1,79 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebViewFactory;
+import java.util.List;
 /* loaded from: classes6.dex */
 public final class iw {
     public static /* synthetic */ Interceptable $ic;
-    public static final iw a;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307775, "Lcom/baidu/tieba/iw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307775, "Lcom/baidu/tieba/iw;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307775, "Lcom/baidu/tieba/iw;")) == null) {
+            return;
         }
-        a = new iw();
-    }
-
-    public iw() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448307775, "Lcom/baidu/tieba/iw;");
         }
     }
 
-    public final int a(String str, int i) {
-        InterceptResult invokeLI;
+    public static ActivityManager.RunningAppProcessInfo a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo;
+                    }
+                }
+                return null;
             }
-            try {
-                return Color.parseColor(str);
-            } catch (Exception unused) {
-                return i;
-            }
+            return null;
         }
-        return invokeLI.intValue;
+        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        ActivityManager.RunningAppProcessInfo a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
+                a = a2.processName;
+            }
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String b = b(context);
+            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

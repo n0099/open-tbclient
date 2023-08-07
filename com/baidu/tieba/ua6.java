@@ -1,129 +1,189 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class ua6 extends ActivityDelegation {
+public class ua6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<String> b;
+    public List<SdkLiveInfoData> c;
+    public eb6 d;
+    public List<ym> e;
+    public boolean f;
+    public String g;
+    public String h;
 
-    /* loaded from: classes8.dex */
-    public class a implements ta6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ua6 a;
-
-        public a(ua6 ua6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ua6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ua6Var;
-        }
-
-        @Override // com.baidu.tieba.ta6
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.a.mResult.putString("params", bundle.getString("result_msg"));
-                this.a.finish();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948204319, "Lcom/baidu/tieba/ua6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948204319, "Lcom/baidu/tieba/ua6;");
-                return;
-            }
-        }
-        a = fs1.a;
-    }
-
-    public ua6() {
+    public ua6(x96 x96Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x96Var, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.f = false;
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.f = true;
+        }
+        this.g = str;
+        this.h = str2;
+        a(x96Var);
     }
 
-    public static Bundle d(String str) {
+    public boolean a(x96 x96Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("order_info", str);
-            return bundle;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x96Var)) == null) {
+            if (x96Var == null) {
+                return false;
+            }
+            boolean e = e(x96Var.b);
+            this.a = x96Var.a;
+            return e;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    public void g(eb6 eb6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mParams.isEmpty()) {
-                if (a) {
-                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eb6Var) == null) {
+            this.d = eb6Var;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = false;
+            List<String> list = this.b;
+            if (list != null) {
+                list.clear();
             }
-            if (a) {
-                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            List<SdkLiveInfoData> list2 = this.c;
+            if (list2 != null) {
+                list2.clear();
             }
-            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!rt5.c().d()) {
-                yi.Q(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
-                return false;
-            } else if (!(getAgent() instanceof Activity)) {
-                return false;
-            } else {
-                qa6 qa6Var = new qa6();
-                qa6Var.mParams.putInt("type", 1);
-                qa6Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
-                qa6Var.d(getAgent());
-                qa6Var.e(new a(this));
-                qa6Var.onExec();
-                return false;
+            List<ym> list3 = this.e;
+            if (list3 != null) {
+                list3.clear();
             }
         }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
         return invokeV.booleanValue;
+    }
+
+    public final ArrayList<ym> c(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            ArrayList<ym> arrayList = new ArrayList<>();
+            int size = list.size();
+            for (int i = 0; i < size; i += 2) {
+                t96 t96Var = new t96();
+                g96 g96Var = new g96();
+                g96Var.a = list.get(i);
+                g96Var.f = true;
+                g96Var.b = this.f;
+                g96Var.c = this.g;
+                g96Var.d = this.h;
+                int i2 = i + 1;
+                g96Var.e = i2;
+                t96Var.a = g96Var;
+                if (i2 < size) {
+                    g96 g96Var2 = new g96();
+                    g96Var2.a = list.get(i2);
+                    g96Var2.b = this.f;
+                    g96Var2.c = this.g;
+                    g96Var2.d = this.h;
+                    g96Var2.e = i + 2;
+                    t96Var.b = g96Var2;
+                    g96Var2.g = true;
+                } else {
+                    g96Var.f = false;
+                    g96Var.h = true;
+                }
+                arrayList.add(t96Var);
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public List<ym> d() {
+        InterceptResult invokeV;
+        fn6 fn6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.e)) {
+                arrayList.addAll(this.e);
+            }
+            eb6 eb6Var = this.d;
+            if (eb6Var != null && (fn6Var = eb6Var.a) != null && !ListUtils.isEmpty(fn6Var.c())) {
+                arrayList.add(0, this.d);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean e(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (SdkLiveInfoData sdkLiveInfoData : list) {
+                if (sdkLiveInfoData != null) {
+                    String str = sdkLiveInfoData.liveId;
+                    if (!this.b.contains(str)) {
+                        arrayList.add(sdkLiveInfoData);
+                        this.b.add(str);
+                    }
+                }
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return false;
+            }
+            this.c.addAll(arrayList);
+            ArrayList<ym> c = c(this.c);
+            this.e = c;
+            if (ListUtils.isEmpty(c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

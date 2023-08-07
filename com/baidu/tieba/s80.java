@@ -1,86 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public String b;
-    public boolean c;
-    public JSONObject d;
 
-    public s80(boolean z, JSONArray jSONArray) {
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return true;
         }
-        this.c = z;
-        this.a = jSONArray;
-        this.b = String.valueOf(System.currentTimeMillis());
+        return invokeL.booleanValue;
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public static void a(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("uploadtime", this.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.d = jSONObject;
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, context, str, str2, i) == null) {
+            u80.g().d(context, str, str2, i, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public JSONObject b() {
+    public static int b() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray jSONArray = this.a;
-            if (jSONArray != null && jSONArray.length() >= 0) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(TtmlNode.TAG_METADATA, a());
-                    if (this.c) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    jSONObject.put(Constant.IS_REAL, str);
-                    jSONObject.put("data", this.a);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                v80.a("UploadData", "uploadJson:" + jSONObject.toString());
-                return jSONObject;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return u80.g().h();
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return u80.g().i();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            u80.g().m();
+        }
+    }
+
+    public static void d(@NonNull BLCPRequest bLCPRequest, @Nullable y80 y80Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, bLCPRequest, y80Var) == null) {
+            u80.g().j(bLCPRequest, y80Var);
+        }
     }
 }

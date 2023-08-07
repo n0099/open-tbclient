@@ -7,18 +7,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.e3a;
+import com.baidu.tieba.f3a;
+import com.baidu.tieba.g3a;
+import com.baidu.tieba.h3a;
+import com.baidu.tieba.i3a;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.k4a;
-import com.baidu.tieba.l4a;
-import com.baidu.tieba.m4a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.l3a;
 import com.baidu.tieba.model.ShareReportModel;
-import com.baidu.tieba.n4a;
-import com.baidu.tieba.o4a;
-import com.baidu.tieba.p4a;
-import com.baidu.tieba.r4a;
+import com.baidu.tieba.o3a;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import com.baidu.tieba.u4a;
-import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,14 +29,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes7.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbShareCallback {
+public class ShareHandlerActivity extends ShareBaseActivity implements l3a, WbShareCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
     public ShareEntity c;
-    public k4a d;
-    public o4a e;
+    public e3a d;
+    public i3a e;
     public ShareReportModel f;
     public PermissionJudgePolicy g;
 
@@ -94,9 +94,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            k4a k4aVar = this.d;
-            if (k4aVar != null) {
-                k4aVar.r();
+            e3a e3aVar = this.d;
+            if (e3aVar != null) {
+                e3aVar.r();
             }
             ShareReportModel shareReportModel = this.f;
             if (shareReportModel != null) {
@@ -121,43 +121,43 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        o4a o4aVar;
+        i3a i3aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (o4aVar = this.e) != null) {
-            o4aVar.N();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (i3aVar = this.e) != null) {
+            i3aVar.N();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        o4a o4aVar;
+        i3a i3aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (o4aVar = this.e) != null) {
-            o4aVar.O();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (i3aVar = this.e) != null) {
+            i3aVar.O();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        o4a o4aVar;
+        i3a i3aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (o4aVar = this.e) != null) {
-            o4aVar.P();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (i3aVar = this.e) != null) {
+            i3aVar.P();
         }
     }
 
-    @Override // com.baidu.tieba.r4a
-    public void Y0(int i, int i2) {
+    @Override // com.baidu.tieba.l3a
+    public void X0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (i2 == 1) {
-                u4a.b(i, this.c);
+                o3a.b(i, this.c);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    u4a.a(i, this.c);
+                    o3a.a(i, this.c);
                 } else {
-                    u4a.b(i, this.c);
+                    o3a.b(i, this.c);
                 }
             }
             if (this.c.getStats() != null) {
@@ -165,7 +165,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
                 this.c.getStats().getString("pid");
             }
             String str = null;
-            if (!xi.isEmpty(this.c.taskCompleteId)) {
+            if (!bi.isEmpty(this.c.taskCompleteId)) {
                 str = this.c.taskCompleteId;
             }
             u1(i, i2, this.c.getStats(), str);
@@ -178,9 +178,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                k4a k4aVar = this.d;
-                if (k4aVar != null) {
-                    k4aVar.n(intent);
+                e3a e3aVar = this.d;
+                if (e3aVar != null) {
+                    e3aVar.n(intent);
                     return;
                 }
                 return;
@@ -208,14 +208,14 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
             }
             v1(shareEntity.getStats());
             this.b = this.c.getShareTo();
-            k4a k4aVar = this.d;
-            if (k4aVar != null) {
-                k4aVar.r();
+            e3a e3aVar = this.d;
+            if (e3aVar != null) {
+                e3aVar.r();
                 this.d = null;
             }
-            o4a o4aVar = this.e;
-            if (o4aVar != null) {
-                o4aVar.r();
+            i3a i3aVar = this.e;
+            if (i3aVar != null) {
+                i3aVar.r();
                 this.e = null;
             }
             int i = this.b;
@@ -227,28 +227,28 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
                                 if (i != 4) {
                                     this.d = null;
                                 } else {
-                                    this.d = new m4a(this);
+                                    this.d = new g3a(this);
                                 }
                             } else {
-                                this.d = new p4a(this, 3);
+                                this.d = new j3a(this, 3);
                             }
                         } else {
-                            this.d = new p4a(this, 2);
+                            this.d = new j3a(this, 2);
                         }
                     } else {
-                        this.d = new l4a(this);
+                        this.d = new f3a(this);
                     }
                 } else {
-                    o4a o4aVar2 = new o4a(this, this, this);
-                    this.e = o4aVar2;
-                    this.d = o4aVar2;
+                    i3a i3aVar2 = new i3a(this, this, this);
+                    this.e = i3aVar2;
+                    this.d = i3aVar2;
                 }
             } else {
-                this.d = new n4a(this);
+                this.d = new h3a(this);
             }
-            k4a k4aVar2 = this.d;
-            if (k4aVar2 != null) {
-                k4aVar2.A(this.c.getTid());
+            e3a e3aVar2 = this.d;
+            if (e3aVar2 != null) {
+                e3aVar2.A(this.c.getTid());
                 this.d.y(this.c.getExtLiveInfo());
                 if (!GroupInfoData.isValidGroup(this.c.groupData)) {
                     this.d.x(true);
@@ -265,9 +265,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
                     return;
                 }
             }
-            k4a k4aVar3 = this.d;
-            if (k4aVar3 != null) {
-                k4aVar3.s(getUniqueId());
+            e3a e3aVar3 = this.d;
+            if (e3aVar3 != null) {
+                e3aVar3.s(getUniqueId());
                 this.d.n(getIntent());
                 this.d.a(this.c, this);
                 return;
@@ -287,9 +287,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
             if (intent != null) {
                 intent.getIntExtra("extra_skin", 3);
             }
-            k4a k4aVar = this.d;
-            if (k4aVar != null) {
-                k4aVar.n(intent);
+            e3a e3aVar = this.d;
+            if (e3aVar != null) {
+                e3aVar.n(intent);
             }
         }
     }
@@ -318,6 +318,6 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r4a, WbSh
         if (this.f == null) {
             this.f = new ShareReportModel(getPageContext());
         }
-        this.f.W(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
+        this.f.O(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
     }
 }

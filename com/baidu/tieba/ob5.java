@@ -1,98 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ob5 {
+public class ob5 {
     public static /* synthetic */ Interceptable $ic;
+    public static Domain a;
+    public static boolean b;
+    public static pb5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public final int b;
-    public final String c;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948026503, "Lcom/baidu/tieba/ob5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (obj instanceof ob5) {
-                ob5 ob5Var = (ob5) obj;
-                return Intrinsics.areEqual(this.a, ob5Var.a) && this.b == ob5Var.b && Intrinsics.areEqual(this.c, ob5Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ob5(ItemData item, int i, String tid) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item, Integer.valueOf(i), tid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948026503, "Lcom/baidu/tieba/ob5;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = item;
-        this.b = i;
-        this.c = tid;
+        a = Domain.DOMAIN_ONLINE;
+        b = true;
+        c = null;
     }
 
-    public final ItemData a() {
+    public static pb5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
-        return (ItemData) invokeV.objValue;
+        return (pb5) invokeV.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (TbConfig.USE_OLD_LOGIN) {
+                b = true;
+                return;
+            }
+            if (Build.VERSION.SDK_INT < 9) {
+                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
+                    b = false;
+                } else {
+                    b = true;
+                }
+            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
+                b = false;
+            } else {
+                b = true;
+            }
+            if (Build.VERSION.SDK_INT <= 10 && !b && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+                TbadkCoreApplication.getInst().incPassportV6CrashCount();
+                b = true;
+            }
         }
-        return invokeV.intValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public static void c() {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && c == null && (runTask = MessageManager.getInstance().runTask(2001268, pb5.class)) != null && runTask.getData() != null) {
+            c = (pb5) runTask.getData();
         }
-        return (String) invokeV.objValue;
     }
 }

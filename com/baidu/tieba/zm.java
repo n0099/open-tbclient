@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface zm {
-    void onResult(String str, int i, String str2);
+public interface zm<T> {
+    int getCount();
+
+    T getItem(int i);
+
+    void notifyDataSetChanged();
 }

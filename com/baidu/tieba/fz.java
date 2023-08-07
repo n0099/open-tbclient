@@ -1,128 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fz extends xx<k45> {
-    public static /* synthetic */ Interceptable $ic;
+public class fz {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int b = 5;
+    public static int c = 40;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumLayout f;
-    public int g;
+    public com.baidu.cesium.a.b a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fz(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304985, "Lcom/baidu/tieba/fz;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448304985, "Lcom/baidu/tieba/fz;");
+        }
+    }
+
+    public fz() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = 3;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f = recommendForumLayout;
-        recommendForumLayout.setPageUniqueId(bdUniqueId);
-        this.f.setShowMore(true);
+        com.baidu.cesium.a.b bVar = new com.baidu.cesium.a.b(c);
+        this.a = bVar;
+        bVar.a(0, c, true);
     }
 
-    public void A(PullLeftRefreshLayout.f fVar) {
+    public void a(com.baidu.cesium.a.b bVar, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f.setOnRullOkCallbackr(fVar);
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, bVar, i, i2, i3) == null) {
+            com.baidu.cesium.a.b d = this.a.d(i, i + i2);
+            if (i3 != 0) {
+                if (i3 != 1) {
+                    if (i3 == 2) {
+                        d.e(bVar);
+                    } else if (i3 == 3) {
+                        d.c(bVar);
+                    }
+                }
+                d.d(bVar);
+            } else {
+                d.b(bVar);
+            }
+            for (int i4 = 0; i4 < i2; i4++) {
+                this.a.a(i + i4, d.d(i4));
+            }
         }
     }
 
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f.setShowMore(z);
-        }
-    }
-
-    public void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f.setShowSquareEntrance(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void r(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f.setPageUniqueId(bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: u */
-    public void b(k45 k45Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, k45Var) == null) {
-            this.f.setData(k45Var);
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setEnableShowInto(z);
-        }
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
-            this.f.setOnClickRightArrowListener(onClickListener);
-        }
-    }
-
-    public void z(i05<j45> i05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, i05Var) == null) {
-            this.f.setOnItemCoverListener(i05Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public View l() {
+    public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
-            }
-            this.g = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
     }
 }

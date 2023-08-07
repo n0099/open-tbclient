@@ -1,182 +1,298 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ru2;
-import com.baidu.tieba.sw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.ut2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 /* loaded from: classes5.dex */
 public class fi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static Boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765018, "Lcom/baidu/tieba/fi2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ut2.c a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ fi2 c;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public a(fi2 fi2Var, ut2.c cVar, File file) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947765018, "Lcom/baidu/tieba/fi2;");
-                return;
-            }
-        }
-        a = fs1.a;
-        cv2.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        c = 0;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = b;
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            Boolean valueOf = Boolean.valueOf(a());
-            b = valueOf;
-            return valueOf.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (c == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (c == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = false;
-            if (!pi2.U().r0()) {
-                Log.w("NASlaveConfig", "v8 is not enabled");
-                return false;
-            } else if (!cv2.F0().j(1)) {
-                return false;
-            } else {
-                String c0 = pi2.U().c0();
-                if (TextUtils.isEmpty(c0)) {
-                    Log.w("NASlaveConfig", "base path is not exists");
-                    return false;
-                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
-                    Log.w("NASlaveConfig", "talos-js file is not exists");
-                    return false;
-                } else if (a && u73.Y()) {
-                    return true;
-                } else {
-                    if (c != 0) {
-                        z = true;
-                    }
-                    if (a) {
-                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
-                    }
-                    return z;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi2Var, cVar, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = fi2Var;
+            this.a = cVar;
+            this.b = file;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.c.c(this.a, 1, 0);
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.c.d(response, this.a, this.b);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
     }
 
-    public static int b(@Nullable kc3 kc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kc3Var)) == null) {
-            if (kc3Var == null || !d()) {
-                return 0;
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ut2.c a;
+
+        public b(fi2 fi2Var, ut2.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi2Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return "na".equals(kc3Var.r) ? 1 : 0;
+            this.a = cVar;
         }
-        return invokeL.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onSuccess();
+            }
+        }
     }
 
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return 0;
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ut2.c a;
+
+        public c(fi2 fi2Var, ut2.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi2Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (str.contains("?")) {
-                str = str.substring(0, str.indexOf("?"));
-            }
-            int b2 = b(ix2.T().f(str));
-            if (a) {
-                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
-            }
-            return b2;
+            this.a = cVar;
         }
-        return invokeL.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onFailed();
+            }
+        }
     }
 
-    public static boolean h(vb3 vb3Var) {
-        InterceptResult invokeL;
-        sw2.a W;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, vb3Var)) == null) {
-            if (vb3Var == null || !vb3Var.E()) {
-                return false;
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ut2.c a;
+        public final /* synthetic */ int b;
+
+        public d(fi2 fi2Var, ut2.c cVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi2Var, cVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (u73.B(vb3Var.W())) {
-                str = ru2.b.g().getPath() + File.separator;
+            this.a = cVar;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
+            }
+        }
+    }
+
+    public fi2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final void c(ut2.c cVar, int i, int i2) {
+        Runnable bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(1048576, this, cVar, i, i2) != null) || cVar == null) {
+            return;
+        }
+        if (i != 0) {
+            if (i != 2) {
+                bVar = new c(this, cVar);
             } else {
-                str = ru2.e.i(W.H(), W.v1()).getPath() + File.separator;
+                bVar = new d(this, cVar, i2);
             }
-            if (a) {
-                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            ix2.T().K(str);
-            return true;
+        } else {
+            bVar = new b(this, cVar);
         }
-        return invokeL.booleanValue;
+        so3.e0(bVar);
+    }
+
+    public void e(ut2.d dVar, String str, ut2.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, dVar, str, cVar) == null) {
+            bi4 bi4Var = new bi4(dVar.a, new a(this, cVar, new File(str)));
+            bi4Var.f = false;
+            bi4Var.g = false;
+            bi4Var.h = false;
+            ci4.g().d(bi4Var);
+        }
+    }
+
+    public final void d(Response response, ut2.c cVar, File file) throws IOException {
+        FileOutputStream fileOutputStream;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, cVar, file) == null) {
+            ResponseBody body = response.body();
+            if (body == null) {
+                c(cVar, 1, 0);
+                return;
+            }
+            byte[] bArr = new byte[2048];
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            if (file.exists()) {
+                file.delete();
+                file.createNewFile();
+            }
+            InputStream inputStream = null;
+            try {
+                InputStream byteStream = body.byteStream();
+                try {
+                    long contentLength = body.contentLength();
+                    fileOutputStream = new FileOutputStream(file);
+                    long j = 0;
+                    while (true) {
+                        try {
+                            int read = byteStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            fileOutputStream.write(bArr, 0, read);
+                            j += read;
+                            if (contentLength <= 0) {
+                                i = 0;
+                            } else {
+                                i = (int) (((((float) j) * 1.0f) / ((float) contentLength)) * 100.0f);
+                            }
+                            c(cVar, 2, i);
+                        } catch (Exception unused) {
+                            inputStream = byteStream;
+                            try {
+                                c(cVar, 1, 0);
+                                cr4.d(inputStream);
+                                cr4.d(fileOutputStream);
+                            } catch (Throwable th) {
+                                th = th;
+                                cr4.d(inputStream);
+                                cr4.d(fileOutputStream);
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            inputStream = byteStream;
+                            cr4.d(inputStream);
+                            cr4.d(fileOutputStream);
+                            throw th;
+                        }
+                    }
+                    fileOutputStream.flush();
+                    c(cVar, 0, 100);
+                    cr4.d(byteStream);
+                } catch (Exception unused2) {
+                    fileOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileOutputStream = null;
+                }
+            } catch (Exception unused3) {
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileOutputStream = null;
+            }
+            cr4.d(fileOutputStream);
+        }
     }
 }

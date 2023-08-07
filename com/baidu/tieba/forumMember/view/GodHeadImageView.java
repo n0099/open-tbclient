@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h66;
+import com.baidu.tieba.o36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class GodHeadImageView extends FrameLayout {
     public class a extends HeadImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GodHeadImageView U0;
+        public final /* synthetic */ GodHeadImageView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GodHeadImageView godHeadImageView, Context context) {
@@ -59,18 +59,18 @@ public class GodHeadImageView extends FrameLayout {
                     return;
                 }
             }
-            this.U0 = godHeadImageView;
+            this.a = godHeadImageView;
         }
 
         @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
         public void onMeasure(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                if (this.U0.d == 1) {
+                if (this.a.d == 1) {
                     int size = View.MeasureSpec.getSize(i);
                     int size2 = View.MeasureSpec.getSize(i2);
-                    i = View.MeasureSpec.makeMeasureSpec(size - this.U0.g, 1073741824);
-                    i2 = View.MeasureSpec.makeMeasureSpec(size2 - this.U0.g, 1073741824);
+                    i = View.MeasureSpec.makeMeasureSpec(size - this.a.g, 1073741824);
+                    i2 = View.MeasureSpec.makeMeasureSpec(size2 - this.a.g, 1073741824);
                 }
                 super.onMeasure(i, i2);
             }
@@ -214,7 +214,7 @@ public class GodHeadImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h66.GodHeadImageView);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, o36.GodHeadImageView);
                 this.g = obtainStyledAttributes.getDimensionPixelSize(0, i);
                 this.f = obtainStyledAttributes.getInteger(2, this.e);
                 this.d = obtainStyledAttributes.getInteger(3, this.c);
@@ -274,7 +274,7 @@ public class GodHeadImageView extends FrameLayout {
     public void e(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.a.N(str, i2, z);
+            this.a.startLoad(str, i2, z);
         }
     }
 }

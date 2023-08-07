@@ -1,146 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.bo5;
+import com.baidu.tieba.newdetail.HotTopicDetailModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class e26 extends BdAsyncTask<Void, Void, String> {
+public class e26 implements tk1<bo5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public NetWork c;
-    public a d;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(boolean z, String str);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public e26(String str, String str2, a aVar) {
+    /* loaded from: classes5.dex */
+    public static final class b implements bo5, HotTopicDetailModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailModel b;
+        @Nullable
+        public bo5.a c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.bo5
+        public void c(@Nullable bo5.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                this.c = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.bo5
+        public bo5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
+                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
+                this.b = hotTopicDetailModel;
+                hotTopicDetailModel.c0(j, str);
+                this.b.b0(this);
+                return this;
+            }
+            return (bo5) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.bo5
+        public void b(int i, t25 t25Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), t25Var, Long.valueOf(j)}) == null) {
+                this.b.P(i, t25Var, j);
+            }
+        }
+
+        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
+        public void o(int i, @Nullable t88 t88Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, t88Var) == null) && this.c != null) {
+                if (t88Var != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (jn6 jn6Var : t88Var.a) {
+                        if (jn6Var instanceof jn6) {
+                            ThreadData threadData = jn6Var.getThreadData();
+                            if (!TextUtils.equals(threadData.getTid(), "0")) {
+                                arrayList.add(threadData);
+                            }
+                        }
+                    }
+                    this.c.b(arrayList, t88Var.e());
+                }
+                this.c.a();
+            }
+        }
+    }
+
+    public e26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.d = aVar;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                return true;
-            }
-            try {
-                return file.mkdirs();
-            } catch (Exception e) {
-                TiebaStatic.file(e, xi.join("FileHelper", ".", "CheckTempDir", " ", str));
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || xi.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(str));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tk1
+    /* renamed from: a */
+    public bo5 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (xi.isEmpty(this.a) || xi.isEmpty(this.b) || !b(this.a)) {
-                return null;
-            }
-            String c = fj.c(this.b);
-            String str = this.a + c + "/";
-            if (e(str)) {
-                return c;
-            }
-            NetWork netWork = new NetWork();
-            this.c = netWork;
-            netWork.setUrl(this.b);
-            String str2 = this.a + c + ".zip";
-            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
-                c(str2);
-                return c;
-            }
-            c(str2);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length > 0) {
-                return true;
-            }
-            file.delete();
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (!xi.isEmpty(str) && !xi.isEmpty(str2)) {
-                return k95.b(str, str2);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d == null) {
-            return;
-        }
-        if (!xi.isEmpty(str)) {
-            this.d.a(true, str);
-        } else {
-            this.d.a(false, null);
-        }
+        return (bo5) invokeV.objValue;
     }
 }

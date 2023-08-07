@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushManager;
@@ -12,16 +13,15 @@ import com.baidu.android.pushservice.PushMessageReceiver;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.nf5;
+import com.baidu.tieba.be5;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.wq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -90,12 +90,12 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            h29 yunPushLog = YunPushLog.getInstance();
-            yunPushLog.c(TAG, "onBind errorCode:" + i + " appid:" + str + " userId:" + str2 + " channelId:" + str3 + " requestId:" + str4);
+            TbLog yunPushLog = YunPushLog.getInstance();
+            yunPushLog.i(TAG, "onBind errorCode:" + i + " appid:" + str + " userId:" + str2 + " channelId:" + str3 + " requestId:" + str4);
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                da5 p = da5.p();
-                p.A(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                sharedPrefHelper.putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -138,16 +138,16 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     pushGeneralData.parseData(jSONObject.optString("st_ext"));
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
-                    wq5.i(pushRecevierEvent);
-                } else if (!nf5.O()) {
-                    int e = wg.e(str6, 2500);
-                    if (e < 2500) {
-                        e += 2500;
+                    MutiProcessManager.publishEvent(pushRecevierEvent);
+                } else if (!be5.O()) {
+                    int i2 = JavaTypesHelper.toInt(str6, 2500);
+                    if (i2 < 2500) {
+                        i2 += 2500;
                     }
-                    int i2 = e;
+                    int i3 = i2;
                     Intent parseUri = Intent.parseUri(str5, 1);
                     parseUri.setFlags(276824064);
-                    NotificationHelper.showNotification(context, i2, str3, str4, str4, PendingIntent.getActivity(context, i2, parseUri, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
+                    NotificationHelper.showNotification(context, i3, str3, str4, str4, PendingIntent.getActivity(context, i3, parseUri, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
                 }
             } catch (Exception unused) {
             }
@@ -158,8 +158,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onMessage(Context context, String str, String str2, int i, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, Integer.valueOf(i), pushCallBackExtra}) == null) {
-            h29 yunPushLog = YunPushLog.getInstance();
-            yunPushLog.c(TAG, "onMessage message:" + str + " customContentString:" + str2 + " notifyId:" + i + " extra:" + pushCallBackExtra);
+            TbLog yunPushLog = YunPushLog.getInstance();
+            yunPushLog.i(TAG, "onMessage message:" + str + " customContentString:" + str2 + " notifyId:" + i + " extra:" + pushCallBackExtra);
         }
     }
 
@@ -167,8 +167,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onNotificationArrived(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, str2, str3, pushCallBackExtra) == null) {
-            h29 yunPushLog = YunPushLog.getInstance();
-            yunPushLog.c(TAG, "onNotificationArrived title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
+            TbLog yunPushLog = YunPushLog.getInstance();
+            yunPushLog.i(TAG, "onNotificationArrived title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
         }
     }
 
@@ -176,8 +176,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onNotificationClicked(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2, str3, pushCallBackExtra) == null) {
-            h29 yunPushLog = YunPushLog.getInstance();
-            yunPushLog.c(TAG, "onNotificationClicked title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
+            TbLog yunPushLog = YunPushLog.getInstance();
+            yunPushLog.i(TAG, "onNotificationClicked title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
         }
     }
 

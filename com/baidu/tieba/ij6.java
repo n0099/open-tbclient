@@ -1,55 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchReqMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ij6 {
+public abstract class ij6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public ij6<T> a;
 
-    public ij6(TbPageContext tbPageContext) {
+    public abstract T c(String str, String str2, Map<String, String> map);
+
+    public abstract boolean e(String str, String str2, Map<String, String> map);
+
+    public ij6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        av5 av5Var = new av5(309641);
-        av5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
-        MessageManager.getInstance().registerTask(av5Var);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, gca.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
-        tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(int i, long j) {
+    public ij6<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
-            candidateSearchReqMsg.applyId = i;
-            candidateSearchReqMsg.fid = j;
-            candidateSearchReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ij6) invokeV.objValue;
+    }
+
+    public final T b(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            if (e(str, str2, map)) {
+                t = c(str, str2, map);
+            } else {
+                t = null;
+            }
+            if (t == null && a() != null) {
+                return a().b(str, str2, map);
+            }
+            return t;
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public void d(ij6<T> ij6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ij6Var) == null) {
+            this.a = ij6Var;
         }
     }
 }

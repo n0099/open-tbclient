@@ -5,7 +5,7 @@ import com.kwad.components.ad.reward.d.i;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.components.core.webview.b.a.n;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a {
     public g mVideoPlayStateListener = new h() { // from class: com.kwad.components.ad.fullscreen.b.a.1
         @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g

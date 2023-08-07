@@ -1,45 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cb7 {
+public class cb7 extends d97<RecommendPersonAttentionCardView, d57> {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Class> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669073, "Lcom/baidu/tieba/cb7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947669073, "Lcom/baidu/tieba/cb7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cb7(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap<String, Class> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("common_text", eb7.class);
-        a.put("text_with_bg", hb7.class);
-        a.put("common_icon", db7.class);
-        a.put("emoji", fb7.class);
-        a.put("tie_plus", ib7.class);
     }
 
-    public static HashMap<String, Class> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull d57 d57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, d57Var) == null) {
+            recommendPersonAttentionCardView.update(d57Var);
         }
-        return (HashMap) invokeV.objValue;
     }
 }

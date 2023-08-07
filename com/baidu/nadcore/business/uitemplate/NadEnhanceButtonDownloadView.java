@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gm0;
+import com.baidu.tieba.el0;
 /* loaded from: classes3.dex */
 public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
@@ -56,8 +56,8 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
 
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
     @DrawableRes
-    public int f(@NonNull gm0 gm0Var) {
-        int i = a.a[gm0Var.c.ordinal()];
+    public int f(@NonNull el0 el0Var) {
+        int i = a.a[el0Var.c.ordinal()];
         if (i == 1 || i == 5 || i == 6) {
             return R.drawable.nad_ebtn_icon;
         }

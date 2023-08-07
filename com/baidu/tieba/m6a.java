@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.statemachine.base.BaseStateMachine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class m6a implements n6a {
+public final class m6a extends BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public m6a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m6a(n6a spriteStateMap) {
+        super(spriteStateMap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spriteStateMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((n9a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.n6a
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if ((networkStatRecord != null && networkStatRecord.from == 3 && s05.e()) || networkStatRecord == null || networkStatRecord.exception == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
     }
 }

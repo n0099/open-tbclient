@@ -1,61 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.view.TbLayerImageView;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.sr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ur6 implements c67.c {
+public abstract class ur6<T extends sr6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<T> a;
 
-    public ur6() {
+    public abstract void onEvent(@NonNull T t);
+
+    public ur6(Class<T> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = cls;
     }
 
-    @Override // com.baidu.tieba.c67.c
-    public void a(View view2, List<String> list) {
-        TbLayerImageView tbLayerImageView;
+    public final Class<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, list) != null) || list == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        if (view2 instanceof TbLayerImageView) {
-            tbLayerImageView = (TbLayerImageView) view2;
-        } else {
-            tbLayerImageView = null;
-        }
-        if (tbLayerImageView != null) {
-            tbLayerImageView.a(list);
-        }
-    }
-
-    @Override // com.baidu.tieba.c67.c
-    public View create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return new TbLayerImageView(context, null, 0, 6, null);
-        }
-        return (View) invokeL.objValue;
+        return (Class) invokeV.objValue;
     }
 }

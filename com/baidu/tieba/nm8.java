@@ -1,161 +1,241 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
+import com.baidu.tbadk.util.orderlist.OrderLinkList;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class nm8 {
+public class nm8 implements pm8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ChatRoomDetail a;
+    @NonNull
+    public final OrderLinkList<xl8> b;
+    @NonNull
+    public final GroupInputViewController c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948007376, "Lcom/baidu/tieba/nm8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948007376, "Lcom/baidu/tieba/nm8;");
+    public nm8(@NonNull GroupInputViewController groupInputViewController) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupInputViewController};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
-        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
-        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
+        this.c = groupInputViewController;
+        this.b = new OrderLinkList<>();
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
-            if (baseSwitchs == null || !baseSwitchs.containsKey("is_shield_emoji_reply_entrance") || (num = baseSwitchs.get("is_shield_emoji_reply_entrance")) == null || num.intValue() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (yi.l(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            try {
-                URL url = new URL(str);
-                for (EmojiData emojiData : list) {
-                    URL url2 = new URL(emojiData.getContent());
-                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
-                        return emojiData;
-                    }
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (EmojiData) invokeLL.objValue;
-    }
-
-    public static boolean c(@NonNull GroupInputViewController groupInputViewController) {
+    @Override // com.baidu.tieba.pm8
+    public boolean a(@NonNull List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, groupInputViewController)) == null) {
-            return !groupInputViewController.k1(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (list.isEmpty()) {
+                return false;
+            }
+            for (Integer num : list) {
+                if (i(num.intValue()) != null) {
+                    return true;
+                }
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.pm8
+    public void e(@NonNull List<xl8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
-            EmojiData b2 = b(reaction.getContent(), list);
-            if (b2 != null) {
-                return b2.hasReplied();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list.size() > 0) {
+            for (xl8 xl8Var : list) {
+                xl8Var.b(k(xl8Var.d()));
+                xl8Var.h(false);
+                this.b.insert(xl8Var);
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void f(@NonNull ml8 ml8Var, int i, @NonNull BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65542, null, ml8Var, i, baseMsg) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", Integer.valueOf(i));
-            ml8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseMsg, null);
         }
     }
 
-    public static void g(@NonNull ml8 ml8Var, @NonNull EmojiData emojiData, @NonNull BaseMsg baseMsg, int i) {
+    @Override // com.baidu.tieba.pm8
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65543, null, ml8Var, emojiData, baseMsg, i) == null) {
-            h(ml8Var, new Reaction("", emojiData.getContent()), baseMsg, i);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b.c(k(i));
         }
     }
 
-    public static void h(@NonNull ml8 ml8Var, @NonNull Reaction reaction, @NonNull BaseMsg baseMsg, int i) {
+    @Override // com.baidu.tieba.pm8
+    public void c(@NonNull xl8 xl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65544, null, ml8Var, reaction, baseMsg, i) == null) {
-            List<EmojiData> emojiList = baseMsg.getCommonMsgField().getEmojiList();
-            boolean z = true;
-            if (emojiList != null) {
-                boolean d = d(reaction, emojiList);
-                if (i != 1) {
-                    int i2 = 2;
-                    if (i == 2) {
-                        z = true ^ d;
-                        if (!z) {
-                            i2 = 3;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xl8Var) == null) {
+            xl8Var.b(k(xl8Var.d()));
+            xl8Var.h(false);
+            this.b.insert(xl8Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.pm8
+    public void h(@NonNull ChatRoomDetail chatRoomDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, chatRoomDetail) == null) {
+            this.a = chatRoomDetail;
+        }
+    }
+
+    @Nullable
+    public xl8 i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return this.b.a(k(i));
+        }
+        return (xl8) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.pm8
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            xl8 g = g();
+            if (g == null) {
+                return false;
+            }
+            this.c.J1(g.c());
+            this.c.Z1(false);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pm8
+    @Nullable
+    public xl8 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b.b();
+        }
+        return (xl8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pm8
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            int k = k(i);
+            xl8 a = this.b.a(k);
+            if (i == 7011 && a != null && a.e()) {
+                a.f(j(i));
+            }
+            if (a == null) {
+                xl8 xl8Var = new xl8();
+                xl8Var.g(i);
+                xl8Var.b(k);
+                xl8Var.f(j(i));
+                xl8Var.h(true);
+                this.b.insert(xl8Var);
+            }
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @SuppressLint({"StringFormatMatches"})
+    public final String j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (i != 102) {
+                if (i != 7003) {
+                    if (i != 7005) {
+                        if (i != 7007) {
+                            switch (i) {
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
+                                    ChatRoomDetail chatRoomDetail = this.a;
+                                    if (chatRoomDetail != null) {
+                                        return String.format(om8.g, Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel()));
+                                    }
+                                    break;
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
+                                    return om8.b;
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
+                                    return om8.e;
+                            }
+                            return "";
                         }
-                        ep8.h(i2);
+                        return om8.c;
                     }
-                } else if (d) {
-                    return;
-                } else {
-                    ep8.h(1);
+                    return om8.d;
                 }
+                return om8.f;
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put("content", reaction.getContent());
-            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
-            ml8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseMsg, null);
+            return om8.a;
         }
+        return (String) invokeI.objValue;
+    }
+
+    public final int k(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (i != 102) {
+                switch (i) {
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
+                        i2 = 5;
+                        break;
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
+                        i2 = 7;
+                        break;
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
+                        i2 = 8;
+                        break;
+                    default:
+                        switch (i) {
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
+                                i2 = 4;
+                                break;
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
+                                i2 = 9;
+                                break;
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
+                                i2 = 6;
+                                break;
+                            default:
+                                i2 = 0;
+                                break;
+                        }
+                }
+            } else {
+                i2 = 10;
+            }
+            if (i2 != 0) {
+                return i2;
+            }
+            throw new IllegalArgumentException("The type of the banned msg is unknown!");
+        }
+        return invokeI.intValue;
     }
 }

@@ -33,7 +33,7 @@ public class f {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public af f1224T;
+    public af f1223T;
     public boolean U;
     public JSONObject V;
     public String W;
@@ -148,7 +148,7 @@ public class f {
     }
 
     public af Q() {
-        return this.f1224T;
+        return this.f1223T;
     }
 
     public List<m> R() {

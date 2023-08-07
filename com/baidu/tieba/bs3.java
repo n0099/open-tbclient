@@ -1,40 +1,46 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.tieba.cs3;
+import com.baidu.tieba.gs3;
+import com.baidu.tieba.kr3;
+import com.baidu.tieba.rt3;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bs3 extends ProviderDelegation {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bs3 {
+    String a(Context context);
 
-    public bs3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String b(Context context);
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("result", wr3.q(getAgent().getContext()));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
-    }
+    void c(Context context, Bundle bundle, kr1 kr1Var);
+
+    zr3 d(Context context);
+
+    void e(Activity activity, String str, String str2, as3 as3Var);
+
+    void f(Context context, rt3.d dVar);
+
+    boolean g(Context context);
+
+    String getBduss(Context context);
+
+    void h(mr1 mr1Var);
+
+    void i(Context context, cs3.d dVar);
+
+    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
+
+    String k(Context context);
+
+    void l(Activity activity, String str, String str2, as3 as3Var);
+
+    void m(Activity activity, String str, gt3 gt3Var);
+
+    void n(String str, ArrayList<String> arrayList, gs3.c cVar);
+
+    void o(kr3.a aVar, String str, List<String> list);
 }

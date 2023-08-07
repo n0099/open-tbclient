@@ -10,14 +10,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce5;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.x28;
+import com.baidu.tieba.k08;
+import com.baidu.tieba.rc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,21 +62,18 @@ public class NewHotTipLabelView extends EMTextView {
             } else {
                 setBackground(SkinManager.getDrawable(R.drawable.icon_mask_hot_point_bubble));
             }
-            d85 d = d85.d(this);
-            d.x(R.color.CAM_X0310);
-            d.C(R.dimen.T_X10);
-            d.D(R.string.F_X01);
+            EMManager.from(this).setTextColor(R.color.CAM_X0310).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01);
         }
     }
 
-    public void setData(ce5 ce5Var) {
+    public void setData(rc5 rc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, ce5Var) != null) || ce5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, rc5Var) != null) || rc5Var == null) {
             return;
         }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(ce5Var.a(), 6, "");
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(rc5Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0e26);
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0e28);
         }
         setText(cutChineseAndEnglishWithSuffix);
         setVisibility(0);
@@ -141,10 +138,10 @@ public class NewHotTipLabelView extends EMTextView {
     }
 
     public void c() {
-        ce5 hotNotifyConfig;
+        rc5 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            x28.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            k08.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

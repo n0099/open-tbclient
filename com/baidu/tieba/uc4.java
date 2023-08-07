@@ -1,46 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class uc4 extends wc4 {
+public final class uc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public DatagramPacket a;
+    public zc4 b;
 
-    public uc4() {
+    public uc4(DatagramPacket datagramPacket, zc4 udpsocket) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {datagramPacket, udpsocket};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(udpsocket, "udpsocket");
+        this.a = datagramPacket;
+        this.b = udpsocket;
     }
 
-    @Override // com.baidu.tieba.wc4
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public final void a() {
+        DatagramSocket B;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                jSONObject.put("key", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
+                zc4 zc4Var = this.b;
+                if (zc4Var != null && (B = zc4Var.B()) != null) {
+                    B.send(this.a);
+                }
+            } catch (Throwable unused) {
+                zc4 zc4Var2 = this.b;
+                if (zc4Var2 != null) {
+                    zc4Var2.C("send", "send failed");
+                }
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

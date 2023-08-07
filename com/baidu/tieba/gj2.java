@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface gj2 {
-    lj2 a(kj2 kj2Var);
+    @NonNull
+    Context a();
 }

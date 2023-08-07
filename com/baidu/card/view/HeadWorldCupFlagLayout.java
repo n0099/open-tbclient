@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,7 +14,6 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,12 +49,12 @@ public class HeadWorldCupFlagLayout extends FrameLayout {
                 return;
             }
         }
-        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
-        f = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
-        h = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
-        i = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
-        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        e = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+        f = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds138);
+        h = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds72);
+        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        j = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds64);
     }
 
     public final void a() {
@@ -169,9 +169,9 @@ public class HeadWorldCupFlagLayout extends FrameLayout {
                     WebPManager.setMaskDrawable(this.a, R.drawable.icon_mask_world_cup_sponsor, null);
                 } else {
                     this.a.setDefaultResource(R.drawable.icon_mask_world_cup_sponsor);
-                    this.a.N(worldCupSponsorFlag, 10, false);
+                    this.a.startLoad(worldCupSponsorFlag, 10, false);
                 }
-                this.b.N(a, 10, false);
+                this.b.startLoad(a, 10, false);
                 return;
             }
             setVisibility(8);

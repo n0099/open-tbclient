@@ -2,11 +2,11 @@ package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.wg;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class GetRepostForumReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ky5.a(builder, true);
+                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
                 }
                 builder.title = this.threadTitle;
                 builder.content = this.threadContent;
@@ -77,7 +77,7 @@ public class GetRepostForumReqMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.forumId = wg.g(str, 0L);
+            this.forumId = JavaTypesHelper.toLong(str, 0L);
         }
     }
 

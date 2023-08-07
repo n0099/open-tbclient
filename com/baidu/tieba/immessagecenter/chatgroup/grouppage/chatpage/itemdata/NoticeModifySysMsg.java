@@ -7,12 +7,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor;
+import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,12 +48,12 @@ public class NoticeModifySysMsg extends BaseSysMsg {
 
         /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0346a implements Runnable {
+        public class RunnableC0352a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NoticeModifySysMsg a;
 
-            public RunnableC0346a(a aVar, NoticeModifySysMsg noticeModifySysMsg) {
+            public RunnableC0352a(a aVar, NoticeModifySysMsg noticeModifySysMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class NoticeModifySysMsg extends BaseSysMsg {
         public void a(@NonNull Action.Op op, @Nullable NoticeModifySysMsg noticeModifySysMsg, @NonNull ChatMsgProcessor.j jVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, op, noticeModifySysMsg, jVar) == null) && jVar.d && noticeModifySysMsg != null) {
-                dh.g(new RunnableC0346a(this, noticeModifySysMsg));
+                lg.g(new RunnableC0352a(this, noticeModifySysMsg));
             }
         }
     }
@@ -155,7 +155,7 @@ public class NoticeModifySysMsg extends BaseSysMsg {
         return (BaseSysMsg.ChatRoomInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

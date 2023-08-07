@@ -1,18 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.o32;
-import com.baidu.tieba.um4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,51 +12,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushService;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class c73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
+    public static volatile c73 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, d73<b73>> a;
+    public ConcurrentHashMap<String, Runnable> b;
+    public a c;
 
     /* loaded from: classes5.dex */
-    public static class a implements o32.a {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r73 a;
 
-        public a(r73 r73Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r73Var};
+                Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-            }
-            this.a = r73Var;
-        }
-
-        @Override // com.baidu.tieba.o32.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c73.r(this.a);
             }
         }
     }
@@ -73,14 +55,15 @@ public class c73 {
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r73 a;
+        public WeakReference<c73> a;
+        public String b;
 
-        public b(r73 r73Var) {
+        public b(c73 c73Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r73Var};
+                Object[] objArr = {c73Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,51 +73,23 @@ public class c73 {
                     return;
                 }
             }
-            this.a = r73Var;
+            this.a = new WeakReference<>(c73Var);
+            this.b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            c73 c73Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c73.c(this.a);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c73Var = this.a.get()) == null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements hd2<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (c73.d) {
+                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
             }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hd2
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                n73.b("download plugin result = " + bool);
-                o73.b(this.a);
-            }
+            b73 b73Var = new b73(this.b);
+            b73Var.setResult(null);
+            c73Var.c(b73Var);
         }
     }
 
@@ -151,484 +106,152 @@ public class c73 {
                 return;
             }
         }
-        a = fs1.a;
+        d = ir1.a;
     }
 
-    public static Set<um4.a> i(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public static c73 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (c73.class) {
+                    if (e == null) {
+                        e = new c73();
+                    }
+                }
             }
-            return j(pMSAppInfo.appId, pMSAppInfo.versionCode);
+            return e;
         }
-        return (Set) invokeL.objValue;
+        return (c73) invokeV.objValue;
     }
 
-    public static List<wk4> q(String str) {
-        InterceptResult invokeL;
+    public c73() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return sj4.i().r("bundle_id = ? ", new String[]{str});
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void r(r73 r73Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, r73Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new b(r73Var), "requestDynamicLib", 2);
-        }
-    }
-
-    public static void s(r73 r73Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, r73Var) == null) {
-            h32.d().c(new o32(new a(r73Var)));
-        }
-    }
-
-    public static void c(r73 r73Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, r73Var) == null) {
-            if (r73Var != null && r73Var.a()) {
-                String str = r73Var.a;
-                String str2 = r73Var.b;
-                long j = r73Var.c;
-                fj4.g(new ym4(str, str2, j, r73Var.d), new b73(str, str2, j, new c(str)));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            n73.b("plugin is invalid");
         }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new a(Looper.getMainLooper());
     }
 
-    public static File g(@Nullable wk4 wk4Var) {
-        InterceptResult invokeL;
+    public void c(@NonNull b73 b73Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, wk4Var)) == null) {
-            if (wk4Var == null) {
-                return null;
-            }
-            File t = ru2.t(wk4Var.g, String.valueOf(wk4Var.i));
-            if (t == null || !t.exists()) {
-                return ru2.t(wk4Var.g, String.valueOf(kp3.c(wk4Var.j)));
-            }
-            return t;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (TextUtils.isEmpty(h(str)) && TextUtils.isEmpty(f(str))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static File d(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!str.startsWith("__dep__")) {
-                return null;
-            }
-            String[] split = str.split("/");
-            if (split.length < 2) {
-                return null;
-            }
-            String str2 = split[1];
-            int indexOf = str.indexOf(str2) + str2.length() + 1;
-            if (indexOf >= str.length()) {
-                return null;
-            }
-            String substring = str.substring(indexOf);
-            String i = t73.i("dependenciesPath", null);
-            if (TextUtils.isEmpty(i)) {
-                return null;
-            }
-            try {
-                String optString = new JSONObject(i).optString(str2);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                return new File(optString, substring + ".json");
-            } catch (JSONException e) {
-                n73.b(Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static String h(@NonNull String str) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
-        JSONArray optJSONArray;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (!str.startsWith("__dynamicLib__")) {
-                return null;
-            }
-            String[] split = str.split("/");
-            if (split.length < 2) {
-                return null;
-            }
-            String str2 = split[1];
-            int indexOf = str.indexOf(str2) + str2.length() + 1;
-            if (indexOf >= str.length()) {
-                return null;
-            }
-            String substring = str.substring(indexOf);
-            String i = t73.i("dynamicLibConfig", null);
-            if (TextUtils.isEmpty(i)) {
-                return null;
-            }
-            try {
-                optJSONObject = new JSONObject(i).optJSONObject(str2);
-            } catch (JSONException e) {
-                n73.b(Log.getStackTraceString(e));
-            }
-            if (optJSONObject != null && (optJSONObject2 = optJSONObject.optJSONObject("config")) != null && (optJSONArray = optJSONObject2.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES)) != null && (length = optJSONArray.length()) != 0) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (TextUtils.equals(substring, optJSONArray.optString(i2))) {
-                        return str;
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static List<ok4> e(String str, long j) {
-        InterceptResult invokeLJ;
-        SwanAppConfigData.d dVar;
-        List<p73> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j)) == null) {
-            SwanAppConfigData b2 = nw2.b(ru2.v(str, String.valueOf(j), false, null, null));
-            if (b2 == null || (dVar = b2.k) == null || (list = dVar.a) == null || list.isEmpty()) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (p73 p73Var : b2.k.a) {
-                ok4 ok4Var = new ok4();
-                ok4Var.a = p73Var.a;
-                ok4Var.b = p73Var.g;
-                ok4Var.c = p73Var.c;
-                ok4Var.e = p73Var.i;
-                ok4Var.d = p73Var.h;
-                arrayList.add(ok4Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeLJ.objValue;
-    }
-
-    public static Set<um4.a> j(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, str, j)) == null) {
-            List<ok4> l = gj4.b().l(str, j);
-            if (l != null && !l.isEmpty()) {
-                HashSet hashSet = new HashSet();
-                ArrayList arrayList = new ArrayList();
-                for (ok4 ok4Var : l) {
-                    if (!ok4Var.b && bp4.b(ok4Var.a, ok4Var.d, ok4Var.e, arrayList) == null) {
-                        um4.a aVar = new um4.a(ok4Var.a);
-                        aVar.f(ok4Var.d, ok4Var.e);
-                        hashSet.add(aVar);
-                    }
-                }
-                if (!arrayList.isEmpty()) {
-                    sj4.i().g(arrayList);
-                }
-                return hashSet;
-            }
-            return null;
-        }
-        return (Set) invokeLJ.objValue;
-    }
-
-    public static String f(@NonNull String str) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!str.startsWith("__dep__")) {
-                return null;
-            }
-            String[] split = str.split("/");
-            if (split.length < 2) {
-                return null;
-            }
-            String str2 = split[1];
-            int indexOf = str.indexOf(str2) + str2.length() + 1;
-            if (indexOf >= str.length()) {
-                return null;
-            }
-            String substring = str.substring(indexOf);
-            String i = t73.i("dependenciesConfig", null);
-            if (TextUtils.isEmpty(i)) {
-                return null;
-            }
-            try {
-                optJSONObject = new JSONObject(i).optJSONObject(str2);
-            } catch (JSONException e) {
-                n73.b(Log.getStackTraceString(e));
-            }
-            if (optJSONObject == null) {
-                return null;
-            }
-            JSONArray optJSONArray = optJSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
-            if (l(substring, optJSONArray)) {
-                return str;
-            }
-            JSONObject optJSONObject3 = optJSONObject.optJSONObject("module");
-            if (optJSONObject3 == null || (optJSONObject2 = optJSONObject3.optJSONObject("paths")) == null) {
-                return null;
-            }
-            Iterator<String> keys = optJSONObject2.keys();
-            String str3 = null;
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (next != null) {
-                    if (substring.startsWith(next)) {
-                        if (str3 != null && next.length() <= str3.length()) {
-                        }
-                        str3 = next;
-                    }
-                }
-            }
-            if (str3 == null) {
-                return null;
-            }
-            String replaceFirst = substring.replaceFirst(str3, optJSONObject2.optString(str3));
-            if (l(replaceFirst, optJSONArray)) {
-                return str.replace(substring, replaceFirst);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean l(String str, JSONArray jSONArray) {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, jSONArray)) == null) {
-            if (jSONArray != null && (length = jSONArray.length()) != 0) {
-                for (int i = 0; i < length; i++) {
-                    if (TextUtils.equals(str, jSONArray.optString(i))) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void m(SwanAppConfigData swanAppConfigData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65549, null, swanAppConfigData, z) == null) {
-            if (swanAppConfigData == null) {
-                if (a) {
-                    n73.b("parse app.json is null");
+        if (interceptable == null || interceptable.invokeL(1048576, this, b73Var) == null) {
+            d73<b73> d73Var = this.a.get(b73Var.b());
+            if (d73Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "notify a null observer");
                     return;
                 }
                 return;
             }
-            List<r73> i = swanAppConfigData.i(3);
-            if (i != null && !i.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                if (lm2.m()) {
-                    Iterator<r73> it = i.iterator();
-                    while (it.hasNext()) {
-                        r73 next = it.next();
-                        Pair<Boolean, File> i2 = lm2.i(next.a);
-                        if (((Boolean) i2.first).booleanValue()) {
-                            v82.k("SwanDynamicUtil", "优先使用 Debug 动态库: " + ((File) i2.second).getAbsolutePath());
-                            o(jSONObject, jSONObject2, (File) i2.second, next, -1L);
-                            it.remove();
-                        }
-                    }
+            String b2 = d73Var.b();
+            if (d) {
+                Log.d("MDelegate-Observe", "notify observer: " + b2);
+            }
+            d73Var.onEvent(b73Var);
+            if (this.b.containsKey(b2)) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
                 }
-                n(i, jSONObject, jSONObject2, z);
-                String jSONObject3 = jSONObject.toString();
-                String jSONObject4 = jSONObject2.toString();
-                t73.c("dynamicLibPath", jSONObject3);
-                t73.c("dynamicLibConfig", jSONObject4);
+                this.c.removeCallbacks(this.b.get(b2));
+                this.b.remove(b2);
+            }
+            if (d73Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
+                }
+                f(d73Var);
+            }
+        }
+    }
+
+    public void e(d73<b73> d73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d73Var) == null) {
+            if (d73Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "register a null observer");
+                    return;
+                }
                 return;
             }
-            t73.c("dynamicLibPath", null);
-            t73.c("dynamicLibConfig", null);
-            if (a) {
-                n73.b("this swan app not apply on someone dynamic lib");
+            String b2 = d73Var.b();
+            if (this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "register observer: " + b2);
+            }
+            this.a.put(b2, d73Var);
+            long a2 = d73Var.a();
+            if (a2 > 0 && d73Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
+                }
+                b bVar = new b(this, b2);
+                this.b.put(b2, bVar);
+                this.c.postDelayed(bVar, a2);
             }
         }
     }
 
-    public static void n(@NonNull List<r73> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, boolean z) {
-        r73 r73Var;
-        File file;
-        boolean z2;
-        boolean z3;
-        long j;
-        long j2;
-        long c2;
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{list, jSONObject, jSONObject2, Boolean.valueOf(z)}) == null) && list != null && list.size() != 0) {
-            List<wk4> w = sj4.i().w(t73.d(list));
-            for (r73 r73Var2 : list) {
-                File file2 = null;
-                try {
-                    r73Var = (r73) r73Var2.clone();
-                } catch (CloneNotSupportedException e) {
-                    if (a) {
-                        n73.b(Log.getStackTraceString(e));
-                    }
-                    r73Var = r73Var2;
-                }
-                long j3 = 0;
-                if (w != null) {
-                    j = 0;
-                    boolean z4 = false;
-                    z3 = true;
-                    boolean z5 = false;
-                    for (wk4 wk4Var : w) {
-                        if (r73Var2.a.equals(wk4Var.g)) {
-                            n73.b("pluginName = " + r73Var2.a + " latestPlugin versionCode = " + wk4Var.i + " cur model versionCode = " + r73Var2.c);
-                            long j4 = r73Var2.c;
-                            if (j4 >= j3) {
-                                c2 = wk4Var.i;
-                            } else {
-                                c2 = kp3.c(wk4Var.j);
-                                j4 = kp3.c(r73Var2.b);
-                            }
-                            if (c2 > j4) {
-                                file2 = g(wk4Var);
-                                z5 = true;
-                            }
-                            if (z5) {
-                                r73Var.b = wk4Var.j;
-                                r73Var.c = wk4Var.i;
-                            }
-                            if (!wk4Var.c()) {
-                                n73.b("plugin is new, not yet expired");
-                                z3 = false;
-                            }
-                            j = Math.max(c2, j4);
-                            j3 = 0;
-                            z4 = true;
-                        }
-                    }
-                    file = file2;
-                    z2 = z4;
-                } else {
-                    file = null;
-                    z2 = false;
-                    z3 = true;
-                    j = 0;
-                }
-                if (!z2) {
-                    long j5 = r73Var2.c;
-                    if (j5 < 0) {
-                        j5 = kp3.c(r73Var2.b);
-                    }
-                    j2 = j5;
-                } else {
-                    j2 = j;
-                }
-                o(jSONObject, jSONObject2, file, r73Var2, j2);
-                if (z3 && z) {
-                    s(r73Var);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (d) {
+                Log.d("MDelegate-Observe", "release observable");
             }
+            if (e == null) {
+                return;
+            }
+            this.a.clear();
+            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
+                }
+                this.c.removeCallbacks(entry.getValue());
+            }
+            this.b.clear();
+            e = null;
         }
     }
 
-    public static void o(JSONObject jSONObject, JSONObject jSONObject2, File file, r73 r73Var, long j) {
-        String str;
+    public void f(d73<b73> d73Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{jSONObject, jSONObject2, file, r73Var, Long.valueOf(j)}) == null) && jSONObject != null && jSONObject2 != null && r73Var != null) {
-            if (file != null && file.exists()) {
-                str = file.getAbsolutePath();
-                if (a) {
-                    n73.b("apply path in workspace, name = " + r73Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, d73Var) == null) {
+            if (d73Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a null observer");
+                    return;
                 }
-            } else {
-                str = r73Var.e;
-                if (a) {
-                    n73.b("apply path inner swan app, name = " + r73Var.a);
-                }
+                return;
             }
-            try {
-                jSONObject.put(r73Var.a, str);
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(r73Var.f)) {
-                    File file2 = new File(str, r73Var.f);
-                    if (file2.exists()) {
-                        String E = zr4.E(file2);
-                        if (a) {
-                            n73.b("pages info = " + E);
-                        }
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("config", new JSONObject(E));
-                        jSONObject3.put(PushService.APP_VERSION_CODE, j);
-                        jSONObject2.put(r73Var.a, jSONObject3);
-                    }
+            String b2 = d73Var.b();
+            if (!this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
+                    return;
                 }
-            } catch (JSONException e) {
-                if (a) {
-                    n73.b(Log.getStackTraceString(e));
-                }
+                return;
             }
+            if (d) {
+                Log.d("MDelegate-Observe", "unregister observer: " + b2);
+            }
+            this.a.remove(b2);
         }
-    }
-
-    public static wk4 p(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        String[] strArr;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (j >= 0) {
-                strArr = new String[]{str, String.valueOf(j)};
-                str3 = "bundle_id = ?  and version_code = ? ";
-            } else if (!TextUtils.isEmpty(str2)) {
-                String[] strArr2 = {str, str2};
-                str3 = "bundle_id = ?  and version_name = ? ";
-                strArr = strArr2;
-            } else {
-                strArr = new String[]{str};
-                str3 = "bundle_id = ? ";
-            }
-            List<wk4> r = sj4.i().r(str3, strArr);
-            if (r == null || r.size() <= 0) {
-                return null;
-            }
-            return r.get(0);
-        }
-        return (wk4) invokeCommon.objValue;
     }
 }

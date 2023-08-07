@@ -1,35 +1,38 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.feed.component.BrowseLocationView;
-import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.manito.ManitoHeaderItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wc7 extends vb7<BrowseLocationView, BrowseLocationUiState> {
+public class wc7 extends gf7<xc7, ManitoHeaderItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wc7(String str) {
-        super(str);
+    public wc7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,27 +40,37 @@ public class wc7 extends vb7<BrowseLocationView, BrowseLocationUiState> {
         }
     }
 
-    @Override // com.baidu.tieba.vb7, com.baidu.tieba.lc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: G */
+    public ManitoHeaderItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            zd7.h(a);
-            return a;
+            return new ManitoHeaderItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d05fc, (ViewGroup) null));
         }
-        return (View) invokeL.objValue;
+        return (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: e */
-    public void b(@NonNull BrowseLocationView browseLocationView, @NonNull BrowseLocationUiState browseLocationUiState) {
+    public View H(int i, View view2, ViewGroup viewGroup, xc7 xc7Var, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, browseLocationView, browseLocationUiState) == null) {
-            np6.b().a(new StatisticItem("c11272"));
-            browseLocationView.a(browseLocationUiState);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xc7Var, manitoHeaderItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xc7Var, (xc7) manitoHeaderItemViewHolder);
+            if (manitoHeaderItemViewHolder.b != this.f) {
+                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
+            }
+            manitoHeaderItemViewHolder.a.setText(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f07a0), Integer.valueOf(xc7Var.a())));
+            manitoHeaderItemViewHolder.b = this.f;
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (xc7) obj, (ManitoHeaderItemViewHolder) viewHolder);
+        return view2;
     }
 }

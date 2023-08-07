@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qn2 extends v73 {
+public class qn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String errMsg;
+    @V8JavascriptField
+    public en2 stats;
 
     public qn2() {
         Interceptable interceptable = $ic;
@@ -22,15 +27,20 @@ public class qn2 extends v73 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.v73
-    public void b(@NonNull Bundle bundle) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "StatCallBack" + this.b;
         }
+        return (String) invokeV.objValue;
     }
 }

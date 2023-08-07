@@ -3,9 +3,8 @@ package com.baidu.tieba.immessagecenter.chatgroup.data;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nm8;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,7 +104,7 @@ public class ChatNewMessage extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return wg.g(this.msgTime, 0L);
+            return JavaTypesHelper.toLong(this.msgTime, 0L);
         }
         return invokeV.longValue;
     }
@@ -199,11 +198,8 @@ public class ChatNewMessage extends OrmObject implements Serializable {
         this.fromName = jSONObject.optString("from_name");
         this.content = jSONObject.optString("content");
         this.msgTime = jSONObject.optString("msg_time");
-        String optString = jSONObject.optString("special_msg_type");
-        if (!nm8.e() || !optString.equals(TYPE_EMOJI_MSG)) {
-            this.specialMsg = jSONObject.optString("special_msg");
-            this.specialType = jSONObject.optString("special_msg_type");
-        }
+        this.specialMsg = jSONObject.optString("special_msg");
+        this.specialType = jSONObject.optString("special_msg_type");
     }
 
     public void setContent(String str) {

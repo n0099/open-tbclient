@@ -2,16 +2,14 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class m97 {
+/* loaded from: classes7.dex */
+public class m97 implements ck1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mc7<?>> a;
-    public u97 b;
 
     public m97() {
         Interceptable interceptable = $ic;
@@ -23,9 +21,19 @@ public class m97 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
+    }
+
+    @Override // com.baidu.tieba.ck1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new mp6());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

@@ -1,53 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public class o05 implements LayoutInflater.Factory {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public q05 a;
+public interface o05 {
+    void a(@Nullable BdUniqueId bdUniqueId);
 
-    public o05() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int b();
 
-    public void a(q05 q05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q05Var) == null) {
-            this.a = q05Var;
-        }
-    }
-
-    @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
-            if (this.a == null) {
-                this.a = new q05();
-            }
-            this.a.j(str, context, attributeSet);
-            return null;
-        }
-        return (View) invokeLLL.objValue;
-    }
+    void run();
 }

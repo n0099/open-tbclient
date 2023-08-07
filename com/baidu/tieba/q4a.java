@@ -1,7 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface q4a {
-    void a(ShareEntity shareEntity, r4a r4aVar);
+public class q4a {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043243, "Lcom/baidu/tieba/q4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948043243, "Lcom/baidu/tieba/q4a;");
+                return;
+            }
+        }
+        boolean z = r4a.a;
+    }
 }

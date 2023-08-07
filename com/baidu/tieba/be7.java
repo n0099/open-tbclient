@@ -1,56 +1,79 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.util.media.WebpUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.c67;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public final class be7 {
+public class be7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ym> a;
+    public List<RecommendForumInfo> b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
-    public static final void a(View imageView, String iconUrl) {
+    public be7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, imageView, iconUrl) == null) {
-            Intrinsics.checkNotNullParameter(imageView, "imageView");
-            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-            c67.e a = c67.a().a();
-            boolean z = false;
-            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                if (!(imageView instanceof ImageView)) {
-                    return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+    }
+
+    public List<ym> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(hy6 hy6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy6Var) == null) {
+            String str = hy6Var.d;
+            this.c = hy6Var.c;
+            List<RecommendForumInfo> list = hy6Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    ae7 ae7Var = new ae7();
+                    ae7Var.i(recommendForumInfo);
+                    this.a.add(ae7Var);
                 }
-                Uri parse = Uri.parse(iconUrl);
-                List<String> pathSegments = parse.getPathSegments();
-                if (pathSegments.size() > 0) {
-                    int identifier = z57.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, z57.a.getPackageName());
-                    String queryParameter = parse.getQueryParameter("type");
-                    String queryParameter2 = parse.getQueryParameter("color");
-                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                        return;
-                    }
-                    int identifier2 = z57.a.getResources().getIdentifier(queryParameter2, "color", z57.a.getPackageName());
-                    if (Intrinsics.areEqual(queryParameter, WebpUtils.TYPE_IMG_WEBP)) {
-                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
-                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
-                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
-                    } else {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                    }
+            }
+            Page page = this.c;
+            if (page != null) {
+                boolean z = true;
+                if (page.has_more.intValue() != 1) {
+                    z = false;
                 }
-            } else if (a != null) {
-                a.f(imageView, iconUrl);
+                this.d = z;
+                this.e = this.c.current_page.intValue();
             }
         }
     }

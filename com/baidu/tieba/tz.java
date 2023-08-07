@@ -1,318 +1,232 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.VideoImageNoPlayerLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.xx;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VideoInfo;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.SecureRandom;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes8.dex */
-public class tz extends ey {
+public final class tz {
     public static /* synthetic */ Interceptable $ic;
-    public static final int r;
-    public static int s;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public xz f;
+    public uz g;
     public int h;
-    public int i;
-    public int j;
-    public Context k;
-    public t15 l;
-    public VideoImageNoPlayerLayout m;
-    public int n;
-    public String o;
-    public int p;
-    public c00 q;
+    public boolean i;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tz a;
-
-        public a(tz tzVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tzVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tzVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            tz tzVar;
-            xx.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (tzVar = this.a).e) != null) {
-                aVar.a(tzVar.l);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements c00 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tz a;
-
-        public b(tz tzVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tzVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tzVar;
-        }
-
-        @Override // com.baidu.tieba.c00
-        public void a(t15 t15Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, t15Var) == null) && this.a.q != null) {
-                this.a.q.a(this.a.l);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318439, "Lcom/baidu/tieba/tz;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448318439, "Lcom/baidu/tieba/tz;");
-                return;
-            }
-        }
-        r = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
-        s = yi.l(TbadkCoreApplication.getInst());
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tz(Context context) {
-        super(context);
+    public tz(qz qzVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {qzVar, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int i3 = s;
-        this.h = i3;
-        this.i = i3 / 2;
-        this.j = i3 / 3;
-        this.n = 0;
-        this.p = 3;
-        this.k = context;
-        this.m = new VideoImageNoPlayerLayout(context);
-        t(Boolean.TRUE);
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+        this.f = null;
+        this.g = null;
+        this.h = 1;
+        this.i = false;
+        this.b = i;
+        this.c = i;
+        this.e = i;
+        this.a = new byte[i * 2];
+        this.g = new sz(qzVar);
+        this.f = new wz(this.b);
     }
 
-    public void E(xx.a aVar) {
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.e = aVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.d + i;
+            xz xzVar = this.f;
+            if (xzVar == null || this.i) {
+                return i2;
+            }
+            int i3 = this.c;
+            int i4 = this.b;
+            if (i3 != i4) {
+                int i5 = this.e;
+                return i2 < i5 ? i5 : (i2 + i4) - ((i2 - i5) % i4);
+            }
+            return i2 + xzVar.a(i2);
         }
+        return invokeI.intValue;
     }
 
-    public void F(c00 c00Var) {
+    public final int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c00Var) == null) {
-            this.q = c00Var;
-            if (c00Var != null) {
-                G();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (bArr == null || i3 == 0) {
+                return 0;
+            }
+            int i4 = this.h;
+            if (i4 == 2 || i4 == 3 || i3 % this.c == 0 || i4 == 6) {
+                if (this.i) {
+                    this.g.h(bArr, i, i3, bArr2, i2);
+                } else {
+                    this.g.f(bArr, i, i3, bArr2, i2);
+                }
+                return i3;
+            } else if (this.f != null) {
+                throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.c + " bytes");
+            } else {
+                throw new IllegalBlockSizeException("Input length not multiple of " + this.c + " bytes");
             }
         }
+        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.xx
-    public void q(up6<t15> up6Var) {
+    public void c(int i, byte[] bArr, byte[] bArr2, SecureRandom secureRandom) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, up6Var) == null) {
-            super.q(up6Var);
-            this.m.setOnCardSubClickListener(up6Var);
-        }
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.o = str;
-        }
-    }
-
-    public Rect C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ThreadCardUtils.computeViewArea(this.m.c);
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public final void G() {
-        VideoImageNoPlayerLayout videoImageNoPlayerLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (videoImageNoPlayerLayout = this.m) != null) {
-            videoImageNoPlayerLayout.setVideoAreaClickListener(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public View l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.m;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e8, code lost:
-        if (r3 != r11.height) goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f1, code lost:
-        if (r3 != r11.height) goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00f4, code lost:
-        r5 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00f5, code lost:
-        r1 = com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper.handleTransmitVerticalVideoSize(r11, r0, r2, r3, r5);
-     */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: D */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(t15 t15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t15Var) == null) {
-            int l = yi.l(TbadkCoreApplication.getInst());
-            if (l != this.n) {
-                s = yi.l(TbadkCoreApplication.getInst());
-                if (!"pb".equals(this.o)) {
-                    this.h = s - r;
-                } else {
-                    this.h = s;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), bArr, bArr2, secureRandom}) == null) {
+            boolean z = i == 2 || i == 4;
+            this.i = z;
+            if (this.h == 0) {
+                if (bArr2 != null) {
+                    throw new InvalidAlgorithmParameterException("ECB mode cannot use IV");
                 }
-                int i = this.h;
-                this.i = i / 2;
-                this.j = i / 3;
-                this.n = l;
-            }
-            this.l = t15Var;
-            if (t15Var != null && t15Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
-                boolean z = false;
-                this.m.setVisibility(0);
-                this.m.b(t15Var);
-                ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
-                ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
-                int i2 = layoutParams.width;
-                int i3 = layoutParams.height;
-                boolean z2 = true;
-                if (this.l.getThreadData().originalThreadData.r.is_vertical.intValue() == 1) {
-                    VideoInfo videoInfo = this.l.getThreadData().originalThreadData.r;
-                    if (videoInfo == null) {
-                        return;
-                    }
-                    int i4 = (this.i / 9) * 16;
-                    int i5 = this.j;
-                    int intValue = videoInfo.video_width.intValue();
-                    int intValue2 = videoInfo.video_height.intValue();
-                    layoutParams.width = this.h;
-                    layoutParams2.width = this.i;
-                    if (i2 != layoutParams.width) {
-                        z = true;
-                    }
-                    if (intValue != 0 && intValue2 != 0) {
-                        int i6 = (int) (((intValue2 * 1.0f) / intValue) * this.i);
-                        if (i6 < i5) {
-                            i4 = i5;
-                        } else if (i6 <= i4) {
-                            i4 = i6;
-                        }
-                        layoutParams.height = i4;
-                        layoutParams2.height = i4;
-                    } else {
-                        layoutParams.height = i4;
-                        layoutParams2.height = i4;
-                    }
-                } else {
-                    int i7 = this.h;
-                    layoutParams.width = i7;
-                    layoutParams2.width = i7;
-                    layoutParams.height = ((i7 / 16) * 9) - yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                    layoutParams2.height = ((this.h / 16) * 9) - yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                    if (i3 != layoutParams.height || i2 != layoutParams.width) {
-                        z = true;
-                    }
-                }
+            } else if (bArr2 == null) {
                 if (z) {
-                    this.m.setLayoutParams(layoutParams);
-                    this.m.j.setLayoutParams(layoutParams2);
+                    throw new InvalidAlgorithmParameterException("Parameters missing");
                 }
-                this.m.setJumpToPbListener(new a(this));
-                this.m.setData(this.l);
-                i();
-                return;
+                if (secureRandom == null) {
+                    secureRandom = rz.b;
+                }
+                bArr2 = new byte[this.b];
+                secureRandom.nextBytes(bArr2);
             }
-            this.m.setVisibility(8);
+            this.d = 0;
+            this.e = this.b;
+            this.g.a(this.i, "", bArr, bArr2);
         }
     }
 
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public int d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        InterceptResult invokeCommon;
+        int a;
+        byte[] bArr3;
+        int i4;
+        xz xzVar;
+        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
-            if (this.p != i) {
-                this.m.h(tbPageContext, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)})) == null) {
+            int i5 = this.d + i2;
+            int i6 = this.c;
+            int i7 = this.b;
+            if (i6 != i7) {
+                int i8 = this.e;
+                a = i5 < i8 ? i8 - i5 : i7 - ((i5 - i8) % i7);
+            } else {
+                xz xzVar2 = this.f;
+                a = xzVar2 != null ? xzVar2.a(i5) : 0;
             }
-            this.p = i;
+            if (a > 0 && a != this.b && this.f != null && this.i) {
+                throw new IllegalBlockSizeException("Input length must be multiple of " + this.b + " when decrypting with padded cipher");
+            }
+            int i9 = (this.i || this.f == null) ? i5 : i5 + a;
+            if (bArr2 != null) {
+                int length = bArr2.length - i3;
+                if (((!this.i || this.f == null) && length < i9) || (this.i && length < i9 - this.b)) {
+                    throw new ShortBufferException("Output buffer too short: " + length + " bytes given, " + i9 + " bytes needed");
+                }
+                if (this.d == 0 && (this.i || this.f == null)) {
+                    bArr3 = bArr;
+                    i4 = i;
+                } else {
+                    byte[] bArr4 = new byte[i9];
+                    int i10 = this.d;
+                    if (i10 != 0) {
+                        System.arraycopy(this.a, 0, bArr4, 0, i10);
+                    }
+                    if (i2 != 0) {
+                        System.arraycopy(bArr, i, bArr4, this.d, i2);
+                    }
+                    if (!this.i && (xzVar = this.f) != null) {
+                        xzVar.a(bArr4, i5, a);
+                    }
+                    bArr3 = bArr4;
+                    i4 = 0;
+                }
+                if (this.i) {
+                    if (length < i9) {
+                        this.g.e();
+                    }
+                    byte[] bArr5 = new byte[i5];
+                    b = b(bArr3, i4, bArr5, 0, i5);
+                    xz xzVar3 = this.f;
+                    if (xzVar3 != null && (b = xzVar3.b(bArr5, 0, b)) < 0) {
+                        throw new BadPaddingException("Given final block not properly padded");
+                    }
+                    if (bArr2.length - i3 < b) {
+                        this.g.g();
+                        throw new ShortBufferException("Output buffer too short: " + (bArr2.length - i3) + " bytes given, " + b + " bytes needed");
+                    }
+                    for (int i11 = 0; i11 < b; i11++) {
+                        bArr2[i3 + i11] = bArr5[i11];
+                    }
+                } else {
+                    b = b(bArr3, i4, bArr2, i3, i9);
+                }
+                this.d = 0;
+                this.e = this.b;
+                if (this.h != 0) {
+                    this.g.c();
+                }
+                return b;
+            }
+            throw new ShortBufferException("Output buffer is null");
         }
+        return invokeCommon.intValue;
+    }
+
+    public byte[] e(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int a;
+        byte[] bArr2;
+        int d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            byte[] bArr3 = null;
+            try {
+                a = a(i2);
+                bArr2 = new byte[a];
+                d = d(bArr, i, i2, bArr2, 0);
+            } catch (ShortBufferException unused) {
+            }
+            if (d < a) {
+                bArr3 = new byte[d];
+                if (d != 0) {
+                    System.arraycopy(bArr2, 0, bArr3, 0, d);
+                }
+                return bArr3;
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
     }
 }

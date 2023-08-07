@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.FlutterPluginManager;
-import com.baidu.tieba.ol;
+import com.baidu.tieba.pk;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -108,7 +108,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
             super.onChangeSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
             this.b.onChangeSkinType(getPageContext(), i);
-            getLayoutMode().k(findViewById(16908290));
+            getLayoutMode().onModeChanged(findViewById(16908290));
             NoDataView noDataView = this.c;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
@@ -124,7 +124,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0736);
+            setContentView(R.layout.obfuscated_res_0x7f0d073d);
             u1();
             v1();
         }
@@ -146,7 +146,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920ba);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920d1);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
@@ -154,7 +154,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
             this.e.add(GameAssistNPSPluginManager.GAMEASSIST_PKG_NAME);
-            for (BundleInfo bundleInfo : ol.f().c()) {
+            for (BundleInfo bundleInfo : pk.f().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView w1 = w1();
                     w1.setText(bundleInfo.getName());

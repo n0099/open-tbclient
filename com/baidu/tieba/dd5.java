@@ -11,7 +11,9 @@ import org.json.JSONObject;
 public class dd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public String b;
+    public String c;
 
     public dd5() {
         Interceptable interceptable = $ic;
@@ -27,23 +29,46 @@ public class dd5 {
         }
     }
 
-    public boolean a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 1) {
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        this.a = jSONObject.optInt("agree_icon", 0);
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static dd5 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            dd5 dd5Var = new dd5();
+            if (jSONObject != null) {
+                dd5Var.a = jSONObject.optString("scene_name");
+                jSONObject.optString("style");
+                dd5Var.b = jSONObject.optString("title");
+                dd5Var.c = jSONObject.optString("text");
+            }
+            return dd5Var;
+        }
+        return (dd5) invokeL.objValue;
     }
 }

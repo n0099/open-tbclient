@@ -1,88 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pk3 {
+public class pk3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, ok3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948064881, "Lcom/baidu/tieba/pk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948064881, "Lcom/baidu/tieba/pk3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pk3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/stopMediaVolumeListen");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
-        b = new ArrayMap();
     }
 
-    @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        ok3 ok3Var = b.get(str);
-                        if (ok3Var != null && ok3Var.a() != null) {
-                            return ok3Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            lk3.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.c("stopMediaVolumeListen", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
+                if (vc3.b) {
+                    Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal swanApp");
                 }
-                return kk3.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
+                return false;
+            } else if (context == null) {
+                y72.c("stopMediaVolumeListen", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
+                if (vc3.b) {
+                    Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal context");
                 }
-                return null;
-            }
-        }
-        return (AshmemFileDescriptor) invokeLI.objValue;
-    }
-
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (pk3.class) {
-                if (ProcessUtils.isMainProcess()) {
-                    return;
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y72.c("stopMediaVolumeListen", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-                ok3 ok3Var = b.get(ashmemFileDescriptor.getName());
-                if (ok3Var != null && ok3Var.a() != null && ok3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = ok3Var.b();
-                    ok3Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
+                String optString = optParamsAsJo.optString("id");
+                if (TextUtils.isEmpty(optString)) {
+                    y72.c("stopMediaVolumeListen", "id is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                } else if (!qk3.e().i(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
                 }
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

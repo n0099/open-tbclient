@@ -1,18 +1,65 @@
 package com.baidu.tieba;
 
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.FileInputStream;
-import java.security.MessageDigest;
 /* loaded from: classes8.dex */
 public class tg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static final float[] a;
+    public static final float[] b;
+    public static final float[] c;
+    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static float a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-404676305, "Lcom/baidu/tieba/tg0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-404676305, "Lcom/baidu/tieba/tg0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Rotation.values().length];
+            a = iArr;
+            try {
+                iArr[Rotation.ROTATION_90.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Rotation.ROTATION_180.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Rotation.ROTATION_270.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Rotation.NORMAL.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -27,45 +74,36 @@ public class tg0 {
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
+        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
+        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static float[] b(Rotation rotation, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        float[] fArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            byte[] bArr = new byte[1024];
-            try {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read > 0) {
-                        messageDigest.update(bArr, 0, read);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int i = a.a[rotation.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        fArr = a;
                     } else {
-                        fileInputStream.close();
-                        return b(messageDigest.digest());
+                        fArr = d;
                     }
+                } else {
+                    fArr = c;
                 }
-            } catch (Exception unused) {
-                return "";
+            } else {
+                fArr = b;
             }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
+            if (z) {
+                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
             }
-            return sb.toString();
+            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
         }
-        return (String) invokeL.objValue;
+        return (float[]) invokeCommon.objValue;
     }
 }

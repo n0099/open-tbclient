@@ -1,216 +1,254 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class zy2 extends sd3 {
+public class zy2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<yy2> a;
+    public ArrayList<MediaModel> b;
+    public String c;
+    public Handler d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zy2(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/backgroundAudio");
+    public zy2(String str, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {str, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = str;
+        this.d = handler;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (unitedSchemeEntity != null) {
-                yy2.b("AudioBGPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
-                return false;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.equals(this.c, "video")) {
+            return;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.sd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
-        vy2 b;
-        char c;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, vb3Var)) == null) {
-            if (vb3Var == null) {
-                bj3.b("audio", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            yy2.b("AudioBGPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
-            JSONObject j = j(unitedSchemeEntity.getParam("params"));
-            if (j == null) {
-                bj3.b("audio", 2001, "param is null", 201, "param is null");
-                v82.c("backgroundAudio", "param is null!");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            xy2 P = vb3Var.P();
-            if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-                b = vy2.b(j, new vy2());
-            } else {
-                b = vy2.b(j, P.q());
-            }
-            yy2.b("AudioBGPlayerAction", "#handleSubAction playerParams=" + b);
-            JSONObject jSONObject = null;
-            switch (str.hashCode()) {
-                case 312101659:
-                    if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335869926:
-                    if (str.equals("/swanAPI/backgroundAudio/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335895760:
-                    if (str.equals("/swanAPI/backgroundAudio/play")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335978516:
-                    if (str.equals("/swanAPI/backgroundAudio/seek")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335993246:
-                    if (str.equals("/swanAPI/backgroundAudio/stop")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 820188005:
-                    if (str.equals("/swanAPI/backgroundAudio/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1822525402:
-                    if (str.equals("/swanAPI/backgroundAudio/pause")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    v82.i("backgroundAudio", "open, audioId " + b.a);
-                    P.z(b, callbackHandler);
-                    z = true;
-                    break;
-                case 1:
-                    v82.i("backgroundAudio", "update, audioId " + b.a);
-                    P.update(b);
-                    z = true;
-                    break;
-                case 2:
-                    v82.i("backgroundAudio", "play, audioId " + b.a);
-                    P.F();
-                    z = true;
-                    break;
-                case 3:
-                    v82.i("backgroundAudio", "pause, audioId " + b.a);
-                    P.A();
-                    z = true;
-                    break;
-                case 4:
-                    v82.i("backgroundAudio", "seek, audioId " + b.a + " position " + b.l);
-                    P.G(b.l);
-                    z = true;
-                    break;
-                case 5:
-                    v82.i("backgroundAudio", "stop, audioId " + b.a);
-                    P.L();
-                    z = true;
-                    break;
-                case 6:
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt(b.m, P.t(b.m));
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException e) {
-                        bj3.b("audio", 2009, "json exception", -1, "");
-                        v82.c("backgroundAudio", "getParams error " + e.toString());
-                        yy2.c("backgroundAudio", "getParamsSync error", e);
-                        break;
-                    }
-                default:
-                    z = false;
-                    break;
-            }
-            yy2.b("AudioBGPlayerAction", "#handleSubAction invokeSuccess=" + z);
-            if (z) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            return super.i(context, unitedSchemeEntity, callbackHandler, str, vb3Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final JSONObject j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (sd3.b) {
-                        Log.d("AudioBGPlayerAction", Log.getStackTraceString(e));
-                    }
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+            } catch (Exception e) {
+                if (ny2.a) {
+                    e.printStackTrace();
                 }
             }
-            return null;
+            if (cursor == null) {
+                return;
+            }
+            while (cursor.moveToNext()) {
+                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                File file = new File(string);
+                if (file.exists() && (ny2.d || !oy2.d(string))) {
+                    ImageModel imageModel = new ImageModel(string);
+                    imageModel.setAddDate(j);
+                    imageModel.setSize(j2);
+                    d(file, imageModel);
+                }
+            }
+        } finally {
+            cr4.d(null);
         }
-        return (JSONObject) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00e3 */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x009f, code lost:
+        if (r11 != null) goto L30;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0, types: [com.baidu.tieba.zy2, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() {
+        Throwable th;
+        Cursor cursor;
+        Exception e;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Throwable th2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ?? r1 = "Image";
+            if (TextUtils.equals(this.c, "Image")) {
+                return;
+            }
+            try {
+                try {
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+                } catch (Throwable th3) {
+                    th = th3;
+                    cr4.d(r1);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                cursor = null;
+                e = e2;
+            } catch (Throwable th4) {
+                r1 = 0;
+                th = th4;
+                cr4.d(r1);
+                throw th;
+            }
+            if (cursor == null) {
+                cr4.d(cursor);
+                return;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
+                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
+                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
+                    if (i <= 0 || i2 <= 0) {
+                        try {
+                            mediaMetadataRetriever = new MediaMetadataRetriever();
+                            try {
+                                try {
+                                    mediaMetadataRetriever.setDataSource(string);
+                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
+                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
+                                    i = Integer.parseInt(extractMetadata);
+                                    i2 = Integer.parseInt(extractMetadata2);
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    if (ny2.a) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Throwable th5) {
+                                th2 = th5;
+                                if (mediaMetadataRetriever != null) {
+                                    mediaMetadataRetriever.release();
+                                }
+                                throw th2;
+                            }
+                        } catch (Exception e4) {
+                            e = e4;
+                            mediaMetadataRetriever = null;
+                        } catch (Throwable th6) {
+                            mediaMetadataRetriever = null;
+                            th2 = th6;
+                        }
+                        mediaMetadataRetriever.release();
+                    }
+                    File file = new File(string);
+                    if (file.exists()) {
+                        VideoModel videoModel = new VideoModel(string);
+                        videoModel.setAddDate(j);
+                        videoModel.setDuration(j2);
+                        videoModel.setSize(j3);
+                        videoModel.setWidth(i);
+                        videoModel.setHeight(i2);
+                        d(file, videoModel);
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    if (ny2.a) {
+                        e.printStackTrace();
+                    }
+                    cr4.d(cursor);
+                }
+            }
+            cr4.d(cursor);
+        }
+    }
+
+    public final void c(ArrayList<yy2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            Iterator<yy2> it = arrayList.iterator();
+            while (it.hasNext()) {
+                yy2 next = it.next();
+                next.i(new File(next.b()).lastModified());
+            }
+            Collections.sort(arrayList);
+        }
+    }
+
+    public final void d(File file, MediaModel mediaModel) {
+        String name;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
+            if (file.getParentFile() != null) {
+                name = file.getParentFile().getName();
+                path = file.getParent();
+            } else {
+                name = file.getName();
+                path = file.getPath();
+            }
+            yy2 yy2Var = new yy2();
+            yy2Var.h(name);
+            yy2Var.g(path);
+            int indexOf = this.a.indexOf(yy2Var);
+            if (indexOf >= 0) {
+                this.a.get(indexOf).a(mediaModel);
+            } else {
+                yy2Var.a(mediaModel);
+                this.a.add(yy2Var);
+            }
+            this.b.add(mediaModel);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            b();
+            c(this.a);
+            yy2 yy2Var = new yy2();
+            yy2Var.h(oy2.b(AppRuntime.getAppContext(), this.c));
+            yy2Var.d = this.b;
+            this.a.add(0, yy2Var);
+            Iterator<yy2> it = this.a.iterator();
+            while (it.hasNext()) {
+                Collections.sort(it.next().f());
+            }
+            Handler handler = this.d;
+            if (handler != null) {
+                Message obtainMessage = handler.obtainMessage(0);
+                obtainMessage.obj = this.a;
+                this.d.sendMessage(obtainMessage);
+            }
+        }
     }
 }

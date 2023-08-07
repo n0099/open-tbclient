@@ -13,23 +13,24 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce5;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.personalize.view.NewHotTipLabelView;
-import com.baidu.tieba.x28;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.k08;
+import com.baidu.tieba.rc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -134,7 +135,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class c implements NewHotTipLabelView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomeTabBarView a;
@@ -157,56 +158,23 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.a = homeTabBarView;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.y();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements NewHotTipLabelView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HomeTabBarView a;
-
-        public d(HomeTabBarView homeTabBarView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {homeTabBarView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = homeTabBarView;
-        }
-
         @Override // com.baidu.tieba.homepage.personalize.view.NewHotTipLabelView.a
         public void onShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zg.a().postDelayed(this.a.i, 5000L);
+                SafeHandler.getInst().postDelayed(this.a.i, 5000L);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e extends AnimatorListenerAdapter {
+    public class d extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
         public final /* synthetic */ HomeTabBarView b;
 
-        public e(HomeTabBarView homeTabBarView, View view2) {
+        public d(HomeTabBarView homeTabBarView, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,6 +207,41 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 this.a.setVisibility(8);
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<HomeTabBarView> a;
+
+        public e(HomeTabBarView homeTabBarView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {homeTabBarView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(homeTabBarView);
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            HomeTabBarView homeTabBarView;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (homeTabBarView = this.a.get()) == null) {
+                return;
+            }
+            homeTabBarView.y();
         }
     }
 
@@ -326,15 +329,15 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public void setHotLabelData(ce5 ce5Var) {
+    public void setHotLabelData(rc5 rc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, ce5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, rc5Var) == null) {
             if (this.c == null) {
                 y();
             }
             NewHotTipLabelView newHotTipLabelView = this.c;
             if (newHotTipLabelView != null) {
-                newHotTipLabelView.setData(ce5Var);
+                newHotTipLabelView.setData(rc5Var);
             }
         }
     }
@@ -476,7 +479,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.a.C();
             if (this.h == null) {
-                this.h = new c(this);
+                this.h = new e(this);
                 ViewTreeObserver viewTreeObserver = getViewTreeObserver();
                 if (viewTreeObserver != null) {
                     viewTreeObserver.addOnGlobalLayoutListener(this.h);
@@ -518,7 +521,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.c.setView(this, this.e + this.g, this.f);
             this.d.setTranslationX(this.e + this.g);
             this.d.setTranslationY(this.f);
-            this.c.setHotTipCallBack(new d(this));
+            this.c.setHotTipCallBack(new c(this));
         }
     }
 
@@ -554,7 +557,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             view3.setAlpha(0.0f);
             view3.setVisibility(0);
             view3.animate().alpha(1.0f).setDuration(800L).setListener(null);
-            view2.animate().alpha(0.0f).setDuration(800L).setListener(new e(this, view2));
+            view2.animate().alpha(0.0f).setDuration(800L).setListener(new d(this, view2));
         }
     }
 
@@ -565,13 +568,13 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (viewGroup == null) {
                 return null;
             }
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.g(getContext(), R.dimen.tbds18), yi.g(getContext(), R.dimen.tbds18));
-            layoutParams.topMargin = yi.g(getContext(), R.dimen.tbds20);
-            layoutParams.leftMargin = yi.g(getContext(), R.dimen.tbds11);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds18), BdUtilHelper.getDimens(getContext(), R.dimen.tbds18));
+            layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds20);
+            layoutParams.leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds11);
             View view2 = new View(getContext());
             view2.setLayoutParams(layoutParams);
             SkinManager.setBackgroundResource(view2, R.drawable.icon_news_red_dot);
-            view2.setTag(Integer.valueOf((int) R.id.obfuscated_res_0x7f090fc3));
+            view2.setTag(Integer.valueOf((int) R.id.obfuscated_res_0x7f090fd6));
             view2.setVisibility(8);
             viewGroup.addView(view2);
             return view2;
@@ -583,10 +586,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4008);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03fd, (ViewGroup) this, true);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090f66);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0400, (ViewGroup) this, true);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090f79);
             this.a = pagerSlidingTabStrip;
-            pagerSlidingTabStrip.A(yi.g(context, R.dimen.T_X06), yi.g(context, R.dimen.T_X04), yi.g(context, R.dimen.tbds10), true);
+            pagerSlidingTabStrip.A(BdUtilHelper.getDimens(context, R.dimen.T_X06), BdUtilHelper.getDimens(context, R.dimen.T_X04), BdUtilHelper.getDimens(context, R.dimen.tbds10), true);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
             layoutParams.gravity = 1;
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
@@ -609,7 +612,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (newHotTipLabelView != null) {
                 newHotTipLabelView.setVisibility(8);
                 this.d.setVisibility(8);
-                x28.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
+                k08.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
                 this.c.c();
             }
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
@@ -623,7 +626,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            zg.a().removeCallbacks(this.i);
+            SafeHandler.getInst().removeCallbacks(this.i);
             NewHotTipLabelView newHotTipLabelView = this.c;
             if (newHotTipLabelView != null) {
                 newHotTipLabelView.setHotTipCallBack(null);

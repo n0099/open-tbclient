@@ -1,51 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.gu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zt5 extends du5 {
+public class zt5 extends im5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int F;
+    public NoDataView a;
 
-    public zt5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zt5(Context context) {
+        super(new NoDataView(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.F = 0;
+        this.a = (NoDataView) getView();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zt5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        super(i, z, responsedMessage, j, j2, j3, z2, 0L, 0L, j4);
+    public void a(gu5.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (ResponsedMessage) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue(), ((Boolean) objArr2[6]).booleanValue(), ((Long) objArr2[7]).longValue(), ((Long) objArr2[8]).longValue(), ((Long) objArr2[9]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, aVar) != null) || aVar == null) {
+            return;
         }
-        this.F = 0;
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
+            str = aVar.a;
+        } else {
+            str = aVar.d;
+        }
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
+        }
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.f(l9.a(getView().getContext()), i);
+        }
     }
 }

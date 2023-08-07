@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c45;
+import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c45 mData;
+    public z25 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonFriendByUidLocalMessage() {
@@ -32,13 +32,13 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         }
     }
 
-    public c45 getPersonFriendData() {
+    public z25 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (c45) invokeV.objValue;
+        return (z25) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,16 +66,16 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && str != null) {
-            c45 c45Var = new c45();
-            this.mData = c45Var;
-            c45Var.a(str);
+            z25 z25Var = new z25();
+            this.mData = z25Var;
+            z25Var.a(str);
         }
     }
 
-    public void setPersonFriendData(c45 c45Var) {
+    public void setPersonFriendData(z25 z25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c45Var) == null) {
-            this.mData = c45Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, z25Var) == null) {
+            this.mData = z25Var;
         }
     }
 }

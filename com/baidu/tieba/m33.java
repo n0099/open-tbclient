@@ -1,22 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m33 implements Interceptor {
+public class m33 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile m33 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
+    public String a;
+    public String b;
+    public String c;
+    public tf1 d;
+
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != -2) {
+                return i != 0 ? 6 : 0;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
 
     public m33() {
         Interceptable interceptable = $ic;
@@ -28,37 +40,38 @@ public class m33 implements Interceptor {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    public static m33 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap != null && hashMap.size() >= 1) {
-                this.a = hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (m33.class) {
+                    if (e == null) {
+                        e = new m33();
+                    }
+                }
             }
+            return e;
         }
+        return (m33) invokeV.objValue;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    @NonNull
+    public static JSONObject c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap != null && hashMap.size() >= 1) {
-                Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                    newBuilder.addHeader(entry.getKey(), entry.getValue());
-                }
-                return chain.proceed(newBuilder.build());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("finalUrl", str);
+            } catch (JSONException unused) {
             }
-            return chain.proceed(chain.request());
+            return jSONObject;
         }
-        return (Response) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

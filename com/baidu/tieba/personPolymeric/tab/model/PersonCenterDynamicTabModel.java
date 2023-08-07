@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -11,7 +12,6 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.kb;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabRequestMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
@@ -35,7 +35,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public User f;
     public MetaData g;
     public BdUniqueId h;
-    public final kb i;
+    public final NetMessageListener i;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -48,7 +48,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -65,7 +65,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterDynamicTabModel a;
@@ -92,7 +92,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             this.a = personCenterDynamicTabModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             boolean z;
@@ -118,7 +118,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             }
             if (responsedMessage.getError() == 0) {
                 if (!ListUtils.isEmpty(list)) {
-                    this.a.g0(list);
+                    this.a.Y(list);
                     this.a.d.addAll(list);
                 }
                 this.a.b = z;
@@ -168,59 +168,59 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.i);
     }
 
-    public final void e0(long j) {
+    public final void W(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.e, j, 10);
             personCenterDynamicTabRequestMessage.setTag(this.h);
             MessageManager.getInstance().sendMessage(personCenterDynamicTabRequestMessage);
         }
     }
 
-    public void i0(MetaData metaData) {
+    public void a0(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, metaData) == null) {
             this.g = metaData;
         }
     }
 
-    public void j0(b bVar) {
+    public void b0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void k0(User user) {
+    public void c0(User user) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, user) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, user) == null) {
             this.f = user;
-            h0();
+            Z();
         }
     }
 
-    public boolean d0() {
+    public boolean V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public void f0() {
+    public void X() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e0(this.a);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            W(this.a);
         }
     }
 
-    public void h0() {
+    public void Z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = 0L;
             this.d.clear();
-            e0(this.a);
+            W(this.a);
         }
     }
 
@@ -236,9 +236,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public final void g0(List<ThreadData> list) {
+    public final void Y(List<ThreadData> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && this.f != null && !ListUtils.isEmpty(list)) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.f != null && !ListUtils.isEmpty(list)) {
             for (ThreadData threadData : list) {
                 if (threadData.getAuthor() != null) {
                     threadData.getAuthor().getNewGodData().parserProtobuf(this.f.new_god_data);

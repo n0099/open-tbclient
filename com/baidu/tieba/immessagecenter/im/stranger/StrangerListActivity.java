@@ -13,6 +13,8 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -30,21 +32,20 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
+import com.baidu.tieba.do8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.im.model.IMUserListHttpResponseMsg;
-import com.baidu.tieba.jq8;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.tc8;
-import com.baidu.tieba.uc8;
+import com.baidu.tieba.na8;
+import com.baidu.tieba.o45;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.qb8;
+import com.baidu.tieba.u45;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.xd8;
-import com.baidu.tieba.y55;
+import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,32 +57,32 @@ import java.util.List;
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jq8 a;
+    public do8 a;
     public StrangerListModel b;
     public StrangerListActivity c;
-    public s55 d;
+    public o45 d;
     public AlertDialog e;
     public boolean f;
     public final CustomMessageListener g;
-    public tc8 h;
-    public final uc8 i;
+    public na8 h;
+    public final oa8 i;
     public HttpMessageListener j;
 
     /* loaded from: classes6.dex */
-    public class a implements a65.f {
+    public class a implements w45.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y55 a;
+        public final /* synthetic */ u45 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ ImMessageCenterShowItemData c;
         public final /* synthetic */ StrangerListActivity d;
 
-        public a(StrangerListActivity strangerListActivity, y55 y55Var, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        public a(StrangerListActivity strangerListActivity, u45 u45Var, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strangerListActivity, y55Var, Integer.valueOf(i), imMessageCenterShowItemData};
+                Object[] objArr = {strangerListActivity, u45Var, Integer.valueOf(i), imMessageCenterShowItemData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -92,21 +93,21 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
             }
             this.d = strangerListActivity;
-            this.a = y55Var;
+            this.a = u45Var;
             this.b = i;
             this.c = imMessageCenterShowItemData;
         }
 
-        @Override // com.baidu.tieba.a65.f
-        public void L0(a65 a65Var, int i, View view2) {
+        @Override // com.baidu.tieba.w45.f
+        public void K0(w45 w45Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, a65Var, i, view2) == null) {
-                y55 y55Var = this.a;
-                if (y55Var != null && y55Var.isShowing()) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, w45Var, i, view2) == null) {
+                u45 u45Var = this.a;
+                if (u45Var != null && u45Var.isShowing()) {
                     this.a.dismiss();
                 }
                 if (this.b == 1) {
-                    this.d.b.V(this.d.i);
+                    this.d.b.N(this.d.i);
                 } else {
                     this.d.b.asyncDeleteItem(this.c, this.d.i);
                 }
@@ -163,7 +164,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements tc8 {
+    public class c implements na8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StrangerListActivity a;
@@ -186,7 +187,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a = strangerListActivity;
         }
 
-        @Override // com.baidu.tieba.tc8
+        @Override // com.baidu.tieba.na8
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -197,7 +198,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements uc8 {
+    public class d implements oa8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StrangerListActivity a;
@@ -220,7 +221,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a = strangerListActivity;
         }
 
-        @Override // com.baidu.tieba.uc8
+        @Override // com.baidu.tieba.oa8
         public void onCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -230,7 +231,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a.Q1();
         }
 
-        @Override // com.baidu.tieba.uc8
+        @Override // com.baidu.tieba.oa8
         public void onPostExecute() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
@@ -241,7 +242,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a.Q1();
         }
 
-        @Override // com.baidu.tieba.uc8
+        @Override // com.baidu.tieba.oa8
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
@@ -250,7 +251,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a.X1();
         }
 
-        @Override // com.baidu.tieba.uc8
+        @Override // com.baidu.tieba.oa8
         public void onProgressUpdate(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
@@ -335,9 +336,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
                 this.a.a.S(false);
                 this.a.a.Q(false);
-                this.a.a.I().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0756));
+                this.a.a.I().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0757));
                 this.a.a.F().setVisibility(0);
-                this.a.a.L().setVisibility(0);
+                this.a.a.K().setVisibility(0);
             }
         }
     }
@@ -428,7 +429,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             M1();
             if (this.d == null) {
-                this.d = xd8.l().o(getPageContext().getPageActivity());
+                this.d = qb8.l().o(getPageContext().getPageActivity());
             }
             this.d.show();
             this.d.b(0);
@@ -440,8 +441,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onResume();
-            jq8 jq8Var = this.a;
-            if (jq8Var != null && jq8Var.D() != null) {
+            do8 do8Var = this.a;
+            if (do8Var != null && do8Var.D() != null) {
                 this.a.D().notifyDataSetChanged();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.STRANGE_MERGE, -7)));
@@ -461,7 +462,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public final void P1(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, strangerListActivity) == null) {
-            this.a = new jq8(strangerListActivity);
+            this.a = new do8(strangerListActivity);
         }
     }
 
@@ -495,10 +496,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        jq8 jq8Var;
+        do8 do8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && (jq8Var = this.a) != null) {
-            jq8Var.onChangeSkinType(i);
+        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && (do8Var = this.a) != null) {
+            do8Var.onChangeSkinType(i);
         }
     }
 
@@ -533,8 +534,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            s55 s55Var = this.d;
-            if (s55Var != null && s55Var.isShowing()) {
+            o45 o45Var = this.d;
+            if (o45Var != null && o45Var.isShowing()) {
                 this.d.dismiss();
                 this.d = null;
             }
@@ -581,9 +582,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     public final void notifyDataSetChanged() {
-        jq8 jq8Var;
+        do8 do8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (jq8Var = this.a) != null && jq8Var.D() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (do8Var = this.a) != null && do8Var.D() != null) {
             this.a.D().notifyDataSetChanged();
         }
     }
@@ -625,18 +626,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     public final void Q1() {
-        jq8 jq8Var;
+        do8 do8Var;
         StrangerListModel strangerListModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (jq8Var = this.a) != null && jq8Var.D() != null && (strangerListModel = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (do8Var = this.a) != null && do8Var.D() != null && (strangerListModel = this.b) != null) {
             if (strangerListModel != null && strangerListModel.isEmpty()) {
                 showNoDataView();
             }
-            this.a.I().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0756));
+            this.a.I().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0757));
             this.a.I().getCenterImgBox().setVisibility(4);
             if (!this.b.isEmpty()) {
                 this.a.F().setVisibility(0);
-                this.a.L().setVisibility(0);
+                this.a.K().setVisibility(0);
             }
             this.a.D().u(this.b.getData());
         }
@@ -665,8 +666,12 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             List<ImMessageCenterShowItemData> data = this.b.getData();
             for (int i = 0; i != data.size(); i++) {
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.get(i).getFriendId(), 2)));
-                data.get(i).setUnReadCount(0);
+                try {
+                    MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.get(i).getFriendId(), 2)));
+                    data.get(i).setUnReadCount(0);
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
             }
             this.a.P(this.b.getData());
         }
@@ -685,12 +690,12 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
             this.f = z;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f169d;
-                i2 = R.string.obfuscated_res_0x7f0f1488;
+                i = R.string.obfuscated_res_0x7f0f16a1;
+                i2 = R.string.obfuscated_res_0x7f0f148c;
                 i3 = R.string.unfriend_del;
             } else {
-                i = R.string.obfuscated_res_0x7f0f169e;
-                i2 = R.string.obfuscated_res_0x7f0f148b;
+                i = R.string.obfuscated_res_0x7f0f16a2;
+                i2 = R.string.obfuscated_res_0x7f0f148f;
                 i3 = R.string.unfriend_all_read;
             }
             if (z) {
@@ -698,17 +703,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             } else {
                 operateBtnStyle = TBAlertConfig.OperateBtnStyle.MAIN;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a(i3, operateBtnStyle);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.unfriend_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.w(i);
-            tBAlertBuilder.m(i2);
-            tBAlertBuilder.o(true);
-            tBAlertBuilder.u(aVar2, aVar);
-            tBAlertBuilder.j(false);
-            this.e = tBAlertBuilder.z();
-            aVar.c(new e(this));
-            aVar2.c(new f(this));
+            TBAlertConfig.OperateBtnConfig operateBtnConfig = new TBAlertConfig.OperateBtnConfig(i3, operateBtnStyle);
+            TBAlertConfig.OperateBtnConfig operateBtnConfig2 = new TBAlertConfig.OperateBtnConfig((int) R.string.unfriend_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            this.e = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(i).setDesc(i2).setDescLightStyle(true).setOperateBtn(operateBtnConfig2, operateBtnConfig).setCancelable(false).show();
+            operateBtnConfig.setListener(new e(this));
+            operateBtnConfig2.setListener(new f(this));
         }
     }
 
@@ -720,29 +719,26 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             if (view2 == this.a.F()) {
                 this.a.Q(true);
                 this.a.F().setVisibility(4);
-                this.a.L().setVisibility(4);
-                this.a.I().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0755));
+                this.a.K().setVisibility(4);
+                this.a.I().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0756));
                 this.a.I().getCenterImgBox().setVisibility(4);
-            } else if (view2 == this.a.L()) {
+            } else if (view2 == this.a.K()) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ONE_KEY_READ).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 if (N1()) {
                     V1();
-                    return;
+                } else {
+                    new BdTopToast(this.c).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16a0)).show((ViewGroup) findViewById(16908290));
                 }
-                BdTopToast bdTopToast = new BdTopToast(this.c);
-                bdTopToast.h(false);
-                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f169c));
-                bdTopToast.i((ViewGroup) findViewById(16908290));
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        jq8 jq8Var;
+        do8 do8Var;
         ImMessageCenterShowItemData item;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (jq8Var = this.a) == null || jq8Var.D() == null || (item = this.a.D().getItem(i)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (do8Var = this.a) == null || do8Var.D() == null || (item = this.a.D().getItem(i)) == null) {
             return;
         }
         int i2 = 1;
@@ -762,7 +758,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a.R(true);
             return;
         }
-        PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.c.getPageContext().getContext(), wg.g(item.getFriendId(), 0L), item.getFriendName(), item.getFriendNameShow(), item.getFriendPortrait(), 0, 0);
+        PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.c.getPageContext().getContext(), JavaTypesHelper.toLong(item.getFriendId(), 0L), item.getFriendName(), item.getFriendNameShow(), item.getFriendPortrait(), 0, 0);
         personalChatActivityConfig.setFrom(4);
         personalChatActivityConfig.setFollowStatus(0);
         sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
@@ -775,17 +771,17 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
         InterceptResult invokeCommon;
-        jq8 jq8Var;
+        do8 do8Var;
         ImMessageCenterShowItemData item;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (this.a.G() || (jq8Var = this.a) == null || jq8Var.D() == null || (item = this.a.D().getItem(i)) == null) {
+            if (this.a.G() || (do8Var = this.a) == null || do8Var.D() == null || (item = this.a.D().getItem(i)) == null) {
                 return false;
             }
             int size = this.b.getData().size();
-            y55 y55Var = new y55(getPageContext());
-            y55Var.i(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, new a(this, y55Var, size, item));
-            y55Var.l();
+            u45 u45Var = new u45(getPageContext());
+            u45Var.i(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, new a(this, u45Var, size, item));
+            u45Var.l();
             return true;
         }
         return invokeCommon.booleanValue;

@@ -50,7 +50,7 @@ public class UpdatesModel {
                     }
                     updatesItemData.setUpdatesType(groupNewsPojo.getCmd());
                     updatesItemData.setGroupHeadUrl(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_IMAGE));
-                    updatesItemData.setGroupId(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
+                    updatesItemData.setGroupId(optJSONObject.optString("groupId"));
                     updatesItemData.setGroupName(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME));
                     updatesItemData.setAuthorId(optJSONObject.optString("                                                                                                                                                                   "));
                     updatesItemData.setAuthorName(optJSONObject.optString("authorName"));

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,9 +19,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.TrapezoidButton;
-import com.baidu.tieba.cj6;
+import com.baidu.tieba.ig6;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,15 +40,15 @@ public class VoteAreaLayout extends CardBasicLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cj6 a;
+        public final /* synthetic */ ig6 a;
         public final /* synthetic */ VoteAreaLayout b;
 
-        public a(VoteAreaLayout voteAreaLayout, cj6 cj6Var) {
+        public a(VoteAreaLayout voteAreaLayout, ig6 ig6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {voteAreaLayout, cj6Var};
+                Object[] objArr = {voteAreaLayout, ig6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,18 +59,18 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
             this.b = voteAreaLayout;
-            this.a = cj6Var;
+            this.a = ig6Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            cj6 cj6Var;
+            ig6 ig6Var;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.b.d instanceof Activity) || !ViewHelper.checkUpIsLogin(this.b.d)) {
                 return;
             }
             new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_BUTTON).eventStat();
-            if (this.b.c != null && (cj6Var = this.a) != null && cj6Var.a() != null) {
+            if (this.b.c != null && (ig6Var = this.a) != null && ig6Var.a() != null) {
                 if (this.a.a().b()) {
                     if (this.a.c() != 0 && this.a.g() != null) {
                         CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.b.c.l(), this.a.c(), this.b.c.k(), 1);
@@ -80,7 +80,7 @@ public class VoteAreaLayout extends CardBasicLayout {
                     }
                     return;
                 }
-                yi.Q(TbadkCoreApplication.getInst(), R.string.has_not_other_ticket);
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.has_not_other_ticket);
             }
         }
     }
@@ -141,12 +141,12 @@ public class VoteAreaLayout extends CardBasicLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f09298e);
+            RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f0929a8);
             this.e = roundAndShadowLinearLayout;
-            roundAndShadowLinearLayout.setRadius(yi.g(this.d, R.dimen.tbds8));
+            roundAndShadowLinearLayout.setRadius(BdUtilHelper.getDimens(this.d, R.dimen.tbds8));
             this.g = (TextView) findViewById(R.id.vote_num);
-            this.h = (TrapezoidButton) findViewById(R.id.obfuscated_res_0x7f092990);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092991);
+            this.h = (TrapezoidButton) findViewById(R.id.obfuscated_res_0x7f0929aa);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0929ab);
             this.f = findViewById(R.id.button_container);
         }
     }
@@ -159,22 +159,22 @@ public class VoteAreaLayout extends CardBasicLayout {
             setClipToPadding(false);
             setOrientation(0);
             setGravity(16);
-            setMinimumHeight(yi.g(getContext(), R.dimen.tbds90));
+            setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a06, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a10, (ViewGroup) this, true);
             b();
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, cj6 cj6Var) {
+    public void setData(int i, ig6 ig6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, cj6Var) == null) {
-            super.setData(i, cj6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ig6Var) == null) {
+            super.setData(i, ig6Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.g;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
-                this.i.setOnClickListener(new a(this, cj6Var));
+                this.i.setOnClickListener(new a(this, ig6Var));
                 if (this.c.n()) {
                     this.i.setEnabled(false);
                     return;

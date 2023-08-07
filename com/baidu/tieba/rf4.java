@@ -1,76 +1,116 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qf4;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rf4 {
+public class rf4 extends kf4<jx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements qf4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948119689, "Lcom/baidu/tieba/rf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // com.baidu.tieba.qf4.a
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948119689, "Lcom/baidu/tieba/rf4;");
                 return;
             }
-            view2.setAlpha(1.0f);
         }
+        boolean z = ir1.a;
+    }
 
-        @Override // com.baidu.tieba.qf4.a
-        public void b(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
-                return;
+    public rf4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            view2.setAlpha(0.2f);
         }
     }
 
-    public static void a(View view2) {
+    public static rf4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
-            b(view2, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new rf4();
         }
+        return (rf4) invokeV.objValue;
     }
 
-    public static void b(View view2, Drawable drawable) {
-        qf4 qf4Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kf4
+    /* renamed from: d */
+    public boolean b(Context context, jx2 jx2Var, hx2 hx2Var, ya3 ya3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, view2, drawable) != null) || view2 == null) {
-            return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jx2Var, hx2Var, ya3Var, jSONObject)) == null) {
+            return f(context, jx2Var, hx2Var, ya3Var);
         }
-        if (drawable == null) {
-            qf4Var = new qf4();
-        } else {
-            qf4Var = new qf4(drawable);
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean f(Context context, jx2 jx2Var, hx2 hx2Var, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, jx2Var, hx2Var, ya3Var)) == null) {
+            y72.i("map", "IncludePointsAction start");
+            gx1 A = lw2.T().A(jx2Var.c);
+            if (!(A instanceof ex1)) {
+                y72.c("map", "WebViewManager is null");
+                return false;
+            }
+            ig4 d = hf4.b().c((ex1) A).d(jx2Var.b);
+            if (d == null) {
+                y72.c("map", "can not find map by id " + jx2Var.b);
+                return false;
+            }
+            y72.i("map", "IncludePointsAction end");
+            return g(jx2Var, d);
         }
-        qf4Var.b(view2);
-        qf4Var.a(new a());
-        view2.setBackground(qf4Var);
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean g(jx2 jx2Var, ig4 ig4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jx2Var, ig4Var)) == null) {
+            if (jx2Var == null || !jx2Var.isValid()) {
+                return false;
+            }
+            BaiduMap map = ig4Var.l.getMap();
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            Iterator<rx2> it = jx2Var.z.iterator();
+            while (it.hasNext()) {
+                rx2 next = it.next();
+                builder.include(new LatLng(next.a, next.b));
+            }
+            LatLngBounds build = builder.build();
+            int[] iArr = jx2Var.A;
+            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

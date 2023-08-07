@@ -1,133 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "AuthParser")
 /* loaded from: classes7.dex */
-public class ru0 {
+public final class ru0 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
-    public static Context c;
-    public static boolean d;
-    public static u01 e;
-    public static tz0 f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948133980, "Lcom/baidu/tieba/ru0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948133980, "Lcom/baidu/tieba/ru0;");
-        }
-    }
-
-    @NonNull
-    public static String a() {
-        InterceptResult invokeV;
+    public static final pu0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @NonNull
-    public static tz0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f == null) {
-                f = new sz0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
+                    if (optJSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            String host = optJSONObject.optString("host");
+                            String optString = optJSONObject.optString("auth");
+                            Intrinsics.checkNotNullExpressionValue(host, "host");
+                            arrayList.add(new ou0(host, b(optString)));
+                        }
+                    }
+                    return new pu0(arrayList);
+                } catch (Exception e) {
+                    pk0.a("AuthParser", e.getMessage());
+                }
             }
-            return f;
+            return null;
         }
-        return (tz0) invokeV.objValue;
+        return (pu0) invokeL.objValue;
     }
 
-    @NonNull
-    public static u01 d() {
-        InterceptResult invokeV;
+    public static final qu0 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                e = new v01();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
-            return e;
-        }
-        return (u01) invokeV.objValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            h(z);
-            Context context = c;
-            if (context != null) {
-                DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                b = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
-                a = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
+            List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
+            if (split$default.size() < 4) {
+                return null;
             }
+            return new qu0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
         }
-    }
-
-    public static void g(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            c = context;
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void j(@NonNull tz0 tz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, tz0Var) == null) {
-            f = tz0Var;
-        }
+        return (qu0) invokeL.objValue;
     }
 }

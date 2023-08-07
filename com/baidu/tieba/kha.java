@@ -1,80 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.compact.DelegateFunAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import protobuf.ConfigVersion;
 /* loaded from: classes6.dex */
-public class kha extends mb {
+public class kha implements t97<DelegateFunAdView, xp6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public final String a;
+    public final BdUniqueId b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kha(MainTabActivity mainTabActivity, pfa pfaVar) {
-        super(1001);
+    public kha(@NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pfaVar};
+            Object[] objArr = {bdUniqueId, str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.b = bdUniqueId;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.a = jha.b(bdUniqueId);
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (-1 == this.a.j) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - this.a.j;
-            if (currentTimeMillis <= 0 || currentTimeMillis >= 300000) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new DelegateFunAdView(viewGroup.getContext(), this.b);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && str != null && TbadkCoreApplication.getInst().getConfigVersion() != null && a()) {
-            this.a.j = System.currentTimeMillis();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-        }
+        return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: c */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ConfigVersion configVersion;
+    @Override // com.baidu.tieba.t97
+    /* renamed from: d */
+    public void b(@NonNull DelegateFunAdView delegateFunAdView, @NonNull xp6 xp6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-            if (socketResponsedMessage.getError() == 0 && (configVersion = responseOnlineMessage.getConfigVersion()) != null) {
-                b(configVersion.sync);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateFunAdView, xp6Var) == null) {
+            delegateFunAdView.a(xp6Var.c(), this.c, this.d, this.e, this.f, xp6Var.a(), xp6Var.b());
         }
+    }
+
+    @Override // com.baidu.tieba.t97
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.work.topic.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n0b;
+import com.baidu.tieba.qza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
 import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
 /* loaded from: classes8.dex */
-public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage implements n0b {
+public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage implements qza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicListModule recommendTopic;
@@ -40,7 +40,7 @@ public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage im
         }
     }
 
-    @Override // com.baidu.tieba.n0b
+    @Override // com.baidu.tieba.qza
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

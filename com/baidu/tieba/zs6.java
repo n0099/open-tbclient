@@ -1,81 +1,390 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.danmu.cache.CacheManager;
+import com.baidu.tieba.uu6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class zs6 implements qc7 {
+public final class zs6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final c h;
+    public static final b i;
+    public static final zs6 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
+    public final qu6 a;
+    public final xu6 b;
+    public final CacheManager c;
+    public os6 d;
+    public final nt6 e;
+    public List<us6> f;
+    public uu6 g;
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public final class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zs6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zs6 zs6Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs6Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(looper, "looper");
+            this.a = zs6Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message msg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if (msg.what == -1) {
+                    BdLog.w("DanmakuEngine [Context] onCacheSign, updateRender");
+                    this.a.c().H();
+                }
+            }
+        }
     }
 
-    public zs6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static final class b implements qu6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.qu6
+        public void b(us6 item, Canvas canvas, uu6 displayer, os6 config) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+                Intrinsics.checkNotNullParameter(item, "item");
+                Intrinsics.checkNotNullParameter(canvas, "canvas");
+                Intrinsics.checkNotNullParameter(displayer, "displayer");
+                Intrinsics.checkNotNullParameter(config, "config");
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qu6
+        public cv6 a(us6 item, uu6 displayer, os6 config) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+                Intrinsics.checkNotNullParameter(item, "item");
+                Intrinsics.checkNotNullParameter(displayer, "displayer");
+                Intrinsics.checkNotNullParameter(config, "config");
+                return new cv6(0, 0);
+            }
+            return (cv6) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ c(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final zs6 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (zs6) invokeV.objValue;
+            }
+            return zs6.j;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class d implements uu6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public final int c;
+        public final float d;
+        public final float e;
+        public final int f;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = 4;
+            this.e = 1.0f;
+            this.f = 200;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.f;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public float b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.e;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public float d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return uu6.a.a(this);
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public float e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.d;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public int getHeight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public int getWidth() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public void setHeight(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.a = i;
+            }
+        }
+
+        @Override // com.baidu.tieba.uu6
+        public void setWidth(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.b = i;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948370572, "Lcom/baidu/tieba/zs6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948370572, "Lcom/baidu/tieba/zs6;");
                 return;
             }
         }
-        this.a = new HashMap<>();
+        h = new c(null);
+        b bVar = new b();
+        i = bVar;
+        j = new zs6(bVar);
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
+    public zs6(qu6 renderer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Map<String, String> a = businessInfo.a();
-            this.a.put("obj_type", ft6.a.a(businessInfo));
-            this.a.put("obj_source", "1");
-            this.a.put("obj_param1", "1");
-            HashMap<String, String> hashMap = this.a;
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {renderer};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
-            HashMap<String, String> hashMap2 = this.a;
-            String str3 = a.get("thread_id");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap2.put("obj_id", str2);
-            return this.a;
         }
-        return (Map) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(renderer, "renderer");
+        this.a = renderer;
+        this.b = new xu6();
+        Looper myLooper = Looper.myLooper();
+        Intrinsics.checkNotNull(myLooper);
+        this.c = new CacheManager(new a(this, myLooper), this.a);
+        this.d = new os6(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
+        this.e = new nt6();
+        new ts6();
+        this.f = new ArrayList();
+        new ts6();
+        this.g = new d();
+        this.f.iterator();
+        new ArrayList();
+        new ArrayList();
     }
 
-    public final zs6 b(String locate) {
-        InterceptResult invokeL;
+    public final CacheManager b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            Intrinsics.checkNotNullParameter(locate, "locate");
-            this.a.put("obj_locate", locate);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (zs6) invokeL.objValue;
+        return (CacheManager) invokeV.objValue;
+    }
+
+    public final os6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (os6) invokeV.objValue;
+    }
+
+    public final uu6 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (uu6) invokeV.objValue;
+    }
+
+    public final nt6 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (nt6) invokeV.objValue;
+    }
+
+    public final xu6 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (xu6) invokeV.objValue;
+    }
+
+    public final void g(uu6 uu6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, uu6Var) == null) {
+            Intrinsics.checkNotNullParameter(uu6Var, "<set-?>");
+            this.g = uu6Var;
+        }
+    }
+
+    public final void h(os6 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            this.d = config;
+            if (this.e.b().size() != config.i().size()) {
+                this.e.d(CollectionsKt___CollectionsKt.toList(config.i()));
+            }
+            if (this.e.c().size() != config.n().size()) {
+                this.e.e(CollectionsKt___CollectionsKt.toList(config.n()));
+            }
+        }
     }
 }

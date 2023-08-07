@@ -1,303 +1,355 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.media.MediaFormat;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class awb {
+public abstract class awb extends jwb implements rub.a {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static AtomicBoolean b;
-    public static Context c;
-    public static final LinkedList<WeakReference<b>> d;
-    public static AtomicBoolean e;
-    public static final LinkedList<WeakReference<rub>> f;
-    public static AudioManager.OnAudioFocusChangeListener g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int o;
+    public MediaFormat p;
+    public MediaInfo q;
+    public uvb r;
+    public WeakReference<jvb> s;
+    public long t;
+    public long u;
+    public long v;
+    public boolean w;
+    public long x;
+    public long y;
+    public AtomicBoolean z;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void c(boolean z);
-    }
+    public abstract void B();
 
-    /* loaded from: classes5.dex */
-    public static class a implements AudioManager.OnAudioFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void C();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    public abstract int D(MediaSample mediaSample);
 
-        @Override // android.media.AudioManager.OnAudioFocusChangeListener
-        public void onAudioFocusChange(int i) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != -2 && i != -1) {
-                    if (i == 1) {
-                        awb.a.set(true);
-                        awb.b.set(true);
-                        awb.j(true);
-                        TLog.h("[AudioFocusListener]", "mOnAudioFocusChangeListener AUDIOFOCUS_GAIN,mIsFocusGain=" + awb.a.get());
-                    }
-                } else {
-                    awb.a.set(false);
-                    awb.b.set(false);
-                    awb.j(false);
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("mOnAudioFocusChangeListener ");
-                    if (i == -1) {
-                        str = "AUDIOFOCUS_LOSS";
-                    } else {
-                        str = "AUDIOFOCUS_LOSS_TRANSIENT";
-                    }
-                    sb.append(str);
-                    sb.append(", pause audio rendering,mIsFocusGain=");
-                    sb.append(awb.a.get());
-                    TLog.h("[AudioFocusListener]", sb.toString());
-                }
-                synchronized (awb.e) {
-                    Iterator it = awb.f.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        WeakReference weakReference = (WeakReference) it.next();
-                        if (weakReference.get() != null) {
-                            TLog.h("[AudioFocusListener]", "mOnAudioFocusChangeListener mExtraListener: " + weakReference.get() + ",mIsFocusGain:" + awb.a.get() + ",focusChange:" + i);
-                            ((rub) weakReference.get()).onAudioFocusChange(i);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947631005, "Lcom/baidu/tieba/awb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947631005, "Lcom/baidu/tieba/awb;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-        b = new AtomicBoolean(false);
-        c = null;
-        d = new LinkedList<>();
-        e = new AtomicBoolean(false);
-        f = new LinkedList<>();
-        g = new a();
-    }
+    public abstract void z(MediaFormat mediaFormat, int i);
 
     public awb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.set(false);
-            b.set(false);
-            Context context = c;
-            if (context == null) {
-                TLog.d("[AudioFocusListener]", "abandonAudioFocus called,mAppContext==null,mIsFocusGain:" + a.get());
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ((AudioManager) context.getSystemService("audio")).abandonAudioFocus(g);
-            TLog.h("[AudioFocusListener]", "abandonAudioFocus called.,mIsFocusGain:" + a.get() + ",mIsRequestFocusGain:" + b.get());
+        }
+        this.o = 0;
+        this.p = null;
+        this.q = MediaInfo.a();
+        this.r = new uvb();
+        this.s = new WeakReference<>(null);
+        this.t = 0L;
+        this.u = 0L;
+        this.v = 0L;
+        this.w = true;
+        this.x = 0L;
+        this.y = 0L;
+        this.z = new AtomicBoolean(false);
+    }
+
+    public void A() {
+        fvb fvbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            x();
+            TLog.g(this, "MediaCodec decoderError");
+            WeakReference<fvb> weakReference = this.g;
+            if (weakReference != null && (fvbVar = weakReference.get()) != null) {
+                Message obtain = Message.obtain();
+                obtain.what = 53;
+                fvbVar.a(obtain, this.a);
+            }
         }
     }
 
-    public static void g(Context context, b bVar) {
-        boolean z;
+    @Override // com.baidu.tieba.dwb
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, bVar) == null) {
-            synchronized (awb.class) {
-                if (c == null) {
-                    c = context;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            TLog.g(this, "CodecFilter.setop enter.");
+            this.z.set(true);
+            this.l.g(1002);
+            this.l.f(1002);
+        }
+    }
+
+    public void E(MediaSample mediaSample, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, mediaSample, j) == null) {
+            long j2 = this.y;
+            if (j2 > 0) {
+                long j3 = mediaSample.v;
+                if (j3 < j2) {
+                    j += j2 - Math.max(j3, this.x);
                 }
-                Iterator<WeakReference<b>> it = d.iterator();
+                this.x = 0L;
+                this.y = 0L;
+                if (j > 0) {
+                    nvb.d(mediaSample, 11, j);
+                }
+            } else if (j > 0) {
+                nvb.d(mediaSample, 11, j);
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (!this.f.isEmpty()) {
+                int i = 0;
                 while (true) {
-                    if (it.hasNext()) {
-                        if (bVar == it.next().get()) {
-                            z = false;
-                            break;
-                        }
-                    } else {
-                        z = true;
+                    MediaSample poll = this.f.poll();
+                    if (poll == null) {
                         break;
                     }
+                    i++;
+                    v(poll, 5, "player is stopped");
+                    uub.f().e(poll);
                 }
-                if (z) {
-                    d.add(new WeakReference<>(bVar));
-                }
+                TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not decoded.", Integer.valueOf(i)));
             }
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            e.set(z);
-            TLog.h("AudioFocus", " enableAutoControl:" + z + ",mIsFocusGain:" + a.get());
-        }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            TLog.h("AudioFocus", " forceGainFocus start enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get() + " mIsRequestFocusGain:" + b.get());
-            if (!e.get()) {
-                a.set(true);
-                TLog.h("AudioFocus", " forceGainFocus enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get());
-                return;
-            }
-            synchronized (awb.class) {
-                if (!b.get()) {
-                    a();
-                    l();
-                }
-            }
-            TLog.h("AudioFocus", " forceGainFocus end enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get() + " mIsRequestFocusGain:" + b.get());
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            LinkedList linkedList = new LinkedList();
-            synchronized (awb.class) {
-                Iterator<WeakReference<b>> it = d.iterator();
-                while (it.hasNext()) {
-                    b bVar = it.next().get();
-                    if (bVar != null) {
-                        linkedList.add(bVar);
-                    }
-                }
-            }
-            if (!linkedList.isEmpty()) {
-                Iterator it2 = linkedList.iterator();
-                while (it2.hasNext()) {
-                    ((b) it2.next()).c(z);
-                }
-            }
-        }
-    }
-
-    public static synchronized void k(b bVar) {
-        WeakReference<b> weakReference;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
-            synchronized (awb.class) {
-                Iterator<WeakReference<b>> it = d.iterator();
+            if (!this.r.b()) {
+                int i2 = 0;
                 while (true) {
-                    if (it.hasNext()) {
-                        weakReference = it.next();
-                        if (weakReference.get() == bVar) {
-                            break;
-                        }
+                    MediaSample c = this.r.c();
+                    if (c != null) {
+                        i2++;
+                        v(c, 6, "player is stopped");
+                        uub.f().e(c);
                     } else {
-                        weakReference = null;
-                        break;
-                    }
-                }
-                if (weakReference != null) {
-                    d.remove(weakReference);
-                }
-                if (d.isEmpty()) {
-                    if (c == null) {
+                        TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not presented.", Integer.valueOf(i2)));
                         return;
                     }
-                    if (e.get()) {
-                        a();
-                    }
-                    c = null;
                 }
             }
         }
     }
 
-    public static void m(rub rubVar) {
+    @Override // com.baidu.tieba.jwb, com.baidu.tieba.bwb
+    public void a() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, rubVar) == null) {
-            synchronized (e) {
-                TLog.h("AudioFocus", " setFocusChangeExtraListener:" + rubVar);
-                boolean z = true;
-                Iterator<WeakReference<rub>> it = f.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (rubVar == it.next().get()) {
-                        z = false;
-                        break;
-                    }
-                }
-                if (z) {
-                    f.add(new WeakReference<>(rubVar));
-                }
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TLog.g(this, "CodecFilter.setup enter. type:" + vvb.a[this.q.a]);
+            rub rubVar = this.l;
+            Object[] objArr = new Object[1];
+            if (this.c == 0) {
+                str = "video";
+            } else {
+                str = "audio";
             }
+            objArr[0] = str;
+            rubVar.setName(String.format("VOD %s decode", objArr));
+            this.t = 0L;
+            this.u = 0L;
+            this.z.set(false);
+            super.a();
+            TLog.g(this, "CodecFilter.setup leave. type:" + vvb.a[this.q.a]);
         }
     }
 
-    public static void l() {
+    @Override // com.baidu.tieba.jwb, com.baidu.tieba.dwb
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            Context context = c;
-            if (context == null) {
-                TLog.d("[AudioFocusListener]", "requestAudioFocus called,mAppContext==null,mIsFocusGain:" + a.get());
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            TLog.g(this, "CodecFilter.release enter. type:" + vvb.a[this.q.a]);
+            super.p();
+            this.p = null;
+            F();
+            TLog.g(this, String.format("inputCount:%d, outputCount:%d", Long.valueOf(this.t), Long.valueOf(this.u)));
+            TLog.g(this, "CodecFilter.release leave. type:" + vvb.a[this.q.a]);
+        }
+    }
+
+    @Override // com.baidu.tieba.jwb
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.w) {
+                I();
+            } else {
+                H();
+            }
+            MediaSample peek = this.f.peek();
+            if (peek == null) {
+                this.l.g(2102);
                 return;
             }
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-            if (audioManager == null) {
-                TLog.d("[AudioFocusListener]", "requestAudioFocus called,audioManager==null,mIsFocusGain:" + a.get());
-            } else if (audioManager.requestAudioFocus(g, 3, 1) != 1) {
-                a.set(false);
-                b.set(false);
-                TLog.h("[AudioFocusListener]", "reqeustAudioFocus result != AUDIOFOCUS_REQUEST_GRANTED, pause audio render.,mIsFocusGain:" + a.get());
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.e(peek.E);
+                }
+            }
+            nvb.c(peek, 5);
+            int D = D(peek);
+            if (D != -2) {
+                if (D != -1) {
+                    if (D == 1) {
+                        this.f.poll();
+                    }
+                } else {
+                    this.f.poll();
+                    v(peek, 6, "exception occurs");
+                    uub.f().e(peek);
+                }
+                if (!this.f.isEmpty() && !this.z.get()) {
+                    this.l.f(2102);
+                    return;
+                }
+                return;
+            }
+            cwb cwbVar = this.e;
+            if (cwbVar != null) {
+                cwbVar.j(D);
+            }
+        }
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.r.b()) {
+            int i = 0;
+            while (true) {
+                MediaSample c = this.r.c();
+                if (c != null) {
+                    i++;
+                    uub.f().e(c);
+                } else {
+                    TLog.g(this, String.format("there are still %d entries in queue that not presented.", Integer.valueOf(i)));
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void H() {
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f.size() >= 15 && (poll = this.f.poll()) != null) {
+            MediaInfo mediaInfo = poll.i;
+            if (mediaInfo.k != null) {
+                mediaInfo.k = null;
+            }
+            uub.f().e(poll);
+        }
+    }
+
+    public final void I() {
+        int size;
+        MediaSample peek;
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (size = this.f.size()) >= 15 && (peek = this.f.peek()) != null && peek.d) {
+            Iterator<MediaSample> it = this.f.iterator();
+            int i = -1;
+            boolean z = false;
+            int i2 = -1;
+            int i3 = -1;
+            while (it.hasNext()) {
+                MediaSample next = it.next();
+                i2++;
+                if (i2 != 0 && next.d && i3 == -1) {
+                    i3 = i2;
+                    z = true;
+                }
+            }
+            if (z) {
+                TLog.g(this, "first frame index 0second frame index " + i3 + "inputSize " + size);
+                Iterator<MediaSample> it2 = this.f.iterator();
+                while (it2.hasNext()) {
+                    it2.next();
+                    i++;
+                    if (i >= 0 && i < i3 && (poll = this.f.poll()) != null) {
+                        MediaInfo mediaInfo = poll.i;
+                        if (mediaInfo.k != null) {
+                            mediaInfo.k = null;
+                        }
+                        uub.f().e(poll);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dwb, com.baidu.tieba.bwb
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.t = 0L;
+            this.u = 0L;
+            if (str.compareTo("setFormat") == 0 && (obj instanceof MediaFormat)) {
+                Message obtain = Message.obtain();
+                obtain.what = 2001;
+                obtain.obj = obj;
+                obtain.arg1 = i;
+                this.l.g(2001);
+                this.l.sendMessage(obtain);
+                TLog.g(this, "CodecFilter sendEmptyMessage(CODEC_FILTER_CREATE_DECODER)");
+            }
+            super.d(str, obj, i, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.dwb, com.baidu.tieba.bwb
+    public final void f(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mediaSample) == null) {
+            if (this.z.get()) {
+                TLog.c(this, "CodecFilter codec is stop");
+                uub.f().e(mediaSample);
+            } else if (mediaSample.f) {
+                uub.f().e(mediaSample);
+                TLog.c(this, "CodecFilter.processMediaSample bForVideoCodecConfigfOnly is true!!");
             } else {
-                a.set(true);
-                b.set(true);
-                j(true);
-                TLog.h("[AudioFocusListener]", "reqeustAudioFocus AUDIOFOCUS_REQUEST_GRANTED.,mIsFocusGain:" + a.get());
+                this.t++;
+                mediaSample.s = this.o;
+                nvb.c(mediaSample, 4);
+                this.f.add(mediaSample);
+                cwb cwbVar = this.e;
+                if (cwbVar != null && this.i && cwbVar.g() == 6) {
+                    this.l.f(2102);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jwb, com.baidu.tieba.rub.a
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
+            switch (message.what) {
+                case 2001:
+                    z((MediaFormat) message.obj, message.arg1);
+                    return;
+                case 2002:
+                    B();
+                    return;
+                case 2003:
+                    C();
+                    return;
+                default:
+                    super.handleMessage(message);
+                    return;
             }
         }
     }

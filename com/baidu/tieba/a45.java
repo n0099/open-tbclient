@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes5.dex */
-public class a45 extends yca {
+public class a45 extends qba {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId p1;
+    public static final BdUniqueId h1;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f1;
     public String g1;
-    public String h1;
-    public String i1;
-    public String j1;
-    public String k1;
-    public String l1;
-    public List<String> m1;
-    public String n1;
-    public String o1;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +34,7 @@ public class a45 extends yca {
                 return;
             }
         }
-        p1 = BdUniqueId.gen();
+        h1 = BdUniqueId.gen();
     }
 
     public a45() {
@@ -57,42 +51,54 @@ public class a45 extends yca {
         }
     }
 
-    @Override // com.baidu.tieba.yca, com.baidu.tieba.yn
+    public String A1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g1;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qba, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return p1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h1;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean z1() {
+    public String z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.j1)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f1;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void A1(RecommendBook recommendBook) {
+    public void B1(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, recommendBook) != null) || recommendBook == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.g1 = recommendBook.recommend_text;
-        this.h1 = recommendBook.suggest_text;
-        this.i1 = recommendBook.suggest_url;
-        this.j1 = recommendBook.book_id;
-        recommendBook.book_type.intValue();
-        this.k1 = recommendBook.book_cover;
-        this.l1 = recommendBook.book_title;
-        this.m1 = recommendBook.book_tips;
-        this.n1 = recommendBook.botton_text;
-        this.o1 = recommendBook.subscript_icon;
+        try {
+            this.f1 = jSONObject.optString("news_link");
+            this.g1 = jSONObject.optString("summary");
+            jSONObject.optInt(CriusAttrConstants.POSITION, 0);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void C1(TopNews topNews) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topNews) != null) || topNews == null) {
+            return;
+        }
+        this.f1 = topNews.news_link;
+        this.g1 = topNews.summary;
     }
 }

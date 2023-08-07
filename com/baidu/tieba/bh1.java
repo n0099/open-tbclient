@@ -1,76 +1,222 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public final class bh1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeight = 0;
-    public static final int MaxHeightScrollView_maxHeightRatio = 1;
-    public static final int MaxHeightScrollView_minHeightRatio = 2;
-    public static final int[] PolyVerificationCodeView;
-    public static final int PolyVerificationCodeView_vcv_et_bg = 0;
-    public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
-    public static final int PolyVerificationCodeView_vcv_et_cursor_visible = 2;
-    public static final int PolyVerificationCodeView_vcv_et_number = 3;
-    public static final int PolyVerificationCodeView_vcv_et_spacing = 4;
-    public static final int PolyVerificationCodeView_vcv_et_text_color = 5;
-    public static final int PolyVerificationCodeView_vcv_et_text_size = 6;
-    public static final int PolyVerificationCodeView_vcv_et_width = 7;
-    public static final int[] PopupWindow;
-    public static final int PopupWindow_android_popupAnimationStyle = 1;
-    public static final int PopupWindow_android_popupBackground = 0;
-    public static final int PopupWindow_overlapAnchor = 2;
-    public static final int PopupWindow_popupAnimationStyle = 3;
-    public static final int PopupWindow_popupBackground = 4;
-    public static final int[] ProgressButton;
-    public static final int ProgressButton_textColor = 0;
-    public static final int[] SwitchButton;
-    public static final int SwitchButton_kswAnimationDuration = 0;
-    public static final int SwitchButton_kswBackColor = 1;
-    public static final int SwitchButton_kswBackDrawable = 2;
-    public static final int SwitchButton_kswBackRadius = 3;
-    public static final int SwitchButton_kswFadeBack = 4;
-    public static final int SwitchButton_kswTextAdjust = 5;
-    public static final int SwitchButton_kswTextExtra = 6;
-    public static final int SwitchButton_kswTextOff = 7;
-    public static final int SwitchButton_kswTextOn = 8;
-    public static final int SwitchButton_kswTextThumbInset = 9;
-    public static final int SwitchButton_kswThumbColor = 10;
-    public static final int SwitchButton_kswThumbDrawable = 11;
-    public static final int SwitchButton_kswThumbHeight = 12;
-    public static final int SwitchButton_kswThumbMargin = 13;
-    public static final int SwitchButton_kswThumbMarginBottom = 14;
-    public static final int SwitchButton_kswThumbMarginLeft = 15;
-    public static final int SwitchButton_kswThumbMarginRight = 16;
-    public static final int SwitchButton_kswThumbMarginTop = 17;
-    public static final int SwitchButton_kswThumbRadius = 18;
-    public static final int SwitchButton_kswThumbRangeRatio = 19;
-    public static final int SwitchButton_kswThumbWidth = 20;
-    public static final int SwitchButton_kswTintColor = 21;
+public class bh1 implements Closeable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final InputStream a;
+    public final Charset b;
+    public byte[] c;
+    public int d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947644862, "Lcom/baidu/tieba/bh1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends ByteArrayOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bh1 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(bh1 bh1Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bh1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947644862, "Lcom/baidu/tieba/bh1;");
+            this.a = bh1Var;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:7:0x0010, code lost:
+            if (((java.io.ByteArrayOutputStream) r5).buf[r0] == 13) goto L7;
+         */
+        @Override // java.io.ByteArrayOutputStream
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public String toString() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i2 = ((ByteArrayOutputStream) this).count;
+                if (i2 > 0) {
+                    i = i2 - 1;
+                }
+                i = ((ByteArrayOutputStream) this).count;
+                try {
+                    return new String(((ByteArrayOutputStream) this).buf, 0, i, this.a.b.name());
+                } catch (UnsupportedEncodingException e) {
+                    throw new AssertionError(e);
+                }
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public bh1(InputStream inputStream, int i, Charset charset) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), charset};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404eb, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f0404fc};
-        PolyVerificationCodeView = new int[]{R.attr.obfuscated_res_0x7f0407df, R.attr.obfuscated_res_0x7f0407e0, R.attr.obfuscated_res_0x7f0407e1, R.attr.obfuscated_res_0x7f0407e2, R.attr.obfuscated_res_0x7f0407e3, R.attr.obfuscated_res_0x7f0407e4, R.attr.obfuscated_res_0x7f0407e5, R.attr.obfuscated_res_0x7f0407e6};
-        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040545, R.attr.obfuscated_res_0x7f040597, R.attr.obfuscated_res_0x7f040598};
-        ProgressButton = new int[]{R.attr.obfuscated_res_0x7f040758};
-        SwitchButton = new int[]{R.attr.obfuscated_res_0x7f040407, R.attr.obfuscated_res_0x7f040408, R.attr.obfuscated_res_0x7f040409, R.attr.obfuscated_res_0x7f04040a, R.attr.obfuscated_res_0x7f04040b, R.attr.obfuscated_res_0x7f04040c, R.attr.obfuscated_res_0x7f04040d, R.attr.obfuscated_res_0x7f04040e, R.attr.obfuscated_res_0x7f04040f, R.attr.obfuscated_res_0x7f040410, R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f040412, R.attr.obfuscated_res_0x7f040413, R.attr.obfuscated_res_0x7f040414, R.attr.obfuscated_res_0x7f040415, R.attr.obfuscated_res_0x7f040416, R.attr.obfuscated_res_0x7f040417, R.attr.obfuscated_res_0x7f040418, R.attr.obfuscated_res_0x7f040419, R.attr.obfuscated_res_0x7f04041a, R.attr.obfuscated_res_0x7f04041b, R.attr.obfuscated_res_0x7f04041c};
+        if (inputStream != null && charset != null) {
+            if (i >= 0) {
+                if (charset.equals(ch1.a)) {
+                    this.a = inputStream;
+                    this.b = charset;
+                    this.c = new byte[i];
+                    return;
+                }
+                throw new IllegalArgumentException("Unsupported encoding");
+            }
+            throw new IllegalArgumentException("capacity <= 0");
+        }
+        throw null;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public bh1(InputStream inputStream, Charset charset) {
+        this(inputStream, 8192, charset);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, charset};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (Charset) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            InputStream inputStream = this.a;
+            byte[] bArr = this.c;
+            int read = inputStream.read(bArr, 0, bArr.length);
+            if (read != -1) {
+                this.d = 0;
+                this.e = read;
+                return;
+            }
+            throw new EOFException();
+        }
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                if (this.c != null) {
+                    this.c = null;
+                    this.a.close();
+                }
+            }
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.c != null) {
+                    if (this.d >= this.e) {
+                        c();
+                    }
+                    for (int i3 = this.d; i3 != this.e; i3++) {
+                        if (this.c[i3] == 10) {
+                            if (i3 != this.d) {
+                                i2 = i3 - 1;
+                                if (this.c[i2] == 13) {
+                                    String str = new String(this.c, this.d, i2 - this.d, this.b.name());
+                                    this.d = i3 + 1;
+                                    return str;
+                                }
+                            }
+                            i2 = i3;
+                            String str2 = new String(this.c, this.d, i2 - this.d, this.b.name());
+                            this.d = i3 + 1;
+                            return str2;
+                        }
+                    }
+                    a aVar = new a(this, (this.e - this.d) + 80);
+                    loop1: while (true) {
+                        aVar.write(this.c, this.d, this.e - this.d);
+                        this.e = -1;
+                        c();
+                        i = this.d;
+                        while (i != this.e) {
+                            if (this.c[i] == 10) {
+                                break loop1;
+                            }
+                            i++;
+                        }
+                    }
+                    if (i != this.d) {
+                        aVar.write(this.c, this.d, i - this.d);
+                    }
+                    this.d = i + 1;
+                    return aVar.toString();
+                }
+                throw new IOException("LineReader is closed");
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

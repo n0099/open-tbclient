@@ -1,27 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes5.dex */
-public interface c8b extends Runnable {
+public interface c8b {
+    void onCancel();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void b(DownloadException downloadException);
+    void onExceptionThrown(String str);
 
-        void onConnectCanceled();
+    void onProgressChanged(int i, double d, long j);
 
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
-    }
-
-    void cancel();
-
-    boolean isCanceled();
-
-    boolean isPaused();
-
-    void pause();
+    void onTrackEnd(int i);
 }

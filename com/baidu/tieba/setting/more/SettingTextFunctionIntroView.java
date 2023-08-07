@@ -2,9 +2,9 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, yi.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,6 +75,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, yi.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 }

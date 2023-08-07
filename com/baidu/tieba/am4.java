@@ -1,113 +1,203 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class am4 implements tl4 {
+public class am4 extends em4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hl4> a;
-    public nj4 b;
-    public List<tk4> c;
-    public List<tk4> d;
-    public List<tk4> e;
+    public String d;
+    public long e;
+    public String f;
+    public long g;
+    public String h;
+    public String i;
+    public long j;
+    public long k;
+    public long l;
 
-    @Override // com.baidu.tieba.tl4
-    public <T> void a(xl4<T> xl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xl4Var) == null) {
-        }
-    }
-
-    public am4(nj4 nj4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public am4(String str, int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nj4Var};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.b = nj4Var;
-        this.a = new ArrayList();
-        vl4.b().e(this);
+        this.e = -1L;
+        this.g = -1L;
+        this.j = -1L;
+        this.k = 0L;
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.tl4
-    public <T> void b(xl4<T> xl4Var) {
+    public long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl4Var) != null) || xl4Var.k()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        Iterator<hl4> it = this.a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            hl4 next = it.next();
-            if (next.b(xl4Var)) {
-                int i = xl4Var.i();
-                this.a.remove(next);
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 10) {
-                            this.c.add(next.a().a.b);
-                        }
-                    } else {
-                        this.d.add(next.a().a.b);
-                    }
-                } else {
-                    this.e.add(next.a().a.b);
-                }
-            }
-        }
-        d();
+        return invokeV.longValue;
     }
 
-    public void c(hl4 hl4Var) {
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hl4Var) == null) && hl4Var != null) {
-            this.a.add(hl4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final boolean d() {
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.l;
+        }
+        return invokeV.longValue;
+    }
+
+    public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.isEmpty()) {
-                this.b.b();
-                vl4.b().g(this);
-                return true;
-            }
-            return false;
+            return this.j;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public void e() {
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
         }
-        for (hl4 hl4Var : this.a) {
-            hl4Var.c(false);
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.k;
+        }
+        return invokeV.longValue;
+    }
+
+    public am4 o(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            this.g = j;
+            return this;
+        }
+        return (am4) invokeJ.objValue;
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.l = j;
+        }
+    }
+
+    public am4 q(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            this.j = j;
+            return this;
+        }
+        return (am4) invokeJ.objValue;
+    }
+
+    public am4 r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            this.h = str;
+            return this;
+        }
+        return (am4) invokeL.objValue;
+    }
+
+    public am4 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.f = str;
+            return this;
+        }
+        return (am4) invokeL.objValue;
+    }
+
+    public am4 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            this.i = str;
+            return this;
+        }
+        return (am4) invokeL.objValue;
+    }
+
+    public am4 u(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
+            this.e = j;
+            return this;
+        }
+        return (am4) invokeJ.objValue;
+    }
+
+    public void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.k = j;
         }
     }
 }

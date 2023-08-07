@@ -1,31 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Request;
 /* loaded from: classes6.dex */
-public abstract class g6c {
+public abstract class g6c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public void a(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-        }
-    }
+    public abstract void a(Request request, boolean z, Exception exc);
 
-    public String c(Object obj) throws InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
+    public abstract void b(T t);
 
     public g6c() {
         Interceptable interceptable = $ic;
@@ -39,22 +26,5 @@ public abstract class g6c {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public final String b(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            try {
-                return c(obj);
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
-                return obj.getClass().getName() + ".errorRendering";
-            } catch (Throwable th) {
-                g2c.e(th);
-                return obj.getClass().getName() + ".errorRendering";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

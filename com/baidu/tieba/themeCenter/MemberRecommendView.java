@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.rd9;
-import com.baidu.tieba.zja;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.qia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public zja f;
+    public qia f;
     public int g;
 
     /* loaded from: classes8.dex */
@@ -113,10 +113,10 @@ public class MemberRecommendView extends FrameLayout {
                         i = 0;
                         break;
                 }
-                if (this.a.f == null || (tbPageContext = (TbPageContext) r9.a(this.a.a)) == null) {
+                if (this.a.f == null || (tbPageContext = (TbPageContext) l9.a(this.a.a)) == null) {
                     return;
                 }
-                rd9.d(tbPageContext, i, str3, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
+                PayPanelUtils.launchPayPanel(tbPageContext, i, str3, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
             }
         }
     }
@@ -222,13 +222,13 @@ public class MemberRecommendView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void e(zja zjaVar) {
+    public void e(qia qiaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zjaVar) != null) || zjaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qiaVar) != null) || qiaVar == null) {
             return;
         }
-        this.f = zjaVar;
-        this.c.N(zjaVar.b(), 10, false);
+        this.f = qiaVar;
+        this.c.startLoad(qiaVar.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -241,15 +241,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05fe, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0603, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09295a);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092974);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.c.setAutoChangeStyle(true);
             this.d = (TextView) this.b.findViewById(R.id.title_view);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091227);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09123a);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

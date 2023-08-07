@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,23 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 /* loaded from: classes8.dex */
-public final class yz2 {
+public class yz2 extends a03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Uri a;
-    public final Bitmap b;
-    public final Integer c;
-    public boolean d;
-    public int e;
-    public int f;
-    public Rect g;
-    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -44,247 +31,50 @@ public final class yz2 {
                 return;
             }
         }
-        i = fs1.a;
+        boolean z = ir1.a;
     }
 
-    public final Bitmap c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public final Integer d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final Uri i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public yz2 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            l(false);
-            return this;
-        }
-        return (yz2) invokeV.objValue;
-    }
-
-    public yz2 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            l(true);
-            return this;
-        }
-        return (yz2) invokeV.objValue;
-    }
-
-    public yz2(int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yz2(@NonNull String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = null;
-        this.c = Integer.valueOf(i2);
-        this.d = true;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static yz2 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a03
+    public boolean a(qz2 qz2Var, sz2 sz2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    v82.k("ImageSource", "asset name is null");
-                    return null;
-                }
-                throw new NullPointerException("Asset name must not be null");
-            }
-            return o("file:///android_asset/" + str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{qz2Var, sz2Var, context, unitedSchemeEntity, callbackHandler, ya3Var})) == null) {
+            y72.i("video", "playBackRate, video id:" + sz2Var.j + " slave id: " + sz2Var.c);
+            d(qz2Var, sz2Var.W, unitedSchemeEntity, callbackHandler);
+            return false;
         }
-        return (yz2) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static yz2 b(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public final void d(qz2 qz2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap == null) {
-                if (!i) {
-                    v82.k("ImageSource", "bitmap is null");
-                    return null;
-                }
-                throw new NullPointerException("Bitmap must not be null");
-            }
-            return new yz2(bitmap, true);
-        }
-        return (yz2) invokeL.objValue;
-    }
-
-    public yz2(Bitmap bitmap, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qz2Var, str, unitedSchemeEntity, callbackHandler) == null) {
+            int q = qz2Var.q(str);
+            if (q != 0 && q != 202) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(q));
             }
         }
-        this.b = bitmap;
-        this.a = null;
-        this.c = null;
-        this.d = false;
-        this.e = bitmap.getWidth();
-        this.f = bitmap.getHeight();
-        this.h = z;
-    }
-
-    public yz2(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        String uri2 = uri.toString();
-        if (uri2.startsWith(ImageSource.FILE_SCHEME) && !new File(uri2.substring(7)).exists()) {
-            try {
-                uri = Uri.parse(URLDecoder.decode(uri2, "UTF-8"));
-            } catch (UnsupportedEncodingException unused) {
-            }
-        }
-        this.b = null;
-        this.a = uri;
-        this.c = null;
-        this.d = true;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static yz2 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    v82.k("ImageSource", "uri is null");
-                    return null;
-                }
-                throw new NullPointerException("Uri must not be null");
-            }
-            if (!str.contains("://")) {
-                if (str.startsWith("/")) {
-                    str = str.substring(1);
-                }
-                str = ImageSource.FILE_SCHEME + str;
-            }
-            return new yz2(Uri.parse(str));
-        }
-        return (yz2) invokeL.objValue;
-    }
-
-    public static yz2 k(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
-            return new yz2(i2);
-        }
-        return (yz2) invokeI.objValue;
-    }
-
-    public yz2 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (yz2) invokeZ.objValue;
     }
 }

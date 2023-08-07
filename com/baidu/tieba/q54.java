@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,99 +15,89 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q54 extends bz2 {
+public class q54 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public EventTargetImpl d;
-    public n54 e;
 
-    @Override // com.baidu.tieba.bz2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements rp3<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042809, "Lcom/baidu/tieba/q54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(q54 q54Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948042809, "Lcom/baidu/tieba/q54;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        f = fs1.a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp3
+        /* renamed from: b */
+        public void a(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                Context appContext = AppRuntime.getAppContext();
+                if (bool.booleanValue()) {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0165, 1).show();
+                } else {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0164, 1).show();
+                }
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q54(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
-        super(null, jSONObject);
+    public q54(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/debugGameSconsole");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eventTargetImpl, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = eventTargetImpl;
     }
 
-    @Override // com.baidu.tieba.bz2
-    public void b(String str, JSONObject jSONObject) {
-        String str2;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            String optString = this.b.optString(str);
-            n54 n54Var = this.e;
-            if (n54Var != null) {
-                n54Var.p(optString, jSONObject);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (!vc3.b) {
+                return false;
             }
-            if (!this.d.hasEventListener(optString)) {
-                return;
+            JSONObject a2 = vc3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f015f, 1).show();
+                return false;
             }
-            JSEvent jSEvent = new JSEvent(optString);
-            if (jSONObject != null) {
-                jSEvent.data = jSONObject;
+            String optString = a2.optString("downloadurl");
+            if (TextUtils.isEmpty(optString)) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0160, 1).show();
+                return false;
             }
-            if (f && !"onTimeUpdate".equals(str)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("type = ");
-                sb.append(str);
-                sb.append("  result = ");
-                if (jSONObject != null) {
-                    str2 = jSONObject.toString();
-                } else {
-                    str2 = StringUtil.NULL_STRING;
-                }
-                sb.append(str2);
-                Log.d("AudioCallbackForV8", sb.toString());
-            }
-            this.d.dispatchEvent(jSEvent);
+            p54.m().c(optString, new a(this));
+            return false;
         }
-    }
-
-    public void e(n54 n54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n54Var) == null) {
-            this.e = n54Var;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

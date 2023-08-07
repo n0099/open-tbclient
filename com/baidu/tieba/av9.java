@@ -1,174 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class av9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String E;
-    public String F;
-    public String G;
-    public String H;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public int x;
-    public int y;
-    public String z;
+    public PostSearchActivity a;
+    public View b;
+    public uu9 c;
+    public wu9 d;
+    public zu9 e;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 1567) {
-                    if (hashCode != 1568) {
-                        if (hashCode != 1570) {
-                            if (hashCode != 1576) {
-                                if (hashCode != 1599) {
-                                    switch (hashCode) {
-                                        case 49:
-                                            if (str.equals("1")) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                        case 50:
-                                            if (str.equals("2")) {
-                                                c = 2;
-                                                break;
-                                            }
-                                            break;
-                                        case 51:
-                                            if (str.equals("3")) {
-                                                c = 4;
-                                                break;
-                                            }
-                                            break;
-                                        case 52:
-                                            if (str.equals("4")) {
-                                                c = 3;
-                                                break;
-                                            }
-                                            break;
-                                        default:
-                                            switch (hashCode) {
-                                                case 54:
-                                                    if (str.equals("6")) {
-                                                        c = 7;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 55:
-                                                    if (str.equals("7")) {
-                                                        c = 1;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 56:
-                                                    if (str.equals("8")) {
-                                                        c = '\b';
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 57:
-                                                    if (str.equals("9")) {
-                                                        c = '\t';
-                                                        break;
-                                                    }
-                                                    break;
-                                            }
-                                    }
-                                } else if (str.equals("21")) {
-                                    c = '\f';
-                                }
-                            } else if (str.equals("19")) {
-                                c = '\n';
-                            }
-                        } else if (str.equals("13")) {
-                            c = 11;
-                        }
-                    } else if (str.equals("11")) {
-                        c = 6;
-                    }
-                } else if (str.equals("10")) {
-                    c = 5;
-                }
-                switch (c) {
-                    case 0:
-                    case 1:
-                        return "a002";
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        return "a006";
-                    case 7:
-                        return "a005";
-                    case '\b':
-                    case '\t':
-                    case '\n':
-                        return "a020";
-                    case 11:
-                        return "a023";
-                    case '\f':
-                        return "a088";
-                    default:
-                        return "";
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public av9() {
+    public av9(PostSearchActivity postSearchActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postSearchActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -178,174 +36,131 @@ public class av9 {
                 return;
             }
         }
-        this.z = "index";
+        this.a = postSearchActivity;
     }
 
-    public StatisticItem a(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
-            if (statisticItem != null) {
-                if (!StringUtils.isNull(this.a)) {
-                    statisticItem.param("obj_locate", this.a);
-                    statisticItem.param("page_type", a.a(this.a));
-                    if (this.a.equals("21")) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                }
-                if (!StringUtils.isNull(this.c)) {
-                    statisticItem.param("tid", this.c);
-                }
-                if (!StringUtils.isNull(this.d)) {
-                    statisticItem.param("fid", this.d);
-                }
-                if (!StringUtils.isNull(this.e)) {
-                    statisticItem.param("uid", this.e);
-                }
-                if (!StringUtils.isNull(this.f)) {
-                    statisticItem.param("obj_source", this.f);
-                } else {
-                    statisticItem.param("obj_source", 0);
-                }
-                if (!StringUtils.isNull(this.g)) {
-                    statisticItem.param("obj_param1", this.g);
-                } else {
-                    statisticItem.param("obj_param1", 0);
-                }
-                if (!StringUtils.isNull(this.h)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
-                }
-                if (!StringUtils.isNull(this.i)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
-                }
-                int i = this.j;
-                if (i > 0) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
-                }
-                if (!StringUtils.isNull(this.k)) {
-                    statisticItem.param("obj_id", this.k);
-                }
-                if (!StringUtils.isNull(this.l)) {
-                    statisticItem.param("ab_tag", this.l);
-                } else {
-                    statisticItem.param("ab_tag", 0);
-                }
-                if (!StringUtils.isNull(this.n)) {
-                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
-                }
-                if (!StringUtils.isNull(this.o)) {
-                    statisticItem.param("extra", this.o);
-                } else {
-                    statisticItem.param("extra", 0);
-                }
-                if (!StringUtils.isNull(this.p)) {
-                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
-                }
-                if (!StringUtils.isNull(this.q)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
-                }
-                if (!StringUtils.isNull(this.r)) {
-                    statisticItem.param("resource_id", this.r);
-                }
-                if (!StringUtils.isNull(this.s)) {
-                    statisticItem.param("group_id", this.s);
-                }
-                int i2 = this.x;
-                if (i2 > 0) {
-                    statisticItem.param("request_num", i2);
-                }
-                int i3 = this.y;
-                if (i3 > 0) {
-                    statisticItem.param("video_num", i3);
-                }
-                if (!StringUtils.isNull(this.A)) {
-                    statisticItem.addParam("obj_type", this.A);
-                }
-                if (!StringUtils.isNull(this.B)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_TO, this.B);
-                }
-                if (!StringUtils.isNull(this.C)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYSID, this.C);
-                }
-                if (!StringUtils.isNull(this.D)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYSSID, this.D);
-                }
-                if (!StringUtils.isNull(this.E)) {
-                    statisticItem.param("yyuid", this.E);
-                }
-                if (!StringUtils.isNull(this.F)) {
-                    statisticItem.param(TiebaStatic.YYParams.YYLIVEID, this.F);
-                }
-                if (!StringUtils.isNull(this.G)) {
-                    statisticItem.param("template_id", this.G);
-                }
-                if (!StringUtils.isNull(this.H)) {
-                    statisticItem.param("hdid", this.H);
-                }
-                String str4 = "";
-                if (StringUtils.isNull(this.w)) {
-                    str = "";
-                } else {
-                    str = this.w;
-                }
-                statisticItem.param("obj_extra", str);
-                if (StringUtils.isNull(this.t)) {
-                    str2 = "";
-                } else {
-                    str2 = this.t;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, str2);
-                if (StringUtils.isNull(this.u)) {
-                    str3 = "";
-                } else {
-                    str3 = this.u;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, str3);
-                if (!StringUtils.isNull(this.v)) {
-                    str4 = this.v;
-                }
-                statisticItem.param("nid", str4);
-            }
-            return statisticItem;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.j(i);
+            this.d.j(i);
+            this.e.g(i);
+            js5.a(this.a.getPageContext(), this.b);
         }
-        return (StatisticItem) invokeL.objValue;
     }
 
-    public av9 b() {
+    public void i(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.e.j(false);
+            this.d.k(arrayList);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c.l(str);
+        }
+    }
+
+    public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
+        zu9 zu9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, onPageChangeListener) == null) && (zu9Var = this.e) != null) {
+            zu9Var.i(onPageChangeListener);
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.g();
+            d();
+            this.c.f();
+            this.e.j(true);
+            this.e.k(i);
+        }
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            av9 av9Var = new av9();
-            av9Var.a = this.a;
-            av9Var.b = this.b;
-            av9Var.c = this.c;
-            av9Var.d = this.d;
-            av9Var.e = this.e;
-            av9Var.f = this.f;
-            av9Var.g = this.g;
-            av9Var.h = this.h;
-            av9Var.i = this.i;
-            av9Var.k = this.k;
-            av9Var.l = this.l;
-            av9Var.m = this.m;
-            av9Var.n = this.n;
-            av9Var.q = this.q;
-            av9Var.r = this.r;
-            av9Var.s = this.s;
-            av9Var.t = this.t;
-            av9Var.u = this.u;
-            av9Var.v = this.v;
-            av9Var.x = this.x;
-            av9Var.y = this.y;
-            av9Var.H = this.H;
-            return av9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.d();
         }
-        return (av9) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.e();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.f();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.h();
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        uu9 uu9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (uu9Var = this.c) != null) {
+            uu9Var.k();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.d.m();
+            this.d.g();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.p();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d080f);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09210f);
+            this.b = findViewById;
+            this.c = new uu9(this.a, findViewById);
+            this.d = new wu9(this.a, this.b);
+            this.e = new zu9(this.a, this.b);
+        }
+    }
+
+    public void j(int i, vu9 vu9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), vu9Var, Boolean.valueOf(z)}) == null) {
+            this.e.h(i, vu9Var, z);
+        }
     }
 }

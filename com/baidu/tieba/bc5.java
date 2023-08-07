@@ -1,231 +1,188 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
-import com.baidu.tieba.bc5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.xca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class bc5<T extends bc5> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int h = 1;
+public class bc5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public boolean b;
-    public Editable c;
-    public int d;
-    public int e;
-    public int f;
-    public a g;
+    public int a;
+    public String b;
+    public xca.c c;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void e(int i, boolean z);
+    public static class a extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(boolean z, String str) {
+            super(z);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = str;
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947640181, "Lcom/baidu/tieba/bc5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947640181, "Lcom/baidu/tieba/bc5;");
+    /* loaded from: classes5.dex */
+    public static class b extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(boolean z, String str) {
+            super(z);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = str;
         }
     }
 
-    public abstract void r(Editable editable);
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
 
-    public abstract void s(Editable editable, int i);
+        public c(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+    }
 
-    public bc5() {
+    public bc5(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int i3 = h;
-        h = i3 + 1;
-        this.a = i3;
+        this.a = i;
+        this.b = str;
     }
 
-    public int c() {
+    public static bc5 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new bc5(0, str);
+        }
+        return (bc5) invokeL.objValue;
+    }
+
+    public void g(xca.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    public static bc5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new bc5(2, null);
         }
-        return invokeV.intValue;
+        return (bc5) invokeV.objValue;
     }
 
-    public int d() {
+    public static bc5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new bc5(3, null);
+        }
+        return (bc5) invokeV.objValue;
+    }
+
+    public static bc5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new bc5(1, null);
+        }
+        return (bc5) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public xca.c f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (xca.c) invokeV.objValue;
+    }
+
+    public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public Editable g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (Editable) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Editable editable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (editable = this.c) == null) {
-            return;
-        }
-        for (SpanGroupForegroundColorSpan spanGroupForegroundColorSpan : (SpanGroupForegroundColorSpan[]) editable.getSpans(this.d, this.e, SpanGroupForegroundColorSpan.class)) {
-            this.c.removeSpan(spanGroupForegroundColorSpan);
-        }
-    }
-
-    public void j() {
-        Editable editable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (editable = this.c) == null) {
-            return;
-        }
-        for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : (EMRichTextAnyIconSpan[]) editable.getSpans(this.d, this.e, EMRichTextAnyIconSpan.class)) {
-            this.c.removeSpan(eMRichTextAnyIconSpan);
-        }
-    }
-
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            this.c = editable;
-            this.d = i;
-            this.e = i2;
-            this.f = i3;
-        }
-    }
-
-    public void n(Object obj, int i, int i2, int i3) {
-        Editable editable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIII(1048589, this, obj, i, i2, i3) != null) || (editable = this.c) == null) {
-            return;
-        }
-        editable.setSpan(obj, i, i2, i3);
-    }
-
-    public void b(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b = t.h();
-            this.c = t.g();
-            this.d = t.f();
-            this.e = t.c();
-            this.f = t.d();
-        }
-    }
-
-    public void k(@NonNull CharSequence charSequence) {
-        Editable editable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) && (editable = this.c) != null && charSequence != null) {
-            try {
-                editable.replace(this.d, this.e, charSequence);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            this.e = this.d + charSequence.length();
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void m(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.g = aVar;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void p(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, editable) == null) {
-            this.c = editable;
-        }
-    }
-
-    public void q(boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            boolean z2 = this.b;
-            this.b = z;
-            if (z2 != z && (aVar = this.g) != null) {
-                aVar.e(this.a, z);
-            }
-        }
     }
 }

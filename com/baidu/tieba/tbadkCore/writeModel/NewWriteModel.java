@@ -4,10 +4,12 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
@@ -20,6 +22,8 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.data.PublishProgressData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -31,35 +35,30 @@ import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.afa;
-import com.baidu.tieba.b15;
-import com.baidu.tieba.b99;
-import com.baidu.tieba.bfa;
-import com.baidu.tieba.cda;
-import com.baidu.tieba.cfa;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.dda;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.f99;
-import com.baidu.tieba.fn5;
-import com.baidu.tieba.jg9;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.mg9;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.p55;
+import com.baidu.tieba.aka;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.cf9;
+import com.baidu.tieba.d79;
+import com.baidu.tieba.ff9;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.nda;
+import com.baidu.tieba.oda;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.rl5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tea;
-import com.baidu.tieba.uea;
-import com.baidu.tieba.ve5;
-import com.baidu.tieba.vea;
-import com.baidu.tieba.vka;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yd9;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.tda;
+import com.baidu.tieba.ub9;
+import com.baidu.tieba.uba;
+import com.baidu.tieba.uda;
+import com.baidu.tieba.vba;
+import com.baidu.tieba.xca;
+import com.baidu.tieba.z69;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,15 +79,15 @@ public class NewWriteModel extends BdBaseModel {
     public WriteData b;
     public d c;
     public boolean d;
-    public l9<?> e;
+    public BdPageContext<?> e;
     public boolean f;
     public boolean g;
-    public dda h;
-    public dea.c i;
+    public vba h;
+    public xca.c i;
 
     /* loaded from: classes8.dex */
     public interface d {
-        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ve5 ve5Var, WriteData writeData, AntiData antiData);
+        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, jd5 jd5Var, WriteData writeData, AntiData antiData);
     }
 
     static {
@@ -110,44 +109,44 @@ public class NewWriteModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* loaded from: classes8.dex */
-    public class e extends BdAsyncTask<Integer, Integer, cfa> {
+    public class e extends BdAsyncTask<Integer, Integer, uda> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public cda a;
+        public uba a;
         public String b;
         public JSONObject c;
         public boolean d;
-        public f99 e;
-        public b99 f;
+        public d79 e;
+        public z69 f;
         public final /* synthetic */ NewWriteModel g;
 
         /* loaded from: classes8.dex */
-        public class a implements dda.e {
+        public class a implements vba.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
             /* renamed from: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0486a implements Runnable {
+            public class RunnableC0482a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ cfa a;
+                public final /* synthetic */ uda a;
                 public final /* synthetic */ a b;
 
-                public RunnableC0486a(a aVar, cfa cfaVar) {
+                public RunnableC0482a(a aVar, uda udaVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar, cfaVar};
+                        Object[] objArr = {aVar, udaVar};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -158,7 +157,7 @@ public class NewWriteModel extends BdBaseModel {
                         }
                     }
                     this.b = aVar;
-                    this.a = cfaVar;
+                    this.a = udaVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -188,17 +187,17 @@ public class NewWriteModel extends BdBaseModel {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.dda.e
-            public void a(cfa cfaVar) {
+            @Override // com.baidu.tieba.vba.e
+            public void a(uda udaVar) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cfaVar) == null) {
-                    dh.g(new RunnableC0486a(this, cfaVar));
+                if (interceptable == null || interceptable.invokeL(1048576, this, udaVar) == null) {
+                    lg.g(new RunnableC0482a(this, udaVar));
                 }
             }
         }
 
         /* loaded from: classes8.dex */
-        public class b implements dda.e {
+        public class b implements vba.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -207,15 +206,15 @@ public class NewWriteModel extends BdBaseModel {
             public class a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ cfa a;
+                public final /* synthetic */ uda a;
                 public final /* synthetic */ b b;
 
-                public a(b bVar, cfa cfaVar) {
+                public a(b bVar, uda udaVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar, cfaVar};
+                        Object[] objArr = {bVar, udaVar};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -226,7 +225,7 @@ public class NewWriteModel extends BdBaseModel {
                         }
                     }
                     this.b = bVar;
-                    this.a = cfaVar;
+                    this.a = udaVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -256,11 +255,11 @@ public class NewWriteModel extends BdBaseModel {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.dda.e
-            public void a(cfa cfaVar) {
+            @Override // com.baidu.tieba.vba.e
+            public void a(uda udaVar) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cfaVar) == null) {
-                    dh.g(new a(this, cfaVar));
+                if (interceptable == null || interceptable.invokeL(1048576, this, udaVar) == null) {
+                    lg.g(new a(this, udaVar));
                 }
             }
         }
@@ -293,9 +292,9 @@ public class NewWriteModel extends BdBaseModel {
 
             @Override // java.lang.Runnable
             public void run() {
-                mg9 a;
+                ff9 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (a = jg9.a((TbPageContext) this.b.g.e, this.a)) != null) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (a = cf9.a((TbPageContext) this.b.g.e, this.a)) != null) {
                     a.show();
                 }
             }
@@ -321,35 +320,35 @@ public class NewWriteModel extends BdBaseModel {
             this.b = null;
             this.c = null;
             this.d = false;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, f99.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, d79.class);
             if (runTask != null) {
-                this.e = (f99) runTask.getData();
+                this.e = (d79) runTask.getData();
             }
-            f99 f99Var = this.e;
-            if (f99Var != null) {
-                this.f = f99Var.get();
+            d79 d79Var = this.e;
+            if (d79Var != null) {
+                this.f = d79Var.get();
             }
             setPriority(3);
-            vea.a("发帖：任务创建：PostThreadTask");
+            pda.a("发帖：任务创建：PostThreadTask");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public cfa doInBackground(Integer... numArr) {
+        public uda doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
-                b15.b("write", DownloadStatisticConstants.UBC_VALUE_TASK);
+                c05.b("write", DownloadStatisticConstants.UBC_VALUE_TASK);
                 if (this.d) {
                     return null;
                 }
-                fn5.e(this.g.b.getContent());
-                vea.a("doInBackground() start");
-                vea.a("发帖：任务后台执行 开始 doInBackground");
-                cda cdaVar = new cda();
-                this.a = cdaVar;
-                cdaVar.l(this.f);
+                rl5.e(this.g.b.getContent());
+                pda.a("doInBackground() start");
+                pda.a("发帖：任务后台执行 开始 doInBackground");
+                uba ubaVar = new uba();
+                this.a = ubaVar;
+                ubaVar.l(this.f);
                 if (this.a.n(this.g.b)) {
                     this.b = this.a.b(this.g.h, this.g.b, this.g.d, new a(this));
                     return null;
@@ -358,7 +357,7 @@ public class NewWriteModel extends BdBaseModel {
                     return null;
                 } else {
                     this.b = this.a.j(this.g.b, this.g.d);
-                    b15.b("write", "jsonRES");
+                    c05.b("write", "jsonRES");
                     try {
                         if (this.b != null) {
                             this.c = new JSONObject(this.b);
@@ -366,68 +365,68 @@ public class NewWriteModel extends BdBaseModel {
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }
-                    cfa cfaVar = new cfa();
+                    uda udaVar = new uda();
                     if (this.a.i()) {
-                        cfaVar.i(false);
+                        udaVar.i(false);
                         ErrorData errorData = new ErrorData();
                         errorData.parserJson(this.c);
-                        cfaVar.f(errorData.getError_code());
-                        cfaVar.h(errorData.getError_msg());
-                        cfaVar.g(errorData.getError_data());
+                        udaVar.f(errorData.getError_code());
+                        udaVar.h(errorData.getError_msg());
+                        udaVar.g(errorData.getError_data());
                     } else {
-                        cfaVar.i(true);
-                        cfaVar.f(this.a.f());
-                        cfaVar.h(this.a.h());
+                        udaVar.i(true);
+                        udaVar.f(this.a.f());
+                        udaVar.h(this.a.h());
                     }
-                    cfaVar.j(this.c);
-                    return cfaVar;
+                    udaVar.j(this.c);
+                    return udaVar;
                 }
             }
-            return (cfa) invokeL.objValue;
+            return (uda) invokeL.objValue;
         }
 
-        public final void c(afa afaVar) {
+        public final void c(tda tdaVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, afaVar) != null) || dea.a(afaVar.f(), AuthTokenData.parse(this.c), this.g.i)) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tdaVar) != null) || xca.a(tdaVar.f(), AuthTokenData.parse(this.c), this.g.i)) {
                 return;
             }
-            if (!afaVar.y()) {
-                if (!afaVar.B()) {
-                    if (!vka.d(afaVar.f())) {
-                        if (afaVar.z()) {
-                            ve5 ve5Var = new ve5();
-                            ve5Var.f(this.c);
-                            if (ve5Var.c() != null && this.g.b != null) {
-                                this.g.b.setVcodeMD5(ve5Var.b());
-                                this.g.b.setVcodeUrl(ve5Var.c());
+            if (!tdaVar.y()) {
+                if (!tdaVar.B()) {
+                    if (!aka.d(tdaVar.f())) {
+                        if (tdaVar.z()) {
+                            jd5 jd5Var = new jd5();
+                            jd5Var.f(this.c);
+                            if (jd5Var.c() != null && this.g.b != null) {
+                                this.g.b.setVcodeMD5(jd5Var.b());
+                                this.g.b.setVcodeUrl(jd5Var.c());
                                 NewWriteModel newWriteModel = this.g;
-                                newWriteModel.p0(afaVar, null, ve5Var, newWriteModel.b);
+                                newWriteModel.h0(tdaVar, null, jd5Var, newWriteModel.b);
                                 return;
                             }
                             return;
-                        } else if (afaVar.x()) {
+                        } else if (tdaVar.x()) {
                             AccessState accessState = new AccessState();
                             accessState.parserJson(this.c);
                             NewWriteModel newWriteModel2 = this.g;
-                            newWriteModel2.p0(afaVar, accessState, null, newWriteModel2.b);
+                            newWriteModel2.h0(tdaVar, accessState, null, newWriteModel2.b);
                             return;
-                        } else if (afaVar.A()) {
-                            this.g.o0(afaVar);
+                        } else if (tdaVar.A()) {
+                            this.g.g0(tdaVar);
                             return;
                         } else {
-                            this.g.o0(afaVar);
+                            this.g.g0(tdaVar);
                             return;
                         }
                     }
-                    this.g.m0(afaVar);
-                    this.g.o0(afaVar);
+                    this.g.e0(tdaVar);
+                    this.g.g0(tdaVar);
                     return;
                 }
-                this.g.n0(afaVar);
-                this.g.o0(afaVar);
+                this.g.f0(tdaVar);
+                this.g.g0(tdaVar);
                 return;
             }
-            this.g.o0(afaVar);
+            this.g.g0(tdaVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -435,9 +434,9 @@ public class NewWriteModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.d = true;
-                cda cdaVar = this.a;
-                if (cdaVar != null) {
-                    cdaVar.d();
+                uba ubaVar = this.a;
+                if (ubaVar != null) {
+                    ubaVar.d();
                 }
                 if (this.g.c != null) {
                     this.g.c.callback(false, null, null, this.g.b, null);
@@ -455,11 +454,11 @@ public class NewWriteModel extends BdBaseModel {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onPostExecute(cfa cfaVar) {
+        public void onPostExecute(uda udaVar) {
             int i;
             int i2;
             int i3;
-            afa afaVar;
+            tda tdaVar;
             JSONObject optJSONObject;
             JSONArray jSONArray;
             Object obj;
@@ -498,18 +497,18 @@ public class NewWriteModel extends BdBaseModel {
             IconStampData iconStampData2;
             IconStampData iconStampData3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, cfaVar) == null) {
-                super.onPostExecute(cfaVar);
-                if (cfaVar == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, udaVar) == null) {
+                super.onPostExecute(udaVar);
+                if (udaVar == null) {
                     return;
                 }
-                this.c = cfaVar.d();
-                this.a.k(this.g.b, cfaVar);
-                vea.a("发帖：任务后台执行 开始 doInBackground 结束");
+                this.c = udaVar.d();
+                this.a.k(this.g.b, udaVar);
+                pda.a("发帖：任务后台执行 开始 doInBackground 结束");
                 ErrorData g = this.a.g();
-                tea.c(this.g.b, g);
+                nda.c(this.g.b, g);
                 StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param(TiebaStatic.Params.OBJ_PARAM2, g.getError_code());
-                if (!cfaVar.e() && this.c != null) {
+                if (!udaVar.e() && this.c != null) {
                     i = 18;
                 } else {
                     i = 19;
@@ -527,20 +526,20 @@ public class NewWriteModel extends BdBaseModel {
                     i3 = 0;
                 }
                 TiebaStatic.log(param3.param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
-                if (!cfaVar.e() && this.c != null) {
-                    vea.a("发帖：任务后台执行 开始 doInBackground 成功");
+                if (!udaVar.e() && this.c != null) {
+                    pda.a("发帖：任务后台执行 开始 doInBackground 成功");
                     AntiData e = this.a.e();
                     String error_msg = g.getError_msg();
-                    if (xi.isEmpty(error_msg)) {
+                    if (bi.isEmpty(error_msg)) {
                         error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_success);
                     }
-                    afaVar = new afa(g.getError_code(), error_msg, e);
-                    if (this.g.b != null && this.g.b.isHasImages() && !afaVar.w()) {
+                    tdaVar = new tda(g.getError_code(), error_msg, e);
+                    if (this.g.b != null && this.g.b.isHasImages() && !tdaVar.w()) {
                         this.g.b.deleteUploadedTempImages();
                     }
-                    vea.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
+                    pda.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
                 } else if (g != null && g.error_code == 220015) {
-                    afaVar = new afa(g.getError_code(), g.getError_msg(), null);
+                    tdaVar = new tda(g.getError_code(), g.getError_msg(), null);
                     JSONObject jSONObject = this.c;
                     if (jSONObject != null) {
                         try {
@@ -551,40 +550,40 @@ public class NewWriteModel extends BdBaseModel {
                                 for (int i6 = 0; i6 < length; i6++) {
                                     arrayList.add(jSONArray.optString(i6));
                                 }
-                                afaVar.R(arrayList);
+                                tdaVar.R(arrayList);
                             }
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
                     }
-                    vea.a("发帖：任务后台执行 开始 doInBackground 失败 1");
+                    pda.a("发帖：任务后台执行 开始 doInBackground 失败 1");
                 } else if (g != null && g.error_code == 238010) {
-                    afaVar = new afa(g.getError_code(), g.getError_msg(), null);
+                    tdaVar = new tda(g.getError_code(), g.getError_msg(), null);
                     JSONObject jSONObject2 = this.c;
                     if (jSONObject2 != null && (optJSONObject = jSONObject2.optJSONObject("info")) != null) {
-                        p45 p45Var = new p45();
-                        p45Var.a = optJSONObject.optString("block_content");
-                        p45Var.b = optJSONObject.optString("block_cancel");
-                        p45Var.c = optJSONObject.optString("block_confirm");
-                        afaVar.Q(p45Var);
+                        m35 m35Var = new m35();
+                        m35Var.a = optJSONObject.optString("block_content");
+                        m35Var.b = optJSONObject.optString("block_cancel");
+                        m35Var.c = optJSONObject.optString("block_confirm");
+                        tdaVar.Q(m35Var);
                     }
-                    vea.a("发帖：任务后台执行 开始 doInBackground 失败 2");
+                    pda.a("发帖：任务后台执行 开始 doInBackground 失败 2");
                 } else if (g != null && g.error_code != 0) {
                     String error_msg2 = g.getError_msg();
                     if (StringUtils.isNull(error_msg2)) {
                         if (g.error_code == 3250013) {
                             error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.anti_account_exception_appealing);
                         } else {
-                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f134f);
+                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1353);
                         }
                     }
-                    afaVar = new afa(g.getError_code(), error_msg2, this.a.e());
-                    vea.a("发帖：任务后台执行 开始 doInBackground 失败 3");
+                    tdaVar = new tda(g.getError_code(), error_msg2, this.a.e());
+                    pda.a("发帖：任务后台执行 开始 doInBackground 失败 3");
                 } else {
-                    afaVar = new afa(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0e1f), null);
-                    vea.a("发帖：任务后台执行 开始 doInBackground 失败 4");
+                    tdaVar = new tda(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0e21), null);
+                    pda.a("发帖：任务后台执行 开始 doInBackground 失败 4");
                 }
-                if (afaVar.w()) {
+                if (tdaVar.w()) {
                     obj = "pid";
                     obj2 = "tid";
                 } else {
@@ -617,7 +616,7 @@ public class NewWriteModel extends BdBaseModel {
                         String optString3 = jSONObject3.optString("pid");
                         str5 = jSONObject3.optString("video_id");
                         str6 = jSONObject3.optString("invitees_number");
-                        CustomDialogData a2 = yd9.a(jSONObject3);
+                        CustomDialogData a2 = ub9.a(jSONObject3);
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("twzhibo_info");
                         if (optJSONObject3 != null) {
                             i5 = optJSONObject3.optInt("is_copytwzhibo", 0);
@@ -665,7 +664,7 @@ public class NewWriteModel extends BdBaseModel {
                             iconStampData3 = iconStampData2;
                             BdToastData bdToastData = new BdToastData();
                             bdToastData.parserJson(jSONObject3.optJSONObject("toast"));
-                            afaVar.T(bdToastData);
+                            tdaVar.T(bdToastData);
                         } else {
                             iconStampData3 = iconStampData2;
                         }
@@ -687,34 +686,34 @@ public class NewWriteModel extends BdBaseModel {
                     } else {
                         videoEasterEggData2 = videoEasterEggData;
                     }
-                    afaVar.G(str10);
-                    afaVar.N(str12);
-                    afaVar.E(str3);
-                    afaVar.P(str4);
-                    afaVar.O(str9);
-                    afaVar.S(str7);
-                    afaVar.M(str8);
-                    afaVar.L(i5);
-                    afaVar.I(str11);
-                    afaVar.H(str13);
-                    afaVar.C(customDialogData);
-                    afaVar.V(str5);
-                    afaVar.K(str6);
-                    afaVar.F(contriInfo);
-                    afaVar.U(videoEasterEggData2);
-                    afaVar.D(adverSegmentData);
-                    afaVar.J(iconStampData);
+                    tdaVar.G(str10);
+                    tdaVar.N(str12);
+                    tdaVar.E(str3);
+                    tdaVar.P(str4);
+                    tdaVar.O(str9);
+                    tdaVar.S(str7);
+                    tdaVar.M(str8);
+                    tdaVar.L(i5);
+                    tdaVar.I(str11);
+                    tdaVar.H(str13);
+                    tdaVar.C(customDialogData);
+                    tdaVar.V(str5);
+                    tdaVar.K(str6);
+                    tdaVar.F(contriInfo);
+                    tdaVar.U(videoEasterEggData2);
+                    tdaVar.D(adverSegmentData);
+                    tdaVar.J(iconStampData);
                 }
-                b15.b("write", "result*" + cfaVar.e());
-                b15.b("write", "code*" + afaVar.f() + " " + afaVar.g());
-                b15.e("write");
-                vea.a("doInBackground end");
-                vea.a("发帖：任务后台执行 开始 doInBackground 完全结束");
-                vea.a("onPostExecute start");
-                vea.a("发帖： onPostExecute");
+                c05.b("write", "result*" + udaVar.e());
+                c05.b("write", "code*" + tdaVar.f() + " " + tdaVar.g());
+                c05.e("write");
+                pda.a("doInBackground end");
+                pda.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                pda.a("onPostExecute start");
+                pda.a("发帖： onPostExecute");
                 this.g.a = null;
-                if (afaVar.f() != 0) {
-                    s95.a("write", 0L, 0, "write_result", afaVar.f(), afaVar.g(), obj2, afaVar.s(), obj, afaVar.m());
+                if (tdaVar.f() != 0) {
+                    Logger.addLog("write", 0L, 0, "write_result", tdaVar.f(), tdaVar.g(), obj2, tdaVar.s(), obj, tdaVar.m());
                 }
                 if (!this.d) {
                     if (this.g.b != null) {
@@ -722,12 +721,12 @@ public class NewWriteModel extends BdBaseModel {
                     } else {
                         z = false;
                     }
-                    if (afaVar.w()) {
-                        vea.a("onPostExecute error");
-                        c(afaVar);
-                        b99 b99Var = this.f;
-                        if (b99Var != null) {
-                            b99Var.h(afaVar.a, afaVar.g());
+                    if (tdaVar.w()) {
+                        pda.a("onPostExecute error");
+                        c(tdaVar);
+                        z69 z69Var = this.f;
+                        if (z69Var != null) {
+                            z69Var.h(tdaVar.a, tdaVar.g());
                         }
                     } else {
                         if (this.g.b != null) {
@@ -738,54 +737,54 @@ public class NewWriteModel extends BdBaseModel {
                             z2 = false;
                             z3 = false;
                         }
-                        vea.a("onPostExecute success");
+                        pda.a("onPostExecute success");
                         if (this.g.c != null) {
-                            if (!StringUtils.isNull(afaVar.n()) && !StringUtils.isNull(afaVar.d())) {
-                                i4 = afaVar.n();
-                                h = afaVar.d();
-                            } else if (StringUtils.isNull(afaVar.h()) && StringUtils.isNull(afaVar.i())) {
+                            if (!StringUtils.isNull(tdaVar.n()) && !StringUtils.isNull(tdaVar.d())) {
+                                i4 = tdaVar.n();
+                                h = tdaVar.d();
+                            } else if (StringUtils.isNull(tdaVar.h()) && StringUtils.isNull(tdaVar.i())) {
                                 str = null;
                                 str2 = null;
-                                postWriteCallBackData = new PostWriteCallBackData(afaVar.f(), afaVar.g(), str, str2, afaVar.p(), afaVar.o());
-                                postWriteCallBackData.setThreadId(afaVar.s());
-                                postWriteCallBackData.setPostId(afaVar.m());
-                                postWriteCallBackData.setIsCopyTWZhibo(afaVar.l());
-                                postWriteCallBackData.setErrorString(afaVar.g());
-                                postWriteCallBackData.setActivityDialog(afaVar.a());
-                                postWriteCallBackData.setVideoid(afaVar.v());
-                                postWriteCallBackData.setInviteesNumber(afaVar.k());
-                                postWriteCallBackData.setContriInfo(afaVar.e());
+                                postWriteCallBackData = new PostWriteCallBackData(tdaVar.f(), tdaVar.g(), str, str2, tdaVar.p(), tdaVar.o());
+                                postWriteCallBackData.setThreadId(tdaVar.s());
+                                postWriteCallBackData.setPostId(tdaVar.m());
+                                postWriteCallBackData.setIsCopyTWZhibo(tdaVar.l());
+                                postWriteCallBackData.setErrorString(tdaVar.g());
+                                postWriteCallBackData.setActivityDialog(tdaVar.a());
+                                postWriteCallBackData.setVideoid(tdaVar.v());
+                                postWriteCallBackData.setInviteesNumber(tdaVar.k());
+                                postWriteCallBackData.setContriInfo(tdaVar.e());
                                 if (this.g.b != null) {
                                     postWriteCallBackData.setGeneralTabId(this.g.b.getTabId());
                                 }
-                                postWriteCallBackData.setVideoEasterEggData(afaVar.u());
-                                postWriteCallBackData.setmAdverSegmentData(afaVar.b());
-                                postWriteCallBackData.setIconStampData(afaVar.j());
-                                postWriteCallBackData.setToast(afaVar.t());
-                                ve5 ve5Var = new ve5();
-                                ve5Var.f(this.c);
-                                if (this.g.b == null && bfa.a() != null && !z3) {
-                                    bfa.l(this.g.b.getForumId());
-                                    bfa.m(this.g.b.getForumName());
+                                postWriteCallBackData.setVideoEasterEggData(tdaVar.u());
+                                postWriteCallBackData.setmAdverSegmentData(tdaVar.b());
+                                postWriteCallBackData.setIconStampData(tdaVar.j());
+                                postWriteCallBackData.setToast(tdaVar.t());
+                                jd5 jd5Var = new jd5();
+                                jd5Var.f(this.c);
+                                if (this.g.b == null && WriteMsgHolder.getCurrentWriteActivityFromTag() != null && !z3) {
+                                    WriteMsgHolder.setLastForumId(this.g.b.getForumId());
+                                    WriteMsgHolder.setLastForumName(this.g.b.getForumName());
                                     if (this.g.b.getVideoInfo() != null) {
                                         postWriteCallBackData.writeDataForVideo = this.g.b;
                                     }
                                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, bfa.a()));
+                                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, WriteMsgHolder.getCurrentWriteActivityFromTag()));
                                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                                    bfa.k(false);
+                                    WriteMsgHolder.setFromPersonCenter(false);
                                 } else if (this.g.b == null && this.g.f) {
                                     if (this.g.b.getVideoInfo() != null) {
                                         postWriteCallBackData.writeDataForVideo = this.g.b;
                                     }
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921650, postWriteCallBackData));
                                 } else if (this.g.b != null && this.g.g) {
-                                    bfa.l(this.g.b.getForumId());
-                                    bfa.m(this.g.b.getForumName());
+                                    WriteMsgHolder.setLastForumId(this.g.b.getForumId());
+                                    WriteMsgHolder.setLastForumName(this.g.b.getForumName());
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921655, postWriteCallBackData));
                                 }
                                 activityDialog = postWriteCallBackData.getActivityDialog();
-                                if (activityDialog != null && afaVar.j() == null) {
+                                if (activityDialog != null && tdaVar.j() == null) {
                                     if (this.g.b != null) {
                                         int type = this.g.b.getType();
                                         if (type != 1 && type != 2) {
@@ -798,61 +797,61 @@ public class NewWriteModel extends BdBaseModel {
                                             activityDialog.type = 1;
                                         }
                                     }
-                                    zg.a().postDelayed(new c(this, activityDialog), 1000L);
+                                    SafeHandler.getInst().postDelayed(new c(this, activityDialog), 1000L);
                                 }
-                                this.g.c.callback(true, postWriteCallBackData, ve5Var, this.g.b, afaVar.c());
+                                this.g.c.callback(true, postWriteCallBackData, jd5Var, this.g.b, tdaVar.c());
                             } else {
-                                i4 = afaVar.i();
-                                h = afaVar.h();
+                                i4 = tdaVar.i();
+                                h = tdaVar.h();
                             }
                             str = i4;
                             str2 = h;
-                            postWriteCallBackData = new PostWriteCallBackData(afaVar.f(), afaVar.g(), str, str2, afaVar.p(), afaVar.o());
-                            postWriteCallBackData.setThreadId(afaVar.s());
-                            postWriteCallBackData.setPostId(afaVar.m());
-                            postWriteCallBackData.setIsCopyTWZhibo(afaVar.l());
-                            postWriteCallBackData.setErrorString(afaVar.g());
-                            postWriteCallBackData.setActivityDialog(afaVar.a());
-                            postWriteCallBackData.setVideoid(afaVar.v());
-                            postWriteCallBackData.setInviteesNumber(afaVar.k());
-                            postWriteCallBackData.setContriInfo(afaVar.e());
+                            postWriteCallBackData = new PostWriteCallBackData(tdaVar.f(), tdaVar.g(), str, str2, tdaVar.p(), tdaVar.o());
+                            postWriteCallBackData.setThreadId(tdaVar.s());
+                            postWriteCallBackData.setPostId(tdaVar.m());
+                            postWriteCallBackData.setIsCopyTWZhibo(tdaVar.l());
+                            postWriteCallBackData.setErrorString(tdaVar.g());
+                            postWriteCallBackData.setActivityDialog(tdaVar.a());
+                            postWriteCallBackData.setVideoid(tdaVar.v());
+                            postWriteCallBackData.setInviteesNumber(tdaVar.k());
+                            postWriteCallBackData.setContriInfo(tdaVar.e());
                             if (this.g.b != null) {
                             }
-                            postWriteCallBackData.setVideoEasterEggData(afaVar.u());
-                            postWriteCallBackData.setmAdverSegmentData(afaVar.b());
-                            postWriteCallBackData.setIconStampData(afaVar.j());
-                            postWriteCallBackData.setToast(afaVar.t());
-                            ve5 ve5Var2 = new ve5();
-                            ve5Var2.f(this.c);
+                            postWriteCallBackData.setVideoEasterEggData(tdaVar.u());
+                            postWriteCallBackData.setmAdverSegmentData(tdaVar.b());
+                            postWriteCallBackData.setIconStampData(tdaVar.j());
+                            postWriteCallBackData.setToast(tdaVar.t());
+                            jd5 jd5Var2 = new jd5();
+                            jd5Var2.f(this.c);
                             if (this.g.b == null) {
                             }
                             if (this.g.b == null) {
                             }
                             if (this.g.b != null) {
-                                bfa.l(this.g.b.getForumId());
-                                bfa.m(this.g.b.getForumName());
+                                WriteMsgHolder.setLastForumId(this.g.b.getForumId());
+                                WriteMsgHolder.setLastForumName(this.g.b.getForumName());
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921655, postWriteCallBackData));
                             }
                             activityDialog = postWriteCallBackData.getActivityDialog();
                             if (activityDialog != null) {
                                 if (this.g.b != null) {
                                 }
-                                zg.a().postDelayed(new c(this, activityDialog), 1000L);
+                                SafeHandler.getInst().postDelayed(new c(this, activityDialog), 1000L);
                             }
-                            this.g.c.callback(true, postWriteCallBackData, ve5Var2, this.g.b, afaVar.c());
+                            this.g.c.callback(true, postWriteCallBackData, jd5Var2, this.g.b, tdaVar.c());
                         }
                         if (this.g.b != null && !this.g.b.isWork()) {
                             MessageManager messageManager = MessageManager.getInstance();
-                            if (afaVar.j() == null) {
+                            if (tdaVar.j() == null) {
                                 z4 = true;
                             } else {
                                 z4 = false;
                             }
                             messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2001375, Boolean.valueOf(z4)));
                         }
-                        b99 b99Var2 = this.f;
-                        if (b99Var2 != null) {
-                            b99Var2.c();
+                        z69 z69Var2 = this.f;
+                        if (z69Var2 != null) {
+                            z69Var2.c();
                         }
                         if (z2) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921786, null));
@@ -861,27 +860,27 @@ public class NewWriteModel extends BdBaseModel {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921805, 1));
                         }
                     }
-                    vea.a("发帖： onPostExecute 完全结束");
+                    pda.a("发帖： onPostExecute 完全结束");
                     return;
                 }
-                vea.a("发帖： onPostExecute isCanceled");
+                pda.a("发帖： onPostExecute isCanceled");
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements p55.e {
+    public class a implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p55 a;
+        public final /* synthetic */ m45 a;
         public final /* synthetic */ NewWriteModel b;
 
-        public a(NewWriteModel newWriteModel, p55 p55Var) {
+        public a(NewWriteModel newWriteModel, m45 m45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newWriteModel, p55Var};
+                Object[] objArr = {newWriteModel, m45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -892,32 +891,32 @@ public class NewWriteModel extends BdBaseModel {
                 }
             }
             this.b = newWriteModel;
-            this.a = p55Var;
+            this.a = m45Var;
         }
 
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
                 this.a.dismiss();
-                this.b.k0();
+                this.b.c0();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements p55.e {
+    public class b implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p55 a;
+        public final /* synthetic */ m45 a;
         public final /* synthetic */ NewWriteModel b;
 
-        public b(NewWriteModel newWriteModel, p55 p55Var) {
+        public b(NewWriteModel newWriteModel, m45 m45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newWriteModel, p55Var};
+                Object[] objArr = {newWriteModel, m45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -928,14 +927,14 @@ public class NewWriteModel extends BdBaseModel {
                 }
             }
             this.b = newWriteModel;
-            this.a = p55Var;
+            this.a = m45Var;
         }
 
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
                 this.a.dismiss();
                 StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 16);
                 if (this.b.b != null) {
@@ -950,7 +949,7 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     /* loaded from: classes8.dex */
-    public class c extends dea.c {
+    public class c extends xca.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewWriteModel a;
@@ -973,7 +972,7 @@ public class NewWriteModel extends BdBaseModel {
             this.a = newWriteModel;
         }
 
-        @Override // com.baidu.tieba.dea.c
+        @Override // com.baidu.tieba.xca.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -986,11 +985,11 @@ public class NewWriteModel extends BdBaseModel {
                 }
                 this.a.a = null;
                 this.a.b.setAuthSid(str);
-                this.a.w0();
+                this.a.o0();
             }
         }
 
-        @Override // com.baidu.tieba.dea.c
+        @Override // com.baidu.tieba.xca.c
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -1003,11 +1002,11 @@ public class NewWriteModel extends BdBaseModel {
                 }
                 this.a.a = null;
                 this.a.b.setAuthSid(str);
-                this.a.w0();
+                this.a.o0();
             }
         }
 
-        @Override // com.baidu.tieba.dea.c
+        @Override // com.baidu.tieba.xca.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -1020,7 +1019,7 @@ public class NewWriteModel extends BdBaseModel {
             }
         }
 
-        @Override // com.baidu.tieba.dea.c
+        @Override // com.baidu.tieba.xca.c
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -1033,7 +1032,7 @@ public class NewWriteModel extends BdBaseModel {
                 }
                 this.a.a = null;
                 this.a.b.setAuthSid(null);
-                this.a.w0();
+                this.a.o0();
             }
         }
     }
@@ -1071,7 +1070,7 @@ public class NewWriteModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -1097,7 +1096,7 @@ public class NewWriteModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -1111,63 +1110,56 @@ public class NewWriteModel extends BdBaseModel {
         this.e = tbPageContext;
     }
 
-    public final void m0(afa afaVar) {
-        l9<?> l9Var;
+    public final void e0(tda tdaVar) {
+        BdPageContext<?> bdPageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, afaVar) == null) && (l9Var = this.e) != null && afaVar != null && !(this.c instanceof uea)) {
-            vka.e(l9Var.getPageActivity(), afaVar.g());
-            afaVar.G(null);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, tdaVar) == null) && (bdPageContext = this.e) != null && tdaVar != null && !(this.c instanceof oda)) {
+            aka.e(bdPageContext.getPageActivity(), tdaVar.g());
+            tdaVar.G(null);
         }
     }
 
-    public final void o0(afa afaVar) {
+    public final void g0(tda tdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, afaVar) == null) {
-            p0(afaVar, null, null, this.b);
+        if (interceptable == null || interceptable.invokeL(1048583, this, tdaVar) == null) {
+            h0(tdaVar, null, null, this.b);
         }
     }
 
-    public void q0(boolean z) {
+    public void i0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.g = z;
         }
     }
 
-    public void r0(boolean z) {
+    public void j0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.d = z;
         }
     }
 
-    public void s0(boolean z) {
+    public void k0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.f = z;
         }
     }
 
-    public void setWriteData(WriteData writeData) {
+    public void l0(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, writeData) == null) {
-            this.b = writeData;
-        }
-    }
-
-    public void t0(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, dVar) == null) {
             this.c = dVar;
         }
     }
 
-    public void u0(@Nullable l9<?> l9Var) {
+    public void m0(@Nullable BdPageContext<?> bdPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, l9Var) == null) {
-            if (l9Var != null) {
-                this.e = l9Var;
-                this.unique_id = l9Var.getUniqueId();
+        if (interceptable == null || interceptable.invokeL(1048590, this, bdPageContext) == null) {
+            if (bdPageContext != null) {
+                this.e = bdPageContext;
+                this.unique_id = bdPageContext.getUniqueId();
                 return;
             }
             this.e = null;
@@ -1175,41 +1167,18 @@ public class NewWriteModel extends BdBaseModel {
         }
     }
 
-    public final void cancel() {
+    public void setWriteData(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e eVar = this.a;
-            if (eVar != null && !eVar.isCancelled()) {
-                this.a.cancel();
-                return;
-            }
-            d dVar = this.c;
-            if (dVar != null) {
-                dVar.callback(false, null, null, this.b, null);
-            }
+        if (interceptable == null || interceptable.invokeL(1048593, this, writeData) == null) {
+            this.b = writeData;
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            e eVar = this.a;
-            if (eVar != null && !eVar.isCancelled()) {
-                this.a.cancel();
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j0() {
+    public boolean b0() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             WriteData writeData = this.b;
             if (writeData == null) {
                 return true;
@@ -1227,7 +1196,37 @@ public class NewWriteModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public WriteData l0() {
+    public final void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e eVar = this.a;
+            if (eVar != null && !eVar.isCancelled()) {
+                this.a.cancel();
+                return;
+            }
+            d dVar = this.c;
+            if (dVar != null) {
+                dVar.callback(false, null, null, this.b, null);
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            e eVar = this.a;
+            if (eVar != null && !eVar.isCancelled()) {
+                this.a.cancel();
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public WriteData d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -1236,28 +1235,28 @@ public class NewWriteModel extends BdBaseModel {
         return (WriteData) invokeV.objValue;
     }
 
-    public boolean v0() {
+    public boolean n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (this.b == null) {
                 return false;
             }
-            vea.a("发帖：开始上传");
+            pda.a("发帖：开始上传");
             this.b.startPublish();
             PublishProgressData.valueOf(this.b, 0).send(true);
-            k0();
+            c0();
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void k0() {
+    public final void c0() {
         int i;
         int i2;
         WriteData writeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 14);
             WriteData writeData2 = this.b;
             if (writeData2 != null) {
@@ -1273,54 +1272,54 @@ public class NewWriteModel extends BdBaseModel {
                 i2 = 0;
             }
             TiebaStatic.log(param2.param(TiebaStatic.Params.OBJ_PARAM3, i2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
-            b15.d("write");
-            b15.b("write", "start");
+            c05.d("write");
+            c05.b("write", "start");
             if (this.a == null) {
-                if (bfa.a() != null && (writeData = this.b) != null && !writeData.isNotFakePost()) {
-                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, l0());
-                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, bfa.a()));
+                if (WriteMsgHolder.getCurrentWriteActivityFromTag() != null && (writeData = this.b) != null && !writeData.isNotFakePost()) {
+                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, d0());
+                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, WriteMsgHolder.getCurrentWriteActivityFromTag()));
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
                 if (this.h == null) {
-                    this.h = new dda(this.e);
+                    this.h = new vba(this.e);
                 }
                 this.a = new e(this);
-                vea.a("dealPost()");
-                tea.l(this.b);
+                pda.a("dealPost()");
+                nda.l(this.b);
                 this.a.execute(new Integer[0]);
             }
         }
     }
 
-    public final void n0(afa afaVar) {
+    public final void f0(tda tdaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, afaVar) == null) && this.e != null && afaVar != null && afaVar.c() != null && afaVar.c().mFrsForbidenDialogInfo != null) {
-            AntiHelper.p(this.e.getPageActivity(), afaVar.c().mFrsForbidenDialogInfo.ahead_url);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, tdaVar) == null) && this.e != null && tdaVar != null && tdaVar.c() != null && tdaVar.c().mFrsForbidenDialogInfo != null) {
+            AntiHelper.p(this.e.getPageActivity(), tdaVar.c().mFrsForbidenDialogInfo.ahead_url);
         }
     }
 
-    public final void p0(afa afaVar, AccessState accessState, ve5 ve5Var, WriteData writeData) {
+    public final void h0(tda tdaVar, AccessState accessState, jd5 jd5Var, WriteData writeData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048585, this, afaVar, accessState, ve5Var, writeData) == null) && afaVar != null && this.c != null) {
-            PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(afaVar.f(), afaVar.g(), null, null);
+        if ((interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tdaVar, accessState, jd5Var, writeData) == null) && tdaVar != null && this.c != null) {
+            PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(tdaVar.f(), tdaVar.g(), null, null);
             postWriteCallBackData.setAccessState(accessState);
-            postWriteCallBackData.setSensitiveWords(afaVar.r());
-            postWriteCallBackData.setReplyPrivacyTip(afaVar.q());
-            this.c.callback(false, postWriteCallBackData, ve5Var, writeData, afaVar.c());
+            postWriteCallBackData.setSensitiveWords(tdaVar.r());
+            postWriteCallBackData.setReplyPrivacyTip(tdaVar.q());
+            this.c.callback(false, postWriteCallBackData, jd5Var, writeData, tdaVar.c());
         }
     }
 
-    public boolean w0() {
+    public boolean o0() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (this.b == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 20).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 return false;
             }
-            if (BdNetTypeUtil.isNetWorkAvailable() && !BdNetTypeUtil.isWifiNet() && this.b.getWriteImagesInfo() != null && this.b.getWriteImagesInfo().size() != 0 && this.b.getWriteImagesInfo().isOriginalImg() && !da5.p().l("original_img_up_tip", false)) {
-                da5.p().A("original_img_up_tip", true);
+            if (BdNetTypeUtil.isNetWorkAvailable() && !BdNetTypeUtil.isWifiNet() && this.b.getWriteImagesInfo() != null && this.b.getWriteImagesInfo().size() != 0 && this.b.getWriteImagesInfo().isOriginalImg() && !SharedPrefHelper.getInstance().getBoolean("original_img_up_tip", false)) {
+                SharedPrefHelper.getInstance().putBoolean("original_img_up_tip", true);
                 StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 15);
                 WriteData writeData = this.b;
                 if (writeData != null) {
@@ -1329,19 +1328,19 @@ public class NewWriteModel extends BdBaseModel {
                     i = -1;
                 }
                 TiebaStatic.log(param.param("obj_type", i).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
-                l9<?> l9Var = this.e;
-                if (l9Var == null) {
-                    k0();
+                BdPageContext<?> bdPageContext = this.e;
+                if (bdPageContext == null) {
+                    c0();
                     return true;
                 }
-                p55 p55Var = new p55(l9Var.getPageActivity());
-                p55Var.setMessageId(R.string.original_img_up_no_wifi_tip);
-                p55Var.setPositiveButton(R.string.alert_yes_button, new a(this, p55Var));
-                p55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new b(this, p55Var));
-                p55Var.create(this.e);
-                p55Var.show();
+                m45 m45Var = new m45(bdPageContext.getPageActivity());
+                m45Var.setMessageId(R.string.original_img_up_no_wifi_tip);
+                m45Var.setPositiveButton(R.string.alert_yes_button, new a(this, m45Var));
+                m45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new b(this, m45Var));
+                m45Var.create(this.e);
+                m45Var.show();
             } else {
-                k0();
+                c0();
             }
             return true;
         }

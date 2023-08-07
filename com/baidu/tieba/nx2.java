@@ -1,79 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nx2 implements mx2 {
+public class nx2 extends kx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements ew3<dy1> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(nx2 nx2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nx2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ew3
-        /* renamed from: a */
-        public void run(@NonNull dy1 dy1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dy1Var) == null) {
-                dy1Var.M();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ew3<dy1> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(nx2 nx2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nx2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ew3
-        /* renamed from: a */
-        public void run(@NonNull dy1 dy1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dy1Var) == null) {
-                dy1Var.p();
-            }
-        }
-    }
+    public rx2 A;
+    public double B;
+    public int C;
+    public String z;
 
     public nx2() {
         Interceptable interceptable = $ic;
@@ -85,34 +28,40 @@ public class nx2 implements mx2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.z = "";
+        this.C = 1000;
     }
 
-    @Override // com.baidu.tieba.mx2
-    public void onPause() {
+    @Override // com.baidu.tieba.kx2, com.baidu.tieba.o62, com.baidu.tieba.x03
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(new a(this));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.z = jSONObject.optString("markerId");
+        rx2 rx2Var = new rx2();
+        this.A = rx2Var;
+        rx2Var.a(jSONObject.optJSONObject("destination"));
+        jSONObject.optBoolean("autoRotate");
+        this.B = jSONObject.optDouble("rotate");
+        this.C = Math.abs(jSONObject.optInt("duration", this.C));
     }
 
-    @Override // com.baidu.tieba.mx2
-    public void onResume() {
+    @Override // com.baidu.tieba.o62, com.baidu.tieba.x03
+    public boolean isValid() {
+        InterceptResult invokeV;
+        rx2 rx2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(new b(this));
-        }
-    }
-
-    public final void a(@NonNull ew3<dy1> ew3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ew3Var) == null) {
-            for (dy1 dy1Var : pi2.U().V().values()) {
-                if (dy1Var != null) {
-                    ew3Var.run(dy1Var);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (rx2Var = this.A) != null && rx2Var.isValid()) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import org.json.JSONObject;
+import android.content.Intent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface xv2 {
-    void a(Activity activity, String str, String str2);
+public final class xv2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context);
-
-    void c(Activity activity, String str, qg1 qg1Var);
-
-    void d(Context context, JSONObject jSONObject, qg1 qg1Var);
-
-    void e(Activity activity, String str, qg1 qg1Var);
-
-    void f(Activity activity, String str, ch1<JSONObject> ch1Var);
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
+            if ((intent.getFlags() & 1048576) == 1048576) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

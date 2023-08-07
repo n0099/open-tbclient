@@ -1,13 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class kx {
-    public static /* synthetic */ Interceptable $ic;
+public class kx {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 3;
+    public static int c = 6;
+    public static int d = 7;
+    public static int e = 1;
+    public static int f = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,12 +35,20 @@ public final class kx {
         }
     }
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static void a(int i, String str, int i2, int i3, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return Math.round(f * tw.a().getResources().getDisplayMetrics().density);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", str);
+            statisticItem.param("obj_locate", i2);
+            statisticItem.param("obj_source", i3);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str3);
+            if (i3 == e) {
+                statisticItem.param("obj_name", str2);
+            }
+            TiebaStatic.log(statisticItem);
         }
-        return invokeF.intValue;
     }
 }

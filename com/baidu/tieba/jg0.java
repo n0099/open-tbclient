@@ -1,48 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixCallback;
+import android.content.Context;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jg0 implements DuMixCallback {
+public class jg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.ar.DuMixCallback
-    public void onCaseCreate(boolean z, String str, String str2) {
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i >= 21) {
+                return c(context);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.ar.DuMixCallback
-    public void onCaseDestroy() {
+    public static boolean b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                String[] strArr = Build.SUPPORTED_ABIS;
+                if (strArr.length > 0) {
+                    str = strArr[0];
+                } else {
+                    str = null;
+                }
+            } else {
+                str = Build.CPU_ABI;
+            }
+            if (str == null || !str.contains("arm64")) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.ar.DuMixCallback
-    public void onRelease() {
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public jg0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                Object invoke = ClassLoader.class.getDeclaredMethod("findLibrary", String.class).invoke(context.getClassLoader(), "art");
+                if (invoke == null) {
+                    return false;
+                }
+                return ((String) invoke).contains("lib64");
+            } catch (Exception unused) {
+                return b();
             }
         }
+        return invokeL.booleanValue;
     }
 }

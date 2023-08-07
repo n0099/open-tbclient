@@ -1,77 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class s98 extends ln<v98, CardViewHolder<x98>> {
+public class s98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s98(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), v98.c);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public CardViewHolder<x98> onCreateViewHolder(ViewGroup viewGroup) {
+    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            x98 x98Var = new x98(this.a);
-            x98Var.o(this.mPageId);
-            CardViewHolder<x98> cardViewHolder = new CardViewHolder<>(x98Var);
-            int g = yi.g(this.a.getPageActivity(), R.dimen.tbds44);
-            cardViewHolder.getView().setPadding(g, 0, g, 0);
-            return cardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7) {
+                if (imMessageCenterPojo.getUnread_count() <= 0) {
+                    return imMessageCenterPojo;
+                }
+                return b(imMessageCenterPojo, mc8.n().l());
+            }
+            return imMessageCenterPojo;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (ImMessageCenterPojo) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v98 v98Var, CardViewHolder<x98> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v98Var, cardViewHolder})) == null) {
-            if (v98Var != null && cardViewHolder != null && cardViewHolder.b() != null) {
-                cardViewHolder.b().i(v98Var);
-                cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
+            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
+            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
+            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            imMessageCenterPojo2.setBjhAvatar(imMessageCenterPojo.getBjhAvatar());
+            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
+            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
+            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
+            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
+            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
+            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
+            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
+            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
+            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
+            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            boolean z = true;
+            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
+                    if (!md8.a().isAcceptNotify(currentAccount, imMessageCenterPojo3.getGid())) {
+                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
+                    } else {
+                        nd8.a().c(true);
+                        z = false;
+                    }
+                }
             }
-            return null;
+            if (z) {
+                imMessageCenterPojo2.setUnread_count(1);
+                nd8.a().c(false);
+            }
+            return imMessageCenterPojo2;
         }
-        return (View) invokeCommon.objValue;
+        return (ImMessageCenterPojo) invokeLL.objValue;
     }
 }

@@ -105,7 +105,7 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     private void bindDataToView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.userPortrait.N(this.mUserNotifyData.getAnchorPortrait(), 12, false);
+            this.userPortrait.startLoad(this.mUserNotifyData.getAnchorPortrait(), 12, false);
             this.alaNotifyDescription.setText(this.mUserNotifyData.getMessageContent());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -128,13 +128,13 @@ public class AlaLiveUserNotifyDialog extends Dialog {
             View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0108, (ViewGroup) null);
             this.mRootView = inflate;
             setContentView(inflate);
-            this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090215);
-            this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090216);
-            this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090493);
-            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091ccf);
-            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09281f);
-            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911fb);
-            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091a01);
+            this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090216);
+            this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090217);
+            this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0904a0);
+            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091ce5);
+            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092839);
+            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09120e);
+            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091a15);
             this.userPortrait.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.userPortrait.setIsRound(true);
             this.userPortrait.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -145,10 +145,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f081573);
+            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f081579);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
-            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081574);
+            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08157a);
             this.overUserPortraitBg.setVisibility(8);
         }
     }

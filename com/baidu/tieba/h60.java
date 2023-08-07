@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import okhttp3.Dns;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class h60 {
+public class h60 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, g60> a;
+    public Dns a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        List<g60> a();
-    }
-
-    public h60(a aVar) {
+    public h60(Dns dns) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {dns};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,21 +31,25 @@ public class h60 {
                 return;
             }
         }
-        this.a = new HashMap();
-        for (g60 g60Var : aVar.a()) {
-            this.a.put(g60Var.e(), g60Var);
-        }
+        this.a = dns;
     }
 
-    public g60 a(String str) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
+        Dns dns;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (g60) invokeL.objValue;
-    }
-
-    public List<g60> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            Request request = chain.request();
+            com.baidu.searchbox.network.outback.core.Request request2 = (com.baidu.searchbox.network.outback.core.Request) request.tag(com.baidu.searchbox.network.outback.core.Request.class);
+            if (request2 == null) {
+                return chain.proceed(request);
+            }
+            if ((request2.getNetworkStatRecord().dnsDetail == null || (request2.getNetworkStatRecord().dnsDetail != null && "{}".equalsIgnoreCase(request2.getNetworkStatRecord().dnsDetail.toString().trim()))) && (dns = this.a) != null) {
+                dns.lookup(request2.url().host());
+            }
+            return chain.proceed(request);
+        }
+        return (Response) invokeL.objValue;
     }
 }

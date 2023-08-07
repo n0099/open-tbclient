@@ -1,91 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tieba.tz3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sz3 implements tz3.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final a04 b;
-    public final DownloadInfo c;
-    public final a d;
-    public long e;
-    public volatile AtomicBoolean f;
+public interface sz3 {
+    String a();
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void e(DownloadInfo downloadInfo);
-    }
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    public sz3(ExecutorService executorService, a04 a04Var, DownloadInfo downloadInfo, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, a04Var, downloadInfo, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = System.currentTimeMillis();
-        this.f = new AtomicBoolean(false);
-        this.a = executorService;
-        this.b = a04Var;
-        this.c = downloadInfo;
-        this.d = aVar;
-    }
+    String c();
 
-    @Override // com.baidu.tieba.tz3.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
-            this.c.setPackageName(n14.d(AppRuntime.getAppContext(), this.c.getPath()));
-            this.c.setStatus(DownloadState.DOWNLOADED.value());
-            this.b.b(this.c);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.e(this.c);
-            }
-        }
-    }
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull zy3 zy3Var);
 
-    @Override // com.baidu.tieba.tz3.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.get()) {
-            synchronized (this) {
-                if (!this.f.get()) {
-                    this.f.set(true);
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.e > 1000) {
-                        this.b.b(this.c);
-                        this.e = currentTimeMillis;
-                    }
-                    this.f.set(false);
-                }
-            }
-        }
-    }
+    String e();
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new tz3(this.b, this.c, this));
-        }
-    }
+    String f(String str);
+
+    String g();
+
+    String getAppId();
+
+    String getAppKey();
+
+    String getScene();
+
+    String getSdkVersion();
+
+    int h();
+
+    String i(String str);
+
+    int j();
+
+    int k();
+
+    Uri l(@NonNull Context context, @NonNull File file);
+
+    String m();
+
+    JSONObject n();
+
+    boolean o(View view2);
 }

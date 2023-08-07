@@ -1,56 +1,100 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.INetRequestData;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import tbclient.ItemManage.DataReq;
+import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes6.dex */
-public final class iw6 extends fw6 {
+public class iw6 implements INetRequestData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public int a;
+    public final int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iw6() {
-        super(4096);
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, String> getHttpHeader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, Object> makeHttpParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public iw6(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.fw6
-    public boolean b(ov6 item, rx6 timer, iv6 config) {
-        InterceptResult invokeLLL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            pv6 e = item.e();
-            if (e.i() == 0) {
-                return false;
-            }
-            if (this.b) {
-                if (e.i() != 1) {
-                    return false;
-                }
-            } else if (e.i() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 1;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a++;
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
+    public Object encodeSocketRequestData(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.a);
+            builder.rn = 15;
+            builder.tab_id = Integer.valueOf(this.b);
+            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
+            DataReq build = builder.build(false);
+            builder2.data = build;
+            NetMessageHelper.bindCommonParamsToProtobufData(build, false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
     }
 }

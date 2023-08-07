@@ -1,25 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.appcompat.app.AlertDialog;
+import android.widget.ImageView;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class iy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
+    public ImageView a;
+    public ImageView b;
+    public my5 c;
+    public b d;
+    public final BdResourceCallback<BdImage> e;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ iy5 a;
@@ -42,101 +49,71 @@ public class iy5 {
             this.a = iy5Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ iy5 b;
-
-        public b(iy5 iy5Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iy5Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = iy5Var;
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.a != null) {
-                    this.b.a.dismiss();
-                }
-                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
-                    nx4.s(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((a) bdImage, str, i);
+                if (!StringUtils.isNull(str) && this.a.c != null && this.a.c.isValid()) {
+                    if (str.equals(this.a.c.a())) {
+                        this.a.b.setImageDrawable(bdImage.getAsBitmapDrawable());
+                    }
+                    if (str.equals(this.a.c.d())) {
+                        this.a.a.setImageDrawable(bdImage.getAsBitmapDrawable());
+                    }
+                    this.a.c.b(str);
+                    if (this.a.c.e() && this.a.d != null) {
+                        this.a.d.a();
+                    }
                 }
             }
         }
     }
 
-    public iy5() {
+    public iy5(ImageView imageView, ImageView imageView2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageView, imageView2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return da5.p().l("key_member_auto_ban_renewal_show", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null && alertDialog.isShowing()) {
-                this.a.dismiss();
-            }
-            if (activity == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.protocol_confirm, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.goto_see_more, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.w(R.string.member_reminder);
-            tBAlertBuilder.m(R.string.cancel_member_auto_renewal);
-            tBAlertBuilder.u(aVar2, aVar);
-            tBAlertBuilder.o(true);
-            tBAlertBuilder.j(false);
-            tBAlertBuilder.n(3);
-            this.a = tBAlertBuilder.z();
-            da5.p().A("key_member_auto_ban_renewal_show", true);
-            aVar.c(new a(this));
-            aVar2.c(new b(this, activity));
+        }
+        this.e = new a(this);
+        this.a = imageView;
+        this.b = imageView2;
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void e() {
+        my5 my5Var;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (my5Var = this.c) == null || !my5Var.isValid() || !this.c.e() || (bVar = this.d) == null) {
+            return;
+        }
+        bVar.a();
+    }
+
+    public void g(my5 my5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, my5Var) == null) && my5Var != null && my5Var.isValid()) {
+            this.c = my5Var;
+            BdResourceLoader.getInstance().loadResource(this.c.a(), 10, this.e, null);
+            BdResourceLoader.getInstance().loadResource(this.c.d(), 10, this.e, null);
         }
     }
 }

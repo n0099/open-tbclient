@@ -1,63 +1,120 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class zk5 {
+public class zk5 extends gl5 {
     public static /* synthetic */ Interceptable $ic;
-    public static zk5 b;
+    public static final ThreadLocal<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public zk5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948362853, "Lcom/baidu/tieba/zk5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948362853, "Lcom/baidu/tieba/zk5;");
                 return;
             }
         }
-        this.a = 0;
+        b = new ThreadLocal<>();
     }
 
-    public static zk5 a() {
+    public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (zk5.class) {
-                    if (b == null) {
-                        b = new zk5();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            byte[] bArr = b.get();
+            if (bArr == null) {
+                byte[] bArr2 = new byte[4];
+                b.set(bArr2);
+                return bArr2;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public short f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            byte[] b2 = b();
+            read(b2, 0, 2);
+            return (short) (((b2[0] & 255) << 8) | (b2[1] & 255));
+        }
+        return invokeV.shortValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zk5(hl5 hl5Var) {
+        super(hl5Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hl5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hl5) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public boolean c(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.length() != 4) {
+                return false;
+            }
+            int d = d();
+            for (int i = 0; i < 4; i++) {
+                if (((d >> (i * 8)) & 255) != str.charAt(i)) {
+                    return false;
                 }
             }
-            return b;
+            return true;
         }
-        return (zk5) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public int b() {
+    public int d() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] b2 = b();
+            read(b2, 0, 4);
+            return ((b2[3] & 255) << 24) | (b2[0] & 255) | ((b2[1] & 255) << 8) | ((b2[2] & 255) << 16);
         }
         return invokeV.intValue;
     }
 
-    public void c(int i) {
+    public int e() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] b2 = b();
+            read(b2, 0, 4);
+            return ((b2[0] & 255) << 24) | (b2[3] & 255) | ((b2[2] & 255) << 8) | ((b2[1] & 255) << 16);
         }
+        return invokeV.intValue;
     }
 }

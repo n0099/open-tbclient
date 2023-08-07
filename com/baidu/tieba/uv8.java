@@ -1,107 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class uv8 extends rv8<dw8> implements mc7<uv8> {
+public abstract class uv8<SdkMsg extends ChatMsg, T> implements xv8<SdkMsg, yt8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public boolean e;
 
-    public uv8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (uv8) invokeV.objValue;
-    }
+    public abstract int c();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uv8(cw8<dw8> data, String templateName) {
-        super(data);
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
+
+    public uv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((cw8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.mc7
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.mc7
-    public /* bridge */ /* synthetic */ uv8 b() {
-        i();
-        return this;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rv8
-    public boolean f(rv8<?> other) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xv8
+    /* renamed from: d */
+    public SdkMsg b(yt8<T> msg) {
         InterceptResult invokeL;
-        uv8 uv8Var;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (super.f(other)) {
-                return true;
-            }
-            if (other instanceof uv8) {
-                uv8Var = (uv8) other;
-            } else {
-                uv8Var = null;
-            }
-            if (uv8Var != null && this.e == uv8Var.e) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
-        return invokeL.booleanValue;
+        return (SdkMsg) invokeL.objValue;
     }
 
-    public final void k(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xv8
+    /* renamed from: f */
+    public yt8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            yt8<T> yt8Var = new yt8<>();
+            yt8Var.i(g(msg));
+            yt8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            yt8Var.d(msgKey);
+            yt8Var.e().l(msg.getContacterUk());
+            yt8Var.e().k(m9b.c(msg.getSenderUid(), 0L));
+            yt8Var.e().i(msg.getStatus());
+            yt8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            yt8Var.e().h(isSelf);
+            if (!isSelf) {
+                yt8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                yt8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
+            } else {
+                yt8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                yt8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
+            }
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    yt8Var.e().j(jSONObject.optInt("type"));
+                    yt8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!bi.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    xt8 g = yt8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return yt8Var;
         }
+        return (yt8) invokeL.objValue;
     }
 }

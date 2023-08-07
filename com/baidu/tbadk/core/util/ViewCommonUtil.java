@@ -9,7 +9,7 @@ import android.view.ViewParent;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yi;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,10 +48,10 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] t = yi.t(activity);
+            int[] screenDimensions = BdUtilHelper.getScreenDimensions(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
-                iArr[0] = t[0];
-                iArr[1] = t[1];
+                iArr[0] = screenDimensions[0];
+                iArr[1] = screenDimensions[1];
             }
             return iArr;
         }
@@ -71,14 +71,14 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int v = yi.v(activity);
+            int statusBarHeight = BdUtilHelper.getStatusBarHeight(activity);
             if (MenuKeyUtils.hasSmartBar()) {
-                i = yi.d(activity, 48.0f);
+                i = BdUtilHelper.dip2px(activity, 48.0f);
             } else {
                 i = 0;
             }
             if (!UtilHelper.canUseStyleImmersiveSticky()) {
-                i2 = v;
+                i2 = statusBarHeight;
             }
             rect.bottom -= i;
             rect.top += i2;

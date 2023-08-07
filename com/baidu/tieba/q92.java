@@ -1,79 +1,228 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class q92 implements x82 {
+public final class q92 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q92() {
+    public static int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                return 3;
+            }
+            if (z) {
+                return 1;
+            }
+            return z2 ? 2 : 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public long c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public static void d() {
-        vb3 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = vb3.M()) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean a;
+        public static int b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static long e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return 31457280L;
+            }
+            return invokeV.longValue;
         }
-        eo3.j(M.getActivity());
-        System.exit(0);
+
+        public static int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                return 20;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                return 102400;
+            }
+            return invokeV.intValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-532986111, "Lcom/baidu/tieba/q92$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-532986111, "Lcom/baidu/tieba/q92$b;");
+                    return;
+                }
+            }
+            a = ir1.a;
+            b = -1;
+        }
+
+        public static boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if ((h() & 255) == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                int h = h();
+                if (h == 0) {
+                    return h;
+                }
+                return (h >> 16) & 255;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                int h = h();
+                if (h == 0) {
+                    return h;
+                }
+                return (h >> 8) & 255;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                if (b == -1) {
+                    fu2.g0().getSwitch("swan_custom_code_cache", 0);
+                    b = 0;
+                }
+                return b;
+            }
+            return invokeV.intValue;
+        }
+
+        public static a d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                a aVar = new a();
+                aVar.a = f();
+                aVar.b = g();
+                aVar.c = e();
+                if (a) {
+                    Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + aVar.a + " ,sizeLimit: " + aVar.b + " ,diskSizeThreshold: " + aVar.c);
+                }
+                return aVar;
+            }
+            return (a) invokeV.objValue;
+        }
     }
 
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046591, "Lcom/baidu/tieba/q92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948046591, "Lcom/baidu/tieba/q92;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = ir1.a;
     }
 
-    @Override // com.baidu.tieba.x82
-    public String c() {
-        InterceptResult invokeV;
+    @NonNull
+    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return o92.e().getPath();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (str.hashCode() == 93029162 && str.equals("appjs")) {
+                c = 0;
+            } else {
+                c = 65535;
+            }
+            if (c != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
+            } else {
+                a d = b.d();
+                codeCacheSetting.maxCount = d.a;
+                codeCacheSetting.sizeLimit = d.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+            }
+            if (a) {
+                Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+            }
+            return codeCacheSetting;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x82
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = uo3.i(bundle, "extraWSUrl");
-            y82.i(uo3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            y82.j(uo3.i(bundle, "slavePreload"));
-        }
-    }
-
-    @Override // com.baidu.tieba.x82
-    public void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", a);
-            bundle.putString("slavePreload", y82.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, y82.a());
-        }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
     }
 }

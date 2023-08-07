@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
+import android.text.TextUtils;
+import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import kotlin.Pair;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public final class wr {
+public abstract class wr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<ur> a;
-    public final Set<Pair<Class<? extends sr>, tr<? extends sr>>> b;
-    public TaskInfo c;
+    public boolean a;
+    public int b;
 
-    public wr(TaskInfo taskInfo) {
+    public abstract String a();
+
+    public abstract void b(int i);
+
+    public abstract void c(IOException iOException);
+
+    public abstract void f(byte[] bArr);
+
+    public wr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,79 +36,48 @@ public final class wr {
                 return;
             }
         }
-        this.c = taskInfo;
-        this.a = new HashSet();
-        this.b = new HashSet();
+        this.a = false;
+        this.b = 0;
     }
 
-    public final void b(tr<? extends sr> trVar) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trVar) != null) || trVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = 0;
+            ur.a().b(str, this);
         }
-        Iterator<Pair<Class<? extends sr>, tr<? extends sr>>> it = this.b.iterator();
-        while (it.hasNext()) {
-            if (Intrinsics.areEqual(it.next().getSecond(), trVar)) {
-                it.remove();
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final String g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            String str = new String(bArr);
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("processResponseData encodeResponseData=" + str);
+            if (this.a) {
+                pr b = yr.c().b(zr.b().i(), bArr);
+                DebugTrace debugTrace2 = DebugTrace.a;
+                debugTrace2.a("processResponseData decodeResponseData=" + b);
+                if (b != null) {
+                    if (!TextUtils.isEmpty(b.a())) {
+                        str = b.a();
+                    }
+                    this.b = b.d().intValue();
+                } else {
+                    this.b = -1;
+                }
+                zr.b().i().b(this.b);
             }
+            return str;
         }
-    }
-
-    public final Set<ur> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return CollectionsKt___CollectionsKt.toSet(this.a);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final Set<Pair<Class<? extends sr>, tr<? extends sr>>> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return CollectionsKt___CollectionsKt.toSet(this.b);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final TaskInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (TaskInfo) invokeV.objValue;
-    }
-
-    public final void c(ur urVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, urVar) != null) || urVar == null) {
-            return;
-        }
-        this.a.add(urVar);
-    }
-
-    public final void d(TaskInfo taskInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, taskInfo) == null) {
-            this.c = taskInfo;
-        }
-    }
-
-    public final void g(ur urVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, urVar) != null) || urVar == null) {
-            return;
-        }
-        this.a.remove(urVar);
-    }
-
-    public final <T extends sr> void e(Class<T> cls, tr<T> trVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, cls, trVar) != null) || trVar == null) {
-            return;
-        }
-        this.b.add(new Pair<>(cls, trVar));
+        return (String) invokeL.objValue;
     }
 }

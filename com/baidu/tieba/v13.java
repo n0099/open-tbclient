@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class v13 implements Cloneable {
+public class v13 extends s13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
     public v13() {
         Interceptable interceptable = $ic;
@@ -34,110 +28,40 @@ public final class v13 implements Cloneable {
         }
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(v13 v13Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v13Var)) == null) {
-            if (v13Var == null || TextUtils.isEmpty(v13Var.a)) {
-                return null;
-            }
-            if (TextUtils.isEmpty(v13Var.b)) {
-                return v13Var.a;
-            }
-            return v13Var.a + "?" + v13Var.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(v13 v13Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v13Var)) == null) {
-            if (v13Var == null || TextUtils.isEmpty(v13Var.d)) {
-                return null;
-            }
-            if (TextUtils.isEmpty(v13Var.b)) {
-                return v13Var.d;
-            }
-            return v13Var.d + "?" + v13Var.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static v13 d(String str, String str2) {
+    @Override // com.baidu.tieba.s13
+    public boolean a(Bitmap bitmap, Rect rect) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            v13 v13Var = new v13();
-            v13Var.a = np3.f(str);
-            v13Var.b = np3.o(str);
-            v13Var.c = str2;
-            v13Var.d = nf3.b(v13Var.a);
-            return v13Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (s13.c) {
+                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
+            int i = 0;
+            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
+                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
+                    int pixel = bitmap.getPixel(i2, i3);
+                    if (i == 0) {
+                        i = pixel;
+                    }
+                    if (i != pixel && pixel != 0) {
+                        if (ir1.a) {
+                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                        return false;
+                    }
+                }
+            }
+            if (s13.c) {
+                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+            }
+            return true;
         }
-        return (v13) invokeLL.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

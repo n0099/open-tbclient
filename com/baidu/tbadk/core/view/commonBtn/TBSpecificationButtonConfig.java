@@ -4,13 +4,13 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -206,13 +206,13 @@ public abstract class TBSpecificationButtonConfig {
         this.s = 0;
         this.t = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.k = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.m = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.n = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.o = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.p = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.k = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.m = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.n = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.o = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.p = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public final Drawable b(int i) {

@@ -1,81 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class s57 extends ln<t57, ForumEmotionEmptyViewHolder> {
+public final class s57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public p57 b;
-    public u57 c;
+    public final int a;
+    public final String b;
+    public final String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s57(TbPageContext<?> tbPageContext, u57 u57Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof s57) {
+                s57 s57Var = (s57) obj;
+                return this.a == s57Var.a && Intrinsics.areEqual(this.b, s57Var.b) && Intrinsics.areEqual(this.c, s57Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a * 31;
+            String str = this.b;
+            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public s57(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, u57Var, bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = u57Var;
+        this.a = i;
+        this.b = str;
+        this.c = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public ForumEmotionEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.a);
-            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
-            return new ForumEmotionEmptyViewHolder(this.a, forumEmotionEmptyView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void u(p57 p57Var) {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, p57Var) == null) {
-            this.b = p57Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t57 t57Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
-        InterceptResult invokeCommon;
+    public final int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t57Var, forumEmotionEmptyViewHolder})) == null) {
-            forumEmotionEmptyViewHolder.c(t57Var, i, this.c, this.b);
-            return forumEmotionEmptyViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 }

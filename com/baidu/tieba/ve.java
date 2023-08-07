@@ -1,68 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.MemoryThreadOptSwitch;
+import com.baidu.tbadk.switchs.CheckWebResProxySwitch;
+import com.baidu.tbadk.switchs.CsjInitSwitch;
+import com.baidu.tbadk.switchs.GdtInitSwitch;
+import com.baidu.tbadk.switchs.KsInitSwitch;
+import com.baidu.tbadk.switchs.PicCaptureModeSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class ve extends u9 {
+public class ve implements ck1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.u9
-    public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ve(Context context, String str) {
-        super(context, str, 1);
+    public ve() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.ck1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new MemoryThreadOptSwitch());
+            arrayList.add(new yj5());
+            arrayList.add(new CheckWebResProxySwitch());
+            arrayList.add(new CsjInitSwitch());
+            arrayList.add(new GdtInitSwitch());
+            arrayList.add(new KsInitSwitch());
+            arrayList.add(new PicCaptureModeSwitch());
+            arrayList.add(new ti6());
+            arrayList.add(new ui6());
+            arrayList.add(new eo6());
+            arrayList.add(new g58());
+            arrayList.add(new at8());
+            arrayList.add(new bt8());
+            arrayList.add(new oz9());
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.tieba.u9
-    public void createAllTables(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.s9
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && i < 1) {
-            a(sQLiteDatabase);
-        }
+        return invokeV.objValue;
     }
 }

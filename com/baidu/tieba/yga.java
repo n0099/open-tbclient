@@ -1,70 +1,42 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.view.View;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
+import com.baidu.tbadk.core.data.LoginDialogData;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yga extends CustomMessageListener {
+public class yga extends e55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final aga b;
+    public final MainTabActivity f;
+    public final hea g;
+    public lg5 h;
 
     /* loaded from: classes8.dex */
-    public class a implements aaa<w9a> {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yga a;
-
-        /* renamed from: com.baidu.tieba.yga$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0546a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ w9a a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0546a(a aVar, w9a w9aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, w9aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = w9aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                w9a w9aVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (w9aVar = this.a) != null) {
-                    this.b.a.f(w9aVar);
-                }
-            }
-        }
 
         public a(yga ygaVar) {
             Interceptable interceptable = $ic;
@@ -84,13 +56,12 @@ public class yga extends CustomMessageListener {
             this.a = ygaVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aaa
-        /* renamed from: b */
-        public void a(w9a w9aVar) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w9aVar) == null) {
-                this.a.a.runOnUiThread(new RunnableC0546a(this, w9aVar));
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                YunDialogManager.unMarkShowingDialogName("operateNew");
+                this.a.c();
             }
         }
     }
@@ -99,48 +70,15 @@ public class yga extends CustomMessageListener {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q55 a;
-
-        public b(yga ygaVar, q55 q55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ygaVar, q55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q55Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q55 a;
+        public final /* synthetic */ AlertDialog a;
         public final /* synthetic */ yga b;
 
-        public c(yga ygaVar, q55 q55Var) {
+        public b(yga ygaVar, AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ygaVar, q55Var};
+                Object[] objArr = {ygaVar, alertDialog};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -151,34 +89,53 @@ public class yga extends CustomMessageListener {
                 }
             }
             this.b = ygaVar;
-            this.a = q55Var;
+            this.a = alertDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            String str;
+            String str2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
-                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.b.g();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getContext() != null) {
+                this.a.dismiss();
+                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
+                String b = this.b.h.b();
+                if (TextUtils.isEmpty(b)) {
+                    return;
+                }
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    str = "skin=dark";
+                } else {
+                    str = "skin=default";
+                }
+                if (b.contains("?")) {
+                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
+                } else {
+                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
+                }
+                loginDialogData.setJumpUrl(str2);
+                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
+                    BrowserHelper.startWebActivity(view2.getContext(), (String) null, str2, true);
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class d implements View.OnClickListener {
+    public class c implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q55 a;
-        public final /* synthetic */ w9a b;
+        public final /* synthetic */ TBAlertBuilder a;
+        public final /* synthetic */ AlertDialog b;
         public final /* synthetic */ yga c;
 
-        public d(yga ygaVar, q55 q55Var, w9a w9aVar) {
+        public c(yga ygaVar, TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ygaVar, q55Var, w9aVar};
+                Object[] objArr = {ygaVar, tBAlertBuilder, alertDialog};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -189,142 +146,104 @@ public class yga extends CustomMessageListener {
                 }
             }
             this.c = ygaVar;
-            this.a = q55Var;
-            this.b = w9aVar;
+            this.a = tBAlertBuilder;
+            this.b = alertDialog;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
-                z9a z9aVar = new z9a();
-                w9a w9aVar = this.b;
-                if (w9aVar != null) {
-                    z9aVar.g(w9aVar.a());
-                    z9aVar.h(this.b.b());
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+                if (!z) {
+                    this.c.c();
+                } else {
+                    this.a.show(this.b);
                 }
-                new y9a(this.c.a, z9aVar).a();
-                this.c.i();
+            }
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.c();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yga(MainTabActivity mainTabActivity, pfa pfaVar) {
-        super(2001384);
+    public yga(@NonNull MainTabActivity mainTabActivity, @NonNull hea heaVar) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pfaVar};
+            Object[] objArr = {mainTabActivity, heaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.g = heaVar;
+        this.f = mainTabActivity;
     }
 
-    public final void e() {
+    @Override // com.baidu.tieba.b55
+    public void d(@NonNull b55.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MainTabActivity mainTabActivity = this.a;
-            if (mainTabActivity.E == null) {
-                mainTabActivity.E = new daa(mainTabActivity.getPageContext(), new a(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            boolean z = false;
+            if (YunDialogManager.isShowingDialog()) {
+                aVar.callback(false);
+            } else if (!SharedPrefHelper.getInstance().getBoolean(m65.d(), true)) {
+                aVar.callback(false);
+            } else {
+                lg5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
+                this.h = homeOperateData;
+                if (homeOperateData == null) {
+                    aVar.callback(false);
+                } else if (!homeOperateData.c()) {
+                    aVar.callback(false);
+                } else {
+                    if (!TextUtils.isEmpty(this.h.a()) && this.h.a().contains("not_show")) {
+                        SharedPrefHelper.getInstance().putBoolean(m65.d(), false);
+                    } else if (this.g.z() != null && this.g.z().getCurrentTabType() == 2) {
+                        z = true;
+                    }
+                    aVar.callback(z);
+                }
             }
-            this.a.E.b();
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.e55
+    public void h(TBAlertBuilder tBAlertBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            SharedPrefHelper.getInstance().putBoolean(m65.d(), false);
+            int processWidth = TBAlertBuilder.processWidth(TbadkCoreApplication.getInst());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(processWidth, (processWidth * 4) / 3);
+            TbImageView tbImageView = new TbImageView(this.b);
+            tbImageView.setLayoutParams(layoutParams);
+            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            tBAlertBuilder.setCustomContentView(tbImageView).setNeedTransparentBg(true).setShowBottomCloseBtn(true).setCancelable(false).setOnDismissListener(new a(this));
+            AlertDialog create = tBAlertBuilder.create();
+            tbImageView.setOnClickListener(new b(this, create));
+            tbImageView.setEvent(new c(this, tBAlertBuilder, create));
+            tbImageView.startLoad(this.h.a(), 10, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.e55
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 3).param("obj_locate", 3));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 3).param("obj_locate", 3));
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
-        }
-    }
-
-    public final void f(w9a w9aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w9aVar) == null) && !this.a.F && TbadkCoreApplication.isLogin() && this.a.z.intValue() == 8) {
-            NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(this.a);
-            newStyleStampDialogView.setStampData(w9aVar);
-            q55 q55Var = new q55(this.a);
-            q55Var.c(newStyleStampDialogView);
-            q55Var.e();
-            h();
-            this.a.F = true;
-            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, q55Var));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new c(this, q55Var));
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, q55Var, w9aVar));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aga agaVar;
-        aga agaVar2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = this.a.z.intValue();
-            this.a.z = (Integer) customResponsedMessage.getData();
-            if (this.a.z.intValue() == 1) {
-                aga agaVar3 = this.b;
-                if (agaVar3 != null && agaVar3.a() != null) {
-                    this.b.a().a();
-                }
-            } else if (intValue == 1 && (agaVar = this.b) != null && agaVar.a() != null) {
-                this.b.a().f();
-            }
-            if (this.a.z.intValue() == 21 && (agaVar2 = this.b) != null && agaVar2.a() != null) {
-                this.b.a().c();
-            }
-            if (this.a.z.intValue() == 8) {
-                oy5.c().k(true);
-                aga agaVar4 = this.b;
-                if (agaVar4 != null && agaVar4.a() != null) {
-                    this.b.a().b();
-                }
-                if (!this.a.F) {
-                    e();
-                }
-                if (TbadkCoreApplication.isLogin() && !iy5.b()) {
-                    MainTabActivity mainTabActivity = this.a;
-                    if (mainTabActivity.K && mainTabActivity.J) {
-                        new iy5().c(this.a.getPageContext().getPageActivity());
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            oy5.c().k(false);
-            daa daaVar = this.a.E;
-            if (daaVar != null) {
-                daaVar.a();
-                this.a.E = null;
-            }
+            YunDialogManager.markShowingDialogName("operateNew");
         }
     }
 }

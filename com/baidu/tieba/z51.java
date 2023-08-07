@@ -1,105 +1,122 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.searchbox.elasticthread.queue.QueueManager;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
+import android.widget.Toast;
+import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class z51 {
+public final class z51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y51[] a;
 
-    public z51() {
+    public static boolean a(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new y51[4];
-        if (n51.s.length != 4) {
-            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
-        }
-        for (int i3 = 0; i3 < 4; i3++) {
-            this.a[i3] = new y51();
-        }
-    }
-
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c(0).d()) {
-                return 9999999.0d;
-            }
-            double d = 0.0d;
-            for (int i = 0; i < 4; i++) {
-                d += this.a[i].a() * n51.s[i];
-            }
-            return d / 1000.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public ElasticTask b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (int i = 0; i < 4; i++) {
-                if (!this.a[i].d()) {
-                    return this.a[i].b();
-                }
-            }
-            return null;
-        }
-        return (ElasticTask) invokeV.objValue;
-    }
-
-    public y51 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = 0;
-            while (true) {
-                int[] iArr = n51.a;
-                if (i2 < iArr.length) {
-                    if (iArr[i2] == i) {
-                        return this.a[i2];
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    if (TextUtils.isEmpty(pj0.a().v())) {
+                        return false;
                     }
-                    i2++;
-                } else {
-                    y51[] y51VarArr = this.a;
-                    return y51VarArr[y51VarArr.length - 1];
+                    Uri uriForFile = FileProvider.getUriForFile(context, pj0.a().v(), file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        if (resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
+                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException | Exception unused) {
+                    return false;
                 }
             }
-        } else {
-            return (y51) invokeI.objValue;
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void b(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, dialog) != null) || dialog == null) {
+            return;
+        }
+        try {
+            dialog.show();
+        } catch (Exception unused) {
         }
     }
 
-    public void e(ElasticTask elasticTask) {
+    public static void c(Activity activity, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            c(elasticTask.b()).e(elasticTask);
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
+            e(activity, intent, true);
         }
     }
 
-    public void d(Runnable runnable, String str, int i) {
+    public static boolean d(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            c(i).c(runnable, str, i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            return e(context, intent, false);
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
+            return f(context, intent, z, false);
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (!z2) {
+                    return false;
+                }
+                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
+                return false;
+            } catch (SecurityException unused2) {
+                if (!z2) {
+                    return false;
+                }
+                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
+                return false;
+            } catch (Exception unused3) {
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

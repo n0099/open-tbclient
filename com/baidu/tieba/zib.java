@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
-import java.util.Map;
+import com.kwad.sdk.api.KsFeedAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes8.dex */
-public class zib extends xib<UnifiedInterstitialAD> {
+public class zib extends akb<KsFeedAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zib(UnifiedInterstitialAD unifiedInterstitialAD) {
-        super(unifiedInterstitialAD);
+    public zib(KsFeedAd ksFeedAd) {
+        super(ksFeedAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {unifiedInterstitialAD};
+            Object[] objArr = {ksFeedAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,36 +33,38 @@ public class zib extends xib<UnifiedInterstitialAD> {
         }
     }
 
-    @Override // com.baidu.tieba.xib
-    public String e() {
+    @Override // com.baidu.tieba.akb
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((UnifiedInterstitialAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
+            }
+            return ((KsFeedAd) a).getECPM();
+        }
+        return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.xib
-    public void b(Map<String, Object> map) {
+    @Override // com.baidu.tieba.akb
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((UnifiedInterstitialAD) this.a).sendLossNotification(map);
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsFeedAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    @Override // com.baidu.tieba.xib
-    public void d(Map<String, Object> map) {
+    @Override // com.baidu.tieba.akb
+    public void c(long j, long j2) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((UnifiedInterstitialAD) this.a).sendWinNotification(map);
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.xib
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((UnifiedInterstitialAD) this.a).getECPM();
-        }
-        return invokeV.intValue;
+        ((KsFeedAd) a).setBidEcpm((int) j);
     }
 }

@@ -1,85 +1,73 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import androidx.core.app.NotificationCompat;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dr1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 60000;
-    public static long b;
-    public static long c;
+public class dr1 implements sq1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public cr1 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714054, "Lcom/baidu/tieba/dr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947714054, "Lcom/baidu/tieba/dr1;");
-                return;
-            }
-        }
-        long j = a * 60;
-        b = j;
-        c = j * 24;
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public static void a(Context context, long j) {
-        PendingIntent broadcast;
+    public dr1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
-            return;
-        }
-        try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent();
-            intent.setPackage(context.getPackageName());
-            intent.setAction("sso_action_t_m");
-            if (b(context)) {
-                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
-            } else {
-                broadcast = PendingIntent.getBroadcast(context, 101, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            alarmManager.cancel(broadcast);
-            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
-        } catch (Throwable th) {
-            er1.d(th);
         }
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sq1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            cr1 cr1Var = this.b;
+            return cr1Var.a(this.a, cr1Var.c);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sq1
+    public void a(Context context, tq1 tq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tq1Var) == null) {
+            this.a = context;
+            cr1 cr1Var = new cr1();
+            this.b = cr1Var;
+            cr1Var.c = null;
             try {
-                if (context.getApplicationInfo().targetSdkVersion >= 31) {
-                    if (Build.VERSION.SDK_INT >= 31) {
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            } catch (Throwable th) {
-                er1.d(th);
-                return false;
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                cr1Var.b = cls;
+                cr1Var.a = cls.newInstance();
+            } catch (Throwable unused) {
+            }
+            try {
+                cr1Var.c = cr1Var.b.getMethod("getOAID", Context.class);
+            } catch (Throwable unused2) {
+            }
+            try {
+                cr1Var.b.getMethod("getVAID", Context.class);
+            } catch (Throwable unused3) {
+            }
+            try {
+                cr1Var.b.getMethod("getAAID", Context.class);
+            } catch (Throwable unused4) {
+            }
+            if (tq1Var != null) {
+                tq1Var.a();
             }
         }
-        return invokeL.booleanValue;
     }
 }

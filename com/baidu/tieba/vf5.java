@@ -1,74 +1,185 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
-import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public class vf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vf5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public final HttpMessageListener c;
+    public d a;
+    public c b;
+    public b c;
 
     /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf5 a;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vf5 vf5Var, int i) {
-            super(i);
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends BdAsyncTask<String, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Process a;
+        public final /* synthetic */ vf5 b;
+
+        public b(vf5 vf5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf5Var, Integer.valueOf(i)};
+                Object[] objArr = {vf5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vf5Var;
+            this.b = vf5Var;
+            this.a = null;
+        }
+
+        public /* synthetic */ b(vf5 vf5Var, a aVar) {
+            this(vf5Var);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.a = false;
-                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003543 || !(httpResponsedMessage instanceof HotEventRespondedMessage) || httpResponsedMessage.getError() != 0) {
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                boolean z = false;
+                if (strArr != null && strArr.length >= 1) {
+                    try {
+                        try {
+                            try {
+                                Process exec = Runtime.getRuntime().exec(strArr[0]);
+                                this.a = exec;
+                                if (exec.waitFor() == 0) {
+                                    z = true;
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (InterruptedException e2) {
+                            e2.printStackTrace();
+                        }
+                    } finally {
+                        this.a.destroy();
+                    }
                 }
-                wg5.u(HotEventData.getInstance());
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.onCancelled();
+                Process process = this.a;
+                if (process != null) {
+                    try {
+                        process.destroy();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                    }
+                }
+                if (this.b.b != null) {
+                    this.b.b.a(false);
+                }
+                if (this.b.a != null) {
+                    this.b.a.removeMessages(0);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            boolean booleanValue;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                if (this.b.b != null) {
+                    c cVar = this.b.b;
+                    if (bool == null) {
+                        booleanValue = false;
+                    } else {
+                        booleanValue = bool.booleanValue();
+                    }
+                    cVar.a(booleanValue);
+                }
+                if (this.b.a != null) {
+                    this.b.a.removeMessages(0);
+                }
             }
         }
     }
 
-    public vf5() {
+    /* loaded from: classes8.dex */
+    public static class d extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<vf5> a;
+
+        public d(vf5 vf5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(vf5Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            vf5 vf5Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 0 && (vf5Var = this.a.get()) != null) {
+                    vf5Var.e();
+                }
+            }
+        }
+    }
+
+    public vf5(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,69 +189,47 @@ public class vf5 {
                 return;
             }
         }
-        this.a = false;
-        this.b = "";
-        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
-        c();
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        d dVar = new d(this);
+        this.a = dVar;
+        this.b = cVar;
+        dVar.sendEmptyMessageDelayed(0, 50000L);
+        b bVar = new b(this, null);
+        this.c = bVar;
+        bVar.setSelfExecute(true);
+        b bVar2 = this.c;
+        bVar2.execute(d() + str);
     }
 
-    public static vf5 b() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (vf5.class) {
-                    if (d == null) {
-                        d = new vf5();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                if (netType != 2) {
+                    return "ping -c 3 -w 5000 ";
                 }
+                return "ping -c 3 -w 10000 ";
             }
-            return d;
+            return "ping -c 3 -w 3000 ";
         }
-        return (vf5) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
-        }
+        return (String) invokeV.objValue;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b bVar = this.c;
+            if (bVar != null) {
+                bVar.cancel(true);
+            }
+            d dVar = this.a;
+            if (dVar != null) {
+                dVar.removeMessages(0);
+            }
         }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
-            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a) {
-            return;
-        }
-        if (!this.b.equals(str)) {
-            this.b = str;
-            g();
-            d(str);
-        }
-        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
-        this.a = true;
     }
 }

@@ -9,21 +9,21 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.r45;
-import com.baidu.tieba.t15;
+import com.baidu.tieba.o35;
+import com.baidu.tieba.q05;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +115,7 @@ public final class CustomFitFrameCard extends ConstraintLayout {
                     headImageView = null;
                 }
                 if (headImageView != null) {
-                    headImageView.N((String) this.b.e.get(i), 12, false);
+                    headImageView.startLoad((String) this.b.e.get(i), 12, false);
                 }
             }
         }
@@ -207,9 +207,9 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         LayoutHeadlinesFrameCardBinding b2 = LayoutHeadlinesFrameCardBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b2, "inflate(LayoutInflater.from(context), this)");
         this.a = b2;
-        this.b = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
-        this.c = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.d = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds62);
+        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
         this.e = new ArrayList<>();
         this.f = new a(context, this);
         TbImageAutoSwitch tbImageAutoSwitch = this.a.c;
@@ -223,7 +223,7 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         ScalingUtils.ScaleType FIT_XY = ScalingUtils.ScaleType.FIT_XY;
         Intrinsics.checkNotNullExpressionValue(FIT_XY, "FIT_XY");
         tbImage.setScaleType(FIT_XY);
-        b();
+        c();
     }
 
     public /* synthetic */ CustomFitFrameCard(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
@@ -238,72 +238,72 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.pic_use_header_40_n);
             if (drawable != null) {
                 this.a.b.setPlaceHolderDrawable(drawable);
             }
-            d85.d(this.a.e).x(R.color.CAM_X0101);
-            d85.d(this.a.g).x(R.color.CAM_X0101);
+            EMManager.from(this.a.e).setTextColor(R.color.CAM_X0101);
+            EMManager.from(this.a.g).setTextColor(R.color.CAM_X0101);
             this.a.f.j();
         }
     }
 
-    public final void i(t15 t15Var) {
+    public final void k(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q05Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, t15Var.getThreadData().getTaskInfoData().a());
+            constraintSet.setDimensionRatio(R.id.background_card, q05Var.getThreadData().getTaskInfoData().a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = t15Var.getThreadData().getTaskInfoData().m();
+            String m = q05Var.getThreadData().getTaskInfoData().m();
             Intrinsics.checkNotNullExpressionValue(m, "data.threadData.taskInfoData.threadImgUrl");
             tbImage.k(m);
         }
     }
 
-    public final void j(r45 r45Var) {
+    public final void l(o35 o35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r45Var) == null) {
-            this.a.g.setText(r45Var.c());
-            long g = wg.g(r45Var.d(), 0L) * 1000;
-            if (g <= System.currentTimeMillis()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, o35Var) == null) {
+            this.a.g.setText(o35Var.c());
+            long j = JavaTypesHelper.toLong(o35Var.d(), 0L) * 1000;
+            if (j <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
                 return;
             }
-            this.a.f.l(g, new b(this));
+            this.a.f.l(j, new b(this));
         }
     }
 
-    public final void l(r45 r45Var) {
+    public final void m(o35 o35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r45Var) == null) {
-            if (ListUtils.isEmpty(r45Var.e())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, o35Var) == null) {
+            if (ListUtils.isEmpty(o35Var.e())) {
                 h(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(r45Var.e());
+            this.e.addAll(o35Var.e());
             h(0);
             this.a.c.p();
-            if (!TextUtils.isEmpty(r45Var.m())) {
-                this.a.e.setText(r45Var.m());
+            if (!TextUtils.isEmpty(o35Var.m())) {
+                this.a.e.setText(o35Var.m());
             }
         }
     }
 
-    public final void setData(t15 t15Var) {
+    public final void setData(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, t15Var) == null) && t15Var != null && t15Var.getThreadData() != null && t15Var.getThreadData().getTaskInfoData() != null && t15Var.getThreadData().getTaskInfoData().f() != null) {
-            r45 rewardCardData = t15Var.getThreadData().getTaskInfoData().f();
-            i(t15Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, q05Var) == null) && q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getTaskInfoData() != null && q05Var.getThreadData().getTaskInfoData().f() != null) {
+            o35 rewardCardData = q05Var.getThreadData().getTaskInfoData().f();
+            k(q05Var);
             Intrinsics.checkNotNullExpressionValue(rewardCardData, "rewardCardData");
+            m(rewardCardData);
             l(rewardCardData);
-            j(rewardCardData);
         }
     }
 }

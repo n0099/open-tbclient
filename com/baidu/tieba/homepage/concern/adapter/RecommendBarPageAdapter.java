@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
-import com.baidu.tieba.k18;
-import com.baidu.tieba.n18;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.uy7;
+import com.baidu.tieba.xy7;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +30,8 @@ import java.util.List;
 public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yn> a;
-    public List<n18> b;
+    public List<ym> a;
+    public List<xy7> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -64,11 +64,11 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new n18(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d083f, (ViewGroup) null, false), this.c, b));
+            this.b.add(new xy7(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0847, (ViewGroup) null, false), this.c, b));
         }
     }
 
-    public yn b(int i) {
+    public ym b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -77,7 +77,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             }
             return null;
         }
-        return (yn) invokeI.objValue;
+        return (ym) invokeI.objValue;
     }
 
     public void c(int i) {
@@ -86,44 +86,44 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<n18> list = this.b;
+        List<xy7> list = this.b;
         if (list != null && list.size() > 0) {
-            for (n18 n18Var : this.b) {
-                n18Var.o(i);
+            for (xy7 xy7Var : this.b) {
+                xy7Var.o(i);
             }
         }
     }
 
-    public final void e(k18 k18Var) {
-        k18.a[] aVarArr;
+    public final void e(uy7 uy7Var) {
+        uy7.a[] aVarArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, k18Var) != null) || k18Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, uy7Var) != null) || uy7Var == null) {
             return;
         }
-        for (k18.a aVar : k18Var.g) {
+        for (uy7.a aVar : uy7Var.g) {
             if (aVar != null) {
                 TiebaStatic.log(new StatisticItem("c15342").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", aVar.e()));
             }
         }
     }
 
-    public final void d(yn ynVar) {
+    public final void d(ym ymVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ynVar) == null) && (ynVar instanceof k18)) {
-            k18 k18Var = (k18) ynVar;
-            if (k18Var.f() && !k18Var.e()) {
-                int b = k18Var.b();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ymVar) == null) && (ymVar instanceof uy7)) {
+            uy7 uy7Var = (uy7) ymVar;
+            if (uy7Var.f() && !uy7Var.e()) {
+                int b = uy7Var.b();
                 for (int i = 0; i < b; i++) {
-                    k18.a[] aVarArr = k18Var.g;
+                    uy7.a[] aVarArr = uy7Var.g;
                     if (aVarArr[i] != null) {
-                        k18.a aVar = aVarArr[i];
+                        uy7.a aVar = aVarArr[i];
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_HOMEPAGE_RECFORUM_CARD_INNERFORUM_SHOW);
                         statisticItem.addParam("fid", aVar.e());
                         statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
                         TiebaStatic.log(statisticItem);
                     }
                 }
-                k18Var.i(true);
+                uy7Var.i(true);
             }
         }
     }
@@ -142,25 +142,25 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             this.a.clear();
             this.a.addAll(recommendBarCardModel.h());
             for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-                n18 n18Var = this.b.get(i);
-                n18Var.r(!recommendBarCardModel.k());
-                n18Var.c((yn) ListUtils.getItem(this.a, i));
-                d((yn) ListUtils.getItem(this.a, i));
+                xy7 xy7Var = this.b.get(i);
+                xy7Var.r(!recommendBarCardModel.l());
+                xy7Var.c((ym) ListUtils.getItem(this.a, i));
+                d((ym) ListUtils.getItem(this.a, i));
             }
             notifyDataSetChanged();
-            if (this.a.get(0) instanceof k18) {
-                k18 k18Var = (k18) this.a.get(0);
+            if (this.a.get(0) instanceof uy7) {
+                uy7 uy7Var = (uy7) this.a.get(0);
                 StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-                if (!StringUtils.isNull(k18Var.a)) {
-                    param = param.param("obj_name", k18Var.a);
+                if (!StringUtils.isNull(uy7Var.a)) {
+                    param = param.param("obj_name", uy7Var.a);
                 }
                 TiebaStatic.log(param);
-                StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", k18Var.a()).param("obj_locate", (int) this.e);
-                if (!StringUtils.isNull(k18Var.a)) {
-                    param2 = param2.param("obj_name", k18Var.a);
+                StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", uy7Var.a()).param("obj_locate", (int) this.e);
+                if (!StringUtils.isNull(uy7Var.a)) {
+                    param2 = param2.param("obj_name", uy7Var.a);
                 }
                 TiebaStatic.log(param2);
-                e(k18Var);
+                e(uy7Var);
             }
         }
     }
@@ -171,15 +171,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            n18 n18Var = this.b.get(i);
-            k18 l = n18Var.l();
+            xy7 xy7Var = this.b.get(i);
+            uy7 l = xy7Var.l();
             if (l != null) {
                 int i2 = 0;
                 while (true) {
-                    k18.a[] aVarArr = l.g;
+                    uy7.a[] aVarArr = l.g;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].e() == j) {
-                            n18Var.s(i2, z);
+                            xy7Var.s(i2, z);
                         }
                         i2++;
                     }
@@ -194,20 +194,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
-            List<n18> list = this.b;
+            List<xy7> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            n18 n18Var = (n18) ListUtils.getItem(list, i);
-            if (n18Var == null) {
+            xy7 xy7Var = (xy7) ListUtils.getItem(list, i);
+            if (xy7Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (n18Var.b().getParent() == null) {
-                viewGroup.addView(n18Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (xy7Var.b().getParent() == null) {
+                viewGroup.addView(xy7Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            n18Var.b().setTag(Integer.valueOf(i));
-            n18Var.c((yn) ListUtils.getItem(this.a, i));
-            return n18Var.b();
+            xy7Var.b().setTag(Integer.valueOf(i));
+            xy7Var.c((ym) ListUtils.getItem(this.a, i));
+            return xy7Var.b();
         }
         return invokeLI.objValue;
     }

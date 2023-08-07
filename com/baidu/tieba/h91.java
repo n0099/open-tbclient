@@ -1,14 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface h91 {
-    @Nullable
-    Intent a();
+public class h91 {
+    public static /* synthetic */ Interceptable $ic;
+    public static long a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    String[] b();
-
-    int getMode();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = currentTimeMillis - a;
+            a = currentTimeMillis;
+            if (j > 0 && j < 1300) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 }

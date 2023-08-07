@@ -1,71 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cn3 extends ym3 {
+public class cn3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cn3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/openTabBar");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680481, "Lcom/baidu/tieba/cn3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947680481, "Lcom/baidu/tieba/cn3;");
                 return;
             }
         }
+        a = ir1.a;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public static JSONObject a(String str, String str2, String str3) throws JSONException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                v82.c("openTabBar", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (ym3.k()) {
-                v82.c("OpenTabBarAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
-                return false;
-            } else {
-                hn3 j = ym3.j();
-                if (j == null) {
-                    v82.c("OpenTabBarAction", "tabBarViewController is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!j.r(optParamsAsJo.optBoolean("animation"))) {
-                    v82.c("openTabBar", "open bottom bar fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("success", str);
+            jSONObject.put("swan", str2);
+            jSONObject.put("type", "NA");
+            jSONObject.put("error", str3);
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static JSONObject b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", a(str, str2, str3));
+                jSONObject.put("os", "android");
+                jSONObject.put("type", CommonTbJsBridge.GET_APIS);
+                jSONObject.put("from", "swan");
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
+            return jSONObject;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(@Nullable String str) {
+        String str2;
+        SwanCoreVersion e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            try {
+                e = dk3.e(0);
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            if (e != null) {
+                str2 = e.swanCoreVersionName;
+                if (str == null) {
+                    str = "";
+                }
+                fh3.k("1087", b("2", str2, str));
+            }
+            str2 = "";
+            if (str == null) {
+            }
+            fh3.k("1087", b("2", str2, str));
+        }
+    }
+
+    public static void d() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            try {
+                str = sh2.U().d0().swanCoreVersionName;
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                str = "";
+            }
+            fh3.k("1087", b("1", str, ""));
+        }
     }
 }

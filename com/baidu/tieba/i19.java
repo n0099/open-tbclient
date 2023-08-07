@@ -1,46 +1,47 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.TextView;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.widget.viewpager.ListViewPager;
+import com.baidu.searchbox.live.impl.IMasterSwitchCallback;
+import com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager;
+import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.searchbox.live.nps.LiveNpsLoadingCallback;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.ala.IYYCloudSwitchCallback;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.view.NpsPluginLoadingDialogActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class i19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ListViewPager a;
-    public IndicatorView b;
-    public q09 c;
-    public TextView d;
-    public BdBaseViewPagerAdapter e;
-    public nc5 f;
-    public boolean g;
-    public boolean h;
-    public int i;
-    public Context j;
-    public List<yn> k;
-    public ViewPager.OnPageChangeListener l;
-    public long m;
-    public final Handler.Callback n;
-    public final Handler o;
-    public ViewPager.OnPageChangeListener p;
+    public WeakReference<NpsPluginLoadingDialogActivity> a;
+    public int b;
+    public boolean c;
 
     /* loaded from: classes6.dex */
-    public class a implements Handler.Callback {
+    public class a implements LiveNpsLoadingCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i19 a;
@@ -63,33 +64,55 @@ public class i19 {
             this.a = i19Var;
         }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
+        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
+        public void onLoadingEnd(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 1 || !this.a.k()) {
-                    return false;
-                }
-                this.a.i();
-                return false;
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
             }
-            return invokeL.booleanValue;
+            this.a.c = false;
+            this.a.f();
+        }
+
+        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
+        public void onLoadingProgress(long j, long j2) {
+            float f;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                BdLog.d("[onDownloadUpdate] package:, current:" + j + ",total:" + j2);
+                if (j2 <= 0) {
+                    f = 0.0f;
+                } else {
+                    f = (((float) j) * 100.0f) / ((float) j2);
+                }
+                this.a.b = (int) f;
+                i19 i19Var = this.a;
+                i19Var.J(i19Var.i());
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
+        public void onLoadingStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.c = true;
+                this.a.p(TbadkCoreApplication.getInst());
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ViewPager.OnPageChangeListener {
+    public class b implements IMasterSwitchCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i19 a;
+        public final /* synthetic */ IYYCloudSwitchCallback a;
 
-        public b(i19 i19Var) {
+        public b(i19 i19Var, IYYCloudSwitchCallback iYYCloudSwitchCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i19Var};
+                Object[] objArr = {i19Var, iYYCloudSwitchCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -99,65 +122,89 @@ public class i19 {
                     return;
                 }
             }
-            this.a = i19Var;
+            this.a = iYYCloudSwitchCallback;
         }
 
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            int count;
+        @Override // com.baidu.searchbox.live.impl.IMasterSwitchCallback
+        public void switchCallback(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a.l != null) {
-                    this.a.l.onPageScrollStateChanged(i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (!bi.isEmpty(str)) {
+                    TbSingleton.getInstance().setYyCloudSwitch(str);
                 }
-                if (i == 1) {
-                    this.a.s();
-                } else if (i != 0 || (count = this.a.e.getCount()) < 2) {
-                } else {
-                    int currentItem = this.a.a.getCurrentItem();
-                    int i2 = count - 2;
-                    if (currentItem < 1) {
-                        this.a.a.setCurrentItem(i2, false);
-                    } else if (currentItem > i2) {
-                        this.a.a.setCurrentItem(1, false);
+                if (this.a != null) {
+                    if ("yy".equals(str)) {
+                        this.a.onSwitchGet(true);
+                    } else if ("baidu".equals(str)) {
+                        this.a.onSwitchGet(false);
+                    } else {
+                        this.a.onFail();
                     }
-                    this.a.r();
-                }
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.l != null) {
-                this.a.l.onPageScrolled(i, f, i2);
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.f != null && this.a.f.a(i) == i) {
-                if (this.a.b != null) {
-                    this.a.b.setPosition(this.a.f.c(i));
-                    if (this.a.c != null) {
-                        this.a.b.setVisibility(8);
-                        this.a.c.b(this.a.f.c(i));
-                    }
-                }
-                if (this.a.l != null) {
-                    this.a.l.onPageSelected(this.a.f.c(i));
                 }
             }
         }
     }
 
-    public i19(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
+    /* loaded from: classes6.dex */
+    public class c implements ILiveFileSizeCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long[] a;
+
+        public c(i19 i19Var, long[] jArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i19Var, jArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jArr;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback
+        public void getFileSize(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.a[0] = j;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final i19 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-769198888, "Lcom/baidu/tieba/i19$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-769198888, "Lcom/baidu/tieba/i19$d;");
+                    return;
+                }
+            }
+            a = new i19(null);
+        }
+    }
+
+    public i19() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, listViewPager, indicatorView, textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -167,215 +214,348 @@ public class i19 {
                 return;
             }
         }
-        this.g = false;
-        this.h = true;
-        this.i = 2;
-        this.k = new ArrayList();
-        this.m = 5000L;
-        this.n = new a(this);
-        this.o = new Handler(this.n);
-        this.p = new b(this);
-        j(context, listViewPager, indicatorView, textView);
+        this.b = 0;
+        this.c = false;
+        LiveNPSPluginManager.getInstance().setLoadingCallback(new a(this));
+        kz8.e(TbadkCoreApplication.getInst());
     }
 
-    public void m(long j) {
+    public /* synthetic */ i19(a aVar) {
+        this();
+    }
+
+    public void J(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            this.m = j;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, npsPluginLoadingDialogActivity) == null) && npsPluginLoadingDialogActivity != null) {
+            npsPluginLoadingDialogActivity.v1(this.b);
         }
     }
 
-    public void o(q09 q09Var) {
+    public void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, q09Var) == null) {
-            if (q09Var != null) {
-                this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            LiveNPSPluginManager.getInstance().clearResourceFile(context);
+        }
+    }
+
+    public long k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            long[] jArr = {0};
+            LiveNPSPluginManager.getInstance().getLiveResourceFileSize(context, new c(this, jArr));
+            return jArr[0];
+        }
+        return invokeL.longValue;
+    }
+
+    public void l(@Nullable IYYCloudSwitchCallback iYYCloudSwitchCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, iYYCloudSwitchCallback) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        LiveNpsGetSwitchManager.INSTANCE.getMasterSwitch("", new b(this, iYYCloudSwitchCallback));
+    }
+
+    public void o(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, npsPluginLoadingDialogActivity) == null) {
+            this.a = new WeakReference<>(npsPluginLoadingDialogActivity);
+            J(npsPluginLoadingDialogActivity);
+        }
+    }
+
+    public void q(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, context) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
             } else {
-                this.b.setVisibility(0);
-            }
-            this.c = q09Var;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.i = i;
-            nc5 nc5Var = this.f;
-            if (nc5Var != null) {
-                nc5Var.h(i);
+                LiveNPSPluginManager.getInstance().startAdminListActivity(context);
             }
         }
     }
 
-    public void q(ViewPager.OnPageChangeListener onPageChangeListener) {
+    public void t(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.l = onPageChangeListener;
-        }
-    }
-
-    public final void i() {
-        int count;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.e != null) {
-            q9 c = r9.c(this.j);
-            if ((c != null && c.isScroll()) || (count = this.e.getCount()) < 2) {
-                return;
-            }
-            int currentItem = this.a.getCurrentItem();
-            int i = count - 2;
-            if (currentItem < 1) {
-                this.a.setCurrentItem(i, false);
-            } else if (currentItem > i) {
-                this.a.setCurrentItem(1, false);
+        if (interceptable == null || interceptable.invokeL(1048600, this, context) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
             } else {
-                this.a.setCurrentItem(currentItem + 1);
+                LiveNPSPluginManager.getInstance().startForbiddenListActivity(context);
             }
         }
     }
 
-    public final void j(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
+    public void z(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, listViewPager, indicatorView, textView) == null) {
-            this.a = listViewPager;
-            this.b = indicatorView;
-            this.d = textView;
-            this.j = context;
-            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
-            this.e = bdBaseViewPagerAdapter;
-            ListViewPager listViewPager2 = this.a;
-            if (listViewPager2 != null) {
-                listViewPager2.setAdapter(bdBaseViewPagerAdapter);
-                this.a.setOnPageChangeListener(this.p);
+        if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startPatronageActivity(context);
             }
         }
     }
 
-    public final boolean k() {
+    public void A(@NonNull Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startPatronsActivity(context, str);
+            }
+        }
+    }
+
+    public void B(@NonNull Context context, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startPayActivity(context, str);
+            }
+        }
+    }
+
+    public void D(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().dispatchYYLiveRouter(context, "yylive?url=yymobile%3a%2f%2fMobileLive%2fPreViewPage%3fneedLogin%3d1");
+            }
+        }
+    }
+
+    public void E(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYYCustomerServiceActivity(context, str);
+            }
+        }
+    }
+
+    public void F(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYYFeedbackActivity(context, str);
+            }
+        }
+    }
+
+    public void H(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYuYinCreateLiveRoomActivity(context, str);
+            }
+        }
+    }
+
+    public void h(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().dispatchYYLiveRouter(context, str);
+            }
+        }
+    }
+
+    public void x(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startLiveShowActivity(context, str);
+            }
+        }
+    }
+
+    public static i19 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ListViewPager listViewPager = this.a;
-            if (listViewPager == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
+        }
+        return (i19) invokeV.objValue;
+    }
+
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (Build.VERSION.SDK_INT < 21) {
+                return true;
             }
-            int[] iArr = new int[2];
-            listViewPager.getLocationOnScreen(iArr);
-            int measuredHeight = iArr[1] + (this.a.getMeasuredHeight() / 2);
-            if (measuredHeight <= 0 || measuredHeight >= yi.j(this.j)) {
-                return false;
-            }
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void l(Context context, mc5<?, ?> mc5Var) {
-        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
+    public final void f() {
+        NpsPluginLoadingDialogActivity i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, context, mc5Var) == null) && (bdBaseViewPagerAdapter = this.e) != null) {
-            bdBaseViewPagerAdapter.g(context, mc5Var);
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (i = i()) != null) {
+            i.finish();
+            this.a = null;
         }
     }
 
-    public void n(List<yn> list) {
+    public final NpsPluginLoadingDialogActivity i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.getCount(list) == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.a;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
         }
-        this.k = list;
-        nc5 nc5Var = new nc5(list, this.g, this.i);
-        this.f = nc5Var;
-        nc5Var.i(2);
-        boolean z = true;
-        this.f.g(1);
-        this.e.h(this.f.e());
-        this.e.notifyDataSetChanged();
-        this.a.setCurrentItem(this.f.d(), false);
-        if (this.f.b() <= 0) {
-            return;
+        return (NpsPluginLoadingDialogActivity) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.c;
         }
-        if (this.f.b() > this.i) {
-            TextView textView = this.d;
-            if (textView != null) {
-                textView.setVisibility(0);
-                this.d.setOnClickListener(null);
-                IndicatorView indicatorView = this.b;
-                if (indicatorView != null) {
-                    indicatorView.setVisibility(8);
-                }
-            }
-            if (this.b != null && this.d == null && this.g) {
-                z = false;
-            }
-            if (!z) {
-                this.b.setVisibility(8);
-                int count = this.b.getCount();
-                int i = this.i;
-                if (count != i) {
-                    this.b.setCount(i);
-                }
-            }
-            r();
-        }
-        if (this.f.b() >= 2 && this.f.b() <= this.i) {
-            TextView textView2 = this.d;
-            if (textView2 != null) {
-                textView2.setVisibility(8);
-            }
-            IndicatorView indicatorView2 = this.b;
-            if (indicatorView2 != null) {
-                indicatorView2.setVisibility(0);
-                if (this.b.getCount() != this.f.b()) {
-                    this.b.setCount(this.f.b());
-                    q09 q09Var = this.c;
-                    if (q09Var != null) {
-                        q09Var.a(this.f.b());
-                        this.b.setVisibility(8);
-                    }
-                } else {
-                    q09 q09Var2 = this.c;
-                    if (q09Var2 != null) {
-                        q09Var2.a(this.f.b());
-                        this.b.setVisibility(8);
-                    }
-                }
-            }
-            r();
-        }
-        if (this.f.b() < 2) {
-            TextView textView3 = this.d;
-            if (textView3 != null) {
-                textView3.setVisibility(8);
-            }
-            IndicatorView indicatorView3 = this.b;
-            if (indicatorView3 != null) {
-                indicatorView3.setVisibility(8);
-            }
-            s();
+        return invokeV.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.a = null;
+            LiveNPSPluginManager.getInstance().cancelLoading();
         }
     }
 
-    public void r() {
+    public void C(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.h) {
-                this.o.removeMessages(1);
-                this.o.sendEmptyMessageDelayed(1, this.m);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startRealAuthActivity(context, str, str2);
+            }
+        }
+    }
+
+    public void g(Context context, String str, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, str, map) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().dispatchHostEvent(context, str, map);
+            }
+        }
+    }
+
+    public void r(Application application, String str, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048598, this, application, str, uri) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(application, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startAudioMasterActivity(application, str);
+            }
+        }
+    }
+
+    public void s(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048599, this, context, str, i) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startFansListActivity(context, str, i);
+            }
+        }
+    }
+
+    public void u(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048601, this, context, str, str2) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startGuardianListActivity(context, str, str2);
+            }
+        }
+    }
+
+    public void G(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
                 return;
             }
-            this.o.removeMessages(1);
+            if (BdLog.isDebugMode()) {
+                BdLog.e("YYStartLiveRoom|" + str);
+            }
+            LiveNPSPluginManager.getInstance().startYYLiveActivity(context, str);
         }
     }
 
-    public void s() {
+    public void p(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.o.removeMessages(1);
+        if ((interceptable != null && interceptable.invokeL(1048596, this, context) != null) || i() != null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        Intent intent = new Intent(context, NpsPluginLoadingDialogActivity.class);
+        intent.putExtra("dialogId", currentTimeMillis);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        context.startActivity(intent);
+    }
+
+    public void v(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startLiveExpActivity(context, j, i);
+            }
+        }
+    }
+
+    public void w(Context context, String str, String str2, String str3, Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(1048603, this, context, str, str2, str3, uri) != null) || I()) {
+            return;
+        }
+        LiveNPSPluginManager.getInstance().startLiveMediaActivity(context, str, str2, str3, uri);
+    }
+
+    public void y(Context context, String str, String str2, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048605, this, context, str, str2, map) == null) {
+            if (I()) {
+                BdUtilHelper.showToast(context, "安卓系统版本不支持");
+            } else {
+                LiveNPSPluginManager.getInstance().startYuYinActivity(context, str, str2, map);
+            }
         }
     }
 }

@@ -1,90 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n44 extends b44 {
+public class n44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952475, "Lcom/baidu/tieba/n44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947952475, "Lcom/baidu/tieba/n44;");
-                return;
-            }
-        }
-        c = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n44() {
-        super("startPermissionsPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.b44
-    public v32 a(JSONObject jSONObject, zo2 zo2Var) {
-        InterceptResult invokeLL;
+    public static n44 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zo2Var)) == null) {
-            vb3 b0 = vb3.b0();
-            if (b0 != null && b0.w() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
-                }
-                if (TextUtils.equals(str, "oppo")) {
-                    try {
-                        Intent intent = new Intent(b0.w().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        b0.w().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        zo3.f(b0.w());
-                    }
-                } else {
-                    zo3.g(b0.w());
-                }
-                zo2Var.onSuccess(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            n44 n44Var = new n44();
+            n44Var.a = jSONObject.optInt("state");
+            n44Var.b = jSONObject.optString("msg");
+            return n44Var;
         }
-        return (v32) invokeLL.objValue;
+        return (n44) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

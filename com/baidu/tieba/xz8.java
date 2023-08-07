@@ -1,52 +1,72 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xz8 {
+public class xz8 extends xh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz8(Context context) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return R.drawable.icon_hand_normal_card_recommend;
-                case 2:
-                    return R.drawable.icon_comment_n;
-                case 3:
-                    return R.drawable.icon_home_yule;
-                case 4:
-                    return R.drawable.icon_see_n;
-                case 5:
-                    return R.drawable.icon_frs_ba_ticket;
-                case 6:
-                    return R.drawable.icon_frs_game;
-                case 7:
-                    return R.drawable.icon_frs_news;
-                case 8:
-                    return R.drawable.icon_new_live;
-                case 9:
-                    return R.drawable.icon_hottopic_new;
-                case 10:
-                    return R.drawable.icon_hottopic_hot;
-                case 11:
-                    return R.drawable.icon_hottopic_tuijian;
-                case 12:
-                    return R.drawable.icon_people_num;
-                case 13:
-                    return R.drawable.icon_time_start;
-                case 14:
-                    return R.drawable.lego_interview_notice_button_before_selector;
-                case 15:
-                    return R.drawable.lego_interview_notice_button_after_selector;
-                default:
-                    return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeI.intValue;
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        this.p = new int[]{20, 19};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz8(Context context, boolean z) {
+        super(context, (String) null, 8);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e5));
+        ((LinearLayout.LayoutParams) layoutParams).leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070394);
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070394);
+        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{20, 19};
     }
 }

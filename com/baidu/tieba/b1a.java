@@ -1,29 +1,39 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.List;
-import kotlin.Unit;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.LayoutFactory;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.PageData;
 /* loaded from: classes5.dex */
-public final class b1a {
+public final class b1a implements y97, k67, w97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public boolean a;
+
+    @Override // com.baidu.tieba.w97
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
-    public static final class a extends wy5<DataRes> {
+    public static final class a implements b77 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b1a a;
@@ -46,127 +56,35 @@ public final class b1a {
             this.a = b1aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wy5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            byte[] bArr;
-            PageData pageData;
-            List<LayoutFactory> list;
+        @Override // com.baidu.tieba.b77
+        public void a(Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                y87.a.b("tb.feed_home_reco_user_state", new x87("tb.feed_home_reco_user_state", currentAccount));
-                boolean z = true;
-                DataRes build = new DataRes.Builder().build(true);
-                Intrinsics.checkNotNullExpressionValue(build, "Builder().build(true)");
-                if (!this.a.b()) {
-                    return build;
-                }
-                ye<byte[]> d = o55.d("tb.reco_feed_space", TbadkCoreApplication.getCurrentAccount());
-                if (d != null && (bArr = d.get("0")) != null && bArr.length != 0) {
-                    try {
-                        DataRes res = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                        if (res == null || (pageData = res.page_data) == null || (list = pageData.feed_list) == null || !(!list.isEmpty())) {
-                            z = false;
-                        }
-                        if (z) {
-                            Intrinsics.checkNotNullExpressionValue(res, "res");
-                            return res;
-                        }
-                        return build;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return build;
-                    }
-                }
-                return build;
-            }
-            return (DataRes) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b extends wy5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                o55.b("tb.feed_home_reco_user_state", currentAccount);
-                y87.a.b("tb.feed_home_reco_user_state", new x87("tb.feed_home_reco_user_state", currentAccount));
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.wy5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c extends wy5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DataRes.Builder a;
-
-        public c(DataRes.Builder builder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                if (!Intrinsics.areEqual(map.get("is_tie_plus_ad_thread"), "1")) {
                     return;
                 }
-            }
-            this.a = builder;
-        }
-
-        @Override // com.baidu.tieba.wy5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    o55.d("tb.reco_feed_space", TbadkCoreApplication.getCurrentAccount()).g("0", new DataRes.Builder(this.a.build(true)).build(true).toByteArray());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+                ThreadData threadData = new ThreadData();
+                threadData.tiePlusCostUrl = map.get("tie_plus_cost_url");
+                threadData.tid = map.get("thread_id");
+                threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
+                threadData.tiePlusMonitorClickUrl = map.get("tie_plus_monitor_click_url");
+                int i = 1;
+                threadData.isTiebaPlusAdThread = true;
+                threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
+                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                    WorksInfoData worksInfoData = new WorksInfoData();
+                    worksInfoData.isWorks = true;
+                    threadData.worksInfoData = worksInfoData;
                 }
+                threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
+                threadData.tiebaPlusToken = map.get("tie_plus_token");
+                threadData.tiebaPlusExtraParam = map.get("tie_plus_extra_param");
+                if (this.a.a) {
+                    i = 2;
+                }
+                q48.c(threadData, map.get("source"), JavaTypesHelper.toInt(map.get("position_from_1"), 0), i);
             }
-            return invokeV.objValue;
         }
     }
 
@@ -180,74 +98,40 @@ public final class b1a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = da5.p().r("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
     }
 
-    public final boolean b() {
+    @Override // com.baidu.tieba.k67
+    public b77 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            da5 p = da5.p();
-            long r = p.r("key_recommend_cache_update_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            if (r > 0 && System.currentTimeMillis() - r > this.a) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
         }
-        return invokeV.booleanValue;
+        return (b77) invokeV.objValue;
     }
 
-    public final void c(final a1a recoFeedCacheListener) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recoFeedCacheListener) == null) {
-            Intrinsics.checkNotNullParameter(recoFeedCacheListener, "recoFeedCacheListener");
-            az5.b(new a(this), new ay5() { // from class: com.baidu.tieba.y0a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ay5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        b1a.d(a1a.this, (DataRes) obj);
-                    }
-                }
-            });
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(businessInfo.a());
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public final void g(DataRes.Builder builder) {
+    public final b1a f(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            az5.b(new c(builder), null);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.a = z;
+            return this;
         }
-    }
-
-    public static final void d(a1a recoFeedCacheListener, DataRes result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, recoFeedCacheListener, result) == null) {
-            Intrinsics.checkNotNullParameter(recoFeedCacheListener, "$recoFeedCacheListener");
-            Intrinsics.checkNotNullExpressionValue(result, "result");
-            recoFeedCacheListener.a(result);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            az5.b(new b(), null);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            da5 p = da5.p();
-            p.H("key_recommend_cache_update_time" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
-        }
+        return (b1a) invokeZ.objValue;
     }
 }

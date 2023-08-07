@@ -7,6 +7,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.gif.GifInfo;
@@ -14,10 +18,6 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbMemeImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class EmotionDetailImageView extends FrameLayout {
     public BdUniqueId d;
 
     /* loaded from: classes5.dex */
-    public class a extends rg<jn> {
+    public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailData a;
@@ -61,7 +61,7 @@ public class EmotionDetailImageView extends FrameLayout {
             this.a = emotionDetailData;
         }
 
-        @Override // com.baidu.tieba.rg
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -70,14 +70,14 @@ public class EmotionDetailImageView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jnVar, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdImage, str, i) == null) {
                 this.b.b.setVisibility(8);
-                if (jnVar != null) {
+                if (bdImage != null) {
                     this.b.a = new TbMemeImageView(this.b.getContext());
-                    ((TbMemeImageView) this.b.a).h(jnVar);
+                    ((TbMemeImageView) this.b.a).h(bdImage);
                     EmotionDetailImageView emotionDetailImageView = this.b;
                     ImageView imageView = emotionDetailImageView.a;
                     EmotionDetailData.PicInfo picInfo = this.a.pic_info;
@@ -102,7 +102,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        e = yi.i(TbadkCoreApplication.getInst());
+        e = BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst());
     }
 
     public void e() {
@@ -197,12 +197,12 @@ public class EmotionDetailImageView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081253));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081259));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);
             addView(this.b);
-            this.c = yi.l(getContext());
+            this.c = BdUtilHelper.getEquipmentWidth(getContext());
         }
     }
 
@@ -224,7 +224,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 gifInfo.mGifWidth = picInfo2.width;
                 gifInfo.mGifHeight = picInfo2.height;
                 this.a.setTag(str);
-                ((GifView) this.a).l0(gifInfo);
+                ((GifView) this.a).t(gifInfo);
                 ImageView imageView = this.a;
                 EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
                 h(imageView, picInfo3.width, picInfo3.height, 200, 200);
@@ -233,7 +233,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
             this.b.setVisibility(0);
-            sg.h().m(emotionDetailData.pic_info.pic_url, i, new a(this, emotionDetailData), this.d);
+            BdResourceLoader.getInstance().loadResource(emotionDetailData.pic_info.pic_url, i, new a(this, emotionDetailData), this.d);
         }
     }
 
@@ -246,11 +246,11 @@ public class EmotionDetailImageView extends FrameLayout {
                 i4 = (int) (i5 * 0.5f);
                 i3 = i5;
             }
-            int[] n = yi.n(i, i2, i3, i4);
-            if (n == null) {
+            int[] imageResize = BdUtilHelper.getImageResize(i, i2, i3, i4);
+            if (imageResize == null) {
                 return false;
             }
-            int[] iArr = {n[0], n[1]};
+            int[] iArr = {imageResize[0], imageResize[1]};
             int i6 = iArr[0];
             int i7 = iArr[1];
             if (i3 > i6) {
@@ -259,7 +259,7 @@ public class EmotionDetailImageView extends FrameLayout {
                     float f2 = i6;
                     float f3 = i3;
                     if (f2 * f > f3) {
-                        i6 = i3 - (yi.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
+                        i6 = i3 - (BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
                     } else {
                         float f4 = f3 * 0.68f;
                         if (f2 * f > f4) {

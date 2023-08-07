@@ -1,17 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes8.dex */
-public class vk2 implements uk2 {
+public class vk2 implements cw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
+    public Queue<wk2> c;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vk2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-343664306, "Lcom/baidu/tieba/vk2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-343664306, "Lcom/baidu/tieba/vk2$b;");
+                    return;
+                }
+            }
+            a = new vk2(null);
+        }
+    }
 
     public vk2() {
         Interceptable interceptable = $ic;
@@ -26,24 +59,59 @@ public class vk2 implements uk2 {
                 return;
             }
         }
-        this.a = new String[]{cv2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), cv2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
+        this.c = new ConcurrentLinkedQueue();
     }
 
-    @Override // com.baidu.tieba.uk2
-    public ArraySet<String> a() {
+    public static vk2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = zr4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (vk2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+            }
+        }
+    }
+
+    public /* synthetic */ vk2(a aVar) {
+        this();
+    }
+
+    public synchronized void c(@NonNull wk2 wk2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wk2Var, str) == null) {
+            synchronized (this) {
+                while (this.c.size() > 0) {
+                    wk2 peek = this.c.peek();
+                    if (peek == null) {
+                        this.c.remove();
+                    } else if (peek.a()) {
+                        break;
+                    } else {
+                        this.c.remove();
+                    }
+                }
+                int size = this.c.size();
+                if (size == 0) {
+                    this.c.offer(wk2Var);
+                    so3.g0(wk2Var);
+                } else {
+                    wk2 peek2 = this.c.peek();
+                    this.c.offer(wk2Var);
+                    if (size == 1 && peek2 != null && peek2.b(str)) {
+                        so3.g0(wk2Var);
+                    } else {
+                        so3.q().post(wk2Var);
+                    }
                 }
             }
-            v82.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
         }
-        return (ArraySet) invokeV.objValue;
     }
 }

@@ -1,146 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.view.TbImageAutoSwitch;
 /* loaded from: classes6.dex */
-public class ih8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ih8 {
+    void a(int i);
 
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    View b();
 
-        /* renamed from: com.baidu.tieba.ih8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0333a extends wy5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
+    @NonNull
+    LinearLayout c();
 
-            public C0333a(a aVar, boolean z) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = z;
-            }
+    void d(@NonNull String str, long j);
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.wy5
-            /* renamed from: a */
-            public Integer doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!this.a) {
-                        td8.a().b();
-                    }
-                    return 0;
-                }
-                return (Integer) invokeV.objValue;
-            }
-        }
+    @NonNull
+    TextView e();
 
-        /* loaded from: classes6.dex */
-        public class b implements ay5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    TextView f();
 
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
+    int g();
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ay5
-            /* renamed from: a */
-            public void onReturnDataInUI(Integer num) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
-                }
-            }
-        }
+    @NonNull
+    HeadImageView h();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    @NonNull
+    int i();
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
-                return;
-            }
-            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
-            if (!isNull) {
-                nf5.p0().o0(new zf5());
-                nf5.p0().i0(0);
-                nf5.p0().g0(0);
-                nf5.p0().f0(0);
-                nf5.p0().j0(0);
-                nf5.p0().k0(0);
-                nf5.p0().a();
-                az5.a();
-                fe8.w().q();
-                ee8.w().q();
-            }
-            az5.c(new C0333a(this, isNull), new b(this));
-        }
-    }
+    @NonNull
+    int j();
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            MessageManager.getInstance().registerListener(2005016, new a(0));
-        }
-    }
+    LinearLayout k();
+
+    @NonNull
+    LinearLayout l();
+
+    @Nullable
+    RelativeLayout m();
+
+    @Nullable
+    RecyclerView n();
+
+    int o();
+
+    void onChangeSkinType(int i);
+
+    @NonNull
+    RelativeLayout p();
+
+    TextView q();
+
+    @Nullable
+    RelativeLayout r();
+
+    @NonNull
+    TbImageAutoSwitch s();
+
+    void t(int i);
+
+    LinearLayout u();
 }

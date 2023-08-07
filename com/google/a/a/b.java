@@ -4,10 +4,10 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.tieba.dmb;
+import com.baidu.tieba.glb;
 /* loaded from: classes9.dex */
 public class b extends Binder implements IInterface {
-    public static dmb a;
+    public static glb a;
 
     public boolean a(int i, Parcel parcel) {
         return false;

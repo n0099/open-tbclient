@@ -1,224 +1,239 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import com.baidu.ugc.utils.FileUtils;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class pla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public VlogEditManager b;
-    public int c;
-    public int d;
-    public TextWordsEntity.TextStyleEntity e;
-    public TextWordsEntity.TextFontEntity f;
-    public int g;
-    public String h;
 
-    public pla(Context context, VlogEditManager vlogEditManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, vlogEditManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = -1;
-        this.h = "";
-        this.a = context;
-        this.b = vlogEditManager;
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
 
-    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
-        TextWordsEntity.TextStyleEntity textStyleEntity2;
-        TextWordsEntity.TextFontEntity textFontEntity2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) != null) || multiMediaData == null) {
-            return;
-        }
-        if (108 == i && TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", wab.l(R.string.obfuscated_res_0x7f0f1760));
-        }
-        if (this.g != -1 && !TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", str);
-        }
-        if (textStyleEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
-        } else {
-            try {
-                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
-                if (!TextUtils.isEmpty(ext)) {
-                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
-                } else {
-                    textStyleEntity2 = this.e;
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                textStyleEntity = textStyleEntity2;
-            } catch (JSONException e) {
-                BdLog.e(e);
             }
+            this.a = i;
+            this.b = i2;
         }
-        if (textFontEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
-        } else {
-            try {
-                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
-                if (!TextUtils.isEmpty(ext2)) {
-                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
-                } else {
-                    textFontEntity2 = this.f;
-                }
-                textFontEntity = textFontEntity2;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-        }
-        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
-        String videoTmpDir = FileHelper.getVideoTmpDir();
-        String str2 = System.currentTimeMillis() + ".jpg";
-        Bitmap h = lla.d().h(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
-        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
-            FileUtils.delete(new File(multiMediaData.path));
-        }
-        FileUtils.saveBitmap2PNG(videoTmpDir, str2, h, 100);
-        multiMediaData.path = videoTmpDir + File.separator + str2;
-        int i2 = multiMediaData.width;
-        int i3 = multiMediaData.height;
-        multiMediaData.width = h.getWidth();
-        int height = h.getHeight();
-        multiMediaData.height = height;
-        if (this.g == -1) {
-            multiMediaData.scaleType = "adaptive";
-            multiMediaData.type = 0;
-            multiMediaData.start = this.b.getCurrentPlayTime();
-            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
-            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
-            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.addCoverStickerData(multiMediaData);
-            } else {
-                this.b.addStickerData(multiMediaData, this.h);
-            }
-        } else {
-            float f = multiMediaData.x + (i2 / 2.0f);
-            float f2 = multiMediaData.y + (i3 / 2.0f);
-            multiMediaData.x = f - (multiMediaData.width / 2.0f);
-            multiMediaData.y = f2 - (height / 2.0f);
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.replaceCoverStickerData(multiMediaData);
-            } else {
-                this.b.replaceStickerData(this.g, multiMediaData, this.h);
-            }
-        }
-        h.recycle();
     }
 
-    public void b(MultiMediaData multiMediaData) {
+    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) && multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
-            FileUtils.delete(new File(multiMediaData.path));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
+                return false;
+            }
+            SparseArray sparseArray = new SparseArray();
+            Iterator<a> it = arrayList.iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                int i = next.a;
+                int i2 = next.b;
+                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
+                    return false;
+                }
+                int pixel = bitmap.getPixel(i, i2);
+                if (sparseArray.get(pixel) != null) {
+                    return false;
+                }
+                next.c = pixel;
+                sparseArray.put(pixel, next);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Bitmap b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            Bitmap bitmap = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
+                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                byteArrayOutputStream.close();
+                return bitmap;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return bitmap;
+            }
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
+                context.sendBroadcast(intent);
+            } catch (Exception unused) {
+            }
         }
     }
 
-    public boolean d(MultiMediaData multiMediaData) {
+    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
+            int i3 = i * i2;
+            int i4 = 0;
+            int i5 = 0;
+            for (int i6 = 0; i6 < i2; i6++) {
+                int i7 = 0;
+                while (i7 < i) {
+                    int i8 = iArr[i5];
+                    int i9 = (iArr[i5] & 16711680) >> 16;
+                    int i10 = (iArr[i5] & 65280) >> 8;
+                    int i11 = 255;
+                    int i12 = (iArr[i5] & 255) >> 0;
+                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
+                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
+                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
+                    int i16 = i4 + 1;
+                    if (i13 < 0) {
+                        i13 = 0;
+                    } else if (i13 > 255) {
+                        i13 = 255;
+                    }
+                    bArr[i4] = (byte) i13;
+                    if (i6 % 2 == 0 && i5 % 2 == 0) {
+                        int i17 = i3 + 1;
+                        if (i15 < 0) {
+                            i15 = 0;
+                        } else if (i15 > 255) {
+                            i15 = 255;
+                        }
+                        bArr[i3] = (byte) i15;
+                        i3 = i17 + 1;
+                        if (i14 < 0) {
+                            i11 = 0;
+                        } else if (i14 <= 255) {
+                            i11 = i14;
+                        }
+                        bArr[i17] = (byte) i11;
+                    }
+                    i5++;
+                    i7++;
+                    i4 = i16;
+                }
+            }
+        }
+    }
+
+    public static byte[] e(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
-            if (multiMediaData == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
+            return g(bitmap.getWidth(), bitmap.getHeight(), bitmap);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.pla$a> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<a> f(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                SparseArray sparseArray = new SparseArray();
+                int i = 0;
+                loop0: for (int i2 = 0; i2 < width; i2++) {
+                    for (int i3 = 0; i3 < height; i3++) {
+                        int pixel = bitmap.getPixel(i2, i3);
+                        a aVar = new a(i2, i3);
+                        if (sparseArray.get(pixel) == null) {
+                            sparseArray.put(pixel, aVar);
+                            i++;
+                        }
+                        if (i == 3) {
+                            break loop0;
+                        }
+                    }
+                }
+                ArrayList<a> arrayList = new ArrayList<>();
+                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
+                    arrayList.add(sparseArray.valueAt(i4));
+                }
+                return arrayList;
             }
-            String ext = multiMediaData.getExt("text");
-            if (TextUtils.isEmpty(ext)) {
-                return false;
-            }
-            return ext.equals(wab.l(R.string.obfuscated_res_0x7f0f1760));
+            return new ArrayList<>();
         }
-        return invokeL.booleanValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public void f(int i) {
+    public static byte[] g(int i, int i2, Bitmap bitmap) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void g(TextWordsEntity.TextFontEntity textFontEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, textFontEntity) == null) {
-            this.f = textFontEntity;
-        }
-    }
-
-    public void h(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, textStyleEntity) == null) {
-            this.e = textStyleEntity;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void c(@NonNull List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setUpEditLayer("cover_sticker");
-            this.b.addCoverStickerDataList(list);
-            for (MultiMediaData multiMediaData : list) {
-                f(0);
-                a(116, null, multiMediaData, null, null);
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context context = lla.d().getContext();
-            Context context2 = this.a;
-            if (context == context2 && context2 != null) {
-                lla.d().i(null);
-                this.a = null;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
+            int i3 = i * i2;
+            try {
+                int[] iArr = new int[i3];
+                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
+                byte[] bArr = new byte[(i3 * 3) / 2];
+                d(bArr, iArr, i, i2);
+                return bArr;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (byte[]) invokeIIL.objValue;
     }
 
-    public void j(int i, int i2) {
+    public static Bitmap h(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            this.c = i;
-            this.d = i2;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                Matrix matrix = new Matrix();
+                matrix.postRotate(f);
+                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            }
+            return null;
         }
+        return (Bitmap) invokeLF.objValue;
     }
 }

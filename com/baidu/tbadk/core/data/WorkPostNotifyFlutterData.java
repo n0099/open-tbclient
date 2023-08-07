@@ -13,7 +13,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bfa;
+import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -290,11 +290,11 @@ public class WorkPostNotifyFlutterData {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
             NewWriteThreadData4Flutter.VideoInfo videoInfo = new NewWriteThreadData4Flutter.VideoInfo();
             VideoInfo videoInfo2 = writeData.getVideoInfo();
-            String e = bfa.e();
-            if (TextUtils.isEmpty(e)) {
-                e = videoInfo2.getThumbPath();
+            String lastVideoThumbUrl = WriteMsgHolder.getLastVideoThumbUrl();
+            if (TextUtils.isEmpty(lastVideoThumbUrl)) {
+                lastVideoThumbUrl = videoInfo2.getThumbPath();
             }
-            videoInfo.thumbnailUrl = e;
+            videoInfo.thumbnailUrl = lastVideoThumbUrl;
             videoInfo.thumbnailWidth = videoInfo2.getVideoWidth();
             videoInfo.thumbnailHeight = videoInfo2.getVideoHeight();
             videoInfo.videoWidth = videoInfo2.getVideoWidth();

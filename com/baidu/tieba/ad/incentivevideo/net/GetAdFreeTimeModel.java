@@ -7,6 +7,7 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,11 +18,10 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b86;
-import com.baidu.tieba.e86;
-import com.baidu.tieba.v76;
-import com.baidu.tieba.vx5;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.c56;
+import com.baidu.tieba.i56;
+import com.baidu.tieba.jv5;
+import com.baidu.tieba.l56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,16 +65,16 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            b86 adIncentiveVideoTaskData;
+            i56 adIncentiveVideoTaskData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || vx5.a() || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003548 || !(httpResponsedMessage instanceof GetAdFreeTimeResMsg) || (adIncentiveVideoTaskData = ((GetAdFreeTimeResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || jv5.a() || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003548 || !(httpResponsedMessage instanceof GetAdFreeTimeResMsg) || (adIncentiveVideoTaskData = ((GetAdFreeTimeResMsg) httpResponsedMessage).getAdIncentiveVideoTaskData()) == null) {
                 return;
             }
-            long g = wg.g(adIncentiveVideoTaskData.a(), 0L) * 1000;
-            long g2 = wg.g(adIncentiveVideoTaskData.b(), 0L) * 1000;
-            this.a.c0(g);
-            this.a.Y(g2);
-            this.a.b0(g, g2);
+            long j = JavaTypesHelper.toLong(adIncentiveVideoTaskData.a(), 0L) * 1000;
+            long j2 = JavaTypesHelper.toLong(adIncentiveVideoTaskData.b(), 0L) * 1000;
+            this.a.U(j);
+            this.a.Q(j2);
+            this.a.T(j, j2);
         }
     }
 
@@ -94,11 +94,11 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         this.a = BdUniqueId.gen();
         this.b = new a(this, CmdConfigHttp.CMD_GET_AD_FREE_TIME, true);
         setUniqueId(this.a);
-        Z();
+        R();
         registerListener();
     }
 
-    public final void Z() {
+    public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_AD_FREE_TIME, TbConfig.SERVER_ADDRESS + "c/s/getAdFreeTime");
@@ -107,14 +107,14 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         }
     }
 
-    public final void Y(long j) {
+    public final void Q(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j > 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921746));
         }
     }
 
-    public void a0() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             loadData();
@@ -139,7 +139,7 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_AD_FREE_TIME);
-            httpMessage.addParam("request_key", v76.i().k());
+            httpMessage.addParam("request_key", c56.i().k());
             sendMessage(httpMessage);
             return false;
         }
@@ -154,21 +154,21 @@ public class GetAdFreeTimeModel extends BdBaseModel {
         }
     }
 
-    public final void b0(long j, long j2) {
+    public final void T(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            if (e86.K().P()) {
-                e86.K().M(j);
+            if (l56.K().P()) {
+                l56.K().M(j);
             } else if (j2 > 0) {
-                e86.K().a0(j2);
-                e86.K().T(j2);
-                e86.K().b0();
+                l56.K().a0(j2);
+                l56.K().T(j2);
+                l56.K().b0();
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_FLOAT_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }
     }
 
-    public final void c0(long j) {
+    public final void U(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j > 0) {
             CustomToast.newInstance().showToast(String.format(TbadkCoreApplication.getInst().getString(R.string.incentive_video_free_time_tip), String.valueOf((int) ((j / 1000) / 60))));

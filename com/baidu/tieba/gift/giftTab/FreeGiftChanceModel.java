@@ -1,13 +1,13 @@
 package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public b b;
-    public kb c;
+    public NetMessageListener c;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -47,7 +47,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FreeGiftChanceModel a;
@@ -74,7 +74,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             this.a = freeGiftChanceModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -96,18 +96,18 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FreeGiftChanceModel(l9<GiftTabActivity> l9Var) {
-        super(l9Var);
+    public FreeGiftChanceModel(BdPageContext<GiftTabActivity> bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,7 +118,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         registerTask();
     }
 
-    public void Y(String str) {
+    public void Q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
@@ -127,7 +127,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    public void Z(b bVar) {
+    public void R(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
@@ -144,8 +144,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            gca.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            gca.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            zaa.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            zaa.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import com.baidu.tieba.bi1;
-import com.baidu.tieba.dh1;
+import com.baidu.tieba.eh1;
+import com.baidu.tieba.gg1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,14 +56,14 @@ public class HttpSigner {
         }
     }
 
-    public static String a(dh1 dh1Var, String str, int i) {
+    public static String a(gg1 gg1Var, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, dh1Var, str, i)) == null) {
-            if (dh1Var == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, gg1Var, str, i)) == null) {
+            if (gg1Var == null) {
                 return "";
             }
-            Map<String, String> b = dh1Var.b();
+            Map<String, String> b = gg1Var.b();
             ArrayList<String> arrayList = new ArrayList(b.keySet());
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
@@ -79,17 +79,17 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i));
-            return bi1.c(sb.toString());
+            return eh1.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
 
-    public static void b(dh1 dh1Var) {
+    public static void b(gg1 gg1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, dh1Var) != null) || dh1Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, gg1Var) != null) || gg1Var == null) {
             return;
         }
-        Map<String, String> b = dh1Var.b();
+        Map<String, String> b = gg1Var.b();
         if (b.containsKey("timestamp")) {
             b.remove("timestamp");
         }
@@ -108,10 +108,10 @@ public class HttpSigner {
                 sb.append("&");
             }
         }
-        dh1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        gg1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         sb.append(nativeGetCommissionSk());
         sb.append("&");
-        sb.append(dh1Var.a("timestamp"));
-        dh1Var.d("sign", bi1.c(sb.toString()));
+        sb.append(gg1Var.a("timestamp"));
+        gg1Var.d("sign", eh1.c(sb.toString()));
     }
 }

@@ -1,37 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.kbc;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public interface j8c extends y7c {
-    void a(Activity activity);
+public class j8c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
+    public static void a(int i, int i2, CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                f9c.b(i, i2, PayUIEventType.purchaseclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                f9c.b(i, i2, PayUIEventType.purchaseclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
+            }
+        }
+    }
 
-    void c(PayFlowType payFlowType, boolean z);
-
-    void d(String str, PayFlowType payFlowType);
-
-    boolean e();
-
-    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void h(Activity activity, kbc.b bVar, s9c s9cVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
-
-    boolean k(PayFlowType payFlowType);
-
-    void l(String str, PayFlowType payFlowType);
-
-    void m(Activity activity);
-
-    void refreshWindow(WindowParams windowParams);
+    public static void b(int i, int i2, CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                f9c.b(i, i2, PayUIEventType.paypageclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                f9c.b(i, i2, PayUIEventType.paypageclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
+            }
+        }
+    }
 }

@@ -1,60 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.FloatBuffer;
 /* loaded from: classes8.dex */
-public class ve0 extends ue0 {
+public class ve0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] g;
-    public static final float[] h;
-    public static final FloatBuffer i;
-    public static final FloatBuffer j;
+    public static Context a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948237768, "Lcom/baidu/tieba/ve0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948237768, "Lcom/baidu/tieba/ve0;");
-                return;
-            }
-        }
-        float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        g = fArr;
-        h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-        i = bf0.b(fArr);
-        j = bf0.b(h);
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
-    public ve0() {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "1.1.8.12" : (String) invokeV.objValue;
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            if (context == null) {
+                throw new NullPointerException("context is null");
             }
+            if (TextUtils.isEmpty(str)) {
+                throw new NullPointerException("clienID is null");
+            }
+            a = context.getApplicationContext();
+            b = str;
+            context.getPackageName();
         }
-        this.a = i;
-        this.b = j;
-        this.d = 2;
-        this.e = 2 * 4;
-        this.c = g.length / 2;
-        this.f = 8;
     }
 }

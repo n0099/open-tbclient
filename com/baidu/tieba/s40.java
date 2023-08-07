@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.math.BigInteger;
 /* loaded from: classes7.dex */
-public abstract class s40 {
+public class s40 {
     public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public s40() {
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = b;
+            if (bArr != null) {
+                return bArr;
             }
+            byte[] byteArray = new BigInteger(r40.c).modPow(new BigInteger(r40.d), new BigInteger(r40.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    public abstract t40 a();
+    public static byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            byte[] bArr = a;
+            if (bArr != null) {
+                return bArr;
+            }
+            byte[] byteArray = new BigInteger(r40.a).modPow(new BigInteger(r40.b), new BigInteger(r40.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 }

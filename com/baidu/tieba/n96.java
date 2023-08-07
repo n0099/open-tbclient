@@ -1,159 +1,75 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n96 extends pl1<d91> {
+public class n96 extends lm<r96, OfficialRecommendLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public va6 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements d91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.d91
-        public int[] b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.d91
-        public int[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
-        }
-
-        /* renamed from: com.baidu.tieba.n96$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0411a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e91 a;
-
-            public View$OnClickListenerC0411a(a aVar, e91 e91Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, e91Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = e91Var;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                e91 e91Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (e91Var = this.a) != null) {
-                    e91Var.i();
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e91 a;
-
-            public b(a aVar, e91 e91Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, e91Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = e91Var;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                e91 e91Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (e91Var = this.a) != null) {
-                    e91Var.k();
-                }
-            }
-        }
-
-        public a(n96 n96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d91
-        public void a(View view2, e91 e91Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, e91Var) == null) {
-                int intValue = ((Integer) view2.getTag()).intValue();
-                if (intValue == R.drawable.nad_web_back) {
-                    view2.setOnClickListener(new View$OnClickListenerC0411a(this, e91Var));
-                } else if (intValue == R.drawable.nad_web_close) {
-                    view2.setOnClickListener(new b(this, e91Var));
-                }
-            }
-        }
-    }
-
-    public n96() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n96(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), r96.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public d91 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public OfficialRecommendLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new va6(this.a, viewGroup);
+            return new OfficialRecommendLiveViewHolder(this.b);
         }
-        return (d91) invokeV.objValue;
+        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r96 r96Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
+        InterceptResult invokeCommon;
+        va6 va6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r96Var, officialRecommendLiveViewHolder})) == null) {
+            if (officialRecommendLiveViewHolder != null && (va6Var = officialRecommendLiveViewHolder.a) != null) {
+                va6Var.i(r96Var);
+                officialRecommendLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return officialRecommendLiveViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

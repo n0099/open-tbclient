@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class h4b {
+public final class h4b {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile c4b a;
-    public static z3b b;
-    public static b4b c;
-    public static a4b d;
-    public static b3b e;
-    public static f3b f;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
     public h4b() {
         Interceptable interceptable = $ic;
@@ -27,116 +26,45 @@ public class h4b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = e4b.a().c();
+    }
+
+    public final List<com.baidu.ubs.analytics.a.l> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
+                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(lVar);
+            }
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
         }
     }
 
-    public static c4b d() {
-        InterceptResult invokeV;
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (h4b.class) {
-                if (a == null) {
-                    a = g4b.a();
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
         }
-        return (c4b) invokeV.objValue;
-    }
-
-    public static z3b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            z3b z3bVar = b;
-            if (z3bVar != null) {
-                return z3bVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                b = a.a();
-            }
-            return b;
-        }
-        return (z3b) invokeV.objValue;
-    }
-
-    public static a4b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            a4b a4bVar = d;
-            if (a4bVar != null) {
-                return a4bVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                d = a.e();
-            }
-            return d;
-        }
-        return (a4b) invokeV.objValue;
-    }
-
-    public static b4b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            b4b b4bVar = c;
-            if (b4bVar != null) {
-                return b4bVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                c = a.b();
-            }
-            return c;
-        }
-        return (b4b) invokeV.objValue;
-    }
-
-    public static b3b e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            b3b b3bVar = e;
-            if (b3bVar != null) {
-                return b3bVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                e = a.c();
-            }
-            return e;
-        }
-        return (b3b) invokeV.objValue;
-    }
-
-    public static f3b f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            f3b f3bVar = f;
-            if (f3bVar != null) {
-                return f3bVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                f = a.d();
-            }
-            return f;
-        }
-        return (f3b) invokeV.objValue;
     }
 }

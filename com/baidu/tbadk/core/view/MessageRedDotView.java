@@ -13,14 +13,15 @@ import android.view.View;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,34 +29,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class MessageRedDotView extends View {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String THREE_DOT_STR = "...";
+    public static final int TYPE_PLUS = 2;
+    public static final int TYPE_THREE_DOT = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public Drawable a;
-    public int b;
-    public boolean c;
-    public String d;
-    public int e;
-    public Paint f;
-    public Rect g;
-    public int h;
-    public int i;
-    public Paint j;
-    public int k;
-    public int l;
-    public int m;
-    public RectF n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public Paint s;
-    public RectF t;
-    public boolean u;
-    public boolean v;
-    public int w;
-    public int x;
-    public int y;
-    public boolean z;
+    public int extendSize;
+    public boolean fixMeasuredWidthHeight;
+    public boolean isEnterForumStyle;
+    public Drawable mBackgroundDrawable;
+    public int mBackgroundId;
+    public int mDotSize;
+    public int mIntervalSize;
+    public int mLastSkinType;
+    public int mRedDotHeight;
+    public String mRedNum;
+    public int mShadowBottomOffset;
+    public int mShadowLength;
+    public Paint mShadowPaint;
+    public int mShadowRadius;
+    public RectF mShadowRect;
+    public int mShadowRectRadius;
+    public int mShadowRightOffset;
+    public int mTextBottomIncrement;
+    public int mTextPaddingLeft;
+    public int mTextPaddingTop;
+    public Paint mTextPaint;
+    public Rect mTextRect;
+    public int mType;
+    public Paint mWhiteDotPaint;
+    public RectF mWhiteDotRect;
+    public boolean needRequestLayout;
+    public boolean shadowEnabled;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageRedDotView(@NonNull Context context) {
@@ -75,12 +80,12 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.e = 1;
-        this.u = false;
-        this.v = false;
-        this.x = 3;
-        this.y = 0;
-        d();
+        this.mType = 1;
+        this.isEnterForumStyle = false;
+        this.shadowEnabled = false;
+        this.mLastSkinType = 3;
+        this.extendSize = 0;
+        initView();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,37 +107,37 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.e = 1;
-        this.u = false;
-        this.v = false;
-        this.x = 3;
-        this.y = 0;
-        d();
+        this.mType = 1;
+        this.isEnterForumStyle = false;
+        this.shadowEnabled = false;
+        this.mLastSkinType = 3;
+        this.extendSize = 0;
+        initView();
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            Drawable drawable = this.a;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            Drawable drawable = this.mBackgroundDrawable;
             if (drawable != null) {
-                if (this.u && this.z) {
+                if (this.isEnterForumStyle && this.fixMeasuredWidthHeight) {
                     int intrinsicWidth = drawable.getIntrinsicWidth();
-                    int intrinsicHeight = this.a.getIntrinsicHeight();
-                    int g = yi.g(getContext(), R.dimen.tbds4);
-                    setMeasuredDimension(intrinsicWidth + g, intrinsicHeight + g);
+                    int intrinsicHeight = this.mBackgroundDrawable.getIntrinsicHeight();
+                    int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds4);
+                    setMeasuredDimension(intrinsicWidth + dimens, intrinsicHeight + dimens);
                     return;
                 }
-                int i4 = this.k;
-                int i5 = this.l;
+                int i4 = this.mShadowRightOffset;
+                int i5 = this.mShadowBottomOffset;
                 if (i4 >= i5) {
-                    i3 = this.m + i4;
+                    i3 = this.mShadowRadius + i4;
                 } else {
-                    i3 = i5 + this.m;
+                    i3 = i5 + this.mShadowRadius;
                 }
-                this.o = i3;
-                setMeasuredDimension(this.a.getIntrinsicWidth() + (this.o * 2), this.a.getIntrinsicHeight() + (this.o * 2));
+                this.mShadowLength = i3;
+                setMeasuredDimension(this.mBackgroundDrawable.getIntrinsicWidth() + (this.mShadowLength * 2), this.mBackgroundDrawable.getIntrinsicHeight() + (this.mShadowLength * 2));
                 return;
             }
             setMeasuredDimension(0, 0);
@@ -158,71 +163,99 @@ public class MessageRedDotView extends View {
                 return;
             }
         }
-        this.e = 1;
-        this.u = false;
-        this.v = false;
-        this.x = 3;
-        this.y = 0;
-        d();
+        this.mType = 1;
+        this.isEnterForumStyle = false;
+        this.shadowEnabled = false;
+        this.mLastSkinType = 3;
+        this.extendSize = 0;
+        initView();
     }
 
-    public final void a(Canvas canvas) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 21)
+    public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && !xi.isEmpty(this.d) && this.a != null) {
-            Paint paint = this.f;
-            String str = this.d;
-            paint.getTextBounds(str, 0, str.length(), this.g);
-            Paint.FontMetrics fontMetrics = this.f.getFontMetrics();
-            int intrinsicWidth = (this.a.getIntrinsicWidth() / 2) + this.o + (this.y / 2);
-            float height = (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.g.centerY();
-            if (this.u) {
-                Rect bounds = this.a.getBounds();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mType = 1;
+        this.isEnterForumStyle = false;
+        this.shadowEnabled = false;
+        this.mLastSkinType = 3;
+        this.extendSize = 0;
+        initView();
+    }
+
+    private void drawNormalStr(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && !bi.isEmpty(this.mRedNum) && this.mBackgroundDrawable != null) {
+            Paint paint = this.mTextPaint;
+            String str = this.mRedNum;
+            paint.getTextBounds(str, 0, str.length(), this.mTextRect);
+            Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
+            int intrinsicWidth = (this.mBackgroundDrawable.getIntrinsicWidth() / 2) + this.mShadowLength + (this.extendSize / 2);
+            float height = (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.mTextRect.centerY();
+            if (this.isEnterForumStyle) {
+                Rect bounds = this.mBackgroundDrawable.getBounds();
                 float f = fontMetrics.descent;
-                float height2 = this.w + ((bounds.height() / 2) - (f - (((-fontMetrics.ascent) + f) / 2.0f)));
+                float height2 = this.mTextPaddingTop + ((bounds.height() / 2) - (f - (((-fontMetrics.ascent) + f) / 2.0f)));
                 intrinsicWidth = bounds.width() / 2;
                 height = height2;
             }
-            canvas.drawText(this.d, intrinsicWidth, height, this.f);
+            canvas.drawText(this.mRedNum, intrinsicWidth, height, this.mTextPaint);
         }
     }
 
-    public final void b(Canvas canvas) {
+    private void drawThreeDot(Canvas canvas) {
         Drawable drawable;
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) != null) || (drawable = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, this, canvas) != null) || (drawable = this.mBackgroundDrawable) == null) {
             return;
         }
-        int intrinsicWidth = (drawable.getIntrinsicWidth() / 2) + this.o;
-        int intrinsicHeight = (this.a.getIntrinsicHeight() / 2) + this.o;
-        if (this.u) {
-            Rect bounds = this.a.getBounds();
+        int intrinsicWidth = (drawable.getIntrinsicWidth() / 2) + this.mShadowLength;
+        int intrinsicHeight = (this.mBackgroundDrawable.getIntrinsicHeight() / 2) + this.mShadowLength;
+        if (this.isEnterForumStyle) {
+            Rect bounds = this.mBackgroundDrawable.getBounds();
             int width = bounds.width() / 2;
             intrinsicHeight = bounds.height() / 2;
             intrinsicWidth = width;
         }
-        int i3 = this.q;
+        int i3 = this.mDotSize;
         float f = intrinsicHeight - (i3 / 2);
         float f2 = intrinsicHeight + (i3 / 2);
-        this.t.set(intrinsicWidth - (i3 / 2), f, intrinsicWidth + (i3 / 2), f2);
-        canvas.drawOval(this.t, this.s);
-        RectF rectF = this.t;
-        int i4 = this.r;
-        rectF.set((i - i4) - this.q, f, i - i4, f2);
-        canvas.drawOval(this.t, this.s);
-        RectF rectF2 = this.t;
-        int i5 = this.r;
-        rectF2.set(i2 + i5, f, i2 + i5 + this.q, f2);
-        canvas.drawOval(this.t, this.s);
+        this.mWhiteDotRect.set(intrinsicWidth - (i3 / 2), f, intrinsicWidth + (i3 / 2), f2);
+        canvas.drawOval(this.mWhiteDotRect, this.mWhiteDotPaint);
+        RectF rectF = this.mWhiteDotRect;
+        int i4 = this.mIntervalSize;
+        rectF.set((i - i4) - this.mDotSize, f, i - i4, f2);
+        canvas.drawOval(this.mWhiteDotRect, this.mWhiteDotPaint);
+        RectF rectF2 = this.mWhiteDotRect;
+        int i5 = this.mIntervalSize;
+        rectF2.set(i2 + i5, f, i2 + i5 + this.mDotSize, f2);
+        canvas.drawOval(this.mWhiteDotRect, this.mWhiteDotPaint);
     }
 
-    public final void c() {
+    private void initTextBottomIncrement() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String g = aj.g();
-            if (g.contains("vivo") && g.contains("X20")) {
-                yi.g(getContext(), R.dimen.tbds2);
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            String model = DeviceInfoHelper.getModel();
+            if (model.contains("vivo") && model.contains("X20")) {
+                this.mTextBottomIncrement = BdUtilHelper.getDimens(getContext(), R.dimen.tbds2);
             }
         }
     }
@@ -230,263 +263,263 @@ public class MessageRedDotView extends View {
     public String getRedNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRedNum;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void d() {
+    private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             setLayerType(1, null);
-            c();
+            initTextBottomIncrement();
             Paint paint = new Paint(1);
-            this.f = paint;
+            this.mTextPaint = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            if (!this.u && this.v) {
-                this.f.setTextSize(yi.g(getContext(), R.dimen.tbfontsize26));
-                this.f.setTypeface(Typeface.MONOSPACE);
+            if (!this.isEnterForumStyle && this.shadowEnabled) {
+                this.mTextPaint.setTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.tbfontsize26));
+                this.mTextPaint.setTypeface(Typeface.MONOSPACE);
             } else {
-                this.f.setTextSize(yi.g(getContext(), R.dimen.tbfontsize28));
-                this.f.setTypeface(Typeface.DEFAULT_BOLD);
+                this.mTextPaint.setTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.tbfontsize28));
+                this.mTextPaint.setTypeface(Typeface.DEFAULT_BOLD);
             }
-            this.f.setTextAlign(Paint.Align.CENTER);
-            this.g = new Rect();
-            this.h = yi.g(getContext(), R.dimen.tbds13);
-            this.i = yi.g(getContext(), R.dimen.tbds42);
+            this.mTextPaint.setTextAlign(Paint.Align.CENTER);
+            this.mTextRect = new Rect();
+            this.mTextPaddingLeft = BdUtilHelper.getDimens(getContext(), R.dimen.tbds13);
+            this.mRedDotHeight = BdUtilHelper.getDimens(getContext(), R.dimen.tbds42);
             Paint paint2 = new Paint();
-            this.j = paint2;
+            this.mShadowPaint = paint2;
             paint2.setAntiAlias(true);
-            this.j.setStyle(Paint.Style.FILL);
-            this.j.setColor(SkinManager.getColor(R.color.transparent));
-            this.k = 0;
-            this.m = yi.g(getContext(), R.dimen.tbds8);
-            int g = yi.g(getContext(), R.dimen.tbds3);
-            this.l = g;
-            this.j.setShadowLayer(this.m, this.k, g, SkinManager.getColor(R.color.cp_cont_h_alpha66));
-            this.n = new RectF();
-            this.p = yi.g(getContext(), R.dimen.tbds21);
-            this.q = yi.g(getContext(), R.dimen.tbds8);
-            this.r = yi.g(getContext(), R.dimen.tbds6);
+            this.mShadowPaint.setStyle(Paint.Style.FILL);
+            this.mShadowPaint.setColor(SkinManager.getColor(R.color.transparent));
+            this.mShadowRightOffset = 0;
+            this.mShadowRadius = BdUtilHelper.getDimens(getContext(), R.dimen.tbds8);
+            int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds3);
+            this.mShadowBottomOffset = dimens;
+            this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mShadowRightOffset, dimens, SkinManager.getColor(R.color.cp_cont_h_alpha66));
+            this.mShadowRect = new RectF();
+            this.mShadowRectRadius = BdUtilHelper.getDimens(getContext(), R.dimen.tbds21);
+            this.mDotSize = BdUtilHelper.getDimens(getContext(), R.dimen.tbds8);
+            this.mIntervalSize = BdUtilHelper.getDimens(getContext(), R.dimen.tbds6);
             Paint paint3 = new Paint();
-            this.s = paint3;
+            this.mWhiteDotPaint = paint3;
             paint3.setAntiAlias(true);
-            this.s.setStyle(Paint.Style.FILL);
-            this.s.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.t = new RectF();
+            this.mWhiteDotPaint.setStyle(Paint.Style.FILL);
+            this.mWhiteDotPaint.setColor(SkinManager.getColor(R.color.CAM_X0101));
+            this.mWhiteDotRect = new RectF();
         }
     }
 
-    public void e() {
+    public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.x = TbadkApplication.getInst().getSkinType();
-            int i = this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mLastSkinType = TbadkApplication.getInst().getSkinType();
+            int i = this.mBackgroundId;
             if (i > 0) {
-                this.a = SkinManager.getDrawable(i);
+                this.mBackgroundDrawable = SkinManager.getDrawable(i);
             } else {
-                Drawable drawable = this.a;
+                Drawable drawable = this.mBackgroundDrawable;
                 if (drawable instanceof GradientDrawable) {
                     ((GradientDrawable) drawable).setColor(SkinManager.getColor(R.color.CAM_X0301));
                 }
             }
-            this.s.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            Paint paint = this.f;
+            this.mWhiteDotPaint.setColor(SkinManager.getColor(R.color.CAM_X0101));
+            Paint paint = this.mTextPaint;
             if (paint != null) {
                 paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
             }
-            this.j.setShadowLayer(this.m, this.k, this.l, SkinManager.getColor(R.color.cp_cont_h_alpha66));
-            if (this.c) {
-                this.c = false;
+            this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mShadowRightOffset, this.mShadowBottomOffset, SkinManager.getColor(R.color.cp_cont_h_alpha66));
+            if (this.needRequestLayout) {
+                this.needRequestLayout = false;
                 requestLayout();
             }
             invalidate();
         }
     }
 
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            Drawable drawable = this.mBackgroundDrawable;
+            if (drawable != null) {
+                int intrinsicWidth = drawable.getIntrinsicWidth();
+                int intrinsicHeight = this.mBackgroundDrawable.getIntrinsicHeight();
+                if (this.isEnterForumStyle) {
+                    this.mBackgroundDrawable.setBounds(0, this.mTextPaddingTop, BdUtilHelper.getDimens(getContext(), R.dimen.tbds4) + intrinsicWidth, BdUtilHelper.getDimens(getContext(), R.dimen.tbds4) + intrinsicHeight + this.mTextPaddingTop);
+                } else {
+                    Drawable drawable2 = this.mBackgroundDrawable;
+                    int i = this.mShadowLength;
+                    int i2 = this.extendSize;
+                    drawable2.setBounds(i, i - (i2 / 2), intrinsicWidth + i + i2, intrinsicHeight + i + (i2 / 2));
+                }
+                this.mBackgroundDrawable.draw(canvas);
+                if (!this.isEnterForumStyle && this.shadowEnabled) {
+                    RectF rectF = this.mShadowRect;
+                    int i3 = this.mShadowLength;
+                    rectF.set(i3, i3, intrinsicWidth + i3, i3 + intrinsicHeight);
+                    if (intrinsicWidth != intrinsicHeight) {
+                        RectF rectF2 = this.mShadowRect;
+                        int i4 = this.mShadowRectRadius;
+                        canvas.drawRoundRect(rectF2, i4, i4, this.mShadowPaint);
+                    } else {
+                        canvas.drawOval(this.mShadowRect, this.mShadowPaint);
+                    }
+                }
+                if (!bi.isEmpty(this.mRedNum)) {
+                    if (this.mRedNum.equals("...")) {
+                        drawThreeDot(canvas);
+                    } else {
+                        drawNormalStr(canvas);
+                    }
+                }
+            }
+        }
+    }
+
     @Deprecated
-    public void f(int i) {
+    public void refresh(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i <= 0) {
                 i2 = R.drawable.icon_news_red_dot;
-                this.d = null;
+                this.mRedNum = null;
             } else if (i < 10) {
-                this.d = String.valueOf(i);
+                this.mRedNum = String.valueOf(i);
                 i2 = R.drawable.icon_news_red_dot_one_number;
             } else if (i < 100) {
-                this.d = String.valueOf(i);
+                this.mRedNum = String.valueOf(i);
                 i2 = R.drawable.icon_news_red_dot_two_number;
             } else {
-                int i3 = this.e;
+                int i3 = this.mType;
                 if (i3 == 1) {
-                    this.d = "...";
+                    this.mRedNum = "...";
                     i2 = R.drawable.icon_news_red_dot_three_dot_number;
                 } else if (i3 == 2) {
-                    this.d = "99+";
+                    this.mRedNum = "99+";
                     i2 = R.drawable.icon_news_red_dot_three_number;
                 } else {
                     i2 = 0;
                 }
             }
-            if (i2 != this.b) {
-                this.c = true;
+            if (i2 != this.mBackgroundId) {
+                this.needRequestLayout = true;
             } else {
-                this.c = false;
+                this.needRequestLayout = false;
             }
-            this.b = i2;
-            e();
+            this.mBackgroundId = i2;
+            onChangeSkinType();
         }
     }
 
-    public void g(String str, boolean z) {
+    public void refresh(String str, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
             if (z) {
-                this.d = "...";
+                this.mRedNum = "...";
                 i = R.drawable.icon_news_red_dot_three_dot_number;
-            } else if (xi.isEmpty(str)) {
+            } else if (bi.isEmpty(str)) {
                 i = R.drawable.icon_news_red_dot;
-                this.d = null;
+                this.mRedNum = null;
             } else {
-                int measureText = (int) this.f.measureText(str);
-                Drawable drawable = this.a;
-                if (drawable != null && drawable.getIntrinsicWidth() - (this.h * 2) == measureText) {
-                    if (this.x != TbadkApplication.getInst().getSkinType()) {
-                        Drawable drawable2 = this.a;
+                int measureText = (int) this.mTextPaint.measureText(str);
+                Drawable drawable = this.mBackgroundDrawable;
+                if (drawable != null && drawable.getIntrinsicWidth() - (this.mTextPaddingLeft * 2) == measureText) {
+                    if (this.mLastSkinType != TbadkApplication.getInst().getSkinType()) {
+                        Drawable drawable2 = this.mBackgroundDrawable;
                         if (drawable2 instanceof GradientDrawable) {
                             ((GradientDrawable) drawable2).setColor(SkinManager.getColor(R.color.CAM_X0301));
-                            this.c = false;
+                            this.needRequestLayout = false;
                         }
                     }
                 } else {
                     GradientDrawable gradientDrawable = new GradientDrawable();
                     gradientDrawable.setShape(0);
-                    gradientDrawable.setCornerRadius(this.p);
+                    gradientDrawable.setCornerRadius(this.mShadowRectRadius);
                     gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0301));
-                    gradientDrawable.setSize(((int) this.f.measureText(str)) + (this.h * 2), this.i);
-                    this.a = gradientDrawable;
-                    this.c = true;
+                    gradientDrawable.setSize(((int) this.mTextPaint.measureText(str)) + (this.mTextPaddingLeft * 2), this.mRedDotHeight);
+                    this.mBackgroundDrawable = gradientDrawable;
+                    this.needRequestLayout = true;
                 }
-                this.d = str;
-                this.b = 0;
-                e();
+                this.mRedNum = str;
+                this.mBackgroundId = 0;
+                onChangeSkinType();
                 return;
             }
-            if (i != this.b) {
-                this.c = true;
+            if (i != this.mBackgroundId) {
+                this.needRequestLayout = true;
             } else {
-                this.c = false;
+                this.needRequestLayout = false;
             }
-            this.b = i;
-            e();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            super.onDraw(canvas);
-            Drawable drawable = this.a;
-            if (drawable != null) {
-                int intrinsicWidth = drawable.getIntrinsicWidth();
-                int intrinsicHeight = this.a.getIntrinsicHeight();
-                if (this.u) {
-                    this.a.setBounds(0, this.w, yi.g(getContext(), R.dimen.tbds4) + intrinsicWidth, yi.g(getContext(), R.dimen.tbds4) + intrinsicHeight + this.w);
-                } else {
-                    Drawable drawable2 = this.a;
-                    int i = this.o;
-                    int i2 = this.y;
-                    drawable2.setBounds(i, i - (i2 / 2), intrinsicWidth + i + i2, intrinsicHeight + i + (i2 / 2));
-                }
-                this.a.draw(canvas);
-                if (!this.u && this.v) {
-                    RectF rectF = this.n;
-                    int i3 = this.o;
-                    rectF.set(i3, i3, intrinsicWidth + i3, i3 + intrinsicHeight);
-                    if (intrinsicWidth != intrinsicHeight) {
-                        RectF rectF2 = this.n;
-                        int i4 = this.p;
-                        canvas.drawRoundRect(rectF2, i4, i4, this.j);
-                    } else {
-                        canvas.drawOval(this.n, this.j);
-                    }
-                }
-                if (!xi.isEmpty(this.d)) {
-                    if (this.d.equals("...")) {
-                        b(canvas);
-                    } else {
-                        a(canvas);
-                    }
-                }
-            }
+            this.mBackgroundId = i;
+            onChangeSkinType();
         }
     }
 
     public void setEnterForumStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.u = z;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.isEnterForumStyle = z;
         }
     }
 
     public void setExtendSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.y = i;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.extendSize = i;
         }
     }
 
     public void setFixMeasuredWidthHeight(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.z = z;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.fixMeasuredWidthHeight = z;
         }
     }
 
     public void setShadowEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.v = z;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.shadowEnabled = z;
         }
     }
 
     public void setTextBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f.setFakeBoldText(z);
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.mTextPaint.setFakeBoldText(z);
         }
     }
 
     public void setTextPaddingTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.w = i;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mTextPaddingTop = i;
         }
     }
 
     public void setTextSize(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f.setTextSize(yi.g(getContext(), i));
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mTextPaint.setTextSize(BdUtilHelper.getDimens(getContext(), i));
         }
     }
 
     public void setTextTypeface(Typeface typeface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, typeface) == null) {
-            this.f.setTypeface(typeface);
+        if (interceptable == null || interceptable.invokeL(1048589, this, typeface) == null) {
+            this.mTextPaint.setTypeface(typeface);
         }
     }
 
     public void setThreeDotMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mType = i;
         }
     }
 }

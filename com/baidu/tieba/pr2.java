@@ -1,52 +1,117 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pr2 extends pp2<gs2> {
+public abstract class pr2 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBeautyBlur" : (String) invokeV.objValue;
-    }
+    public abstract boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull bs2 bs2Var, @NonNull List<String> list);
 
-    public pr2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pr2(vb3 vb3Var, String str) {
+        super(vb3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
-            String str = command.what;
-            d(gs2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Integer) {
-                gs2Var.U(((Integer) obj).intValue());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.c("componentFullScreen", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (vc3.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                y72.c("componentFullScreen", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (vc3.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y72.c("componentFullScreen", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("slaveId");
+                JSONArray optJSONArray = optParamsAsJo.optJSONArray("componentId");
+                if (!TextUtils.isEmpty(optString) && optJSONArray != null && optJSONArray.length() != 0) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        String optString2 = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString2)) {
+                            arrayList.add(optString2);
+                        }
+                    }
+                    if (arrayList.size() == 0) {
+                        y72.c("componentFullScreen", "empty component id list");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                        return false;
+                    }
+                    gx1 A = lw2.T().A(optString);
+                    if (!(A instanceof SwanAppWebViewManager)) {
+                        y72.c("componentFullScreen", "cant get WebView");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
+                    }
+                    bs2 D0 = ((SwanAppWebViewManager) A).D0();
+                    if (D0 == null) {
+                        y72.c("componentFullScreen", "cant get CustomViewHelper");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
+                    } else if (!j(unitedSchemeEntity, D0, arrayList)) {
+                        y72.c("componentFullScreen", "custom view handle fail");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
+                    } else {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                        return true;
+                    }
+                }
+                y72.c("componentFullScreen", "param error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

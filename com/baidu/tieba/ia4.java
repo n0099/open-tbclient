@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ia4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c42> a;
+    public ii2 a;
+    @V8JavascriptField
+    public JsObject canvas;
 
     static {
         InterceptResult invokeClinit;
@@ -35,15 +36,32 @@ public class ia4 {
                 return;
             }
         }
-        b = fs1.a;
+        b = ir1.a;
     }
 
-    public ia4(JSONArray jSONArray) {
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c(this.a.getInitBasePath(), "swan-game-open-data.js");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroyOpenDataContext() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.b0().a();
+        }
+    }
+
+    public ia4(ii2 ii2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
+            Object[] objArr = {ii2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,85 +71,45 @@ public class ia4 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        if (jSONArray == null) {
-            return;
-        }
-        if (b) {
-            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
-        }
-        int length = jSONArray.length();
-        int i3 = 0;
-        int i4 = 0;
-        for (int i5 = 0; i5 < length; i5++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("type");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != 1095692943) {
-                    if (hashCode == 1427818632 && optString.equals("download")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("request")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1 && i4 < 10) {
-                        this.a.add(a(optJSONObject));
-                        i4++;
-                    }
-                } else if (i3 < 3) {
-                    this.a.add(b(optJSONObject));
-                    i3++;
-                }
-            }
-        }
+        this.canvas = null;
+        this.a = ii2Var;
+        a();
+        b();
     }
 
-    public final c42 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            c42 c42Var = new c42();
-            c42Var.G("type", jSONObject.optString("type"));
-            c42Var.G("url", jSONObject.optString("url"));
-            c42Var.G("filePath", jSONObject.optString("filePath"));
-            c42Var.G("header", c(jSONObject.optJSONObject("header")));
-            return c42Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String z = lw2.T().z();
+            String b2 = ja4.a().b();
+            if (b) {
+                Log.d("SwanGameOpenDataContext", "baseFilePath: " + z);
+                Log.d("SwanGameOpenDataContext", "openDataJSFile: " + b2);
+            }
+            return c(z, b2);
         }
-        return (c42) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final c42 b(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final boolean c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            c42 c42Var = new c42();
-            c42Var.G("type", jSONObject.optString("type"));
-            c42Var.G("url", jSONObject.optString("url"));
-            c42Var.G("responseType", jSONObject.optString("responseType"));
-            c42Var.G("header", c(jSONObject.optJSONObject("header")));
-            return c42Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (ja4.a().c() && !TextUtils.isEmpty(str)) {
+                this.a.b0().b(str, str2);
+                return true;
+            }
+            return false;
         }
-        return (c42) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final c42 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @JavascriptInterface
+    public void postMessage(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            c42 c42Var = new c42();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                c42Var.G(next, jSONObject.optString(next));
-            }
-            return c42Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+            this.a.v().dispatchEvent(new JSEvent("postmessage", jsObject));
         }
-        return (c42) invokeL.objValue;
     }
 }

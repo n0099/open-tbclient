@@ -1,103 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class sj4 {
+public class sj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sj4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
-    public abstract boolean a(uk4 uk4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract boolean b(uk4 uk4Var, List<vk4> list, sk4 sk4Var, qk4 qk4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract void c(String str);
-
-    public abstract void d(String str, String str2);
-
-    public abstract <T extends tk4> boolean e(Class<T> cls, String str);
-
-    public abstract boolean f(wk4 wk4Var);
-
-    public abstract boolean g(List<wk4> list);
-
-    public abstract boolean h(String str);
-
-    @WorkerThread
-    public abstract int j(@NonNull String str);
-
-    @NonNull
-    @WorkerThread
-    public abstract List<vk4> k(@NonNull String str, int i);
-
-    public abstract boolean l(PMSAppInfo pMSAppInfo);
-
-    public abstract <T extends tk4> boolean m(T t);
-
-    public abstract boolean n(String str, String str2, String str3);
-
-    public abstract <T extends tk4> T o(Class<T> cls, String str);
-
-    public abstract Map<String, uk4> p();
-
-    public abstract wk4 q(String str, long j, long j2);
-
-    public abstract List<wk4> r(String str, String[] strArr);
-
-    public abstract List<wk4> s(String str, long j, long j2);
-
-    @Nullable
-    public abstract xk4 t(String str);
-
-    public abstract PMSAppInfo u(String str);
-
-    public abstract Map<String, PMSAppInfo> v();
-
-    public abstract List<wk4> w(String str);
-
-    public abstract boolean x(wk4 wk4Var);
-
-    public abstract boolean y(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean z(String str, int i);
-
-    public sj4() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public sj4(int i, String str) {
+        this(i, str, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static sj4 i() {
+    public sj4(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.a = i;
+        this.b = str;
+        this.e = str2;
+    }
+
+    public sj4(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.a = i;
+        this.b = str;
+        this.e = str2;
+        this.c = str3;
+    }
+
+    public sj4 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.d = str;
+            return this;
+        }
+        return (sj4) invokeL.objValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (sj4.class) {
-                    if (a == null) {
-                        a = new tj4();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.b + "', httpCode=" + this.f + ", tipMsg='" + this.e + "', errorDetail='" + this.d + "'}";
         }
-        return (sj4) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

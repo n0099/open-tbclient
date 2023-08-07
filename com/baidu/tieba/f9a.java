@@ -4,12 +4,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetForumSquare.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class f9a {
+public final class f9a extends o9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,16 +21,5 @@ public class f9a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        String str = dataRes.class_name;
-        Page page = dataRes.page;
-        List<String> list = dataRes.page_structure;
-        List<RecommendForumInfo> list2 = dataRes.forum_info;
     }
 }

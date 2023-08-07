@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,11 +46,11 @@ public class FrsForumToolDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0355, this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0911fe);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0358, this);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091211);
             this.b = (TextView) findViewById(R.id.tv_content);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0904a6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ca);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0904b3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d7);
             this.a.setText(R.string.obfuscated_res_0x7f0f03ce);
             this.d.setText(R.string.know_more);
             this.c.setPlaceHolder(3);
@@ -58,29 +58,10 @@ public class FrsForumToolDialogView extends LinearLayout {
             this.c.setAutoChangeStyle(true);
             this.c.setConrers(3);
             this.c.setRadiusById(R.string.J_X06);
-            d85 d = d85.d(this.b);
-            d.x(R.color.CAM_X0107);
-            d.z(R.dimen.M_T_X001);
-            d.C(R.dimen.T_X06);
-            d85 d2 = d85.d(this.a);
-            d2.x(R.color.CAM_X0105);
-            d2.o(R.string.J_X07);
-            d2.m(R.dimen.L_X02);
-            d2.C(R.dimen.T_X08);
-            d2.l(R.color.CAM_X0902);
-            d2.f(R.color.CAM_X0201);
-            d85 d3 = d85.d(this.d);
-            d3.x(R.color.CAM_X0302);
-            d3.o(R.string.J_X07);
-            d3.C(R.dimen.T_X08);
-            d3.m(R.dimen.L_X02);
-            d3.e(R.string.A_X07);
-            d3.l(R.color.CAM_X0302);
-            d3.f(R.color.CAM_X0201);
-            d85 d4 = d85.d(this);
-            d4.o(R.string.J_X06);
-            d4.n(0);
-            d4.f(R.color.CAM_X0201);
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0107).setTextLinePadding(R.dimen.M_T_X001).setTextSize(R.dimen.T_X06);
+            EMManager.from(this.a).setTextColor(R.color.CAM_X0105).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X02).setTextSize(R.dimen.T_X08).setBorderColor(R.color.CAM_X0902).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.d).setTextColor(R.color.CAM_X0302).setCorner(R.string.J_X07).setTextSize(R.dimen.T_X08).setBorderWidth(R.dimen.L_X02).setAlpha(R.string.A_X07).setBorderColor(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this).setCorner(R.string.J_X06).setCardType(0).setBackGroundColor(R.color.CAM_X0201);
         }
     }
 
@@ -109,9 +90,9 @@ public class FrsForumToolDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
             if (i != 1 && i != 2) {
-                this.c.N(str, 10, false);
+                this.c.startLoad(str, 10, false);
             } else {
-                this.c.N(str, 24, false);
+                this.c.startLoad(str, 24, false);
             }
         }
     }

@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +14,112 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sr3 extends pr3 {
+public class sr3 extends ig3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean s;
+    public String t;
 
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends xf3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sr3 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements rp3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.rp3
+            /* renamed from: b */
+            public void a(Bundle bundle) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                    if (bundle == null) {
+                        this.a.e(new OAuthException("null stoken", 10001));
+                        return;
+                    }
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
+                    if (TextUtils.isEmpty(string)) {
+                        this.a.e(new OAuthException("empty stoken", 10001));
+                        return;
+                    }
+                    this.a.c.t = string;
+                    this.a.d();
+                }
+            }
+        }
+
+        public b(sr3 sr3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sr3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sr3Var;
+        }
+
+        public /* synthetic */ b(sr3 sr3Var, a aVar) {
+            this(sr3Var);
+        }
+
+        @Override // com.baidu.tieba.xf3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c.s) {
+                    zq3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                    return false;
+                }
+                this.c.t = null;
+                if (sr3.u) {
+                    Log.w("MaOpenDataRequest", "user not login");
+                    return true;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -41,173 +136,60 @@ public class sr3 extends pr3 {
                 return;
             }
         }
-        b = fs1.a;
+        u = ir1.a;
     }
 
-    public void j() {
+    @Override // com.baidu.tieba.ig3
+    public JSONObject P() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onUserCancel: report");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject P = super.P();
+            if (!TextUtils.isEmpty(this.t)) {
+                try {
+                    P.put("stoken", this.t);
+                } catch (JSONException e) {
+                    if (u) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            a();
-            l();
+            return P;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public void k() {
+    @Override // com.baidu.tieba.vf3
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.a.d("na_start")) {
-            this.a.g("na_start");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h(new b(this, null));
+            return true;
         }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
-            this.a.k();
-            au2.e();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.i();
-        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sr3(String str) {
-        super(str);
+    public sr3(Activity activity, String str, String str2, boolean z, boolean z2) {
+        super(activity, str, str2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public boolean b(String str) {
-        URI uri;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                uri = new URI(str);
-            } catch (URISyntaxException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                uri = null;
-            }
-            if (uri != null && !TextUtils.isEmpty(uri.getPath()) && !TextUtils.equals("/", uri.getPath())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
-            }
-            if (!this.a.d("na_fcp")) {
-                this.a.g("na_fcp");
-            }
-        }
-    }
-
-    public void h(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !b(str) && !this.a.d("na_load_url_end")) {
-            this.a.g("na_load_url_end");
-            this.a.f("load_end_url", str);
-            boolean d = this.a.d("fe_fmp");
-            rr3 rr3Var = this.a;
-            if (d) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            rr3Var.f("fmpArrived", str2);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
-            }
-            if (!this.a.d("na_load_url")) {
-                this.a.g("na_load_url");
-                this.a.f("load_url", str);
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !b(str) && !this.a.d("na_first_image_paint")) {
-            this.a.g("na_first_image_paint");
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !b(str) && !this.a.d("na_first_text_paint")) {
-            this.a.g("na_first_text_paint");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
-            }
-            if (!this.a.d("na_up_screen")) {
-                this.a.g("na_up_screen");
-            }
-            if (this.a.d("fe_fmp")) {
-                a();
-                l();
-            }
-        }
-    }
-
-    public void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
-                } catch (JSONException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            this.a.g("fe_fmp");
-            if (this.a.d("na_up_screen")) {
-                a();
-                l();
-            }
-        }
+        this.s = z2;
+        y();
     }
 }

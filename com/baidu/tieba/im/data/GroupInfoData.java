@@ -7,13 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,9 +25,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class GroupInfoData extends AbstractImageProvider implements yn, Parcelable, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements ym, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
+    public static final String SHARE_KEY_ACTIVE_ID = "scene_id";
     public static final String SHARE_KEY_ALBUM_ID = "album_id";
     public static final String SHARE_KEY_FID = "fid";
     public static final String SHARE_KEY_FROM_GROUP_ID = "share_chatroom_id";
@@ -54,6 +55,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public boolean isMemGroup;
     public long lastUpdateTime;
     public String link;
+    public String mDesc;
     public int maxMemberNum;
     public int memberNum;
     public String name;
@@ -197,10 +199,19 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
         return (String) invokeV.objValue;
     }
 
-    public long getForumId() {
+    public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDesc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getForumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.forumId;
         }
         return invokeV.longValue;
@@ -209,7 +220,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.forumName;
         }
         return (String) invokeV.objValue;
@@ -218,7 +229,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public String getForumShowName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.forumShowName;
         }
         return (String) invokeV.objValue;
@@ -227,7 +238,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public int getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.from;
         }
         return invokeV.intValue;
@@ -236,7 +247,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public int getGrade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.grade;
         }
         return invokeV.intValue;
@@ -245,7 +256,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public long getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.groupId;
         }
         return invokeV.longValue;
@@ -255,7 +266,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
             PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
             preLoadImageInfo.imgUrl = this.portrait;
@@ -269,7 +280,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public String getIntro() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (TextUtils.isEmpty(this.intro)) {
                 return "";
             }
@@ -281,7 +292,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public int getIsGroupManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.isGroupManager;
         }
         return invokeV.intValue;
@@ -290,7 +301,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public int getMaxMemberNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.maxMemberNum;
         }
         return invokeV.intValue;
@@ -299,7 +310,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public int getMemberNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.memberNum;
         }
         return invokeV.intValue;
@@ -308,7 +319,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.name;
         }
         return (String) invokeV.objValue;
@@ -317,17 +328,17 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.portrait;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return TYPE_FRS_GROUP;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -336,7 +347,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public boolean isMemGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.isMemGroup;
         }
         return invokeV.booleanValue;
@@ -345,7 +356,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             if (this.groupId > 0 && !TextUtils.isEmpty(this.name)) {
                 return true;
             }
@@ -366,7 +377,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
             groupInfoData.setGroupId(groupChatRoomPojo.getRoomId());
             groupInfoData.setName(groupChatRoomPojo.getName());
             groupInfoData.setPortrait(groupChatRoomPojo.getAvatar());
-            groupInfoData.forumId = wg.g(groupChatRoomPojo.getForumId(), -1L);
+            groupInfoData.forumId = JavaTypesHelper.toLong(groupChatRoomPojo.getForumId(), -1L);
             groupInfoData.forumName = groupChatRoomPojo.getForumName();
             groupInfoData.lastUpdateTime = groupChatRoomPojo.getTimestamp();
             return groupInfoData;
@@ -387,6 +398,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
             groupInfoData.setGroupId(optLong);
             groupInfoData.setName(jSONObject.optString("title"));
             groupInfoData.setPortrait(jSONObject.optString("img"));
+            groupInfoData.setDesc(jSONObject.optString("desc"));
             groupInfoData.link = jSONObject.optString("url");
             groupInfoData.forumId = jSONObject.optLong("fid");
             groupInfoData.forumName = jSONObject.optString("forumName");
@@ -410,112 +422,119 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
 
     public void setAuthorId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             this.authorId = j;
         }
     }
 
     public void setAuthorIsMeizhi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.authorIsMeizhi = i;
         }
     }
 
     public void setAuthorName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.authorName = str;
+        }
+    }
+
+    public void setDesc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.mDesc = str;
         }
     }
 
     public void setForumId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             this.forumId = i;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.forumName = str;
         }
     }
 
     public void setForumShowName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.forumShowName = str;
         }
     }
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
             this.from = i;
         }
     }
 
     public void setGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             this.grade = i;
         }
     }
 
     public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
             this.groupId = j;
         }
     }
 
     public void setIntro(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             this.intro = str;
         }
     }
 
     public void setIsGroupManager(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             this.isGroupManager = i;
         }
     }
 
     public void setMaxMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             this.maxMemberNum = i;
         }
     }
 
     public void setMemGroup(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
             this.isMemGroup = z;
         }
     }
 
     public void setMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.memberNum = i;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.name = str;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.portrait = str;
         }
     }
@@ -523,7 +542,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return "GroupInfoData{groupId=" + this.groupId + ", forumId=" + this.forumId + ", name='" + this.name + "', portrait='" + this.portrait + "', forumName='" + this.forumName + "', forumShowName='" + this.forumShowName + "', memberNum=" + this.memberNum + ", lastUpdateTime=" + this.lastUpdateTime + '}';
         }
         return (String) invokeV.objValue;
@@ -532,7 +551,7 @@ public class GroupInfoData extends AbstractImageProvider implements yn, Parcelab
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048613, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048615, this, parcel, i) == null) {
             parcel.writeLong(this.groupId);
             parcel.writeLong(this.forumId);
             parcel.writeString(this.name);

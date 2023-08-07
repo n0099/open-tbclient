@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.dc2;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,90 +19,202 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rc2 {
+public class rc2 extends gi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean o;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dc2 a;
-    public final mc2 b;
-    public final ac2 c;
+
+    @Override // com.baidu.tieba.ii2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements dc2.b {
+    public static class a extends EventTargetImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oc2 a;
-        public final /* synthetic */ cc2 b;
-        public final /* synthetic */ rc2 c;
+        @V8JavascriptField
+        public hi2 env;
 
-        public a(rc2 rc2Var, oc2 oc2Var, cc2 cc2Var) {
+        /* renamed from: com.baidu.tieba.rc2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0463a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public RunnableC0463a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    go3.a(lw2.T().getActivity());
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ii2 ii2Var, String str) {
+            super(ii2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rc2Var, oc2Var, cc2Var};
+                Object[] objArr = {ii2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((JSRuntime) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = rc2Var;
-            this.a = oc2Var;
-            this.b = cc2Var;
+            hi2 hi2Var = new hi2();
+            this.env = hi2Var;
+            hi2Var.basePath = str;
         }
 
-        @Override // com.baidu.tieba.dc2.b
-        public void a(NetworkStatus networkStatus) {
+        @JavascriptInterface
+        public void addMask() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                wb2.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
-                if (rc2.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
-                }
-                xb2.g(sb.toString());
-                this.c.d(networkStatus);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y72.k("SwanAppV8DaemonEngine", "addMask");
+                i82.b();
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+        @JavascriptInterface
+        public boolean freeMaster() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                y72.k("SwanAppV8DaemonEngine", "freeMaster");
+                synchronized (ki2.p) {
+                    try {
+                        try {
+                            ki2.p.notify();
+                        } catch (IllegalMonitorStateException e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-465569078, "Lcom/baidu/tieba/rc2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-465569078, "Lcom/baidu/tieba/rc2$b;");
-                    return;
-                }
+        @JavascriptInterface
+        public void reload() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                y72.k("SwanAppV8DaemonEngine", "reload");
+                so3.a0(new RunnableC0463a(this));
             }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+        }
+
+        @JavascriptInterface
+        public void removeMask() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                y72.k("SwanAppV8DaemonEngine", "removeMask");
+                i82.c();
             }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+        }
+
+        @JavascriptInterface
+        public void shutdown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                y72.k("SwanAppV8DaemonEngine", "shutdown");
+                j82.k().r();
+                lw2.T().exit();
+            }
+        }
+
+        @JavascriptInterface
+        public String closeConnect(JsObject jsObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject)) == null) {
+                if (rc2.o) {
+                    Log.d("SwanAppV8DaemonEngine", "closeConnect params = " + jsObject);
+                }
+                return k82.d(jsObject);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @JavascriptInterface
+        public String connectDevTool(JsObject jsObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
+                if (rc2.o) {
+                    Log.d("SwanAppV8DaemonEngine", "connectDevTool params = " + jsObject);
+                }
+                return k82.e(jsObject);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @JavascriptInterface
+        public String sendMsgToDevTool(JsObject jsObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
+                if (rc2.o) {
+                    Log.d("SwanAppV8DaemonEngine", "sendMsgToDevTool params = " + jsObject);
+                }
+                return k82.m(jsObject);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @JavascriptInterface
+        public String getDevToolsResponse() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (rc2.o) {
+                    Log.d("SwanAppV8DaemonEngine", "getDevToolsResponse = " + ki2.q);
+                }
+                return ki2.q;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public void setDevToolsResponse(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                if (rc2.o) {
+                    Log.d("SwanAppV8DaemonEngine", "setDevToolsResponse = " + str);
+                }
+                ki2.q = str;
             }
         }
     }
@@ -114,48 +232,39 @@ public class rc2 {
                 return;
             }
         }
-        d = fs1.a;
+        o = ir1.a;
     }
 
-    public rc2() {
+    @Override // com.baidu.tieba.gi2
+    @NonNull
+    public EventTarget z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            a aVar = new a(this, this.b.getInitBasePath());
+            aVar.env.config = ek3.b();
+            return aVar;
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rc2(@NonNull String str, @NonNull dj2 dj2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, dj2Var, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, dj2Var, v8ThreadDelegatePolicy};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (dj2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            }
-        }
-        this.c = ac2.d();
-        this.a = new dc2();
-        this.b = mc2.d();
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            mc2.d().j();
-            ac2.d().j();
-            cc2 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
-        }
-    }
-
-    public final void d(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                vb2.f(R.string.obfuscated_res_0x7f0f1577);
-            } else {
-                vb2.f(R.string.obfuscated_res_0x7f0f156d);
             }
         }
     }

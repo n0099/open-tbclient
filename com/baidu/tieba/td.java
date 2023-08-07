@@ -1,88 +1,119 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import org.json.JSONObject;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class td implements qd {
+public class td {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
 
-    public td(JSONObject jSONObject) {
+    public static final List<Object> a(vd vdVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject;
-    }
-
-    @Override // com.baidu.tieba.qd
-    public Object a(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
-            Class<?> a = geVar.a();
-            Type[] b = geVar.b();
-            if (nc.e(a, Map.class)) {
-                Map<String, Object> b2 = ee.b(geVar, this.a.length());
-                if (b2 != null) {
-                    Iterator<String> keys = this.a.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (next instanceof String) {
-                            String str = next;
-                            Object a2 = ke.a(this.a.opt(str)).a(new ge(b[1]));
-                            if (a2 != null) {
-                                b2.put(str, a2);
-                            }
-                        }
-                    }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, vdVar, i)) == null) {
+            Class<?> a = vdVar.a();
+            if (a != List.class && a != ArrayList.class) {
+                if (a == LinkedList.class) {
+                    return new LinkedList();
                 }
-                return b2;
-            } else if (a == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.a.length());
-                Iterator<String> keys2 = this.a.keys();
-                while (keys2.hasNext()) {
-                    String next2 = keys2.next();
-                    if (next2 instanceof String) {
-                        String str2 = next2;
-                        try {
-                            int parseInt = Integer.parseInt(str2);
-                            Object a3 = ke.a(this.a.opt(String.valueOf(str2))).a(new ge(b[0]));
-                            if (a3 != null) {
-                                sparseArray.put(parseInt, a3);
-                            }
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                Object h = cc.h(a, i);
+                if (h == null) {
+                    h = cc.g(a);
                 }
-                return sparseArray;
-            } else if (nc.e(a, oc.class)) {
-                return OrmObject.objectWithJson(this.a, a);
-            } else {
+                if (h instanceof List) {
+                    return (List) h;
+                }
                 return null;
             }
+            return new ArrayList(i);
         }
-        return invokeL.objValue;
+        return (List) invokeLI.objValue;
+    }
+
+    public static final Queue<Object> c(vd vdVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, vdVar, i)) == null) {
+            Class<?> a = vdVar.a();
+            if (a == Queue.class) {
+                return new LinkedList();
+            }
+            Object h = cc.h(a, i);
+            if (h == null) {
+                h = cc.g(a);
+            }
+            if (h instanceof Queue) {
+                return (Queue) h;
+            }
+            return null;
+        }
+        return (Queue) invokeLI.objValue;
+    }
+
+    public static final Set<Object> d(vd vdVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, vdVar, i)) == null) {
+            Class<?> a = vdVar.a();
+            if (a == Set.class) {
+                return new HashSet();
+            }
+            Object h = cc.h(a, i);
+            if (h == null) {
+                h = cc.g(a);
+            }
+            if (h instanceof Set) {
+                return (Set) h;
+            }
+            return null;
+        }
+        return (Set) invokeLI.objValue;
+    }
+
+    public static final Map<String, Object> b(vd vdVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, vdVar, i)) == null) {
+            Class<?> a = vdVar.a();
+            Type[] b = vdVar.b();
+            if (!cc.e(a, Map.class)) {
+                return null;
+            }
+            if (b != null && b.length >= 2 && b[0] == String.class) {
+                if (a == Map.class) {
+                    return new HashMap(i);
+                }
+                Object h = cc.h(a, i);
+                if (h == null) {
+                    h = cc.g(a);
+                }
+                if (!(h instanceof Map)) {
+                    return null;
+                }
+                return (Map) h;
+            } else if (a == Map.class) {
+                return new HashMap(i);
+            } else {
+                Object h2 = cc.h(a, i);
+                if (h2 == null) {
+                    h2 = cc.g(a);
+                }
+                if (!(h2 instanceof Map)) {
+                    return null;
+                }
+                return (Map) h2;
+            }
+        }
+        return (Map) invokeLI.objValue;
     }
 }

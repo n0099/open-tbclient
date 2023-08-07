@@ -2,14 +2,14 @@ package com.baidu.tieba.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.f0a;
-import com.baidu.tieba.i0a;
-import com.baidu.tieba.kx5;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.wg;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.recapp.localads.LocationCacheData;
+import com.baidu.tieba.yu5;
+import com.baidu.tieba.zy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -269,7 +269,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.obj_source = this.obj_source;
                 builder.obj_locate = this.mObjLocate;
                 builder.from_smart_frs = this.fromSmartFrs;
-                builder.app_pos = f0a.e().a();
+                builder.app_pos = LocationCacheData.getInstance().createAppPosInfo();
                 builder.forum_id = this.forumId;
                 builder.need_repost_recommend_forum = this.needRepostRecommendForum;
                 AdParam.Builder builder2 = new AdParam.Builder();
@@ -281,16 +281,16 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.ori_ugc_tid = this.oriUgcTid;
                 builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
                 builder.ori_ugc_vid = this.oriUgcVid;
-                builder.ad_context_list = i0a.f().d("PB");
+                builder.ad_context_list = zy9.f().d("PB");
                 builder.up_schema = this.mSchemeUrl;
                 builder.from_push = Integer.valueOf(this.from_push);
                 AdExtParam.a b = AdExtParam.a.b();
                 b.h(this.updateType);
                 builder.ad_ext_params = b.a();
                 builder.source_type = Integer.valueOf(this.sourceType);
-                ky5.c(builder, true, false, true);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
-                builder.app_transmit_data = kx5.b();
+                builder.app_transmit_data = yu5.b();
                 if (!this.isReqFoldComment) {
                     i3 = 0;
                 }
@@ -338,7 +338,7 @@ public class PbPageRequestMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.forumId = Long.valueOf(wg.g(str, 0L));
+            this.forumId = Long.valueOf(JavaTypesHelper.toLong(str, 0L));
         }
     }
 

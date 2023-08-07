@@ -32,7 +32,7 @@ import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.DelayKt;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$loopProbe$2", f = "SClient.kt", i = {0, 0, 0, 0}, l = {409}, m = "invokeSuspend", n = {"cache", "handleData", "size", "index"}, s = {"L$0", "L$1", "I$0", "J$0"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SClient$loopProbe$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                             int i4 = 0;
                             while (true) {
                                 int i5 = i4 + 1;
-                                long longValue = function1.invoke(UByte.m858boximpl(UByte.m864constructorimpl((byte) i4))).longValue();
+                                long longValue = function1.invoke(UByte.m859boximpl(UByte.m865constructorimpl((byte) i4))).longValue();
                                 if (longValue != j2) {
                                     j3 += longValue;
                                 }
@@ -270,11 +270,11 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                     @Override // kotlin.jvm.functions.Function1
                     public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
-                        return m143invoke7apg3OU(uByte.m913unboximpl());
+                        return m144invoke7apg3OU(uByte.m914unboximpl());
                     }
 
                     /* renamed from: invoke-7apg3OU  reason: not valid java name */
-                    public final Long m143invoke7apg3OU(byte b) {
+                    public final Long m144invoke7apg3OU(byte b) {
                         InterceptResult invokeB;
                         long j4;
                         DatagramSocket datagramSocket3;
@@ -293,13 +293,13 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                                 Intrinsics.checkNotNull(datagramSocket4);
                                 datagramSocket4.receive(datagramPacket2);
                                 j4 = System.currentTimeMillis() - currentTimeMillis;
-                                this.$cache[UByte.m864constructorimpl(this.$buf[0]) & 255] = 1;
+                                this.$cache[UByte.m865constructorimpl(this.$buf[0]) & 255] = 1;
                                 LogTo logTo = LogTo.INSTANCE;
-                                logTo.d("*****", "[Probe time] " + ((Object) UByte.m907toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j4);
+                                logTo.d("*****", "[Probe time] " + ((Object) UByte.m908toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j4);
                             } catch (Exception unused) {
                                 j4 = -1;
                                 LogTo logTo2 = LogTo.INSTANCE;
-                                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m907toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
+                                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m908toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
                             }
                             return Long.valueOf(j4);
                         }

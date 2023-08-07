@@ -1,64 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Type;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hc extends DiskFileOperate {
+public class hc implements mc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NSGif a;
+    public Bundle a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hc(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+    public hc(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, action};
+            Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = bundle;
     }
 
-    public NSGif a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (NSGif) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean formatData(byte[] bArr) {
+    @Override // com.baidu.tieba.mc
+    public Object a(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null && NSGif.f) {
-                NSGif f = NSGif.f(bArr, 0, bArr.length);
-                this.a = f;
-                if (f != null) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
+            Object f = f(vdVar);
+            if (f != null) {
+                if (f instanceof JSONObject) {
+                    return f.toString();
+                }
+                if (f instanceof JSONArray) {
+                    return f.toString();
+                }
+                return f;
+            }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object b(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vdVar)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object c(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vdVar)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object d(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vdVar)) == null) {
+            return this.a;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object e(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vdVar)) == null) {
+            return d(vdVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object f(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vdVar)) == null) {
+            Type[] b = vdVar.b();
+            Set<String> keySet = this.a.keySet();
+            JSONObject jSONObject = new JSONObject();
+            for (String str : keySet) {
+                Object obj = this.a.get(str);
+                if (b != null && b.length >= 2) {
+                    try {
+                        jSONObject.put(str, yd.a(obj).f(new vd(b[1])));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        jSONObject.put(str, yd.a(obj).f(new vd(vdVar.a())));
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
                 }
             }
-            return false;
+            return jSONObject;
         }
-        return invokeL.booleanValue;
+        return invokeL.objValue;
     }
 }

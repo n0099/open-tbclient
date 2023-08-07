@@ -3,7 +3,7 @@ package com.baidu.tieba.immessagecenter.arch.ext;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.gi8;
+import com.baidu.tieba.yf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public final class ViewExtKt$onVisibilityChange$checkVisibility$1 extends Lambda
             } else {
                 bool = null;
             }
-            boolean a = gi8.a(this.$this_onVisibilityChange);
+            boolean a = yf8.a(this.$this_onVisibilityChange);
             if (bool == null) {
                 if (a) {
                     this.$block.invoke(this.$this_onVisibilityChange, Boolean.TRUE);

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.mutiprocess.urlmanager;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tieba.wq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,7 +50,7 @@ public class UrlDealEvent extends SerializableEvent {
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             UrlDealEvent urlDealEvent = new UrlDealEvent(3);
             urlDealEvent.url = str;
-            wq5.i(urlDealEvent);
+            MutiProcessManager.publishEvent(urlDealEvent);
         }
     }
 }

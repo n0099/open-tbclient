@@ -3,7 +3,6 @@ package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 import android.app.Application;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
@@ -11,8 +10,8 @@ import com.baidu.searchbox.live.interfaces.player.internal.LivePlayUrlService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ILivePlayEtnService;
+import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.Map;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -162,11 +161,14 @@ public final class LivePlayUrlServiceImpl implements LivePlayUrlService {
 
     private final boolean isSupportHevc() {
         boolean z;
-        Application application;
         float f;
+        int i;
+        Integer devicePlayQualityScore;
         Map<String, Object> mediaLivePlayConfig;
         PluginInvokeService pluginManagerService = getPluginManagerService();
         boolean z2 = true;
+        Application application = null;
+        r3 = null;
         Object obj = null;
         if (pluginManagerService != null && pluginManagerService.isPluginLoaded("com.baidu.searchbox.livenps")) {
             PluginInvokeService pluginManagerService2 = getPluginManagerService();
@@ -192,17 +194,20 @@ public final class LivePlayUrlServiceImpl implements LivePlayUrlService {
             AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
             if (appInfoService != null) {
                 application = appInfoService.getApplication();
-            } else {
-                application = null;
             }
             if (appInfoService != null) {
                 f = appInfoService.getStaticDeviceScore(application);
             } else {
                 f = -1.0f;
             }
-            int devicePlayQualityScore = CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960, null);
-            z2 = (((double) f) < 0.3d || devicePlayQualityScore < 80) ? false : false;
-            MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：播放分数：" + devicePlayQualityScore + "，设备分数：" + f + "，结果：" + z2);
+            IDuMediaService iDuMediaService = (IDuMediaService) ServiceManager.getService(IDuMediaService.Companion.getSERVICE_REFERENCE());
+            if (iDuMediaService != null && (devicePlayQualityScore = iDuMediaService.getDevicePlayQualityScore(RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960)) != null) {
+                i = devicePlayQualityScore.intValue();
+            } else {
+                i = 0;
+            }
+            z2 = (((double) f) < 0.3d || i < 80) ? false : false;
+            MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：播放分数：" + i + "，设备分数：" + f + "，结果：" + z2);
             return z2;
         }
         MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：云控默认关闭，返回不支持 hevc");

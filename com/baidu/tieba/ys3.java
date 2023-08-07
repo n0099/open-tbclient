@@ -1,46 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.dt3;
-import com.baidu.tieba.hs3;
-import com.baidu.tieba.ou3;
-import com.baidu.tieba.zs3;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface ys3 {
-    String a(Context context);
+public class ys3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
-
-    void c(Context context, Bundle bundle, hs1 hs1Var);
-
-    ws3 d(Context context);
-
-    void e(Activity activity, String str, String str2, xs3 xs3Var);
-
-    void f(Context context, ou3.d dVar);
-
-    boolean g(Context context);
-
-    String getBduss(Context context);
-
-    void h(js1 js1Var);
-
-    void i(Context context, zs3.d dVar);
-
-    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
-
-    String k(Context context);
-
-    void l(Activity activity, String str, String str2, xs3 xs3Var);
-
-    void m(Activity activity, String str, du3 du3Var);
-
-    void n(String str, ArrayList<String> arrayList, dt3.c cVar);
-
-    void o(hs3.a aVar, String str, List<String> list);
+    public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
+        InterceptResult invokeCommon;
+        SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), quickLoginInfo, str2, str3})) == null) {
+            Bundle bundle = new Bundle();
+            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
+                swanAppPhoneLoginDialog = new SwanAppQuickLoginDialog();
+            } else {
+                swanAppPhoneLoginDialog = new SwanAppPhoneLoginDialog();
+            }
+            bundle.putString("auth_tip", str);
+            bundle.putBoolean("is_night", z);
+            bundle.putParcelable("quick_login_info", quickLoginInfo);
+            bundle.putString("app_id", str3);
+            bundle.putString("launch_from", str2);
+            swanAppPhoneLoginDialog.setArguments(bundle);
+            return swanAppPhoneLoginDialog;
+        }
+        return (SwanAppLoginAndGetMobileDialog) invokeCommon.objValue;
+    }
 }

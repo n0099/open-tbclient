@@ -1,53 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iga {
+public class iga extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public CurrencySwitchTDouYBeanDialog b;
+    public final sea b;
 
-    public iga(MainTabActivity mainTabActivity, pfa pfaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iga(MainTabActivity mainTabActivity, hea heaVar) {
+        super(2921532);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pfaVar};
+            Object[] objArr = {mainTabActivity, heaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        sea seaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null && TbadkCoreApplication.isLogin() && CurrencySwitchUtil.isNeedConfirmTDouToYBeanSwitchOpen()) {
-            CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog = new CurrencySwitchTDouYBeanDialog(this.a.getPageContext());
-            this.b = currencySwitchTDouYBeanDialog;
-            currencySwitchTDouYBeanDialog.showDialog();
-        }
-    }
-
-    public void b() {
-        CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (currencySwitchTDouYBeanDialog = this.b) != null) {
-            currencySwitchTDouYBeanDialog.onDestroy();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.a.B && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (seaVar = this.b) != null && seaVar.c() != null) {
+            this.b.c().d();
         }
     }
 }

@@ -4,7 +4,7 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class anim {
-        public static final int pass_liveness_tip_warning = 0x7f010101;
+        public static final int pass_liveness_tip_warning = 0x7f010103;
     }
 
     /* loaded from: classes3.dex */
@@ -67,72 +67,72 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int icon_face_back_alert = 0x7f0808a3;
-        public static final int pass_bio_toast_bg = 0x7f0810fa;
-        public static final int pass_face_timeout_reason1 = 0x7f0810fb;
-        public static final int pass_face_timeout_reason2 = 0x7f0810fc;
-        public static final int pass_face_timeout_reason3 = 0x7f0810fd;
-        public static final int pass_liveness_agree_btn_bg = 0x7f0810fe;
-        public static final int pass_liveness_bio_dialog_negative_btn_bg = 0x7f0810ff;
-        public static final int pass_liveness_bio_dialog_negative_btn_bg_night = 0x7f081100;
-        public static final int pass_liveness_bio_dialog_positive_btn_bg = 0x7f081101;
-        public static final int pass_liveness_bio_dialog_positive_btn_bg_night = 0x7f081102;
-        public static final int pass_liveness_bio_face_loading_mask_layer = 0x7f081103;
-        public static final int pass_liveness_bio_loading = 0x7f081104;
-        public static final int pass_liveness_dialog_bg = 0x7f081105;
-        public static final int pass_liveness_dialog_bg_night = 0x7f081106;
-        public static final int pass_liveness_face_icon_loading = 0x7f081107;
-        public static final int pass_liveness_face_recognizing_close = 0x7f081108;
-        public static final int pass_liveness_face_recognizing_waring = 0x7f081109;
-        public static final int pass_liveness_face_yy_default = 0x7f08110a;
-        public static final int pass_liveness_toast_bg = 0x7f08110b;
+        public static final int icon_face_back_alert = 0x7f0808a2;
+        public static final int pass_bio_toast_bg = 0x7f081100;
+        public static final int pass_face_timeout_reason1 = 0x7f081101;
+        public static final int pass_face_timeout_reason2 = 0x7f081102;
+        public static final int pass_face_timeout_reason3 = 0x7f081103;
+        public static final int pass_liveness_agree_btn_bg = 0x7f081104;
+        public static final int pass_liveness_bio_dialog_negative_btn_bg = 0x7f081105;
+        public static final int pass_liveness_bio_dialog_negative_btn_bg_night = 0x7f081106;
+        public static final int pass_liveness_bio_dialog_positive_btn_bg = 0x7f081107;
+        public static final int pass_liveness_bio_dialog_positive_btn_bg_night = 0x7f081108;
+        public static final int pass_liveness_bio_face_loading_mask_layer = 0x7f081109;
+        public static final int pass_liveness_bio_loading = 0x7f08110a;
+        public static final int pass_liveness_dialog_bg = 0x7f08110b;
+        public static final int pass_liveness_dialog_bg_night = 0x7f08110c;
+        public static final int pass_liveness_face_icon_loading = 0x7f08110d;
+        public static final int pass_liveness_face_recognizing_close = 0x7f08110e;
+        public static final int pass_liveness_face_recognizing_waring = 0x7f08110f;
+        public static final int pass_liveness_face_yy_default = 0x7f081110;
+        public static final int pass_liveness_toast_bg = 0x7f081111;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int dialog_msg = 0x7f0908ac;
-        public static final int dialog_title = 0x7f0908b5;
-        public static final int iv_back = 0x7f0911e2;
-        public static final int iv_pose_warning_tip = 0x7f091214;
-        public static final int layout_pose_warning = 0x7f091496;
-        public static final int msg_text = 0x7f0917df;
-        public static final int negative_btn = 0x7f0918da;
-        public static final int neutral_btn = 0x7f0918ef;
-        public static final int pass_bio_camera_pre_view = 0x7f091a24;
-        public static final int pass_bio_circle_hide_view = 0x7f091a25;
-        public static final int pass_bio_circle_image_view = 0x7f091a26;
-        public static final int pass_bio_circle_image_yy_view = 0x7f091a27;
-        public static final int pass_bio_dialog_alert_ll_content = 0x7f091a28;
-        public static final int pass_bio_dialog_ll_content = 0x7f091a29;
-        public static final int pass_bio_dialog_time_center = 0x7f091a2a;
-        public static final int pass_bio_dialog_time_left = 0x7f091a2b;
-        public static final int pass_bio_dialog_time_right = 0x7f091a2c;
-        public static final int pass_bio_liveness_recog_argee_btn = 0x7f091a2d;
-        public static final int pass_bio_liveness_recog_close = 0x7f091a2e;
-        public static final int pass_bio_liveness_recog_cpv = 0x7f091a2f;
-        public static final int pass_bio_liveness_recog_tip_text = 0x7f091a30;
-        public static final int pass_bio_liveness_recog_tv_href = 0x7f091a31;
-        public static final int pass_bio_liveness_recog_yy_bottom = 0x7f091a32;
-        public static final int pass_bio_loading_view = 0x7f091a33;
-        public static final int positive_btn = 0x7f091cd1;
-        public static final int rim_base_toast_icon = 0x7f091f17;
-        public static final int rim_base_toast_message = 0x7f091f18;
-        public static final int sapi_sdk_titlebar_title_tv = 0x7f092077;
-        public static final int time_out_dialog_msg = 0x7f09250d;
-        public static final int title_text = 0x7f09256f;
-        public static final int title_top_img = 0x7f092574;
-        public static final int tv_pose_warning_tip = 0x7f092738;
-        public static final int view_switcher = 0x7f09293e;
-        public static final int webView = 0x7f0929c2;
+        public static final int dialog_msg = 0x7f0908bb;
+        public static final int dialog_title = 0x7f0908c4;
+        public static final int iv_back = 0x7f0911f5;
+        public static final int iv_pose_warning_tip = 0x7f091227;
+        public static final int layout_pose_warning = 0x7f0914a9;
+        public static final int msg_text = 0x7f0917f3;
+        public static final int negative_btn = 0x7f0918ee;
+        public static final int neutral_btn = 0x7f091903;
+        public static final int pass_bio_camera_pre_view = 0x7f091a38;
+        public static final int pass_bio_circle_hide_view = 0x7f091a39;
+        public static final int pass_bio_circle_image_view = 0x7f091a3a;
+        public static final int pass_bio_circle_image_yy_view = 0x7f091a3b;
+        public static final int pass_bio_dialog_alert_ll_content = 0x7f091a3c;
+        public static final int pass_bio_dialog_ll_content = 0x7f091a3d;
+        public static final int pass_bio_dialog_time_center = 0x7f091a3e;
+        public static final int pass_bio_dialog_time_left = 0x7f091a3f;
+        public static final int pass_bio_dialog_time_right = 0x7f091a40;
+        public static final int pass_bio_liveness_recog_argee_btn = 0x7f091a41;
+        public static final int pass_bio_liveness_recog_close = 0x7f091a42;
+        public static final int pass_bio_liveness_recog_cpv = 0x7f091a43;
+        public static final int pass_bio_liveness_recog_tip_text = 0x7f091a44;
+        public static final int pass_bio_liveness_recog_tv_href = 0x7f091a45;
+        public static final int pass_bio_liveness_recog_yy_bottom = 0x7f091a46;
+        public static final int pass_bio_loading_view = 0x7f091a47;
+        public static final int positive_btn = 0x7f091ce7;
+        public static final int rim_base_toast_icon = 0x7f091f2e;
+        public static final int rim_base_toast_message = 0x7f091f2f;
+        public static final int sapi_sdk_titlebar_title_tv = 0x7f09208e;
+        public static final int time_out_dialog_msg = 0x7f092525;
+        public static final int title_text = 0x7f092587;
+        public static final int title_top_img = 0x7f09258c;
+        public static final int tv_pose_warning_tip = 0x7f092752;
+        public static final int view_switcher = 0x7f092958;
+        public static final int webView = 0x7f0929dc;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int layout_pass_liveness_alert_dialog = 0x7f0d052f;
-        public static final int layout_pass_liveness_dialog_alert = 0x7f0d0530;
-        public static final int layout_pass_liveness_protocol = 0x7f0d0531;
-        public static final int layout_pass_liveness_recognize_new = 0x7f0d0532;
-        public static final int pass_bio_toast_tips = 0x7f0d075c;
+        public static final int layout_pass_liveness_alert_dialog = 0x7f0d0534;
+        public static final int layout_pass_liveness_dialog_alert = 0x7f0d0535;
+        public static final int layout_pass_liveness_protocol = 0x7f0d0536;
+        public static final int layout_pass_liveness_recognize_new = 0x7f0d0537;
+        public static final int pass_bio_toast_tips = 0x7f0d0763;
     }
 
     /* loaded from: classes3.dex */
@@ -157,65 +157,65 @@ public final class R {
         public static final int detect_timeout = 0x7f0f0586;
         public static final int detect_zoom_in = 0x7f0f0587;
         public static final int detect_zoom_out = 0x7f0f0588;
-        public static final int home_face_yy_btn_agree = 0x7f0f09d5;
-        public static final int home_face_yy_tips = 0x7f0f09d6;
-        public static final int home_face_yy_tips_center = 0x7f0f09d7;
-        public static final int home_face_yy_tips_left = 0x7f0f09d8;
-        public static final int home_face_yy_tips_right = 0x7f0f09d9;
-        public static final int home_face_yy_title = 0x7f0f09da;
-        public static final int liveness_eye = 0x7f0f0bc4;
-        public static final int liveness_good = 0x7f0f0bc5;
-        public static final int liveness_head_down = 0x7f0f0bc6;
-        public static final int liveness_head_left = 0x7f0f0bc7;
-        public static final int liveness_head_right = 0x7f0f0bc8;
-        public static final int liveness_head_up = 0x7f0f0bc9;
-        public static final int liveness_mouth = 0x7f0f0bca;
-        public static final int pass_bio_alert_dialog_btn_again = 0x7f0f0f2a;
-        public static final int pass_bio_alert_dialog_btn_back = 0x7f0f0f2b;
-        public static final int pass_bio_alert_dialog_btn_cancel = 0x7f0f0f2c;
-        public static final int pass_bio_alert_dialog_btn_go_setting = 0x7f0f0f2d;
-        public static final int pass_bio_alert_dialog_btn_ok = 0x7f0f0f2e;
-        public static final int pass_bio_alert_dialog_default_msg_text = 0x7f0f0f2f;
-        public static final int pass_bio_cancel = 0x7f0f0f30;
-        public static final int pass_bio_error_msg_config_error = 0x7f0f0f31;
-        public static final int pass_bio_error_msg_contrast_fail = 0x7f0f0f32;
-        public static final int pass_bio_error_msg_dangerous_protocol_error = 0x7f0f0f33;
-        public static final int pass_bio_error_msg_face_sdk_init_fail = 0x7f0f0f34;
-        public static final int pass_bio_error_msg_image_file_empty = 0x7f0f0f35;
-        public static final int pass_bio_error_msg_lack_so_error = 0x7f0f0f36;
-        public static final int pass_bio_error_msg_liveness_recognize_time_out = 0x7f0f0f37;
-        public static final int pass_bio_error_msg_may_be_no_camera_permission = 0x7f0f0f38;
-        public static final int pass_bio_error_msg_msg_import_vis_sdk = 0x7f0f0f39;
-        public static final int pass_bio_error_msg_network_unavailable = 0x7f0f0f3a;
-        public static final int pass_bio_error_msg_no_login = 0x7f0f0f3b;
-        public static final int pass_bio_error_msg_open_camera_failure = 0x7f0f0f3c;
-        public static final int pass_bio_error_msg_param = 0x7f0f0f3d;
-        public static final int pass_bio_error_msg_pass_sdk_not_init = 0x7f0f0f3e;
-        public static final int pass_bio_error_msg_server_error = 0x7f0f0f3f;
-        public static final int pass_bio_error_msg_so_error = 0x7f0f0f40;
-        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f0f0f41;
-        public static final int pass_bio_error_msg_system_version_low_error = 0x7f0f0f42;
-        public static final int pass_bio_error_msg_unknown = 0x7f0f0f43;
-        public static final int pass_bio_error_msg_user_cancel = 0x7f0f0f44;
-        public static final int pass_bio_multi_window_tips = 0x7f0f0f45;
-        public static final int pass_bio_permission_request = 0x7f0f0f46;
-        public static final int pass_bio_pmn_camera = 0x7f0f0f47;
-        public static final int pass_bio_pmn_cancel = 0x7f0f0f48;
-        public static final int pass_bio_pmn_msg_liveness = 0x7f0f0f49;
-        public static final int pass_bio_pmn_ok = 0x7f0f0f4a;
-        public static final int pass_bio_pmn_title_liveness = 0x7f0f0f4b;
-        public static final int pass_bio_result_msg_success = 0x7f0f0f4c;
-        public static final int pass_face_timeout_dialog_fail_reason = 0x7f0f0f4d;
-        public static final int pass_face_timeout_dialog_fail_reason2 = 0x7f0f0f4e;
-        public static final int pass_face_timeout_dialog_fail_reason3 = 0x7f0f0f4f;
-        public static final int pass_face_timeout_dialog_msg = 0x7f0f0f50;
-        public static final int pass_face_timeout_dialog_title = 0x7f0f0f51;
-        public static final int pass_liveness_frist_text = 0x7f0f0f52;
-        public static final int pass_liveness_loading_text = 0x7f0f0f53;
-        public static final int pass_liveness_permission_camera = 0x7f0f0f54;
-        public static final int pass_liveness_put_face_round = 0x7f0f0f55;
-        public static final int pass_liveness_recog_fail_dialog_msg = 0x7f0f0f56;
-        public static final int pass_liveness_recog_fail_dialog_title = 0x7f0f0f57;
+        public static final int home_face_yy_btn_agree = 0x7f0f09d6;
+        public static final int home_face_yy_tips = 0x7f0f09d7;
+        public static final int home_face_yy_tips_center = 0x7f0f09d8;
+        public static final int home_face_yy_tips_left = 0x7f0f09d9;
+        public static final int home_face_yy_tips_right = 0x7f0f09da;
+        public static final int home_face_yy_title = 0x7f0f09db;
+        public static final int liveness_eye = 0x7f0f0bc6;
+        public static final int liveness_good = 0x7f0f0bc7;
+        public static final int liveness_head_down = 0x7f0f0bc8;
+        public static final int liveness_head_left = 0x7f0f0bc9;
+        public static final int liveness_head_right = 0x7f0f0bca;
+        public static final int liveness_head_up = 0x7f0f0bcb;
+        public static final int liveness_mouth = 0x7f0f0bcc;
+        public static final int pass_bio_alert_dialog_btn_again = 0x7f0f0f2c;
+        public static final int pass_bio_alert_dialog_btn_back = 0x7f0f0f2d;
+        public static final int pass_bio_alert_dialog_btn_cancel = 0x7f0f0f2e;
+        public static final int pass_bio_alert_dialog_btn_go_setting = 0x7f0f0f2f;
+        public static final int pass_bio_alert_dialog_btn_ok = 0x7f0f0f30;
+        public static final int pass_bio_alert_dialog_default_msg_text = 0x7f0f0f31;
+        public static final int pass_bio_cancel = 0x7f0f0f32;
+        public static final int pass_bio_error_msg_config_error = 0x7f0f0f33;
+        public static final int pass_bio_error_msg_contrast_fail = 0x7f0f0f34;
+        public static final int pass_bio_error_msg_dangerous_protocol_error = 0x7f0f0f35;
+        public static final int pass_bio_error_msg_face_sdk_init_fail = 0x7f0f0f36;
+        public static final int pass_bio_error_msg_image_file_empty = 0x7f0f0f37;
+        public static final int pass_bio_error_msg_lack_so_error = 0x7f0f0f38;
+        public static final int pass_bio_error_msg_liveness_recognize_time_out = 0x7f0f0f39;
+        public static final int pass_bio_error_msg_may_be_no_camera_permission = 0x7f0f0f3a;
+        public static final int pass_bio_error_msg_msg_import_vis_sdk = 0x7f0f0f3b;
+        public static final int pass_bio_error_msg_network_unavailable = 0x7f0f0f3c;
+        public static final int pass_bio_error_msg_no_login = 0x7f0f0f3d;
+        public static final int pass_bio_error_msg_open_camera_failure = 0x7f0f0f3e;
+        public static final int pass_bio_error_msg_param = 0x7f0f0f3f;
+        public static final int pass_bio_error_msg_pass_sdk_not_init = 0x7f0f0f40;
+        public static final int pass_bio_error_msg_server_error = 0x7f0f0f41;
+        public static final int pass_bio_error_msg_so_error = 0x7f0f0f42;
+        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f0f0f43;
+        public static final int pass_bio_error_msg_system_version_low_error = 0x7f0f0f44;
+        public static final int pass_bio_error_msg_unknown = 0x7f0f0f45;
+        public static final int pass_bio_error_msg_user_cancel = 0x7f0f0f46;
+        public static final int pass_bio_multi_window_tips = 0x7f0f0f47;
+        public static final int pass_bio_permission_request = 0x7f0f0f48;
+        public static final int pass_bio_pmn_camera = 0x7f0f0f49;
+        public static final int pass_bio_pmn_cancel = 0x7f0f0f4a;
+        public static final int pass_bio_pmn_msg_liveness = 0x7f0f0f4b;
+        public static final int pass_bio_pmn_ok = 0x7f0f0f4c;
+        public static final int pass_bio_pmn_title_liveness = 0x7f0f0f4d;
+        public static final int pass_bio_result_msg_success = 0x7f0f0f4e;
+        public static final int pass_face_timeout_dialog_fail_reason = 0x7f0f0f4f;
+        public static final int pass_face_timeout_dialog_fail_reason2 = 0x7f0f0f50;
+        public static final int pass_face_timeout_dialog_fail_reason3 = 0x7f0f0f51;
+        public static final int pass_face_timeout_dialog_msg = 0x7f0f0f52;
+        public static final int pass_face_timeout_dialog_title = 0x7f0f0f53;
+        public static final int pass_liveness_frist_text = 0x7f0f0f54;
+        public static final int pass_liveness_loading_text = 0x7f0f0f55;
+        public static final int pass_liveness_permission_camera = 0x7f0f0f56;
+        public static final int pass_liveness_put_face_round = 0x7f0f0f57;
+        public static final int pass_liveness_recog_fail_dialog_msg = 0x7f0f0f58;
+        public static final int pass_liveness_recog_fail_dialog_title = 0x7f0f0f59;
     }
 
     /* loaded from: classes3.dex */

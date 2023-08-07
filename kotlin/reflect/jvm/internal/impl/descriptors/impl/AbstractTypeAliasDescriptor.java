@@ -74,7 +74,7 @@ public abstract class AbstractTypeAliasDescriptor extends DeclarationDescriptorN
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             public KotlinBuiltIns getBuiltIns() {
-                return DescriptorUtilsKt.getBuiltIns(mo2101getDeclarationDescriptor());
+                return DescriptorUtilsKt.getBuiltIns(mo2102getDeclarationDescriptor());
             }
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
@@ -84,20 +84,20 @@ public abstract class AbstractTypeAliasDescriptor extends DeclarationDescriptorN
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             /* renamed from: getSupertypes */
-            public Collection<KotlinType> mo2102getSupertypes() {
-                Collection<KotlinType> mo2102getSupertypes = mo2101getDeclarationDescriptor().getUnderlyingType().getConstructor().mo2102getSupertypes();
-                Intrinsics.checkExpressionValueIsNotNull(mo2102getSupertypes, "declarationDescriptor.un…pe.constructor.supertypes");
-                return mo2102getSupertypes;
+            public Collection<KotlinType> mo2103getSupertypes() {
+                Collection<KotlinType> mo2103getSupertypes = mo2102getDeclarationDescriptor().getUnderlyingType().getConstructor().mo2103getSupertypes();
+                Intrinsics.checkExpressionValueIsNotNull(mo2103getSupertypes, "declarationDescriptor.un…pe.constructor.supertypes");
+                return mo2103getSupertypes;
             }
 
             public String toString() {
-                return "[typealias " + mo2101getDeclarationDescriptor().getName().asString() + ']';
+                return "[typealias " + mo2102getDeclarationDescriptor().getName().asString() + ']';
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             /* renamed from: getDeclarationDescriptor */
-            public TypeAliasDescriptor mo2101getDeclarationDescriptor() {
+            public TypeAliasDescriptor mo2102getDeclarationDescriptor() {
                 return AbstractTypeAliasDescriptor.this;
             }
         };
@@ -179,8 +179,8 @@ public abstract class AbstractTypeAliasDescriptor extends DeclarationDescriptorN
                 if (KotlinTypeKt.isError(type)) {
                     return false;
                 }
-                ClassifierDescriptor mo2101getDeclarationDescriptor = type.getConstructor().mo2101getDeclarationDescriptor();
-                if ((mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor) && (!Intrinsics.areEqual(((TypeParameterDescriptor) mo2101getDeclarationDescriptor).getContainingDeclaration(), AbstractTypeAliasDescriptor.this))) {
+                ClassifierDescriptor mo2102getDeclarationDescriptor = type.getConstructor().mo2102getDeclarationDescriptor();
+                if ((mo2102getDeclarationDescriptor instanceof TypeParameterDescriptor) && (!Intrinsics.areEqual(((TypeParameterDescriptor) mo2102getDeclarationDescriptor).getContainingDeclaration(), AbstractTypeAliasDescriptor.this))) {
                     z = true;
                 } else {
                     z = false;

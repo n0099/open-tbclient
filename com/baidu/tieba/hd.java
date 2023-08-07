@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class hd implements xc {
+public class hd implements fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public JSONArray a;
 
-    public hd(String str) {
+    public hd(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,65 +34,92 @@ public class hd implements xc {
                 return;
             }
         }
-        this.a = str;
+        this.a = jSONArray;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object a(ge geVar) {
+    @Override // com.baidu.tieba.fd
+    public Object a(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object b(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object c(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object d(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object e(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, geVar)) == null) {
-            return d(geVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object f(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, geVar)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
+            Class<?> a = vdVar.a();
+            Type[] b = vdVar.b();
+            if (a.isArray()) {
+                Class<?> componentType = a.getComponentType();
+                Object newInstance = Array.newInstance(componentType, this.a.length());
+                int length = this.a.length();
+                for (int i = 0; i < length; i++) {
+                    Object a2 = zd.a(this.a.opt(i)).a(new vd(componentType));
+                    if (a2 != null) {
+                        Array.set(newInstance, i, a2);
+                    }
+                }
+                return newInstance;
+            } else if (b != null && b.length >= 1) {
+                if (cc.e(a, List.class)) {
+                    List<Object> a3 = td.a(vdVar, this.a.length());
+                    if (a3 != null) {
+                        int length2 = this.a.length();
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            Object a4 = zd.a(this.a.opt(i2)).a(new vd(b[0]));
+                            if (a4 != null) {
+                                a3.add(a4);
+                            }
+                        }
+                    }
+                    return a3;
+                } else if (cc.e(a, Set.class)) {
+                    Set<Object> d = td.d(vdVar, this.a.length());
+                    if (d != null) {
+                        int length3 = this.a.length();
+                        for (int i3 = 0; i3 < length3; i3++) {
+                            Object a5 = zd.a(this.a.opt(i3)).a(new vd(b[0]));
+                            if (a5 != null) {
+                                d.add(a5);
+                            }
+                        }
+                    }
+                    return d;
+                } else if (cc.e(a, Map.class)) {
+                    Map<String, Object> b2 = td.b(vdVar, this.a.length());
+                    if (b2 != null) {
+                        int length4 = this.a.length();
+                        for (int i4 = 0; i4 < length4; i4++) {
+                            Object a6 = zd.a(this.a.opt(i4)).a(new vd(b[0]));
+                            if (a6 != null) {
+                                b2.put(String.valueOf(i4), a6);
+                            }
+                        }
+                    }
+                    return b2;
+                } else if (cc.e(a, Queue.class)) {
+                    Queue<Object> c = td.c(vdVar, this.a.length());
+                    if (c != null) {
+                        int length5 = this.a.length();
+                        for (int i5 = 0; i5 < length5; i5++) {
+                            Object a7 = zd.a(this.a.opt(i5)).a(new vd(b[0]));
+                            if (a7 != null) {
+                                c.add(a7);
+                            }
+                        }
+                    }
+                    return c;
+                } else if (a == SparseArray.class) {
+                    SparseArray sparseArray = new SparseArray(this.a.length());
+                    int length6 = this.a.length();
+                    for (int i6 = 0; i6 < length6; i6++) {
+                        Object a8 = zd.a(this.a.opt(i6)).a(new vd(b[0]));
+                        if (a8 != null) {
+                            sparseArray.put(i6, a8);
+                        }
+                    }
+                    return sparseArray;
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
         }
         return invokeL.objValue;
     }

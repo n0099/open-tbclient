@@ -1,367 +1,170 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.view.InterviewLiveLayout;
+import com.baidu.card.view.RoundCornerFrameLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes7.dex */
-public class sx {
+/* loaded from: classes8.dex */
+public class sx extends sy implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public InterviewLiveLayout A;
+    public int B;
+    public TextView C;
+    public bn6<q05> D;
 
-    /* loaded from: classes7.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public byte[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final byte[] j;
-        public static final /* synthetic */ boolean k;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final byte[] c;
-        public int d;
-        public int e;
-        public final boolean f;
-        public final boolean g;
-        public final boolean h;
-        public final byte[] i;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(263613866, "Lcom/baidu/tieba/sx$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(263613866, "Lcom/baidu/tieba/sx$b;");
-                    return;
-                }
-            }
-            k = !sx.class.desiredAssertionStatus();
-            j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, QCodec.UNDERSCORE};
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.f = false;
-            this.g = false;
-            this.h = false;
-            this.i = j;
-            this.c = new byte[2];
-            this.d = 0;
-            this.e = 0 != 0 ? 19 : -1;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448317416, "Lcom/baidu/tieba/sx;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448317416, "Lcom/baidu/tieba/sx;");
-                return;
-            }
-        }
-        a = !sx.class.desiredAssertionStatus();
-    }
-
-    public sx() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sx(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.B = 3;
+        F();
+    }
+
+    public final int E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        }
+        return invokeV.intValue;
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            this.f = inflate;
+            this.g = (TextView) inflate.findViewById(R.id.video_seg_title);
+            this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
+            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
+            this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
+            xt9 x = x();
+            this.l = x;
+            x.getMainView().setBackgroundResource(R.color.transparent);
+            this.C.setOnClickListener(this);
+            this.g.setOnClickListener(this);
+        }
+    }
+
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.A.setFromCDN(z);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        bn6<q05> bn6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if ((view2 == this.C || view2 == this.g) && (bn6Var = this.D) != null) {
+                bn6Var.a(view2, this.h);
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0109, code lost:
-        if (r2.h == false) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
-        r5[r11] = 13;
-        r11 = r11 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0110, code lost:
-        r5[r11] = 10;
-        r11 = r11 + 1;
-        r13 = r12;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0205 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0216 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x01f6  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x0110 -> B:41:0x00bd). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        byte b2;
-        byte b3;
-        byte b4;
-        int i5;
+    @Override // com.baidu.tieba.ww
+    public void p(bn6<q05> bn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bn6Var) == null) {
+            this.D = bn6Var;
+            this.A.setSubClickListener(bn6Var);
         }
-        int length = bArr.length;
-        b bVar = new b();
-        int i6 = (length / 3) * 4;
-        int i7 = 1;
-        if (!bVar.f) {
-            int i8 = length % 3;
-            if (i8 == 1) {
-                i6 += 2;
-            } else if (i8 == 2) {
-                i6 += 3;
+    }
+
+    @Override // com.baidu.tieba.sy, com.baidu.tieba.ww
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sy
+    public xt9 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            yt9 yt9Var = new yt9(this.b, this.i);
+            yt9Var.setStageType("2003");
+            return yt9Var;
+        }
+        return (xt9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sy, com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
+            if (this.B != i) {
+                SkinManager.setBackgroundResource(this.A, R.drawable.addresslist_item_bg);
+                this.A.k(this.B);
             }
-        } else if (length % 3 > 0) {
-            i6 += 4;
+            this.B = i;
         }
-        if (bVar.g && length > 0) {
-            i6 += (((length - 1) / 57) + 1) * (bVar.h ? 2 : 1);
-        }
-        byte[] bArr2 = new byte[i6];
-        bVar.a = bArr2;
-        byte[] bArr3 = bVar.i;
-        int i9 = bVar.e;
-        int i10 = length + 0;
-        int i11 = bVar.d;
-        if (i11 != 1) {
-            if (i11 == 2 && i10 > 0) {
-                byte[] bArr4 = bVar.c;
-                i = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[0] & 255);
-                bVar.d = 0;
-                i2 = 1;
-            }
-            i = -1;
-            i2 = 0;
-        } else {
-            if (2 <= i10) {
-                i = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
-                bVar.d = 0;
-                i2 = 2;
-            }
-            i = -1;
-            i2 = 0;
-        }
-        if (i != -1) {
-            bArr2[0] = bArr3[(i >> 18) & 63];
-            bArr2[1] = bArr3[(i >> 12) & 63];
-            bArr2[2] = bArr3[(i >> 6) & 63];
-            bArr2[3] = bArr3[i & 63];
-            i9--;
-            if (i9 == 0) {
-                if (bVar.h) {
-                    i5 = 5;
-                    bArr2[4] = 13;
-                } else {
-                    i5 = 4;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sy, com.baidu.tieba.qx
+    /* renamed from: y */
+    public void onBindDataToView(q05 q05Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, q05Var) == null) {
+            this.h = q05Var;
+            if (q05Var != null && q05Var.getThreadData() != null) {
+                ThreadData threadData = q05Var.getThreadData();
+                if (threadData.getThreadVideoInfo() != null) {
+                    this.A.setVisibility(8);
+                    this.i.setVisibility(0);
+                    this.C.setVisibility(8);
+                    super.onBindDataToView(q05Var);
+                    return;
                 }
-                i3 = i5 + 1;
-                bArr2[i5] = 10;
-                i9 = 19;
-            } else {
-                i3 = 4;
-            }
-        } else {
-            i3 = 0;
-        }
-        while (true) {
-            int i12 = i2 + 3;
-            if (i12 > i10) {
-                int i13 = bVar.d;
-                if (i2 - i13 == i10 - 1) {
-                    if (i13 > 0) {
-                        b4 = bVar.c[0];
-                    } else {
-                        b4 = bArr[i2];
-                        i2++;
-                        i7 = 0;
-                    }
-                    int i14 = (b4 & 255) << 4;
-                    bVar.d -= i7;
-                    int i15 = i3 + 1;
-                    bArr2[i3] = bArr3[(i14 >> 6) & 63];
-                    int i16 = i15 + 1;
-                    bArr2[i15] = bArr3[i14 & 63];
-                    if (bVar.f) {
-                        int i17 = i16 + 1;
-                        bArr2[i16] = 61;
-                        i16 = i17 + 1;
-                        bArr2[i17] = 61;
-                    }
-                    if (!bVar.g) {
-                        i3 = i16;
-                        if (b.k) {
-                        }
-                        if (b.k) {
-                        }
-                        bVar.b = i3;
-                        bVar.e = i9;
-                        if (a) {
-                        }
-                        return bVar.a;
-                    }
-                    if (bVar.h) {
-                        bArr2[i16] = 13;
-                        i16++;
-                    }
-                    i4 = i16 + 1;
-                    bArr2[i16] = 10;
-                    i3 = i4;
-                    if (!b.k || bVar.d == 0) {
-                        if (!b.k || i2 == i10) {
-                            bVar.b = i3;
-                            bVar.e = i9;
-                            if (!a || i3 == i6) {
-                                return bVar.a;
-                            }
-                            throw new AssertionError();
-                        }
-                        throw new AssertionError();
-                    }
-                    throw new AssertionError();
-                } else if (i2 - i13 != i10 - 2) {
-                    if (bVar.g && i3 > 0 && i9 != 19) {
-                        if (bVar.h) {
-                            bArr2[i3] = 13;
-                            i3++;
-                        }
-                        i4 = i3 + 1;
-                        bArr2[i3] = 10;
-                        i3 = i4;
-                    }
-                    if (b.k) {
-                    }
-                    if (b.k) {
-                    }
-                    bVar.b = i3;
-                    bVar.e = i9;
-                    if (a) {
-                    }
-                    return bVar.a;
-                } else {
-                    if (i13 > 1) {
-                        b2 = bVar.c[0];
-                    } else {
-                        byte b5 = bArr[i2];
-                        i2++;
-                        b2 = b5;
-                        i7 = 0;
-                    }
-                    int i18 = (b2 & 255) << 10;
-                    if (bVar.d > 0) {
-                        b3 = bVar.c[i7];
-                        i7++;
-                    } else {
-                        b3 = bArr[i2];
-                        i2++;
-                    }
-                    int i19 = ((b3 & 255) << 2) | i18;
-                    bVar.d -= i7;
-                    int i20 = i3 + 1;
-                    bArr2[i3] = bArr3[(i19 >> 12) & 63];
-                    int i21 = i20 + 1;
-                    bArr2[i20] = bArr3[(i19 >> 6) & 63];
-                    int i22 = i21 + 1;
-                    bArr2[i21] = bArr3[i19 & 63];
-                    if (bVar.f) {
-                        bArr2[i22] = 61;
-                        i22++;
-                    }
-                    if (!bVar.g) {
-                        i3 = i22;
-                        if (b.k) {
-                        }
-                        if (b.k) {
-                        }
-                        bVar.b = i3;
-                        bVar.e = i9;
-                        if (a) {
-                        }
-                        return bVar.a;
-                    }
-                    if (bVar.h) {
-                        bArr2[i22] = 13;
-                        i22++;
-                    }
-                    i4 = i22 + 1;
-                    bArr2[i22] = 10;
-                    i3 = i4;
-                    if (b.k) {
-                    }
-                    if (b.k) {
-                    }
-                    bVar.b = i3;
-                    bVar.e = i9;
-                    if (a) {
-                    }
-                    return bVar.a;
+                this.i.setVisibility(8);
+                this.C.setVisibility(0);
+                ThreadCardUtils.setTitle(this.g, threadData);
+                ThreadCardUtils.setAbstract(this.C, this.g, threadData, E());
+                if (threadData.getTaskInfoData() != null && threadData.getTaskInfoData().j() != 0) {
+                    this.A.setVisibility(8);
+                    return;
                 }
+                this.A.setVisibility(0);
+                this.A.onBindDataToView(q05Var);
             }
-            int i23 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16) | (bArr[i2 + 2] & 255);
-            bArr2[i3] = bArr3[(i23 >> 18) & 63];
-            bArr2[i3 + 1] = bArr3[(i23 >> 12) & 63];
-            bArr2[i3 + 2] = bArr3[(i23 >> 6) & 63];
-            bArr2[i3 + 3] = bArr3[i23 & 63];
-            i3 += 4;
-            i9--;
-            if (i9 == 0) {
-                break;
-            }
-            i2 = i12;
         }
     }
 }

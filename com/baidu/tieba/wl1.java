@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tieba.h61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wl1 {
     public static /* synthetic */ Interceptable $ic;
@@ -35,61 +37,83 @@ public class wl1 {
         this.a = context;
     }
 
-    public final boolean d(String str) {
+    public final int b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File a = mk1.a(str);
-            if (a != null && a.exists() && a.isFile()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            return jSONObject.optInt("l_gravity");
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public Bitmap a(String str, dm1 dm1Var) {
-        InterceptResult invokeLL;
+    public final void a(RelativeLayout.LayoutParams layoutParams, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, dm1Var)) == null) {
-            try {
-                File a = mk1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return BitmapFactory.decodeFile(a.getAbsolutePath());
+        if ((interceptable == null || interceptable.invokeLIII(1048576, this, layoutParams, i, i2, i3) == null) && (i & i2) == i2) {
+            layoutParams.addRule(i3);
+        }
+    }
+
+    public final int[] c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            int[] iArr = {0, 0, 0, 0};
+            String optString = jSONObject.optString(CriusAttrConstants.MARGIN);
+            boolean z = true;
+            if (jSONObject.optInt("is_equal_bottom_logo", 0) != 1) {
+                z = false;
+            }
+            if (!TextUtils.isEmpty(optString)) {
+                String[] split = optString.split("_");
+                if (split.length == 4) {
+                    for (int i = 0; i < 4; i++) {
+                        try {
+                            iArr[i] = Integer.parseInt(split[i]);
+                        } catch (Exception unused) {
+                            iArr[i] = 0;
+                        }
+                        if (i == 3 && z) {
+                            iArr[i] = iArr[i] + kj1.b();
+                        }
+                    }
                 }
-            } catch (OutOfMemoryError unused) {
             }
-            return MaterialLoader.k(this.a).i(str, dm1Var);
+            return iArr;
         }
-        return (Bitmap) invokeLL.objValue;
+        return (int[]) invokeL.objValue;
     }
 
-    public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
+    public final void d(RelativeLayout.LayoutParams layoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, materialCacheType)) == null) {
-            try {
-                File a = mk1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return a.getAbsolutePath();
-                }
-                return MaterialLoader.k(this.a).m(str, materialCacheType);
-            } catch (Throwable unused) {
-                return null;
-            }
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, layoutParams, i) == null) && i > 0) {
+            a(layoutParams, i, 1, 10);
+            a(layoutParams, i, 2, 12);
+            a(layoutParams, i, 4, 9);
+            a(layoutParams, i, 8, 11);
+            a(layoutParams, i, 16, 14);
+            a(layoutParams, i, 32, 15);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
+    public final void e(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
-            if (!MaterialLoader.k(this.a).o(str, materialCacheType) && !d(str)) {
-                return false;
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, marginLayoutParams, iArr) == null) && iArr != null && iArr.length == 4) {
+            marginLayoutParams.setMargins(h61.c.a(this.a, iArr[0]), h61.c.a(this.a, iArr[1]), h61.c.a(this.a, iArr[2]), h61.c.a(this.a, iArr[3]));
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final void f(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, layoutParams, jSONObject) == null) && jSONObject != null) {
+            d(layoutParams, b(jSONObject));
+            e(layoutParams, c(jSONObject));
+        }
+    }
+
+    public void g(ViewGroup.LayoutParams layoutParams, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, layoutParams, jSONObject) == null) && layoutParams != null && jSONObject != null && (layoutParams instanceof RelativeLayout.LayoutParams)) {
+            f((RelativeLayout.LayoutParams) layoutParams, jSONObject);
+        }
     }
 }

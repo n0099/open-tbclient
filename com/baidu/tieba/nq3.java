@@ -1,92 +1,95 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
 /* loaded from: classes7.dex */
-public final class nq3 {
+public class nq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oq3 a;
-        public final /* synthetic */ Object b;
-
-        public a(oq3 oq3Var, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq3Var, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public nq3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = oq3Var;
-            this.b = obj;
         }
+        this.a = 0;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if ((this.a & 1) == 1) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public nq3 a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            this.a = i | this.a;
+            return this;
+        }
+        return (nq3) invokeI.objValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = (~i) & this.a;
         }
     }
 
-    public static <T> void a(Handler handler, oq3<T> oq3Var, Collection<T> collection) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, handler, oq3Var, collection) == null) && oq3Var != null && collection != null && !collection.isEmpty()) {
-            for (T t : collection) {
-                e(handler, oq3Var, t);
-            }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public static <T> void b(Handler handler, oq3<T> oq3Var, T... tArr) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, handler, oq3Var, tArr) == null) && oq3Var != null && tArr != null && tArr.length >= 1) {
-            for (T t : tArr) {
-                e(handler, oq3Var, t);
-            }
-        }
-    }
-
-    public static <T> void e(Handler handler, oq3<T> oq3Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, oq3Var, t) == null) {
-            if (handler == null) {
-                oq3Var.a(t);
-            } else {
-                handler.post(new a(oq3Var, t));
-            }
-        }
-    }
-
-    public static <T> void c(oq3<T> oq3Var, Collection<T> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, oq3Var, collection) == null) {
-            a(null, oq3Var, collection);
-        }
-    }
-
-    public static <T> void d(oq3<T> oq3Var, T... tArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, oq3Var, tArr) == null) {
-            b(null, oq3Var, tArr);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
         }
     }
 }

@@ -1,203 +1,81 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class s7c {
+public class s7c implements yac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e7c a;
+    public AbsViewEventHandler b;
+    public PayUIKitConfig c;
+    public Activity d;
+    public List<PayWayInfo> e;
+    public IYYPayAmountView.ViewParams f;
+    public IPayCallback<CurrencyChargeMessage> g;
+    public String h;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public s7c(e7c e7cVar, AbsViewEventHandler absViewEventHandler, PayUIKitConfig payUIKitConfig, Activity activity, List<PayWayInfo> list, IYYPayAmountView.ViewParams viewParams, String str, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                String str = (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "ro.build.hw_emui_api_level");
-                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                    return 0;
-                }
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e7cVar, absViewEventHandler, payUIKitConfig, activity, list, viewParams, str, iPayCallback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        RLog.info("AmountInputDialogListener", "create AmountInputDialogListener");
+        this.a = e7cVar;
+        this.b = absViewEventHandler;
+        this.c = payUIKitConfig;
+        this.d = activity;
+        this.e = list;
+        this.f = viewParams;
+        this.g = iPayCallback;
+        this.h = str;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yac
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!g()) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("AmountInputDialogListener", "InputDialog notifyCancelType clickArea:" + cancelType);
+            this.a.g(cancelType, this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yac
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            w8c a = j9c.a((int) (i * 100.0d), this.c);
+            if (w9c.b(i)) {
+                this.a.a(this.d, a, this.e, this.h, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, this.f, this.g);
+                RLog.info("AmountInputDialogListener", "confirm but ShowSplitOrderDialog");
+                return;
             }
-            return f("ro.build.version.emui", "");
+            RLog.info("AmountInputDialogListener", "showInputDialog: mPayAmountCustom:%s", a);
+            this.a.t(this.d, a, this.e, this.h, this.f, this.g);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!j()) {
-                return "";
-            }
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!l()) {
-                return "";
-            }
-            return f("ro.miui.ui.version.name", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b().contains("EmotionUI_3.0")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String b = b();
-            if (!"EmotionUI 3".equals(b) && !b.contains("EmotionUI_3.1")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return c().toLowerCase().contains("flyme");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return !TextUtils.isEmpty(f("ro.miui.ui.version.name", ""));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String e = e();
-            if (e.isEmpty()) {
-                return false;
-            }
-            try {
-                if (Integer.valueOf(e.substring(1)).intValue() < 6) {
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return "OPPO".equals(Build.MANUFACTURER);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, str, str2);
-            } catch (Exception unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String d = d();
-            if (d.isEmpty()) {
-                return false;
-            }
-            try {
-                if (d.toLowerCase().contains("os")) {
-                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
-                } else {
-                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
-                }
-                if (intValue < 4) {
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 }

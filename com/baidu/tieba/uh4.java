@@ -1,36 +1,47 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HeadRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uh4 {
+public class uh4 extends HeadRequest.HeadRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uh4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i, i2)) == null) {
-            if (bitmap == null || i <= 0 || i2 <= 0) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            try {
-                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            } catch (Exception | OutOfMemoryError e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Bitmap) invokeLII.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HeadRequest.HeadRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public HeadRequest build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qh4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (HeadRequest) invokeV.objValue;
     }
 }

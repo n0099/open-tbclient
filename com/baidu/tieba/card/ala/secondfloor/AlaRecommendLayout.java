@@ -16,6 +16,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,9 +29,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xp6;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yp6;
+import com.baidu.tieba.en6;
+import com.baidu.tieba.fn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,13 +85,13 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdateAttentionMessage.b data;
+            UpdateAttentionMessage.UpdateAttentionData data;
             AlaUserInfo alaUserInfo;
             Long l;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && !data.d && !StringUtils.isNull(data.c) && this.a.g != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && !data.isAttention && !StringUtils.isNull(data.toUid) && this.a.g != null) {
                 for (AlaLiveInfo alaLiveInfo : this.a.g) {
-                    if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.c.equals(l.toString())) {
+                    if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.toUid.equals(l.toString())) {
                         this.a.g.remove(alaLiveInfo);
                         this.a.e();
                         return;
@@ -190,11 +190,11 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(yp6 yp6Var) {
+    public void setData(fn6 fn6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, yp6Var) == null) && yp6Var != null && !ListUtils.isEmpty(yp6Var.c())) {
-            this.g = yp6Var.c();
-            this.h = yp6Var.d();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, fn6Var) == null) && fn6Var != null && !ListUtils.isEmpty(fn6Var.c())) {
+            this.g = fn6Var.c();
+            this.h = fn6Var.d();
             e();
         }
     }
@@ -222,10 +222,10 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
             this.e.setClipChildren(false);
             this.e.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.e.setItemAnimator(new DefaultItemAnimator());
-            int g = yi.g(this.a, R.dimen.M_W_X001);
-            this.e.addItemDecoration(new CommonSpaceItemDecoration(g, yi.g(this.a, R.dimen.M_W_X003), g));
+            int dimens = BdUtilHelper.getDimens(this.a, R.dimen.M_W_X001);
+            this.e.addItemDecoration(new CommonSpaceItemDecoration(dimens, BdUtilHelper.getDimens(this.a, R.dimen.M_W_X003), dimens));
             BdRecyclerView bdRecyclerView = this.e;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), yi.g(this.e.getContext(), R.dimen.tbds27), this.e.getPaddingRight(), yi.g(this.e.getContext(), R.dimen.M_H_X005));
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), BdUtilHelper.getDimens(this.e.getContext(), R.dimen.tbds27), this.e.getPaddingRight(), BdUtilHelper.getDimens(this.e.getContext(), R.dimen.M_H_X005));
         }
     }
 
@@ -233,7 +233,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
-            TiebaStatic.log(xp6.d("c13624", xp6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
+            TiebaStatic.log(en6.d("c13624", en6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
         }
     }
 

@@ -1,15 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
+import com.baidu.tbadk.core.atomData.AtMeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class sq8 {
+public final class sq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-423831918, "Lcom/baidu/tieba/sq8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-423831918, "Lcom/baidu/tieba/sq8$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[NotifyType.values().length];
+            iArr[NotifyType.AT_ME.ordinal()] = 1;
+            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
+            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
+            iArr[NotifyType.FANS.ordinal()] = 4;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
 
     public sq8() {
         Interceptable interceptable = $ic;
@@ -25,20 +67,103 @@ public class sq8 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(mp8 mp8Var) {
+        NotifyType notifyType;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mp8Var) == null) {
+            if (mp8Var != null) {
+                notifyType = mp8Var.getType();
+            } else {
+                notifyType = null;
+            }
+            if (notifyType == null) {
+                i = -1;
+            } else {
+                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            nb8.b().g(4, 0);
+                            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
+                            be5.p0().l();
+                            be5.p0().j0(0);
+                            return;
+                        }
+                        return;
+                    }
+                    nb8.b().g(2, 0);
+                    be5.p0().o();
+                    be5.p0().m0(0);
+                    return;
+                }
+                nb8.b().g(1, 0);
+                be5.p0().h();
+                be5.p0().f0(0);
+                return;
+            }
+            nb8.b().g(3, 0);
+            be5.p0().j();
+            be5.p0().g0(0);
         }
-        try {
-            jSONObject.optInt("agree", 0);
-            jSONObject.optInt("replyme", 0);
-            jSONObject.optInt("atme", 0);
-            jSONObject.optInt("fans", 0);
-            jSONObject.optInt("pletter", 0);
-            jSONObject.optInt("bookmark", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    }
+
+    public final void b(BaseFragment frag, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frag, i) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            AgreeMeActivityConfig agreeMeActivityConfig = new AgreeMeActivityConfig(frag.getContext());
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                agreeMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            agreeMeActivityConfig.setAgreeNumber(i);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, agreeMeActivityConfig));
+        }
+    }
+
+    public final void c(BaseFragment frag, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, frag, i) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(frag.getContext());
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                atMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            atMeActivityConfig.setAtNumber(i);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
+        }
+    }
+
+    public final void d(BaseFragment frag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, frag) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            PersonListActivityConfig personListActivityConfig = new PersonListActivityConfig(frag.getContext(), false, TbadkCoreApplication.getCurrentAccount(), 0);
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                personListActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            personListActivityConfig.setFansNumber(be5.p0().y());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personListActivityConfig));
+        }
+    }
+
+    public final void e(BaseFragment frag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, frag) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(frag.getContext());
+            replyMeActivityConfig.setFrom(1);
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                replyMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            replyMeActivityConfig.setReplyNumber(be5.p0().B());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
         }
     }
 }

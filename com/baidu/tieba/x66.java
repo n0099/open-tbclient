@@ -1,107 +1,135 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
+import android.app.Activity;
+import android.text.TextUtils;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
 /* loaded from: classes8.dex */
-public class x66 {
+public class x66 extends sk1<bl0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View.OnClickListener a;
-    public BaseActivity b;
-    public LinearLayout c;
-    public LinearLayout d;
-    public TbSettingTextTipView e;
-    public TbSettingTextTipView f;
-    public TextView g;
 
-    public x66(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    /* loaded from: classes8.dex */
+    public class a implements bl0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.bl0
+        public boolean a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public ViewGroup b(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+                return null;
+            }
+            return (ViewGroup) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public void e(Activity activity, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.drawable.tb_launcher_icon : invokeV.intValue;
+        }
+
+        public a(x66 x66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public fm0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                fm0 fm0Var = new fm0();
+                fm0Var.a = R.layout.obfuscated_res_0x7f0d006f;
+                fm0Var.b = R.id.obfuscated_res_0x7f0900f6;
+                fm0Var.c = R.id.obfuscated_res_0x7f0900f4;
+                fm0Var.d = R.id.obfuscated_res_0x7f0900f7;
+                fm0Var.e = R.id.obfuscated_res_0x7f0900f5;
+                return fm0Var;
+            }
+            return (fm0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.bl0
+        public boolean isMainActivity(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                if (activity == null || TextUtils.isEmpty(activity.getClass().getSimpleName()) || !"MainTabActivity".equals(activity.getClass().getSimpleName())) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public x66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = baseActivity;
-        this.a = onClickListener;
-        b();
     }
 
-    public View a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public bl0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return new a(this);
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.removeAllViews();
-            this.b = null;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
-            this.c = linearLayout;
-            this.d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
-            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090358);
-            this.g = (TextView) this.c.findViewById(R.id.tv_title);
-            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090068);
-            this.e.a();
-            this.f.a();
-            this.e.setOnClickListener(this.a);
-            this.f.setOnClickListener(this.a);
-        }
-    }
-
-    public void d(SimpleUser simpleUser) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, simpleUser) != null) || simpleUser == null) {
-            return;
-        }
-        this.f.setTip(simpleUser.block_msg);
-    }
-
-    public void e(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            q05 layoutMode = this.b.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(this.c);
-            d85 d = d85.d(this.g);
-            d.x(R.color.CAM_X0109);
-            d.f(R.color.CAM_X0204);
-        }
+        return (bl0) invokeV.objValue;
     }
 }

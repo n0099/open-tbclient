@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -17,8 +18,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -31,12 +34,9 @@ import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.nq5;
-import com.baidu.tieba.rta;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    y95.d((Activity) data);
+                    MainEntrance.goToMainTab((Activity) data);
                 }
             }
         }
@@ -162,27 +162,27 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            y95.f(tbPageContext.getPageActivity(), 1, true);
+                            MainEntrance.goToMainTab(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            y95.f(tbPageContext.getPageActivity(), 2, true);
+                            MainEntrance.goToMainTab(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HOMEPAGE_LIVETAB)) {
                         try {
                             Uri parse = Uri.parse(str);
-                            if (parse != null && !StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
-                                int e = wg.e(parse.getQueryParameter("subTabIndex"), 0);
-                                if (e == 1) {
+                            if (parse != null && !StringUtils.isNull(parse.getQueryParameter(MainEntrance.LIVETAB_SUBTAB_INDEX))) {
+                                int i2 = JavaTypesHelper.toInt(parse.getQueryParameter(MainEntrance.LIVETAB_SUBTAB_INDEX), 0);
+                                if (i2 == 1) {
                                     i = 18;
                                 } else {
                                     i = 17;
                                 }
                                 try {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e)));
-                                } catch (Exception e2) {
-                                    e = e2;
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(i2)));
+                                } catch (Exception e) {
+                                    e = e;
                                     e.printStackTrace();
                                     if (i != -1) {
                                     }
@@ -193,12 +193,12 @@ public class MainTabActivityStatic {
                             } else {
                                 i = -1;
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             i = -1;
                         }
                         if (i != -1) {
-                            y95.f(tbPageContext.getPageActivity(), i, true);
+                            MainEntrance.goToMainTab(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -206,8 +206,8 @@ public class MainTabActivityStatic {
                         try {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(TbadkCoreApplication.getInst()).createUriCfg(Uri.parse(str))));
                             return 0;
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
                         }
                     }
                 }
@@ -287,10 +287,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                nq5.b().m(nq5.b().j());
-                nq5.b().c();
-            } else if (!nq5.b().i() && nq5.b().k()) {
-                nq5.b().o();
+                so5.b().m(so5.b().j());
+                so5.b().c();
+            } else if (!so5.b().i() && so5.b().k()) {
+                so5.b().o();
             }
         }
     }
@@ -329,10 +329,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                nq5.b().m(nq5.b().j());
-                nq5.b().c();
-            } else if (!nq5.b().i() && nq5.b().k()) {
-                nq5.b().o();
+                so5.b().m(so5.b().j());
+                so5.b().c();
+            } else if (!so5.b().i() && so5.b().k()) {
+                so5.b().o();
             }
         }
     }
@@ -388,11 +388,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                rta.j(tbPageContext, "", forumWriteData);
+                                WriteVideoUtil.publishVideoWrite(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                rta.j(tbPageContext, str2, forumWriteData2);
+                                WriteVideoUtil.publishVideoWrite(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -623,7 +623,7 @@ public class MainTabActivityStatic {
         if (b2 != a || c2 != b) {
             a = b2;
             b = c2;
-            da5.p().F("message_count", b2);
+            SharedPrefHelper.getInstance().putInt("message_count", b2);
             ChatTabUnreadCountData chatTabUnreadCountData = new ChatTabUnreadCountData();
             chatTabUnreadCountData.setCountNum(b2);
             chatTabUnreadCountData.setShowTip(c2);

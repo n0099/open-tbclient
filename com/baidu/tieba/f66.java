@@ -1,38 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import com.baidu.tbadk.TbadkApplication;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class f66 extends ClickableSpan {
+public class f66 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SQLiteDatabase a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public f66() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (f66.class) {
+                ci.b(a);
             }
         }
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public static synchronized SQLiteDatabase b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (f66.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                if (a != null && a.isOpen()) {
+                    return a;
+                }
+                a = new e66(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                return a;
+            }
         }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

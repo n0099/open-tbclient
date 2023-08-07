@@ -6,7 +6,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.tieba.co8;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ReplyEmojiMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
@@ -15,6 +14,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.EnableD
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
+import com.baidu.tieba.xl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<co8> maskInfoList;
+    public List<xl8> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -582,7 +582,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     }
 
     @Nullable
-    public List<co8> getMaskInfoList() {
+    public List<xl8> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

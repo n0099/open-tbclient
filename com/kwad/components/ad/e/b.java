@@ -20,7 +20,7 @@ public final class b {
         boolean a = m.oF().a(ksScene, "loadNativeAd");
         ksScene.setAdStyle(10000);
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0651a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.e.b.1
+        KsAdLoadManager.a(new a.C0652a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.e.b.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
             public final void a(@NonNull AdResultData adResultData) {
                 final ArrayList arrayList = new ArrayList();

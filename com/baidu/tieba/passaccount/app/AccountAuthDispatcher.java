@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.account.certification.CertificationRequestParams;
 import com.baidu.tbadk.core.account.certification.CheckCertificationResult;
 import com.baidu.tbadk.core.account.certification.ICertificationCallback;
 import com.baidu.tbadk.core.account.certification.ICheckCertificationCallback;
+import com.baidu.tbadk.core.account.certification.TbAccountRealNameResult;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.f15;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.s1a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class AccountAuthDispatcher implements y2a {
+public class AccountAuthDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, Integer> STATUS;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class AccountAuthDispatcher implements y2a {
             if ((interceptable != null && interceptable.invokeL(1048576, this, checkCertificationResult) != null) || checkCertificationResult == null) {
                 return;
             }
-            if (!AccountAuthDispatcher.STATUS.containsKey(checkCertificationResult.b) || ((Integer) AccountAuthDispatcher.STATUS.get(checkCertificationResult.b)).intValue() < this.a) {
+            if (!AccountAuthDispatcher.STATUS.containsKey(checkCertificationResult.action) || ((Integer) AccountAuthDispatcher.STATUS.get(checkCertificationResult.action)).intValue() < this.a) {
                 this.d.launchRealName(this.b, this.c);
             } else {
                 this.d.dealOneLink(this.b, this.c);
@@ -104,18 +104,18 @@ public class AccountAuthDispatcher implements y2a {
         }
 
         @Override // com.baidu.tbadk.core.account.certification.ICertificationCallback
-        public void onResult(f15 f15Var) {
+        public void onResult(TbAccountRealNameResult tbAccountRealNameResult) {
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, f15Var) != null) || f15Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, tbAccountRealNameResult) != null) || tbAccountRealNameResult == null) {
                 return;
             }
-            if (f15Var.a == 0) {
+            if (tbAccountRealNameResult.resultCode == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z || !f15Var.f) {
+            if (!z || !tbAccountRealNameResult.seniorRealNameSuc) {
                 return;
             }
             this.c.dealOneLink(this.a, this.b);
@@ -170,7 +170,7 @@ public class AccountAuthDispatcher implements y2a {
         }
     }
 
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     public void dispatch(JSONObject jSONObject, Context context) {
         String str;
         int i;

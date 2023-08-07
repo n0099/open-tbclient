@@ -1,98 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public class tfa {
+public class tfa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public final MainTabActivity a;
 
-    public tfa(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tfa(MainTabActivity mainTabActivity, hea heaVar) {
+        super(2921666);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {mainTabActivity, heaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerStickyMode(2921453);
+        this.a = mainTabActivity;
     }
 
-    public void a(Intent intent, pfa pfaVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, pfaVar) != null) || intent == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            TbSingleton.isAppInBackground = booleanValue;
+            if (booleanValue) {
+                MainTabActivity mainTabActivity = this.a;
+                mainTabActivity.H = 0;
+                mainTabActivity.I = System.currentTimeMillis();
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(false);
+                jw8.o = false;
+                jw8.p = false;
+                return;
+            }
+            yw5.a(2);
         }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.des_page_home_recommend);
-            g45 g45Var = new g45();
-            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
-            int i = 1;
-            if (matcher.find()) {
-                g45Var.c = matcher.group(1);
-            }
-            if (stringExtra.equals(string)) {
-                g45Var.a = 1;
-            } else {
-                g45Var.a = 2;
-                g45Var.b = stringExtra;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, g45Var));
-            if (stringExtra.equals(string)) {
-                intent.putExtra("sub_locate_type", 1);
-                i = 2;
-            } else {
-                intent.putExtra("sub_locate_type", stringExtra);
-            }
-            if (pfaVar != null && pfaVar.y() != null) {
-                pfaVar.y().setCurrentTabByType(i);
-                FragmentTabHost.c h = pfaVar.y().h(i);
-                if (h != null) {
-                    Fragment fragment = h.c;
-                    if (fragment instanceof u05) {
-                        ((u05) fragment).t1(intent);
-                    }
-                }
-            }
-        }
-        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
-        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-    }
-
-    public boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

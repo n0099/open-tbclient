@@ -5,17 +5,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.adp.base.ActivityOrientationFixer;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.ca6;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.uo3;
-import com.baidu.tieba.yx3;
+import com.baidu.tieba.bx3;
+import com.baidu.tieba.i76;
+import com.baidu.tieba.xn3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,14 +103,14 @@ public class SwanEntryActivity extends Activity {
         }
         if (!PermissionUtil.isAgreePrivacyPolicy()) {
             SwanAppAbTestStatic.a = uri;
-        } else if (!h9.f().h("MainTabActivity")) {
+        } else if (!BdActivityStack.getInst().isActivityExist("MainTabActivity")) {
             LogoActivityConfig logoActivityConfig = new LogoActivityConfig(this, intent);
             intent.setData(Uri.parse(uri));
             logoActivityConfig.getIntent().putExtra(LogoActivityConfig.IS_DEAL_INTENT, true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, logoActivityConfig));
         } else {
-            ca6.a();
-            yx3.a(uri);
+            i76.a();
+            bx3.a(uri);
         }
     }
 
@@ -118,9 +118,9 @@ public class SwanEntryActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            g9.b(this);
+            ActivityOrientationFixer.hookOrientation(this);
             super.onCreate(bundle);
-            if (uo3.a(this)) {
+            if (xn3.a(this)) {
                 return;
             }
             a();
@@ -140,7 +140,7 @@ public class SwanEntryActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (g9.d(this) && g9.a(i)) {
+            if (ActivityOrientationFixer.needHandleActivity(this) && ActivityOrientationFixer.forbidOrientation(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

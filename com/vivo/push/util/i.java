@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -280,7 +281,7 @@ public final class i extends b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent)) == null) {
-            return PendingIntent.getActivity(context, (int) SystemClock.uptimeMillis(), intent, 201326592);
+            return PendingIntent.getActivity(context, (int) SystemClock.uptimeMillis(), intent, BDImageView.DEFAULT_BORDER_COLOR);
         }
         return (PendingIntent) invokeLL.objValue;
     }

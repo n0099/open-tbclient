@@ -11,8 +11,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.rp8;
+import com.baidu.tieba.ln8;
+import com.baidu.tieba.tg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,13 +24,13 @@ public class BaseItemViewHolder extends RecyclerView.ViewHolder {
     @Nullable
     public TbPageContext a;
     @Nullable
-    public bj8 b;
-    public final rp8.a c;
+    public tg8 b;
+    public final ln8.a c;
     public CustomMessageListener d;
 
-    public void e(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, bj8Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, tg8Var, tbPageContext, i) == null) {
         }
     }
 
@@ -47,7 +47,7 @@ public class BaseItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements rp8.a {
+    public class a implements ln8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseItemViewHolder a;
@@ -70,7 +70,7 @@ public class BaseItemViewHolder extends RecyclerView.ViewHolder {
             this.a = baseItemViewHolder;
         }
 
-        @Override // com.baidu.tieba.rp8.a
+        @Override // com.baidu.tieba.ln8.a
         public void a(@Nullable CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
@@ -99,36 +99,36 @@ public class BaseItemViewHolder extends RecyclerView.ViewHolder {
         }
         a aVar = new a(this);
         this.c = aVar;
-        this.d = new rp8(2001304, aVar);
+        this.d = new ln8(2001304, aVar);
     }
 
-    public final void b(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public final void b(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, bj8Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, tg8Var, tbPageContext, i) == null) {
             if (this.b != null && this.a != null) {
-                i(bj8Var, tbPageContext, i);
-                this.b = bj8Var;
+                i(tg8Var, tbPageContext, i);
+                this.b = tg8Var;
                 this.a = tbPageContext;
                 return;
             }
-            c(bj8Var, tbPageContext, i);
+            c(tg8Var, tbPageContext, i);
         }
     }
 
-    public final void c(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public final void c(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bj8Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tg8Var, tbPageContext, i) == null) {
             this.a = tbPageContext;
-            this.b = bj8Var;
-            e(bj8Var, tbPageContext, i);
+            this.b = tg8Var;
+            e(tg8Var, tbPageContext, i);
         }
     }
 
-    public void i(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void i(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048583, this, bj8Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048583, this, tg8Var, tbPageContext, i) == null) {
             j();
-            c(bj8Var, tbPageContext, i);
+            c(tg8Var, tbPageContext, i);
         }
     }
 

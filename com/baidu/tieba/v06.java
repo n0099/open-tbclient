@@ -1,162 +1,87 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes8.dex */
 public class v06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c a;
-    public int b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
-    public int g;
-    public int h;
-    public b i;
-    public int j;
+    public int a;
+    public TiebaPlusInfo b;
+    public TiePlusStat.ThreadType c;
+    public String d;
+    public String e;
+    public TiePlusStat.StatType f;
+    public TiePlusStat.LandingType g;
+    public TiePlusStat.CardBtnType h;
+    public TiePlusStat.RichTextType i;
+    public ThreadData j;
     public int k;
-    public float l;
-    public final boolean m;
-    public final boolean n;
-    public final int o;
-    public final int p;
-    public final int q;
-    public final boolean r;
-    public final boolean s;
-    public Random t;
-    public Bitmap u;
+
+    @NonNull
+    public v06 a(@Nullable qba qbaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qbaVar)) == null) ? this : (v06) invokeL.objValue;
+    }
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        float a();
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Bitmap b;
-        public boolean c;
-        public boolean d;
-        public boolean e;
-        public boolean f;
-        public int g;
-        public int h;
-        public int i;
-        public c j;
-
-        public b(Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-398032912, "Lcom/baidu/tieba/v06$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-398032912, "Lcom/baidu/tieba/v06$a;");
                     return;
                 }
             }
-            this.a = 10;
-            this.b = bitmap;
-            this.c = false;
-            this.d = false;
-            this.e = false;
-            this.f = false;
-        }
-
-        public b m(c cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-                this.j = cVar;
-                return this;
+            int[] iArr = new int[TiePlusStat.Locate.values().length];
+            a = iArr;
+            try {
+                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            return (b) invokeL.objValue;
-        }
-
-        public v06 k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new v06(this, null);
+            try {
+                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-            return (v06) invokeV.objValue;
-        }
-
-        public b l(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-                this.h = i;
-                this.i = i2;
-                return this;
+            try {
+                a[TiePlusStat.Locate.PB.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-            return (b) invokeII.objValue;
-        }
-
-        public b o(int i, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-                this.a = i;
-                this.c = z;
-                return this;
+            try {
+                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
-            return (b) invokeCommon.objValue;
-        }
-
-        public b p(boolean z, boolean z2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-                this.e = z;
-                this.f = z2;
-                return this;
-            }
-            return (b) invokeCommon.objValue;
-        }
-
-        public b n(int i, int i2, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                this.g = i;
-                this.b = v06.a(this.b, i, i2);
-                this.d = z;
-                return this;
-            }
-            return (b) invokeCommon.objValue;
         }
     }
 
-    public v06(b bVar) {
+    public v06() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -166,195 +91,185 @@ public class v06 {
                 return;
             }
         }
-        this.c = 0;
-        this.i = bVar;
-        this.u = bVar.b;
-        this.o = bVar.g;
-        this.p = bVar.h;
-        this.a = bVar.j;
-        this.q = bVar.i;
-        this.b = bVar.a;
-        this.n = bVar.d;
-        this.r = bVar.e;
-        this.s = bVar.f;
-        this.m = bVar.c;
+        this.h = null;
+        this.i = TiePlusStat.RichTextType.LINK;
+        this.k = -1;
     }
 
-    public v06(b bVar, int i, int i2) {
+    public TiePlusStat.CardBtnType d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
         }
-        this.c = 0;
-        this.i = bVar;
-        this.j = i;
-        this.k = i2;
-        Random random = new Random();
-        this.t = random;
-        this.g = random.nextInt((i * 8) / 9);
-        int nextInt = this.t.nextInt(i2) - i2;
-        this.h = nextInt;
-        this.d = this.g;
-        this.e = nextInt;
-        this.m = bVar.c;
-        this.n = bVar.d;
-        this.a = bVar.j;
-        this.p = bVar.h;
-        this.q = bVar.i;
-        this.o = bVar.g;
-        this.r = bVar.e;
-        this.s = bVar.f;
-        this.b = bVar.a;
-        g();
-        f();
-        h();
+        return (TiePlusStat.CardBtnType) invokeV.objValue;
     }
 
-    public /* synthetic */ v06(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public static Bitmap a(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bitmap, i, i2)) == null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return String.valueOf(this.j.getDispatchedForumId());
         }
-        return (Bitmap) invokeLII.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean b(Canvas canvas, Paint paint) {
-        InterceptResult invokeLL;
-        Bitmap bitmap;
+    @NonNull
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, canvas, paint)) == null) {
-            float f = this.e;
-            if (f <= this.k && f >= 0.0f) {
-                canvas.drawBitmap(this.u, this.d, f, (Paint) null);
-                return true;
-            } else if (this.e > this.k && (bitmap = this.u) != null && !bitmap.isRecycled()) {
-                this.u.recycle();
-                return false;
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            cw5.d(!TextUtils.isEmpty(this.e));
+            return this.e;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    @NonNull
+    public TiePlusStat.LandingType g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d();
-            e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
         }
+        return (TiePlusStat.LandingType) invokeV.objValue;
     }
 
-    public final void e() {
+    public TiePlusStat.RichTextType h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e += this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
         }
+        return (TiePlusStat.RichTextType) invokeV.objValue;
     }
 
-    public final void d() {
-        int i;
+    @NonNull
+    public TiePlusStat.StatType j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d = (float) (this.d + (Math.sin(this.l) * 10.0d));
-            if (this.s) {
-                double d = this.l;
-                if (this.t.nextBoolean()) {
-                    i = -1;
-                } else {
-                    i = 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            cw5.b(this.f);
+            return this.f;
+        }
+        return (TiePlusStat.StatType) invokeV.objValue;
+    }
+
+    @NonNull
+    public ThreadData k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.ThreadType l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (TiePlusStat.ThreadType) invokeV.objValue;
+    }
+
+    @NonNull
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiebaPlusInfo n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (TiebaPlusInfo) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public static v06 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
+            int intValue = tiebaPlusInfo.jump_type.intValue();
+            v06 v06Var = new v06();
+            v06Var.a = TiePlusStat.a(tiebaPlusInfo, null);
+            v06Var.g = TiePlusStat.LandingType.create(intValue);
+            v06Var.i = TiePlusStat.RichTextType.create(i);
+            v06Var.h = TiePlusStat.CardBtnType.create(i, intValue);
+            v06Var.b = tiebaPlusInfo;
+            v06Var.c = TiePlusStat.ThreadType.create(threadData);
+            v06Var.d = threadData.getTid();
+            v06Var.e = String.valueOf(threadData.getFid());
+            v06Var.j = threadData;
+            return v06Var;
+        }
+        return (v06) invokeILL.objValue;
+    }
+
+    public v06 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.k = i;
+            return this;
+        }
+        return (v06) invokeI.objValue;
+    }
+
+    public int i(@NonNull TiePlusStat.Locate locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
+            int i = a.a[locate.ordinal()];
+            if (i != 1 && i != 2) {
+                if (i != 3 && i != 4) {
+                    return -1;
                 }
-                this.l = (float) (d + (i * Math.random() * 0.0025d));
+                return this.k;
             }
-            float f = this.d;
-            int i2 = this.j;
-            int i3 = this.o;
-            if (f > i2 - i3) {
-                this.d = i2 - i3;
-            }
+            return k().statFloor;
+        }
+        return invokeL.intValue;
+    }
+
+    public void p(TiePlusStat.RichTextType richTextType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
+            this.i = richTextType;
         }
     }
 
-    public final void h() {
-        int i;
+    public void q(@NonNull TiePlusStat.StatType statType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.r) {
-                if (this.t.nextBoolean()) {
-                    i = -1;
-                } else {
-                    i = 1;
-                }
-                this.l = (float) (((i * Math.random()) * this.c) / 50.0d);
-            } else {
-                this.l = this.c / 50.0f;
-            }
-            float f = this.l;
-            if (f > 1.5707964f) {
-                this.l = 1.5707964f;
-            } else if (f < -1.5707964f) {
-                this.l = -1.5707964f;
-            }
+        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
+            this.f = statType;
         }
     }
 
-    public final void f() {
-        float nextInt;
-        float f;
+    public void r(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.n) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    nextInt = cVar.a();
-                } else {
-                    nextInt = (this.t.nextInt(10) + 1) * 0.1f;
-                }
-                int i = this.p;
-                float f2 = 0.0f;
-                if (i > 0) {
-                    f = Math.max(i, this.i.b.getWidth() * nextInt);
-                } else {
-                    f = 0.0f;
-                }
-                if (this.q > 0) {
-                    f2 = Math.max(nextInt * this.i.b.getHeight(), this.q);
-                }
-                this.u = a(this.i.b, (int) f, (int) f2);
-            } else {
-                this.u = this.i.b;
-            }
-            this.u.getHeight();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.m) {
-                this.f = ((float) (((this.t.nextInt(3) + 1) * 0.1d) + 1.0d)) * this.b;
-            } else {
-                this.f = this.b;
-            }
+        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
+            this.b = tiebaPlusInfo;
         }
     }
 }

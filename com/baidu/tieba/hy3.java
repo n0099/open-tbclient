@@ -1,84 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class hy3 {
+public class hy3<ContenT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, hy3<ContenT>.a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947840007, "Lcom/baidu/tieba/hy3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final ContenT b;
+        public final /* synthetic */ hy3 c;
+
+        public a(hy3 hy3Var, String str, ContenT content) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hy3Var, str, content};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947840007, "Lcom/baidu/tieba/hy3;");
+            this.c = hy3Var;
+            this.a = str;
+            this.b = content;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a);
+            }
+        }
+    }
+
+    public hy3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        this.a = new HashMap();
     }
 
-    public static String a(String str) {
+    public synchronized ContenT a(String str, ContenT content, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
+            synchronized (this) {
+                d(str);
+                if (content == null) {
+                    return null;
+                }
+                hy3<ContenT>.a aVar = new a(this, str, content);
+                this.a.put(str, aVar);
+                if (j > 0) {
+                    xa3.M().postDelayed(aVar, j);
+                }
+                return content;
+            }
+        }
+        return (ContenT) invokeCommon.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (hy3<ContenT>.a aVar : this.a.values()) {
+                    if (aVar != null) {
+                        xa3.M().removeCallbacks(aVar);
+                    }
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public ContenT c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Signature b = b(str);
-            if (b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            hy3<ContenT>.a aVar = this.a.get(str);
+            if (aVar == null) {
                 return null;
             }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(b.toByteArray()));
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
+            return aVar.b;
+        }
+        return (ContenT) invokeL.objValue;
+    }
+
+    public synchronized ContenT d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                hy3<ContenT>.a remove = this.a.remove(str);
+                if (remove != null) {
+                    xa3.M().removeCallbacks(remove);
+                    return remove.b;
+                }
                 return null;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                char[] cArr2 = a;
-                cArr[i2] = cArr2[(b >>> 4) & 15];
-                cArr[i2 + 1] = cArr2[b & 15];
-            }
-            return new String(cArr);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Signature b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Signature) invokeL.objValue;
+        return (ContenT) invokeL.objValue;
     }
 }

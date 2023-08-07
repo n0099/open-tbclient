@@ -1,56 +1,38 @@
 package com.baidu.tieba;
 
 import android.text.SpannableStringBuilder;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes5.dex */
 public final class a87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpannableStringBuilder a;
-    public SpannableStringBuilder b;
 
-    public a87(SpannableStringBuilder titleBuilder, SpannableStringBuilder abstractBuilder) {
+    public static final void a(TitleComponent titleComponent, List<u97<?>> dataList, SpannableStringBuilder titleBuilder, a67 feedExtraData, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {titleBuilder, abstractBuilder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            t47 t47Var = new t47(titleBuilder, z);
+            List<FeedContentResource> list = titleComponent.data;
+            if (list != null) {
+                y77.a(list, titleBuilder, feedExtraData, t47Var);
+            }
+            if (titleBuilder.length() > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                dataList.add(new v97(t47Var, "title"));
             }
         }
-        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-        Intrinsics.checkNotNullParameter(abstractBuilder, "abstractBuilder");
-        this.a = titleBuilder;
-        this.b = abstractBuilder;
-    }
-
-    public final SpannableStringBuilder a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public final SpannableStringBuilder b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
     }
 }

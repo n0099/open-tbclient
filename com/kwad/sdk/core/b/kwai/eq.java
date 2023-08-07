@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.kwad.components.ad.reward.monitor.RewardWebViewInfo;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -23,8 +22,8 @@ public final class eq implements com.kwad.sdk.core.d<RewardWebViewInfo> {
         if (jSONObject.opt("source") == JSONObject.NULL) {
             rewardWebViewInfo.source = "";
         }
-        rewardWebViewInfo.sceneId = jSONObject.optString(MemberPayActivityConfig.SCENE_ID);
-        if (jSONObject.opt(MemberPayActivityConfig.SCENE_ID) == JSONObject.NULL) {
+        rewardWebViewInfo.sceneId = jSONObject.optString("scene_id");
+        if (jSONObject.opt("scene_id") == JSONObject.NULL) {
             rewardWebViewInfo.sceneId = "";
         }
         rewardWebViewInfo.pageType = jSONObject.optString("page_type");
@@ -58,7 +57,7 @@ public final class eq implements com.kwad.sdk.core.d<RewardWebViewInfo> {
         }
         String str4 = rewardWebViewInfo.sceneId;
         if (str4 != null && !str4.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, MemberPayActivityConfig.SCENE_ID, rewardWebViewInfo.sceneId);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "scene_id", rewardWebViewInfo.sceneId);
         }
         String str5 = rewardWebViewInfo.pageType;
         if (str5 != null && !str5.equals("")) {

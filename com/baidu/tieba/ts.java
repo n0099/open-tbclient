@@ -1,159 +1,325 @@
 package com.baidu.tieba;
 
-import com.baidu.bdptask.bdtls.DH;
-import com.baidu.bdptask.bdtls.RSA;
-import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.gs;
-import com.baidu.tieba.hs;
-import com.baidu.tieba.is;
-import com.baidu.tieba.js;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ts {
+public abstract class ts<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object j;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object a;
+    public ws<vs<T>, ts<T>.c> b;
+    public int c;
+    public volatile Object d;
+    public volatile Object e;
+    public int f;
+    public boolean g;
+    public boolean h;
+    public final Runnable i;
 
-    public static ns a(rs rsVar, byte[] bArr) {
-        InterceptResult invokeLL;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rsVar, bArr)) == null) {
-            ns nsVar = null;
-            if (rsVar == null || bArr == null || bArr.length == 0) {
-                return null;
-            }
-            try {
-                if (bArr[0] != 2) {
-                    return null;
-                }
-                ns nsVar2 = new ns();
-                try {
-                    ks a = ks.a(Arrays.copyOfRange(bArr, 1, bArr.length));
-                    if (a == null) {
-                        return null;
-                    }
-                    nsVar2.a(a);
-                    List<is> b = a.b();
-                    if (b == null) {
-                        return null;
-                    }
-                    for (is isVar : b) {
-                        int a2 = isVar.a();
-                        byte[] b2 = isVar.b();
-                        if (a2 == 0) {
-                            int a3 = zs.a(RSA.decrypt(b2));
-                            rsVar.e(DH.getDHSecretKey(a3, rsVar.o().intValue(), rsVar.p().intValue()));
-                            rsVar.l(Integer.valueOf(a3));
-                        }
-                    }
-                    if (a.e() == null) {
-                        return null;
-                    }
-                    gs.a d = gs.d();
-                    d.a(a.e());
-                    rsVar.h(d.b().a());
-                    if (rsVar.q() == null) {
-                        return null;
-                    }
-                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + a.c();
-                    DebugTrace debugTrace = DebugTrace.a;
-                    debugTrace.a("liftTime=" + a.c());
-                    DebugTrace debugTrace2 = DebugTrace.a;
-                    debugTrace2.a("expireTime=" + currentTimeMillis);
-                    rsVar.c(currentTimeMillis);
-                    if (a.d() != null) {
-                        rsVar.j(a.d());
-                        return nsVar2;
-                    }
-                    return nsVar2;
-                } catch (Exception e) {
-                    e = e;
-                    nsVar = nsVar2;
-                    DebugTrace debugTrace3 = DebugTrace.a;
-                    debugTrace3.a("exception=" + e.getMessage());
-                    return nsVar;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } else {
-            return (ns) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public static byte[] b(rs rsVar, ns nsVar) throws Exception {
-        InterceptResult invokeLL;
-        byte[] encrypt;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, rsVar, nsVar)) == null) {
-            if (nsVar == null) {
-                return null;
-            }
-            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            byte[] bArr = new byte[32];
-            new Random().nextBytes(bArr);
-            js.a a = js.a();
-            a.a(Integer.valueOf(currentTimeMillis));
-            a.b(gu.a(bArr));
-            js c = a.c();
-            int dHGroupId = DH.getDHGroupId();
-            int dHSecret = DH.getDHSecret();
-            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
-            rsVar.d(Integer.valueOf(dHGroupId));
-            rsVar.g(Integer.valueOf(dHSecret));
-            rsVar.i(Integer.valueOf(dHPublicKey));
-            byte[] d = zs.d(dHPublicKey);
-            if (d == null || (encrypt = RSA.encrypt(d)) == null) {
-                return null;
-            }
-            byte[] bytes = hu.b(ju.b(cu.a()), false).getBytes();
-            LinkedList linkedList = new LinkedList();
-            is.a d2 = is.d();
-            d2.a(0);
-            d2.b(gu.a(encrypt));
-            linkedList.offer(d2.c());
-            is.a d3 = is.d();
-            d3.a(1);
-            d3.b(gu.a(new byte[]{0}));
-            linkedList.offer(d3.c());
-            is.a d4 = is.d();
-            d4.a(2);
-            d4.b(gu.a(zs.d(dHGroupId)));
-            linkedList.offer(d4.c());
-            is.a d5 = is.d();
-            d5.a(3);
-            d5.b(gu.a(bytes));
-            linkedList.offer(d5.c());
-            if (es.c.h().c()) {
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("groupId encode=" + dHGroupId);
-                DebugTrace debugTrace2 = DebugTrace.a;
-                debugTrace2.a("secretC encode=" + dHSecret);
-                DebugTrace debugTrace3 = DebugTrace.a;
-                debugTrace3.a("pubKey encode=" + dHPublicKey);
-                DebugTrace debugTrace4 = DebugTrace.a;
-                debugTrace4.a("signature encode=" + new String(bytes));
-            }
-            hs.a d6 = hs.d();
-            Iterator it = linkedList.iterator();
-            while (it.hasNext()) {
-                d6.a((is) it.next());
-            }
-            d6.b(c);
-            d6.c(gu.a(ss.a));
-            byte[] a2 = d6.d().a();
-            ByteBuffer allocate = ByteBuffer.allocate(a2.length + 1);
-            allocate.put((byte) 1);
-            allocate.put(a2);
-            return allocate.array();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
-        return (byte[]) invokeLL.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ts a;
+
+        public a(ts tsVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tsVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tsVar;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.ts */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public void run() {
+            Object obj;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.a.a) {
+                obj = this.a.e;
+                this.a.e = ts.j;
+            }
+            this.a.p(obj);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends ts<T>.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ts.c
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ts tsVar, vs<T> vsVar) {
+            super(tsVar, vsVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tsVar, vsVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ts) objArr2[0], (vs) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public abstract class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final vs<T> a;
+        public boolean b;
+        public int c;
+        public final /* synthetic */ ts d;
+
+        public abstract boolean b();
+
+        public c(ts tsVar, vs<T> vsVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tsVar, vsVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = tsVar;
+            this.c = -1;
+            this.a = vsVar;
+        }
+
+        public void a(boolean z) {
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || z == this.b) {
+                return;
+            }
+            this.b = z;
+            int i = 1;
+            if (this.d.c == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            ts tsVar = this.d;
+            int i2 = tsVar.c;
+            if (!this.b) {
+                i = -1;
+            }
+            tsVar.c = i2 + i;
+            if (z2 && this.b) {
+                this.d.m();
+            }
+            if (this.d.c == 0 && !this.b) {
+                this.d.n();
+            }
+            if (!this.b) {
+                return;
+            }
+            this.d.j(this);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318222, "Lcom/baidu/tieba/ts;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318222, "Lcom/baidu/tieba/ts;");
+                return;
+            }
+        }
+        j = new Object();
+    }
+
+    public T k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            T t = (T) this.d;
+            if (t != j) {
+                return t;
+            }
+            return null;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public ts() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new Object();
+        this.b = new ws<>();
+        this.c = 0;
+        this.d = j;
+        this.e = j;
+        this.f = -1;
+        this.i = new a(this);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.vs<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void i(ts<T>.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, cVar) != null) || !cVar.b) {
+            return;
+        }
+        if (!cVar.b()) {
+            cVar.a(false);
+            return;
+        }
+        int i = cVar.c;
+        int i2 = this.f;
+        if (i >= i2) {
+            return;
+        }
+        cVar.c = i2;
+        cVar.a.onChanged(this.d);
+    }
+
+    public void l(vs<T> vsVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vsVar) == null) {
+            b bVar = new b(this, vsVar);
+            if (this.b.d(vsVar, bVar) != null) {
+                return;
+            }
+            bVar.a(true);
+        }
+    }
+
+    public void o(T t) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            synchronized (this.a) {
+                if (this.e == j) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.e = t;
+            }
+            if (!z) {
+                return;
+            }
+            et.c(this.i);
+        }
+    }
+
+    public void p(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            h("setValue");
+            this.f++;
+            this.d = t;
+            j(null);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65545, null, str) != null) || et.b()) {
+            return;
+        }
+        throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
+    }
+
+    public final void j(ts<T>.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            if (this.g) {
+                this.h = true;
+                return;
+            }
+            this.g = true;
+            do {
+                this.h = false;
+                if (cVar != null) {
+                    i(cVar);
+                    cVar = null;
+                } else {
+                    ws<vs<T>, ts<T>.c>.d f = this.b.f();
+                    while (f.hasNext()) {
+                        i((c) ((Map.Entry) f.next()).getValue());
+                        if (this.h) {
+                            break;
+                        }
+                    }
+                }
+            } while (this.h);
+            this.g = false;
+        }
     }
 }

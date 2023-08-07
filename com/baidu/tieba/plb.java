@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes7.dex */
-public class plb {
+public final class plb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<Long, StackTraceElement[]> a;
-    public int b;
+    public final /* synthetic */ InstallActivity a;
 
-    public plb() {
+    public plb(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,29 +27,16 @@ public class plb {
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
-        this.b = 100;
+        this.a = installActivity;
     }
 
-    public LinkedHashMap<Long, StackTraceElement[]> b() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-        return (LinkedHashMap) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int size = this.a.size();
-            int i = this.b;
-            if (size == i && i > 0) {
-                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
-                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
-            }
-            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
-        }
+        this.a.h();
+        this.a.n();
     }
 }

@@ -1,188 +1,92 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 /* loaded from: classes7.dex */
-public abstract class qp3 {
+public final class qp3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract CharSequence a();
-
-    public abstract void c(CharSequence charSequence);
-
-    @TargetApi(11)
     /* loaded from: classes7.dex */
-    public static class a extends qp3 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static ClipboardManager b;
-        public static ClipData c;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rp3 a;
+        public final /* synthetic */ Object b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-482162696, "Lcom/baidu/tieba/qp3$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-482162696, "Lcom/baidu/tieba/qp3$a;");
-            }
-        }
-
-        @SuppressLint({"ServiceCast"})
-        public a() {
+        public a(rp3 rp3Var, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rp3Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            b = (ClipboardManager) qp3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            this.a = rp3Var;
+            this.b = obj;
         }
 
-        @Override // com.baidu.tieba.qp3
-        public CharSequence a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    c = b.getPrimaryClip();
-                } catch (Exception e) {
-                    if (fs1.a) {
-                        throw e;
-                    }
-                }
-                ClipData clipData = c;
-                if (clipData != null && clipData.getItemCount() > 0) {
-                    return c.getItemAt(0).getText();
-                }
-                return "";
-            }
-            return (CharSequence) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qp3
-        public void c(CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
-                c = newPlainText;
-                try {
-                    b.setPrimaryClip(newPlainText);
-                } catch (RuntimeException e) {
-                    if (fs1.a) {
-                        e.printStackTrace();
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b extends qp3 {
-        public static /* synthetic */ Interceptable $ic;
-        public static android.text.ClipboardManager b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-482162665, "Lcom/baidu/tieba/qp3$b;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-482162665, "Lcom/baidu/tieba/qp3$b;");
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            b = (android.text.ClipboardManager) qp3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
-        }
-
-        @Override // com.baidu.tieba.qp3
-        public CharSequence a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.getText();
-            }
-            return (CharSequence) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qp3
-        public void c(CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                b.setText(charSequence);
-            }
-        }
-    }
-
-    public qp3() {
+    public static <T> void a(Handler handler, rp3<T> rp3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, handler, rp3Var, collection) == null) && rp3Var != null && collection != null && !collection.isEmpty()) {
+            for (T t : collection) {
+                e(handler, rp3Var, t);
             }
         }
     }
 
-    public static qp3 b(Context context) {
-        InterceptResult invokeL;
+    public static <T> void b(Handler handler, rp3<T> rp3Var, T... tArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            a = context.getApplicationContext();
-            if (co3.c()) {
-                return new a();
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, handler, rp3Var, tArr) == null) && rp3Var != null && tArr != null && tArr.length >= 1) {
+            for (T t : tArr) {
+                e(handler, rp3Var, t);
             }
-            return new b();
         }
-        return (qp3) invokeL.objValue;
+    }
+
+    public static <T> void e(Handler handler, rp3<T> rp3Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, rp3Var, t) == null) {
+            if (handler == null) {
+                rp3Var.a(t);
+            } else {
+                handler.post(new a(rp3Var, t));
+            }
+        }
+    }
+
+    public static <T> void c(rp3<T> rp3Var, Collection<T> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, rp3Var, collection) == null) {
+            a(null, rp3Var, collection);
+        }
+    }
+
+    public static <T> void d(rp3<T> rp3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, rp3Var, tArr) == null) {
+            b(null, rp3Var, tArr);
+        }
     }
 }

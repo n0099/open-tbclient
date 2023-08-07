@@ -1,47 +1,244 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.qa3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.FormBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zz1 extends yz1 {
+public class zz1 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yz1
-    public String h() {
-        InterceptResult invokeV;
+    public final void J() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "Coupon" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
-    @Override // com.baidu.tieba.yz1
+    @Override // com.baidu.tieba.bz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanAppCouponApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "ToastApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ zz1 d;
+
+        public a(zz1 zz1Var, String str, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz1Var, str, Integer.valueOf(i), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = zz1Var;
+            this.a = str;
+            this.b = i;
+            this.c = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zz1 zz1Var = this.d;
+                zz1Var.P(zz1Var.getContext(), this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Drawable c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ zz1 e;
+
+        public b(zz1 zz1Var, String str, int i, Drawable drawable, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz1Var, str, Integer.valueOf(i), drawable, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = zz1Var;
+            this.a = str;
+            this.b = i;
+            this.c = drawable;
+            this.d = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zz1 zz1Var = this.e;
+                zz1Var.N(zz1Var.getContext(), this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ zz1 d;
+
+        public c(zz1 zz1Var, String str, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz1Var, str, Integer.valueOf(i), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = zz1Var;
+            this.a = str;
+            this.b = i;
+            this.c = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zz1 zz1Var = this.d;
+                zz1Var.O(zz1Var.getContext(), this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ zz1 e;
+
+        public d(zz1 zz1Var, String str, int i, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz1Var, str, Integer.valueOf(i), str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = zz1Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zz1 zz1Var = this.e;
+                zz1Var.M(zz1Var.getContext(), this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(zz1 zz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qa3.a();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class f implements qa3.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ zz1 b;
 
-        public a(zz1 zz1Var, String str) {
+        public f(zz1 zz1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,69 +257,28 @@ public class zz1 extends yz1 {
             this.a = str;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.tieba.qa3.c
+        public void onToastClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                zz1 zz1Var = this.b;
-                String str = this.a;
-                zz1Var.d(str, new v32(1001, "operation fail, msg = " + exc.getMessage()));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a)) {
+                this.b.d(this.a, new y22(0));
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (jSONObject == null) {
-                    this.b.d(this.a, new v32(1001, "server response fail"));
-                    return;
-                }
-                int optInt = jSONObject.optInt("errno", 10002);
-                String optString = jSONObject.optString("errmsg", SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
-                if (optInt != 0) {
-                    this.b.d(this.a, new v32(optInt, optString));
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    this.b.d(this.a, new v32(optInt, optString));
-                    return;
-                }
-                this.b.d(this.a, new v32(0, optString, optJSONObject));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            ResponseBody body;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && (body = response.body()) != null) {
-                    return vo3.d(body.string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zz1(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public zz1(@NonNull zy1 zy1Var) {
+        super(zy1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
+            Object[] objArr = {zy1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
+                super((zy1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -130,189 +286,292 @@ public class zz1 extends yz1 {
         }
     }
 
-    public final void A(String str, vb3 vb3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, vb3Var) == null) {
-            xi3 xi3Var = new xi3();
-            xi3Var.a = "swan";
-            xi3Var.b = str;
-            xi3Var.f = vb3Var.O();
-            xi3Var.a("host_app", cv2.n().a());
-            ci3.i("2267", "83", xi3Var.f());
-        }
-    }
-
-    public final v32 B(String str, FormBody.Builder builder, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, builder, str2)) == null) {
-            a33 a2 = a33.a(builder.build(), c33.b);
-            String y = y(str);
-            if (TextUtils.isEmpty(y)) {
-                return new v32(202);
-            }
-            yi4 yi4Var = new yi4(y, a2, new a(this, str2));
-            if (zi4.g().c()) {
-                yi4Var.f = true;
-            }
-            yi4Var.g = true;
-            zi4.g().e(yi4Var);
-            return v32.f();
-        }
-        return (v32) invokeLLL.objValue;
-    }
-
-    public v32 C(String str) {
+    public static int F(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#takeCoupons", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return new v32(1001, "SwanApp is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
+            int R = R(jSONObject.optString("time")) / 1000;
+            if (R < 1) {
+                return 2;
             }
-            A("coupons_take", b0);
-            if (!b02.y(getContext())) {
-                return new v32(10007, "is not baidu account");
-            }
-            if (!b0.N().e(getContext())) {
-                return new v32(10004, "user not logged in");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((v32) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("promotionId");
-                if (TextUtils.isEmpty(optString)) {
-                    return new v32(202, "couponAppKey is invalid");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new v32(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", vb3.g0());
-                builder.add("promotionId", optString);
-                return B("takeCoupons", builder, optString2);
-            }
-            return new v32(202);
+            return R;
         }
-        return (v32) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public v32 z(String str) {
+    public static ExifInterface G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            q("#getUserCoupons", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return new v32(1001, "SwanApp is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            A("coupons_user", b0);
-            if (!b02.y(getContext())) {
-                return new v32(10007, "is not baidu account");
+            try {
+                return new ExifInterface(str);
+            } catch (Exception unused) {
+                return null;
             }
-            if (!b0.N().e(getContext())) {
-                return new v32(10004, "user not logged in");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((v32) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("couponAppKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new v32(202, "couponAppKey is invalid");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new v32(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", vb3.g0());
-                builder.add("couponAppKey", optString);
-                return B("getUserCoupons", builder, optString2);
-            }
-            return new v32(202);
         }
-        return (v32) invokeL.objValue;
+        return (ExifInterface) invokeL.objValue;
     }
 
-    public v32 x(String str) {
+    public static int R(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#getPlatformCoupons", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return new v32(202, "SwanApp is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            A("coupons_appkey", b0);
-            if (!b02.y(getContext())) {
-                return new v32(10007, "is not baidu account");
+            try {
+                return (int) Float.parseFloat(str);
+            } catch (NumberFormatException unused) {
+                return -1;
             }
-            Pair<v32, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((v32) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("couponAppKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new v32(202, "couponAppKey is invalid");
-                }
-                boolean optBoolean = jSONObject.optBoolean("withUserCoupons", false);
-                if (optBoolean) {
-                    A("coupons_appkey_user", b0);
-                    if (!b0.N().e(getContext())) {
-                        return new v32(10004, "user not logged in");
+        }
+        return invokeL.intValue;
+    }
+
+    public static String H(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
+            return I(str, i, false);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x004a, code lost:
+        r0.append("...");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String I(String str, int i, boolean z) {
+        InterceptResult invokeCommon;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            char[] charArray = str.trim().toCharArray();
+            if (z) {
+                i2 = i;
+            } else {
+                i2 = i - 2;
+            }
+            if (z) {
+                i3 = i;
+            } else {
+                i3 = i - 1;
+            }
+            int length = charArray.length;
+            int i5 = 0;
+            int i6 = 0;
+            while (true) {
+                if (i5 < length) {
+                    char c2 = charArray[i5];
+                    if (c2 > 161) {
+                        i4 = 2;
+                    } else {
+                        i4 = 1;
                     }
+                    int i7 = i4 + i6;
+                    if (i7 == i && i5 == length - 1) {
+                        stringBuffer.append(c2);
+                        break;
+                    } else if ((i4 != 2 || i6 < i2) && (i4 != 1 || i6 < i3)) {
+                        stringBuffer.append(c2);
+                        i5++;
+                        i6 = i7;
+                    }
+                } else {
+                    break;
                 }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new v32(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", vb3.g0());
-                builder.add("couponAppKey", optString);
-                builder.add("withUserCoupons", String.valueOf(optBoolean));
-                return B("getPlatformCoupons", builder, optString2);
             }
-            return new v32(202);
+            return stringBuffer.toString();
         }
-        return (v32) invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public final String y(String str) {
+    public static Drawable L(Context context, String str, ya3 ya3Var) {
+        InterceptResult invokeLLL;
+        ExifInterface G;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, ya3Var)) == null) {
+            if (TextUtils.isEmpty(str) || ya3Var == null || context == null || (G = G(str)) == null) {
+                return null;
+            }
+            Integer.valueOf(G.getAttribute(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_WIDTH)).intValue();
+            Integer.valueOf(G.getAttribute(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_LENGTH)).intValue();
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            if (file.isFile()) {
+                try {
+                } catch (FileNotFoundException unused) {
+                    return null;
+                }
+            }
+            return new BitmapDrawable(context.getResources(), BitmapFactory.decodeStream(new FileInputStream(file)));
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public y22 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#hideToast", false);
+            if (ya3.b0() == null) {
+                return new y22(1001, "swan app is null");
+            }
+            so3.e0(new e(this));
+            return y22.f();
+        }
+        return (y22) invokeV.objValue;
+    }
+
+    public final void M(Context context, @NonNull String str, int i, @NonNull String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, Integer.valueOf(i), str2, str3}) == null) {
+            qa3 e2 = qa3.e(context);
+            e2.r(str);
+            e2.k(str2);
+            e2.l(i);
+            e2.u(new f(this, str3));
+            e2.w();
+        }
+    }
+
+    public final void N(Context context, @NonNull String str, int i, Drawable drawable, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), drawable, Boolean.valueOf(z)}) == null) {
+            qa3 g = qa3.g(context, H(str, 14));
+            g.n(drawable);
+            g.l(i);
+            g.s(z);
+            g.B();
+        }
+    }
+
+    public final void O(Context context, @NonNull String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            qa3 g = qa3.g(context, H(str, 14));
+            g.l(i);
+            g.s(z);
+            g.z();
+        }
+    }
+
+    public final void P(Context context, @NonNull String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            qa3 g = qa3.g(context, str);
+            g.l(i);
+            g.s(z);
+            g.q(2);
+            g.G();
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00dc, code lost:
+        if (r2.equals("1") != false) goto L35;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public y22 Q(String str) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1741243770) {
-                if (hashCode != 15750540) {
-                    if (hashCode == 1991726820 && str.equals("getPlatformCoupons")) {
-                        c = 0;
+            char c2 = 0;
+            q("#showToast", false);
+            if (n()) {
+                y72.c("ToastApi", "ToastApi does not supported when app is invisible.");
+                return new y22(1001, "ToastApi does not supported when app is invisible.");
+            }
+            ya3 b0 = ya3.b0();
+            if (b0 == null) {
+                return new y22(1001, "swan app is null");
+            }
+            Pair<y22, JSONObject> s = s(str);
+            y22 y22Var = (y22) s.first;
+            if (!y22Var.isSuccess()) {
+                return y22Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("type", "1");
+            int F = F(jSONObject);
+            String optString2 = jSONObject.optString("message");
+            if (TextUtils.isEmpty(optString2)) {
+                y72.c("ToastApi", "message is null");
+                return new y22(202, "message is null");
+            }
+            boolean optBoolean = jSONObject.optBoolean("mask");
+            String optString3 = jSONObject.optString("image", "-1");
+            if (!TextUtils.equals(optString3, "-1") && !optString3.startsWith(so3.x(b0).getPath())) {
+                optString3 = so3.w(b0, optString3);
+            }
+            Drawable L = L(getContext(), optString3, b0);
+            if (!TextUtils.equals(optString3, "-1") && L == null && TextUtils.equals(optString, "2")) {
+                optString = "1";
+            }
+            String optString4 = jSONObject.optString("cb");
+            String optString5 = jSONObject.optString("buttonText");
+            switch (optString.hashCode()) {
+                case 49:
+                    break;
+                case 50:
+                    if (optString.equals("2")) {
+                        c2 = 1;
+                        break;
                     }
-                    c = 65535;
+                    c2 = 65535;
+                    break;
+                case 51:
+                    if (optString.equals("3")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 52:
+                    if (optString.equals("4")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 != 3) {
+                            J();
+                            return new y22(302, "the toast type is unknown");
+                        }
+                        so3.e0(new d(this, optString2, F, optString5, optString4));
+                    } else {
+                        so3.e0(new c(this, optString2, F, optBoolean));
+                    }
                 } else {
-                    if (str.equals("getUserCoupons")) {
-                        c = 1;
-                    }
-                    c = 65535;
+                    so3.e0(new b(this, optString2, F, L, optBoolean));
                 }
             } else {
-                if (str.equals("takeCoupons")) {
-                    c = 2;
-                }
-                c = 65535;
+                so3.e0(new a(this, optString2, F, optBoolean));
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return null;
-                    }
-                    return cv2.o().j();
-                }
-                return cv2.o().f();
-            }
-            return cv2.o().K();
+            return y22.f();
         }
-        return (String) invokeL.objValue;
+        return (y22) invokeL.objValue;
     }
 }

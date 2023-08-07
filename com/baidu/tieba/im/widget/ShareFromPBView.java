@@ -82,7 +82,7 @@ public final class ShareFromPBView extends LinearLayout {
             this.a.setText(this.d.getTitle());
             this.b.setPlaceHolder(1);
             this.b.setAutoChangeStyle(false);
-            this.b.N(this.d.getImageUrl(), 10, false);
+            this.b.startLoad(this.d.getImageUrl(), 10, false);
             this.c.setText(this.d.getContent());
         }
     }

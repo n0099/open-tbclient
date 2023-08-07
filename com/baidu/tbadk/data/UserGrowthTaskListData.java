@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +63,7 @@ public class UserGrowthTaskListData implements Serializable {
         public String platTaskToken;
         @SerializedName("scene_callback")
         public String sceneCallback;
-        @SerializedName(MemberPayActivityConfig.SCENE_ID)
+        @SerializedName("scene_id")
         public int sceneId;
         @SerializedName("scene_task_key")
         public String sceneTaskKey;

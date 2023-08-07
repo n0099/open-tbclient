@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.el7;
+import com.baidu.tieba.mi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes5.dex */
-public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessage<el7, StarTrendsResIdl> {
+public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessage<mi7, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public el7 responseData;
+    public mi7 responseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDynamicHttpResponseMessage() {
@@ -51,9 +51,9 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            el7 el7Var = new el7();
-            this.responseData = el7Var;
-            StarTrendsResIdl a = el7Var.a(bArr);
+            mi7 mi7Var = new mi7();
+            this.responseData = mi7Var;
+            StarTrendsResIdl a = mi7Var.a(bArr);
             if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {

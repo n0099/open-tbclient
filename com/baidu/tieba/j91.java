@@ -1,135 +1,130 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.nadcore.webarch.feature.NadWebFeature;
+import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.view.Window;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class j91 extends NadWebFeature {
-    public static /* synthetic */ Interceptable $ic;
+public class j91 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Activity, i91> b;
 
-    @Override // com.baidu.nadcore.webarch.feature.NadWebFeature
-    public String b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947838023, "Lcom/baidu/tieba/j91;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947838023, "Lcom/baidu/tieba/j91;");
+        }
+    }
+
+    public static double a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return 1.0d - ((((Color.red(i) * 0.299d) + (Color.green(i) * 0.587d)) + (Color.blue(i) * 0.114d)) / 255.0d);
+        }
+        return invokeI.doubleValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a(i) >= 0.3d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BdSailorConfig.SAILOR_BASE_UPLOAD : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j91(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new HashMap();
-    }
-
-    public i91 d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            Map<Activity, i91> map = this.b;
-            if (map != null) {
-                return map.get(activity);
-            }
-            return null;
-        }
-        return (i91) invokeL.objValue;
-    }
-
-    public i91 e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            i91 d = d(activity);
-            if (d == null) {
-                i91 i91Var = new i91(activity);
-                this.b.put(activity, i91Var);
-                return i91Var;
-            }
-            return d;
-        }
-        return (i91) invokeL.objValue;
-    }
-
-    public void f(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            i91 d = d(activity);
-            if (activity != null && d != null) {
-                this.b.remove(activity);
-                if (!d.o()) {
-                    d.p(-1, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int i = a;
+            if (i >= 0) {
+                if (i != 1) {
+                    return false;
                 }
+                return true;
             }
+            if ("Xiaomi".equals(hk0.c().g(true))) {
+                a = 1;
+            }
+            if (a != 1) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void g(Activity activity, int i, Intent intent) {
-        i91 d;
+    @TargetApi(21)
+    public static void d(Window window, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, activity, i, intent) == null) && (d = d(activity)) != null) {
-            d.p(i, intent);
-            this.b.remove(activity);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0014  */
-    @RequiresApi(api = 21)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean h(Activity activity, @NonNull ValueCallback<Uri[]> valueCallback, h91 h91Var) {
-        InterceptResult invokeLLL;
-        boolean z;
-        Map<Activity, i91> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, valueCallback, h91Var)) == null) {
-            if (activity != null) {
-                i91 e = e(activity);
-                if (h91Var != null) {
-                    z = e.q(valueCallback, h91Var);
-                    if (!z) {
-                        valueCallback.onReceiveValue(null);
-                        if (activity != null && (map = this.b) != null) {
-                            map.remove(activity);
-                        }
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i) == null) && window != null) {
+            try {
+                if (c()) {
+                    if (e(window, !b(i))) {
+                        window.setStatusBarColor(i);
                     }
-                    return z;
+                } else {
+                    if (i == -16777216 && window.getNavigationBarColor() == -16777216) {
+                        window.clearFlags(Integer.MIN_VALUE);
+                    } else {
+                        window.addFlags(Integer.MIN_VALUE);
+                        int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+                        if (b(i)) {
+                            i2 = systemUiVisibility & (-8193);
+                        } else {
+                            i2 = systemUiVisibility | 8192;
+                        }
+                        window.getDecorView().setSystemUiVisibility(i2);
+                    }
+                    window.setStatusBarColor(i);
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static boolean e(Window window, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, window, z)) == null) {
+            if (window != null) {
+                Class<?> cls = window.getClass();
+                try {
+                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                    int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                    if (z) {
+                        method.invoke(window, Integer.valueOf(i), Integer.valueOf(i));
+                    } else {
+                        method.invoke(window, 0, Integer.valueOf(i));
+                    }
+                    return true;
+                } catch (Exception unused) {
                 }
             }
-            z = false;
-            if (!z) {
-            }
-            return z;
+            return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 }

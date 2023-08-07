@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public abstract class lv3 {
+public class lv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
+    public Method a;
+    public Object b;
 
-    public abstract void e(IOException iOException);
-
-    public abstract void f(int i);
-
-    public abstract void h(byte[] bArr);
-
-    public lv3() {
+    public lv3(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,75 +31,64 @@ public abstract class lv3 {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (cls == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        try {
+            this.b = cf4.m(cls);
+            Method i3 = cf4.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
     }
 
-    public boolean c() {
+    public static lv3 a(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = cf4.b("com.hisi.perfhub.PerfHub", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new lv3(cls);
+        }
+        return (lv3) invokeL.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && this.a != null) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void a(String str) {
+    public int c(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = 0;
-            uu3.b().a(str, this);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            String str = new String(bArr);
-            if (ru3.a) {
-                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (!b()) {
+                return -1;
             }
-            if (this.a) {
-                fv3 c = vu3.f().c(xu3.l().m(), bArr);
-                if (c != null) {
-                    if (!TextUtils.isEmpty(c.a())) {
-                        str = c.a();
-                    }
-                    this.b = c.b().intValue();
-                } else {
-                    this.b = -1;
+            try {
+                Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
+                if (invoke == null) {
+                    return -1;
                 }
-                xu3.l().m().s(this.b);
-                if (this.b == -1) {
-                    uu3.b().f(false);
-                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
             }
-            return str;
         }
-        return (String) invokeL.objValue;
+        return invokeILL.intValue;
     }
 }

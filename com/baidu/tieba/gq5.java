@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public interface gq5 extends ro5 {
-    public static final String a = "com.baidu.tieba.gq5";
+public interface gq5 extends eq5 {
+    boolean initByString(String str);
 
-    @NonNull
-    fq5 b(@NonNull TbPageContext tbPageContext);
+    String toCacheString();
 }

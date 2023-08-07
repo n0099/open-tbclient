@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class un4 {
+public class un4 extends gm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile un4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public un4() {
@@ -28,46 +25,11 @@ public class un4 {
         }
     }
 
-    public static un4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gm4, com.baidu.tieba.jm4
+    public void a(JSONArray jSONArray, ti4 ti4Var, @Nullable ti4 ti4Var2, @Nullable ti4 ti4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (un4.class) {
-                    if (a == null) {
-                        a = new un4();
-                    }
-                }
-            }
-            return a;
-        }
-        return (un4) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (gj4.b() == null) {
-                return "0";
-            }
-            return gj4.b().i().getString("local_debug_version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && gj4.b() != null) {
-            gj4.b().i().putString("local_debug_version", optString);
-            gj4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
-            gj4.b().i().putString("error_url", optJSONObject.optString("error_url"));
-            gj4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, ti4Var, ti4Var2, ti4Var3) == null) {
+            rn4.a().c(jSONArray, ti4Var, ti4Var2, ti4Var3);
         }
     }
 }

@@ -1,64 +1,47 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.bca;
-import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.comm.adevent.AdEventType;
 /* loaded from: classes6.dex */
-public class hk5 {
+public class hk5 implements ik5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk5 a;
+    public View a;
+    public ImageView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
 
-    /* loaded from: classes6.dex */
-    public class a extends wy5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fk5 a;
-
-        public a(hk5 hk5Var, fk5 fk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk5Var, fk5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fk5Var;
-        }
-
-        @Override // com.baidu.tieba.wy5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(fe8.w().j(this.a.a().a));
-            }
-            return invokeV.objValue;
+    @Override // com.baidu.tieba.ik5
+    public void onClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public hk5(fk5 fk5Var) {
+    public hk5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fk5Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,114 +51,38 @@ public class hk5 {
                 return;
             }
         }
-        this.a = fk5Var;
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.d = (TextView) this.a.findViewById(R.id.floating_view_title);
+        this.c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
+        this.e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
+        this.d.setText(R.string.frs_forum_rule_return_info);
+        b();
     }
 
-    public void d(bca.h hVar) {
+    @Override // com.baidu.tieba.ik5
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
-            return;
-        }
-        fk5 fk5Var = this.a;
-        if (fk5Var != null && fk5Var.a() != null) {
-            bca.n(this.a.a().a, hVar);
-        } else {
-            hVar.a(null);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(AdEventType.VIDEO_LOADING).tlRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
         }
     }
 
-    public void e(String str) {
-        fk5 fk5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (fk5Var = this.a) != null && fk5Var.a() != null) {
-            bca.x(this.a.a().a, str);
-        }
-    }
-
-    public final ChatMessage a(String str, long j) {
-        InterceptResult invokeLJ;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            ChatMessage b = b();
-            if (b == null) {
-                return null;
-            }
-            b.setCustomGroupType(2);
-            b.setMsgType(1);
-            b.setContent(str);
-            long b2 = bh8.b(j);
-            b.setMsgId(b2);
-            b.setRecordId(b2);
-            b.setTime(System.currentTimeMillis() / 1000);
-            UserData userData = new UserData();
-            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
-            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
-            userData.setName_show(TbadkCoreApplication.getCurrentAccountNameShow());
-            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
-            b.setUserInfo(userData);
-            try {
-                j2 = wg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-            } catch (Exception unused) {
-                j2 = 0;
-            }
-            b.setUserId(j2);
-            MsgLocalData msgLocalData = new MsgLocalData();
-            msgLocalData.setStatus((short) 1);
-            msgLocalData.setErrno(0L);
-            msgLocalData.setRetry(0L);
-            msgLocalData.setUpload_offset(null);
-            b.setLocalData(msgLocalData);
-            return b;
-        }
-        return (ChatMessage) invokeLJ.objValue;
-    }
-
-    public ChatMessage b() {
+    @Override // com.baidu.tieba.ik5
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fk5 fk5Var = this.a;
-            if (fk5Var != null && fk5Var.a() != null) {
-                PersonalChatMessage personalChatMessage = new PersonalChatMessage();
-                personalChatMessage.setBornTime(System.currentTimeMillis());
-                personalChatMessage.setToUserId(Long.parseLong(this.a.a().a));
-                UserData userData = new UserData();
-                userData.setUserId(this.a.a().a);
-                userData.setPortrait(this.a.a().c);
-                userData.setName_show(this.a.a().b);
-                personalChatMessage.setToUserInfo(userData);
-                personalChatMessage.setIsFriend(this.a.a().j ? 1 : 0);
-                return personalChatMessage;
+            View view2 = this.a;
+            if (view2 != null) {
+                return view2;
             }
-            return null;
+            return LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
         }
-        return (ChatMessage) invokeV.objValue;
-    }
-
-    public /* synthetic */ void c(String str, Object obj) {
-        if (obj instanceof Long) {
-            lf8.k().t(a(str, ((Long) obj).longValue()));
-            e("");
-        }
-    }
-
-    public void f(fk5 fk5Var, final String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, fk5Var, str) == null) {
-            this.a = fk5Var;
-            az5.c(new a(this, fk5Var), new ay5() { // from class: com.baidu.tieba.gk5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ay5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        hk5.this.c(str, obj);
-                    }
-                }
-            });
-        }
+        return (View) invokeV.objValue;
     }
 }

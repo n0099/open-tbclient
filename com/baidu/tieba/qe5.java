@@ -1,20 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qe5 extends j25 {
+public final class qe5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
+    @Inject(force = false)
+    public final gk1<re5> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ek1 b = ek1.b();
+            this.a = b;
+            b.a(new se5());
+        }
+    }
 
     public qe5() {
         Interceptable interceptable = $ic;
@@ -29,50 +38,20 @@ public class qe5 extends j25 {
                 return;
             }
         }
-        this.a = Long.MAX_VALUE;
-        this.b = 0L;
-        this.c = null;
+        a();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void b(JSONObject json) {
+        List<re5> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.j25
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optLong("start_time", Long.MAX_VALUE);
-            this.b = jSONObject.optLong("end_time", 0L);
-            this.c = jSONObject.optString("dest_url", "");
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            gk1<re5> gk1Var = this.a;
+            if (gk1Var != null && (list = gk1Var.getList()) != null) {
+                for (re5 re5Var : list) {
+                    re5Var.parseJson(json);
+                }
+            }
         }
     }
 }

@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vx2 implements zk1 {
+public class vx2 implements x03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
     public vx2() {
         Interceptable interceptable = $ic;
@@ -21,20 +27,46 @@ public class vx2 implements zk1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = Integer.MIN_VALUE;
+        this.b = Integer.MIN_VALUE;
+        this.c = -1;
+        this.d = -1;
     }
 
-    @Override // com.baidu.tieba.zk1
-    public Object get() {
+    @Override // com.baidu.tieba.x03
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new mk2());
-            arrayList.add(new ok2());
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != Integer.MIN_VALUE && this.b != Integer.MIN_VALUE) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x03
+    public void a(JSONObject jSONObject) throws JSONException {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
+            this.a = po3.g(jSONObject.optInt("left"));
+            this.b = po3.g(jSONObject.optInt("top"));
+            int i2 = -1;
+            if (jSONObject.has("width")) {
+                i = Math.abs(po3.g(jSONObject.optInt("width")));
+            } else {
+                i = -1;
+            }
+            this.c = i;
+            if (jSONObject.has("height")) {
+                i2 = Math.abs(po3.g(jSONObject.optInt("height")));
+            }
+            this.d = i2;
+        }
     }
 }

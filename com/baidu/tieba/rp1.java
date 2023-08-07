@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,14 +10,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class rp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public final byte[] a;
+    public final byte[] b;
 
-    public rp1(Context context) {
+    public rp1(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bArr, bArr2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,21 +28,25 @@ public class rp1 {
                 return;
             }
         }
-        try {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
-            this.a = sharedPreferences;
-            sharedPreferences.edit();
-        } catch (Throwable th) {
-            er1.d(th);
-        }
+        this.a = bArr;
+        this.b = bArr2;
     }
 
-    public String a() {
+    public byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("xyus", "");
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    public byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

@@ -1,81 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.FileReader;
+@TargetApi(21)
 /* loaded from: classes7.dex */
 public class sh {
     public static /* synthetic */ Interceptable $ic;
-    public static sh b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448316920, "Lcom/baidu/tieba/sh;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448316920, "Lcom/baidu/tieba/sh;");
-        }
-    }
-
-    public sh() {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return Process.is64Bit();
             }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr == null || strArr.length <= 0 || (str = Build.CPU_ABI) == null) {
+                return false;
+            }
+            return str.equals(strArr[0]);
         }
-        this.a = 0L;
+        return invokeV.booleanValue;
     }
 
-    public static sh b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (sh.class) {
-                    if (b == null) {
-                        b = new sh();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (Build.VERSION.SDK_INT >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr == null) {
+                    return false;
+                }
+                for (String str : strArr) {
+                    if ("arm64-v8a".equals(str)) {
+                        return true;
                     }
                 }
+                return false;
             }
-            return b;
-        }
-        return (sh) invokeV.objValue;
-    }
-
-    public synchronized long a() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a > 0) {
-                    this.a++;
-                } else {
-                    this.a = System.currentTimeMillis();
-                }
-                j = this.a;
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(com.kuaishou.weapon.p0.k1.a));
+                z = bufferedReader.readLine().contains("aarch64");
+                bufferedReader.close();
+                return z;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return z;
             }
-            return j;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 }

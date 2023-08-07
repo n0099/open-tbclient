@@ -1,46 +1,185 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gh1 {
+public final class gh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static long c;
+    public static gh1 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager == null) {
-                    return null;
-                }
-                return connectivityManager.getActiveNetworkInfo();
-            } catch (SecurityException unused) {
-                return null;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947793817, "Lcom/baidu/tieba/gh1;")) == null) {
+            return;
         }
-        return (NetworkInfo) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947793817, "Lcom/baidu/tieba/gh1;");
+        }
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo a = a(context);
-            if (a != null && a.isConnectedOrConnecting()) {
-                return true;
+    /* loaded from: classes6.dex */
+    public class a extends fg1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ji1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ gh1 c;
+
+        public a(gh1 gh1Var, ji1 ji1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gh1Var, ji1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.c = gh1Var;
+            this.a = ji1Var;
+            this.b = str;
         }
-        return invokeL.booleanValue;
+
+        @Override // com.baidu.tieba.fg1
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, th, str) != null) || this.c.b) {
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (jg1.b(bi1.a()) && currentTimeMillis - gh1.c <= 3000) {
+                if (this.c.a) {
+                    this.a.onResult(1, "");
+                }
+                this.c.i(this.b, this.a);
+            } else {
+                this.a.onResult(3, "支付失败，请重试");
+            }
+            this.c.a = false;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fg1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || this.c.b) {
+                return;
+            }
+            int optInt = jSONObject.optInt("status", -1);
+            int optInt2 = jSONObject.optInt("payStatus", -1);
+            if (optInt == 1 && optInt2 == 0) {
+                this.a.onResult(3, "支付失败，请重试");
+                return;
+            }
+            if (optInt != 2 && (optInt != 1 || optInt2 != 2)) {
+                if (optInt == 1 && optInt2 == 3) {
+                    this.a.onResult(3, "支付失败，请重试");
+                } else if (System.currentTimeMillis() - gh1.c <= 3000) {
+                    if (this.c.a) {
+                        this.a.onResult(1, "");
+                    }
+                    this.c.i(this.b, this.a);
+                } else {
+                    this.a.onResult(6, "支付结果查询失败，请重试");
+                }
+            } else {
+                this.a.onResult(0, "小额免密支付成功");
+            }
+            this.c.a = false;
+        }
+    }
+
+    public gh1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+        this.b = false;
+    }
+
+    public static gh1 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (d == null) {
+                synchronized (gh1.class) {
+                    if (d == null) {
+                        d = new gh1();
+                    }
+                }
+            }
+            return d;
+        }
+        return (gh1) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void g(String str, ji1 ji1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ji1Var) == null) {
+            this.b = false;
+            this.a = true;
+            c = System.currentTimeMillis();
+            i(str, ji1Var);
+        }
+    }
+
+    public final void i(String str, ji1 ji1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, ji1Var) == null) {
+            String[] split = str.split("&");
+            gg1 gg1Var = new gg1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        gg1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        gg1Var.d(split2[0], split2[1]);
+                    }
+                }
+            }
+            gg1Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
+            ng1.j().g(pg1.e(), gg1Var, new a(this, ji1Var, str));
+        }
     }
 }

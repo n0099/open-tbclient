@@ -1,213 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.ku3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class mu3 {
+public class mu3<T> extends ou3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public bk4.c f;
+    public String g;
+    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947985118, "Lcom/baidu/tieba/mu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947985118, "Lcom/baidu/tieba/mu3;");
+    @Override // com.baidu.tieba.ou3
+    public void e(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ou3
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        }
+    }
+
+    public mu3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 
-    @Nullable
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes("utf-8")), 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                f(jSONObject.toString());
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void b(ku3 ku3Var, lu3 lu3Var) {
-        String str;
-        char c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, ku3Var, lu3Var) == null) && ku3Var != null && lu3Var != null) {
-            if (TextUtils.isEmpty(lu3Var.a)) {
-                str = "unknown";
-            } else {
-                str = lu3Var.a;
-            }
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1395470197:
-                    if (str.equals("bd09ll")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3017163:
-                    if (str.equals("bd09")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 98175376:
-                    if (str.equals("gcj02")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 113079775:
-                    if (str.equals("wgs84")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            i = -1;
-                        } else {
-                            i = 3;
-                        }
-                    } else {
-                        i = 2;
-                    }
-                } else {
-                    i = 1;
-                }
-            }
-            ku3.c cVar = ku3Var.c;
-            cVar.a = i;
-            cVar.b = lu3Var.b;
-            cVar.c = lu3Var.c;
-        }
-    }
-
-    public static int c() {
+    @Override // com.baidu.tieba.ou3
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String e = SwanAppNetworkUtils.e();
-            if ("wifi".equals(e)) {
-                return 1;
-            }
-            if ("2g".equals(e)) {
-                return 2;
-            }
-            if ("3g".equals(e)) {
-                return 3;
-            }
-            if ("4g".equals(e)) {
-                return 4;
-            }
-            if ("5g".equals(e)) {
-                return 5;
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
-                if ("46001".equals(simOperator)) {
-                    return 3;
-                }
-                if (!"46003".equals(simOperator)) {
-                    return 0;
-                }
-                return 2;
-            }
-            return 1;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            k(this.d, this.e, this.f);
         }
-        return invokeL.intValue;
     }
 
-    public static void f(String str) {
+    @Override // com.baidu.tieba.ou3
+    public void h(byte[] bArr) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                if (!TextUtils.equals(b(), "GET")) {
+                    str = "Bdtls";
+                } else {
+                    str = Base64.encodeToString(bArr, 2);
+                }
+                hashMap.put("Bdtls", str);
+            } else {
+                hashMap.put("Bdtls-Downgrade", "1");
+            }
+            this.f.a(hashMap, bArr, this.d);
+        }
+    }
+
+    public void k(String str, String str2, bk4.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, cVar) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (a) {
-            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
+        this.d = str;
+        this.e = str2;
+        this.f = cVar;
+        if (str2 == null) {
+            this.g = "GET";
+        } else {
+            this.g = "POST";
         }
-        di3.b bVar = new di3.b(10003);
-        bVar.i(str);
-        bVar.h(vb3.g0());
-        bVar.m();
-    }
-
-    public static boolean e(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if ((context.getResources().getConfiguration().screenLayout & 15) >= 3) {
-                return true;
-            }
-            return false;
+        if (ut3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
         }
-        return invokeL.booleanValue;
+        a(this.e);
     }
 }

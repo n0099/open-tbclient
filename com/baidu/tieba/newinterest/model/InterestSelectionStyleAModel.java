@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc9;
+import com.baidu.tieba.da9;
+import com.baidu.tieba.ma9;
 import com.baidu.tieba.newinterest.model.msg.GetInterestClassListResponseMessage;
-import com.baidu.tieba.pc9;
-import com.baidu.tieba.xc9;
+import com.baidu.tieba.ua9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ import java.util.List;
 public class InterestSelectionStyleAModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gc9 a;
-    public List<pc9> b;
-    public xc9 c;
+    public da9 a;
+    public List<ma9> b;
+    public ua9 c;
     public HttpMessageListener d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -94,7 +94,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                             this.a.c.a(this.a.b);
                         }
                     } else if (this.a.c != null) {
-                        this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e1f));
+                        this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e21));
                     }
                 } else if (this.a.c != null) {
                     this.a.c.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
@@ -103,12 +103,12 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
     }
 
-    public InterestSelectionStyleAModel(gc9 gc9Var, xc9 xc9Var) {
+    public InterestSelectionStyleAModel(da9 da9Var, ua9 ua9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gc9Var, xc9Var};
+            Object[] objArr = {da9Var, ua9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,14 +120,14 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
         this.b = new ArrayList();
         this.d = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.c = xc9Var;
-        this.a = gc9Var;
-        Z();
+        this.c = ua9Var;
+        this.a = da9Var;
+        R();
         registerListener();
-        a0();
+        S();
     }
 
-    public final HttpMessage Y() {
+    public final HttpMessage Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -136,14 +136,14 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         return (HttpMessage) invokeV.objValue;
     }
 
-    public void a0() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sendMessage(Y());
+            sendMessage(Q());
         }
     }
 
-    public final void b0() {
+    public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST);
@@ -154,7 +154,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b0();
+            T();
         }
     }
 
@@ -165,7 +165,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
     }
 
-    public final void Z() {
+    public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, TbConfig.SERVER_ADDRESS + "c/f/forum/getInterestClassList");

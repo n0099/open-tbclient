@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import android.view.MotionEvent;
 /* loaded from: classes5.dex */
-public interface av0 extends wu0, yu0 {
-    public static final a a = rc1.a;
+public interface av0 {
+    void onBeforeSwitchToFull();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        av0 a(Context context, int i);
+    void onBeforeSwitchToHalf();
 
-        av0 b(Context context, int i, @Nullable bv0 bv0Var);
-    }
+    void onGestureActionEnd();
 
-    void a(xu0 xu0Var);
+    void onGestureActionStart();
 
-    void attachToContainer(@NonNull ViewGroup viewGroup);
+    boolean onGestureDoubleClick(MotionEvent motionEvent);
 
-    void c(@NonNull ms0 ms0Var);
+    void onPanelVisibilityChanged(boolean z);
 
-    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+    void onVideoSwitchToFull();
 
-    void release();
+    void onVideoSwitchToHalf();
 }

@@ -1,21 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class t86 implements CustomMessageTask.CustomRunnable<String> {
+public class t86 extends vx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.tx3.b
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public t86() {
         Interceptable interceptable = $ic;
@@ -29,30 +36,5 @@ public class t86 implements CustomMessageTask.CustomRunnable<String> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof GetContactListRequestMessage)) {
-                List<kg5> e = w86.f().e();
-                if (e != null) {
-                    Iterator<kg5> it = e.iterator();
-                    while (it.hasNext()) {
-                        kg5 next = it.next();
-                        if ((xi.isEmpty(next.e()) && xi.isEmpty(next.f())) || next.h() == 1) {
-                            it.remove();
-                        }
-                    }
-                }
-                GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-                getContactListResponsedMessage.setContacts(e);
-                return getContactListResponsedMessage;
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

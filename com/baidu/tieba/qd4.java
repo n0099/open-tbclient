@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 /* loaded from: classes7.dex */
-public final class qd4 extends Thread {
+public class qd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wd4 a;
-    public volatile boolean b;
+    @V8JavascriptField
+    public String uuap_p_token;
+    @V8JavascriptField
+    public String uuap_p_token_offline;
+    @V8JavascriptField
+    public String uuap_s_token;
 
-    @SuppressLint({"MobilebdThread"})
     public qd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,57 +26,6 @@ public final class qd4 extends Thread {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void c(wd4 wd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wd4Var) == null) {
-            this.a = wd4Var;
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        DatagramSocket C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.b) {
-                try {
-                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
-                    wd4 wd4Var = this.a;
-                    if (wd4Var != null && (C = wd4Var.C()) != null) {
-                        C.receive(datagramPacket);
-                    }
-                    wd4 wd4Var2 = this.a;
-                    if (wd4Var2 != null) {
-                        wd4Var2.z(datagramPacket);
-                    }
-                } catch (InterruptedException unused) {
-                    return;
-                } catch (Throwable unused2) {
-                    wd4 wd4Var3 = this.a;
-                    if (wd4Var3 != null) {
-                        wd4Var3.D(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
-                    }
-                }
             }
         }
     }

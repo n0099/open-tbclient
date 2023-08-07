@@ -3,14 +3,14 @@ package com.baidu.card.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hb5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,15 +89,15 @@ public class FollowForumDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.q(z);
             if (!z) {
-                hb5 hb5Var = new hb5();
+                x95 x95Var = new x95();
                 if (this.r) {
-                    hb5Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    hb5Var.i(R.color.CAM_X0304);
-                    hb5Var.h(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                    hb5Var.g(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+                    x95Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    x95Var.i(R.color.CAM_X0304);
+                    x95Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                    x95Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
                 }
-                hb5Var.u(R.color.CAM_X0304);
-                setConfig(hb5Var);
+                x95Var.u(R.color.CAM_X0304);
+                setConfig(x95Var);
             }
         }
     }

@@ -1,162 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.AsyncTask;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class ug3 {
+public class ug3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public sg3 b;
 
-    public abstract boolean f() throws Exception;
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug3 a;
-
-        public a(ug3 ug3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(JSONObject jSONObject, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
+            xg3.l(true, str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
+            if (optJSONObject == null) {
+                return;
             }
-            this.a = ug3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.f()) {
-                        this.a.d();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    this.a.e(e);
-                }
+            y72.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
+            xg3.n(str, optJSONObject.optInt("_SwanStartupStability_"));
+            xg3.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
+            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
+            if (optInt > 0) {
+                xg3.i(str, true);
+                xg3.j(str, optInt);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug3 a;
-
-        public b(ug3 ug3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ug3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b.l(this.a);
-            }
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            xg3.m(true, str);
         }
     }
 
-    public ug3() {
+    public static void c(JSONObject jSONObject, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, str) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public Exception b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        String optString = jSONObject.optString("performance_type");
+        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
+            a(jSONObject, str);
+        } else if (TextUtils.equals(optString, "stabilityProfile")) {
+            b(str);
         }
-        return (Exception) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e(null);
-        }
-    }
-
-    public ug3 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AsyncTask.execute(new a(this));
-            return this;
-        }
-        return (ug3) invokeV.objValue;
-    }
-
-    public void e(@Nullable Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            this.a = exc;
-            tg3.l(new b(this));
-        }
-    }
-
-    public ug3 h(sg3 sg3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sg3Var)) == null) {
-            this.b = sg3Var;
-            return this;
-        }
-        return (ug3) invokeL.objValue;
     }
 }

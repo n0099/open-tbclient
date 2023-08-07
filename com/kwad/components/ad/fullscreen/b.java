@@ -2,7 +2,7 @@ package com.kwad.components.ad.fullscreen;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;

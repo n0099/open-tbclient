@@ -1,311 +1,100 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.ala.AlaSharedPrefHelper;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ed6 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long f = 604800000;
+public class ed6 extends FragmentDelegate {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<yn> b;
-    public List<yn> c;
-    public List<yn> d;
-    public List<yn> e;
+    public AlaGameFrsLiveTabVideoFragment a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947730546, "Lcom/baidu/tieba/ed6;")) == null) {
-            return;
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public boolean isAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947730546, "Lcom/baidu/tieba/ed6;");
-        }
+        return invokeV.booleanValue;
     }
 
-    public ed6(TbPageContext tbPageContext) {
+    public ed6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
+        this.a = new AlaGameFrsLiveTabVideoFragment();
+        getFragmentTabStructure().frag = this.a;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            List<yn> list = this.c;
-            if (list != null) {
-                list.clear();
-            }
-            List<yn> list2 = this.d;
-            if (list2 != null) {
-                list2.clear();
-            }
-            List<yn> list3 = this.e;
-            if (list3 != null) {
-                list3.clear();
-            }
-            List<yn> list4 = this.b;
-            if (list4 != null) {
-                list4.clear();
-            }
-        }
-    }
-
-    public List<yn> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<yn> b(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaLiveTabMyConcernResponse)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (alaLiveTabMyConcernResponse == null) {
-                return arrayList;
-            }
-            if (alaLiveTabMyConcernResponse.followStatus != 1) {
-                if (!ListUtils.isEmpty(this.d) && k(alaLiveTabMyConcernResponse)) {
-                    arrayList.add(new ad6());
-                }
-                if (!ListUtils.isEmpty(this.d)) {
-                    me6 me6Var = new me6();
-                    me6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bbb, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
-                    arrayList.add(me6Var);
-                }
-                if (!ListUtils.isEmpty(this.d)) {
-                    for (yn ynVar : this.d) {
-                        arrayList.add(ynVar);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<yn> g(List<yn> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                int size = list.size();
-                for (int i = 0; i < size; i += 3) {
-                    cd6 cd6Var = new cd6();
-                    bc6 bc6Var = new bc6();
-                    bc6Var.d = (ThreadData) list.get(i);
-                    cd6Var.a = bc6Var;
-                    int i2 = i + 1;
-                    if (i2 < size) {
-                        bc6 bc6Var2 = new bc6();
-                        bc6Var2.d = (ThreadData) list.get(i2);
-                        cd6Var.b = bc6Var2;
-                    }
-                    int i3 = i + 2;
-                    if (i3 < size) {
-                        bc6 bc6Var3 = new bc6();
-                        bc6Var3.d = (ThreadData) list.get(i3);
-                        cd6Var.c = bc6Var3;
-                    }
-                    arrayList.add(cd6Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<yn> c(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, alaLiveTabMyConcernResponse, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (alaLiveTabMyConcernResponse == null) {
-                return arrayList;
-            }
-            if (alaLiveTabMyConcernResponse.followStatus != 1) {
-                me6 me6Var = new me6();
-                me6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bbc, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
-                arrayList.add(me6Var);
-            }
-            if (!ListUtils.isEmpty(this.c)) {
-                arrayList.addAll(f());
-            } else if (z) {
-                le6 le6Var = new le6();
-                le6Var.a = alaLiveTabMyConcernResponse.followStatus;
-                arrayList.add(le6Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public void e(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, alaLiveTabMyConcernResponse, z) != null) || alaLiveTabMyConcernResponse == null) {
-            return;
-        }
-        if (z) {
-            this.b.clear();
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-            this.c.addAll(alaLiveTabMyConcernResponse.followList);
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-            this.d.addAll(alaLiveTabMyConcernResponse.followCloseList);
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-            this.e.addAll(alaLiveTabMyConcernResponse.recommendList);
-        }
-        this.b = i(alaLiveTabMyConcernResponse, z);
-    }
-
-    public final List<yn> d() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public FragmentTabStructure createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.e)) {
-                me6 me6Var = new me6();
-                me6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bc0);
-                arrayList.add(me6Var);
-                arrayList.addAll(g(this.e));
-            }
-            return arrayList;
+            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+            fragmentTabStructure.type = 3;
+            fragmentTabStructure.textResId = R.string.ala_live;
+            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+            return fragmentTabStructure;
         }
-        return (List) invokeV.objValue;
+        return (FragmentTabStructure) invokeV.objValue;
     }
 
-    public final List<yn> f() {
-        InterceptResult invokeV;
+    public void a(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.c)) {
-                int size = this.c.size();
-                for (int i = 0; i < size; i += 2) {
-                    sc6 sc6Var = new sc6();
-                    bc6 bc6Var = new bc6();
-                    bc6Var.d = (ThreadData) this.c.get(i);
-                    bc6Var.f = true;
-                    sc6Var.a = bc6Var;
-                    int i2 = i + 1;
-                    if (i2 < size) {
-                        bc6 bc6Var2 = new bc6();
-                        bc6Var2.d = (ThreadData) this.c.get(i2);
-                        sc6Var.b = bc6Var2;
-                        bc6Var2.g = true;
-                    } else {
-                        bc6Var.f = false;
-                        bc6Var.h = true;
-                    }
-                    int i3 = size % 2;
-                    if ((i3 == 0 && i == size - 2) || (i3 != 0 && i == size - 1)) {
-                        sc6Var.c = true;
-                    }
-                    arrayList.add(sc6Var);
-                }
-            }
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
+            alaGameFrsLiveTabVideoFragment.K1(str);
         }
-        return (List) invokeV.objValue;
     }
 
-    public final List<yn> i(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        InterceptResult invokeLZ;
+    public void b(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveTabMyConcernResponse, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<yn> c = c(alaLiveTabMyConcernResponse, z);
-            if (!ListUtils.isEmpty(c)) {
-                arrayList.addAll(c);
-            }
-            List<yn> b = b(alaLiveTabMyConcernResponse);
-            if (!ListUtils.isEmpty(b)) {
-                arrayList.addAll(b);
-            }
-            List<yn> d = d();
-            if (!ListUtils.isEmpty(d)) {
-                arrayList.addAll(d);
-            }
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
+            alaGameFrsLiveTabVideoFragment.L1(str);
         }
-        return (List) invokeLZ.objValue;
     }
 
-    public void j(Class<? extends BaseCardInfo> cls) {
+    public void c(boolean z) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, cls) != null) || ListUtils.isEmpty(this.b)) {
-            return;
-        }
-        for (int size = this.b.size() - 1; size >= 0; size--) {
-            yn ynVar = (yn) ListUtils.getItem(this.b, size);
-            if (ynVar != null && ynVar.getClass().equals(cls)) {
-                this.b.remove(size);
-            }
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (alaGameFrsLiveTabVideoFragment = this.a) != null) {
+            alaGameFrsLiveTabVideoFragment.M1(z);
         }
     }
 
-    public final boolean k(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, alaLiveTabMyConcernResponse)) == null) {
-            if (alaLiveTabMyConcernResponse == null) {
-                return false;
-            }
-            if (System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L) > f) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (alaLiveTabMyConcernResponse.followStatus == 1 || dd6.a(this.a) || !z) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.mIndicator = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.mIndicator;
         }
-        return invokeL.booleanValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qy2 implements u13 {
+public class qy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<oy2> a;
-    public int b;
-    public int c;
-    public int d;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
     public int e;
 
     public qy2() {
@@ -33,58 +31,55 @@ public class qy2 implements u13 {
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
+        this.a = 3;
+        this.b = true;
+        this.d = "back";
+        this.e = 60;
     }
 
-    @Override // com.baidu.tieba.u13
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static qy2 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<oy2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u13
-    public void a(JSONObject jSONObject) throws JSONException {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    oy2 oy2Var = new oy2();
-                    oy2Var.a(optJSONObject);
-                    if (oy2Var.isValid()) {
-                        this.a.add(oy2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            qy2 qy2Var = new qy2();
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    int i = 0;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String optString = optJSONArray.optString(i2);
+                        char c = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -1367751899) {
+                            if (hashCode == 92896879 && optString.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER)) {
+                                c = 0;
+                            }
+                        } else if (optString.equals("camera")) {
+                            c = 1;
+                        }
+                        if (c != 0) {
+                            if (c == 1) {
+                                i |= 2;
+                            }
+                        } else {
+                            i |= 1;
+                        }
                     }
+                    qy2Var.a = i;
                 }
+                qy2Var.b = jSONObject.optBoolean("compressed", true);
+                int i3 = 60;
+                int optInt = jSONObject.optInt("maxDuration", 60);
+                if (optInt <= 60) {
+                    i3 = optInt;
+                }
+                qy2Var.e = i3;
+                qy2Var.d = jSONObject.optString("camera");
+                qy2Var.c = jSONObject.optString("cb");
             }
+            return qy2Var;
         }
-        ArrayList<oy2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(iy2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = iy2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = iy2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
-        }
+        return (qy2) invokeL.objValue;
     }
 }

@@ -4,13 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.google.android.exoplayer2.util.MimeTypes;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsKt;
@@ -38,7 +37,12 @@ public final class ListExtKt {
     }
 
     public static final int getPlayQualityScore() {
-        return CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960, null);
+        Integer devicePlayQualityScore;
+        IDuMediaService iDuMediaService = (IDuMediaService) ServiceManager.getService(IDuMediaService.Companion.getSERVICE_REFERENCE());
+        if (iDuMediaService != null && (devicePlayQualityScore = iDuMediaService.getDevicePlayQualityScore(RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960)) != null) {
+            return devicePlayQualityScore.intValue();
+        }
+        return 0;
     }
 
     public static final int getDisplayHeight(Context context) {

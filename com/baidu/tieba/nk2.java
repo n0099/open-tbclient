@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.pl2;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.tieba.xn4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,40 +16,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
 /* loaded from: classes7.dex */
-public class nk2 {
+public final class nk2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final int b;
-    public static final int c;
+    public static final String b;
+    public static final Map<String, pk2> c;
+    public static final nk2 d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static final class a implements xn4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ on4 c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ pl2.b e;
-        public final /* synthetic */ nk2 f;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Ref.ObjectRef b;
+        public final /* synthetic */ Function1 c;
 
-        public a(nk2 nk2Var, Set set, boolean z, on4 on4Var, long j, pl2.b bVar) {
+        public a(String str, Ref.ObjectRef objectRef, Function1 function1) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nk2Var, set, Boolean.valueOf(z), on4Var, Long.valueOf(j), bVar};
+                Object[] objArr = {str, objectRef, function1};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,108 +56,37 @@ public class nk2 {
                     return;
                 }
             }
-            this.f = nk2Var;
-            this.a = set;
-            this.b = z;
-            this.c = on4Var;
-            this.d = j;
-            this.e = bVar;
+            this.a = str;
+            this.b = objectRef;
+            this.c = function1;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
+        @Override // com.baidu.tieba.xn4.a
+        public final void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashSet hashSet = new HashSet();
-                Set set = this.a;
-                if (set != null) {
-                    hashSet.addAll(set);
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (nk2.a(nk2.d)) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.a);
                 }
-                Set<String> f = ru2.f();
-                hashSet.addAll(f);
-                v82.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f);
-                Set<String> b = kk2.b();
-                hashSet.addAll(b);
-                v82.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
-                Map<String, PMSAppInfo> v = sj4.i().v();
-                if (!hk2.c().d().n(v)) {
-                    v82.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
+                if (z) {
+                    nk2.d.A(this.a, ((ak4) this.b.element).i);
+                    nk2 nk2Var = nk2.d;
+                    String str = this.a;
+                    String str2 = ((ak4) this.b.element).j;
+                    Intrinsics.checkNotNullExpressionValue(str2, "soPkg.versionName");
+                    nk2Var.B(str, str2);
+                    nk2 nk2Var2 = nk2.d;
+                    String str3 = this.a;
+                    AbiType abiType = ((ak4) this.b.element).q;
+                    Intrinsics.checkNotNullExpressionValue(abiType, "soPkg.abi");
+                    nk2Var2.y(str3, abiType);
+                    nk2.d.z(this.a, true);
+                    this.c.invoke(null);
                     return;
                 }
-                if (nk2.a) {
-                    Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
-                }
-                ru2.d(hashSet, v);
-                Map m = this.f.m(86400000L, v);
-                if (m.isEmpty()) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList(m.keySet());
-                nk2.k(hashSet, arrayList);
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                nk2.l(arrayList, arrayList2, arrayList3);
-                ArrayList arrayList4 = new ArrayList();
-                if (this.b) {
-                    i = nk2.b;
-                } else {
-                    i = this.c.d;
-                }
-                int max = Math.max(10, i);
-                nk2.r(arrayList3, max, arrayList4);
-                long j = this.c.e;
-                nk2.q(arrayList3, j * 3600000, arrayList4, m);
-                if (this.b) {
-                    i2 = nk2.c;
-                } else {
-                    i2 = this.c.b;
-                }
-                int max2 = Math.max(40, i2);
-                nk2.r(arrayList2, max2, arrayList4);
-                long j2 = this.c.c;
-                nk2.q(arrayList2, 3600000 * j2, arrayList4, m);
-                v82.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.d + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
-                hk2.c().d().g(arrayList4, false, false, this.e);
-                nf2.c();
+                nk2.d.z(this.a, false);
+                this.c.invoke(null);
             }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Comparator<PMSAppInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, pMSAppInfo2)) == null) {
-                return Long.compare(pMSAppInfo2.createTime, pMSAppInfo.createTime);
-            }
-            return invokeLL.intValue;
         }
     }
 
@@ -182,11 +103,65 @@ public class nk2 {
                 return;
             }
         }
-        a = fs1.a;
-        cv2.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        b = 0;
-        cv2.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        c = 0;
+        d = new nk2();
+        a = ir1.a;
+        b = "swan" + File.separator + "libs" + File.separator + "so";
+        c = new LinkedHashMap();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b<MsgType> implements rp3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-572697514, "Lcom/baidu/tieba/nk2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-572697514, "Lcom/baidu/tieba/nk2$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp3
+        /* renamed from: b */
+        public final void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && nk2.a(nk2.d)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("main updatePmsPkg pmsUpdateSo end with e: ");
+                sb.append(exc);
+                sb.append(" trace=");
+                if (exc == null) {
+                    exc = new Exception();
+                }
+                sb.append(Log.getStackTraceString(exc));
+                Log.i("SoLibManager", sb.toString());
+            }
+        }
     }
 
     public nk2() {
@@ -203,162 +178,309 @@ public class nk2 {
         }
     }
 
-    public static boolean n() {
+    public final File i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return jk3.a().getBoolean("key_disk_force_clean", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
+            return new File(appContext.getFilesDir(), b);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            z(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, true);
+        }
+    }
+
+    public final boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return !r(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
         }
         return invokeV.booleanValue;
     }
 
-    @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, pl2.b bVar) {
+    public static final /* synthetic */ boolean a(nk2 nk2Var) {
+        return a;
+    }
+
+    public final void f(String libName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                j(set, z, bVar);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, libName) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            c.remove(libName);
         }
     }
 
-    public static void k(Set<String> set, List<String> list) {
+    public final pk2 j(String libName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, set, list) == null) {
-            if (set != null) {
-                Iterator<String> it = list.iterator();
-                while (it.hasNext()) {
-                    if (set.contains(it.next())) {
-                        it.remove();
-                    }
-                }
-            }
-            list.remove("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, libName)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            return c.get(libName);
+        }
+        return (pk2) invokeL.objValue;
+    }
+
+    public final boolean k(String libName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, libName)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            return l(libName, s(libName));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return "swan_so_installed_abi_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return "swan_so_installed_result_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return "swan_so_installed_version_code_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return "swan_so_installed_version_name_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final AbiType q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return AbiType.findById(mj3.a().getString(m(str), ""));
+        }
+        return (AbiType) invokeL.objValue;
+    }
+
+    public final boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            return mj3.a().getBoolean(n(str), true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final long s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return mj3.a().getLong(o(str), 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public final void A(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            mj3.a().putLong(o(str), j);
         }
     }
 
-    public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
+    public final void B(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
-            Set<String> i = yi2.i(AppRuntime.getAppContext().getContentResolver());
-            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
-            HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : i2) {
-                hashSet.add(swanFavorItemData.getAppKey());
-            }
-            for (String str : list) {
-                if (!i.contains(str) && !hashSet.contains(str)) {
-                    list3.add(str);
-                } else {
-                    list2.add(str);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            mj3.a().putString(p(str), str2);
         }
     }
 
-    @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, pl2.b bVar) {
-        boolean z2;
+    public final pk2 t(qk2 updater, String libName) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    if (a) {
-                        Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
-                    }
-                    return;
-                }
-                v82.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
-                on4 a2 = pn4.b().a();
-                if (z && lk2.a()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                long j = a2.a;
-                if (!z2 && o(3600000 * j)) {
-                    return;
-                }
-                jk3.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-                ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, bVar), "cleanDiskSpaceOptimized");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, updater, libName)) == null) {
+            Intrinsics.checkNotNullParameter(updater, "updater");
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            pk2 j = j(libName);
+            if (j == null) {
+                pk2 pk2Var = new pk2(updater, libName);
+                c.put(libName, pk2Var);
+                return pk2Var;
             }
+            return j;
+        }
+        return (pk2) invokeLL.objValue;
+    }
+
+    public final void y(String str, AbiType abiType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, str, abiType) == null) {
+            mj3.a().putString(m(str), abiType.id);
         }
     }
 
-    public static boolean o(long j) {
-        InterceptResult invokeJ;
+    public final void z(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (System.currentTimeMillis() - jk3.a().getLong("clean_disk_check_time", 0L) < j) {
-                return true;
+        if (interceptable == null || interceptable.invokeLZ(1048599, this, str, z) == null) {
+            mj3.a().putBoolean(n(str), z);
+        }
+    }
+
+    public final void C(ok2 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (a) {
+                Log.i("SoLibManager", "main updatePmsPkg start args: " + config);
+            }
+            config.e(b.a);
+            qk2 qk2Var = new qk2(new fm4(5), config);
+            if (a) {
+                Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + qk2Var);
+            }
+            ii4.o(qk2Var);
+        }
+    }
+
+    public final String g(ak4 ak4Var) {
+        InterceptResult invokeL;
+        AbiType abiType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ak4Var)) == null) {
+            if (ak4Var != null) {
+                abiType = ak4Var.q;
+            } else {
+                abiType = null;
+            }
+            if (abiType == null) {
+                return "";
+            }
+            String str = ak4Var.p;
+            Intrinsics.checkNotNullExpressionValue(str, "so.libName");
+            AbiType abiType2 = ak4Var.q;
+            Intrinsics.checkNotNullExpressionValue(abiType2, "so.abi");
+            return h(str, abiType2, ak4Var.i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String h(String libName, AbiType abi, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{libName, abi, Long.valueOf(j)})) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            Intrinsics.checkNotNullParameter(abi, "abi");
+            if (!TextUtils.isEmpty(libName) && j >= 1) {
+                File i = i();
+                File file = new File(i, libName + File.separator + j + File.separator + abi.id);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file.getPath();
+            }
+            return "";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean l(String libName, long j) {
+        InterceptResult invokeLJ;
+        AbiType q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, libName, j)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            lk2 a2 = mk2.a(libName);
+            if (a2 != null) {
+                if (a2.f()) {
+                    return true;
+                }
+                long s = s(libName);
+                if (s > 0 && j <= s && (q = q(libName)) != null) {
+                    return AbiType.currentAbi().compat(q);
+                }
             }
             return false;
         }
-        return invokeJ.booleanValue;
+        return invokeLJ.booleanValue;
     }
 
-    public static void p(boolean z) {
+    public final void v(String libName, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            jk3.a().putBoolean("key_disk_force_clean", z);
+        if (interceptable == null || interceptable.invokeLJ(1048595, this, libName, j) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            SharedPreferences.Editor edit = ho4.a().edit();
+            edit.putLong("swan_so_latest_update_time_" + libName, j).apply();
         }
     }
 
-    public static void q(List<String> list, long j, List<String> list2, Map<String, Long> map) {
-        Long l;
+    /* JADX WARN: Type inference failed for: r6v1, types: [com.baidu.tieba.ak4, T] */
+    public final void x(String libName, Function1<? super rm3, Unit> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{list, Long.valueOf(j), list2, map}) == null) {
-            Iterator<String> it = list.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next) && (l = map.get(next)) != null && j < System.currentTimeMillis() - l.longValue()) {
-                    list2.add(next);
-                    it.remove();
-                }
+        if (interceptable == null || interceptable.invokeLL(1048597, this, libName, callback) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            if (a) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: libName=" + libName);
             }
-        }
-    }
-
-    public static void r(List<String> list, int i, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65552, null, list, i, list2) == null) && list != null && !list.isEmpty() && i >= 0 && i < list.size()) {
-            Iterator<String> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next)) {
-                    int i3 = i2 + 1;
-                    if (i2 >= i) {
-                        list2.add(next);
-                        it.remove();
+            lk2 a2 = mk2.a(libName);
+            if (a2 == null) {
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + libName);
+                }
+                rm3 rm3Var = new rm3();
+                rm3Var.k(16);
+                rm3Var.b(2900);
+                rm3Var.f("not available: so=" + a2);
+                callback.invoke(rm3Var);
+            } else if (a2.f()) {
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + a2);
+                }
+                callback.invoke(null);
+            } else {
+                Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                ?? t = vi4.i().t(libName);
+                objectRef.element = t;
+                if (((ak4) t) != null && ((ak4) t).a() && AbiType.currentAbi().compat(((ak4) objectRef.element).q)) {
+                    AbiType q = q(libName);
+                    if (l(libName, ((ak4) objectRef.element).i) && q != null && q.compat(((ak4) objectRef.element).q)) {
+                        if (a) {
+                            Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + libName + " soPkg=" + ((ak4) objectRef.element));
+                        }
+                        callback.invoke(null);
+                        return;
                     }
-                    i2 = i3;
+                    a2.a(((ak4) objectRef.element).a, new a(libName, objectRef, callback));
+                    return;
                 }
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + libName + " soPkg=" + ((ak4) objectRef.element));
+                }
+                rm3 rm3Var2 = new rm3();
+                rm3Var2.k(16);
+                rm3Var2.b(2900);
+                rm3Var2.f("invalid: pkg=" + ((ak4) objectRef.element));
+                callback.invoke(rm3Var2);
             }
         }
-    }
-
-    @NonNull
-    @WorkerThread
-    public final Map<String, Long> m(long j, Map<String, PMSAppInfo> map) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                ArrayList<PMSAppInfo> arrayList = new ArrayList(map.values());
-                Collections.sort(arrayList, new b(null));
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (PMSAppInfo pMSAppInfo : arrayList) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = pMSAppInfo.createTime;
-                    if (currentTimeMillis - j2 > j) {
-                        linkedHashMap.put(pMSAppInfo.appId, Long.valueOf(j2));
-                    }
-                }
-                return linkedHashMap;
-            }
-            return Collections.emptyMap();
-        }
-        return (Map) invokeJL.objValue;
     }
 }

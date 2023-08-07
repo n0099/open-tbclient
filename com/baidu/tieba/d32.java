@@ -2,52 +2,41 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d32 extends u22 {
+public class d32 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "PreviewImageApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes5.dex */
-    public class a implements oq3<String> {
+    public class a implements rp3<Map<String, yf3>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayMap a;
-        public final /* synthetic */ JSONArray b;
-        public final /* synthetic */ JSONArray c;
-        public final /* synthetic */ JSONArray d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ d32 f;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ d32 c;
 
-        public a(d32 d32Var, ArrayMap arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONObject jSONObject) {
+        public a(d32 d32Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d32Var, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject};
+                Object[] objArr = {d32Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,68 +46,40 @@ public class d32 extends u22 {
                     return;
                 }
             }
-            this.f = d32Var;
-            this.a = arrayMap;
-            this.b = jSONArray;
-            this.c = jSONArray2;
-            this.d = jSONArray3;
-            this.e = jSONObject;
+            this.c = d32Var;
+            this.a = callbackHandler;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
+        @Override // com.baidu.tieba.rp3
         /* renamed from: b */
-        public void a(String str) {
+        public void a(Map<String, yf3> map) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            JSONArray jSONArray = null;
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException unused) {
-            }
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("fileID");
-                    String optString2 = optJSONObject.optString("tempFileURL");
-                    if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
-                        this.a.put(optString, optString2);
-                    }
-                }
-                this.f.G(this.a, this.b, "images");
-                this.f.G(this.a, this.c, "urls");
-                this.f.G(this.a, this.d, "url");
-                try {
-                    this.e.put("images", this.b);
-                    this.e.put("urls", this.c);
-                    this.e.put("url", this.d);
-                } catch (JSONException unused2) {
-                }
-                SwanAppActivity activity = ix2.T().getActivity();
-                if (activity != null) {
-                    cv2.C().b(activity, this.e);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+                if (map != null) {
+                    this.c.l(this.b, this.a, map);
                 } else {
-                    cv2.C().b(this.f.getContext(), this.e);
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d32(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public d32(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/getLaunchAppInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -126,218 +87,66 @@ public class d32 extends u22 {
         }
     }
 
-    public final String A(JSONArray jSONArray, String str, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, jSONArray, str, i)) == null) {
-            if (str.equals("images")) {
-                return jSONArray.optJSONObject(i).optString("url");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
-            return jSONArray.optString(i);
+            String optString = yn3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            k(optString, callbackHandler);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (String) invokeLLI.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public v32 B(String str) {
-        InterceptResult invokeL;
+    public final void k(String str, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#handlePreviewImage", false);
-            if (n()) {
-                v82.c("PreviewImageApi", "PreviewImageApi does not supported when app is invisible.");
-                return new v32(1001, "PreviewImageApi does not supported when app is invisible.");
-            } else if (TextUtils.isEmpty(str)) {
-                return new v32(202);
-            } else {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.optBoolean("only_support_wifi") && !SwanAppNetworkUtils.j(getContext())) {
-                        return new v32(403);
-                    }
-                    String optString = jSONObject.optString("source", "unitedscheme");
-                    String optString2 = jSONObject.optString("type", "0");
-                    JSONArray optJSONArray = jSONObject.optJSONArray("urls");
-                    if (optJSONArray != null && optJSONArray.length() != 0) {
-                        JSONArray optJSONArray2 = jSONObject.optJSONArray("images");
-                        if (optJSONArray2 != null) {
-                            F(optJSONArray2);
-                            jSONObject.put("images", optJSONArray2);
-                        } else {
-                            JSONArray jSONArray = new JSONArray();
-                            int length = optJSONArray.length();
-                            for (int i = 0; i < length; i++) {
-                                JSONObject jSONObject2 = new JSONObject();
-                                String optString3 = optJSONArray.optString(i);
-                                jSONObject2.put("url", optString3);
-                                String b = cp3.b();
-                                if (cp3.c(optString3) && !TextUtils.isEmpty(b)) {
-                                    jSONObject2.put("referer", b);
-                                }
-                                String g0 = pi2.U().g0();
-                                if (!TextUtils.isEmpty(g0)) {
-                                    jSONObject2.put(HttpRequest.USER_AGENT, g0);
-                                }
-                                jSONArray.put(jSONObject2);
-                            }
-                            jSONObject.put("images", jSONArray);
-                        }
-                        if (TextUtils.equals(optString, "swan")) {
-                            C(optJSONArray);
-                        }
-                        jSONObject.put("url", optJSONArray);
-                        jSONObject.put("type", optString2);
-                        int z = z(jSONObject, optJSONArray);
-                        if (z >= 0 && z < optJSONArray.length()) {
-                            jSONObject.put("index", String.valueOf(z));
-                            ArrayMap<String, String> arrayMap = new ArrayMap<>();
-                            JSONArray optJSONArray3 = jSONObject.optJSONArray("images");
-                            JSONArray optJSONArray4 = jSONObject.optJSONArray("urls");
-                            JSONArray optJSONArray5 = jSONObject.optJSONArray("url");
-                            D(arrayMap, optJSONArray3, "images");
-                            D(arrayMap, optJSONArray4, "urls");
-                            D(arrayMap, optJSONArray5, "url");
-                            if (arrayMap.keySet().size() > 0) {
-                                E(jSONObject, arrayMap, optJSONArray3, optJSONArray4, optJSONArray5);
-                            } else {
-                                Context activity = ix2.T().getActivity();
-                                if (activity != null) {
-                                    cv2.C().b(activity, jSONObject);
-                                } else {
-                                    cv2.C().b(getContext(), jSONObject);
-                                }
-                            }
-                            return v32.f();
-                        }
-                        return new v32(202);
-                    }
-                    return new v32(202);
-                } catch (JSONException unused) {
-                    return new v32(202);
-                }
-            }
-        }
-        return (v32) invokeL.objValue;
-    }
-
-    public final JSONArray C(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        vb3 M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            int length = jSONArray.length();
-            if (jSONArray != null && length > 0 && (M = vb3.M()) != null && !TextUtils.isEmpty(M.b) && !TextUtils.isEmpty(M.k0())) {
-                for (int i = 0; i < length; i++) {
-                    try {
-                        String optString = jSONArray.optString(i);
-                        PathType s = dj3.s(optString);
-                        if (s == PathType.BD_FILE) {
-                            optString = dj3.M(optString, M.b);
-                        } else if (s == PathType.RELATIVE) {
-                            optString = dj3.L(optString, M, M.k0());
-                        }
-                        if (!TextUtils.isEmpty(optString)) {
-                            jSONArray.put(i, optString);
-                        }
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public final void F(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("url");
-                        String b = cp3.b();
-                        if (cp3.c(optString) && !TextUtils.isEmpty(b)) {
-                            optJSONObject.put("referer", b);
-                        }
-                        String g0 = pi2.U().g0();
-                        if (!TextUtils.isEmpty(g0)) {
-                            optJSONObject.put(HttpRequest.USER_AGENT, g0);
-                        }
-                    }
-                } catch (JSONException unused) {
-                    return;
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
+            w23.h(new a(this, callbackHandler, str));
         }
     }
 
-    public final void D(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
+    public final void l(String str, CallbackHandler callbackHandler, Map<String, yf3> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048579, this, arrayMap, jSONArray, str) == null) && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                String A = A(jSONArray, str, i);
-                if (!TextUtils.isEmpty(A) && dj3.s(A) == PathType.CLOUD) {
-                    arrayMap.put(A, A);
-                }
-            }
-        }
-    }
-
-    public final void E(JSONObject jSONObject, ArrayMap<String, String> arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048580, this, jSONObject, arrayMap, jSONArray, jSONArray2, jSONArray3) == null) && jSONObject != null && arrayMap != null && arrayMap.keySet().size() > 0) {
-            JSONArray jSONArray4 = new JSONArray();
-            for (String str : arrayMap.values()) {
-                jSONArray4.put(str);
-            }
-            dw1 l = cv2.l();
-            if (l == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, map) == null) {
+            yf3 yf3Var = map.get("scope_open_app");
+            if (yf3Var == null) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 return;
             }
-            l.c(getContext(), jSONArray4, new a(this, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject));
-        }
-    }
-
-    public final void G(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, arrayMap, jSONArray, str) == null) && arrayMap != null && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                String str2 = arrayMap.get(A(jSONArray, str, i));
-                if (!TextUtils.isEmpty(str2)) {
-                    try {
-                        if (str.equals("images")) {
-                            jSONArray.optJSONObject(i).put("url", str2);
-                        } else {
-                            jSONArray.put(i, str2);
-                        }
-                    } catch (JSONException unused) {
-                    }
+            boolean z = yf3Var.d;
+            int c = ro3.c();
+            long e = ro3.e();
+            List<String> list = yf3Var.i;
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (String str2 : list) {
+                    jSONArray.put(str2);
                 }
-            }
-        }
-    }
-
-    public final int z(@NonNull JSONObject jSONObject, @NonNull JSONArray jSONArray) throws JSONException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, jSONArray)) == null) {
-            int optInt = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT, -1);
-            if (optInt >= 0) {
-                return optInt;
-            }
-            String optString = jSONObject.optString(ProgressInfo.JSON_KEY_CURRENT);
-            if (TextUtils.isEmpty(optString)) {
-                return 0;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.equals(optString, jSONArray.getString(i))) {
-                    return i;
+                jSONObject.put("launchCount", c);
+                jSONObject.put("visitDuration", e);
+                jSONObject.put("forbidden", z);
+                jSONObject.put("ext", jSONArray);
+                if (vc3.b) {
+                    Log.i("GetBehaviorInfoAction", "launchCount:" + c + " visitDuration:" + e + " forbidden:" + z + " ext:" + jSONArray.toString());
                 }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            } catch (JSONException e2) {
+                if (vc3.b) {
+                    e2.printStackTrace();
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
-            return -1;
         }
-        return invokeLL.intValue;
     }
 }

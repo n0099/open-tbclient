@@ -4,14 +4,14 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.gt5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,18 +52,18 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public jt5 getPageStayDurationItem() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
+    public PageStayDurationItem getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jt5 pageStayDurationItem = super.getPageStayDurationItem();
+            PageStayDurationItem pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
-                pageStayDurationItem.C(wg.g(this.b, 0L));
+                pageStayDurationItem.setTid(JavaTypesHelper.toLong(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (jt5) invokeV.objValue;
+        return (PageStayDurationItem) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -71,14 +71,14 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a != null) {
-            q05 layoutMode = getLayoutMode();
+            BDLayoutMode layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
-            getLayoutMode().k(this.a.getView());
+            layoutMode.setNightMode(z);
+            getLayoutMode().onModeChanged(this.a.getView());
             this.a.onChangeSkinType(i);
         }
     }
@@ -109,8 +109,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.b)) {
                 finish();
             }
-            this.a = VideoAggregationFragment.L1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907a2, this.a).commit();
+            this.a = VideoAggregationFragment.M1(this.b, this.c, stringExtra, stringExtra2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907b1, this.a).commit();
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.a) != null) {
-                if (videoAggregationFragment.P1(i)) {
+                if (videoAggregationFragment.Q1(i)) {
                     return true;
                 }
                 return super.onKeyDown(i, keyEvent);

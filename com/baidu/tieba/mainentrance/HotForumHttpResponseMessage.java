@@ -3,8 +3,8 @@ package com.baidu.tieba.mainentrance;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m29;
-import com.baidu.tieba.n29;
+import com.baidu.tieba.g09;
+import com.baidu.tieba.h09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m29> mForumInfoList;
+    public List<g09> mForumInfoList;
     public HotSearchInfoData mHotSearchInfo;
-    public List<n29> mTopicInfoList;
+    public List<h09> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,16 +67,16 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         if (list != null) {
             for (ForumInfo forumInfo : list) {
                 if (forumInfo != null) {
-                    m29 m29Var = new m29();
-                    m29Var.a(forumInfo);
-                    this.mForumInfoList.add(m29Var);
+                    g09 g09Var = new g09();
+                    g09Var.a(forumInfo);
+                    this.mForumInfoList.add(g09Var);
                 }
             }
         }
         if (hotForumResIdl.data.hot_search != null) {
             HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
             this.mHotSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.X(hotForumResIdl.data.hot_search);
+            hotSearchInfoData.P(hotForumResIdl.data.hot_search);
         }
         if (hotForumResIdl.data.hot_topic != null) {
             this.mTopicInfoList = new ArrayList();
@@ -84,9 +84,9 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
             if (list2 != null) {
                 for (HotTopicList hotTopicList : list2) {
                     if (hotTopicList != null) {
-                        n29 n29Var = new n29();
-                        n29Var.d(hotTopicList);
-                        this.mTopicInfoList.add(n29Var);
+                        h09 h09Var = new h09();
+                        h09Var.d(hotTopicList);
+                        this.mTopicInfoList.add(h09Var);
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public List<m29> getForumInfoList() {
+    public List<g09> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -116,7 +116,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         return (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<n29> getTopicInfoList() {
+    public List<h09> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

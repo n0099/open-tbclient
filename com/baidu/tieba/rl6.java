@@ -1,10 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes7.dex */
-public interface rl6<Key, Value> {
-    @Nullable
-    Value a(Key key) throws Exception;
+public interface rl6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
 
-    void b(Key key, j2c<Value, Exception> j2cVar);
+    void a();
+
+    @NonNull
+    android.webkit.WebView b(Context context, String str);
+
+    void c(String str, android.webkit.WebView webView);
 }

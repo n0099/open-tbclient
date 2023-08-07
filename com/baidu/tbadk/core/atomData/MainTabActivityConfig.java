@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +108,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public void setBottomTab(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && getIntent() != null && i >= 0) {
-            getIntent().putExtra("locate_type", i);
+            getIntent().putExtra(MainEntrance.GOTO_TYPE, i);
         }
     }
 
@@ -135,7 +136,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public void setSubTabName(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && getIntent() != null) {
-            getIntent().putExtra("sub_tab_name", str);
+            getIntent().putExtra(MainEntrance.GO_SUB_TAB_NAME, str);
         }
     }
 
@@ -168,9 +169,9 @@ public class MainTabActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) && getIntent() != null) {
             if (str == null) {
-                getIntent().putExtra("sub_locate_type", i);
+                getIntent().putExtra(MainEntrance.GO_SUB_TYPE, i);
             } else {
-                getIntent().putExtra("sub_locate_type", str);
+                getIntent().putExtra(MainEntrance.GO_SUB_TYPE, str);
             }
         }
     }
@@ -185,10 +186,10 @@ public class MainTabActivityConfig extends IntentConfig {
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             if (i >= 0) {
-                intent.putExtra("locate_type", i);
+                intent.putExtra(MainEntrance.GOTO_TYPE, i);
             }
             intent.putExtra(IS_NEW_USER, z);
-            intent.putExtra("close_dialog", true);
+            intent.putExtra(MainEntrance.KEY_CLOSE_DIALOG, true);
             intent.putExtra(NEED_CLOSE_MENU, z2);
             return this;
         }
@@ -202,17 +203,17 @@ public class MainTabActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.setFlags(603979776);
             if (i != 200 && i != 12) {
-                intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
+                intent.putExtra("refresh_all", true);
             } else {
-                intent.putExtra(FrsActivityConfig.KEY_REFRESH, false);
+                intent.putExtra("refresh_all", false);
             }
             if (i >= 0) {
-                intent.putExtra("locate_type", i);
+                intent.putExtra(MainEntrance.GOTO_TYPE, i);
             }
             if (z) {
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
-            intent.putExtra("close_dialog", true);
+            intent.putExtra(MainEntrance.KEY_CLOSE_DIALOG, true);
             return this;
         }
         return (MainTabActivityConfig) invokeCommon.objValue;

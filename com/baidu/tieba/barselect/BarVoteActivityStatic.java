@@ -5,6 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.BarVoteActivityConfig;
@@ -16,14 +17,13 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.barselect.idCard.CameraActivity;
 import com.baidu.tieba.barselect.idCard.IdentityReviewActivity;
-import com.baidu.tieba.be9;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.pz5;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.xb9;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,10 +163,10 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof be9)) {
-                    be9 be9Var = (be9) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(be9Var.a(), be9Var.b(), be9Var.d(), be9Var.c());
-                    commitVoteReqMsg.setTag(be9Var.e());
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof xb9)) {
+                    xb9 xb9Var = (xb9) customMessage.getData();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(xb9Var.a(), xb9Var.b(), xb9Var.d(), xb9Var.c());
+                    commitVoteReqMsg.setTag(xb9Var.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -202,9 +202,9 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g = wg.g(pz5.c(str, "fid="), 0L);
-                        if (g != 0) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g, 4)));
+                        long j = JavaTypesHelper.toLong(WebviewHelper.getMatchStringFromURL(str, "fid="), 0L);
+                        if (j != 0) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(j, 4)));
                             return 0;
                         }
                     }
@@ -242,9 +242,9 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g = wg.g(pz5.c(str, "fid="), 0L);
-                        if (g != 0) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g, 25042)));
+                        long j = JavaTypesHelper.toLong(WebviewHelper.getMatchStringFromURL(str, "fid="), 0L);
+                        if (j != 0) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), j, 25042)));
                             return 0;
                         }
                     }
@@ -293,8 +293,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            gca.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, gca.a("c/f/bawu/electionInfo", 309642));
+            zaa.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, zaa.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

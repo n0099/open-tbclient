@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pw4> a;
-    public List<MediaFileInfo> b;
-    public List<VideoFileInfo> c;
+    public HashMap<String, String> a;
+    public String b;
 
     public vw4() {
         Interceptable interceptable = $ic;

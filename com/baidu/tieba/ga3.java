@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.android.ext.widget.LoadingViewHelper;
+import com.baidu.swan.apps.res.ui.BdShimmerView;
+import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
+import com.baidu.tieba.fa3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,44 +21,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import java.lang.reflect.Method;
-@SuppressLint({"ObsoleteSdkInt"})
+import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
-public class ga3 {
+public final class ga3 {
     public static /* synthetic */ Interceptable $ic;
-    public static String f;
+    public static final boolean a;
+    public static final WeakHashMap<ViewGroup, ha3> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public boolean b;
-    public boolean c;
-    public View d;
-    public View e;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ fa3 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final boolean b;
-        public final int c;
-        public final int d;
-        public final boolean e;
-        public final float f;
-
-        public b(Activity activity, boolean z, boolean z2) {
-            boolean z3;
+        public a(fa3 fa3Var, Context context, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activity, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {fa3Var, context, str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,171 +53,68 @@ public class ga3 {
                     return;
                 }
             }
-            Resources resources = activity.getResources();
-            if (resources.getConfiguration().orientation == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            this.e = z3;
-            this.f = g(activity);
-            this.a = b(resources, "status_bar_height");
-            a(activity);
-            this.c = d(activity);
-            this.d = f(activity);
-            this.b = this.c > 0;
+            this.a = fa3Var;
+            this.b = context;
+            this.c = str;
+            this.d = z;
         }
 
-        public /* synthetic */ b(Activity activity, boolean z, boolean z2, a aVar) {
-            this(activity, z, z2);
-        }
-
-        @TargetApi(14)
-        public final int a(Context context) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
+            LoadingView loadingView;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                if (Build.VERSION.SDK_INT >= 14) {
-                    TypedValue typedValue = new TypedValue();
-                    context.getTheme().resolveAttribute(16843499, typedValue, true);
-                    return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final float g(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                if (Build.VERSION.SDK_INT >= 16) {
-                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View d = this.a.d();
+                if (d instanceof LoadingView) {
+                    loadingView = (LoadingView) d;
                 } else {
-                    activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                    loadingView = new LoadingView(this.b);
+                    FrameLayout frameLayout = new FrameLayout(this.b);
+                    frameLayout.setPadding(0, 0, 0, po3.g(160.0f));
+                    frameLayout.addView(loadingView);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                    layoutParams.gravity = 17;
+                    this.a.o(frameLayout, layoutParams);
                 }
-                float f = displayMetrics.density;
-                return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-            }
-            return invokeL.floatValue;
-        }
-
-        public final int b(Resources resources, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, str)) == null) {
-                int identifier = resources.getIdentifier(str, EMABTest.TYPE_DIMEN, "android");
-                if (identifier > 0) {
-                    return resources.getDimensionPixelSize(identifier);
+                if (!TextUtils.isEmpty(this.c)) {
+                    loadingView.setMsg(this.c);
                 }
-                return 0;
+                this.a.k(this.d);
             }
-            return invokeLL.intValue;
         }
+    }
 
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.intValue;
-        }
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea2 a;
 
-        public int e() {
-            InterceptResult invokeV;
+        public b(ea2 ea2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.d;
-            }
-            return invokeV.intValue;
-        }
-
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.b;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                if (this.f < 600.0f && !this.e) {
-                    return false;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return true;
             }
-            return invokeV.booleanValue;
+            this.a = ea2Var;
         }
 
-        @TargetApi(14)
-        public final int d(Context context) {
-            InterceptResult invokeL;
-            String str;
+        @Override // java.lang.Runnable
+        public void run() {
+            fa3 floatLayer;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Resources resources = context.getResources();
-                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
-                    if (this.e) {
-                        str = "navigation_bar_height";
-                    } else {
-                        str = "navigation_bar_height_landscape";
-                    }
-                    return b(resources, str);
-                }
-                return 0;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (floatLayer = ((fa3.a) this.a).getFloatLayer()) != null && (floatLayer.d() instanceof FrameLayout) && (((FrameLayout) floatLayer.d()).getChildAt(0) instanceof LoadingView)) {
+                floatLayer.g();
             }
-            return invokeL.intValue;
-        }
-
-        @TargetApi(14)
-        public final int f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-                Resources resources = context.getResources();
-                if (Build.VERSION.SDK_INT >= 14 && i(context)) {
-                    return b(resources, "navigation_bar_width");
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        @TargetApi(14)
-        public final boolean i(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-                Resources resources = context.getResources();
-                int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-                if (identifier != 0) {
-                    boolean z = resources.getBoolean(identifier);
-                    if ("1".equals(ga3.f)) {
-                        return false;
-                    }
-                    if ("0".equals(ga3.f)) {
-                        return true;
-                    }
-                    return z;
-                }
-                return !ViewConfiguration.get(context).hasPermanentMenuKey();
-            }
-            return invokeL.booleanValue;
         }
     }
 
@@ -255,112 +131,193 @@ public class ga3 {
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT >= 19) {
-            try {
-                Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
-                declaredMethod.setAccessible(true);
-                f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-            } catch (Throwable unused) {
-                f = null;
-            }
-        }
+        a = ir1.a & true;
+        b = new WeakHashMap<>();
     }
 
-    @TargetApi(19)
-    public ga3(Activity activity) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Window window = activity.getWindow();
-        ViewGroup viewGroup = (ViewGroup) window.getDecorView();
-        if (Build.VERSION.SDK_INT >= 19) {
-            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{SystemBarTintManager.windowTranslucentStatus, SystemBarTintManager.windowTranslucentNavigation});
-            try {
-                this.b = obtainStyledAttributes.getBoolean(0, false);
-                this.c = obtainStyledAttributes.getBoolean(1, false);
-                obtainStyledAttributes.recycle();
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                if ((67108864 & attributes.flags) != 0) {
-                    this.b = true;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            for (ViewGroup viewGroup : b.keySet()) {
+                ha3 ha3Var = b.get(viewGroup);
+                if (ha3Var != null && ha3Var.getLoadingView() != null) {
+                    viewGroup.removeView(ha3Var.getLoadingView());
                 }
-                if ((attributes.flags & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0) {
-                    this.c = true;
+            }
+            b.clear();
+        }
+    }
+
+    public static boolean b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ha3 ha3Var;
+        View loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            ha3 ha3Var2 = b.get(viewGroup);
+            if (ha3Var2 != null && ha3Var2.getLoadingView() != null) {
+                ha3Var2.getLoadingView().setVisibility(8);
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof ha3) && (loadingView = (ha3Var = (ha3) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(8);
+                    b.put(viewGroup, ha3Var);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                    return true;
                 }
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
             }
+            return false;
         }
-        b bVar = new b(activity, this.b, this.c, null);
-        this.a = bVar;
-        if (!bVar.j()) {
-            this.c = false;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ha3 ha3Var;
+        View loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            ha3 ha3Var2 = b.get(viewGroup);
+            if (ha3Var2 != null && ha3Var2.getLoadingView() != null) {
+                ha3Var2.getLoadingView().setVisibility(0);
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof ha3) && (loadingView = (ha3Var = (ha3) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(0);
+                    b.put(viewGroup, ha3Var);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        if (this.b) {
-            d(activity, viewGroup);
+        return invokeL.booleanValue;
+    }
+
+    public static void c(@NonNull ea2 ea2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, ea2Var) != null) || !(ea2Var instanceof fa3.a)) {
+            return;
         }
-        if (this.c) {
-            c(activity, viewGroup);
+        so3.e0(new b(ea2Var));
+    }
+
+    public static boolean d(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ha3 ha3Var;
+        View loadingView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) {
+            if (viewGroup == null) {
+                return false;
+            }
+            ha3 ha3Var2 = b.get(viewGroup);
+            if (ha3Var2 != null) {
+                View loadingView2 = ha3Var2.getLoadingView();
+                if (loadingView2 != null) {
+                    if (loadingView2 instanceof BdShimmerView) {
+                        ((BdShimmerView) loadingView2).p();
+                    }
+                    loadingView2.setVisibility(8);
+                    viewGroup.removeView(loadingView2);
+                    b.remove(viewGroup);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                }
+                return true;
+            }
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if ((viewGroup.getChildAt(i) instanceof ha3) && (loadingView = (ha3Var = (ha3) viewGroup.getChildAt(i)).getLoadingView()) != null) {
+                    loadingView.setVisibility(8);
+                    viewGroup.removeView((View) ha3Var);
+                    b.remove(viewGroup);
+                    if (a) {
+                        Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                        Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void f(@NonNull fa3 fa3Var, @NonNull Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{fa3Var, context, str, Boolean.valueOf(z)}) == null) {
+            so3.e0(new a(fa3Var, context, str, z));
         }
     }
 
-    public void b(boolean z) {
-        int i;
+    public static boolean g(Context context, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.b) {
-            View view2 = this.d;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, viewGroup)) == null) {
+            return h(context, viewGroup, "");
         }
+        return invokeLL.booleanValue;
     }
 
-    public final void c(Context context, ViewGroup viewGroup) {
-        FrameLayout.LayoutParams layoutParams;
+    public static boolean h(Context context, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
-            this.e = new View(context);
-            if (this.a.k()) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.a.c());
-                layoutParams.gravity = 80;
-            } else {
-                layoutParams = new FrameLayout.LayoutParams(this.a.e(), -1);
-                layoutParams.gravity = 5;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, viewGroup, str)) == null) {
+            if (context != null && viewGroup != null) {
+                if (e(viewGroup)) {
+                    return true;
+                }
+                LoadingView loadingView = new LoadingView(context);
+                LoadingView loadingView2 = loadingView.getLoadingView();
+                if (loadingView2 == null) {
+                    return false;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    loadingView2.setMsg(str);
+                }
+                ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
+                if (viewGroup2 != null) {
+                    viewGroup2.removeView(loadingView2);
+                }
+                if (viewGroup instanceof RelativeLayout) {
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                    layoutParams.addRule(13);
+                    viewGroup.addView(loadingView2, layoutParams);
+                } else if (viewGroup instanceof LinearLayout) {
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams2.gravity = 17;
+                    viewGroup.addView(loadingView2, layoutParams2);
+                } else if (viewGroup instanceof FrameLayout) {
+                    FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
+                    layoutParams3.gravity = 17;
+                    viewGroup.addView(loadingView2, layoutParams3);
+                }
+                b.put(viewGroup, loadingView);
+                loadingView2.setVisibility(0);
+                if (a) {
+                    Log.d(LoadingViewHelper.TAG, "The count of cached loading views is : " + b.size());
+                    Log.d(LoadingViewHelper.TAG, "The content of cached views is : " + b.toString());
+                }
+                return true;
             }
-            this.e.setLayoutParams(layoutParams);
-            this.e.setBackgroundColor(-1728053248);
-            this.e.setVisibility(8);
-            viewGroup.addView(this.e);
+            return false;
         }
-    }
-
-    public final void d(Context context, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup) == null) {
-            this.d = new View(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.h());
-            layoutParams.gravity = 48;
-            if (this.c && !this.a.k()) {
-                layoutParams.rightMargin = this.a.e();
-            }
-            this.d.setLayoutParams(layoutParams);
-            this.d.setBackgroundColor(-1728053248);
-            this.d.setVisibility(8);
-            viewGroup.addView(this.d);
-        }
+        return invokeLLL.booleanValue;
     }
 }

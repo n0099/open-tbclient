@@ -1,19 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes8.dex */
-public interface ty2 {
-    String b();
+public interface ty2<T> {
+    void e(String str);
 
-    String c();
-
-    String f();
-
-    Object i();
-
-    void j(boolean z);
-
-    void k(boolean z);
-
-    boolean onBackPressed();
-
-    void onDestroy();
+    void f(List<T> list);
 }

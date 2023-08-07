@@ -1,6 +1,7 @@
 package com.baidu.tieba.newfaceshop;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -12,7 +13,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -95,7 +95,7 @@ public class BarInformationModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,7 +108,7 @@ public class BarInformationModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void V(b bVar) {
+    public void N(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);

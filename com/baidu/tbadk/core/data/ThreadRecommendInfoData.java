@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.data;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class ThreadRecommendInfoData implements Serializable {
         Uri parse;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !TextUtils.isEmpty(str) && (parse = Uri.parse(str)) != null) {
-            this.albumType = wg.e(parse.getQueryParameter(QUERY_ALBUM_TYPE), -1);
+            this.albumType = JavaTypesHelper.toInt(parse.getQueryParameter(QUERY_ALBUM_TYPE), -1);
         }
     }
 

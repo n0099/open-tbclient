@@ -66,20 +66,20 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.lm
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             MsgActivityView msgActivityView = new MsgActivityView(this.a);
-            return new a(this, msgActivityView.y(), msgActivityView);
+            return new a(this, msgActivityView.x(), msgActivityView);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.ln
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.lm
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -98,8 +98,8 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
             b.V(this.c);
             b.M(this.d);
             b.S(chatMessage.getCacheData().getLastMsgTime());
-            this.a.getLayoutMode().l(false);
-            this.a.getLayoutMode().k(view2);
+            this.a.getLayoutMode().setNightMode(false);
+            this.a.getLayoutMode().onModeChanged(view2);
             return view2;
         }
         return (View) invokeCommon.objValue;

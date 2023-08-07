@@ -2,258 +2,248 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class eh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<BasicNameValuePair> a;
-    public String b;
-    public StringBuilder c;
-    public long d;
-    public lh e;
 
-    public eh() {
+    public static void a(HashMap<String, Object> hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, hashMap, str, str2) == null) && hashMap != null && str != null && str2 != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public static void b(StringBuilder sb, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, str, str2, Boolean.valueOf(z)}) == null) && sb != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "";
+                }
+                sb.append("&");
+                sb.append(str);
+                sb.append("=");
+                if (z) {
+                    str2 = URLEncoder.encode(str2, "utf-8");
+                }
+                sb.append(str2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
-        this.b = null;
-        this.c = new StringBuilder(100);
     }
 
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return System.currentTimeMillis() - this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public lh f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (lh) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = System.currentTimeMillis();
-        }
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public eh(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = new StringBuilder(100);
-        this.b = str;
-    }
-
-    public static String i(String str) {
+    public static String c(ng ngVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return str.replace(" ", "_").replace(PreferencesUtil.LEFT_MOUNT, "(").replace(PreferencesUtil.RIGHT_MOUNT, SmallTailInfo.EMOTION_SUFFIX).replace("&", "|");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ngVar)) == null) {
+            if (ngVar == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            try {
+                sb.append("product");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ngVar.a, "utf-8"));
+                sb.append("&");
+                sb.append("sub_sys");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ngVar.b, "utf-8"));
+                sb.append("&");
+                sb.append("version");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ngVar.c, "utf-8"));
+                sb.append("&");
+                sb.append("os");
+                sb.append("=");
+                sb.append("android");
+                sb.append("&");
+                sb.append(HttpConstants.OS_VERSION);
+                sb.append("=");
+                sb.append(URLEncoder.encode(ngVar.q, "utf-8"));
+                if (!TextUtils.isEmpty(ngVar.d)) {
+                    sb.append("&");
+                    sb.append("from");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.d, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ngVar.e)) {
+                    sb.append("&");
+                    sb.append("cfrom");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.e, "utf-8"));
+                }
+                sb.append("&");
+                sb.append("phone");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ngVar.k, "utf-8"));
+                if (!TextUtils.isEmpty(ngVar.l)) {
+                    sb.append("&");
+                    sb.append("uid");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.l, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ngVar.f)) {
+                    sb.append("&");
+                    sb.append("client_id");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.f, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ngVar.i)) {
+                    sb.append("&");
+                    sb.append("imei");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.i, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ngVar.m)) {
+                    sb.append("&");
+                    sb.append("uname");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.m, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ngVar.g)) {
+                    sb.append("&");
+                    sb.append("cuid");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.g, "utf-8"));
+                }
+                if (!TextUtils.isEmpty(ngVar.h)) {
+                    sb.append("&");
+                    sb.append("cuid_galaxy2");
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(ngVar.h, "utf-8"));
+                }
+                sb.append("&");
+                sb.append("net");
+                sb.append("=");
+                sb.append(URLEncoder.encode(ngVar.o, "utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                BdLog.e(e);
+            }
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public void a(Object obj, Object obj2) {
+    public static String d(boolean z, ng ngVar) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, obj, obj2) == null) && obj != null && obj2 != null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65539, null, z, ngVar)) == null) {
+            if (ngVar == null) {
+                return null;
             }
-            this.a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (TextUtils.isEmpty(str2)) {
-            str2 = "";
-        }
-        if (this.c.length() > 0) {
-            this.c.append('&');
-        }
-        this.c.append(str);
-        this.c.append("=");
-        try {
-            this.c.append(URLEncoder.encode(i(str2), "utf-8"));
-        } catch (Throwable th) {
-            BdLog.e(th);
-            this.c.append(i(str2));
-        }
-    }
-
-    public void c(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) != null) || objArr == null) {
-            return;
-        }
-        for (int i = 0; i < objArr.length / 2; i++) {
-            int i2 = i * 2;
-            int i3 = i2 + 1;
-            if (i3 < objArr.length) {
-                a(objArr[i2], objArr[i3]);
+            StringBuilder sb = new StringBuilder();
+            sb.append("_client_type=2");
+            b(sb, "_client_version", ngVar.c, z);
+            b(sb, HttpRequest.PHONE_IMEI, ngVar.i, z);
+            b(sb, HttpRequest.CLIENT_ID, ngVar.f, z);
+            b(sb, HttpRequest.SUBAPP_TYPE, ngVar.j, z);
+            b(sb, HttpConstants.OS_VERSION, ngVar.q, z);
+            b(sb, "from", ngVar.d, z);
+            b(sb, "cfrom", ngVar.e, z);
+            b(sb, "net_type", ngVar.p, z);
+            b(sb, "cuid", ngVar.g, z);
+            b(sb, "model", ngVar.k, z);
+            if (TextUtils.isEmpty(ngVar.l)) {
+                b(sb, "uid", "0", z);
+            } else {
+                b(sb, "uid", ngVar.l, z);
             }
-        }
-    }
-
-    public void d(hh hhVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hhVar) == null) {
-            if (this.e == null) {
-                this.e = new lh();
-            }
-            this.e.f(hhVar);
-            ArrayList<BasicNameValuePair> arrayList = this.a;
-            if (arrayList != null && arrayList.size() > 0) {
-                Iterator<BasicNameValuePair> it = this.a.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    if ("module".equals(next.getName())) {
-                        this.e.i(next.getValue());
-                    } else if ("st".equals(next.getName())) {
-                        this.e.e(next.getValue());
-                    } else if ("errNo".equals(next.getName())) {
-                        this.e.g(next.getValue());
-                    } else if (StatConstants.KEY_EXT_ERR_MSG.equals(next.getName())) {
-                        this.e.h(next.getValue());
-                    } else {
-                        this.e.b(next.getName(), next.getValue());
-                    }
-                }
-            }
-            StringBuilder sb = this.c;
-            if (sb != null) {
-                this.e.a(sb.toString());
-            }
-        }
-    }
-
-    public JSONObject h() {
-        InterceptResult invokeV;
-        String[] split;
-        String[] split2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (this.c.length() > 0 && (split = this.c.toString().split("&")) != null && split.length > 0) {
-                for (String str : split) {
-                    if (!TextUtils.isEmpty(str) && (split2 = str.split("=")) != null && split2.length == 2) {
-                        try {
-                            jSONObject.put(split2[0], URLDecoder.decode(split2[1], "utf-8"));
-                        } catch (UnsupportedEncodingException | JSONException e) {
-                            BdLog.e(e);
-                        }
-                    }
-                }
-            }
-            ArrayList<BasicNameValuePair> arrayList = this.a;
-            if (arrayList != null) {
-                Iterator<BasicNameValuePair> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                        try {
-                            jSONObject.put(next.getName(), URLEncoder.encode(i(next.getValue()), "utf-8"));
-                        } catch (UnsupportedEncodingException | JSONException e2) {
-                            BdLog.e(e2);
-                        }
-                    }
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            StringBuilder sb = new StringBuilder(200);
-            if (this.c.length() > 0) {
-                sb.append((CharSequence) this.c);
-            }
-            ArrayList<BasicNameValuePair> arrayList = this.a;
-            if (arrayList != null) {
-                Iterator<BasicNameValuePair> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                        if (sb.length() > 0) {
-                            sb.append('&');
-                        }
-                        sb.append(next.getName());
-                        sb.append('=');
-                        try {
-                            sb.append(URLEncoder.encode(i(next.getValue()), "utf-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            BdLog.e(e);
-                            sb.append(i(next.getValue()));
-                        }
-                    }
-                }
-            }
+            b(sb, "un", ngVar.m, z);
+            b(sb, "utbrand", ngVar.w, z);
+            b(sb, "cuid_galaxy2", ngVar.h, z);
             return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeZL.objValue;
+    }
+
+    public static String e(tg tgVar, ng ngVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tgVar, ngVar)) == null) {
+            if (tgVar.p() != null && (tgVar.p().equals("omp") || tgVar.p().equals("mon"))) {
+                return c(ngVar);
+            }
+            return d(true, ngVar);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static HashMap<String, Object> f(String str, ng ngVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, ngVar, z)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            a(hashMap, HttpRequest.CLIENT_TYPE, "2");
+            a(hashMap, "_client_version", ngVar.c);
+            a(hashMap, HttpRequest.CLIENT_ID, ngVar.f);
+            a(hashMap, HttpRequest.SUBAPP_TYPE, ngVar.j);
+            a(hashMap, "from", ngVar.d);
+            a(hashMap, "net_type", ngVar.p);
+            a(hashMap, "cuid", ngVar.g);
+            a(hashMap, "cuid_galaxy2", ngVar.h);
+            if (TextUtils.isEmpty(ngVar.l)) {
+                ngVar.l = "0";
+            }
+            a(hashMap, "uid", ngVar.l);
+            a(hashMap, "un", ngVar.m);
+            a(hashMap, HttpRequest.BDUSS, ngVar.n);
+            if (z) {
+                a(hashMap, "find_bug", "2");
+            } else {
+                a(hashMap, "find_bug", "0");
+            }
+            a(hashMap, "sz", ngVar.r);
+            a(hashMap, BaiduIdentityManager.PARAM_CUA, ngVar.s);
+            a(hashMap, TiebaStatic.Params.BDID, ngVar.z);
+            a(hashMap, "cookie", ngVar.n);
+            a(hashMap, "utbrand", ngVar.w);
+            a(hashMap, "baiduapppb_ut", ngVar.x);
+            a(hashMap, HttpRequest.USER_AGENT, ngVar.y);
+            a(hashMap, "active_timestamp", ngVar.A);
+            a(hashMap, "first_install_time", ngVar.B);
+            a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, ngVar.C);
+            a(hashMap, "event_day", ngVar.D);
+            if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, "isKeepOriginalLogic").getData()).booleanValue()) {
+                a(hashMap, "model", ngVar.k);
+                a(hashMap, "oaid", ngVar.t);
+                if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, str).getData()).booleanValue()) {
+                    a(hashMap, "isKeepOriginalLogic", YYOption.IsLive.VALUE_TRUE);
+                    MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+                } else {
+                    a(hashMap, HttpRequest.ANDROID_ID, ngVar.v);
+                    a(hashMap, HttpRequest.PHONE_IMEI, ngVar.i);
+                }
+            } else {
+                MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+            }
+            if (((Boolean) MessageManager.getInstance().runTask(2000983, Boolean.class, "isKeepOriginalLogic").getData()).booleanValue()) {
+                if (((Boolean) MessageManager.getInstance().runTask(2000983, Boolean.class, str).getData()).booleanValue()) {
+                    a(hashMap, "isKeepOriginalLogic", YYOption.IsLive.VALUE_TRUE);
+                    MessageManager.getInstance().runTask(2000982, HashMap.class, hashMap);
+                } else {
+                    a(hashMap, "mac", ngVar.u);
+                }
+            } else {
+                MessageManager.getInstance().runTask(2000982, HashMap.class, hashMap);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeLLZ.objValue;
     }
 }

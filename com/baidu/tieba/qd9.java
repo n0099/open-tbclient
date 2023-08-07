@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
+import tbclient.SendCardInfo;
 /* loaded from: classes7.dex */
-public class qd9 implements ad5 {
+public class qd9 {
     public static /* synthetic */ Interceptable $ic;
-    public static qd9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
 
     public qd9() {
         Interceptable interceptable = $ic;
@@ -32,67 +33,50 @@ public class qd9 implements ad5 {
         }
     }
 
-    public static synchronized qd9 d() {
+    public boolean a() {
         InterceptResult invokeV;
-        qd9 qd9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (qd9.class) {
-                if (a == null) {
-                    a = new qd9();
-                }
-                qd9Var = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == 3) {
+                return true;
             }
-            return qd9Var;
+            return false;
         }
-        return (qd9) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ad5
-    public void a() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 1) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ad5
-    public void b(AccountData accountData) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
-                for (SapiAccount sapiAccount : loginAccounts) {
-                    if (accountData.getID().equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().validate(sapiAccount);
-                        return;
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
+            this.b = jSONObject.optString("card_logo");
+            this.c = jSONObject.optString("card_name");
+            this.d = jSONObject.optString("card_pro");
+            this.e = jSONObject.optInt("card_get_status");
+            this.a = jSONObject.optLong("packet_id");
+            this.f = jSONObject.optString("card_num");
         }
     }
 
-    @Override // com.baidu.tieba.ad5
-    public void c(AccountData accountData) {
+    public void d(SendCardInfo sendCardInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
-            }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts != null && loginAccounts.size() > 0) {
-                for (SapiAccount sapiAccount : loginAccounts) {
-                    if (accountData.getID().equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                        return;
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
+            this.b = sendCardInfo.card_logo;
+            this.c = sendCardInfo.card_name;
+            this.d = sendCardInfo.card_pro;
+            this.e = sendCardInfo.card_get_status.intValue();
+            this.a = sendCardInfo.packet_id.longValue();
         }
     }
 }

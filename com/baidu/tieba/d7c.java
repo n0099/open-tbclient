@@ -1,30 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
 /* loaded from: classes5.dex */
-public abstract class d7c<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface d7c {
+    void cancelAllRequest();
 
-    public abstract void a(Request request, boolean z, Exception exc);
+    m7c getCurPayController();
 
-    public abstract void b(T t);
-
-    public d7c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void releasePayController(boolean z);
 }

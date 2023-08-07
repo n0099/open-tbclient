@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +83,7 @@ public class FrsShareCardView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return xi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f0773);
+            return bi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f0774);
         }
         return (String) invokeL.objValue;
     }
@@ -129,7 +129,7 @@ public class FrsShareCardView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return xi.charSequence2String(editText.getText(), null);
+            return bi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -158,7 +158,7 @@ public class FrsShareCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e.setText(a(this.h.getName()));
             BdLog.e("mData.getImageUrl()的图片URL" + this.h.getImageUrl());
-            this.d.N(this.h.getImageUrl(), 15, false);
+            this.d.startLoad(this.h.getImageUrl(), 15, false);
             this.g.setText(StringHelper.numFormatOver10000((long) this.h.getMemberNum()));
             this.f.setText(StringHelper.numFormatOver10000((long) this.h.getPostNum()));
         }

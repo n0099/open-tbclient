@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
+import com.baidu.tieba.j37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,19 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class q87 {
+public final class q87 implements h87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final boolean b;
-    public final d87 c;
+    public final j37.o a;
 
-    public q87(long j, boolean z, d87 businessInfo) {
+    public q87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), businessInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,36 +29,21 @@ public final class q87 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-        this.a = j;
-        this.b = z;
-        this.c = businessInfo;
+        this.a = j37.a().f();
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h87
+    public SpannableString b(Context context, z67 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            SpannableString a = this.a.a(context, richTextData.a());
+            Intrinsics.checkNotNullExpressionValue(a, "resolver.create(context,…ichTextData.businessInfo)");
+            return a;
         }
-        return invokeV.longValue;
-    }
-
-    public final d87 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (d87) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
+        return (SpannableString) invokeLLL.objValue;
     }
 }

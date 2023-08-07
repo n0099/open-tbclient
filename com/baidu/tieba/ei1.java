@@ -1,42 +1,45 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.poly.statistics.exception.SdkException;
+import com.baidu.poly.wallet.paychannel.IChannelPay;
+import com.baidu.poly.widget.ChannelListView;
+import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ei1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ei1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public b b;
+    public Activity a;
+    public IChannelPay b;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void onResult(int i, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends ch1<JSONObject> {
+    public class a extends fg1<Map<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gj1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ChannelListView b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ ei1 d;
 
-        public a(ei1 ei1Var, gj1 gj1Var) {
+        public a(ei1 ei1Var, String str, ChannelListView channelListView, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ei1Var, gj1Var};
+                Object[] objArr = {ei1Var, str, channelListView, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,114 +49,237 @@ public class ei1 {
                     return;
                 }
             }
-            this.a = gj1Var;
+            this.d = ei1Var;
+            this.a = str;
+            this.b = channelListView;
+            this.c = str2;
         }
 
-        @Override // com.baidu.tieba.ch1
+        @Override // com.baidu.tieba.fg1
         public void b(Throwable th, String str) {
+            String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.a.onResult(119501, "");
-                th.printStackTrace();
+                if (str != null) {
+                    str2 = str;
+                } else if (th != null) {
+                    str2 = th.getMessage();
+                } else {
+                    str2 = null;
+                }
+                ChannelListView channelListView = this.b;
+                channelListView.U(bi1.a().getString(R.string.obfuscated_res_0x7f0f0f6a) + str2, str);
+                lh1 lh1Var = new lh1("1");
+                lh1Var.b(new SdkException("pay_platform error --> " + str, th).getStackMessage());
+                oh1.e(lh1Var);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ch1
+        @Override // com.baidu.tieba.fg1
         /* renamed from: d */
-        public void c(JSONObject jSONObject) {
+        public void c(Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                int optInt = jSONObject.optInt("status", -1);
-                int optInt2 = jSONObject.optInt("signStatus", -1);
-                int optInt3 = jSONObject.optInt("payStatus", -1);
-                if (2 != optInt && 2 != optInt3) {
-                    this.a.onResult(optInt2, "");
-                } else {
-                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("exceptionCode", "0");
+                if (!TextUtils.isEmpty(this.a)) {
+                    hashMap.put("isFoldChannel", this.a);
+                }
+                kh1.c("8", hashMap);
+                this.b.Y();
+                this.d.f("STEP_INNER", map, this.c, this.b, null);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ji1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ ChannelListView c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ ei1 g;
+
+        public b(ei1 ei1Var, String str, Map map, ChannelListView channelListView, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei1Var, str, map, channelListView, str2, str3, str4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = ei1Var;
+            this.a = str;
+            this.b = map;
+            this.c = channelListView;
+            this.d = str2;
+            this.e = str3;
+            this.f = str4;
+        }
+
+        @Override // com.baidu.tieba.ji1
+        public void onResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                xh1.g("WalletChannel->thirdPay onResult statusCode = " + i + " msg = " + str);
+                if (TextUtils.equals(this.a, "DIRECT_OUTTER")) {
+                    this.g.e(i, str, this.b, this.c, this.d);
+                    return;
+                }
+                this.c.e0(i, uh1.a(i, this.e, str), "1", this.a, this.b, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends fg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.fg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            }
+        }
+
+        public c(ei1 ei1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947735196, "Lcom/baidu/tieba/ei1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947735196, "Lcom/baidu/tieba/ei1;");
-                return;
-            }
-        }
-        c = new ei1();
-    }
-
-    public ei1() {
+    public ei1(Activity activity, IChannelPay iChannelPay) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, iChannelPay};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = activity;
+        this.b = iChannelPay;
     }
 
-    public static ei1 b() {
-        InterceptResult invokeV;
+    public void b(Bundle bundle, PayChannelEntity payChannelEntity, String str, ChannelListView channelListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, bundle, payChannelEntity, str, channelListView) != null) || payChannelEntity == null) {
+            return;
         }
-        return (ei1) invokeV.objValue;
-    }
-
-    public b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        String payChannel = payChannelEntity.getPayChannel();
+        String installmentPeriod = payChannelEntity.getInstallmentPeriod();
+        if (TextUtils.isEmpty(payChannel)) {
+            return;
         }
-        return (b) invokeV.objValue;
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put(ng1.b, payChannel);
+        if (!TextUtils.isEmpty(installmentPeriod)) {
+            jSONObject.put(ng1.c, installmentPeriod);
+        }
+        bundle.putString("reqData", jSONObject.toString());
+        ng1.j().u(bundle, new a(this, str, channelListView, payChannel));
     }
 
-    public void a(gj1 gj1Var) {
+    public JSONObject c(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gj1Var) == null) {
-            String[] split = this.a.split("&");
-            dh1 dh1Var = new dh1();
-            for (String str : split) {
-                String[] split2 = str.split("=");
-                if (split2 != null && split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        dh1Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        dh1Var.d(split2[0], split2[1]);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (!TextUtils.isEmpty(map.get("payInfo"))) {
+                try {
+                    return new JSONObject(new String(Base64.decode(map.get("payInfo"), 0)));
+                } catch (JSONException unused) {
+                    return null;
                 }
             }
-            kh1.j().g(mh1.e(), dh1Var, new a(this, gj1Var));
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void d(Map<String, String> map, PayChannelEntity payChannelEntity, String str, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, map, payChannelEntity, str, channelListView) == null) {
+            try {
+                b(yh1.a(map), payChannelEntity, str, channelListView);
+            } catch (Throwable th) {
+                String message = th.getMessage();
+                channelListView.U("third pay error msg is " + message, null);
+            }
         }
     }
 
-    public void d(String str) {
+    public final void e(int i, String str, Map<String, String> map, ChannelListView channelListView, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, map, channelListView, str2}) == null) {
+            if (!TextUtils.isEmpty(str2) && i == 0) {
+                new lg1().d(str2, new hg1(), new c(this));
+            }
+            channelListView.d0(i, th1.a(map.get("orderId"), map.get("payInfo"), str), "1");
         }
     }
 
-    public void e(b bVar) {
+    public void f(String str, Map<String, String> map, String str2, ChannelListView channelListView, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, str, map, str2, channelListView, str3) == null) {
+            ki1 ki1Var = new ki1();
+            ki1Var.b = c(map);
+            ki1Var.a = str2;
+            String str4 = map.get("payOrderNo");
+            oh1.f = str4;
+            if (this.b != null) {
+                kh1.d();
+                this.b.pay(this.a, ki1Var, new b(this, str, map, channelListView, str3, str4, str2));
+                xh1.g("WalletChannel->thirdPay setIsPreparePaying()");
+                channelListView.setIsPreparePaying(false);
+            }
         }
+    }
+
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
     }
 }

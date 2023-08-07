@@ -80,14 +80,14 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.lm
     /* renamed from: H */
     public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
             MsgleftView msgleftView = new MsgleftView(this.a);
-            return new a(this, msgleftView.y(), msgleftView);
+            return new a(this, msgleftView.x(), msgleftView);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
@@ -107,7 +107,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.ln
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.lm
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -126,7 +126,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
             b.setUpdateListener(this.j);
             b.Y(this.i);
             b.Q(this.m);
-            b.L();
+            b.K();
             chatMessage.getCacheData().setIs_left(1);
             b.U(this.b);
             b.V(this.c);
@@ -135,8 +135,8 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
             b.S(chatMessage.getCacheData().getLastMsgTime());
             b.X(viewGroup, chatMessage);
             b.N(viewGroup, chatMessage);
-            this.a.getLayoutMode().l(false);
-            this.a.getLayoutMode().k(view2);
+            this.a.getLayoutMode().setNightMode(false);
+            this.a.getLayoutMode().onModeChanged(view2);
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -1,36 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class l3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public fk1<f3b> a;
 
-    public static void b(String str) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            dk1 b = dk1.b();
+            this.a = b;
+            b.a(new g3b());
         }
     }
 
-    public static void a(w3b w3bVar) {
+    public l3b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, w3bVar) == null) && w3bVar != null && !w3bVar.y()) {
-            JSONArray n = w3bVar.n();
-            int length = n.length();
-            boolean B = w3bVar.B();
-            for (int i = 0; i < length; i++) {
-                try {
-                    if (B != r2b.o().e(n.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + B + "  content " + w3bVar.u().toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
+    }
+
+    public f3b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
+        }
+        return (f3b) invokeV.objValue;
     }
 }

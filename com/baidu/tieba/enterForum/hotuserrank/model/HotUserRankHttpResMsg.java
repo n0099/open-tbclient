@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.hotuserrank.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.n17;
+import com.baidu.tieba.vy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
 public class HotUserRankHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n17 pageData;
+    public vy6 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankHttpResMsg() {
@@ -36,13 +36,13 @@ public class HotUserRankHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public n17 getPageData() {
+    public vy6 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.pageData;
         }
-        return (n17) invokeV.objValue;
+        return (vy6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class HotUserRankHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getInfluenceRankResIdl.error.usermsg);
         }
-        n17 n17Var = new n17();
-        this.pageData = n17Var;
-        n17Var.c(getInfluenceRankResIdl.data);
+        vy6 vy6Var = new vy6();
+        this.pageData = vy6Var;
+        vy6Var.c(getInfluenceRankResIdl.data);
     }
 }

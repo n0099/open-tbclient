@@ -1,74 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface vp5 {
-    public static final a a = a.a;
+public class vp5 implements uo5<ShowReplyInPbEvent> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    tu6 a();
-
-    String b();
-
-    String c();
-
-    String d();
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-338957359, "Lcom/baidu/tieba/vp5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-338957359, "Lcom/baidu/tieba/vp5$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("module_home", "SpriteResourceService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    public vp5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        public final vp5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Object service = ServiceManager.getService(b);
-                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
-                return (vp5) service;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uo5
+    /* renamed from: a */
+    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showReplyInPbEvent)) == null) {
+            if (showReplyInPbEvent == null) {
+                return false;
             }
-            return (vp5) invokeV.objValue;
+            if (showReplyInPbEvent.isSubPbReply) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
+                return true;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

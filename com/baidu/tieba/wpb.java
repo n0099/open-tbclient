@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,42 +10,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public final class wpb {
-    public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, spb> b;
-    public static Map<Class<?>, Object> c;
+public class wpb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "RootKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, spb> a;
+    public byte[] a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279680, "Lcom/baidu/tieba/wpb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948279680, "Lcom/baidu/tieba/wpb;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948279680, "Lcom/baidu/tieba/wpb;")) == null) {
+            return;
         }
-        b = new HashMap();
-        c = new HashMap();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948279680, "Lcom/baidu/tieba/wpb;");
+        }
     }
 
-    public wpb(List<spb> list, Context context) {
+    public wpb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,87 +45,47 @@ public final class wpb {
                 return;
             }
         }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
+        this.a = null;
     }
 
-    public static Constructor a(Class cls, Class... clsArr) {
-        InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
+    public byte[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
-                    }
-                    if (z) {
-                        return constructor;
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (byte[]) this.a.clone();
         }
-        return (Constructor) invokeLL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public final void b(String str, Exception exc) {
+    public static wpb d(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) {
+            wpb wpbVar = new wpb();
+            wpbVar.a(str, str2, str3, str4);
+            return wpbVar;
+        }
+        return (wpb) invokeLLLL.objValue;
+    }
+
+    public final void a(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+            b(str, str2, str3, vpb.b(str4));
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<spb> list, Context context) {
-        Map<Class<?>, spb> map;
-        String str;
+    @SuppressLint({"NewApi"})
+    public final void b(String str, String str2, String str3, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
-            return;
-        }
-        for (spb spbVar : list) {
-            if (spbVar.c()) {
-                if (!b.containsKey(spbVar.a())) {
-                    map = b;
-                }
-                if (spbVar.b() && spbVar.getType() != null && !c.containsKey(spbVar.a())) {
-                    try {
-                        Constructor a = a(spbVar.getType(), Context.class);
-                        c.put(spbVar.a(), a == null ? a.newInstance(context) : spbVar.getType().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
-                    }
-                }
-            } else {
-                map = this.a;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, bArr) == null) {
+            if (Build.VERSION.SDK_INT < 26) {
+                ypb.d(b, "initRootKey: sha1");
+                this.a = tpb.h(str, str2, str3, bArr, false);
+                return;
             }
-            map.put(spbVar.a(), spbVar);
-            if (spbVar.b()) {
-                Constructor a2 = a(spbVar.getType(), Context.class);
-                c.put(spbVar.a(), a2 == null ? a2.newInstance(context) : spbVar.getType().newInstance());
-            }
+            ypb.d(b, "initRootKey: sha256");
+            this.a = tpb.h(str, str2, str3, bArr, true);
         }
     }
 }

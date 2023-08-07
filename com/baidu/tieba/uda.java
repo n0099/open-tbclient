@@ -1,112 +1,114 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class uda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String[] split3;
+    public uda() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (xi.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return split3[split3.length - 1];
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (xi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (xi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("upgrade");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (xi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("notificationName");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String str2;
-        String[] split3;
-        String str3;
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (!xi.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
-                    return str2.substring(0, (str2.length() - str3.length()) - 1);
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static JSONObject f(String str) throws JSONException {
-        InterceptResult invokeL;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return new JSONObject();
-            }
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return new JSONObject();
-            }
-            String queryParameter = parse.getQueryParameter("params");
-            if (xi.isEmpty(queryParameter)) {
-                return new JSONObject();
-            }
-            return new JSONObject(queryParameter);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.e = jSONObject;
+        }
     }
 }

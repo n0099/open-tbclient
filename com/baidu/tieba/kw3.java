@@ -1,116 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.hk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import java.util.Map;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class kw3 {
+public class kw3 implements il4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Method b;
-    public Object c;
 
-    public kw3(Class<?> cls) {
-        int intValue;
+    public kw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = 4099;
-        if (cls == null) {
-            return;
-        }
-        try {
-            Object k = zf4.k(cls, "getInstance", new Object[0]);
-            this.c = k;
-            if (k != null) {
-                Object h = zf4.h(k, "UNIPERF_EVENT_APP_START");
-                if (h == null) {
-                    intValue = this.a;
-                } else {
-                    intValue = ((Integer) h).intValue();
-                }
-                this.a = intValue;
-            }
-            Method i3 = zf4.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
-            this.b = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-        } catch (Throwable unused) {
         }
     }
 
-    public static kw3 b(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hk4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hk4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = zf4.b("android.iawareperf.UniPerf", true);
-            } catch (Throwable unused) {
-                cls = null;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            if (PMSConstants.a(ji4.b())) {
+                bk4.b(str, map, map2, jSONObject, new bu3(aVar));
+            } else {
+                bk4.b(str, map, map2, jSONObject, new ik4(aVar));
             }
-            return new kw3(cls);
         }
-        return (kw3) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.il4
+    public uk4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return sk4.a(str, i);
         }
-        return invokeV.intValue;
+        return (uk4) invokeLI.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hk4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, hk4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && this.b != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int d(int i, String str, int... iArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
-            if (!c()) {
-                return -1;
-            }
-            try {
-                Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
-                if (invoke == null) {
-                    return -1;
-                }
-                return ((Integer) invoke).intValue();
-            } catch (Throwable unused) {
-                return -1;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
+            if (PMSConstants.a(ji4.b())) {
+                bk4.a(str, map, map2, new bu3(aVar));
+            } else {
+                bk4.a(str, map, map2, new ik4(aVar));
             }
         }
-        return invokeILL.intValue;
     }
 }

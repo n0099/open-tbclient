@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,18 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uq2 extends pp2<fs2> {
+public class uq2 extends so2<jr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onSurfaceChanged" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCameraFace" : (String) invokeV.objValue;
     }
 
     public uq2() {
@@ -37,17 +37,21 @@ public class uq2 extends pp2<fs2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fs2 fs2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jr2 jr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fs2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jr2Var) == null) {
             String str = command.what;
-            d(fs2Var, str, "" + command.obj, true);
+            d(jr2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                fs2Var.onSurfaceChanged(jSONObject.optInt("width"), jSONObject.optInt("height"));
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "back")) {
+                    jr2Var.setCameraFace(false);
+                } else if (TextUtils.equals(str2, "front")) {
+                    jr2Var.setCameraFace(true);
+                }
             }
         }
     }

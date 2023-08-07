@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.IExternalTransferIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.io.DataInputStream;
 /* loaded from: classes6.dex */
-public final class k90 implements IExternalTransferIoc {
+public class k90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public l90 a;
+    public m90 b;
 
     public k90() {
         Interceptable interceptable = $ic;
@@ -25,23 +25,38 @@ public final class k90 implements IExternalTransferIoc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new l90();
+        this.b = new m90();
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.IExternalTransferIoc
-    public void addEvent(String str) {
+    public b90 a(b90 b90Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            m90.b(str);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, b90Var, z)) == null) {
+            this.a.b(b90Var, z);
+            return b90Var;
         }
+        return (b90) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.IExternalTransferIoc
-    public void addEvent(String str, String str2) {
+    public b90 b(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            m90.c(str, str2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
+            return this.a.c(context, j);
         }
+        return (b90) invokeLJ.objValue;
+    }
+
+    public b90 c(DataInputStream dataInputStream) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataInputStream)) == null) {
+            return this.b.b(dataInputStream);
+        }
+        return (b90) invokeL.objValue;
     }
 }

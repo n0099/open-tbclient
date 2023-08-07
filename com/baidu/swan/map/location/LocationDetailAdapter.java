@@ -6,32 +6,32 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh4;
-import com.baidu.tieba.ih4;
+import com.baidu.tieba.kg4;
+import com.baidu.tieba.lg4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
     public RecyclerView b;
-    public List<ih4> c;
-    public hh4 d;
+    public List<lg4> c;
+    public kg4 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, hh4 hh4Var) {
-        this(context, recyclerView, hh4Var, true);
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, kg4 kg4Var) {
+        this(context, recyclerView, kg4Var, true);
     }
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, hh4 hh4Var, boolean z) {
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, kg4 kg4Var, boolean z) {
         this.b = recyclerView;
         this.a = context;
-        this.d = hh4Var;
+        this.d = kg4Var;
         this.e = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<ih4> list = this.c;
+        List<lg4> list = this.c;
         if (list == null) {
             return 0;
         }
@@ -51,8 +51,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public void n() {
-        for (ih4 ih4Var : this.c) {
-            ih4Var.b = false;
+        for (lg4 lg4Var : this.c) {
+            lg4Var.b = false;
         }
     }
 
@@ -64,11 +64,11 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return 101;
     }
 
-    public void setData(List<ih4> list) {
+    public void setData(List<lg4> list) {
         o(list, null);
     }
 
-    public void o(List<ih4> list, String str) {
+    public void o(List<lg4> list, String str) {
         if (list != null) {
             this.c = list;
             this.f = str;

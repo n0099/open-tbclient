@@ -1,13 +1,13 @@
 package com.baidu.tieba.homepage.topic.topicdetail.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a98;
-import com.baidu.tieba.e98;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.RequestGetTopicDetailMessage;
@@ -16,10 +16,10 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicDe
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicThreadMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicDetailMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.message.RequestBlessMessage;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.u68;
+import com.baidu.tieba.y68;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ import java.util.List;
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a98 a;
-    public e98 b;
-    public kb c;
+    public u68 a;
+    public y68 b;
+    public NetMessageListener c;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -45,7 +45,7 @@ public class TopicDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -72,7 +72,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             long j2;
@@ -102,7 +102,7 @@ public class TopicDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends kb {
+    public class b extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -129,7 +129,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
@@ -146,7 +146,7 @@ public class TopicDetailModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends kb {
+    public class c extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -173,23 +173,23 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
-            List<yn> list = null;
+            List<ym> list = null;
             boolean z = false;
             if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
                 ResponseHttpGetTopicThreadMessage responseHttpGetTopicThreadMessage = (ResponseHttpGetTopicThreadMessage) responsedMessage;
-                List<yn> dataList = responseHttpGetTopicThreadMessage.getDataList();
+                List<ym> dataList = responseHttpGetTopicThreadMessage.getDataList();
                 z = responseHttpGetTopicThreadMessage.getHasMore();
                 list = dataList;
             }
             if (responsedMessage instanceof ResponseSocketGetTopicThreadMessage) {
                 ResponseSocketGetTopicThreadMessage responseSocketGetTopicThreadMessage = (ResponseSocketGetTopicThreadMessage) responsedMessage;
-                List<yn> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
+                List<ym> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
@@ -209,7 +209,7 @@ public class TopicDetailModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -221,20 +221,20 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void c0(a98 a98Var) {
+    public void U(u68 u68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a98Var) == null) {
-            this.a = a98Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u68Var) == null) {
+            this.a = u68Var;
         }
     }
 
-    public void a0(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                a98 a98Var = this.a;
-                if (a98Var != null) {
-                    a98Var.s(-1, null);
+                u68 u68Var = this.a;
+                if (u68Var != null) {
+                    u68Var.s(-1, null);
                     return;
                 }
                 return;
@@ -247,13 +247,13 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void b0(long j, long j2, long j3) {
+    public void T(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                a98 a98Var = this.a;
-                if (a98Var != null) {
-                    a98Var.F0(-1, false, null);
+                u68 u68Var = this.a;
+                if (u68Var != null) {
+                    u68Var.F0(-1, false, null);
                     return;
                 }
                 return;

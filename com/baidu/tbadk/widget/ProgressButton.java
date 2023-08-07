@@ -10,12 +10,12 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gfa;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ProgressButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
@@ -398,7 +398,7 @@ public class ProgressButton extends View {
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gfa.TBProgressButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, yda.TBProgressButton);
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);
@@ -415,7 +415,7 @@ public class ProgressButton extends View {
             this.g = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.h));
             this.d = obtainStyledAttributes.getFloat(0, 0.2f);
             obtainStyledAttributes.recycle();
-            this.n = yi.g(getContext(), R.dimen.L_X02);
+            this.n = BdUtilHelper.getDimens(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
             this.i = paint;
             paint.setColor(this.b);

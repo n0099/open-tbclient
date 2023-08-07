@@ -1,101 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLSession;
 /* loaded from: classes5.dex */
-public final class eqb {
+public class eqb implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
-    public static final eqb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
-    public final ExecutorService b;
-    public final Executor c;
-
-    /* loaded from: classes5.dex */
-    public static final class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public final void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                runnable.run();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744403, "Lcom/baidu/tieba/eqb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947744403, "Lcom/baidu/tieba/eqb;");
-                return;
-            }
-        }
-        d = new eqb();
-    }
 
     public eqb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = gqb.a();
-        this.a = new a();
-        this.c = gqb.b();
     }
 
-    public static ExecutorService a() {
-        InterceptResult invokeV;
+    @Override // javax.net.ssl.HostnameVerifier
+    public final boolean verify(String str, SSLSession sSLSession) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
-    }
-
-    public static Executor b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
-    }
-
-    public static Executor c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+            try {
+                X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
+                mqb.b("", "verify: certificate is : " + x509Certificate.getSubjectDN().getName());
+                gqb.a(str, x509Certificate, true);
+                return true;
+            } catch (SSLException e) {
+                mqb.d("", "SSLException : " + e.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

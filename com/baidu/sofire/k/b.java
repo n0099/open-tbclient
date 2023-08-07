@@ -29,6 +29,7 @@ import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.player.model.YYOption;
@@ -178,8 +179,8 @@ public class b {
         return invokeL.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x007c A[LOOP:0: B:15:0x0029->B:58:0x007c, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x007a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x007d A[LOOP:0: B:15:0x002a->B:58:0x007d, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x007b A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1129,7 +1130,7 @@ public class b {
             intent.putExtra("target_class", Receiver.class.getCanonicalName());
             intent.putExtra("target_method", "handleDailyWork");
             if (h(context)) {
-                service = PendingIntent.getService(context, 101, intent, 201326592);
+                service = PendingIntent.getService(context, 101, intent, BDImageView.DEFAULT_BORDER_COLOR);
             } else {
                 service = PendingIntent.getService(context, 101, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             }
@@ -2186,9 +2187,13 @@ public class b {
         return (String) invokeL.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0119 A[Catch: all -> 0x012f, LOOP:1: B:52:0x0113->B:54:0x0119, LOOP_END, TRY_LEAVE, TryCatch #5 {all -> 0x0160, blocks: (B:5:0x0009, B:7:0x002a, B:8:0x002f, B:10:0x003d, B:16:0x0061, B:29:0x0090, B:31:0x00a4, B:34:0x00ac, B:35:0x00c4, B:37:0x00c9, B:39:0x00d4, B:61:0x0133, B:63:0x014c, B:66:0x015c, B:12:0x0057, B:18:0x006c, B:20:0x0073, B:22:0x007b, B:24:0x0083, B:26:0x0088, B:49:0x0104, B:51:0x010a, B:52:0x0113, B:54:0x0119, B:57:0x0127, B:46:0x00ff), top: B:74:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static JSONObject n(Context context) {
         InterceptResult invokeL;
-        List<PackageInfo> installedPackages;
+        List<PackageInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, context)) == null) {
             try {
@@ -2230,17 +2235,27 @@ public class b {
                     com.baidu.sofire.j.a a4 = com.baidu.sofire.j.a.a(context);
                     jSONObject2.put("9", String.valueOf(a4.a.getInt("opi", 0)));
                     if (a4.a.getBoolean("r_a_l_t", false)) {
-                        if (q.e(context)) {
-                            installedPackages = context.getPackageManager().getInstalledPackages(0);
-                        } else {
-                            installedPackages = null;
+                        try {
+                        } catch (Throwable unused) {
+                            int i3 = com.baidu.sofire.a.b.a;
                         }
-                        if (installedPackages != null && installedPackages.size() > 0) {
-                            JSONArray jSONArray = new JSONArray();
-                            for (PackageInfo packageInfo2 : installedPackages) {
-                                jSONArray.put(packageInfo2.packageName);
+                        if (q.e(context)) {
+                            list = context.getPackageManager().getInstalledPackages(0);
+                            if (list != null) {
+                                JSONArray jSONArray = new JSONArray();
+                                while (r1.hasNext()) {
+                                }
+                                jSONObject2.put("aps", jSONArray.toString());
                             }
-                            jSONObject2.put("aps", jSONArray.toString());
+                        } else {
+                            list = null;
+                            if (list != null && list.size() > 0) {
+                                JSONArray jSONArray2 = new JSONArray();
+                                for (PackageInfo packageInfo2 : list) {
+                                    jSONArray2.put(packageInfo2.packageName);
+                                }
+                                jSONObject2.put("aps", jSONArray2.toString());
+                            }
                         }
                     }
                     jSONObject2.put("16", a.a(context));
@@ -2257,8 +2272,8 @@ public class b {
                 }
                 d = 6;
                 return null;
-            } catch (Throwable unused) {
-                int i3 = com.baidu.sofire.a.b.a;
+            } catch (Throwable unused2) {
+                int i4 = com.baidu.sofire.a.b.a;
                 return null;
             }
         }

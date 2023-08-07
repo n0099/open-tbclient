@@ -1,104 +1,87 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import com.baidu.poly.widget.toast.ToastLoadingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ui1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
-    public static String b = null;
-    public static int c = 0;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948211852, "Lcom/baidu/tieba/ui1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948211852, "Lcom/baidu/tieba/ui1;");
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ToastLoadingView a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
-            return;
-        }
-        Log.d("CashierSdk", str);
-    }
-
-    public static void d(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(objArr));
-    }
-
-    public static void e(StackTraceElement[] stackTraceElementArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
-            a = stackTraceElementArr[1].getFileName();
-            b = stackTraceElementArr[1].getMethodName();
-            c = stackTraceElementArr[1].getLineNumber();
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
-            return;
-        }
-        Log.i("CashierSdk", str);
-    }
-
-    public static void c(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(str), th);
-    }
-
-    public static String f(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
-            if (objArr == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
+        public a(ToastLoadingView toastLoadingView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {toastLoadingView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return a(sb.toString());
+            this.a = toastLoadingView;
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ui1.b(this.a);
+            }
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ToastLoadingView toastLoadingView, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{viewGroup, layoutParams, toastLoadingView, Long.valueOf(j)}) == null) {
+            if (toastLoadingView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
+            }
+            viewGroup.addView(toastLoadingView, layoutParams);
+            toastLoadingView.setLoading(true);
+            if (j != -1) {
+                viewGroup.postDelayed(new a(toastLoadingView), j);
+            }
+        }
+    }
+
+    public static void b(ToastLoadingView toastLoadingView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, toastLoadingView) == null) && toastLoadingView != null && (toastLoadingView.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
+            toastLoadingView.setLoading(false);
+        }
+    }
+
+    public static ToastLoadingView c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, layoutParams, str, Long.valueOf(j)})) == null) {
+            if (viewGroup == null) {
+                return null;
+            }
+            ToastLoadingView toastLoadingView = new ToastLoadingView(viewGroup.getContext());
+            if (!TextUtils.isEmpty(str)) {
+                toastLoadingView.setText(str);
+            }
+            a(viewGroup, layoutParams, toastLoadingView, j);
+            return toastLoadingView;
+        }
+        return (ToastLoadingView) invokeCommon.objValue;
     }
 }

@@ -1,233 +1,188 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Environment;
-import android.os.Process;
-import android.os.StatFs;
+import android.content.res.AssetManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class cg0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile int a = -1;
-    public static volatile String b;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947673661, "Lcom/baidu/tieba/cg0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public cg0(Context context) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947673661, "Lcom/baidu/tieba/cg0;");
-        }
+        this.a = context;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    public boolean a(String str, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    String path = Environment.getExternalStorageDirectory().getPath();
-                    if (path == null || path.length() <= 0) {
-                        zf0.d("sdk_Utils", "External path is null, so SDCard no free space");
-                        return -1L;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
+            boolean b = b(str, file);
+            if (file.isDirectory()) {
+                File file2 = new File(file, ".nomedia");
+                if (!file2.exists()) {
+                    try {
+                        file2.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    StatFs statFs = new StatFs(path);
-                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
                 }
-                return -1L;
-            } catch (Exception unused) {
-                zf0.d("sdk_Utils", "SDCard no free space");
-                return -1L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = null;
-            try {
-                if (e(context)) {
-                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
-                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
-                    str = context.getExternalCacheDir().getPath();
-                }
-            } catch (Exception unused) {
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String str = null;
-            if (context == null) {
-                zf0.e("sdk_Utils", "getVideoStatisticsPath ctx = null");
-                return null;
-            }
-            String b2 = b(context);
-            if (!TextUtils.isEmpty(b2)) {
-                str = b2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
-            }
-            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-            zf0.c("sdk_Utils", "Utils.getExternalStorageSpace():" + a());
-            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
-                str = str2;
-            }
-            new File(str).mkdirs();
-            if (!f()) {
-                str = str + File.separator + "remote";
-            }
-            zf0.c("sdk_Utils", "getVideoStatisticsPath folder:" + str);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = g();
-                if (TextUtils.isEmpty(b)) {
-                    b = h();
-                }
-                return b;
             }
             return b;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
+    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        InputStream open;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (context != null && (packageManager = context.getPackageManager()) != null) {
-                try {
-                    if (packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0) {
-                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
-                    }
-                    return false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a < 0) {
-                Context a2 = xf0.a();
-                if (a2 == null || a2.getPackageName().equals(d())) {
-                    a = 1;
-                } else {
-                    a = 0;
-                }
-            }
-            return a == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int myPid = Process.myPid();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
+            AssetManager assets = this.a.getAssets();
+            FileOutputStream fileOutputStream = null;
             try {
-                ActivityManager activityManager = (ActivityManager) xf0.a().getSystemService("activity");
-                if (activityManager != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.pid == myPid) {
-                            return runningAppProcessInfo.processName;
+                String[] list = assets.list(str);
+                if (list.length > 0) {
+                    if (!file.isDirectory() && file.exists()) {
+                        file.delete();
+                    }
+                    if (file.isDirectory() && !file.exists()) {
+                        file.mkdirs();
+                    }
+                    for (String str2 : list) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            b(str + File.separator + str2, new File(file, str2));
                         }
                     }
-                    return null;
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
-            try {
-                String readLine = bufferedReader.readLine();
-                if (!TextUtils.isEmpty(readLine)) {
-                    readLine = readLine.trim();
-                }
-                try {
-                    bufferedReader.close();
-                } catch (IOException unused) {
-                }
-                return readLine;
-            } catch (Exception unused2) {
-                if (bufferedReader != null) {
+                    open = null;
+                } else {
+                    File parentFile = file.getParentFile();
+                    if (parentFile != null && !parentFile.exists()) {
+                        parentFile.mkdirs();
+                    }
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    file.createNewFile();
+                    open = assets.open(str);
                     try {
-                        bufferedReader.close();
-                    } catch (IOException unused3) {
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = open.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                fileOutputStream2.write(bArr, 0, read);
+                            }
+                            fileOutputStream2.flush();
+                            fileOutputStream = fileOutputStream2;
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            Exception exc = e;
+                            inputStream = open;
+                            e = exc;
+                            try {
+                                e.printStackTrace();
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException e2) {
+                                        e2.printStackTrace();
+                                        return false;
+                                    }
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                return false;
+                            } catch (Throwable th) {
+                                th = th;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileOutputStream = fileOutputStream2;
+                            Throwable th3 = th;
+                            inputStream = open;
+                            th = th3;
+                            if (fileOutputStream != null) {
+                            }
+                            if (inputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                    } catch (Throwable th4) {
+                        th = th4;
                     }
                 }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != null) {
+                if (fileOutputStream != null) {
                     try {
-                        bufferedReader2.close();
-                    } catch (IOException unused4) {
+                        fileOutputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                        return true;
                     }
                 }
-                throw th;
+                if (open != null) {
+                    open.close();
+                    return true;
+                }
+                return true;
+            } catch (Exception e6) {
+                e = e6;
+                inputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                inputStream = null;
             }
-        } catch (Exception unused5) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

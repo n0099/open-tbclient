@@ -57,7 +57,7 @@ public class ValidateModel {
                     }
                     validateItemData.setUserName(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
                     validateItemData.setPortrait(optJSONObject.optString("portrait"));
-                    validateItemData.setGroupId(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
+                    validateItemData.setGroupId(optJSONObject.optString("groupId"));
                     validateItemData.setUserId(optJSONObject.optString("userId"));
                     validateItemData.setExt(groupNewsPojo.getExt());
                     return validateItemData;

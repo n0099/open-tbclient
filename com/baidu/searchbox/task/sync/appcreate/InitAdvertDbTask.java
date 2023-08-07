@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.xl0;
+import com.baidu.tieba.vk0;
 /* loaded from: classes4.dex */
 public class InitAdvertDbTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -16,6 +16,6 @@ public class InitAdvertDbTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        xl0.b().c();
+        vk0.b().c();
     }
 }

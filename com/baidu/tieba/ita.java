@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,87 +12,119 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ita {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public hta c;
 
-    public ita() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends jw5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jw5
+        /* renamed from: a */
+        public Integer doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                l45.e();
+                ne<String> f = l45.f("tb.write_privacy_state_space" + this.b);
+                if (f != null) {
+                    i = JavaTypesHelper.toInt(f.get(this.c), this.a);
+                }
+                return Integer.valueOf(i);
+            }
+            return (Integer) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements ov5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ov5
+        /* renamed from: a */
+        public void onReturnDataInUI(Integer num) {
+            c cVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
+                cVar.a(num.intValue());
             }
         }
     }
 
-    public static ita c(Fragment fragment) {
-        InterceptResult invokeL;
+    public static void a(String str, int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            ita itaVar = new ita();
-            itaVar.a = fragment;
-            return itaVar;
+        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(currentAccount)) {
+                return;
+            }
+            nw5.b(new a(i, currentAccount, str), new b(cVar));
         }
-        return (ita) invokeL.objValue;
     }
 
-    public void a(int i, int i2, Intent intent) {
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
             return;
         }
-        if (i2 == -1) {
-            hta htaVar = this.c;
-            if (htaVar != null) {
-                htaVar.a();
-                return;
-            }
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        hta htaVar2 = this.c;
-        if (htaVar2 != null) {
-            htaVar2.b();
-        }
-    }
-
-    public void b(hta htaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, htaVar) == null) {
-            this.c = htaVar;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                hta htaVar2 = this.c;
-                if (htaVar2 != null) {
-                    htaVar2.a();
-                    return;
-                }
-                return;
-            }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                hta htaVar3 = this.c;
-                if (htaVar3 != null) {
-                    htaVar3.a();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        l45.e();
+        ne<String> f = l45.f("tb.write_privacy_state_space" + currentAccount);
+        if (f != null) {
+            f.a(str, String.valueOf(i));
         }
     }
 }

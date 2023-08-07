@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.searchbox.http.HttpManager;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes6.dex */
 public interface ls1 {
-    void a(int i);
+    HttpManager a();
 
-    void b(JSONObject jSONObject);
+    void call(HttpManager httpManager, Request request, Callback callback);
 }

@@ -13,7 +13,7 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public View BA;
     public Runnable BB;
@@ -94,9 +94,9 @@ public final class a {
     }
 
     private void initView() {
-        this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09134f);
-        this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091351);
-        this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f091350);
+        this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091362);
+        this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091364);
+        this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f091363);
     }
 
     public final void iO() {

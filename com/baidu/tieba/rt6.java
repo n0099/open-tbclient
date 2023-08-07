@@ -6,57 +6,57 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class rt6 implements qc7 {
+public final class rt6 extends lt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public Set<Integer> b;
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13692" : (String) invokeV.objValue;
-    }
-
-    public rt6(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rt6() {
+        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.b = new LinkedHashSet();
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.baidu.tieba.lt6
+    public boolean b(us6 item, xu6 timer, os6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            if (wg.e(businessInfo.a().get("is_video_work"), 0) == 1) {
-                str = "1";
-            } else {
-                str = "0";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            vs6 e = item.e();
+            if ((!this.b.isEmpty()) && !this.b.contains(Integer.valueOf(c(e)))) {
+                return true;
             }
-            hashMap.put("obj_source", str);
-            hashMap.put("obj_locate", String.valueOf(this.a));
-            return hashMap;
+            return false;
         }
-        return (Map) invokeL.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public final int c(vs6 vs6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vs6Var)) == null) {
+            return vs6Var.n() & 16777215;
+        }
+        return invokeL.intValue;
     }
 }

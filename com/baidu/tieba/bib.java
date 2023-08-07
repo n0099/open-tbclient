@@ -1,36 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.qq.e.ads.banner2.UnifiedBannerView;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bib extends BaseAdRipper {
+public class bib extends aib<UnifiedBannerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bib(Ssp.Pid pid) {
-        super(pid);
+    public bib(UnifiedBannerView unifiedBannerView) {
+        super(unifiedBannerView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {unifiedBannerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,35 +34,40 @@ public class bib extends BaseAdRipper {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aib
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                A a = ((xib) obj).a;
-                if (!(a instanceof NativeUnifiedADDataAdapter)) {
-                    return null;
-                }
-                Object field = ReflectionUtils.getField((NativeUnifiedADDataAdapter) a, "a", "e");
-                Field declaredField = field.getClass().getSuperclass().getDeclaredField("M");
-                if (declaredField == null) {
-                    return null;
-                }
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(field);
-                if (!(obj2 instanceof JSONObject)) {
-                    return null;
-                }
-                return gib.a((JSONObject) obj2);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            A a = this.a;
+            return (a == 0 || ((UnifiedBannerView) a).getExtraInfo() == null) ? "" : (String) ((UnifiedBannerView) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aib
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((UnifiedBannerView) this.a).sendLossNotification(map);
+        }
+    }
+
+    @Override // com.baidu.tieba.aib
+    public void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((UnifiedBannerView) this.a).sendWinNotification(map);
+        }
+    }
+
+    @Override // com.baidu.tieba.aib
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((UnifiedBannerView) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

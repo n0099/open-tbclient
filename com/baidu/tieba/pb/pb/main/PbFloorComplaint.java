@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,12 +52,12 @@ public class PbFloorComplaint extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07a5, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e86);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f07);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091e87);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ebf);
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b7e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ad, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e9d);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f1e);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091e9e);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ed6);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b8e);
         }
     }
 
@@ -116,16 +116,16 @@ public class PbFloorComplaint extends RelativeLayout {
             int i = this.f;
             if (i == 1) {
                 this.c.setText(R.string.reply_has_been_folded);
-                d85.d(this.c).x(R.color.CAM_X0301);
+                EMManager.from(this.c).setTextColor(R.color.CAM_X0301);
             } else if (i == 2) {
                 this.c.setText(R.string.folded_and_complaint);
-                d85.d(this.c).x(R.color.CAM_X0105);
+                EMManager.from(this.c).setTextColor(R.color.CAM_X0105);
             } else if (i == 3) {
                 this.c.setText(R.string.folded_and_not_complain);
-                d85.d(this.c).x(R.color.CAM_X0301);
+                EMManager.from(this.c).setTextColor(R.color.CAM_X0301);
             } else {
                 this.c.setText(R.string.reply_has_been_folded);
-                d85.d(this.c).x(R.color.CAM_X0301);
+                EMManager.from(this.c).setTextColor(R.color.CAM_X0301);
             }
             int i2 = this.g;
             if (i2 != 1 && i2 != 3) {
@@ -138,9 +138,7 @@ public class PbFloorComplaint extends RelativeLayout {
                 WebPManager.setPureDrawable(this.a, R.drawable.icon_pure_warning, R.color.CAM_X0301, null);
             }
             WebPManager.setPureDrawable(this.b, R.drawable.icon_pure_arrow14_right_n, R.color.CAM_X0304, null);
-            d85 d = d85.d(this.d);
-            d.x(R.color.CAM_X0107);
-            d.C(R.dimen.T_X09);
+            EMManager.from(this.d).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X09);
         }
     }
 

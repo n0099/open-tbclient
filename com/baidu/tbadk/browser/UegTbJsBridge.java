@@ -4,19 +4,19 @@ import android.content.Context;
 import android.webkit.JsPromptResult;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.AndroidUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.lka;
-import com.baidu.tieba.lp;
-import com.baidu.tieba.mda;
-import com.baidu.tieba.nd5;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.qda;
-import com.baidu.tieba.ws5;
+import com.baidu.tieba.bc5;
+import com.baidu.tieba.fca;
+import com.baidu.tieba.jca;
+import com.baidu.tieba.ko;
+import com.baidu.tieba.qja;
+import com.baidu.tieba.wq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@lp
+@ko
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements mda {
+public class UegTbJsBridge implements fca {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -63,24 +63,24 @@ public class UegTbJsBridge implements mda {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             try {
-                oi.a(new JSONObject(str).optString("content"));
+                AndroidUtils.copyToClipboard(new JSONObject(str).optString("content"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public qda novelPayResultToClient(boolean z) {
+    public jca novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             if (z) {
-                ws5.d();
+                wq5.d();
             }
-            return qdaVar;
+            return jcaVar;
         }
-        return (qda) invokeZ.objValue;
+        return (jca) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements mda {
         this.mTbPageContext = tbPageContext;
     }
 
-    public qda bindingMobileNumber() {
+    public jca bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, nd5.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, bc5.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return qdaVar;
+            return jcaVar;
         }
-        return (qda) invokeV.objValue;
+        return (jca) invokeV.objValue;
     }
 
-    public qda callNativeSMS(String str, String str2) {
+    public jca callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return qdaVar;
+            return jcaVar;
         }
-        return (qda) invokeLL.objValue;
+        return (jca) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.mda
+    @Override // com.baidu.tieba.fca
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements mda {
         return invokeLLLL.booleanValue;
     }
 
-    public qda recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public jca recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
-            readRecordsData.X(true);
-            ws5.e(str2, readRecordsData);
-            return qdaVar;
+            readRecordsData.P(true);
+            wq5.e(str2, readRecordsData);
+            return jcaVar;
         }
-        return (qda) invokeLLLLL.objValue;
+        return (jca) invokeLLLLL.objValue;
     }
 
-    public qda setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public jca setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements mda {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                lka.h(build);
-                lka.g(build);
+                qja.h(build);
+                qja.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return qdaVar;
+            return jcaVar;
         }
-        return (qda) invokeCommon.objValue;
+        return (jca) invokeCommon.objValue;
     }
 }

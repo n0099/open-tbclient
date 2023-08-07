@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iw0 extends mw0 {
+public class iw0 extends pw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,20 +25,28 @@ public class iw0 extends mw0 {
         }
     }
 
-    @Override // com.baidu.tieba.mw0, com.baidu.tieba.kw0, com.baidu.tieba.lw0, com.baidu.tieba.hw0
-    public void k(@NonNull mx0 mx0Var) {
-        int i;
+    public static pw0 w(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mx0Var) == null) {
-            super.k(mx0Var);
-            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(mx0Var.c())) {
-                if (q().n1().g()) {
-                    i = 0;
-                } else {
-                    i = 8;
-                }
-                M(i);
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            pw0 m = pw0.m(str, 7);
+            m.u(1);
+            m.s(i);
+            return m;
         }
+        return (pw0) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.pw0
+    public boolean b(@NonNull qx0 qx0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qx0Var)) == null) {
+            if (1 != qx0Var.getType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

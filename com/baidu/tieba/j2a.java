@@ -2,20 +2,18 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumList;
+import tbclient.GetDislikeList.DataRes;
 /* loaded from: classes6.dex */
-public final class j2a extends e1a {
+public class j2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.e1a
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0" : (String) invokeV.objValue;
-    }
+    public List<h2a> a;
+    public boolean b;
 
     public j2a() {
         Interceptable interceptable = $ic;
@@ -27,7 +25,29 @@ public final class j2a extends e1a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = true;
+    }
+
+    public void a(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        for (ForumList forumList : dataRes.forum_list) {
+            h2a h2aVar = new h2a();
+            h2aVar.a = forumList.avatar;
+            h2aVar.b = forumList.forum_name;
+            h2aVar.c = String.valueOf(forumList.forum_id);
+            this.a.add(h2aVar);
+        }
+        boolean z = true;
+        if (dataRes.has_more.intValue() != 1) {
+            z = false;
+        }
+        this.b = z;
     }
 }

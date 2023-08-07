@@ -32,7 +32,7 @@ public class AlaShareInfoData extends OrmObject {
         }
     }
 
-    public void V(AlaShareInfo alaShareInfo) {
+    public void N(AlaShareInfo alaShareInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, alaShareInfo) != null) || alaShareInfo == null) {
             return;

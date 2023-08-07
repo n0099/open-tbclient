@@ -1,6 +1,7 @@
 package com.baidu.tieba.payment;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,7 +10,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l9<T> a;
+    public BdPageContext<T> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -45,12 +45,12 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public PaymentConfirmModel(l9<T> l9Var) {
+    public PaymentConfirmModel(BdPageContext<T> bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,17 +60,17 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.a = l9Var;
+        this.a = bdPageContext;
     }
 
-    public void V(PayRequestData payRequestData) {
+    public void N(PayRequestData payRequestData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, payRequestData) != null) || payRequestData == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_PAY);
         httpMessage.addParam("order_id", payRequestData.getOrderId());
-        httpMessage.addParam(MemberPayActivityConfig.SCENE_ID, String.valueOf(payRequestData.getSceneId()));
+        httpMessage.addParam("scene_id", String.valueOf(payRequestData.getSceneId()));
         httpMessage.addParam("open_id", payRequestData.getOpenId());
         httpMessage.addParam("tbs", payRequestData.getTbs());
         httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
@@ -81,7 +81,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         this.a.sendMessage(httpMessage);
     }
 
-    public void W() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -91,7 +91,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void X() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -101,7 +101,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void Y(PaymentConfirmRequestData paymentConfirmRequestData) {
+    public void Q(PaymentConfirmRequestData paymentConfirmRequestData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, paymentConfirmRequestData) != null) || paymentConfirmRequestData == null) {
             return;
@@ -110,7 +110,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("tdou_num", String.valueOf(paymentConfirmRequestData.getTdou_num()));
         httpMessage.addParam("open_id", String.valueOf(paymentConfirmRequestData.getOpen_id()));
         httpMessage.addParam("order_id", String.valueOf(paymentConfirmRequestData.getOrder_id()));
-        httpMessage.addParam(MemberPayActivityConfig.SCENE_ID, String.valueOf(paymentConfirmRequestData.getScene_id()));
+        httpMessage.addParam("scene_id", String.valueOf(paymentConfirmRequestData.getScene_id()));
         httpMessage.addParam("goods_name", paymentConfirmRequestData.getGoods_name());
         httpMessage.addParam("goods_pic", paymentConfirmRequestData.getGoods_pic());
         httpMessage.addParam("terminal", paymentConfirmRequestData.getTerminal());

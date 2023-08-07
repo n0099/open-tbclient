@@ -1,26 +1,139 @@
 package com.baidu.tieba;
 
+import android.view.animation.Animation;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.Random;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hg {
+public abstract class hg implements Animation.AnimationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public boolean d;
-    public boolean e;
+
+    public void a(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+        }
+    }
+
+    public void b(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+        }
+    }
+
+    public void c(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
+        public final /* synthetic */ hg b;
+
+        public a(hg hgVar, Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hgVar, animation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hgVar;
+            this.a = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
+        public final /* synthetic */ hg b;
+
+        public b(hg hgVar, Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hgVar, animation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hgVar;
+            this.a = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
+        public final /* synthetic */ hg b;
+
+        public c(hg hgVar, Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hgVar, animation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hgVar;
+            this.a = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b(this.a);
+            }
+        }
+    }
 
     public hg() {
         Interceptable interceptable = $ic;
@@ -36,51 +149,27 @@ public class hg {
         }
     }
 
-    public void a() {
-        JSONObject b;
-        UBCManager uBCManager;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || new Random().nextInt(100) > 20 || (b = b()) == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animation) == null) {
+            SafeHandler.getInst().post(new b(this, animation));
         }
-        uBCManager.onEvent("94", b.toString());
     }
 
-    public JSONObject b() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONException e;
-        int i;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("url", this.a);
-                    jSONObject.put("resultCode", this.b);
-                    jSONObject.put(GameAssistConstKt.RESULT_MODIFY_PWD_MSG, this.c);
-                    int i2 = 1;
-                    if (this.d) {
-                        i = 1;
-                    } else {
-                        i = 0;
-                    }
-                    jSONObject.put("isHttps", i);
-                    if (!this.e) {
-                        i2 = 0;
-                    }
-                    jSONObject.put("isIpv6", i2);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
-                }
-            } catch (JSONException e3) {
-                jSONObject = null;
-                e = e3;
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(1048580, this, animation) == null) {
+            SafeHandler.getInst().post(new c(this, animation));
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, animation) == null) {
+            SafeHandler.getInst().post(new a(this, animation));
+        }
     }
 }

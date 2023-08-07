@@ -1,77 +1,143 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Personalized.DataRes;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class l68 {
+public final class l68 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BaseFragment a;
+    public boolean b;
+    public String c;
+    public String d;
+    public final qy4 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947894939, "Lcom/baidu/tieba/l68;")) == null) {
+    public l68(BaseFragment fragment) {
+        py4 py4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        this.a = fragment;
+        if (fragment instanceof py4) {
+            py4Var = (py4) fragment;
+        } else {
+            py4Var = null;
+        }
+        this.e = new qy4(py4Var);
+    }
+
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            Bundle arguments = this.a.getArguments();
+            if (arguments != null) {
+                this.b = arguments.getBoolean("tab_is_second_tab");
+                this.d = arguments.getString("tab_code");
+                this.c = arguments.getString("tab_name");
+            } else if (bundle != null) {
+                this.b = bundle.getBoolean("tab_is_second_tab");
+                this.d = bundle.getString("tab_code");
+                this.c = bundle.getString("tab_name");
+            }
+        }
+    }
+
+    public final void a(TbWebView tbWebView) {
+        HashMap<String, gg5> colourHeaderConfig;
+        gg5 gg5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, tbWebView) == null) && !this.b && !StringUtils.isNull(this.c) && (colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig()) != null && (gg5Var = colourHeaderConfig.get(this.c)) != null) {
+            List<String> h5ImageUrlList = gg5Var.k();
+            Intrinsics.checkNotNullExpressionValue(h5ImageUrlList, "h5ImageUrlList");
+            JSONArray jSONArray = new JSONArray();
+            for (String str : h5ImageUrlList) {
+                jSONArray.put(str);
+            }
+            tbWebView.H("head_img", jSONArray);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            YunDialogManager.onHidden(h55.h);
+            YunDialogManager.onHidden(h55.a(this.d));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.b) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947894939, "Lcom/baidu/tieba/l68;");
+        if (this.a.isPrimary()) {
+            e();
+        } else {
+            d();
         }
     }
 
-    public static void a() {
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            o55.e();
-            ye<byte[]> d = o55.d("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-            if (d != null) {
-                d.e("0", new byte[0], 0L);
-            }
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.getContext() == null) {
+            return;
         }
+        Context context = this.a.getContext();
+        Intrinsics.checkNotNull(context);
+        YunDialogManager.onShow(context, h55.h);
+        Context context2 = this.a.getContext();
+        Intrinsics.checkNotNull(context2);
+        YunDialogManager.onShow(context2, h55.a(this.d));
     }
 
-    public static DataRes b() {
-        InterceptResult invokeV;
-        byte[] bArr;
+    public final void h(TbWebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            o55.e();
-            ye<byte[]> d = o55.d("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-            if (d != null && (bArr = d.get("0")) != null && bArr.length != 0) {
-                try {
-                    return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            a(webView);
         }
-        return (DataRes) invokeV.objValue;
-    }
-
-    public static boolean c(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, responsedMessage)) == null) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest) || ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.immessagecenter.mention.agree.message;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.a15;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.yi;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.b05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,13 +47,13 @@ public class AgreeMeRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.id = Long.valueOf(this.id);
-                builder.q_type = Integer.valueOf(a15.c().e());
+                builder.q_type = Integer.valueOf(b05.c().e());
                 builder.rn = 20;
                 builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ky5.a(builder, true);
+                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
                 }
                 AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
                 builder2.data = builder.build(false);

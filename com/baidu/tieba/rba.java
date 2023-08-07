@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ForumData;
+import androidx.core.app.NotificationCompat;
+import com.baidu.tbadk.core.data.AbstractData;
+import com.baidu.tbadk.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumRuleStatus;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rba implements yn {
+public class rba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumRuleStatus a;
+    public MetaData a;
+    public List<AbstractData> b;
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public rba(ForumData forumData, ForumRuleStatus forumRuleStatus) {
+    public rba() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forumData, forumRuleStatus};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,22 +32,30 @@ public class rba implements yn {
                 return;
             }
         }
-        this.a = forumRuleStatus;
+        this.b = new ArrayList();
     }
 
-    public ForumRuleStatus a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ForumRuleStatus) invokeV.objValue;
-    }
-
-    public void b(ForumRuleStatus forumRuleStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
-            this.a = forumRuleStatus;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.optString("id");
+                MetaData metaData = new MetaData();
+                this.a = metaData;
+                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                this.b = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        AbstractData abstractData = new AbstractData();
+                        abstractData.parserJson(optJSONArray.getJSONObject(i));
+                        this.b.add(abstractData);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

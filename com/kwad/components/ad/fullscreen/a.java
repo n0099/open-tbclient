@@ -6,7 +6,7 @@ import com.kwad.components.ad.a.g;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.kwad.sdk.components.d implements com.kwad.components.ad.a.d {
     @Override // com.kwad.sdk.components.a
     public Class getComponentsType() {

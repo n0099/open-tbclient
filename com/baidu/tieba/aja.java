@@ -1,18 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.WholeDisplayGridView;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.zia;
+import com.baidu.tieba.aja;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,62 +11,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class aja extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int e = 16;
+public final class aja {
+    public static /* synthetic */ Interceptable $ic;
+    public static final b b;
+    public static final long c;
+    public static aja d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AvatarPendantActivity a;
-    public List<xia> b;
-    public yia c;
-    public zia.a d;
+    public final ExecutorService a;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public int a;
+        public int b;
+        public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947618481, "Lcom/baidu/tieba/aja;")) == null) {
-            return;
+        public static final void b(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, runnable, threadPoolExecutor) == null) {
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947618481, "Lcom/baidu/tieba/aja;");
-        }
-    }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public WholeDisplayGridView b;
-        public View c;
-
-        public b(aja ajaVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ajaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,17 +57,149 @@ public class aja extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(aja ajaVar, a aVar) {
-            this(ajaVar);
+        public final aja a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new aja(new ThreadPoolExecutor(this.a, this.b, aja.c, TimeUnit.MILLISECONDS, new LinkedBlockingDeque(200), new c(this.c), new RejectedExecutionHandler() { // from class: com.baidu.tieba.yia
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.util.concurrent.RejectedExecutionHandler
+                    public final void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
+                            aja.a.b(runnable, threadPoolExecutor);
+                        }
+                    }
+                }));
+            }
+            return (aja) invokeV.objValue;
+        }
+
+        public final a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a d(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.a = i;
+                this.b = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
     }
 
-    public aja(AvatarPendantActivity avatarPendantActivity) {
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final aja a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (aja) invokeV.objValue;
+            }
+            return aja.d;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final AtomicInteger b;
+
+        public c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = new AtomicInteger();
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Intrinsics.checkNotNullParameter(runnable, "runnable");
+                Thread thread = new Thread(runnable);
+                thread.setName("trace-" + this.a + "-thread-" + this.b.getAndIncrement());
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947618481, "Lcom/baidu/tieba/aja;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947618481, "Lcom/baidu/tieba/aja;");
+                return;
+            }
+        }
+        b = new b(null);
+        c = TimeUnit.SECONDS.toMillis(10L);
+        new Handler(Looper.getMainLooper());
+        a aVar = new a();
+        aVar.d(2);
+        aVar.c("trace-io");
+        d = aVar.a();
+    }
+
+    public aja(ExecutorService delegate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
+            Object[] objArr = {delegate};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -106,92 +209,15 @@ public class aja extends BaseAdapter {
                 return;
             }
         }
-        this.a = avatarPendantActivity;
+        Intrinsics.checkNotNullParameter(delegate, "delegate");
+        this.a = delegate;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public xia getItem(int i) {
-        InterceptResult invokeI;
+    public final void c(zia command) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<xia> list = this.b;
-            if (list != null && list.size() > 0 && i >= 0 && i < getCount()) {
-                return this.b.get(i);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
+            Intrinsics.checkNotNullParameter(command, "command");
+            this.a.execute(command);
         }
-        return (xia) invokeI.objValue;
-    }
-
-    public void b(zia.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    public void c(List<xia> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<xia> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0131, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09064a);
-                bVar.b = (WholeDisplayGridView) view2.findViewById(R.id.obfuscated_res_0x7f09031c);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091508);
-                view2.setTag(bVar);
-            }
-            xia item = getItem(i);
-            if (StringUtils.isNull(item.a())) {
-                bVar.a.setVisibility(8);
-            } else {
-                bVar.a.setVisibility(0);
-                bVar.a.setText(xi.cutString(item.a(), e));
-            }
-            if (item != null && !ListUtils.isEmpty(item.b())) {
-                yia yiaVar = new yia(this.a);
-                this.c = yiaVar;
-                yiaVar.d(item.b());
-                bVar.b.setAdapter((ListAdapter) this.c);
-                this.c.c(this.d);
-            }
-            if (i == getCount() - 1) {
-                bVar.c.setVisibility(8);
-            } else {
-                bVar.c.setVisibility(0);
-            }
-            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0109);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

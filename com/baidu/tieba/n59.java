@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SetTail.ResData;
 /* loaded from: classes7.dex */
-public class n59 implements LiveCustomSettingService {
+public class n59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public n59() {
         Interceptable interceptable = $ic;
@@ -25,13 +27,21 @@ public class n59 implements LiveCustomSettingService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
-    public boolean isFreeTrafficMode() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return dma.c().d();
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public void b(ResData resData) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
+            return;
+        }
+        this.a = l.intValue();
     }
 }

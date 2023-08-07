@@ -1,88 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hv7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hv7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
+    public Map<String, FunAdSidConfigData> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(hv7 hv7Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hv7Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
-            }
-        }
-    }
-
-    public hv7(Context context) {
+    public hv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,52 +34,107 @@ public class hv7 {
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
-        UtilHelper.getStatusBarHeight();
-        if (context == null) {
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(c());
+    }
+
+    public final Map<String, FunAdSidConfigData> c() {
+        InterceptResult invokeV;
+        FunAdSidConfigData d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : iv7.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
+                    hashMap.put(str, d);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static hv7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (hv7.class) {
+                    if (b == null) {
+                        b = new hv7();
+                    }
+                }
+            }
+            return b;
+        }
+        return (hv7) invokeV.objValue;
+    }
+
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return null;
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = iv7.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return a(jSONObject);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034f, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090eef);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090ef2);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ef0);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f0811bc);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cc1);
-        TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
-        this.e = textView;
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090cb0);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090acb);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090aca);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090f0b);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090acd);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090acf);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090acc);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ace);
-        this.k.setOnClickListener(new a(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f0320));
-        this.d.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        d85 d = d85.d(this.i);
-        d.n(1);
-        d.o(R.string.J_X14);
-        d.f(R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f080343, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+        EditorHelper.putString(iv7.g(), str, json.toString());
+    }
+
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.put(str, funAdSidConfigData);
+            g(str);
+        }
     }
 }

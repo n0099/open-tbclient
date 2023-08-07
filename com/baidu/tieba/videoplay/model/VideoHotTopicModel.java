@@ -3,15 +3,15 @@ package com.baidu.tieba.videoplay.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.bo5;
+import com.baidu.tieba.t25;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.w35;
-import com.baidu.tieba.wp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public wp5 c;
+    public bo5 c;
     @NonNull
     public List<Map<String, Object>> d;
     public int e;
@@ -61,7 +61,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements wp5.a {
+    public class a implements bo5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
@@ -86,7 +86,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.a = videoHotTopicParams;
         }
 
-        @Override // com.baidu.tieba.wp5.a
+        @Override // com.baidu.tieba.bo5.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -95,7 +95,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.b.f = false;
         }
 
-        @Override // com.baidu.tieba.wp5.a
+        @Override // com.baidu.tieba.bo5.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) && this.b.b != null && !list.isEmpty()) {
@@ -126,13 +126,13 @@ public class VideoHotTopicModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = (wp5) ServiceManager.getService(wp5.a);
+        this.c = (bo5) ServiceManager.getService(bo5.a);
         this.d = new ArrayList();
         this.f = false;
         this.a = videoHotTopicParams;
@@ -140,7 +140,7 @@ public class VideoHotTopicModel extends BdBaseModel {
         this.c.c(new a(this, videoHotTopicParams));
     }
 
-    public void b0(@Nullable b bVar) {
+    public void T(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
@@ -148,7 +148,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     @NonNull
-    public List<Map<String, Object>> Z() {
+    public List<Map<String, Object>> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -157,15 +157,15 @@ public class VideoHotTopicModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public void a0(@NonNull Long l) {
+    public void S(@NonNull Long l) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) != null) || this.f) {
             return;
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        w35 w35Var = new w35();
-        w35Var.k(this.e);
-        this.c.b(this.a.getSortType(), w35Var, l.longValue());
+        t25 t25Var = new t25();
+        t25Var.k(this.e);
+        this.c.b(this.a.getSortType(), t25Var, l.longValue());
     }
 }

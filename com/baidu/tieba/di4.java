@@ -1,219 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes5.dex */
 public class di4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
-    public Drawable e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public int i;
-    public long j;
-    public ai4 k;
-    public hi4 l;
 
-    public di4(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = -1;
-        this.c = -1;
-        this.f = true;
-        this.g = true;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0L;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.g = z;
-    }
-
-    public static di4 k(di4 di4Var) {
+    public static HttpRequestBuilder a(@NonNull bi4 bi4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, di4Var)) == null) {
-            if (di4Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bi4Var)) == null) {
+            return b(bi4Var, null);
+        }
+        return (HttpRequestBuilder) invokeL.objValue;
+    }
+
+    @NonNull
+    public static HttpRequestBuilder b(@NonNull bi4 bi4Var, @Nullable ci4 ci4Var) {
+        InterceptResult invokeLL;
+        HttpCommonRequestBuilder o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bi4Var, ci4Var)) == null) {
+            if (ci4Var == null) {
+                ci4Var = ci4.g();
             }
-            return new di4(di4Var.a, di4Var.b, di4Var.c, di4Var.g);
-        }
-        return (di4) invokeL.objValue;
-    }
-
-    public Drawable a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Drawable drawable = this.e;
-            if (drawable != null) {
-                return drawable;
+            String str = bi4Var.b;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -531492226:
+                    if (str.equals(HttpOptions.METHOD_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 70454:
+                    if (str.equals("GET")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 79599:
+                    if (str.equals(HttpPut.METHOD_NAME)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 2213344:
+                    if (str.equals("HEAD")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 2461856:
+                    if (str.equals("POST")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 80083237:
+                    if (str.equals(HttpTrace.METHOD_NAME)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1669334218:
+                    if (str.equals("CONNECT")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 2012838315:
+                    if (str.equals(HttpDelete.METHOD_NAME)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
             }
-            if (this.c <= 0) {
-                return null;
+            switch (c) {
+                case 0:
+                    return ci4Var.getRequest();
+                case 1:
+                    return ci4Var.headerRequest();
+                case 2:
+                    o = ci4Var.o();
+                    break;
+                case 3:
+                    o = ci4Var.postRequest();
+                    break;
+                case 4:
+                    o = ci4Var.putRequest();
+                    break;
+                case 5:
+                    o = ci4Var.deleteRequest();
+                    break;
+                case 6:
+                    o = ci4Var.y();
+                    break;
+                case 7:
+                    o = ci4Var.a();
+                    break;
+                default:
+                    return ci4Var.getRequest();
             }
-            return context.getResources().getDrawable(this.c);
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            String str = this.d;
-            if (str != null) {
-                return str;
+            RequestBody requestBody = bi4Var.d;
+            if (requestBody != null) {
+                o.requestBody(requestBody);
             }
-            if (this.b <= 0) {
-                return null;
-            }
-            return context.getResources().getString(this.b);
+            return o;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.j = j;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void p(ai4 ai4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ai4Var) == null) {
-            this.k = ai4Var;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public static di4 l(di4 di4Var, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, di4Var, z)) == null) {
-            if (di4Var == null) {
-                return null;
-            }
-            return new di4(di4Var.a, di4Var.b, di4Var.c, z);
-        }
-        return (di4) invokeLZ.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public hi4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.l;
-        }
-        return (hi4) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public ai4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.k;
-        }
-        return (ai4) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
+        return (HttpRequestBuilder) invokeLL.objValue;
     }
 }

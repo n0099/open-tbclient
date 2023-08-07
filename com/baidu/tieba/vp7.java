@@ -1,233 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentMultiView;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes8.dex */
-public class vp7 implements wp7 {
+public class vp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final xp7 a;
-    @NonNull
-    public final TbPageContext b;
-    @NonNull
-    public final List<LiveFuseForumData> c;
-    public String d;
-    public String e;
 
-    public vp7(@NonNull TbPageContext tbPageContext, @NonNull List<LiveFuseForumData> list) {
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = tbPageContext;
-        this.c = list;
-        if (list.size() == 1) {
-            this.a = new HeaderComponentSingleView(this.b.getPageActivity());
-        } else {
-            this.a = new HeaderComponentMultiView(this.b.getPageActivity());
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
     }
 
-    public final int e(int i, LiveFuseForumData liveFuseForumData) {
-        InterceptResult invokeIL;
+    public static void b(Context context, xaa xaaVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, liveFuseForumData)) == null) {
-            if (i == 1) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 1;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 3;
-                }
-                if (liveFuseForumData.type.intValue() == 7) {
-                    return 5;
-                }
-            } else if (i == 2) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 2;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 4;
-                }
-            }
-            return 0;
-        }
-        return invokeIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.wp7
-    public void a(int i, LiveFuseForumData liveFuseForumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, liveFuseForumData) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, xaaVar) != null) || xaaVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(liveFuseForumData.schema) && liveFuseForumData.schema.contains("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank")) {
-            dla.a(1, this.d, liveFuseForumData.type.intValue());
-        } else if (liveFuseForumData.type.intValue() == 6) {
-            k("c15057");
-        } else {
-            StatisticItem param = new StatisticItem("c14701").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", e(i, liveFuseForumData)).param("fid", this.d);
-            if (ListUtils.getCount(liveFuseForumData.title) > 0) {
-                param.param("obj_name", (String) ListUtils.getItem(liveFuseForumData.title, 0));
-            }
-            param.eventStat();
-            String str = liveFuseForumData.schema;
-            if (str != null && str.startsWith("bdtiebalive")) {
-                j("c14708", liveFuseForumData.yyext);
-            }
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
         }
-    }
-
-    @Override // com.baidu.tieba.wp7
-    public void b(int i, LiveFuseForumData liveFuseForumData, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), liveFuseForumData, Integer.valueOf(i2)}) != null) || liveFuseForumData == null) {
+        if (tbPageContext == null) {
             return;
         }
-        String str = liveFuseForumData.schema;
-        if (liveFuseForumData.type.intValue() != 2 && liveFuseForumData.type.intValue() != 3 && liveFuseForumData.type.intValue() != 4) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{str});
+        yaa yaaVar = xaaVar.f;
+        if (yaaVar != null) {
+            TbAiappsLaunchUtil.launch(yaaVar.b, yaaVar.c, "1191003700000000", yaaVar.d);
         } else {
-            up7.c().b(this.b, liveFuseForumData, str);
+            if (YYLiveUtil.isYYLiveLink(xaaVar.d)) {
+                str = xaaVar.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = xaaVar.d;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        if (liveFuseForumData.type.intValue() == 6) {
-            k("c15058");
-        }
-        if (!TextUtils.isEmpty(liveFuseForumData.schema) && liveFuseForumData.schema.contains("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank")) {
-            dla.a(2, this.d, liveFuseForumData.type.intValue());
-        }
+        ft7.a(tbPageContext, xaaVar.e);
     }
 
-    @Override // com.baidu.tieba.wp7
-    public void c(int i, LiveFuseForumData liveFuseForumData) {
+    public static void c(xaa xaaVar) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveFuseForumData) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, xaaVar) != null) || xaaVar == null) {
             return;
         }
-        String U = yi.U(liveFuseForumData.schema, "from=key_from_frs_card");
-        if (liveFuseForumData.type.intValue() != 2 && liveFuseForumData.type.intValue() != 3 && liveFuseForumData.type.intValue() != 4) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{U});
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", xaaVar.g);
+        if (xaaVar.f == null) {
+            i = 1;
         } else {
-            up7.c().b(this.b, liveFuseForumData, U);
+            i = 2;
         }
-        if (liveFuseForumData.type.intValue() == 6) {
-            k("c15058");
-        } else if (!TextUtils.isEmpty(liveFuseForumData.schema) && liveFuseForumData.schema.contains("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank")) {
-            dla.a(2, this.d, liveFuseForumData.type.intValue());
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", xaaVar.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        yaa yaaVar = xaaVar.f;
+        if (yaaVar != null) {
+            str = yaaVar.c;
         } else {
-            StatisticItem param = new StatisticItem("c14702").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", e(i, liveFuseForumData)).param("fid", this.d);
-            if (ListUtils.getCount(liveFuseForumData.title) > 0) {
-                param.param("obj_name", (String) ListUtils.getItem(liveFuseForumData.title, 0));
-            }
-            param.eventStat();
-            String str = liveFuseForumData.schema;
-            if (str != null && str.startsWith("bdtiebalive")) {
-                j("c14709", liveFuseForumData.yyext);
-            }
+            str = xaaVar.d;
         }
+        yaa yaaVar2 = xaaVar.f;
+        if (yaaVar2 != null) {
+            String str2 = yaaVar2.a;
+        } else {
+            String str3 = xaaVar.c;
+        }
+        statisticItem.param("obj_name", xaaVar.c);
+        statisticItem.param("obj_param1", xaaVar.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(xaaVar.i, 1));
     }
 
-    public void d() {
+    public static void d(xaa xaaVar) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.a(this.c, this);
+        if ((interceptable != null && interceptable.invokeL(65539, null, xaaVar) != null) || xaaVar == null) {
+            return;
         }
-    }
-
-    @NonNull
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.getView();
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", xaaVar.g);
+        if (xaaVar.f == null) {
+            i = 1;
+        } else {
+            i = 2;
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.b();
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", xaaVar.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        yaa yaaVar = xaaVar.f;
+        if (yaaVar != null) {
+            str = yaaVar.c;
+        } else {
+            str = xaaVar.d;
         }
-    }
-
-    public final JSONObject g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        yaa yaaVar2 = xaaVar.f;
+        if (yaaVar2 != null) {
+            String str2 = yaaVar2.a;
+        } else {
+            String str3 = xaaVar.c;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            TiebaStatic.log(new StatisticItem(str).param("fid", this.d).param("fname", this.e));
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
-        }
-    }
-
-    public final void j(String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("fid", this.d);
-            statisticItem.addParam("fname", this.e);
-            JSONObject g = g(str2);
-            if (g != null) {
-                if (g.optBoolean("is_yy_game")) {
-                    str3 = "3";
-                } else {
-                    str3 = "2";
-                }
-                statisticItem.param("obj_param1", str3).param(TiebaStatic.Params.OBJ_PARAM2, g.optString(TiebaStatic.YYParams.YYLIVEID)).param("liveid", g.optString("liveid")).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, g.optString(TiebaStatic.YYParams.YYSID)).param(TiebaStatic.YYParams.YYSSID, g.optString(TiebaStatic.YYParams.YYSSID)).param("yyuid", g.optString("yyuid")).param("template_id", g.optString("template_id")).param(TiebaStatic.YYParams.YYLIVEID, g.optString(TiebaStatic.YYParams.YYLIVEID)).param("vid", g.optString("vid"));
-            }
-            TiebaStatic.log(statisticItem);
-        }
+        statisticItem.param("obj_name", xaaVar.c);
+        statisticItem.param("obj_param1", xaaVar.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(xaaVar.i, 0));
     }
 }

@@ -1,31 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface op5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
+public class op5 implements uo5<LiveStartClickDataEvent> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, boolean z2);
-
-        void b(boolean z);
+    public op5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void d();
-
-    void e(@Nullable a aVar);
-
-    void f();
-
-    @NonNull
-    Fragment g(@NonNull String str);
-
-    void hide();
-
-    void show();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uo5
+    /* renamed from: a */
+    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
+            if (liveStartClickDataEvent == null) {
+                return false;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

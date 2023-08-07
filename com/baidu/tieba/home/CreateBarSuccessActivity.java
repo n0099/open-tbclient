@@ -14,12 +14,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.CreateBarTipSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -86,15 +86,15 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            q05 layoutMode = getLayoutMode();
+            BDLayoutMode layoutMode = getLayoutMode();
             int i4 = 0;
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
-            getLayoutMode().k(this.d);
+            layoutMode.setNightMode(z);
+            getLayoutMode().onModeChanged(this.d);
             boolean isOn = new CreateBarTipSwitch().isOn();
             TbPageContext<CreateBarSuccessActivity> pageContext2 = getPageContext();
             if (isOn) {
@@ -135,7 +135,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0232);
+            setContentView(R.layout.obfuscated_res_0x7f0d0235);
             initData();
             u1();
         }
@@ -144,8 +144,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a2);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092542);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09255a);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
@@ -155,8 +155,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09243c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092463);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092454);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09247b);
         }
     }
 }

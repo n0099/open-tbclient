@@ -1,116 +1,45 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej9;
-import com.baidu.tieba.f65;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class fj9 extends f65 {
+public class fj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ej9 c;
+    public SingleBarEmotionRecommendData a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947766196, "Lcom/baidu/tieba/fj9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947766196, "Lcom/baidu/tieba/fj9;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fj9(Activity activity, ej9 pbTopicRecommendTipController) {
-        super(activity);
+    public fj9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, pbTopicRecommendTipController};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(pbTopicRecommendTipController, "pbTopicRecommendTipController");
-        this.c = pbTopicRecommendTipController;
     }
 
-    public static final void g(fj9 this$0) {
+    public SingleBarEmotionRecommendData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (SingleBarEmotionRecommendData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f65
-    public void d(f65.a shouldShowCallback) {
+    public void b(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(this.c.f());
-        }
-    }
-
-    @Override // com.baidu.tieba.f65
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.j();
-        }
-    }
-
-    @Override // com.baidu.tieba.f65
-    public void e() {
-        boolean s;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.p(new ej9.f() { // from class: com.baidu.tieba.ih9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ej9.f
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        fj9.g(fj9.this);
-                    }
-                }
-            });
-            if (mo5.g(false, 1, null)) {
-                DefaultLog.getInstance().c("PbTopicTip", "开始展示精灵动画提示控件");
-                s = this.c.t();
-            } else {
-                DefaultLog.getInstance().c("PbTopicTip", "开始展示线上动画提示控件");
-                s = this.c.s();
-            }
-            h29 defaultLog = DefaultLog.getInstance();
-            defaultLog.c("PbTopicTip", "pb相关话题引导tip触发展示：" + s);
-            if (!s) {
-                c();
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleBarEmotionRecommendData) == null) {
+            this.a = singleBarEmotionRecommendData;
         }
     }
 }

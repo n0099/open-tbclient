@@ -9,12 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class CircleStrokeHeadImageView extends FrameLayout {
                 return;
             }
         }
-        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
     }
 
     public void b() {
@@ -185,7 +185,7 @@ public class CircleStrokeHeadImageView extends FrameLayout {
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X07);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.a.setBorderWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setBorderSurroundContent(true);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.a.setPlaceHolder(1);

@@ -1,150 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class ox5 {
+public class ox5 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
+    public int b;
+    public int c;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static ox5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-531973217, "Lcom/baidu/tieba/ox5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-531973217, "Lcom/baidu/tieba/ox5$b;");
-                    return;
-                }
-            }
-            a = new ox5(null);
-        }
-    }
-
-    public ox5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ox5(Drawable drawable, int i) {
+        super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.c = 1;
+        this.c = i;
     }
 
-    public static ox5 c() {
+    public final Drawable a() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ox5) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
+        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return Build.BRAND;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return Build.DEVICE;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return aj.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ ox5(a aVar) {
-        this();
-    }
-
-    @RequiresApi(api = 17)
-    public final DisplayMetrics b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (context == null) {
-                return displayMetrics;
+            WeakReference<Drawable> weakReference = this.a;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
             }
-            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
-            return displayMetrics;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        return (DisplayMetrics) invokeL.objValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    @NonNull
-    public String d(Context context) {
-        InterceptResult invokeL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable a;
+        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return aj.e();
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        int i6 = this.c;
+        float f3 = 0.0f;
+        if (i6 != 0) {
+            if (i6 != 1) {
+                if (i6 != 2) {
+                    f2 = 0.0f;
+                } else {
+                    f2 = 0.2f;
+                }
+            } else {
+                f2 = 0.15f;
+            }
+        } else {
+            f2 = 0.1f;
+        }
+        if (f2 != 0.0f) {
+            f3 = ((i4 - i5) + (a.getBounds().height() * f2)) - this.b;
+        }
+        canvas.save();
+        canvas.translate(a.getBounds().width() * 0.15f, f3);
+        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+        canvas.restore();
     }
 
-    @RequiresApi(api = 17)
-    public String e(Context context) {
-        InterceptResult invokeL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return String.valueOf(b(context).heightPixels);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Drawable a = a();
+            if (a == null) {
+                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+            }
+            Rect bounds = a.getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
+            }
+            return bounds.right;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 17)
-    public String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return String.valueOf(b(context).widthPixels);
-        }
-        return (String) invokeL.objValue;
+        return invokeCommon.intValue;
     }
 }

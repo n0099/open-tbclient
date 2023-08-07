@@ -2,8 +2,9 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class l35 extends BaseCardInfo {
+public class l35 extends q05 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public ICardInfo c;
+    public String a;
+    public int b;
+    public List<MetaData> c;
+    public boolean d;
+
+    @Override // com.baidu.tieba.q05
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +48,7 @@ public class l35 extends BaseCardInfo {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        e = BdUniqueId.gen();
     }
 
     public l35() {
@@ -46,57 +61,58 @@ public class l35 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = true;
+        this.c = new ArrayList();
     }
 
-    public ICardInfo c() {
+    public List<MetaData> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (ICardInfo) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void d() {
-        boolean z;
+    @Override // com.baidu.tieba.q05
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ICardInfo i = uz8.i(this.b);
-            this.c = i;
-            if (i != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new NegativeFeedBackData();
         }
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return e;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public void d(List<User> list) {
+        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
+            int size2 = list.size();
+            if (this.d) {
+                size = 10;
+            } else {
+                size = list.size();
+            }
+            int min = Math.min(size2, size);
+            for (int i = 0; i < min; i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserProtobuf(list.get(i));
+                this.c.add(metaData);
+            }
         }
     }
 }

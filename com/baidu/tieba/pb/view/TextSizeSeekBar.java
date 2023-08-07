@@ -9,14 +9,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fg9;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ye9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -193,7 +193,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        fg9.a(Math.abs(i - 3));
+                        ye9.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -273,7 +273,7 @@ public class TextSizeSeekBar extends View {
             if (this.a == 0 || this.b == 0) {
                 this.a = View.MeasureSpec.getSize(i);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703fd) * 2;
-                if (UtilHelper.isFoldScreen() && this.a > yi.m(getContext(), true) - dimensionPixelSize) {
+                if (UtilHelper.isFoldScreen() && this.a > BdUtilHelper.getEquipmentWidth(getContext(), true) - dimensionPixelSize) {
                     this.a -= dimensionPixelSize;
                 }
                 int dimensionPixelSize2 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070383);

@@ -8,8 +8,8 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TimestampSysMsg;
@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092515);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252d);
         }
     }
 
@@ -81,7 +81,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0984, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d098e, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -96,9 +96,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
             if (timestampSysMsg != null && timestampSysMsg.getTimeShow() != null) {
                 holder.a.setText(timestampSysMsg.getTimeShow());
-                d85 d = d85.d(holder.a);
-                d.x(R.color.CAM_X0108);
-                d.C(R.dimen.T_X09);
+                EMManager.from(holder.a).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X09);
             }
             return holder.getView();
         }

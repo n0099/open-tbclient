@@ -1,99 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class si8 extends pl1<dq5> {
+public final class si8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final a b;
+    public final Map<String, StringBuilder> c;
 
     /* loaded from: classes7.dex */
-    public class a implements dq5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(si8 si8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {si8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dq5
-        public void a(@NonNull Context context, long j, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-                GroupChatActivity.v1(context, j, i, str, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.dq5
-        public void c(@NonNull Context context, long j, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-                GroupChatActivity.w1(context, j, -1, str, "", i);
-            }
-        }
-
-        @Override // com.baidu.tieba.dq5
-        public void d(@NonNull Context context, int i, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-                GroupChatActivity.x1(context, j, i, true);
-            }
-        }
-
-        @Override // com.baidu.tieba.dq5
-        public void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
-                GroupChatActivity.y1(context, str, j, i, str2, bundle, z);
-            }
-        }
+    public interface a {
+        void a(String str, String str2);
     }
 
-    public si8() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public si8(a callback) {
+        this(null, callback, 1, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (a) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(callback, "callback");
+    }
+
+    @JvmOverloads
+    public si8(String separator, a callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {separator, callback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(separator, "separator");
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = separator;
+        this.b = callback;
+        this.c = new ConcurrentHashMap();
+    }
+
+    public /* synthetic */ si8(String str, a aVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "#<>#" : str, aVar);
+    }
+
+    public final void a(String key, String log) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, key, log) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(log, "log");
+            StringBuilder sb = this.c.get(key);
+            if (sb == null) {
+                sb = new StringBuilder();
+                this.c.put(key, sb);
+            } else {
+                sb.append(this.a);
+            }
+            sb.append(log);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public dq5 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (Map.Entry<String, StringBuilder> entry : this.c.entrySet()) {
+                String sb = entry.getValue().toString();
+                Intrinsics.checkNotNullExpressionValue(sb, "it.value.toString()");
+                this.b.a(entry.getKey(), sb);
+            }
+            this.c.clear();
         }
-        return (dq5) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.clear();
+        }
     }
 }

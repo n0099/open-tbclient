@@ -6,33 +6,25 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ae8;
-import com.baidu.tieba.ah8;
-import com.baidu.tieba.bh8;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.ch8;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.dd8;
-import com.baidu.tieba.df8;
+import com.baidu.tieba.ab8;
+import com.baidu.tieba.bb8;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.cb8;
 import com.baidu.tieba.ed8;
-import com.baidu.tieba.ee8;
-import com.baidu.tieba.fd8;
-import com.baidu.tieba.fe8;
-import com.baidu.tieba.ff8;
-import com.baidu.tieba.gd8;
-import com.baidu.tieba.hd8;
-import com.baidu.tieba.id8;
+import com.baidu.tieba.hb;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
@@ -44,12 +36,20 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.lf8;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yg8;
+import com.baidu.tieba.qe8;
+import com.baidu.tieba.rr5;
+import com.baidu.tieba.se8;
+import com.baidu.tieba.tb8;
+import com.baidu.tieba.te8;
+import com.baidu.tieba.ue8;
+import com.baidu.tieba.vb8;
+import com.baidu.tieba.wc8;
+import com.baidu.tieba.xa8;
+import com.baidu.tieba.xb8;
+import com.baidu.tieba.ya8;
+import com.baidu.tieba.yb8;
+import com.baidu.tieba.yc8;
+import com.baidu.tieba.za8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -156,7 +156,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements dd8.b {
+    public class a implements xa8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImMessageCenterPojo a;
@@ -181,25 +181,25 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             this.a = imMessageCenterPojo;
         }
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void a(String str, List<CommonMsgPojo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
-                fe8.w().n(wg.g(str, 0L), list, true);
+                yb8.w().n(JavaTypesHelper.toLong(str, 0L), list, true);
             }
         }
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             ImMessageCenterPojo imMessageCenterPojo2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imMessageCenterPojo, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imMessageCenterPojo == null) {
                 return;
             }
-            s95.a("im", -1L, 0, "im_check: pull group id: " + lf8.j + " pulled msg id: " + imMessageCenterPojo.getPulled_msgId(), -1, "", new Object[0]);
+            Logger.addLog("im", -1L, 0, "im_check: pull group id: " + ed8.j + " pulled msg id: " + imMessageCenterPojo.getPulled_msgId(), -1, "", new Object[0]);
             int i2 = 2;
             if (!this.b.checkDeleteTempList(DeleteTempItem.create(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType()))) {
-                ce8.f().l(imMessageCenterPojo, 2);
+                vb8.f().l(imMessageCenterPojo, 2);
             }
             if (imMessageCenterPojo.getIsFriend() == 0 && (imMessageCenterPojo2 = this.a) != null) {
                 imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
@@ -214,13 +214,13 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 if (z) {
                     this.a.setIs_hidden(0);
                 }
-                ce8.f().l(this.a, i2);
+                vb8.f().l(this.a, i2);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements dd8.b {
+    public class b implements xa8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImMessageCenterPojo a;
@@ -243,22 +243,22 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             this.a = imMessageCenterPojo;
         }
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void a(String str, List<CommonMsgPojo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
-                ee8.w().n(wg.g(str, 0L), list, true);
+                xb8.w().n(JavaTypesHelper.toLong(str, 0L), list, true);
             }
         }
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imMessageCenterPojo, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imMessageCenterPojo == null) {
                 return;
             }
             int i2 = 2;
-            ce8.f().l(imMessageCenterPojo, 2);
+            vb8.f().l(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
             if (this.a != null) {
                 if (userType == 1 || userType == 3) {
@@ -274,18 +274,18 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                     if (z) {
                         this.a.setIs_hidden(0);
                     }
-                    ce8.f().l(this.a, i2);
+                    vb8.f().l(this.a, i2);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements dd8.b {
+    public class c implements xa8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void a(String str, List<CommonMsgPojo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
@@ -308,23 +308,23 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             }
         }
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imMessageCenterPojo, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imMessageCenterPojo == null) {
                 return;
             }
             imMessageCenterPojo.setIs_hidden(1);
-            ce8.f().k(imMessageCenterPojo);
+            vb8.f().k(imMessageCenterPojo);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements dd8.b {
+    public class d implements xa8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void a(String str, List<CommonMsgPojo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
@@ -347,14 +347,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             }
         }
 
-        @Override // com.baidu.tieba.dd8.b
+        @Override // com.baidu.tieba.xa8.b
         public void b(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imMessageCenterPojo, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imMessageCenterPojo == null) {
                 return;
             }
             imMessageCenterPojo.setIs_hidden(1);
-            ce8.f().k(imMessageCenterPojo);
+            vb8.f().k(imMessageCenterPojo);
         }
     }
 
@@ -373,16 +373,16 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         }
         sDeleteTempItemList = new ArrayList();
         try {
-            da5 p = da5.p();
-            String w = p.w(KEY_DELETE_TEMP_ITEM_LIST, null);
-            if (!TextUtils.isEmpty(w)) {
-                sDeleteTempItemList.addAll(DataExt.toEntityList(w, DeleteTempItem.class));
-                int q = p.q("KEY_DELETE_TEMP_ITEM_LISTcount", 0);
-                if (q > 5) {
-                    p.Q(KEY_DELETE_TEMP_ITEM_LIST);
-                    p.Q("KEY_DELETE_TEMP_ITEM_LISTcount");
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            String string = sharedPrefHelper.getString(KEY_DELETE_TEMP_ITEM_LIST, null);
+            if (!TextUtils.isEmpty(string)) {
+                sDeleteTempItemList.addAll(DataExt.toEntityList(string, DeleteTempItem.class));
+                int i = sharedPrefHelper.getInt("KEY_DELETE_TEMP_ITEM_LISTcount", 0);
+                if (i > 5) {
+                    sharedPrefHelper.remove(KEY_DELETE_TEMP_ITEM_LIST);
+                    sharedPrefHelper.remove("KEY_DELETE_TEMP_ITEM_LISTcount");
                 } else {
-                    p.F("KEY_DELETE_TEMP_ITEM_LISTcount", q + 1);
+                    sharedPrefHelper.putInt("KEY_DELETE_TEMP_ITEM_LISTcount", i + 1);
                 }
             }
         } catch (Exception unused) {
@@ -458,7 +458,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, deleteTempItem) == null) {
             sDeleteTempItemList.add(deleteTempItem);
             try {
-                da5.p().J(KEY_DELETE_TEMP_ITEM_LIST, DataExt.toJson(sDeleteTempItemList));
+                SharedPrefHelper.getInstance().putString(KEY_DELETE_TEMP_ITEM_LIST, DataExt.toJson(sDeleteTempItemList));
             } catch (Exception unused) {
             }
         }
@@ -476,7 +476,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
 
     private void parseMsgConfig(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, this, str) != null) || xi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65546, this, str) != null) || bi.isEmpty(str)) {
         }
     }
 
@@ -498,9 +498,9 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 try {
                     JSONArray jSONArray = new JSONArray(msgInfo.content);
                     if (jSONArray.length() > 0) {
-                        long g = wg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
-                        if (g > 0) {
-                            return g;
+                        long j = JavaTypesHelper.toLong(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        if (j > 0) {
+                            return j;
                         }
                     }
                 } catch (Exception unused) {
@@ -605,11 +605,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         int i2;
         int i3;
         int i4;
-        rb rbVar;
-        bu5 bu5Var;
+        hb hbVar;
+        rr5 rr5Var;
         int i5;
         long currentTimeMillis;
-        rb rbVar2;
+        hb hbVar2;
         String str;
         Iterator<GroupMsgData> it;
         ChatMessage chatMessage;
@@ -628,12 +628,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                     }
                     GroupMsgData next = it2.next();
                     if (next.getGroupInfo() != null && next.getGroupInfo().getCustomType() == 4 && (listMessage = next.getListMessage()) != null && listMessage.size() != 0 && listMessage.get(0).getSid() > 0) {
-                        df8.i().m(next, isPulledMessage());
+                        wc8.i().m(next, isPulledMessage());
                     }
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
                 try {
-                    ae8.d().f();
+                    tb8.d().f();
                     Iterator<GroupMsgData> it3 = groupMsg.iterator();
                     ImMessageCenterPojo imMessageCenterPojo = null;
                     ImMessageCenterPojo imMessageCenterPojo2 = null;
@@ -646,18 +646,18 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 String valueOf = String.valueOf(next2.getGroupInfo().getGroupId());
                                 int customType = next2.getGroupInfo().getCustomType();
                                 int userType = next2.getGroupInfo().getUserType();
-                                ImMessageCenterPojo g = ce8.f().g(valueOf, customType);
+                                ImMessageCenterPojo g = vb8.f().g(valueOf, customType);
                                 if (g != null) {
                                     g.setUserType(userType);
                                 }
-                                if (customType == i2 && imMessageCenterPojo == null && (imMessageCenterPojo = ce8.f().g(str2, -8)) == null) {
+                                if (customType == i2 && imMessageCenterPojo == null && (imMessageCenterPojo = vb8.f().g(str2, -8)) == null) {
                                     imMessageCenterPojo = new ImMessageCenterPojo();
                                     imMessageCenterPojo.setGid(str2);
                                     imMessageCenterPojo.setCustomGroupType(-8);
                                     imMessageCenterPojo.setIs_hidden(1);
                                 }
                                 if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(next2)) {
-                                    ImMessageCenterPojo g2 = ce8.f().g(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
+                                    ImMessageCenterPojo g2 = vb8.f().g(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                                     if (g2 == null) {
                                         g2 = new ImMessageCenterPojo();
                                         g2.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
@@ -667,22 +667,22 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                     imMessageCenterPojo2 = g2;
                                 }
                                 if (next2.getCmd() == 2012120) {
-                                    hd8.d(next2);
+                                    bb8.d(next2);
                                 } else if (next2.getCmd() == 2012121) {
-                                    gd8.b(next2, g, new a(this, imMessageCenterPojo2));
-                                    gd8.c(next2);
+                                    ab8.b(next2, g, new a(this, imMessageCenterPojo2));
+                                    ab8.c(next2);
                                 } else if (next2.getCmd() == 2012123) {
-                                    fd8.a(next2, g, new b(this, imMessageCenterPojo));
+                                    za8.a(next2, g, new b(this, imMessageCenterPojo));
                                 } else if (next2.getCmd() == 2012128) {
                                     if (next2.getListMessage() != null && next2.getListMessage().size() != 0) {
                                         ChatMessage chatMessage2 = next2.getListMessage().get(i3);
                                         ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
-                                        imMessageCenterPojo3.setGid(String.valueOf(lf8.j));
+                                        imMessageCenterPojo3.setGid(String.valueOf(ed8.j));
                                         imMessageCenterPojo3.setCustomGroupType(-1);
                                         imMessageCenterPojo3.setIs_hidden(1);
                                         imMessageCenterPojo3.setPulled_msgId(chatMessage2.getMsgId());
-                                        ce8.f().k(imMessageCenterPojo3);
-                                        BdLog.i("pullMessage insertMessagecent personal_Group gid = " + lf8.j + " msgid = " + chatMessage2.getMsgId());
+                                        vb8.f().k(imMessageCenterPojo3);
+                                        BdLog.i("pullMessage insertMessagecent personal_Group gid = " + ed8.j + " msgid = " + chatMessage2.getMsgId());
                                     }
                                 } else {
                                     if (next2.getCmd() == 2012129) {
@@ -699,15 +699,15 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                 if (chatMessage3.getSid() <= 0) {
                                                     if (isPulledMessage()) {
                                                         imMessageCenterPojo4.setPushIds("");
-                                                        ff8.e().k();
+                                                        yc8.e().k();
                                                     } else if (chatMessage3.getUserInfo() != null) {
                                                         if (chatMessage3.getUserInfo().getUserType() == 4) {
-                                                            Long f = ff8.e().f();
+                                                            Long f = yc8.e().f();
                                                             if (f != null) {
                                                                 chatMessage = chatMessage3;
                                                                 if (f.longValue() != 0) {
                                                                     imMessageCenterPojo4.setPulled_msgId(0L);
-                                                                    imMessageCenterPojo4.setPushIds(ff8.e().h());
+                                                                    imMessageCenterPojo4.setPushIds(yc8.e().h());
                                                                 }
                                                             } else {
                                                                 chatMessage = chatMessage3;
@@ -716,10 +716,10 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                         } else {
                                                             chatMessage = chatMessage3;
                                                         }
-                                                        ce8.f().m(imMessageCenterPojo4, 1, 2);
+                                                        vb8.f().m(imMessageCenterPojo4, 1, 2);
                                                     }
                                                     chatMessage = chatMessage3;
-                                                    ce8.f().m(imMessageCenterPojo4, 1, 2);
+                                                    vb8.f().m(imMessageCenterPojo4, 1, 2);
                                                 } else {
                                                     chatMessage = chatMessage3;
                                                 }
@@ -733,14 +733,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         str = str2;
                                         it = it3;
                                         if (next2.getCmd() == 2012124) {
-                                            ed8.a(next2, g, new c(this));
+                                            ya8.a(next2, g, new c(this));
                                         } else if (next2.getCmd() == 2012126) {
                                             if (next2.getGroupInfo().getGroupId() == 10) {
-                                                id8.d(next2, g, new d(this));
+                                                cb8.d(next2, g, new d(this));
                                             } else {
-                                                long[] a2 = id8.b().a(next2);
+                                                long[] a2 = cb8.b().a(next2);
                                                 if (a2 != null) {
-                                                    id8.b().f(String.valueOf(a2[0]), bh8.c(a2[1]));
+                                                    cb8.b().f(String.valueOf(a2[0]), te8.c(a2[1]));
                                                     str2 = str;
                                                     it3 = it;
                                                     i2 = 4;
@@ -766,57 +766,57 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             i4 = i5;
                             try {
                                 BdLog.e(e.getMessage());
-                                ae8.d().b();
+                                tb8.d().b();
                                 long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
-                                bu5Var = new bu5();
+                                rr5Var = new rr5();
                                 getCmd();
-                                rb rbVar3 = this.performanceData;
-                                if (rbVar3 != null) {
-                                    bu5Var.b = rbVar3.f;
-                                    bu5Var.c = getDownSize();
-                                    bu5Var.d = currentTimeMillis3;
-                                    bu5Var.e = i4;
-                                    bu5Var.f = this.performanceData.c;
-                                    bu5Var.a(1002);
-                                    bu5Var.f();
+                                hb hbVar3 = this.performanceData;
+                                if (hbVar3 != null) {
+                                    rr5Var.b = hbVar3.f;
+                                    rr5Var.c = getDownSize();
+                                    rr5Var.d = currentTimeMillis3;
+                                    rr5Var.e = i4;
+                                    rr5Var.f = this.performanceData.c;
+                                    rr5Var.a(1002);
+                                    rr5Var.f();
                                 }
                                 return;
                             } catch (Throwable th) {
                                 th = th;
-                                ae8.d().b();
+                                tb8.d().b();
                                 long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis2;
-                                bu5 bu5Var2 = new bu5();
+                                rr5 rr5Var2 = new rr5();
                                 getCmd();
-                                rbVar = this.performanceData;
-                                if (rbVar != null) {
-                                    bu5Var2.b = rbVar.f;
-                                    bu5Var2.c = getDownSize();
-                                    bu5Var2.d = currentTimeMillis4;
-                                    bu5Var2.e = i4;
-                                    bu5Var2.f = this.performanceData.c;
-                                    bu5Var2.a(1002);
-                                    bu5Var2.f();
+                                hbVar = this.performanceData;
+                                if (hbVar != null) {
+                                    rr5Var2.b = hbVar.f;
+                                    rr5Var2.c = getDownSize();
+                                    rr5Var2.d = currentTimeMillis4;
+                                    rr5Var2.e = i4;
+                                    rr5Var2.f = this.performanceData.c;
+                                    rr5Var2.a(1002);
+                                    rr5Var2.f();
                                 }
                                 throw th;
                             }
                         } catch (Throwable th2) {
                             th = th2;
                             i4 = i5;
-                            ae8.d().b();
+                            tb8.d().b();
                             long currentTimeMillis42 = System.currentTimeMillis() - currentTimeMillis2;
-                            bu5 bu5Var22 = new bu5();
+                            rr5 rr5Var22 = new rr5();
                             getCmd();
-                            rbVar = this.performanceData;
-                            if (rbVar != null) {
+                            hbVar = this.performanceData;
+                            if (hbVar != null) {
                             }
                             throw th;
                         }
                     }
-                    ae8.d().b();
+                    tb8.d().b();
                     currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
-                    bu5Var = new bu5();
+                    rr5Var = new rr5();
                     getCmd();
-                    rbVar2 = this.performanceData;
+                    hbVar2 = this.performanceData;
                 } catch (Exception e2) {
                     e = e2;
                     i4 = 0;
@@ -824,14 +824,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                     th = th3;
                     i4 = 0;
                 }
-                if (rbVar2 != null) {
-                    bu5Var.b = rbVar2.f;
-                    bu5Var.c = getDownSize();
-                    bu5Var.d = currentTimeMillis;
-                    bu5Var.e = i5;
-                    bu5Var.f = this.performanceData.c;
-                    bu5Var.a(1002);
-                    bu5Var.f();
+                if (hbVar2 != null) {
+                    rr5Var.b = hbVar2.f;
+                    rr5Var.c = getDownSize();
+                    rr5Var.d = currentTimeMillis;
+                    rr5Var.e = i5;
+                    rr5Var.f = this.performanceData.c;
+                    rr5Var.a(1002);
+                    rr5Var.f();
                 }
             }
         }
@@ -929,7 +929,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 if (msgInfo != null && (obtainMessage = obtainMessage(groupInfo, msgInfo)) != null) {
                                     getGroupMsgResIdl = getGroupMsgResIdl2;
                                     try {
-                                        a2 = bh8.a(msgInfo.msgId.longValue());
+                                        a2 = te8.a(msgInfo.msgId.longValue());
                                         obtainMessage.setMsgId(a2);
                                         obtainMessage.setGroupId(String.valueOf(msgInfo.groupId));
                                         obtainMessage.setMsgType(msgInfo.msgType.intValue());
@@ -1074,9 +1074,9 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         list3 = list;
                                     }
                                     if (msgInfo.msgType.intValue() == 3) {
-                                        VoiceMsgData r = ch8.r(obtainMessage);
+                                        VoiceMsgData r = ue8.r(obtainMessage);
                                         if (r != null) {
-                                            if (ch8.y(obtainMessage)) {
+                                            if (ue8.y(obtainMessage)) {
                                                 r.setHas_read(1);
                                             } else {
                                                 r.setHas_read(0);
@@ -1086,14 +1086,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         }
                                     } else {
                                         if (msgInfo.msgType.intValue() == 32) {
-                                            if (!ch8.w(obtainMessage, msgInfo)) {
-                                                yg8.a("分享『贴』32 ：数据解析失败，消息抛弃");
+                                            if (!ue8.w(obtainMessage, msgInfo)) {
+                                                qe8.a("分享『贴』32 ：数据解析失败，消息抛弃");
                                                 hashMap = hashMap3;
                                                 i3 = i4;
                                             }
                                         } else if (msgInfo.msgType.intValue() == 33) {
-                                            if (!ch8.v(obtainMessage, msgInfo)) {
-                                                yg8.a("分享『吧』33 ：数据解析失败，消息抛弃");
+                                            if (!ue8.v(obtainMessage, msgInfo)) {
+                                                qe8.a("分享『吧』33 ：数据解析失败，消息抛弃");
                                                 hashMap = hashMap3;
                                                 i3 = i4;
                                             }
@@ -1104,8 +1104,8 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                             } else {
                                                 z2 = false;
                                             }
-                                            if (!ch8.t(obtainMessage, msgInfo, z2)) {
-                                                yg8.a("陪玩消息卡片 ：数据解析失败，消息抛弃");
+                                            if (!ue8.t(obtainMessage, msgInfo, z2)) {
+                                                qe8.a("陪玩消息卡片 ：数据解析失败，消息抛弃");
                                                 hashMap = hashMap3;
                                             }
                                             obtainMessage.setTime(msgInfo.createTime.intValue());
@@ -1116,7 +1116,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                             obtainMessage.setTaskId(msgInfo.taskId.longValue());
                                             obtainMessage.setServiceId(msgInfo.serviceId.longValue());
                                             if (msgInfo.isRenderStlog.intValue() == 1) {
-                                                ah8.d(msgInfo.msgId.longValue(), msgInfo.msgType.intValue());
+                                                se8.d(msgInfo.msgId.longValue(), msgInfo.msgType.intValue());
                                             }
                                             if (obtainMessage.getMsgType() == 9 && obtainMessage.getContent() != null) {
                                                 try {
@@ -1146,42 +1146,42 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                         list3 = list;
                                                     }
                                                     if (!(obtainMessage instanceof OfficialChatMessage)) {
-                                                        long g = wg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-                                                        if (g != msgInfo.userId.longValue()) {
+                                                        long j = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+                                                        if (j != msgInfo.userId.longValue()) {
                                                             longValue2 = msgInfo.userId.longValue();
                                                         } else {
                                                             longValue2 = msgInfo.toUid.longValue();
                                                         }
                                                         hashMap2 = hashMap3;
-                                                        long j = longValue2;
+                                                        long j2 = longValue2;
                                                         if (msgInfo != null) {
                                                             try {
                                                                 if (msgInfo.userInfo != null) {
-                                                                    if (g != msgInfo.userId.longValue()) {
+                                                                    if (j != msgInfo.userId.longValue()) {
                                                                         intValue = msgInfo.userInfo.userType.intValue();
                                                                     } else {
                                                                         intValue = msgInfo.toUserInfo.userType.intValue();
                                                                     }
-                                                                    if (j != 0) {
+                                                                    if (j2 != 0) {
                                                                         if (linkedList.size() == 0) {
                                                                             linkedList.add(obtainMessage);
                                                                         } else if (linkedList.get(0).getMsgId() < obtainMessage.getMsgId()) {
                                                                             linkedList.remove(0);
                                                                             linkedList.add(obtainMessage);
                                                                         }
-                                                                        if (intValue == 4 && ff8.e().c(obtainMessage.getMsgId())) {
+                                                                        if (intValue == 4 && yc8.e().c(obtainMessage.getMsgId())) {
                                                                             BdLog.i("msg is contained in PushIdsCacheManager");
                                                                         } else if (obtainMessage.getMsgType() == 99) {
                                                                             BdLog.i("msg is MSG_UNSHOW_OPERATER_ACCOUNT");
                                                                         } else {
-                                                                            if (hashMap4.get(String.valueOf(j)) == null) {
+                                                                            if (hashMap4.get(String.valueOf(j2)) == null) {
                                                                                 GroupMsgData groupMsgData = new GroupMsgData(2012123);
                                                                                 groupMsgData.getGroupInfo().setUserType(intValue);
                                                                                 groupMsgData.getGroupInfo().setCustomType(4);
-                                                                                groupMsgData.getGroupInfo().setGroupId(j);
+                                                                                groupMsgData.getGroupInfo().setGroupId(j2);
                                                                                 getGroupMsg().add(groupMsgData);
                                                                                 groupMsgData.setListMessageData(new LinkedList<>());
-                                                                                hashMap4.put(String.valueOf(j), groupMsgData);
+                                                                                hashMap4.put(String.valueOf(j2), groupMsgData);
                                                                                 StatisticItem statisticItem = new StatisticItem("official_message_receive");
                                                                                 statisticItem.param("msg_id", msgInfo.msgId.longValue());
                                                                                 statisticItem.param("official_id", msgInfo.userId.longValue());
@@ -1192,7 +1192,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                                                 statisticItem.param("task_id", getTaskId(msgInfo));
                                                                                 TiebaStatic.log(statisticItem);
                                                                             }
-                                                                            ((GroupMsgData) hashMap4.get(String.valueOf(j))).getListMessage().add(obtainMessage);
+                                                                            ((GroupMsgData) hashMap4.get(String.valueOf(j2))).getListMessage().add(obtainMessage);
                                                                         }
                                                                     }
                                                                 }
@@ -1209,13 +1209,13 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                             }
                                                         }
                                                         intValue = 1;
-                                                        if (j != 0) {
+                                                        if (j2 != 0) {
                                                         }
                                                     } else {
                                                         hashMap2 = hashMap3;
                                                         if (obtainMessage instanceof PersonalChatMessage) {
                                                             if (!checkDeleteTempList(DeleteTempItem.create(String.valueOf(obtainMessage.getToUserId()), 2))) {
-                                                                if (wg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                                                                if (JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                                                                     longValue = msgInfo.userId.longValue();
                                                                 } else {
                                                                     longValue = msgInfo.toUid.longValue();
@@ -1278,8 +1278,8 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         } else {
                                             i3 = i4;
                                             if (msgInfo.msgType.intValue() == 37) {
-                                                if (!ch8.u(obtainMessage, msgInfo)) {
-                                                    yg8.a("分享『群聊』卡片 ：数据解析失败，消息抛弃");
+                                                if (!ue8.u(obtainMessage, msgInfo)) {
+                                                    qe8.a("分享『群聊』卡片 ：数据解析失败，消息抛弃");
                                                     hashMap = hashMap3;
                                                 }
                                                 obtainMessage.setTime(msgInfo.createTime.intValue());
@@ -1300,8 +1300,8 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                 }
                                                 hashMap = hashMap2;
                                             } else {
-                                                if (msgInfo.msgType.intValue() == 38 && !ch8.s(obtainMessage, msgInfo)) {
-                                                    yg8.a("分享『通用』卡片 ：数据解析失败，消息抛弃");
+                                                if (msgInfo.msgType.intValue() == 38 && !ue8.s(obtainMessage, msgInfo)) {
+                                                    qe8.a("分享『通用』卡片 ：数据解析失败，消息抛弃");
                                                     hashMap = hashMap3;
                                                 }
                                                 obtainMessage.setTime(msgInfo.createTime.intValue());

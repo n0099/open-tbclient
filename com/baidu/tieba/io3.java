@@ -1,56 +1,31 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.ArrayList;
-import java.util.List;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes6.dex */
 public class io3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<String> b;
-    public static List<String> c;
-    public static final Object d;
-    public static int e;
-    public static int f;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
-
-        public a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -65,267 +40,159 @@ public class io3 {
                 return;
             }
         }
-        a = fs1.a;
-        b = new ArrayList();
-        c = new ArrayList();
-        d = new Object();
-        e = 0;
-        f = 0;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e()) {
-                if (a) {
-                    Log.d("SwanAppCompat", "has used ab description");
-                }
-                return true;
-            }
-            return !jk3.a().getBoolean("swan_app_js_native_ab_update_key", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "on App upgrade");
-            }
-            if (gj4.b() != null && co4.b()) {
-                gj4.b().i().putString("key_online_description_fix_version", "0");
-            }
-            jk3.a().putBoolean("swan_app_js_native_ab_update_key", true);
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start release descriptions");
-            }
-            synchronized (d) {
-                e = 0;
-                b = new ArrayList();
-                c = new ArrayList();
-            }
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start prepare ab description");
-            }
-            synchronized (d) {
-                l(true);
-                l(false);
-            }
-            if (a) {
-                Log.d("SwanAppCompat", "end prepare ab description");
-            }
-        }
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            v82.c("JsNative", f + "-true");
-            return f + "-true-" + str + "-" + c();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            synchronized (d) {
-                if (b != null) {
-                    sb.append("v8list:{");
-                    for (String str : b) {
-                        if (!TextUtils.isEmpty(str)) {
-                            if (str.length() > 100) {
-                                sb.append(str.substring(0, 99));
-                                sb.append("...");
-                            } else {
-                                sb.append(str);
-                            }
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                    }
-                    sb.append("},");
-                }
-                if (c != null) {
-                    sb.append("weblist:{");
-                    for (String str2 : c) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            if (str2.length() > 100) {
-                                sb.append(str2.substring(0, 99));
-                                sb.append("...");
-                            } else {
-                                sb.append(str2);
-                            }
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                    }
-                    sb.append("}");
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(int i, String str) {
-        InterceptResult invokeIL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            f = 0;
-            if (e == 1) {
-                v82.i("SwanAppCompat", "type support default");
-                f = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_WEB)) {
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else {
-                if (a() && !jw2.b().isEmpty()) {
-                    synchronized (d) {
-                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
-                            list = b;
-                        } else {
-                            list = c;
-                        }
-                        if (list != null && list.size() > 0) {
-                            if (a) {
-                                Log.d("SwanAppCompat", "support ab js native descriptions");
-                            }
-                            e = 2;
-                            f = 2;
-                            return list.get(i);
-                        } else if (list != null) {
-                            f = 3;
-                        } else {
-                            f = 4;
-                        }
-                    }
-                }
-                if (a) {
-                    Log.d("SwanAppCompat", "use default descriptions");
-                }
-                e = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            }
-        }
-        return (String) invokeIL.objValue;
+        a = gp3.b;
     }
 
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
-                return true;
+            Context appContext = AppRuntime.getAppContext();
+            if (f(appContext)) {
+                return false;
             }
-            return false;
+            return a(appContext);
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return !kp3.f("3.320.0");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return !kp3.f("3.120.2");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
-            Log.e("JsNative", f + "-true");
-        }
-    }
-
-    public static void l(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("start prepare ab description :");
-                if (z) {
-                    str = V8Engine.TYPE_V8;
-                } else {
-                    str = AlbumActivityConfig.FROM_WEB_VIEW;
-                }
-                sb.append(str);
-                Log.d("SwanAppCompat", sb.toString());
-            }
-            gq3 gq3Var = new gq3(z);
-            String a2 = jw2.a();
-            String string = jk3.a().getString("swan_app_js_native_ab_sign", null);
-            if (!TextUtils.equals(a2, string)) {
-                if (a) {
-                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
-                }
-                if (!gq3Var.a(3)) {
-                    return;
-                }
-                jk3.a().putString("swan_app_js_native_ab_sign", a2);
-            } else if (jk3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
-                if (!gq3Var.a(3)) {
-                    return;
-                }
-                jk3.a().putBoolean("swan_app_js_native_ab_update_key", false);
-            }
-            List<String> d2 = gq3Var.d();
-            if (d2 != null) {
-                m(d2, z);
-            }
-        }
-    }
-
-    public static void m(List<String> list, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
-            return;
-        }
-        if (z) {
-            b = list;
-        } else {
-            c = list;
-        }
-        if (a) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("has update descriptions, list :");
-            sb.append(list.toString());
-            sb.append(" type :");
-            if (z) {
-                str = V8Engine.TYPE_V8;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Resources resources = context.getResources();
+            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+            boolean z2 = false;
+            if (identifier > 0) {
+                z = resources.getBoolean(identifier);
             } else {
-                str = AlbumActivityConfig.FROM_WEB_VIEW;
+                z = false;
             }
-            sb.append(str);
-            Log.d("SwanAppCompat", sb.toString());
+            try {
+                if (Build.VERSION.SDK_INT < 21) {
+                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                } else {
+                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                }
+                if (i != 0) {
+                    return false;
+                }
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                String str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "qemu.hw.mainkeys");
+                if (!"1".equals(str)) {
+                    if ("0".equals(str)) {
+                        z2 = true;
+                    } else {
+                        z2 = z;
+                    }
+                }
+                return z2;
+            } catch (Exception unused) {
+                return z;
+            }
         }
+        return invokeL.booleanValue;
+    }
+
+    public static Pair<Integer, Integer> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Pair<Integer, Integer> d = d();
+            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!e()) {
+                return 0;
+            }
+            Resources resources = AppRuntime.getAppContext().getResources();
+            if (po3.L()) {
+                str = "navigation_bar_height";
+            } else {
+                str = "navigation_bar_height_landscape";
+            }
+            return po3.r(resources, str);
+        }
+        return invokeV.intValue;
+    }
+
+    public static Pair<Integer, Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (windowManager == null) {
+                return new Pair<>(Integer.valueOf(po3.o(appContext)), Integer.valueOf(po3.n(appContext)));
+            }
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String str = Build.BRAND;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                        return false;
+                    }
+                    return true;
+                }
+                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
+                    if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
+                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase("VIVO")) {
+                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase(a)) {
+                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
+                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                if (ir1.a) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

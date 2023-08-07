@@ -44,7 +44,7 @@ public final class LazyJavaStaticClassScope extends LazyJavaStaticScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2103getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2104getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return null;
     }
 
@@ -62,24 +62,24 @@ public final class LazyJavaStaticClassScope extends LazyJavaStaticScope {
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 TypeConstructor typeConstructor = it.getTypeConstructor();
                 Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "it.typeConstructor");
-                Collection<KotlinType> mo2102getSupertypes = typeConstructor.mo2102getSupertypes();
-                Intrinsics.checkExpressionValueIsNotNull(mo2102getSupertypes, "it.typeConstructor.supertypes");
-                return SequencesKt___SequencesKt.asIterable(SequencesKt___SequencesKt.mapNotNull(CollectionsKt___CollectionsKt.asSequence(mo2102getSupertypes), new Function1<KotlinType, ClassDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaStaticClassScope$flatMapJavaStaticSupertypesScopes$1.1
+                Collection<KotlinType> mo2103getSupertypes = typeConstructor.mo2103getSupertypes();
+                Intrinsics.checkExpressionValueIsNotNull(mo2103getSupertypes, "it.typeConstructor.supertypes");
+                return SequencesKt___SequencesKt.asIterable(SequencesKt___SequencesKt.mapNotNull(CollectionsKt___CollectionsKt.asSequence(mo2103getSupertypes), new Function1<KotlinType, ClassDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaStaticClassScope$flatMapJavaStaticSupertypesScopes$1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final ClassDescriptor invoke(KotlinType kotlinType) {
-                        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-                        if (!(mo2101getDeclarationDescriptor instanceof ClassDescriptor)) {
-                            mo2101getDeclarationDescriptor = null;
+                        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+                        if (!(mo2102getDeclarationDescriptor instanceof ClassDescriptor)) {
+                            mo2102getDeclarationDescriptor = null;
                         }
-                        return (ClassDescriptor) mo2101getDeclarationDescriptor;
+                        return (ClassDescriptor) mo2102getDeclarationDescriptor;
                     }
                 }));
             }
         }, new DFS.AbstractNodeHandler<ClassDescriptor, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaStaticClassScope$flatMapJavaStaticSupertypesScopes$2
             /* JADX DEBUG: Possible override for method kotlin.reflect.jvm.internal.impl.utils.DFS.NodeHandler.result()Ljava/lang/Object; */
             /* renamed from: result  reason: collision with other method in class */
-            public void m2098result() {
+            public void m2099result() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -99,7 +99,7 @@ public final class LazyJavaStaticClassScope extends LazyJavaStaticScope {
 
             @Override // kotlin.reflect.jvm.internal.impl.utils.DFS.NodeHandler
             public /* bridge */ /* synthetic */ Object result() {
-                m2098result();
+                m2099result();
                 return Unit.INSTANCE;
             }
         });

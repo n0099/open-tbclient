@@ -1,155 +1,251 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.pm.Signature;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r60;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Callback;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.CookieJarImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.openid.IOpenID;
-import java.security.MessageDigest;
+import java.io.IOException;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class s60 {
+public final class s60 implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final t60 a;
+    public final Request b;
+    public final boolean c;
+    public boolean d;
+    public m60 e;
 
     /* loaded from: classes7.dex */
-    public class a implements ServiceConnection {
+    public final class a extends p60 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ r60.a b;
+        public final Callback b;
+        public final /* synthetic */ s60 c;
 
-        public a(Context context, r60.a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(s60 s60Var, Callback callback) {
+            super("BaiduNetwork %s", s60Var.d());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, aVar};
+                Object[] objArr = {s60Var, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Object[]) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
-            this.b = aVar;
+            this.c = s60Var;
+            this.b = callback;
         }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Signature[] signatureArr;
-            String str;
-            Parcel obtain;
-            Parcel obtain2;
-            MessageDigest messageDigest;
+        @Override // com.baidu.tieba.p60
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
-                return;
-            }
-            iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-            String packageName = this.a.getPackageName();
-            try {
-                signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
-            } catch (Exception e) {
-                this.b.a(false, null);
-                e.printStackTrace();
-                signatureArr = null;
-            }
-            try {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (signatureArr != null && signatureArr.length > 0) {
-                        byte[] byteArray = signatureArr[0].toByteArray();
-                        try {
-                            messageDigest = MessageDigest.getInstance("SHA1");
-                        } catch (Exception e2) {
-                            this.b.a(false, null);
-                            e2.printStackTrace();
-                        }
-                        if (messageDigest != null) {
-                            byte[] digest = messageDigest.digest(byteArray);
-                            StringBuilder sb = new StringBuilder();
-                            for (byte b : digest) {
-                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                            }
-                            str = sb.toString();
-                            obtain = Parcel.obtain();
-                            obtain2 = Parcel.obtain();
-                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                            obtain.writeString(packageName);
-                            obtain.writeString(str);
-                            obtain.writeString("OUID");
-                            iBinder.transact(1, obtain, obtain2, 0);
-                            obtain2.readException();
-                            String readString = obtain2.readString();
-                            obtain.recycle();
-                            obtain2.recycle();
-                            this.b.a(true, readString);
-                            return;
-                        }
+                    try {
+                        this.b.onResponse(this.c, this.c.b());
+                    } catch (IOException e) {
+                        this.b.onFailure(this.c, e);
                     }
-                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                    obtain.writeString(packageName);
-                    obtain.writeString(str);
-                    obtain.writeString("OUID");
-                    iBinder.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
-                    String readString2 = obtain2.readString();
-                    obtain.recycle();
-                    obtain2.recycle();
-                    this.b.a(true, readString2);
-                    return;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                    this.b.a(false, null);
-                    obtain.recycle();
-                    obtain2.recycle();
-                    return;
+                } finally {
+                    this.c.a.p().d(this);
                 }
-            } catch (Throwable th) {
-                obtain.recycle();
-                obtain2.recycle();
-                throw th;
             }
-            str = null;
-            obtain = Parcel.obtain();
-            obtain2 = Parcel.obtain();
         }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
+        public s60 b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
             }
+            return (s60) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c.b.url().host();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public static void a(Context context, r60.a aVar) {
+    public s60(Request request, t60 t60Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {request, t60Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        this.b = request;
+        this.c = z;
+        this.a = t60Var;
+        z60 z60Var = t60Var.m;
+        this.e = new m60(t60Var);
+    }
+
+    public static s60 c(Request request, t60 t60Var, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, request, t60Var, z)) == null) {
+            return new s60(request, t60Var, z);
+        }
+        return (s60) invokeLLZ.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    /* renamed from: a */
+    public s60 m138clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c(this.b, this.a, this.c);
+        }
+        return (s60) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.url().redact();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e.d();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public synchronized boolean isExecuted() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    public Response b() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a.t());
+            arrayList.add(new c70(new CookieJarImpl(this.b.getCookieManager()), this.a));
+            arrayList.add(this.e);
+            arrayList.addAll(this.a.w());
+            arrayList.add(new d70());
+            return new e70(arrayList, null, 0, this.b, this).a(this.b);
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void enqueue(Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
+                }
+            }
+            this.a.p().a(new a(this, callback));
+        }
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Response execute() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
+                }
+            }
             try {
-                a aVar2 = new a(context, aVar);
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                context.bindService(intent, aVar2, 1);
-            } catch (Throwable unused) {
-                aVar.a(false, null);
+                try {
+                    this.a.p().b(this);
+                    Response b = b();
+                    if (b != null) {
+                        return b;
+                    }
+                    throw new IOException("Canceled");
+                } catch (IOException e) {
+                    throw e;
+                } catch (Exception e2) {
+                    if (TextUtils.isEmpty(e2.getMessage())) {
+                        throw new IOException("unknown exception", e2);
+                    }
+                    throw new IOException(e2);
+                }
+            } finally {
+                this.a.p().e(this);
             }
         }
+        return (Response) invokeV.objValue;
     }
 }

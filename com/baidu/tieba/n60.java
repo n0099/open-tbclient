@@ -1,91 +1,198 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r60;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.tieba.s60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class n60 {
+public final class n60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    @Nullable
+    public Runnable c;
+    @Nullable
+    public Executor d;
+    public final Deque<s60.a> e;
+    public final Deque<s60.a> f;
+    public final Deque<s60> g;
 
-    /* loaded from: classes7.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class[] a;
-        public final /* synthetic */ r60.a b;
-
-        public a(Class[] clsArr, r60.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {clsArr, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = clsArr;
-            this.b = aVar;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                try {
-                    this.b.a(true, (String) this.a[0].getMethod("a", new Class[0]).invoke(this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder), new Object[0]));
-                } catch (Throwable unused) {
-                    this.b.a(false, null);
-                }
+    public n60() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+    }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+    public synchronized Executor c() {
+        InterceptResult invokeV;
+        Executor executor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
+                }
+                executor = this.d;
+            }
+            return executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public n60(Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+        this.d = executor;
+    }
+
+    public synchronized void a(s60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (this.f.size() < this.a && i(aVar) < this.b) {
+                    this.f.add(aVar);
+                    c().execute(aVar);
+                } else {
+                    this.e.add(aVar);
+                }
             }
         }
     }
 
-    public static void a(Context context, r60.a aVar) {
+    public final int i(s60.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
+            int i = 0;
+            for (s60.a aVar2 : this.f) {
+                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
+                    i++;
+                }
             }
-            Class[] clsArr = new Class[1];
-            try {
-                clsArr[0] = Class.forName("com.zui.deviceidservice.IDeviceidInterface$Stub");
-            } catch (Throwable unused) {
-            }
-            if (clsArr[0] == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                a aVar2 = new a(clsArr, aVar);
-                Intent intent = new Intent();
-                intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-                context.bindService(intent, aVar2, 1);
-            } catch (Throwable unused2) {
-                aVar.a(false, null);
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized void b(s60 s60Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s60Var) == null) {
+            synchronized (this) {
+                this.g.add(s60Var);
             }
         }
+    }
+
+    public void d(s60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            f(this.f, aVar, true);
+        }
+    }
+
+    public void e(s60 s60Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, s60Var) == null) {
+            f(this.g, s60Var, false);
+        }
+    }
+
+    public final <T> void f(Deque<T> deque, T t, boolean z) {
+        int h;
+        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
+            synchronized (this) {
+                if (deque.remove(t)) {
+                    if (z) {
+                        g();
+                    }
+                    h = h();
+                    runnable = this.c;
+                } else {
+                    throw new AssertionError("Call wasn't in-flight!");
+                }
+            }
+            if (h == 0 && runnable != null) {
+                runnable.run();
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f.size() >= this.a || this.e.isEmpty()) {
+            return;
+        }
+        Iterator<s60.a> it = this.e.iterator();
+        while (it.hasNext()) {
+            s60.a next = it.next();
+            if (i(next) < this.b) {
+                it.remove();
+                this.f.add(next);
+                c().execute(next);
+            }
+            if (this.f.size() >= this.a) {
+                return;
+            }
+        }
+    }
+
+    public synchronized int h() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.f.size() + this.g.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
     }
 }

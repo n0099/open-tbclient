@@ -1379,12 +1379,12 @@ public abstract class KotlinBuiltIns {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public ClassDescriptor invoke(Name name) {
-                ClassifierDescriptor mo2103getContributedClassifier = KotlinBuiltIns.this.getBuiltInsPackageScope().mo2103getContributedClassifier(name, NoLookupLocation.FROM_BUILTINS);
-                if (mo2103getContributedClassifier != null) {
-                    if (mo2103getContributedClassifier instanceof ClassDescriptor) {
-                        return (ClassDescriptor) mo2103getContributedClassifier;
+                ClassifierDescriptor mo2104getContributedClassifier = KotlinBuiltIns.this.getBuiltInsPackageScope().mo2104getContributedClassifier(name, NoLookupLocation.FROM_BUILTINS);
+                if (mo2104getContributedClassifier != null) {
+                    if (mo2104getContributedClassifier instanceof ClassDescriptor) {
+                        return (ClassDescriptor) mo2104getContributedClassifier;
                     }
-                    throw new AssertionError("Must be a class descriptor " + name + ", but was " + mo2103getContributedClassifier);
+                    throw new AssertionError("Must be a class descriptor " + name + ", but was " + mo2104getContributedClassifier);
                 }
                 throw new AssertionError("Built-in class " + KotlinBuiltIns.BUILT_INS_PACKAGE_FQ_NAME.child(name) + " is not found");
             }
@@ -1645,8 +1645,8 @@ public abstract class KotlinBuiltIns {
         if (kotlinType == null) {
             $$$reportNull$$$0(91);
         }
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if ((mo2101getDeclarationDescriptor instanceof ClassDescriptor) && isPrimitiveClass((ClassDescriptor) mo2101getDeclarationDescriptor)) {
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if ((mo2102getDeclarationDescriptor instanceof ClassDescriptor) && isPrimitiveClass((ClassDescriptor) mo2102getDeclarationDescriptor)) {
             return true;
         }
         return false;
@@ -1814,8 +1814,8 @@ public abstract class KotlinBuiltIns {
         if (fqNameUnsafe == null) {
             $$$reportNull$$$0(98);
         }
-        ClassifierDescriptor mo2101getDeclarationDescriptor = typeConstructor.mo2101getDeclarationDescriptor();
-        if ((mo2101getDeclarationDescriptor instanceof ClassDescriptor) && classFqNameEquals(mo2101getDeclarationDescriptor, fqNameUnsafe)) {
+        ClassifierDescriptor mo2102getDeclarationDescriptor = typeConstructor.mo2102getDeclarationDescriptor();
+        if ((mo2102getDeclarationDescriptor instanceof ClassDescriptor) && classFqNameEquals(mo2102getDeclarationDescriptor, fqNameUnsafe)) {
             return true;
         }
         return false;
@@ -2065,8 +2065,8 @@ public abstract class KotlinBuiltIns {
         if (moduleDescriptor == null) {
             $$$reportNull$$$0(71);
         }
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if (mo2101getDeclarationDescriptor == null || !UnsignedTypes.INSTANCE.isShortNameOfUnsignedArray(mo2101getDeclarationDescriptor.getName()) || (classId = DescriptorUtilsKt.getClassId(mo2101getDeclarationDescriptor)) == null || (unsignedClassIdByArrayClassId = UnsignedTypes.INSTANCE.getUnsignedClassIdByArrayClassId(classId)) == null || (findClassAcrossModuleDependencies = FindClassInModuleKt.findClassAcrossModuleDependencies(moduleDescriptor, unsignedClassIdByArrayClassId)) == null) {
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (mo2102getDeclarationDescriptor == null || !UnsignedTypes.INSTANCE.isShortNameOfUnsignedArray(mo2102getDeclarationDescriptor.getName()) || (classId = DescriptorUtilsKt.getClassId(mo2102getDeclarationDescriptor)) == null || (unsignedClassIdByArrayClassId = UnsignedTypes.INSTANCE.getUnsignedClassIdByArrayClassId(classId)) == null || (findClassAcrossModuleDependencies = FindClassInModuleKt.findClassAcrossModuleDependencies(moduleDescriptor, unsignedClassIdByArrayClassId)) == null) {
             return null;
         }
         return findClassAcrossModuleDependencies.getDefaultType();
@@ -2109,8 +2109,8 @@ public abstract class KotlinBuiltIns {
         if (kotlinType == null) {
             $$$reportNull$$$0(87);
         }
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if (mo2101getDeclarationDescriptor != null && getPrimitiveArrayType(mo2101getDeclarationDescriptor) != null) {
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (mo2102getDeclarationDescriptor != null && getPrimitiveArrayType(mo2102getDeclarationDescriptor) != null) {
             return true;
         }
         return false;

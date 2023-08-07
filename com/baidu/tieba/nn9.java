@@ -1,111 +1,77 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nn9 {
+public class nn9 extends lm<jo9, CardViewHolder<cp9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public EMTextView b;
-    public BdTypeRecyclerView c;
-    public View d;
-    public ug9 e;
-    public ik9 f;
+    public TbPageContext a;
+    public bn6<jo9> b;
 
-    public nn9(bn9 bn9Var, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nn9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bn9Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(bn9Var.X());
-        ug9 ug9Var = new ug9(bn9Var, bdUniqueId, this.c);
-        this.e = ug9Var;
-        this.f = new ik9(this.c, ug9Var);
-        c();
+        this.a = tbPageContext;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public CardViewHolder<cp9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            cp9 cp9Var = new cp9(this.a);
+            cp9Var.k(this.b);
+            return new CardViewHolder<>(cp9Var);
         }
-        return (View) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void c() {
+    public void u(bn6<jo9> bn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            this.e.e();
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083c, (ViewGroup) null);
-            this.a = linearLayout;
-            this.b = (EMTextView) linearLayout.findViewById(R.id.tv_title);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091b02);
-            this.c = bdTypeRecyclerView;
-            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-            this.c.setFadingEdgeLength(0);
-            this.c.setOverScrollMode(2);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            this.c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            this.c.setNestedScrollingEnabled(false);
-            this.d = new View(context);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bn6Var) == null) {
+            this.b = bn6Var;
         }
     }
 
-    public void d(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jo9 jo9Var, CardViewHolder<cp9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c.removeFooterView(this.d);
-            this.d.setLayoutParams(new ViewGroup.LayoutParams(1, i));
-            this.c.addFooterView(this.d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jo9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().i(jo9Var);
+            return cardViewHolder.getView();
         }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c.setNestedScrollingEnabled(z);
-        }
-    }
-
-    public void f(ze9 ze9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ze9Var) == null) {
-            this.f.k(ze9Var);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

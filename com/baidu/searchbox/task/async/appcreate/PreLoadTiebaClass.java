@@ -1,13 +1,13 @@
 package com.baidu.searchbox.task.async.appcreate;
 
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
-import com.baidu.tieba.bu4;
-import com.baidu.tieba.ly5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.et4;
+import com.baidu.tieba.yv5;
 /* loaded from: classes4.dex */
 public class PreLoadTiebaClass extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -28,9 +28,9 @@ public class PreLoadTiebaClass extends LaunchTask {
             Class.forName("com.baidu.tieba.im.memorycache.ImMemoryCacheRegister");
         } catch (ClassNotFoundException unused) {
         }
-        bu4.w();
+        et4.w();
         ItemCardHelper.i();
-        ly5.b();
-        yi.B(TbadkCoreApplication.getInst());
+        yv5.b();
+        BdUtilHelper.initDeviceData(TbadkCoreApplication.getInst());
     }
 }

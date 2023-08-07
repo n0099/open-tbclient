@@ -1,57 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes6.dex */
-public abstract class gc9 extends BaseAdapter {
+public final class gc9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public final Context c;
-    public List<pc9> d;
-    public a e;
+    public final WeakReference<PbFragment> a;
+    public final String b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void E1(int i);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public gc9(List<pc9> list, Context context) {
+    public gc9(String token, PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
+            Object[] objArr = {token, pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,78 +37,44 @@ public abstract class gc9 extends BaseAdapter {
                 return;
             }
         }
-        this.b = true;
-        this.d = list;
-        this.c = context;
+        Intrinsics.checkNotNullParameter(token, "token");
+        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
+        this.a = new WeakReference<>(pbFragment);
+        this.b = token;
     }
 
-    public List<pc9> a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0067  */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        PbFragment pbFragment;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (pc9 pc9Var : this.d) {
-                if (pc9Var.e()) {
-                    arrayList.add(pc9Var);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pbFragment = this.a.get()) != null && pbFragment.M5() != null && pbFragment.R() != null && pbFragment.M5().T0() != null && pbFragment.R().r1() != null) {
+            RobotEntrance K = pbFragment.R().r1().K();
+            if (K != null) {
+                List<RobotSkillInfo> list = K.robot_skill_info;
+                List<RobotSkill> list2 = K.bottom_bar_robot_skill;
+                if (list != null && list2 != null) {
+                    CallRobotEntrance c = BotEntranceManager.c.c().c(list, list2);
+                    Intrinsics.checkNotNull(c);
+                    str = c.style_conf.android_extra.bot_timeout_content;
+                    Intrinsics.checkNotNullExpressionValue(str, "robotEntrance!!.style_co…extra.bot_timeout_content");
+                    if (TextUtils.isEmpty(str)) {
+                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ef);
+                        Intrinsics.checkNotNullExpressionValue(str, "getInst()\n              …bot_loading_timeout_text)");
+                    }
+                    ak9.d(this.b, str, "", 2);
+                    pbFragment.M5().T0().f0();
                 }
             }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<pc9> list = this.d;
-            if (list == null) {
-                return 0;
+            str = "";
+            if (TextUtils.isEmpty(str)) {
             }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.e = aVar;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void e(List<pc9> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
-        }
-    }
-
-    public void f(pc9 pc9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pc9Var) == null) {
-            if (pc9Var.e()) {
-                this.a++;
-            } else {
-                this.a--;
-            }
+            ak9.d(this.b, str, "", 2);
+            pbFragment.M5().T0().f0();
         }
     }
 }

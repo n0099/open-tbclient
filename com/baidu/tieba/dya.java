@@ -1,49 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.data.QuestionTagListData;
+import com.baidu.tieba.write.write.message.QuestionTagListRequestMessage;
+import com.baidu.tieba.write.write.message.QuestionTagListResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class dya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final ywa b;
-    @Nullable
-    public WriteData c;
-    public boolean d;
-    @Nullable
-    public String e;
-    @Nullable
-    public ArrayList<AtSelectData> f;
+    public final List<ym> a;
+    public b b;
+    public String c;
+    public String d;
+    public boolean e;
+    public int f;
+    public final HttpMessageListener g;
 
-    public dya(@NonNull TbPageContext<?> tbPageContext, @NonNull ywa ywaVar) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z, List<ym> list);
+
+        void b(boolean z);
+
+        void c(boolean z, String str);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dya a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dya dyaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dyaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dyaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuestionTagListResponseMessage)) {
+                return;
+            }
+            QuestionTagListData questionTagListData = ((QuestionTagListResponseMessage) httpResponsedMessage).data;
+            boolean z = false;
+            if (httpResponsedMessage.getError() == 0 && questionTagListData != null) {
+                if (!ListUtils.isEmpty(questionTagListData.b)) {
+                    this.a.a.addAll(questionTagListData.b);
+                }
+                dya dyaVar = this.a;
+                if (questionTagListData.a == 1) {
+                    z = true;
+                }
+                dyaVar.e = z;
+                if (this.a.e) {
+                    dya.c(this.a);
+                }
+                if (this.a.b != null) {
+                    this.a.b.a(this.a.e, this.a.a);
+                }
+            } else if (this.a.b != null) {
+                b bVar = this.a.b;
+                if (this.a.f != 1) {
+                    z = true;
+                }
+                bVar.c(z, TbadkApplication.getInst().getString(R.string.new_text_no_search_result));
+            }
+        }
+    }
+
+    public dya() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ywaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,103 +115,92 @@ public class dya {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = ywaVar;
+        this.a = new ArrayList();
+        this.f = 1;
+        this.g = new a(this, CmdConfigHttp.CMD_QUESTION_THREAD_TAG_LIST);
+        g();
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(CharSequence charSequence, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2) == null) && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0 && charSequence.charAt(i) == '@') {
-            i();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_QUESTION_THREAD_TAG_LIST, TbConfig.SERVER_ADDRESS + TbConfig.QUESTION_THREAD_TAG_LIST);
+            tbHttpMessageTask.setResponsedClass(QuestionTagListResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public void c(CharSequence charSequence, int i, int i2, String str) {
-        WriteData writeData;
+    public static /* synthetic */ int c(dya dyaVar) {
+        int i = dyaVar.f;
+        dyaVar.f = i + 1;
+        return i;
+    }
+
+    public boolean h(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && (writeData = this.c) != null && 14 != writeData.getType() && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
-            this.d = false;
-            this.e = "";
-            if ("from_content".equals(str)) {
-                this.e = "from_content";
-            } else if ("from_title".equals(str)) {
-                this.e = "from_title";
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            if (!z && !this.e) {
+                return false;
             }
-            if (zx5.f(String.valueOf(charSequence.charAt(i)))) {
-                this.b.m();
+            k();
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.b(false);
+                return true;
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public void i(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
+            this.f = 1;
+            this.e = false;
+            this.a.clear();
+            k();
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.b(true);
             }
         }
     }
 
-    public String d(Intent intent) {
-        InterceptResult invokeL;
+    public void l(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
-            if (intent == null) {
-                return null;
-            }
-            String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
-            if (StringUtils.isNull(stringExtra)) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            if (this.d) {
-                sb.append("#");
-                this.d = false;
-            }
-            sb.append(stringExtra);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void e(ArrayList<AtSelectData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
-    public void f(@Nullable String str) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void g(boolean z) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().registerListener(this.g);
         }
     }
 
-    public void h(WriteData writeData) {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.c = writeData;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().sendMessage(new QuestionTagListRequestMessage().setSearchWords(this.c).setCategory(this.d).setPage(this.f));
         }
     }
 
-    public final void i() {
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getPageActivity(), 12004, true);
-            atListActivityConfig.setSelectedAtList(this.f);
-            this.a.sendMessage(new CustomMessage(2002001, atListActivityConfig));
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.g);
         }
     }
 }

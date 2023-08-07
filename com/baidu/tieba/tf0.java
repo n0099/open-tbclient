@@ -1,130 +1,357 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.player.model.ClarityUrlList;
+import com.baidu.tieba.ff0;
+import com.baidu.tieba.fg0;
+import com.baidu.tieba.vf0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class tf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static String c;
+    public static tf0 b;
+    public static bg0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public Set<String> b;
+    public Boolean a;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public class a extends vf0.c<nf0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ff0.a a;
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static tf0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-405599795, "Lcom/baidu/tieba/tf0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-405599795, "Lcom/baidu/tieba/tf0$b;");
+        public a(tf0 tf0Var, ff0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tf0Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new tf0(null);
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vf0.c
+        /* renamed from: e */
+        public void a(nf0 nf0Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, nf0Var, str) == null) {
+                if (ff0.m()) {
+                    tf0.c("loadSDK onCompleted filePath: " + str);
+                }
+                super.a(nf0Var, str);
+                ff0.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onResult(true, str);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vf0.c
+        /* renamed from: f */
+        public void b(nf0 nf0Var, Exception exc) {
+            String message;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, nf0Var, exc) == null) {
+                if (ff0.m()) {
+                    tf0.c("loadSDK onFailed failed: " + exc);
+                }
+                super.b(nf0Var, exc);
+                ff0.a aVar = this.a;
+                if (aVar != null) {
+                    if (exc == null) {
+                        message = ClarityUrlList.UNKNOWN_CLARITY_KEY;
+                    } else {
+                        message = exc.getMessage();
+                    }
+                    aVar.onResult(false, message);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vf0.c
+        /* renamed from: g */
+        public void c(nf0 nf0Var, long j, long j2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{nf0Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+                super.c(nf0Var, j, j2, i);
+                ff0.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onProgress((int) j2, i);
+                }
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179147, "Lcom/baidu/tieba/tf0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class b implements fg0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ff0.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+
+        public b(tf0 tf0Var, ff0.a aVar, String str, File file) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tf0Var, aVar, str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948179147, "Lcom/baidu/tieba/tf0;");
-                return;
+            this.a = aVar;
+            this.b = str;
+            this.c = file;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0068, code lost:
+            if (r1 == false) goto L22;
+         */
+        @Override // com.baidu.tieba.fg0.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(int i, fg0 fg0Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, fg0Var) == null) {
+                boolean z2 = false;
+                if (i == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (ff0.m()) {
+                    tf0.c("onLoadAssets " + z + ", state " + i);
+                }
+                if (this.a != null) {
+                    String str = null;
+                    if (!z) {
+                        str = this.b;
+                    }
+                    if (this.c != null) {
+                        ff0.s(new gf0(this.c.getAbsolutePath()));
+                    }
+                    if (z) {
+                        boolean k0 = ef0.k0();
+                        if (ff0.m()) {
+                            tf0.c("loadAssets ARControllerProxy.loadSoFile " + k0);
+                        }
+                    }
+                    z2 = z;
+                    this.a.onResult(z2, str);
+                }
             }
         }
-        c = da5.t("advert_hide_list");
     }
 
     public tf0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public static tf0 b() {
+    public static synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (tf0.class) {
+                if (b == null) {
+                    b = new tf0();
+                }
+            }
+        }
+    }
+
+    public static tf0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                b();
+            }
+            return b;
         }
         return (tf0) invokeV.objValue;
     }
 
-    public /* synthetic */ tf0(a aVar) {
-        this();
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            Log.e("DuAr_SDKLoader", "ar->" + str);
+        }
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
+    public final bg0 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c == null) {
+                bg0 k = bg0.k();
+                ff0.g();
+                k.m(ff0.getContext(), "arsource", new File(gf0.a()));
+                c = k;
             }
-            if (this.b == null) {
-                this.b = this.a.getStringSet(c, null);
-            }
-            Set<String> set = this.b;
-            if (set == null) {
-                return false;
-            }
-            return set.contains(str);
+            return c;
         }
-        return invokeL.booleanValue;
+        return (bg0) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public File f() {
+        InterceptResult invokeV;
+        boolean z;
+        File l;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ff0.o() && g()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                l = qf0.d().h();
+            } else {
+                l = nf0.j(ff0.e()).l();
+            }
+            if (ff0.m()) {
+                c("sdkPath useLocal " + z + ", SDKPath " + l);
+            }
+            return l;
         }
-        Set<String> stringSet = this.a.getStringSet(c, null);
-        this.b = stringSet;
-        if (stringSet == null) {
-            this.b = new HashSet();
+        return (File) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ff0.o() && g()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                q = d().o();
+            } else {
+                q = nf0.j("live").q();
+            }
+            if (ff0.m()) {
+                c("isLocal " + z + ", isSDKLoaded " + q);
+            }
+            return q;
         }
-        this.b.add(str);
-        this.a.edit().putStringSet(c, this.b).commit();
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = Boolean.FALSE;
+                try {
+                    String[] list = ff0.getContext().getAssets().list("arsource");
+                    if (list != null && list.length > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.a = Boolean.valueOf(z);
+                    if (ff0.m()) {
+                        if (list == null) {
+                            str = StringUtil.NULL_STRING;
+                        } else {
+                            str = "" + list.length;
+                        }
+                        c("hasAssetsResource: " + str);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return this.a.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(Context context, String str, File file, ff0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, aVar) == null) {
+            String str2 = "loadAssets context=" + context + ", assetPath=" + str + ", SDcardFile=" + file;
+            if (ff0.m()) {
+                c(str2);
+            }
+            if ((context == null || TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(file.getAbsolutePath())) && aVar != null) {
+                aVar.onResult(false, str2);
+            }
+            d().r(context, str, file, new b(this, aVar, str2, file));
+        }
+    }
+
+    public void j(ff0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            if (ff0.m()) {
+                c("loadAssets hasAssetsResource=" + g());
+            }
+            if (ff0.g() == null) {
+                c("DuArResConfig null when loadAssets");
+            } else if (TextUtils.isEmpty(gf0.a())) {
+                c("DuArResConfig data empty when loadAssets");
+            } else {
+                i(ff0.getContext(), "arsource", new File(gf0.a()), aVar);
+            }
+        }
+    }
+
+    public void k(ff0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            if (ff0.o() && g()) {
+                j(aVar);
+            } else if (ff0.c() == null) {
+                c("loadSDK with Downlader==null");
+            } else {
+                nf0.j(ff0.e()).u(ff0.getContext(), new a(this, aVar));
+            }
+        }
     }
 }

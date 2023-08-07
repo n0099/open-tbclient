@@ -53,7 +53,7 @@ public abstract class AbstractTypeCheckerContext implements TypeSystemContext {
     /* loaded from: classes2.dex */
     public static abstract class SupertypesPolicy {
         /* renamed from: transformType */
-        public abstract SimpleTypeMarker mo2105transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker);
+        public abstract SimpleTypeMarker mo2106transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker);
 
         /* loaded from: classes2.dex */
         public static abstract class DoCustomTransform extends SupertypesPolicy {
@@ -72,7 +72,7 @@ public abstract class AbstractTypeCheckerContext implements TypeSystemContext {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeCheckerContext.SupertypesPolicy
             /* renamed from: transformType */
-            public SimpleTypeMarker mo2105transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
+            public SimpleTypeMarker mo2106transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
                 return abstractTypeCheckerContext.lowerBoundIfFlexible(kotlinTypeMarker);
             }
         }
@@ -92,7 +92,7 @@ public abstract class AbstractTypeCheckerContext implements TypeSystemContext {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeCheckerContext.SupertypesPolicy
             /* renamed from: transformType  reason: collision with other method in class */
-            public /* bridge */ /* synthetic */ SimpleTypeMarker mo2105transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
+            public /* bridge */ /* synthetic */ SimpleTypeMarker mo2106transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
                 return (SimpleTypeMarker) transformType(abstractTypeCheckerContext, kotlinTypeMarker);
             }
         }
@@ -107,7 +107,7 @@ public abstract class AbstractTypeCheckerContext implements TypeSystemContext {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeCheckerContext.SupertypesPolicy
             /* renamed from: transformType */
-            public SimpleTypeMarker mo2105transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
+            public SimpleTypeMarker mo2106transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
                 return abstractTypeCheckerContext.upperBoundIfFlexible(kotlinTypeMarker);
             }
         }

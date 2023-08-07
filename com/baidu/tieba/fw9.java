@@ -1,395 +1,128 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.hardware.Camera;
+import android.os.AsyncTask;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.postsearch.PostSearchActivity;
-import com.baidu.tieba.postsearch.PostSearchHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class fw9 {
+/* loaded from: classes6.dex */
+public class fw9 extends AsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PostSearchActivity a;
-    public String b;
-    public String c;
+    public Camera a;
+    public byte[] b;
+    public a c;
     public int d;
-    public int e;
-    public int f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public ArrayList<String> j;
-    public int k;
-    public final HttpMessageListener l;
-    public CustomMessageListener m;
 
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fw9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fw9 fw9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fw9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fw9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                if (!(httpResponsedMessage instanceof PostSearchHttpResponseMessage) || !(httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
-                    return;
-                }
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                boolean z = false;
-                if (httpMessage.getExtra() instanceof Integer) {
-                    i = ((Integer) httpMessage.getExtra()).intValue();
-                } else {
-                    i = 0;
-                }
-                this.a.p(i);
-                if (this.a.i(i) > 1) {
-                    z = true;
-                }
-                PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
-                if (statusCode == 200 && error == 0) {
-                    this.a.a.A1(i, postSearchHttpResponseMessage.getSearchData(), z);
-                    this.a.f(i);
-                    this.a.r();
-                    this.a.s();
-                    return;
-                }
-                String errorString = postSearchHttpResponseMessage.getErrorString();
-                if (TextUtils.isEmpty(errorString)) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e1f);
-                }
-                this.a.a.showToast(errorString);
-                this.a.a.A1(i, null, z);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        String a(byte[] bArr, int i, int i2, boolean z);
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fw9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(fw9 fw9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fw9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fw9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Object data;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                fw9 fw9Var = this.a;
-                fw9Var.j = (ArrayList) data;
-                fw9Var.a.z1();
-            }
-        }
-    }
-
-    public fw9(PostSearchActivity postSearchActivity) {
+    public fw9(Camera camera, byte[] bArr, a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {postSearchActivity};
+            Object[] objArr = {camera, bArr, aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 1;
-        this.e = 1;
-        this.f = 1;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.k = 0;
-        this.l = new a(this, CmdConfigHttp.CMD_POST_SEARCH);
-        b bVar = new b(this, 2009001);
-        this.m = bVar;
-        this.a = postSearchActivity;
-        postSearchActivity.registerListener(bVar);
-        this.a.registerListener(this.l);
+        this.a = camera;
+        this.b = bArr;
+        this.c = aVar;
+        this.d = i;
     }
 
-    public final void f(int i) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        this.f++;
-                        return;
-                    }
-                    return;
-                }
-                this.e++;
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getStatus() != AsyncTask.Status.FINISHED) {
+            cancel(true);
+        }
+    }
+
+    public fw9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+            } else {
+                execute(new Void[0]);
             }
-            this.d++;
+            return this;
         }
+        return (fw9) invokeV.objValue;
     }
 
-    public final int i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return 0;
-                    }
-                    return this.f;
-                }
-                return this.e;
-            }
-            return this.d;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void k(List<String> list) {
-        int size;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null || list.size() - 5 <= 0) {
-            return;
-        }
-        int size2 = list.size();
-        for (int i = 0; i < size; i++) {
-            list.remove((size2 - i) - 1);
-        }
-    }
-
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.i) {
-                return false;
-            }
-            this.b = str;
-            this.k = 3;
-            this.a.sendMessage(h(3));
-            this.i = true;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.h) {
-                return false;
-            }
-            this.b = str;
-            this.k = 2;
-            this.a.sendMessage(h(2));
-            this.h = true;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.g) {
-                return false;
-            }
-            this.b = str;
-            this.k = 1;
-            this.a.sendMessage(h(1));
-            this.g = true;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        this.i = false;
-                        return;
-                    }
-                    return;
-                }
-                this.h = false;
-                return;
-            }
-            this.g = false;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList<String> arrayList = this.j;
-            if (arrayList != null) {
-                arrayList.clear();
-            }
-            this.a.sendMessage(new CustomMessage(2009004));
-        }
-    }
-
-    public void j() {
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.sendMessage(new CustomMessage(2009001));
+            super.onCancelled();
+            this.c = null;
         }
     }
 
-    public void q() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: b */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        Camera.Parameters parameters;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d = 1;
-            this.e = 1;
-            this.f = 1;
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.j == null) {
-                this.j = new ArrayList<>();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            Camera camera = this.a;
+            if (camera == null) {
+                return null;
             }
-            this.j.remove(this.b);
-            this.j.add(0, this.b);
-            k(this.j);
-        }
-    }
-
-    public final HttpMessage h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-            httpMessage.addParam(DownloadStatisticConstants.UBC_VALUE_WORD, this.b);
-            httpMessage.addParam("rn", 30);
-            httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.a.d);
-            httpMessage.setExtra(Integer.valueOf(this.k));
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        httpMessage.addParam("sm", 2);
-                        httpMessage.addParam("only_thread", 1);
-                        httpMessage.addParam("pn", this.f);
+            try {
+                parameters = camera.getParameters();
+            } catch (RuntimeException e) {
+                BdLog.e(e);
+                parameters = null;
+            }
+            if (parameters == null) {
+                return null;
+            }
+            Camera.Size previewSize = parameters.getPreviewSize();
+            int i = previewSize.width;
+            int i2 = previewSize.height;
+            byte[] bArr = this.b;
+            if (this.d == 0) {
+                bArr = new byte[bArr.length];
+                for (int i3 = 0; i3 < i2; i3++) {
+                    for (int i4 = 0; i4 < i; i4++) {
+                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.b[(i3 * i) + i4];
                     }
-                } else {
-                    httpMessage.addParam("sm", 2);
-                    httpMessage.addParam("only_thread", 0);
-                    httpMessage.addParam("pn", this.e);
                 }
-            } else {
-                httpMessage.addParam("sm", 1);
-                httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.d);
+                i = i2;
+                i2 = i;
             }
-            return httpMessage;
-        }
-        return (HttpMessage) invokeI.objValue;
-    }
-
-    public boolean l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            if (!str.equals(this.b)) {
-                q();
-            }
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return false;
+            try {
+                try {
+                    if (this.c == null) {
+                        return null;
                     }
-                    return m(str);
+                    return this.c.a(bArr, i, i2, false);
+                } catch (Exception unused) {
+                    return null;
                 }
-                return n(str);
+            } catch (Exception unused2) {
+                return this.c.a(bArr, i, i2, true);
             }
-            return o(str);
         }
-        return invokeLI.booleanValue;
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !StringUtils.isNull(this.b) && !this.b.equals(this.c)) {
-            this.a.sendMessage(new CustomMessage(2009003, this.b));
-            this.c = this.b;
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,70 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class r80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    public r80(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            byte[] a = u80.a(str.getBytes());
-            if (a != null && a.length > 2) {
-                a[0] = 117;
-                a[1] = 123;
-            }
-            return a;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean b(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                v80.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
-                if (z2) {
-                    v80.a("UBCUploader", "save ubcdata");
-                    return true;
-                }
-                c(context, jSONArray, z, z2, z3);
-                return true;
-            }
-            v80.a("UBCUploader", "upload json is null");
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void c(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            JSONObject b = new s80(z, jSONArray).b();
-            if (b == null) {
-                v80.a("UBCUploader", "uploadJsonData is null");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            byte[] a = a(b.toString());
-            if (a != null && a.length >= 3) {
-                v80.a("UBCUploader", "gzip success, length:" + a.length);
-                v80.a("UBCUploader", "start execute http upload data");
-                p80 p80Var = new p80(context);
-                m80.e(context).b(context, p80Var, p80Var, a, z3);
-                return;
-            }
-            v80.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
         }
+        this.a = str2;
+        this.b = str3;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,165 +1,144 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.widget.ImageView;
-import com.baidu.adp.newwidget.ImageView.DrawerArgs;
+import android.app.Application;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class jl extends zk {
+public final class jl {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Matrix s;
-    public BitmapShader t;
-    public RectF u;
 
-    public jl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308395, "Lcom/baidu/tieba/jl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308395, "Lcom/baidu/tieba/jl;");
                 return;
             }
         }
-        this.s = new Matrix();
-        this.u = new RectF();
+        a = new a(null);
     }
 
-    @Override // com.baidu.tieba.zk
-    public void a(cl clVar, ImageView imageView) {
+    @JvmStatic
+    public static final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, clVar, imageView) == null) {
-            int b = clVar.b();
-            int a = clVar.a();
-            RectF rectF = this.g;
-            PointF b2 = b(rectF.left, rectF.top, this.f);
-            int i = (int) b2.x;
-            int i2 = (int) b2.y;
-            RectF rectF2 = this.g;
-            PointF b3 = b(rectF2.right, rectF2.bottom, this.f);
-            int i3 = (int) b3.x;
-            int i4 = (int) b3.y;
-            this.s.reset();
-            this.s.postScale((i3 - i) / b, (i4 - i2) / a);
-            this.s.postTranslate(i, i2);
-            if (clVar.e()) {
-                Bitmap bitmap = clVar.a.getBitmap();
-                Shader.TileMode tileMode = Shader.TileMode.CLAMP;
-                this.t = new BitmapShader(bitmap, tileMode, tileMode);
-            } else {
-                this.t = clVar.b.d();
-            }
-            BitmapShader bitmapShader = this.t;
-            if (bitmapShader == null) {
-                return;
-            }
-            bitmapShader.setLocalMatrix(this.s);
-            this.c.setShader(this.t);
-            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-            this.u.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width), Math.min(i4, height));
-            DrawerArgs drawerArgs = this.l;
-            if (!drawerArgs.c) {
-                return;
-            }
-            float f = drawerArgs.d / 2.0f;
-            if (!drawerArgs.g) {
-                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
-                return;
-            }
-            RectF rectF3 = this.h;
-            RectF rectF4 = this.u;
-            rectF3.set(rectF4.left + f, rectF4.top + f, rectF4.right - f, rectF4.bottom - f);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a.b(str);
         }
     }
 
-    @Override // com.baidu.tieba.zk
-    public void f(Canvas canvas, ImageView imageView) {
+    @JvmStatic
+    public static final void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
-            DrawerArgs drawerArgs = this.l;
-            if (!drawerArgs.c) {
-                return;
-            }
-            if (!drawerArgs.b) {
-                canvas.drawPath(l(this.h, drawerArgs.a), this.d);
-                return;
-            }
-            RectF rectF = this.u;
-            float f = (rectF.right + rectF.left) / 2.0f;
-            float f2 = (rectF.top + rectF.bottom) / 2.0f;
-            float min = Math.min(rectF.width(), this.u.height()) / 2.0f;
-            if (min <= 0.0f) {
-                f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
-                f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
-                min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
-            }
-            canvas.drawCircle(f, f2, min - (this.l.d / 2.0f), this.d);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a.c(str, str2, str3);
         }
     }
 
-    @Override // com.baidu.tieba.zk
-    public void i(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
-            return;
-        }
-        int scrollX = imageView.getScrollX();
-        int scrollY = imageView.getScrollY();
-        canvas.translate(scrollX, scrollY);
-        this.e.setColor(this.l.m);
-        if (!this.l.b) {
-            this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            canvas.drawPath(l(this.o, this.l.a), this.e);
-        } else {
-            float width = imageView.getWidth() / 2.0f;
-            float height = imageView.getHeight() / 2.0f;
-            canvas.drawCircle(width, height, Math.min(width, height) - (this.l.d / 2.0f), this.e);
-        }
-        canvas.translate(-scrollX, -scrollY);
-    }
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zk
-    public void h(Canvas canvas, cl clVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, clVar, imageView) == null) {
-            boolean d = clVar.d();
-            if (d && clVar.d()) {
-                clVar.b.b(true);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            DrawerArgs drawerArgs = this.l;
-            if (!drawerArgs.b) {
-                float[] fArr = drawerArgs.a;
-                float[] copyOf = Arrays.copyOf(fArr, fArr.length);
-                if (this.l.c) {
-                    for (int i = 0; i < copyOf.length; i++) {
-                        if (copyOf[i] != 0.0f) {
-                            copyOf[i] = copyOf[i] + 1.0f;
+        }
+
+        public final String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    return TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, Build.SUPPORTED_ABIS);
+                }
+                return Build.CPU_ABI2;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    return Application.getProcessName();
+                }
+                return "";
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JvmStatic
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("libnama check", "abi:" + a() + ", process: " + d() + ", thread:" + Thread.currentThread().getId() + ", msg: " + str);
+            }
+        }
+
+        @JvmStatic
+        public final void c(String name, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, name, str, str2) == null) {
+                Intrinsics.checkNotNullParameter(name, "name");
+                if (str != null && !TextUtils.isEmpty(name)) {
+                    boolean z = false;
+                    if (StringsKt__StringsKt.contains$default((CharSequence) name, (CharSequence) "nama", false, 2, (Object) null)) {
+                        TbLog defaultLog = DefaultLog.getInstance();
+                        StringBuilder sb = new StringBuilder();
+                        if ((str2 == null || str2.length() == 0) ? true : true) {
+                            str2 = "";
                         }
+                        sb.append(str2);
+                        sb.append(", name:");
+                        sb.append(name);
+                        sb.append(", abi:");
+                        sb.append(a());
+                        sb.append(", process: ");
+                        sb.append(d());
+                        sb.append(", thread:");
+                        sb.append(Thread.currentThread().getId());
+                        sb.append(", packageinfo: ");
+                        sb.append(str);
+                        defaultLog.i("libnama check", sb.toString());
                     }
                 }
-                canvas.drawPath(l(this.u, copyOf), this.c);
-            } else {
-                RectF rectF = this.u;
-                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.u.height()) / 2.0f, this.c);
-            }
-            if (d && clVar.d()) {
-                clVar.b.b(false);
             }
         }
     }

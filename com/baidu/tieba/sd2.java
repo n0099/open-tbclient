@@ -1,15 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sd2 {
+public abstract class sd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @WorkerThread
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    @WorkerThread
+    public void c(@NonNull sl4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+        }
+    }
+
+    public abstract void d();
+
+    @WorkerThread
+    public void e(@NonNull zj4 zj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zj4Var) == null) {
+        }
+    }
+
+    public void f(sj4 sj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sj4Var) == null) {
+        }
+    }
+
+    @WorkerThread
+    public void g(@NonNull yj4 yj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yj4Var) == null) {
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
     public sd2() {
         Interceptable interceptable = $ic;
@@ -23,20 +73,5 @@ public class sd2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public rd2 a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new td2(context);
-                }
-                return new vd2(context);
-            }
-            return new td2(context);
-        }
-        return (rd2) invokeLI.objValue;
     }
 }

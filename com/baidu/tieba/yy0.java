@@ -1,25 +1,46 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.StatisticsEvent;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class yy0 implements hy0 {
+public class yy0 extends qy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public CyberPlayer g;
+
+    @Override // com.baidu.tieba.py0
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    @Nullable
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
 
     public yy0() {
         Interceptable interceptable = $ic;
@@ -31,154 +52,314 @@ public class yy0 implements hy0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = 0;
-        this.b = 0;
-    }
-
-    @Override // com.baidu.tieba.hy0
-    public void a(a11 a11Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, a11Var) == null) && a11Var != null && !TextUtils.isEmpty(a11Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (!TextUtils.isEmpty(a11Var.f)) {
-                clogBuilder.v(a11Var.f);
-            }
-            clogBuilder.p(a11Var.g);
-            String c = a11Var.a.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -1530009462:
-                    if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case 720027695:
-                    if (c.equals(ControlEvent.ACTION_PAUSE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 723345051:
-                    if (c.equals(ControlEvent.ACTION_START)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 906917140:
-                    if (c.equals(ControlEvent.ACTION_RESUME)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 2145795460:
-                    if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 != 3 && c2 != 4) {
-                            if (c2 == 5) {
-                                int g = a11Var.a.g(1);
-                                int g2 = a11Var.a.g(2);
-                                if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
-                                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).l(String.valueOf(g2)).m(String.valueOf(g2)).n(a11Var.e);
-                                    n41.e(clogBuilder);
-                                    ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.VIDEO_START).k(a11Var.b).m(a11Var.d).p(a11Var.g);
-                                    if (!TextUtils.isEmpty(a11Var.f)) {
-                                        p.v(a11Var.f);
-                                    }
-                                    n41.e(p);
-                                }
-                                this.b = g;
-                                return;
-                            }
-                            return;
-                        } else if (this.a < 1) {
-                            return;
-                        } else {
-                            try {
-                                if (this.b > Integer.parseInt(a11Var.c)) {
-                                    clogBuilder.l(a11Var.d);
-                                } else {
-                                    clogBuilder.l(a11Var.c);
-                                }
-                            } catch (NumberFormatException unused) {
-                                clogBuilder.l(a11Var.c);
-                            }
-                            clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).m(a11Var.d).n(a11Var.e).o("0");
-                            this.a--;
-                            n41.e(clogBuilder);
-                            return;
-                        }
-                    }
-                    clogBuilder.y(ClogBuilder.LogType.VIDEO_RESUME).k(a11Var.b).m(a11Var.d);
-                    n41.e(clogBuilder);
-                    return;
-                }
-                boolean d = a11Var.a.d(7);
-                clogBuilder.l(a11Var.c).m(a11Var.d).n(a11Var.e);
-                if (d) {
-                    clogBuilder.y(ClogBuilder.LogType.VIDEO_PAUSE);
-                } else {
-                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).o("1");
-                }
-                n41.e(clogBuilder);
-                return;
-            }
-            clogBuilder.y(ClogBuilder.LogType.VIDEO_START).k(a11Var.b).m(a11Var.d);
-            this.b = 0;
-            this.a++;
-            n41.e(clogBuilder);
         }
     }
 
-    @Override // com.baidu.tieba.hy0
-    public void b(a11 a11Var) {
+    @Override // com.baidu.tieba.py0
+    public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a11Var) == null) && a11Var != null && a11Var.a != null && !TextUtils.isEmpty(a11Var.g)) {
-            String c = a11Var.a.c();
-            char c2 = 65535;
-            int hashCode = c.hashCode();
-            if (hashCode != 154871702) {
-                if (hashCode != 1370689931) {
-                    if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 1;
-                    }
-                } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                    c2 = 0;
-                }
-            } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                c2 = 2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g.setDataSource(ut0.b(), Uri.parse(this.b), this.d);
+            this.g.prepareAsync();
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.Q();
+            this.g.start();
+            if (n(PlayerStatus.COMPLETE)) {
+                p(PlayerStatus.PLAYING);
             }
-            if (c2 != 0) {
-                if (c2 == 1 || c2 == 2) {
-                    b11.b.b();
-                    return;
-                }
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.R();
+            S();
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.S();
+            this.g.stop();
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.g.getDuration() / 1000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.g.getDuration();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.g.getVideoHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.g.getVideoWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0, com.baidu.tieba.f11
+    public void onInit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.onInit();
+            this.g = new CyberPlayer();
+        }
+    }
+
+    @Override // com.baidu.tieba.py0, com.baidu.tieba.f11
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.onRelease();
+            this.d.clear();
+            S();
+            this.g.release();
+            this.g = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            w("prepare");
+            if (!PlayerStatus.isActiveStatus(i())) {
+                p(PlayerStatus.PREPARING);
+                this.g.prepareAsync();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            super.y();
+            if (n(PlayerStatus.PAUSE, PlayerStatus.COMPLETE)) {
+                p(PlayerStatus.PLAYING);
+                this.g.start();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void A(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.g.seekTo(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void D(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
+            this.g.setExternalInfo(str, obj);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void H(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            this.g.setOption(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void B(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.g.setClarityInfo(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.g.setLooping(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void I(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.g.setPlayJson(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void L(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.g.setSpeed(f);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void U(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            if (str != null) {
+                this.g.changeProxyDynamic(str, true);
+            } else {
+                this.g.changeProxyDynamic(null, false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.g.muteOrUnmuteAudio(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0, com.baidu.tieba.f11
+    public boolean verify(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            return "InlineVideoKernel".equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.g.seekTo(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void J(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.g.setOption(CyberPlayerManager.OPT_HTTP_PROXY, str);
+                this.g.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, YYOption.IsLive.VALUE_TRUE);
                 return;
             }
-            g11 a = b11.b.a();
-            if (a != null) {
-                a.c(a11Var.g);
-                a.e(a11Var.b);
-                a.d(a11Var.h);
-                a.b(a11Var.d);
-                b11.b.c(a);
+            this.g.setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
+            this.g.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
+        }
+    }
+
+    @Override // com.baidu.tieba.qy0
+    public void V(sy0 sy0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, sy0Var) == null) {
+            this.g.setOnCompletionListener(sy0Var);
+            this.g.setOnErrorListener(sy0Var);
+            this.g.setOnInfoListener(sy0Var);
+            this.g.setOnSeekCompleteListener(sy0Var);
+            this.g.setOnPreparedListener(sy0Var);
+            this.g.setOnBufferingUpdateListener(sy0Var);
+            this.g.setOnVideoSizeChangedListener(sy0Var);
+            this.g.setOnMediaSourceChangedListener(sy0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void N(String str, @NonNull HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) {
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                this.g.setOption(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (n(PlayerStatus.IDLE)) {
+                int e = e() / 1000;
+                if (e - (this.g.getCurrentPosition() / 1000) <= 2) {
+                    return e;
+                }
+            }
+            return this.g.getCurrentPosition() / 1000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (n(PlayerStatus.IDLE) && e() - this.g.getCurrentPosition() <= 2) {
+                return f();
+            }
+            return this.g.getCurrentPosition();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            super.u();
+            if (n(PlayerStatus.PLAYING, PlayerStatus.PREPARED, PlayerStatus.PREPARING)) {
+                p(PlayerStatus.PAUSE);
+                this.g.pause();
             }
         }
     }

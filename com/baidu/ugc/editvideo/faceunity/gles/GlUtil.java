@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import com.baidu.tieba.fab;
+import com.baidu.tieba.i9b;
 import com.faceunity.gles.GeneratedTexture;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -57,7 +57,7 @@ public class GlUtil {
     public static void checkGlError(String str) {
         int glGetError = GLES20.glGetError();
         if (glGetError != 0) {
-            fab.e("Grafika", str + ": glError 0x" + Integer.toHexString(glGetError));
+            i9b.e("Grafika", str + ": glError 0x" + Integer.toHexString(glGetError));
         }
     }
 
@@ -120,7 +120,7 @@ public class GlUtil {
         int glCreateProgram = GLES20.glCreateProgram();
         checkGlError("glCreateProgram");
         if (glCreateProgram == 0) {
-            fab.e("Grafika", "Could not create program");
+            i9b.e("Grafika", "Could not create program");
         }
         GLES20.glAttachShader(glCreateProgram, loadShader2);
         checkGlError("glAttachShader");
@@ -132,7 +132,7 @@ public class GlUtil {
         if (iArr[0] != 1) {
             String str3 = "Could not link program: " + GLES20.glGetProgramInfoLog(glCreateProgram);
             mGLErrorMsg = str3 + ",vertexShader:" + str + ",fragmentShader:" + str2;
-            fab.e("Grafika", str3);
+            i9b.e("Grafika", str3);
             GLES20.glDeleteProgram(glCreateProgram);
             return 0;
         }
@@ -149,7 +149,7 @@ public class GlUtil {
         if (iArr[0] == 0) {
             String str2 = "Could not compile shader, type:" + i + ":" + GLES20.glGetShaderInfoLog(glCreateShader);
             mGLErrorMsg = str2 + ",shader:" + str;
-            fab.e("Grafika", str2);
+            i9b.e("Grafika", str2);
             GLES20.glDeleteShader(glCreateShader);
             return 0;
         }
@@ -185,8 +185,8 @@ public class GlUtil {
     }
 
     public static void logVersionInfo() {
-        fab.j("Grafika", "vendor  : " + GLES20.glGetString(7936));
-        fab.j("Grafika", "renderer: " + GLES20.glGetString(7937));
-        fab.j("Grafika", "version : " + GLES20.glGetString(7938));
+        i9b.j("Grafika", "vendor  : " + GLES20.glGetString(7936));
+        i9b.j("Grafika", "renderer: " + GLES20.glGetString(7937));
+        i9b.j("Grafika", "version : " + GLES20.glGetString(7938));
     }
 }

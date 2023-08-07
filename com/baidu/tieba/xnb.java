@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public final class xnb<TResult> implements qob<TResult> {
+public class xnb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tob<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final fnb<TResult> a;
 
-    public xnb(Executor executor, tob<TResult> tobVar) {
+    public xnb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, tobVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +24,36 @@ public final class xnb<TResult> implements qob<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = tobVar;
-        this.b = executor;
+        this.a = new fnb<>();
     }
 
-    @Override // com.baidu.tieba.qob
-    public final void a(cob<TResult> cobVar) {
+    public void a(Exception exc) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, cobVar) == null) && cobVar.f()) {
-            cobVar.e();
-            this.b.execute(new vnb(this, cobVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            fnb<TResult> fnbVar = this.a;
+            synchronized (fnbVar.a) {
+                if (!fnbVar.b) {
+                    fnbVar.b = true;
+                    fnbVar.d = exc;
+                    fnbVar.a.notifyAll();
+                    fnbVar.b();
+                }
+            }
+        }
+    }
+
+    public void b(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+            fnb<TResult> fnbVar = this.a;
+            synchronized (fnbVar.a) {
+                if (!fnbVar.b) {
+                    fnbVar.b = true;
+                    fnbVar.c = tresult;
+                    fnbVar.a.notifyAll();
+                    fnbVar.b();
+                }
+            }
         }
     }
 }

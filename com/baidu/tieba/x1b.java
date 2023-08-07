@@ -1,380 +1,498 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalUrlRequest;
-import com.baidu.turbonet.net.RequestFinishedInfo;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UrlRequest;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class x1b extends ExperimentalUrlRequest.Builder {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String B = "x1b";
+public class x1b {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public final z0b a;
-    public final String b;
-    public final UrlRequest.Callback c;
-    public final Executor d;
-    public String e;
-    public final ArrayList<Pair<String, String>> f;
+    public String a;
+    public boolean b;
+    public boolean c;
+    public int d;
+    public boolean e;
+    public int f;
     public boolean g;
-    public boolean h;
-    public int i;
-    public Collection<Object> j;
-    public UploadDataProvider k;
-    public Executor l;
+    public int h;
+    public String i;
+    public int j;
+    public int k;
+    public int l;
     public boolean m;
-    public boolean n;
-    public int o;
-    public boolean p;
+    public String n;
+    public boolean o;
+    public int p;
     public int q;
-    public RequestFinishedInfo.Listener r;
-    public int s;
-    public boolean t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public Object y;
-    public String z;
+    public int r;
+    public boolean s;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948248928, "Lcom/baidu/tieba/x1b;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public boolean c;
+        public int d;
+        public int e;
+        public boolean f;
+        public boolean g;
+        public String h;
+        public boolean i;
+        public int j;
+        public int k;
+        public boolean l;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "1";
+            this.b = true;
+            this.c = false;
+            this.d = 720;
+            this.e = 0;
+            this.f = false;
+            this.g = false;
+            this.i = false;
+            this.h = "0";
+            this.j = 0;
+            this.k = 1;
+            this.l = true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public x1b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new x1b(this);
+            }
+            return (x1b) invokeV.objValue;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948248928, "Lcom/baidu/tieba/x1b;");
+
+        public a b(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.g = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.l = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a e(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.c = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a f(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.b = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a g(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.d = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
     }
 
-    public x1b(String str, UrlRequest.Callback callback, Executor executor, z0b z0bVar) {
+    public x1b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, callback, executor, z0bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.q = -1;
+        this.r = 2;
+        this.s = true;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.f = aVar.e;
+        this.g = aVar.f;
+        this.m = aVar.g;
+        this.o = aVar.i;
+        this.n = aVar.h;
+        this.p = aVar.j;
+        this.q = aVar.k;
+        this.s = aVar.l;
+    }
+
+    public x1b(String str, boolean z, boolean z2, int i, int i2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = new ArrayList<>();
-        this.i = 3;
-        this.s = 0;
-        if (str != null) {
-            if (callback != null) {
-                if (executor != null) {
-                    if (z0bVar != null) {
-                        this.b = str;
-                        this.c = callback;
-                        this.d = executor;
-                        this.a = z0bVar;
-                        this.t = false;
-                        this.u = 0;
-                        this.v = 0;
-                        this.w = 0;
-                        this.x = 0;
-                        this.y = null;
-                        this.z = null;
-                        this.A = null;
-                        return;
-                    }
-                    throw new NullPointerException("TurbonetEngine is required.");
-                }
-                throw new NullPointerException("Executor is required.");
-            }
-            throw new NullPointerException("Callback is required.");
-        }
-        throw new NullPointerException("URL is required.");
+        this.q = -1;
+        this.r = 2;
+        this.s = true;
+        this.a = str;
+        this.b = z;
+        this.c = z2;
+        this.d = i;
+        this.f = i2;
+        this.g = z3;
     }
 
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder a(String str, String str2) {
-        n(str, str2);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder m(UploadDataProvider uploadDataProvider, Executor executor) {
-        y(uploadDataProvider, executor);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder c() {
-        p();
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder d() {
-        q();
-        return this;
-    }
-
-    public x1b p() {
-        InterceptResult invokeV;
+    public void A(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            this.g = true;
-            return this;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.j = i;
         }
-        return (x1b) invokeV.objValue;
     }
 
-    public x1b q() {
-        InterceptResult invokeV;
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            this.t = true;
-            return this;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.r = i;
         }
-        return (x1b) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder e(String str) {
-        r(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public ExperimentalUrlRequest.Builder f(String str) {
-        InterceptResult invokeL;
+    public void C(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (str != null) {
-                this.e = str;
-                return this;
-            }
-            throw new NullPointerException("Method is required.");
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.e = z;
         }
-        return (ExperimentalUrlRequest.Builder) invokeL.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder g(String str) {
-        s(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder h(int i) {
-        t(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder i(int i) {
-        u(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder j(int i) {
-        v(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder k(int i) {
-        w(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder l(int i) {
-        x(i);
-        return this;
-    }
-
-    public x1b r(String str) {
-        InterceptResult invokeL;
+    public void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            this.z = str;
-            return this;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.h = i;
         }
-        return (x1b) invokeL.objValue;
     }
 
-    public x1b s(String str) {
-        InterceptResult invokeL;
+    public void E(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            this.A = str;
-            return this;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.o = z;
         }
-        return (x1b) invokeL.objValue;
     }
 
-    public x1b t(int i) {
-        InterceptResult invokeI;
+    public void F(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.w = i;
-            return this;
-        }
-        return (x1b) invokeI.objValue;
-    }
-
-    public x1b u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.v = i;
-            return this;
-        }
-        return (x1b) invokeI.objValue;
-    }
-
-    public x1b v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            this.u = i;
-            return this;
-        }
-        return (x1b) invokeI.objValue;
-    }
-
-    public x1b w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            this.n = true;
-            this.o = i;
-            return this;
-        }
-        return (x1b) invokeI.objValue;
-    }
-
-    public x1b x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            this.p = true;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.q = i;
-            return this;
         }
-        return (x1b) invokeI.objValue;
     }
 
-    public x1b n(String str, String str2) {
-        InterceptResult invokeLL;
+    public void G(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-            if (str != null) {
-                if (str2 != null) {
-                    if ("Accept-Encoding".equalsIgnoreCase(str)) {
-                        Log.w(B, "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
-                        return this;
-                    }
-                    this.f.add(Pair.create(str, str2));
-                    return this;
-                }
-                throw new NullPointerException("Invalid header value.");
-            }
-            throw new NullPointerException("Invalid header name.");
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.n = str;
         }
-        return (x1b) invokeLL.objValue;
     }
 
-    public x1b y(UploadDataProvider uploadDataProvider, Executor executor) {
-        InterceptResult invokeLL;
+    public void u(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, uploadDataProvider, executor)) == null) {
-            if (uploadDataProvider != null) {
-                if (executor != null) {
-                    if (this.e == null) {
-                        this.e = "POST";
-                    }
-                    this.k = uploadDataProvider;
-                    this.l = executor;
-                    return this;
-                }
-                throw new NullPointerException("Invalid UploadDataProvider Executor.");
-            }
-            throw new NullPointerException("Invalid UploadDataProvider.");
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.i = str;
         }
-        return (x1b) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    /* renamed from: o */
-    public w1b b() {
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.r;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            w1b g = this.a.g(this.b, this.c, this.d, this.i, this.j, this.g, this.h, this.m, this.n, this.o, this.p, this.q, this.r, this.s);
-            String str = this.e;
-            if (str != null) {
-                g.p(str);
-            }
-            Iterator<Pair<String, String>> it = this.f.iterator();
-            while (it.hasNext()) {
-                Pair<String, String> next = it.next();
-                g.n((String) next.first, (String) next.second);
-            }
-            UploadDataProvider uploadDataProvider = this.k;
-            if (uploadDataProvider != null) {
-                g.q(uploadDataProvider, this.l);
-            }
-            if (this.t) {
-                g.b();
-            }
-            int i = this.u;
-            if (i > 0) {
-                g.l(i);
-            }
-            int i2 = this.v;
-            if (i2 > 0) {
-                g.j(i2);
-            }
-            int i3 = this.w;
-            if (i3 > 0) {
-                g.i(i3);
-            }
-            int i4 = this.x;
-            if (i4 > 0) {
-                g.h(i4);
-            }
-            Object obj = this.y;
-            if (obj != null) {
-                g.k(obj);
-            }
-            if (!TextUtils.isEmpty(this.z)) {
-                g.f(this.z);
-            }
-            if (!TextUtils.isEmpty(this.A)) {
-                g.g(this.A);
-            }
-            return g;
+            return this.f;
         }
-        return (w1b) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.q;
+        }
+        return invokeV.intValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (TextUtils.isEmpty(this.n)) {
+                return "0";
+            }
+            return this.n;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (this.l == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.s;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (this.p != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (this.q == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.im.data.GameMatchUser;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.te8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.mc8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(View view2, jd8 jd8Var, int i);
+        void a(View view2, GameMatchUser gameMatchUser, int i);
     }
 
     static {
@@ -51,8 +51,8 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        f = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        e = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        f = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -76,22 +76,22 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public boolean b(jd8 jd8Var) {
+    public boolean b(GameMatchUser gameMatchUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jd8Var)) == null) {
-            int b = jd8Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gameMatchUser)) == null) {
+            int pos = gameMatchUser.getPos();
             int i = this.d;
-            if (b == i) {
+            if (pos == i) {
                 return false;
             }
             GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(i));
             if (gameContactsItemView != null) {
                 gameContactsItemView.a();
             }
-            int b2 = jd8Var.b();
-            this.d = b2;
-            GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(b2));
+            int pos2 = gameMatchUser.getPos();
+            this.d = pos2;
+            GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(pos2));
             if (gameContactsItemView2 != null) {
                 gameContactsItemView2.h();
                 return true;
@@ -147,17 +147,17 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         d();
     }
 
-    public void a(@NonNull List<jd8> list) {
+    public void a(@NonNull List<GameMatchUser> list) {
         ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             for (int i = 0; i < list.size(); i++) {
-                jd8 jd8Var = list.get(i);
-                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(jd8Var.b()));
+                GameMatchUser gameMatchUser = list.get(i);
+                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(gameMatchUser.getPos()));
                 if (gameContactsItemView != null) {
-                    gameContactsItemView.setGameMatchUser(jd8Var);
+                    gameContactsItemView.setGameMatchUser(gameMatchUser);
                     gameContactsItemView.setVisibility(0);
-                    if (jd8Var.b() != this.d && (h = te8.n().h(jd8Var.d(), 2)) != null && h.getUnread_count() > 0) {
+                    if (gameMatchUser.getPos() != this.d && (h = mc8.n().h(gameMatchUser.getUserId(), 2)) != null && h.getUnread_count() > 0) {
                         gameContactsItemView.g(h.getUnread_count());
                     }
                 }
@@ -214,7 +214,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             String gid = imMessageCenterPojo.getGid();
             for (Integer num : this.a.keySet()) {
                 GameContactsItemView gameContactsItemView = this.a.get(num);
-                if (gameContactsItemView != null && gameContactsItemView.getGameMatchUser() != null && gameContactsItemView.getGameMatchUser().d().equals(gid)) {
+                if (gameContactsItemView != null && gameContactsItemView.getGameMatchUser() != null && gameContactsItemView.getGameMatchUser().getUserId().equals(gid)) {
                     gameContactsItemView.g(imMessageCenterPojo.getUnread_count());
                 }
             }
@@ -233,15 +233,15 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 gameContactsItemView2.a();
             }
             gameContactsItemView.h();
-            if (this.d != gameContactsItemView.getGameMatchUser().b()) {
+            if (this.d != gameContactsItemView.getGameMatchUser().getPos()) {
                 z = true;
             } else {
                 z = false;
             }
-            this.d = gameContactsItemView.getGameMatchUser().b();
+            this.d = gameContactsItemView.getGameMatchUser().getPos();
             a aVar = this.b;
             if (aVar != null) {
-                jd8 gameMatchUser = gameContactsItemView.getGameMatchUser();
+                GameMatchUser gameMatchUser = gameContactsItemView.getGameMatchUser();
                 if (z) {
                     i = 2;
                 } else {

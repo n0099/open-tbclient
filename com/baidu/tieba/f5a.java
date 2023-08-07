@@ -1,51 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.cloudcommand.processor.CloudCommandProcessor;
-import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
-import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.Random;
 /* loaded from: classes5.dex */
-public class f5a implements ICloudControlRegister {
+public class f5a implements h5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public f5a() {
+    public f5a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
-    public void registerAllProcessors(DataProcessors dataProcessors) {
+    @Override // com.baidu.tieba.h5a
+    public boolean a(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
-            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
-            dataProcessors.addProcessor("ubc", new UBCCloudControlProcessor());
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, "register");
-            if (runTask != null) {
-                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
+            if (networkStatRecord == null) {
+                return false;
             }
-            dataProcessors.addProcessor("command", new CloudCommandProcessor());
+            if ((networkStatRecord.from == 3 && GlobalBuildConfig.isDebug()) || new Random().nextInt(this.b) >= this.a) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

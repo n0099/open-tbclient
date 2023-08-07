@@ -1,155 +1,205 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes6.dex */
-public class l6c {
+public class l6c implements b6c {
     public static /* synthetic */ Interceptable $ic;
-    public static final l6c a;
     public transient /* synthetic */ FieldHolder $fh;
+    public MiddleRevenueConfig a;
 
-    public x1c g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (x1c) invokeV.objValue;
-    }
-
-    public x1c i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (x1c) invokeV.objValue;
-    }
-
-    public x1c j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (x1c) invokeV.objValue;
-    }
-
-    @Deprecated
-    public h2c k(h2c h2cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, h2cVar)) == null) ? h2cVar : (h2c) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896272, "Lcom/baidu/tieba/l6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947896272, "Lcom/baidu/tieba/l6c;");
-                return;
-            }
-        }
-        a = new l6c();
-    }
-
-    public l6c() {
+    public l6c(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {middleRevenueConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = middleRevenueConfig;
     }
 
-    public static x1c a() {
+    @Override // com.baidu.tieba.b6c
+    public GetBannerConfigReqParams a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b(new RxThreadFactory("RxComputationScheduler-"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
+            getBannerConfigReqParams.setAppId(this.a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.a.getUid());
+            getBannerConfigReqParams.setToken(this.a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            return getBannerConfigReqParams;
         }
-        return (x1c) invokeV.objValue;
+        return (GetBannerConfigReqParams) invokeV.objValue;
     }
 
-    public static x1c c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d(new RxThreadFactory("RxIoScheduler-"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
         }
-        return (x1c) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static x1c e() {
+    @Override // com.baidu.tieba.b6c
+    public QueryCurrencyReqParams b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f(new RxThreadFactory("RxNewThreadScheduler-"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            queryCurrencyReqParams.setReturnYb(true);
+            return queryCurrencyReqParams;
         }
-        return (x1c) invokeV.objValue;
+        return (QueryCurrencyReqParams) invokeV.objValue;
     }
 
-    public static l6c h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b6c
+    public e6c c(PayFlowType payFlowType, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
+            e6c e6cVar = new e6c();
+            e6cVar.D(this.a.getUid());
+            e6cVar.A(this.a.getToken());
+            e6cVar.E(this.a.getUseChannel());
+            e6cVar.t(this.a.getCurrencyType());
+            e6cVar.B(this.a.getTokenCallback());
+            String deviceId = this.a.getDeviceId();
+            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
+            HashMap hashMap = new HashMap();
+            if (deviceId != null) {
+                hashMap.put("deviceId", deviceId);
+            } else {
+                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
+            }
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            JSONObject f = f(map);
+            if (f != null) {
+                hashMap.put("clientInfo", f);
+            }
+            e6cVar.u(hashMap);
+            return e6cVar;
         }
-        return (l6c) invokeV.objValue;
+        return (e6c) invokeLL.objValue;
     }
 
-    public static x1c b(ThreadFactory threadFactory) {
+    @Override // com.baidu.tieba.b6c
+    public QueryCurrencyReqParams d(PayFlowType payFlowType, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, payFlowType, map)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            HashMap hashMap = new HashMap();
+            JSONObject f = f(map);
+            if (f != null) {
+                hashMap.put("clientInfo", f);
+            }
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            queryCurrencyReqParams.setExpandMap(hashMap);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b6c
+    public GetSplitOrderConfigReqParams e(int i, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
+            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
+            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getSplitOrderConfigReqParams.setUid(this.a.getUid());
+            getSplitOrderConfigReqParams.setToken(this.a.getToken());
+            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
+            getSplitOrderConfigReqParams.setOrderId(str);
+            getSplitOrderConfigReqParams.setType(i);
+            getSplitOrderConfigReqParams.setAmount(j);
+            return getSplitOrderConfigReqParams;
+        }
+        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
+    }
+
+    public final JSONObject f(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new v3c(threadFactory);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
+            JSONObject jSONObject = null;
+            if (map == null) {
+                return null;
             }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (x1c) invokeL.objValue;
-    }
-
-    public static x1c d(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new u3c(threadFactory);
+            try {
+                if (map.size() <= 0) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        if (entry.getKey() != null && entry.getValue() != null) {
+                            jSONObject2.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    return jSONObject2;
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject = jSONObject2;
+                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
+                    return jSONObject;
+                }
+            } catch (JSONException e2) {
+                e = e2;
             }
-            throw new NullPointerException("threadFactory == null");
+        } else {
+            return (JSONObject) invokeL.objValue;
         }
-        return (x1c) invokeL.objValue;
-    }
-
-    public static x1c f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new z3c(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (x1c) invokeL.objValue;
     }
 }

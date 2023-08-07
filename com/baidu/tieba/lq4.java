@@ -1,101 +1,57 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import androidx.core.view.LayoutInflaterCompat;
-import com.baidu.tieba.kq4;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class lq4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-    public static boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lq4 {
+    String a();
 
-    /* loaded from: classes6.dex */
-    public static class a extends kq4.a implements LayoutInflater.Factory2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    String b();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nq4 nq4Var) {
-            super(nq4Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((nq4) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    boolean c(String str);
 
-        @Override // android.view.LayoutInflater.Factory2
-        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-                return this.a.onCreateView(view2, str, context, attributeSet);
-            }
-            return (View) invokeLLLL.objValue;
-        }
-    }
+    ExecutorService d();
 
-    public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
-            if (!b) {
-                try {
-                    Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
-                    a = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e) {
-                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
-                }
-                b = true;
-            }
-            Field field = a;
-            if (field != null) {
-                try {
-                    field.set(layoutInflater, factory2);
-                } catch (IllegalAccessException e2) {
-                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
-                }
-            }
-        }
-    }
+    void e(String str, int i, JSONArray jSONArray);
 
-    public static void b(LayoutInflater layoutInflater, nq4 nq4Var) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, nq4Var) == null) {
-            if (nq4Var != null) {
-                aVar = new a(nq4Var);
-            } else {
-                aVar = null;
-            }
-            layoutInflater.setFactory2(aVar);
-            LayoutInflater.Factory factory = layoutInflater.getFactory();
-            if (factory instanceof LayoutInflater.Factory2) {
-                a(layoutInflater, (LayoutInflater.Factory2) factory);
-            } else {
-                a(layoutInflater, aVar);
-            }
-        }
-    }
+    void f(String str, int i);
+
+    void g(String str, String str2, int i, String str3, int i2);
+
+    String getAppId();
+
+    String getAppVersion();
+
+    String getDeviceId(Context context);
+
+    String getScene();
+
+    String h();
+
+    void i(String str, int i, String str2);
+
+    boolean j();
+
+    int k();
+
+    mq4 l();
+
+    String m();
+
+    void n(String str, String str2, int i, String str3, long j, int i2);
+
+    String o(Context context);
+
+    boolean p();
+
+    boolean q();
+
+    boolean r();
+
+    String s();
+
+    String t();
+
+    String u(Context context);
 }

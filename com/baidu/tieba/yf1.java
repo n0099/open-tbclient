@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yf1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yf1 {
+    void a(Activity activity, String str, String str2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948328133, "Lcom/baidu/tieba/yf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948328133, "Lcom/baidu/tieba/yf1;");
-                return;
-            }
-        }
-        a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
-    }
+    void aLiAuth(Activity activity, String str, fg1<JSONObject> fg1Var);
+
+    boolean b(Context context);
+
+    void c(Activity activity, String str, tf1 tf1Var);
+
+    void d(Context context, JSONObject jSONObject, tf1 tf1Var);
+
+    void e(Activity activity, String str, tf1 tf1Var);
+
+    void f(Context context, JSONObject jSONObject);
+
+    void g(Bundle bundle);
+
+    void h(String str);
+
+    void i(Activity activity, JSONObject jSONObject, tf1 tf1Var);
+
+    String j(Context context);
 }

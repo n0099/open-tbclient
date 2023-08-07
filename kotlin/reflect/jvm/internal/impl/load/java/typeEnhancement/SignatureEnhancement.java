@@ -446,12 +446,12 @@ public final class SignatureEnhancement {
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final boolean invoke2(UnwrappedType unwrappedType) {
-                    ClassifierDescriptor mo2101getDeclarationDescriptor = unwrappedType.getConstructor().mo2101getDeclarationDescriptor();
-                    if (mo2101getDeclarationDescriptor == null) {
+                    ClassifierDescriptor mo2102getDeclarationDescriptor = unwrappedType.getConstructor().mo2102getDeclarationDescriptor();
+                    if (mo2102getDeclarationDescriptor == null) {
                         return false;
                     }
-                    Intrinsics.checkExpressionValueIsNotNull(mo2101getDeclarationDescriptor, "it.constructor.declarati… ?: return@contains false");
-                    if (!Intrinsics.areEqual(mo2101getDeclarationDescriptor.getName(), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME().shortName()) || !Intrinsics.areEqual(DescriptorUtilsKt.fqNameOrNull(mo2101getDeclarationDescriptor), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME())) {
+                    Intrinsics.checkExpressionValueIsNotNull(mo2102getDeclarationDescriptor, "it.constructor.declarati… ?: return@contains false");
+                    if (!Intrinsics.areEqual(mo2102getDeclarationDescriptor.getName(), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME().shortName()) || !Intrinsics.areEqual(DescriptorUtilsKt.fqNameOrNull(mo2102getDeclarationDescriptor), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME())) {
                         return false;
                     }
                     return true;
@@ -537,7 +537,7 @@ public final class SignatureEnhancement {
                     boolean z4 = true;
                     if (!(list instanceof Collection) || !list.isEmpty()) {
                         for (FqName fqName : list) {
-                            if (Annotations.this.mo2096findAnnotation(fqName) != null) {
+                            if (Annotations.this.mo2097findAnnotation(fqName) != null) {
                                 z3 = true;
                                 continue;
                             } else {

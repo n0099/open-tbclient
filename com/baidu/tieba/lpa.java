@@ -1,151 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.video.LiveConfig;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class lpa {
+public abstract class lpa extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static final String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            String t = da5.t(str);
-            return t + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
+    public abstract void a(TextPaint textPaint, boolean z);
 
-    public static final boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
+    public lpa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            String spCancelValue = da5.p().w(da5.t(str), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (!z) {
-                long g = wg.g(e.get(0), 0L);
-                int e2 = wg.e(e.get(1), 0);
-                if (TimeHelper.isSameDay(g, System.currentTimeMillis()) && e2 > i) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static final boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (str2 != null && str2.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return true;
-            }
-            return !TimeHelper.isSameDay(da5.p().r(a(str, str2), 0L), System.currentTimeMillis());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final void g(String spKey, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, spKey, str) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return;
-            }
-            da5.p().H(a(spKey, str), System.currentTimeMillis());
         }
     }
 
-    public static final boolean d(LiveConfig config) {
-        InterceptResult invokeL;
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, config)) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (TbadkCoreApplication.isLogin() && c("sp_live_cancel_id_", config.getCurrentId()) && c("sp_live_into_id_", config.getCurrentId()) && b("sp_live_click_cancel_key", config.getCloseMax()) && b("sp_live_day_show_auto_in_key", config.getShowMax()) && TbSingleton.getInstance().autoInLiveRoomTimes < config.getSingleMax()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final List<String> e(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str.length() > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v3 long), (',' char), (r4v2 int)] */
-    public static final void f(String spKey) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, spKey) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            long currentTimeMillis = System.currentTimeMillis();
-            String spCancelValue = da5.p().w(da5.t(spKey), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            int i = 1;
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long g = wg.g(e.get(0), 0L);
-                int e2 = wg.e(e.get(1), 0);
-                if (TimeHelper.isSameDay(g, System.currentTimeMillis())) {
-                    i = 1 + e2;
-                }
-            }
-            da5 p = da5.p();
-            StringBuilder sb = new StringBuilder();
-            sb.append(currentTimeMillis);
-            sb.append(',');
-            sb.append(i);
-            p.J(spKey, sb.toString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+            super.updateDrawState(textPaint);
+            a(textPaint, this.a);
+            textPaint.setUnderlineText(false);
+            textPaint.clearShadowLayer();
         }
     }
 }

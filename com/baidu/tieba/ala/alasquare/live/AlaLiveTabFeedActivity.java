@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sc0;
-import com.baidu.tieba.ud6;
+import com.baidu.tieba.ab6;
+import com.baidu.tieba.qb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,7 +75,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
                 if (!this.a.isResumed || !memberBroadcastHelper.isMeetFrequency()) {
                     return;
                 }
-                this.a.v1(memberBroadcastData);
+                this.a.u1(memberBroadcastData);
             }
         }
     }
@@ -191,15 +191,15 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             if (getIntent() != null && !StringUtils.isNull(getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE))) {
                 this.c = getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE);
             }
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f5c);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f73);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.ala_live));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ud6.a().c(TbadkCoreApplication.getInst());
-            sc0 sc0Var = new sc0();
-            this.b = sc0Var;
-            View onCreateView = sc0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
+            ab6.a().c(TbadkCoreApplication.getInst());
+            qb0 qb0Var = new qb0();
+            this.b = qb0Var;
+            View onCreateView = qb0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }
@@ -211,11 +211,11 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             registerListener(this.f);
             PollingModel pollingModel = new PollingModel(getPageContext(), getUniqueId());
             this.e = pollingModel;
-            pollingModel.D0(PollingModel.MEMBER_BROADCAST);
+            pollingModel.getData(PollingModel.MEMBER_BROADCAST);
         }
     }
 
-    public final void v1(MemberBroadcastData memberBroadcastData) {
+    public final void u1(MemberBroadcastData memberBroadcastData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, memberBroadcastData) != null) || memberBroadcastData == null) {
             return;

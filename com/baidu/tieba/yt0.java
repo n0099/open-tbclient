@@ -1,86 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.du0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.List;
-import okhttp3.Dns;
 /* loaded from: classes8.dex */
-public interface yt0 extends Dns {
-    public static final ServiceReference d = new ServiceReference("nad.core", "httpdns");
+public class yt0 implements du0.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ox0 a;
 
     /* loaded from: classes8.dex */
-    public static class a implements yt0 {
+    public class a implements ox0 {
         public static /* synthetic */ Interceptable $ic;
-        public static final yt0 a;
-        public static yt0 b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-249524777, "Lcom/baidu/tieba/yt0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-249524777, "Lcom/baidu/tieba/yt0$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
+        public a(yt0 yt0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yt0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static yt0 a() {
+        @Override // com.baidu.tieba.ox0
+        @NonNull
+        public px0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (b == null) {
-                    synchronized (a.class) {
-                        if (b == null) {
-                            b = (yt0) ServiceManager.getService(yt0.d);
-                        }
-                        if (b == null) {
-                            b = a;
-                        }
-                    }
-                }
-                return b;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new xw0();
             }
-            return (yt0) invokeV.objValue;
+            return (px0) invokeV.objValue;
         }
+    }
 
-        @Override // okhttp3.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return Dns.SYSTEM.lookup(str);
+    public yt0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (List) invokeL.objValue;
         }
+        this.a = new a(this);
+    }
+
+    @Override // com.baidu.tieba.du0.a
+    public du0 a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            return new fu0(new zz0(this.a, context));
+        }
+        return (du0) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.du0.a
+    public du0 b(Context context, int i, @Nullable eu0 eu0Var) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, eu0Var)) == null) {
+            if (eu0Var == null) {
+                eu0Var = eu0.b;
+            }
+            int i2 = eu0Var.a;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        return new fu0(new tt0(this.a, context));
+                    }
+                    return new fu0(new st0(this.a, context));
+                }
+                return new fu0(new rt0(this.a, context));
+            }
+            return new fu0(new tt0(this.a, context));
+        }
+        return (du0) invokeLIL.objValue;
     }
 }

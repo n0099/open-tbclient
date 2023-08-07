@@ -76,7 +76,7 @@ public class ShareCommonCardSysMsg extends BaseSysMsg {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,7 +96,10 @@ public class ShareCommonCardSysMsg extends BaseSysMsg {
                 int type = this.shareCommon.getType();
                 if (type != 1) {
                     if (type != 2) {
-                        return TbadkApplication.getInst().getString(R.string.last_msg_nonsupport_share);
+                        if (type != 3) {
+                            return TbadkApplication.getInst().getString(R.string.last_msg_nonsupport_share);
+                        }
+                        return TbadkApplication.getInst().getString(R.string.last_msg_active_share);
                     }
                     return TbadkApplication.getInst().getString(R.string.last_msg_compilation_share);
                 }

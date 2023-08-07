@@ -1,199 +1,250 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.funad.view.FunAdButton;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ky;
+import com.baidu.tieba.vy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.kwad.sdk.api.KsAppDownloadListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
 /* loaded from: classes6.dex */
-public class gy7 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusChangeListener, KsAppDownloadListener {
+public class gy7 extends lm<rn6, ThreadCardViewHolder<rn6>> implements a46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunAdButton a;
-    public final wca b;
-    public ChannelNativeAds c;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public String c;
+    public en d;
+    public bn6<rn6> e;
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+    /* loaded from: classes6.dex */
+    public class a extends bn6<rn6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gy7 b;
+
+        public a(gy7 gy7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gy7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gy7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bn6
+        /* renamed from: d */
+        public void a(View view2, rn6 rn6Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rn6Var) == null) && view2 != null && rn6Var != null && rn6Var.getThreadData() != null && !StringUtils.isNull(rn6Var.getThreadData().getTid())) {
+                this.b.y(view2, rn6Var);
+            }
         }
     }
 
-    public gy7(FunAdButton funAdButton, wca wcaVar, ChannelNativeAds channelNativeAds) {
+    /* loaded from: classes6.dex */
+    public class b implements in {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gy7 a;
+
+        public b(gy7 gy7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gy7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gy7Var;
+        }
+
+        @Override // com.baidu.tieba.in
+        public void b(View view2, ym ymVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ymVar instanceof rn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                rn6 rn6Var = (rn6) ymVar;
+                rn6Var.f = 1;
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), rn6Var);
+                }
+                ThreadCardUtils.jumpToPB((q05) rn6Var, view2.getContext(), 1, false, ax.a((en) viewGroup, view2, i));
+                threadCardViewHolder.b().p(new vy.a(1));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(gy7 gy7Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gy7Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.m
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(ax.a((en) this.a, this.b, this.c));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gy7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdButton, wcaVar, channelNativeAds};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = funAdButton;
-        this.b = wcaVar;
-        this.c = channelNativeAds;
+        this.e = new a(this);
+        this.b = tbPageContext;
     }
 
-    public void a(int i) {
+    @Override // com.baidu.tieba.a46
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            FunAdButton funAdButton = this.a;
-            if (funAdButton != null && funAdButton.getTag() == this.b) {
-                this.a.setText(i);
-            }
-            wca wcaVar = this.b;
-            if (wcaVar != null) {
-                wcaVar.l(TbadkApplication.getInst().getString(i));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void b(int i) {
-        FunAdButton funAdButton;
+    public void z(en enVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (funAdButton = this.a) != null && funAdButton.getTag() == this.b) {
-            this.a.setProgress(i);
+        if (interceptable == null || interceptable.invokeL(1048582, this, enVar) == null) {
+            this.d = enVar;
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            b(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            ky.b bVar = new ky.b(this.b.getPageActivity(), false);
+            my myVar = new my(this.b.getPageActivity());
+            w05 w05Var = new w05();
+            w05Var.b = 9;
+            w05Var.h = 9;
+            myVar.C(w05Var);
+            myVar.E(4);
+            myVar.K("personalize_page");
+            myVar.J(4);
+            myVar.F(1);
+            myVar.f(32);
+            myVar.D(false);
+            bVar.m(myVar);
+            ky k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.d);
+            k.s(1);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.j(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.ChannelNativeAds.GdtADStatusChangeListener
-    public void onADStatusChanged() {
-        NativeUnifiedADData nativeUnifiedADData;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rn6 rn6Var, ThreadCardViewHolder threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ChannelNativeAds channelNativeAds = this.c;
-            if (channelNativeAds != null) {
-                nativeUnifiedADData = (NativeUnifiedADData) channelNativeAds.gdtNative;
-            } else {
-                nativeUnifiedADData = null;
-            }
-            if (nativeUnifiedADData == null) {
-                return;
-            }
-            if (!nativeUnifiedADData.isAppAd()) {
-                a(R.string.obfuscated_res_0x7f0f00e0);
-                return;
-            }
-            int appStatus = nativeUnifiedADData.getAppStatus();
-            if (appStatus != 0) {
-                if (appStatus != 1) {
-                    if (appStatus != 2) {
-                        if (appStatus != 4) {
-                            if (appStatus != 8) {
-                                if (appStatus != 16) {
-                                    a(R.string.obfuscated_res_0x7f0f00e0);
-                                    return;
-                                } else {
-                                    a(R.string.obfuscated_res_0x7f0f00dd);
-                                    return;
-                                }
-                            }
-                            a(R.string.obfuscated_res_0x7f0f00db);
-                            return;
-                        }
-                        b(nativeUnifiedADData.getProgress());
-                        return;
-                    }
-                    a(R.string.obfuscated_res_0x7f0f00df);
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rn6Var, threadCardViewHolder})) == null) {
+            if (rn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && rn6Var.a != null) {
+                rn6Var.A(rn6Var.position + 1);
+                threadCardViewHolder.b().r(i);
+                if (threadCardViewHolder.b().f() instanceof my) {
+                    ((my) threadCardViewHolder.b().f()).I(new c(this, viewGroup, view2, i));
                 }
-                a(R.string.obfuscated_res_0x7f0f00de);
-                return;
+                if (threadCardViewHolder.b() instanceof z36) {
+                    threadCardViewHolder.b().b(this.c);
+                }
+                threadCardViewHolder.u(false, Align.ALIGN_RIGHT_BOTTOM);
+                threadCardViewHolder.f(rn6Var);
+                threadCardViewHolder.b().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.b().q(this.e);
+                return threadCardViewHolder.getView();
             }
-            a(R.string.obfuscated_res_0x7f0f00da);
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
+    public final void y(View view2, rn6 rn6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) && j > 0) {
-            b((int) ((j2 * 100) / j));
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) && j > 0) {
-            b((int) ((j2 * 100) / j));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFailed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00da);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00db);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onIdle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00da);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onInstalled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00dc);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            a(R.string.obfuscated_res_0x7f0f00da);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            a(R.string.obfuscated_res_0x7f0f00db);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onInstalled(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            a(R.string.obfuscated_res_0x7f0f00dc);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, rn6Var) == null) {
+            if (view2.getId() == R.id.thread_card_root || view2.getId() == R.id.thread_info_commont_container) {
+                kx7.b(view2, rn6Var, 2);
+            }
         }
     }
 }

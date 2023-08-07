@@ -1,425 +1,145 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.dimen.TbDimenUtil;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.write.write.NewWriteActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.write.view.LocalChannelTopicSelectView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class kva {
+public class kva extends uva<lwa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewWriteActivity a;
-    public View b;
-    public View c;
+    @Nullable
+    public LocalChannelTopicSelectView g;
+    @Nullable
+    public String h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947927923, "Lcom/baidu/tieba/kva;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947927923, "Lcom/baidu/tieba/kva;");
+    @Override // com.baidu.tieba.zva
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
         }
     }
 
-    public kva(NewWriteActivity mActivity) {
+    @Override // com.baidu.tieba.zva
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kva(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, lwa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mActivity, "mActivity");
-        this.a = mActivity;
     }
 
-    public static final void g(kva this$0, View view2) {
+    @Override // com.baidu.tieba.zva
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view3 = this$0.c;
-            Intrinsics.checkNotNull(view3);
-            view3.setVisibility(8);
-            m65.u("writeSpringFestivalBless");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d052a, viewGroup, false);
+            this.c = inflate;
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f092a4e);
+            this.g = localChannelTopicSelectView;
+            if (localChannelTopicSelectView != null) {
+                localChannelTopicSelectView.setLocalChannelTopic(this.h);
+            }
+            return this.c;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zva
+    public void b(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+            writeData.setLocalChannelDynamic(true);
+            writeData.setLocalChannelTopic(this.h);
         }
     }
 
-    public static final void j(kva this$0, View view2) {
+    @Override // com.baidu.tieba.zva
+    public void onChangeSkinType(int i) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view3 = this$0.b;
-            Intrinsics.checkNotNull(view3);
-            view3.setVisibility(8);
-            m65.u("writeVirtualGuide");
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (localChannelTopicSelectView = this.g) != null) {
+            localChannelTopicSelectView.b();
         }
     }
 
-    public static final void k(kva this$0, View view2) {
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public void h(@Nullable String str, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.a.u1("5");
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, writeData) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        try {
+            writeData.setLocalChannelTopic(new JSONObject(str).optString("t"));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public static final void h(kva this$0) {
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view2 = this$0.c;
-            if (view2 != null) {
-                view2.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
             }
-            m65.u("writeSpringFestivalBless");
+            if (StringUtils.isNull(this.h)) {
+                this.h = writeData.getLocalChannelTopic();
+            }
         }
     }
 
-    public static final void l(kva this$0) {
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public void onActivityResult(int i, int i2, Intent intent) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view2 = this$0.b;
-            if (view2 != null) {
-                view2.setVisibility(8);
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 25068 && intent != null && (localChannelTopicSelectView = this.g) != null && localChannelTopicSelectView.getVisibility() == 0) {
+                String stringExtra = intent.getStringExtra(LocalChannelTopicListActivityConfig.KEY_RESPONSE_TOPIC);
+                this.h = stringExtra;
+                this.g.setLocalChannelTopic(stringExtra);
             }
-            m65.u("writeVirtualGuide");
         }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c() && !b()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                Intrinsics.checkNotNull(view2);
-                if (view2.getVisibility() == 0) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View view2 = this.b;
-            if (view2 != null) {
-                Intrinsics.checkNotNull(view2);
-                if (view2.getVisibility() == 0) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.a.getIntent() != null && cl5.a() && f()) {
-                return;
-            }
-            i();
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View view2 = this.b;
-            if (view2 != null) {
-                Intrinsics.checkNotNull(view2);
-                if (view2.getVisibility() == 0) {
-                    View view3 = this.b;
-                    Intrinsics.checkNotNull(view3);
-                    view3.setVisibility(8);
-                    m65.u("writeVirtualGuide");
-                    return true;
-                }
-            }
-            View view4 = this.c;
-            if (view4 != null) {
-                Intrinsics.checkNotNull(view4);
-                if (view4.getVisibility() == 0) {
-                    View view5 = this.c;
-                    Intrinsics.checkNotNull(view5);
-                    view5.setVisibility(8);
-                    m65.u("writeSpringFestivalBless");
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (da5.p().l("key_write_spring_festival_bless_guide_has_show", false)) {
-                return false;
-            }
-            da5.p().A("key_write_spring_festival_bless_guide_has_show", true);
-            ((ViewStub) this.a.findViewById(R.id.obfuscated_res_0x7f092248)).inflate();
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092247);
-            this.c = findViewById;
-            Intrinsics.checkNotNull(findViewById);
-            findViewById.setVisibility(0);
-            View view2 = this.c;
-            Intrinsics.checkNotNull(view2);
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hva
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        kva.g(kva.this, view3);
-                    }
-                }
-            });
-            m65.n("writeSpringFestivalBless");
-            d85 d = d85.d(this.c);
-            d.e(R.string.A_X05);
-            d.f(R.color.CAM_X0611);
-            View view3 = this.c;
-            Intrinsics.checkNotNull(view3);
-            d85 d2 = d85.d(view3.findViewById(R.id.obfuscated_res_0x7f092246));
-            d2.o(R.string.J_X06);
-            d2.f(R.color.CAM_X0201);
-            View view4 = this.c;
-            Intrinsics.checkNotNull(view4);
-            d85 d3 = d85.d((TextView) view4.findViewById(R.id.obfuscated_res_0x7f092249));
-            d3.x(R.color.CAM_X0105);
-            d3.D(R.string.F_X02);
-            View view5 = this.c;
-            Intrinsics.checkNotNull(view5);
-            d85.d((TextView) view5.findViewById(R.id.obfuscated_res_0x7f092243)).x(R.color.CAM_X0107);
-            View view6 = this.c;
-            Intrinsics.checkNotNull(view6);
-            d85 d4 = d85.d(view6.findViewById(R.id.obfuscated_res_0x7f09224b));
-            d4.o(R.string.J_X07);
-            d4.e(R.string.A_X10);
-            d4.f(R.color.CAM_X0319);
-            View view7 = this.c;
-            Intrinsics.checkNotNull(view7);
-            d85 d5 = d85.d((TextView) view7.findViewById(R.id.obfuscated_res_0x7f09224c));
-            d5.x(R.color.CAM_X0301);
-            d5.D(R.string.F_X02);
-            View view8 = this.c;
-            Intrinsics.checkNotNull(view8);
-            View findViewById2 = view8.findViewById(R.id.obfuscated_res_0x7f092244);
-            if (this.a.k instanceof pya) {
-                ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
-                if (layoutParams != null) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                    layoutParams2.setMarginStart(TbDimenUtil.dp2px(this.a.getApplicationContext(), 12.0f));
-                    layoutParams2.setMargins(0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 20.0f), 0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 8.0f));
-                    findViewById2.setLayoutParams(layoutParams2);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-                }
-            }
-            d85 d6 = d85.d(findViewById2);
-            d6.o(R.string.J_X07);
-            d6.f(R.color.CAM_X0205);
-            View view9 = this.c;
-            Intrinsics.checkNotNull(view9);
-            d85.d((TextView) view9.findViewById(R.id.obfuscated_res_0x7f092245)).x(R.color.CAM_X0105);
-            View view10 = this.c;
-            Intrinsics.checkNotNull(view10);
-            WebPManager.setPureDrawable((ImageView) view10.findViewById(R.id.obfuscated_res_0x7f09224d), R.drawable.icon_pure_post_chosen12, R.color.CAM_X0301, null);
-            View view11 = this.c;
-            Intrinsics.checkNotNull(view11);
-            view11.postDelayed(new Runnable() { // from class: com.baidu.tieba.fva
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        kva.h(kva.this);
-                    }
-                }
-            }, 4000L);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            boolean l = da5.p().l("key_virtual_image_setting_guide_has_show", false);
-            if (b() || l) {
-                return false;
-            }
-            da5.p().A("key_virtual_image_setting_guide_has_show", true);
-            ((ViewStub) this.a.findViewById(R.id.obfuscated_res_0x7f092973)).inflate();
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092972);
-            this.b = findViewById;
-            Intrinsics.checkNotNull(findViewById);
-            findViewById.setVisibility(0);
-            View view2 = this.b;
-            Intrinsics.checkNotNull(view2);
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gva
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        kva.j(kva.this, view3);
-                    }
-                }
-            });
-            m65.n("writeVirtualGuide");
-            d85 d = d85.d(this.b);
-            d.e(R.string.A_X05);
-            d.f(R.color.CAM_X0611);
-            View view3 = this.b;
-            Intrinsics.checkNotNull(view3);
-            d85 d2 = d85.d(view3.findViewById(R.id.obfuscated_res_0x7f09296f));
-            d2.o(R.string.J_X06);
-            d2.f(R.color.CAM_X0201);
-            View view4 = this.b;
-            Intrinsics.checkNotNull(view4);
-            View findViewById2 = view4.findViewById(R.id.obfuscated_res_0x7f09296e);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "mVirtualImageGuideView!!…_image_setting_guide_img)");
-            ImageView imageView = (ImageView) findViewById2;
-            Glide.with(imageView).load(uu6.b("virtual_image_setting_guide.gif", "virtual_image_setting_guide")).into(imageView);
-            View view5 = this.b;
-            Intrinsics.checkNotNull(view5);
-            View findViewById3 = view5.findViewById(R.id.obfuscated_res_0x7f09296c);
-            if (this.a.k instanceof pya) {
-                ViewGroup.LayoutParams layoutParams = findViewById3.getLayoutParams();
-                if (layoutParams != null) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                    layoutParams2.setMarginStart(TbDimenUtil.dp2px(this.a.getApplicationContext(), 100.0f));
-                    layoutParams2.setMargins(0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 20.0f), 0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 8.0f));
-                    findViewById3.setLayoutParams(layoutParams2);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-                }
-            }
-            if (ml5.isOn()) {
-                ViewGroup.LayoutParams layoutParams3 = findViewById3.getLayoutParams();
-                if (layoutParams3 != null) {
-                    RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) layoutParams3;
-                    layoutParams4.setMarginStart(layoutParams4.getMarginStart() + yi.g(this.a, R.dimen.tbds178));
-                    findViewById3.setLayoutParams(layoutParams4);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-                }
-            }
-            d85 d3 = d85.d(findViewById3);
-            d3.o(R.string.J_X07);
-            d3.f(R.color.CAM_X0205);
-            ProfileVirtualImageInfo profileVirtualImageInfo = ProfileVirtualImageInfo.getInstance();
-            View view6 = this.b;
-            Intrinsics.checkNotNull(view6);
-            d85.d((TextView) view6.findViewById(R.id.obfuscated_res_0x7f092970)).x(R.color.CAM_X0105);
-            View view7 = this.b;
-            Intrinsics.checkNotNull(view7);
-            d85.d((TextView) view7.findViewById(R.id.obfuscated_res_0x7f09296d)).x(R.color.CAM_X0105);
-            View view8 = this.b;
-            Intrinsics.checkNotNull(view8);
-            TextView textView = (TextView) view8.findViewById(R.id.obfuscated_res_0x7f09296a);
-            if (profileVirtualImageInfo != null && profileVirtualImageInfo.getIsSetVirtualImage() == 1) {
-                textView.setVisibility(8);
-            } else {
-                d85 d4 = d85.d(textView);
-                d4.D(R.string.F_X01);
-                d4.C(R.dimen.T_X07);
-                d4.x(R.color.CAM_X0304);
-                d4.o(R.string.J_X07);
-                d4.m(R.dimen.L_X02);
-                d4.l(R.color.CAM_X0304);
-                d4.k(R.string.A_X07);
-                textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dva
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view9) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view9) == null) {
-                            kva.k(kva.this, view9);
-                        }
-                    }
-                });
-            }
-            View view9 = this.b;
-            Intrinsics.checkNotNull(view9);
-            view9.postDelayed(new Runnable() { // from class: com.baidu.tieba.eva
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        kva.l(kva.this);
-                    }
-                }
-            }, 4000L);
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

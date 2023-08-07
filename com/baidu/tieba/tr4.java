@@ -1,49 +1,48 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
+import java.security.MessageDigest;
 /* loaded from: classes8.dex */
-public final class tr4 extends fs4 {
+public class tr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tr4 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tr4() {
-        super("aiapp_open_stat");
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
     }
 
-    public static tr4 e() {
-        InterceptResult invokeV;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (tr4.class) {
-                    if (d == null) {
-                        d = new tr4();
-                    }
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
             }
-            return d;
+            return a(bArr, "", z);
         }
-        return (tr4) invokeV.objValue;
+        return (String) invokeLZ.objValue;
     }
 }

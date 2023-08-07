@@ -296,9 +296,9 @@ public class ImageOverlayView extends ViewGroup {
                 HeadImageView headImageView = (HeadImageView) getChildAt(i);
                 if (headImageView != null && (str = (String) ListUtils.getItem(list, (list.size() - i) - 1)) != null) {
                     if (this.i == 12) {
-                        headImageView.J(str, 12, this.c, this.d, false);
+                        headImageView.startLoad(str, 12, this.c, this.d, false);
                     } else {
-                        headImageView.J(str, 10, this.c, this.d, false);
+                        headImageView.startLoad(str, 10, this.c, this.d, false);
                     }
                 }
             }

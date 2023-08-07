@@ -1,42 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 /* loaded from: classes8.dex */
-public class w8c implements ubc {
+public class w8c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsViewEventHandler a;
-    public b8c b;
-    public Activity c;
-    public IYYPayResultView d;
+    public ProductInfo a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
+    public boolean g;
 
-    @Override // com.baidu.tieba.ubc
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public w8c(AbsViewEventHandler absViewEventHandler, b8c b8cVar, Activity activity, IYYPayResultView iYYPayResultView) {
+    public w8c(ProductInfo productInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absViewEventHandler, b8cVar, activity, iYYPayResultView};
+            Object[] objArr = {productInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,22 +34,145 @@ public class w8c implements ubc {
                 return;
             }
         }
-        RLog.info("PayResultDialogListener", "create PayResultDialogListener");
-        this.a = absViewEventHandler;
-        this.b = b8cVar;
-        this.c = activity;
-        this.d = iYYPayResultView;
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.g = true;
+        this.a = productInfo;
     }
 
-    @Override // com.baidu.tieba.ubc
-    public void a(CancelType cancelType) {
+    public w8c(ProductInfo productInfo, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {productInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            this.b.g(cancelType, this.a);
         }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.g = true;
+        this.a = productInfo;
+        this.b = i;
+    }
+
+    public w8c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.g = true;
+        this.c = z;
+    }
+
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.destAmount / 100.0d;
+            }
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public double c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.srcAmount;
+            }
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        double d;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PayAmount{ isVisible=");
+            sb.append(this.g);
+            sb.append(", currencyType=");
+            sb.append(this.b);
+            sb.append(", splitDetailId=");
+            sb.append(this.f);
+            sb.append(", srcAmount=");
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                d = productInfo.srcAmount;
+            } else {
+                d = 0.0d;
+            }
+            sb.append(d);
+            sb.append(", dstAmount=");
+            ProductInfo productInfo2 = this.a;
+            if (productInfo2 != null) {
+                j = productInfo2.destAmount;
+            } else {
+                j = 0;
+            }
+            sb.append(j);
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

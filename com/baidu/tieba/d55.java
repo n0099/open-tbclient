@@ -1,104 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.kr6;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
 /* loaded from: classes5.dex */
-public class d55 extends yca {
+public class d55 extends b55 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g1;
-    public String h1;
+    public final HotEventData c;
+    public vd5 d;
+    public SpriteAnimationTipManager e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655557, "Lcom/baidu/tieba/d55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements kr6.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+
+        public a(d55 d55Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947655557, "Lcom/baidu/tieba/d55;");
-                return;
+            this.a = d55Var;
+        }
+
+        @Override // com.baidu.tieba.kr6.e
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
         }
-        i1 = BdUniqueId.gen();
     }
 
-    public d55() {
+    /* loaded from: classes5.dex */
+    public class b implements kr6.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d55 a;
+
+        public b(d55 d55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d55Var;
+        }
+
+        @Override // com.baidu.tieba.kr6.e
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d55(Activity activity, HotEventData hotEventData) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, hotEventData};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = hotEventData;
+    }
+
+    @Override // com.baidu.tieba.b55
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            vd5 vd5Var = this.d;
+            if (vd5Var != null) {
+                vd5Var.m();
+            }
+            SpriteAnimationTipManager spriteAnimationTipManager = this.e;
+            if (spriteAnimationTipManager != null) {
+                spriteAnimationTipManager.p();
+            }
+            hf5.s(false);
+            rr6.b().b(new g9a(null, 1));
+        }
+    }
+
+    @Override // com.baidu.tieba.b55
+    public void d(@NonNull b55.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (YunDialogManager.isShowingDialog()) {
+                aVar.callback(false);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + YunDialogManager.getShowingDialog());
+            } else if (2 == cha.a().b().a().c && 1 == cha.a().b().b().c && 6 == cha.a().b().c().c) {
+                DefaultLog.getInstance().e("HotEventTip", "直播tab不展示S级事件");
+                aVar.callback(false);
+            } else {
+                aVar.callback(true);
             }
         }
     }
 
-    public String A1() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b55
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h1;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (wn5.a().a()) {
+                DefaultLog.getInstance().e("HotEventTip", "展示精灵动画提示控件形式的S级事件弹窗");
+                this.e = hf5.t(this.c, new a(this));
+                return;
+            }
+            DefaultLog.getInstance().e("HotEventTip", "展示页面顶部提示控件形式的S级事件弹窗");
+            this.d = hf5.p(this.c, new b(this));
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yca, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return i1;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public String z1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g1;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void B1(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.g1 = jSONObject.optString("news_link");
-            this.h1 = jSONObject.optString("summary");
-            jSONObject.optInt(CriusAttrConstants.POSITION, 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void C1(TopNews topNews) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topNews) != null) || topNews == null) {
-            return;
-        }
-        this.g1 = topNews.news_link;
-        this.h1 = topNews.summary;
     }
 }

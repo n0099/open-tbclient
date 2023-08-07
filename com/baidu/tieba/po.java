@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.view.MotionEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface po {
-    boolean a(MotionEvent motionEvent);
+public class po {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, int i2);
-
-    void c(int i);
-
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
-
-    void draw(Canvas canvas);
-
-    boolean e(MotionEvent motionEvent);
+    public static float a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return i != 3 ? 0.0f : 5.5f;
+                }
+                return -7.7f;
+            }
+            return 6.6f;
+        }
+        return invokeI.floatValue;
+    }
 }

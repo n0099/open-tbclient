@@ -1061,19 +1061,19 @@ public class DBVersionManager {
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-        /* JADX WARN: Code restructure failed: missing block: B:57:0x012b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:57:0x012c, code lost:
             if (r9 != null) goto L61;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:63:0x0138, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:63:0x0139, code lost:
             if (r9 == null) goto L58;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:64:0x013a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:64:0x013b, code lost:
             r9.endTransaction();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:65:0x013d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:65:0x013e, code lost:
             com.baidu.android.imsdk.pubaccount.PaManager.delPaLocalInfosByPaType(r8.this$0.mContext, 19);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:66:0x0148, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:66:0x0149, code lost:
             return;
          */
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -3187,10 +3187,10 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c9, code lost:
         if (r6 == null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x00cb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x00cc, code lost:
         return r0;
      */
     /*

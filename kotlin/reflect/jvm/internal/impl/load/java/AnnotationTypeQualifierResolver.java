@@ -197,9 +197,9 @@ public final class AnnotationTypeQualifierResolver {
 
     private final ReportLevel migrationAnnotationStatus(ClassDescriptor classDescriptor) {
         ConstantValue<?> constantValue;
-        AnnotationDescriptor mo2096findAnnotation = classDescriptor.getAnnotations().mo2096findAnnotation(AnnotationTypeQualifierResolverKt.getMIGRATION_ANNOTATION_FQNAME());
-        if (mo2096findAnnotation != null) {
-            constantValue = DescriptorUtilsKt.firstArgument(mo2096findAnnotation);
+        AnnotationDescriptor mo2097findAnnotation = classDescriptor.getAnnotations().mo2097findAnnotation(AnnotationTypeQualifierResolverKt.getMIGRATION_ANNOTATION_FQNAME());
+        if (mo2097findAnnotation != null) {
+            constantValue = DescriptorUtilsKt.firstArgument(mo2097findAnnotation);
         } else {
             constantValue = null;
         }
@@ -274,11 +274,11 @@ public final class AnnotationTypeQualifierResolver {
                 if (annotationClass2 == null) {
                     Intrinsics.throwNpe();
                 }
-                AnnotationDescriptor mo2096findAnnotation = annotationClass2.getAnnotations().mo2096findAnnotation(AnnotationTypeQualifierResolverKt.getTYPE_QUALIFIER_DEFAULT_FQNAME());
-                if (mo2096findAnnotation == null) {
+                AnnotationDescriptor mo2097findAnnotation = annotationClass2.getAnnotations().mo2097findAnnotation(AnnotationTypeQualifierResolverKt.getTYPE_QUALIFIER_DEFAULT_FQNAME());
+                if (mo2097findAnnotation == null) {
                     Intrinsics.throwNpe();
                 }
-                Map<Name, ConstantValue<?>> allValueArguments = mo2096findAnnotation.getAllValueArguments();
+                Map<Name, ConstantValue<?>> allValueArguments = mo2097findAnnotation.getAllValueArguments();
                 ArrayList<QualifierApplicabilityType> arrayList = new ArrayList();
                 for (Map.Entry<Name, ConstantValue<?>> entry : allValueArguments.entrySet()) {
                     ConstantValue<?> value = entry.getValue();

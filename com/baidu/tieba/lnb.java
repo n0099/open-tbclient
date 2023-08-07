@@ -1,65 +1,72 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.enb;
+import com.baidu.tieba.inb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IPushInvoke;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class lnb {
+public class lnb implements inb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
+    public volatile IPushInvoke b;
+    public final inb.a c;
+    public onb d;
 
-    public lnb() {
+    public lnb(inb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicInteger(1);
+        this.c = aVar;
     }
 
-    public static void b(String str, String str2, Throwable th) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
-            return;
-        }
-        int i = 0;
-        while (i < str2.length()) {
-            int i2 = i + 4000;
-            if (i2 < str2.length()) {
-                str2.substring(i, i2);
-            } else {
-                str2.substring(i);
-            }
-            i = i2;
-        }
-    }
-
-    public static void a(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
-            int i = 2;
-            while (true) {
-                if (i < stackTrace.length) {
-                    if (!stackTrace[i].getClass().equals(lnb.class)) {
-                        String className = stackTrace[i].getClassName();
-                        str2 = className.substring(className.lastIndexOf(46) + 1);
-                        break;
-                    }
-                    i++;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            Log.i("PushConnectionClient", "notifyFailed result: " + i);
+            inb.a aVar = this.c;
+            if (aVar != null) {
+                enb.a aVar2 = (enb.a) aVar;
+                aVar2.getClass();
+                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
+                    aVar2.b(HonorPushErrorEnum.fromCode(i));
                 } else {
-                    str2 = "";
-                    break;
+                    aVar2.f.a.post(new dnb(aVar2, i));
                 }
             }
-            b("HonorPush_" + str2, str, null);
         }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() != 3 && this.a.get() != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

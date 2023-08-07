@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class fz5 {
+/* loaded from: classes6.dex */
+public class fz5 extends kz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<dq6> b;
+    public ConstrainImageLayout.c e;
 
-    /* loaded from: classes5.dex */
-    public class a implements Comparator<dq6> {
+    /* loaded from: classes6.dex */
+    public class a implements ConstrainImageLayout.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,81 +36,59 @@ public class fz5 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(dq6 dq6Var, dq6 dq6Var2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
+        public void a(TbImageView tbImageView, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dq6Var, dq6Var2)) == null) {
-                return dq6Var.sort() - dq6Var2.sort();
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
+                tbImageView.setRadiusById(R.string.J_X05);
+                tbImageView.clearCornerFlag();
+                tbImageView.setDrawCorner(true);
+                tbImageView.setConrers(0);
+                if (i2 == 1) {
+                    tbImageView.setConrers(15);
+                } else if (i2 > 1) {
+                    if (i == 0) {
+                        tbImageView.setConrers(5);
+                    } else if (i == i2 - 1) {
+                        tbImageView.setConrers(10);
+                    }
+                }
             }
-            return invokeLL.intValue;
         }
     }
 
-    public fz5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fz5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new LinkedList();
+        this.e = new a(this);
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kz5, com.baidu.tieba.hz5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<dq6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
-            return b(list, list2, null);
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public List<dq6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (int i = 0; i < list.size(); i++) {
-                    PbLinkData pbLinkData = list.get(i);
-                    if (pbLinkData.urlType == 2 && !this.a) {
-                        this.a = true;
-                    }
-                    this.b.add(pbLinkData);
-                }
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (list.size() < this.b) {
+                list.size();
             }
-            if (!ListUtils.isEmpty(list2)) {
-                this.a = true;
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    this.b.add(list2.get(i2));
-                }
-            }
-            if (!ListUtils.isEmpty(list3)) {
-                this.a = false;
-                for (int i3 = 0; i3 < list3.size(); i3++) {
-                    this.b.add(list3.get(i3));
-                }
-            }
-            Collections.sort(this.b, new a(this));
-            return this.b;
+            constrainImageLayout.setTbImageViewConfiguration(this.e);
+            return super.a(constrainImageLayout, list, i, i2);
         }
-        return (List) invokeLLL.objValue;
+        return invokeLLII.intValue;
     }
 }

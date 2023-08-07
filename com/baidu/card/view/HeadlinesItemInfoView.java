@@ -9,14 +9,14 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.r45;
+import com.baidu.tieba.o35;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,7 +102,7 @@ public class HeadlinesItemInfoView extends FrameLayout {
             TbImageView tbImageView = (TbImageView) findViewById(R.id.headlines_item_image);
             this.b = tbImageView;
             tbImageView.setRadiusById(R.string.J_X04);
-            this.b.r(15);
+            this.b.addCornerFlags(15);
             this.c = (TextView) findViewById(R.id.headlines_first_info);
             this.d = (HeadlinesItemCountDownView) findViewById(R.id.headlines_count_down_view);
             this.e = (TextView) findViewById(R.id.headlines_order_button);
@@ -110,32 +110,25 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(r45 r45Var) {
+    public void b(o35 o35Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r45Var) != null) || r45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o35Var) != null) || o35Var == null) {
             return;
         }
-        this.b.N(r45Var.f(), 10, false);
-        this.c.setText(r45Var.l());
-        this.e.setText(r45Var.b());
-        this.d.setData(wg.g(r45Var.d(), 0L), r45Var.c(), r45Var.k());
+        this.b.startLoad(o35Var.f(), 10, false);
+        this.c.setText(o35Var.l());
+        this.e.setText(o35Var.b());
+        this.d.setData(JavaTypesHelper.toLong(o35Var.d(), 0L), o35Var.c(), o35Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            d85 d = d85.d(this);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0201);
-            d85.d(this.c).x(R.color.CAM_X0107);
+            EMManager.from(this).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0107);
             this.d.i(i);
-            d85 d2 = d85.d(this.e);
-            d2.x(R.color.CAM_X0304);
-            d2.m(R.dimen.L_X01);
-            d2.l(R.color.CAM_X0304);
-            d2.o(R.string.J_X01);
-            d2.f(R.color.CAM_X0612);
+            EMManager.from(this.e).setTextColor(R.color.CAM_X0304).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0304).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0612);
         }
     }
 

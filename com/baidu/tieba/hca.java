@@ -1,90 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hca extends ThreadData {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+public abstract class hca {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public a55 a;
-    public d55 b;
-    public boolean c;
+    public HashMap<String, List<ica>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820291, "Lcom/baidu/tieba/hca;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947820291, "Lcom/baidu/tieba/hca;");
-                return;
-            }
+    public jca dispatch(WebView webView, lca lcaVar, jca jcaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, lcaVar, jcaVar)) == null) {
+            return null;
         }
-        d = BdUniqueId.gen();
+        return (jca) invokeLLL.objValue;
     }
+
+    @Nullable
+    public pk6 getJsBridge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (pk6) invokeV.objValue;
+    }
+
+    public abstract List<jca> processNotification(WebView webView, String str, HashMap hashMap);
 
     public hca() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = false;
     }
 
-    public a55 c() {
-        InterceptResult invokeV;
+    public final void onDestroy() {
+        pk6 jsBridge;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jsBridge = getJsBridge()) != null) {
+            jsBridge.onDestroy();
         }
-        return (a55) invokeV.objValue;
     }
 
-    public d55 d() {
-        InterceptResult invokeV;
+    public jca addObserver(WebView webView, String str, jca jcaVar, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, jcaVar, Boolean.valueOf(z)})) == null) {
+            if (jcaVar == null) {
+                jcaVar = new jca();
+            }
+            if (this.mNotificationNameList.contains(str)) {
+                jcaVar.n(false);
+                jcaVar.t(true);
+                List<ica> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                ica icaVar = new ica();
+                icaVar.e(jcaVar.c());
+                icaVar.d(z);
+                icaVar.f(jcaVar.e());
+                list.add(icaVar);
+                this.mAsyncCallBackMethodList.put(str, list);
+                if (webView instanceof mk6) {
+                    ((mk6) webView).a(str, icaVar.a());
+                }
+            }
+            return jcaVar;
         }
-        return (d55) invokeV.objValue;
+        return (jca) invokeCommon.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public jca addObserver(String str, jca jcaVar, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jcaVar, z)) == null) {
+            return addObserver(null, str, jcaVar, z);
         }
-        return invokeV.booleanValue;
+        return (jca) invokeLLZ.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public jca dispatch(lca lcaVar, jca jcaVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, lcaVar, jcaVar)) == null) {
+            return dispatch(null, lcaVar, jcaVar);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (jca) invokeLL.objValue;
+    }
+
+    public void removeObserverBridge(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
+            for (Pair<String, String> pair : list) {
+                List<ica> list2 = this.mAsyncCallBackMethodList.get(pair.first);
+                if (list2 != null && !list2.isEmpty()) {
+                    Iterator<ica> it = list2.iterator();
+                    while (it.hasNext()) {
+                        if (TextUtils.equals(it.next().a(), pair.second)) {
+                            it.remove();
+                        }
+                    }
+                }
+            }
+        }
     }
 }

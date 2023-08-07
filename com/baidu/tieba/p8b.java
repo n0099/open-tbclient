@@ -1,37 +1,47 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.graphics.SurfaceTexture;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
+import com.baidu.tieba.t8b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class p8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
+    public int a;
+    public int b;
     public int c;
     public int d;
+    public float e;
+    public float f;
+    public t8b g;
+    public t8b.f h;
+    public t8b.b i;
+    public t8b.e j;
+    public z8b k;
+    public String l;
+    public int m;
+    public SurfaceTexture n;
+    public int o;
+    public int p;
+    public a9b q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public int u;
+    public boolean v;
 
-    public p8b(String str) {
+    public p8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,301 +51,228 @@ public class p8b {
                 return;
             }
         }
-        this.a = 88200L;
-        this.b = str;
+        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
+        this.d = 1;
+        this.e = 1.0f;
+        this.f = 0.0f;
+        this.p = -100;
+        this.s = false;
+        this.t = 10000;
+        this.u = 30;
     }
 
-    public final void a(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-            int i2 = 0;
-            while (true) {
-                if (i2 < 13) {
-                    if (iArr[i2] == this.c) {
-                        break;
-                    }
-                    i2++;
-                } else {
-                    i2 = 4;
-                    break;
-                }
-            }
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + 0);
-            bArr[3] = (byte) (128 + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
-        }
-    }
-
-    @TargetApi(16)
-    public final MediaCodec b() throws IOException {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-            MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", "audio/mp4a-latm");
-            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.d);
-            mediaFormat.setInteger("sample-rate", this.c);
-            mediaFormat.setInteger("aac-profile", 2);
-            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            return createEncoderByType;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            t8b t8bVar = this.g;
+            if (t8bVar != null) {
+                t8bVar.c();
+                this.g.l(null);
+            }
+            return this.l;
         }
-        return (MediaCodec) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0223 A[Catch: Exception -> 0x021f, TRY_LEAVE, TryCatch #1 {Exception -> 0x021f, blocks: (B:97:0x021b, B:101:0x0223), top: B:109:0x021b }] */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x021b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x0189 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x01bf A[SYNTHETIC] */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(String str) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
-        long j;
-        long j2;
-        long j3;
-        long j4;
-        int dequeueInputBuffer;
-        boolean z;
-        int i;
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            MediaCodec mediaCodec = null;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.o = i;
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+            return;
+        }
+        if (this.o <= 0) {
+            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        }
+        this.a = i;
+        this.b = i2;
+        if (i2 > i) {
+            int i3 = this.o;
+            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
+            i = i3;
+        } else if (i2 < i) {
+            int i4 = this.o;
+            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
+            i2 = i4;
+        }
+        this.a = i;
+        this.b = i2;
+    }
+
+    public void e(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+            this.n = surfaceTexture;
+        }
+    }
+
+    public void f(t8b.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void g(t8b.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.j = eVar;
+        }
+    }
+
+    public void h(z8b z8bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, z8bVar) == null) {
+            this.k = z8bVar;
+        }
+    }
+
+    public void i(a9b a9bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a9bVar) == null) {
+            this.q = a9bVar;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.l = str;
             try {
-                try {
-                    if (this.c == 0) {
-                        this.c = OpusReader.SAMPLE_RATE;
+                t8b t8bVar = new t8b();
+                this.g = t8bVar;
+                t8bVar.d(this.e);
+                this.g.B(this.p);
+                if (this.f != 0.0f) {
+                    this.g.A(this.f);
+                }
+                this.g.l(this.h);
+                this.g.i(this.i);
+                this.g.k(this.j);
+                this.g.r(this.q);
+                this.g.E(this.r);
+                this.g.I(this.s);
+                this.g.s(this.v);
+            } catch (Throwable th) {
+                i9b.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v = z;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.m++;
+            try {
+                if (this.g != null && this.g.u(2)) {
+                    File file = new File(this.l);
+                    if (!file.getParentFile().exists()) {
+                        file.getParentFile().mkdirs();
                     }
-                    if (this.d == 0) {
-                        this.d = 1;
+                    if (this.f == 90.0f || this.f == 270.0f) {
+                        int i = this.a;
+                        this.a = this.b;
+                        this.b = i;
                     }
-                    this.a = (this.c * 16) / 8;
-                    fileInputStream = new FileInputStream(this.b);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    this.g.j(new t8b.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
+                }
+                if (this.g == null || this.m % this.d != 0 || this.k == null) {
                     return;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream = null;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream = null;
-                fileOutputStream = null;
-            }
-            try {
-                fileOutputStream = new FileOutputStream(str);
-                try {
-                    try {
-                        mediaCodec = b();
-                        mediaCodec.start();
-                        ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-                        ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
-                        MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                        byte[] bArr = new byte[4096];
-                        ByteBuffer[] byteBufferArr2 = outputBuffers;
-                        long j5 = 0;
-                        long j6 = 0;
-                        boolean z2 = false;
-                        int i2 = 0;
-                        boolean z3 = false;
-                        boolean z4 = false;
-                        int i3 = 0;
-                        while (!z3) {
-                            ByteBuffer[] byteBufferArr3 = byteBufferArr2;
-                            if (!z4 && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) >= 0) {
-                                ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                byteBuffer.clear();
-                                int remaining = byteBuffer.remaining();
-                                if (remaining != bArr.length) {
-                                    bArr = new byte[remaining];
-                                }
-                                byte[] bArr2 = bArr;
-                                if (!z2 && (i2 = fileInputStream.read(bArr2)) == -1) {
-                                    i = i2;
-                                    z = true;
-                                } else {
-                                    z = z2;
-                                    i = i2;
-                                }
-                                if (z) {
-                                    j = j5;
-                                    mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    byteBufferArr = inputBuffers;
-                                    bArr = bArr2;
-                                    z2 = z;
-                                    i2 = i;
-                                    j2 = 10000;
-                                    z4 = true;
-                                } else {
-                                    j = j5;
-                                    byteBuffer.put(bArr2, 0, i);
-                                    int i4 = i3 + i;
-                                    byteBufferArr = inputBuffers;
-                                    mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, j6, 0);
-                                    i3 = i4;
-                                    j6 = (long) (((i4 / 2.0d) * 1000000.0d) / this.a);
-                                    z2 = z;
-                                    i2 = i;
-                                    j2 = 10000;
-                                    bArr = bArr2;
-                                }
-                            } else {
-                                byteBufferArr = inputBuffers;
-                                j = j5;
-                                j2 = 10000;
-                            }
-                            int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2);
-                            if (dequeueOutputBuffer >= 0) {
-                                if ((bufferInfo.flags & 2) != 0) {
-                                    fab.b("audio encoder: codec config buffer");
-                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    j3 = j;
-                                    j5 = j3;
-                                    byteBufferArr2 = byteBufferArr3;
-                                } else {
-                                    if (bufferInfo.size != 0) {
-                                        ByteBuffer byteBuffer2 = byteBufferArr3[dequeueOutputBuffer];
-                                        byteBuffer2.position(bufferInfo.offset);
-                                        byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                        fab.b(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                        j4 = j;
-                                        if (j4 < bufferInfo.presentationTimeUs) {
-                                            long j7 = bufferInfo.presentationTimeUs;
-                                            int i5 = bufferInfo.size;
-                                            int i6 = i5 + 7;
-                                            byteBuffer2.position(bufferInfo.offset);
-                                            byteBuffer2.limit(bufferInfo.offset + i5);
-                                            byte[] bArr3 = new byte[i6];
-                                            a(bArr3, i6);
-                                            byteBuffer2.get(bArr3, 7, i5);
-                                            fileOutputStream.write(bArr3, 0, i6);
-                                            fab.b(i6 + " bytes written.");
-                                            j5 = j7;
-                                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            byteBufferArr2 = byteBufferArr3;
-                                            if ((bufferInfo.flags & 4) == 0) {
-                                                inputBuffers = byteBufferArr;
-                                                z3 = true;
-                                            }
-                                        } else {
-                                            fab.b("error sample! its presentationTimeUs should not lower than before. lastPTS = " + j4 + ", bufferPTS = " + bufferInfo.presentationTimeUs);
-                                        }
-                                    } else {
-                                        j4 = j;
-                                    }
-                                    j5 = j4;
-                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    byteBufferArr2 = byteBufferArr3;
-                                    if ((bufferInfo.flags & 4) == 0) {
-                                    }
-                                }
-                            } else {
-                                j3 = j;
-                                if (dequeueOutputBuffer == -3) {
-                                    j5 = j3;
-                                    byteBufferArr2 = mediaCodec.getOutputBuffers();
-                                    inputBuffers = byteBufferArr;
-                                } else {
-                                    if (dequeueOutputBuffer == -2) {
-                                        fab.b("format change : " + mediaCodec.getOutputFormat());
-                                    }
-                                    j5 = j3;
-                                    byteBufferArr2 = byteBufferArr3;
-                                }
-                            }
-                            inputBuffers = byteBufferArr;
-                        }
-                        fab.b("acc encode done");
-                        if (mediaCodec != null) {
-                            try {
-                                mediaCodec.release();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        fileInputStream.close();
-                        fileOutputStream.close();
-                    } catch (Exception e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        if (mediaCodec != null) {
-                            try {
-                                mediaCodec.release();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                    if (mediaCodec != null) {
-                        try {
-                            mediaCodec.release();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            throw th;
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    throw th;
-                }
-            } catch (Exception e8) {
-                e = e8;
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-                if (mediaCodec != null) {
-                }
-                if (fileInputStream != null) {
-                }
-                if (fileOutputStream != null) {
-                }
-                throw th;
+                this.k.a(this.g, this.n);
+            } catch (Throwable th) {
+                i9b.c("VideoRecorder", th.toString());
             }
         }
     }
 
-    public void d(int i) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.u = i;
         }
     }
 
-    public void e(int i) {
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.t = i;
+        }
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            t8b t8bVar = this.g;
+            if (t8bVar != null) {
+                return t8bVar.u(1);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public void t(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            this.e = f;
+            if (Math.abs(f - 3.0f) < 0.01f) {
+                this.d = 2;
+                return;
+            }
+            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
+            this.d = 1;
         }
     }
 }

@@ -14,9 +14,9 @@ import java.security.InvalidParameterException;
 public class BdAsyncTaskParallel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public BdAsyncTaskParallelType b;
-    public int c;
+    public BdUniqueId mBdAsyncTaskParallelTag;
+    public BdAsyncTaskParallelType mBdAsyncTaskParallelType;
+    public int mExecuteNum;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -92,46 +92,73 @@ public class BdAsyncTaskParallel {
         }
     }
 
+    public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mBdAsyncTaskParallelTag = null;
+        this.mBdAsyncTaskParallelType = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.mExecuteNum = 1;
+        if (bdUniqueId != null) {
+            this.mBdAsyncTaskParallelType = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.mExecuteNum = i;
+            this.mBdAsyncTaskParallelTag = bdUniqueId;
+            return;
+        }
+        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+    }
+
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {bdAsyncTaskParallelType, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.c = 1;
+        this.mBdAsyncTaskParallelTag = null;
+        this.mBdAsyncTaskParallelType = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
-            this.b = bdAsyncTaskParallelType;
-            this.a = bdUniqueId;
+            this.mBdAsyncTaskParallelType = bdAsyncTaskParallelType;
+            this.mBdAsyncTaskParallelTag = bdUniqueId;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
     }
 
-    public int a() {
+    public int getExecuteNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.mExecuteNum;
         }
         return invokeV.intValue;
     }
 
-    public int b() {
+    public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdUniqueId bdUniqueId = this.a;
+            BdUniqueId bdUniqueId = this.mBdAsyncTaskParallelTag;
             if (bdUniqueId == null) {
                 return 0;
             }
@@ -144,7 +171,7 @@ public class BdAsyncTaskParallel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.mBdAsyncTaskParallelType;
         }
         return (BdAsyncTaskParallelType) invokeV.objValue;
     }

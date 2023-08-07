@@ -6,21 +6,20 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.hk8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.tg8;
+import com.baidu.tieba.zh8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public hk8 g;
+    public zh8 g;
     public FrameLayout h;
     public String i;
     public String j;
@@ -91,9 +90,9 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        yi.l(TbadkCoreApplication.getInst());
+        BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
         UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        yi.l(TbadkCoreApplication.getInst());
+        BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
         UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
         UtilHelper.getDimenPixelSize(R.dimen.tbds182);
     }
@@ -116,9 +115,9 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6f);
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e71);
-        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e70);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e81);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e83);
+        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e82);
         this.k = str;
     }
 
@@ -127,29 +126,28 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.g(i);
-            if (!TextUtils.isEmpty(this.i) && this.e != null) {
-                q(i);
+            if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j) && this.e != null) {
+                r(i);
             }
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, bj8Var, tbPageContext, i) == null) {
-            if (bj8Var instanceof hk8) {
-                hk8 hk8Var = (hk8) bj8Var;
-                this.g = hk8Var;
-                String b = hk8Var.b();
-                this.i = b;
-                if (TextUtils.isEmpty(b)) {
-                    this.h.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, tg8Var, tbPageContext, i) == null) {
+            if (tg8Var instanceof zh8) {
+                zh8 zh8Var = (zh8) tg8Var;
+                this.g = zh8Var;
+                this.i = zh8Var.b();
+                this.j = this.g.c();
+                if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
+                    this.h.setVisibility(0);
+                    this.e.setOnClickListener(new a(this, tbPageContext));
+                    p();
                     return;
                 }
-                this.h.setVisibility(0);
-                this.j = this.g.c();
-                this.e.setOnClickListener(new a(this, tbPageContext));
-                o();
+                this.h.setVisibility(8);
                 return;
             }
             this.h.setVisibility(8);
@@ -166,6 +164,18 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
+    public final boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if ("frs".equals(this.k)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void n(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
@@ -179,43 +189,45 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final void o() {
+    public final void p() {
         float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            p();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            q();
             this.e.setAutoChangeStyle(true);
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setPlaceHolder(2);
             this.e.setUseNightOrDarkMask(false);
             this.e.setConrers(15);
-            this.e.setRadiusById(R.string.J_X06);
-            int l = yi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
-            int l2 = (yi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X005) * 2)) - UtilHelper.getDimenPixelSize(R.dimen.tbds182);
-            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            if (this.k.equals("dialog")) {
-                f = l / 5;
+            if (o()) {
+                this.e.setRadiusById(R.string.J_X06);
             } else {
-                f = (l2 * 64) / 322;
+                this.e.setRadiusById(R.string.J_X05);
+            }
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+            int equipmentWidth2 = (BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X005) * 2)) - UtilHelper.getDimenPixelSize(R.dimen.tbds182);
+            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
+            if (o()) {
+                f = equipmentWidth / 5;
+            } else {
+                f = (equipmentWidth2 * 64) / 322;
             }
             layoutParams.width = -1;
             layoutParams.height = (int) f;
             this.e.setLayoutParams(layoutParams);
             this.f.setLayoutParams(layoutParams);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (!TextUtils.isEmpty(this.i)) {
-                this.e.N(this.i, 10, false);
-                q(skinType);
-                return;
+            if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
+                this.e.startLoad(this.i, 10, false);
+                r(skinType);
             }
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f08070c, skinType);
         }
     }
 
-    public final void p() {
+    public final void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.k.equals("dialog")) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (o()) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
                 layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -231,16 +243,20 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final void q(int i) {
+    public final void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             if (i == 0) {
                 this.f.setVisibility(8);
                 return;
             }
             this.f.setVisibility(0);
-            d85.d(this.f).f(R.color.CAM_X0503);
-            d85.d(this.f).o(R.string.J_X06);
+            EMManager.from(this.f).setBackGroundColor(R.color.CAM_X0503);
+            if (o()) {
+                EMManager.from(this.f).setCorner(R.string.J_X06);
+            } else {
+                EMManager.from(this.f).setCorner(R.string.J_X05);
+            }
         }
     }
 }

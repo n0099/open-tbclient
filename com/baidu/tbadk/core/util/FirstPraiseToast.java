@@ -123,9 +123,7 @@ public class FirstPraiseToast {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.day_first_agree_tip_content), Integer.valueOf(this.experience)));
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 4, spannableString.length(), 33);
-            BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableString);
-            b.f(R.drawable.icon_mask_frs_firstlike40);
-            b.q();
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableString).setIcon(R.drawable.icon_mask_frs_firstlike40).show();
         }
     }
 }

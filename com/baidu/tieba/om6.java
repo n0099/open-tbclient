@@ -1,177 +1,248 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.drawable.GradientDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.view.TbImageSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class om6 extends BdAsyncTask<Void, Void, String> {
+public class om6 implements qx<tn6>, rx {
     public static /* synthetic */ Interceptable $ic;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int[] q;
+    public static final int[] r;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public View b;
+    public View c;
+    public TBLottieAnimationView d;
+    public TextView e;
+    public TextView f;
+    public TbImageSwitch g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public int k;
+    public List<String> l;
+    public TbImageSwitch.b m;
 
-    public om6() {
+    /* loaded from: classes7.dex */
+    public class a implements TbImageSwitch.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ om6 a;
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            }
+        }
+
+        public a(om6 om6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {om6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = om6Var;
+        }
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public void a(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
+                ((HeadImageView) view2).startLoad((String) this.a.l.get(i), 12, om6.n, om6.n, false);
+            }
+        }
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public View c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                HeadImageView headImageView = new HeadImageView(this.a.a.getPageActivity());
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(om6.n, om6.n));
+                headImageView.setBorderWidth(om6.o);
+                headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+                headImageView.setIsRound(true);
+                headImageView.setDrawBorder(true);
+                headImageView.setPlaceHolder(1);
+                return headImageView;
+            }
+            return (View) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.l.size();
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948037105, "Lcom/baidu/tieba/om6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948037105, "Lcom/baidu/tieba/om6;");
+                return;
+            }
+        }
+        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds94);
+        o = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
+        p = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+        q = new int[]{-7433746, -10909978};
+        r = new int[]{2005832174, 2002355942};
+    }
+
+    public om6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        String str;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String modName = TbSingleton.getInstance().getModName();
-            if (TextUtils.isEmpty(modName)) {
-                return null;
-            }
-            mm6 d = d(modName);
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-            netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-            netWork.addPostData("mod_name", modName);
-            if (d.b()) {
-                str = "1";
-            } else {
-                str = "2";
-            }
-            netWork.addPostData("status", str);
-            if (d.b()) {
-                a = "";
-            } else {
-                a = d.a();
-            }
-            netWork.addPostData("fail_reason", a);
-            netWork.postNetData();
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void c(String str, mm6 mm6Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mm6Var) == null) {
-            if (StringUtils.isNull(str)) {
-                mm6Var.c("serve return is null");
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt("error_code") == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mm6Var.d(z);
-                mm6Var.c(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
-            } catch (JSONException e) {
-                mm6Var.c("parse json exception");
-                BdLog.e(e);
-            }
         }
+        this.k = 3;
+        this.l = new ArrayList();
+        this.m = new a(this);
+        this.a = tbPageContext;
+        f(e());
     }
 
-    public final mm6 d(String str) {
-        InterceptResult invokeL;
+    public View e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            mm6 mm6Var = new mm6();
-            if (TextUtils.isEmpty(str)) {
-                mm6Var.c("module not exit");
-                return mm6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.card_voice_room_layout, (ViewGroup) null, false);
             }
-            File file = new File(jm6.n().m(), str);
-            String p = jm6.n().p(str);
-            if (TbSingleton.getInstance().isUploadOffPack()) {
-                mm6Var.d(false);
-                if (!file.exists()) {
-                    mm6Var.c("bundle not exist");
-                    return mm6Var;
-                } else if (TextUtils.isEmpty(p)) {
-                    mm6Var.c("the local has no valid version name");
-                    return mm6Var;
-                } else {
-                    String str2 = file.getAbsolutePath() + "/" + p + "/";
-                    if (!new File(str2).exists()) {
-                        mm6Var.c("bundle not exist");
-                        return mm6Var;
-                    }
-                    String str3 = file.getAbsolutePath() + "/" + p + ".zip";
-                    File file2 = new File(str3);
-                    if (file2.exists()) {
-                        FileHelper.deleteFileOrDir(file2);
-                    }
-                    if (k95.e(str2, str3)) {
-                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
-                        netWork.addPostData("offline_pack_version", p);
-                        netWork.addPostData("mod_name", str);
-                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                        c(netWork.uploadFile("offline_pack_file_stream", str3), mm6Var);
-                        if (!mm6Var.b()) {
-                            return mm6Var;
-                        }
-                    } else {
-                        mm6Var.c("zip bundle error");
-                        return mm6Var;
-                    }
-                }
-            } else {
-                mm6Var.d(true);
-            }
-            if (TbSingleton.getInstance().isClearOffPack()) {
-                jm6.n().h(str);
-                if (!TextUtils.isEmpty(p)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", p));
-                }
-                if (file.exists() && !StringUtils.isNull(p)) {
-                    if (!new File(file.getAbsolutePath(), p).exists()) {
-                        return mm6Var;
-                    }
-                    mm6Var.c("delete fail");
-                    mm6Var.d(false);
-                }
-            }
-            return mm6Var;
+            return this.b;
         }
-        return (mm6) invokeL.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public final void f(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.c = view2.findViewById(R.id.voice_room_talking_layout);
+            this.d = (TBLottieAnimationView) view2.findViewById(R.id.voice_room_talking_lottie);
+            this.e = (TextView) view2.findViewById(R.id.voice_room_talking_text);
+            this.f = (TextView) view2.findViewById(R.id.card_voice_room_title);
+            TbImageSwitch tbImageSwitch = (TbImageSwitch) view2.findViewById(R.id.card_voice_room_talking_user_portrait);
+            this.g = tbImageSwitch;
+            int i = n;
+            tbImageSwitch.l(3, i, i, p);
+            this.g.setAnimationDuration(1);
+            this.g.setCarouselDelayPeriod(2);
+            this.g.setCarouselPeriod(2);
+            this.g.setAdapter(this.m);
+            this.h = (TextView) view2.findViewById(R.id.card_voice_room_talking_num);
+            this.i = (TextView) view2.findViewById(R.id.card_voice_room_online_num);
+            this.j = (TextView) view2.findViewById(R.id.card_voice_room_join);
+            onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: g */
+    public void onBindDataToView(tn6 tn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            rm6.c();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tn6Var) != null) || tn6Var == null) {
+            return;
+        }
+        this.f.setText(tn6Var.Y());
+        this.h.setText(String.format(this.a.getResources().getString(R.string.voice_room_talking_num), tn6Var.Z()));
+        this.i.setText(String.format(this.a.getResources().getString(R.string.voice_room_online_num), tn6Var.V()));
+        if (!ListUtils.isEmpty(tn6Var.W())) {
+            if (tn6Var.W().size() > 10) {
+                this.l = tn6Var.W().subList(0, 10);
+            } else {
+                this.l = tn6Var.W();
+            }
+        }
+        this.g.p();
+        this.d.setRepeatCount(Integer.MAX_VALUE);
+        this.d.setRepeatMode(1);
+        this.d.playAnimation();
+    }
+
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            if (this.k != i) {
+                if (i == 4) {
+                    gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, r);
+                } else {
+                    gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, q);
+                }
+                gradientDrawable.setCornerRadius(25.0f);
+                e().setBackgroundDrawable(gradientDrawable);
+                EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0605);
+                SkinManager.setLottieAnimation(this.d, R.raw.lottie_voice_room_voicing_icon);
+                EMManager.from(this.e).setTextColor(R.color.CAM_X0101);
+                EMManager.from(this.i).setTextColor(R.color.CAM_X0620).setTextStyle(R.string.F_X02);
+                EMManager.from(this.f).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0101);
+                EMManager.from(this.h).setTextColor(R.color.CAM_X0620).setTextStyle(R.string.F_X02);
+                EMManager.from(this.j).setCorner(R.string.J_X07).setTextColor(R.color.CAM_X0326).setBackGroundColor(R.color.CAM_X0621);
+                if (!ListUtils.isEmpty(this.g.getChildViews())) {
+                    for (View view2 : this.g.getChildViews()) {
+                        if (view2 instanceof HeadImageView) {
+                            ((HeadImageView) view2).setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+                        }
+                    }
+                }
+            }
+            this.k = i;
         }
     }
 }

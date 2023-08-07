@@ -17,12 +17,12 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.u0a;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.lz9;
+import com.baidu.tieba.o36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes7.dex */
-public class FeedAdProgressButton extends View implements u0a {
+public class FeedAdProgressButton extends View implements lz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -56,7 +56,7 @@ public class FeedAdProgressButton extends View implements u0a {
     public Rect u;
     public Paint v;
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void setButtonTextNightColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -133,7 +133,7 @@ public class FeedAdProgressButton extends View implements u0a {
         e(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -144,7 +144,7 @@ public class FeedAdProgressButton extends View implements u0a {
         }
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +229,7 @@ public class FeedAdProgressButton extends View implements u0a {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h66.feed_ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o36.feed_ad_progress);
             int color = getResources().getColor(R.color.CAM_X0302);
             int color2 = getResources().getColor(R.color.CAM_X0302);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
@@ -338,7 +338,7 @@ public class FeedAdProgressButton extends View implements u0a {
         }
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -347,15 +347,15 @@ public class FeedAdProgressButton extends View implements u0a {
         }
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            float g = yi.g(getContext(), i);
-            this.j = g;
+            float dimens = BdUtilHelper.getDimens(getContext(), i);
+            this.j = dimens;
             TextPaint textPaint = this.i;
             if (textPaint != null) {
-                textPaint.setTextSize(g);
+                textPaint.setTextSize(dimens);
             }
             postInvalidate();
         }
@@ -370,7 +370,7 @@ public class FeedAdProgressButton extends View implements u0a {
         }
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -385,7 +385,7 @@ public class FeedAdProgressButton extends View implements u0a {
         }
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void setRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -417,7 +417,7 @@ public class FeedAdProgressButton extends View implements u0a {
         }
     }
 
-    @Override // com.baidu.tieba.u0a
+    @Override // com.baidu.tieba.lz9
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {

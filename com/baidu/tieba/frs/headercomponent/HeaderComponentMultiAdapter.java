@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wp7;
+import com.baidu.tieba.en7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public wp7 c;
+    public en7 c;
 
     /* loaded from: classes5.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -48,7 +48,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f09077f);
+            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f09078e);
         }
     }
 
@@ -71,7 +71,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         this.a = list;
     }
 
-    public void b() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             notifyDataSetChanged();
@@ -106,15 +106,15 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0362, (ViewGroup) null));
+            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0365, (ViewGroup) null));
         }
         return (a) invokeLI.objValue;
     }
 
-    public void n(wp7 wp7Var) {
+    public void n(en7 en7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wp7Var) == null) {
-            this.c = wp7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, en7Var) == null) {
+            this.c = en7Var;
         }
     }
 }

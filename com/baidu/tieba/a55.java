@@ -1,153 +1,113 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.BdToken.BdTokenController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.b55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
 /* loaded from: classes5.dex */
-public class a55 {
+public class a55 extends b55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
+    public final TbPageContext c;
+    public final UserData d;
+    public final BdTokenController.m e;
+    public yt4 f;
 
-    public a55() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a55 a;
+
+        public a(a55 a55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a55Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.c();
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a55(TbPageContext tbPageContext, Activity activity, UserData userData, BdTokenController.m mVar) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, activity, userData, mVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.c = tbPageContext;
+        this.d = userData;
+        this.e = mVar;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b55
+    public void b() {
+        yt4 yt4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-            jSONObject.optString("game_link");
-            this.b = jSONObject.optString("summary");
-            this.c = jSONObject.optString("code_link");
-            this.d = jSONObject.optInt("get_type", 1);
-            this.e = jSONObject.optString("surplusgift");
-            this.f = jSONObject.optLong("giftworth", 0L);
-            this.g = jSONObject.optString("type_text");
-            this.h = jSONObject.optString(SubtitleLog.TAG);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yt4Var = this.f) != null) {
+            yt4Var.e();
         }
     }
 
-    public void j(TopCode topCode) {
+    @Override // com.baidu.tieba.b55
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, topCode) != null) || topCode == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            yt4 f = yt4.f();
+            this.f = f;
+            f.e();
+            this.f.g(new a(this));
+            this.f.h(this.c, this.b, this.d, this.e);
         }
-        this.a = topCode.img_url;
-        String str = topCode.game_link;
-        this.b = topCode.summary;
-        this.c = topCode.code_link;
-        this.d = topCode.get_type.intValue();
-        this.e = topCode.surplusgift;
-        if (topCode.giftworth.longValue() < 0) {
-            this.f = 0L;
-        } else {
-            this.f = topCode.giftworth.longValue();
+    }
+
+    @Override // com.baidu.tieba.b55
+    public void d(@NonNull b55.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (YunDialogManager.isShowingDialog()) {
+                aVar.callback(false);
+            } else {
+                aVar.callback(true);
+            }
         }
-        this.g = topCode.type_text;
-        this.h = topCode.subtitle;
     }
 }

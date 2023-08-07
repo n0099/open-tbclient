@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.fb9;
+import com.baidu.tieba.c99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003350 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    fb9.w(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pkg_update_time")).longValue());
+                    c99.w(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pkg_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -108,7 +108,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
         }
     }
 
-    public void V(String str) {
+    public void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             long currentTimeMillis = System.currentTimeMillis();

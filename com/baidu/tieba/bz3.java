@@ -1,27 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes5.dex */
-public class bz3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile az3 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bz3 {
+    void a();
 
-    public static synchronized az3 a() {
-        InterceptResult invokeV;
-        az3 az3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (bz3.class) {
-                if (a == null) {
-                    a = new az3();
-                }
-                az3Var = a;
-            }
-            return az3Var;
-        }
-        return (az3) invokeV.objValue;
-    }
+    void b(DownloadException downloadException);
+
+    void c();
+
+    void d();
+
+    void e(long j, long j2);
+
+    void f(long j, long j2);
+
+    void onStart();
 }

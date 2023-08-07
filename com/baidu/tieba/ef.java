@@ -1,143 +1,203 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.guide.BuildException;
+import com.baidu.adp.lib.guide.Configuration;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ef extends pe<String> {
+public class ef {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Configuration a;
+    public boolean b;
+    public List<cf> c;
+    public a d;
 
-    @Override // com.baidu.tieba.pe
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onDismiss();
+
+        void onShown();
     }
 
-    @Override // com.baidu.tieba.pe
-    public void k(String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ef(t9 t9Var) {
-        super(t9Var);
+    public ef() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((t9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new ArrayList();
+        this.a = new Configuration();
     }
 
-    @Override // com.baidu.tieba.pe
-    public boolean d(String str) {
+    public ef a(cf cfVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            t9 t9Var = this.a;
-            t9Var.d("DROP TABLE IF EXISTS " + this.b);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cfVar)) == null) {
+            if (!this.b) {
+                this.c.add(cfVar);
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
         }
-        return invokeL.booleanValue;
+        return (ef) invokeL.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v12, types: [T, java.lang.String] */
-    @Override // com.baidu.tieba.pe
-    public te<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
+    public ef c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            try {
-                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
-                try {
-                    if (rawQuery.moveToNext()) {
-                        te<String> teVar = new te<>();
-                        teVar.a = rawQuery.getString(0);
-                        teVar.d = rawQuery.getLong(1);
-                        teVar.e = rawQuery.getLong(2);
-                        teVar.f = rawQuery.getLong(3);
-                        teVar.b = rawQuery.getString(4);
-                        vg.a(rawQuery);
-                        return teVar;
-                    }
-                    vg.a(rawQuery);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = rawQuery;
-                    vg.a(cursor);
-                    throw th;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (!this.b) {
+                if (i >= 0 && i <= 255) {
+                    this.a.mAlpha = i;
+                    return this;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                throw new BuildException("Illegal alpha value, should between [0-255]");
             }
-        } else {
-            return (te) invokeLL.objValue;
+            throw new BuildException("Already created. rebuild a new one.");
         }
+        return (ef) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.pe
-    public String l(String str) {
+    public ef d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (!this.b) {
+                this.a.mAutoDismiss = z;
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        return (ef) invokeZ.objValue;
+    }
+
+    public ef e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (!this.b) {
+                if (i > 0) {
+                    this.a.mEnterAnimationId = i;
+                    return this;
+                }
+                throw new BuildException("Illegal animation resource id.");
+            }
+            throw new BuildException("Already created. rebuild a new one.");
+        }
+        return (ef) invokeI.objValue;
+    }
+
+    public ef f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (!this.b) {
+                if (i > 0) {
+                    this.a.mExitAnimationId = i;
+                    return this;
+                }
+                throw new BuildException("Illegal animation resource id.");
+            }
+            throw new BuildException("Already created. rebuild a new one.");
+        }
+        return (ef) invokeI.objValue;
+    }
+
+    public ef g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (!this.b) {
+                this.a.mKeyBackEventDismiss = z;
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        return (ef) invokeZ.objValue;
+    }
+
+    public ef h(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode *= -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
+            if (!this.b) {
+                this.d = aVar;
+                return this;
             }
-            String str2 = "cache_kv_t" + hashCode;
-            this.a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            return str2;
+            throw new BuildException("Already created, rebuild a new one.");
         }
-        return (String) invokeL.objValue;
+        return (ef) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pe
-    public ContentValues p(te<String> teVar) {
+    public ef i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            this.a.mOutsideTouchable = z;
+            return this;
+        }
+        return (ef) invokeZ.objValue;
+    }
+
+    public ef j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            if (!this.b) {
+                this.a.mOverlayTarget = z;
+                return this;
+            }
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        return (ef) invokeZ.objValue;
+    }
+
+    public ef k(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, teVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", teVar.a);
-            contentValues.put("m_value", teVar.b);
-            contentValues.put("saveTime", Long.valueOf(teVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(teVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(teVar.f));
-            return contentValues;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
+            if (!this.b) {
+                if (view2 != null) {
+                    this.a.mTargetView = view2;
+                    return this;
+                }
+                throw new BuildException("Illegal view.");
+            }
+            throw new BuildException("Already created. rebuild a new one.");
         }
-        return (ContentValues) invokeL.objValue;
+        return (ef) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pe
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
+    public df b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            df dfVar = new df();
+            dfVar.i((cf[]) this.c.toArray(new cf[this.c.size()]));
+            dfVar.j(this.a);
+            dfVar.h(this.d);
+            this.c = null;
+            this.a = null;
+            this.d = null;
+            this.b = true;
+            return dfVar;
         }
-        return (Cursor) invokeLL.objValue;
+        return (df) invokeV.objValue;
     }
 }

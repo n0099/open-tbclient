@@ -1,61 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.f11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e11 {
+public abstract class e11<T extends f11> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object[] a;
+    public int b;
 
-    public static int a(BdVideoSeries bdVideoSeries) {
-        InterceptResult invokeL;
+    public abstract T b();
+
+    public e11(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
-            if (bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
-                return r21.c(bdVideoSeries.getSelectedVideo().getTotalLength());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0;
         }
-        return invokeL.intValue;
-    }
-
-    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) && bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
-            bdVideoSeries.setPositionMs(i);
-            bdVideoSeries.setDurationMs(i2);
-            BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
-            selectedVideo.setCurrentLength((i / 1000) + "");
-            BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
-            selectedVideo2.setTotalLength((i2 / 1000) + "");
-        }
+        this.a = new Object[i <= 0 ? 2 : i];
     }
 
     @NonNull
-    public static String c(String str) {
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            if (i <= 0) {
+                T b = b();
+                b.onInit();
+                return b;
+            }
+            int i2 = i - 1;
+            Object[] objArr = this.a;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.b = i - 1;
+            t.onInit();
+            return t;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final boolean c(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    int d = r21.d(str, -1);
-                    if (d < 0) {
-                        return "";
-                    }
-                    return r21.b(d, false);
-                } catch (Exception e) {
-                    v21.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            for (int i = 0; i < this.b; i++) {
+                if (this.a[i] == t) {
+                    return true;
                 }
             }
-            return "";
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void d(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
+            return;
+        }
+        int i = this.b;
+        Object[] objArr = this.a;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.b = i + 1;
+        }
+        t.onRelease();
     }
 }

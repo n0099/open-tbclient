@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f36;
-import com.baidu.tieba.py5;
+import com.baidu.tieba.cw5;
+import com.baidu.tieba.o06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,11 +105,11 @@ public abstract class RichTextMaker<T> {
                 } else {
                     z = false;
                 }
-                py5.a(z);
+                cw5.a(z);
                 if (this != START_OFFSET) {
                     z2 = false;
                 }
-                py5.d(z2);
+                cw5.d(z2);
                 this.offset = i;
                 return this;
             }
@@ -127,12 +127,12 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends f36 {
+    public class a extends o06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int l;
-        public final /* synthetic */ Object m;
-        public final /* synthetic */ RichTextMaker n;
+        public final /* synthetic */ int m;
+        public final /* synthetic */ Object n;
+        public final /* synthetic */ RichTextMaker o;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RichTextMaker richTextMaker, int i, String str, int i2, Object obj) {
@@ -153,22 +153,22 @@ public abstract class RichTextMaker<T> {
                     return;
                 }
             }
-            this.n = richTextMaker;
-            this.l = i2;
-            this.m = obj;
+            this.o = richTextMaker;
+            this.m = i2;
+            this.n = obj;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.f36, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.o06, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                f36.b bVar = this.i;
+                o06.b bVar = this.j;
                 if (bVar != null) {
                     bVar.a(this);
                 }
-                this.n.c(view2, this.l, this.m);
+                this.o.c(view2, this.m, this.n);
                 view2.setTag(R.id.tag_first, Boolean.TRUE);
             }
         }
@@ -444,8 +444,8 @@ public abstract class RichTextMaker<T> {
                 str = "";
             }
             a aVar = new a(this, i, str, i, t);
-            aVar.p(this.c);
-            aVar.r(this.d);
+            aVar.r(this.c);
+            aVar.t(this.d);
             cVar.a.setSpan(aVar, cVar.d, cVar.e, cVar.f);
         }
     }

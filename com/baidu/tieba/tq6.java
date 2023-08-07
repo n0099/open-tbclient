@@ -1,99 +1,63 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tq6 extends wo6<sq6> {
+public final class tq6 implements y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public int j;
-    public int k;
 
-    @Override // com.baidu.tieba.wo6
-    public int d() {
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.card_divider_line : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_SHOW : (String) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tq6(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public tq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.j = R.color.CAM_X0204;
-        this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
-        h().setOnClickListener(this);
-        this.i = h().findViewById(R.id.card_divider);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: r */
-    public void i(sq6 sq6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, sq6Var) != null) || sq6Var == null) {
-            return;
-        }
-        this.i.setVisibility(0);
-        this.j = sq6Var.a;
-        this.k = sq6Var.b;
-        s();
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundColor(this.i, this.j);
-            }
-            this.a = i;
         }
     }
 
-    public final void s() {
-        ViewGroup.LayoutParams layoutParams;
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (layoutParams = this.i.getLayoutParams()) != null) {
-            int i = layoutParams.height;
-            int i2 = this.k;
-            if (i != i2) {
-                layoutParams.height = i2;
-                this.i.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String str = a.get("live_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
             }
+            hashMap.put("obj_param1", str);
+            String str3 = a.get("live_app_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }

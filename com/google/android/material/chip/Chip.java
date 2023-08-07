@@ -184,7 +184,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         str = text;
                     }
                     objArr[0] = str;
-                    accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0cc8, objArr).trim());
+                    accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0cca, objArr).trim());
                 }
                 accessibilityNodeInfoCompat.setBoundsInParent(Chip.this.getCloseIconTouchBoundsInt());
                 accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);

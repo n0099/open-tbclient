@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cl {
+public abstract class cl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapDrawable a;
-    public jn b;
-    public volatile boolean c;
+    public boolean a;
+
+    public abstract String a();
 
     public cl() {
         Interceptable interceptable = $ic;
@@ -28,82 +31,76 @@ public class cl {
                 return;
             }
         }
-        this.c = true;
+        this.a = false;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicHeight();
-            }
-            if (d()) {
-                return this.b.m();
-            }
-            return 0;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicWidth();
-            }
-            if (d()) {
-                return this.b.r();
-            }
-            return 0;
+        this.a = true;
+        if (TextUtils.isEmpty(a())) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!e() && !d()) {
-                return false;
-            }
-            return true;
+        try {
+            new JSONObject().put("version", i);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void c(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            jn jnVar = this.b;
-            if (jnVar != null && jnVar.w()) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.a;
-            if (bitmapDrawable != null && bitmapDrawable.getBitmap() != null && !this.a.getBitmap().isRecycled()) {
-                return true;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
+            String str = a + "_download";
+            if (i == 0) {
+                bl.c(str, arrayList);
+            } else {
+                bl.b(str, arrayList);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public void f() {
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = null;
-            this.a = null;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_install";
+            if (i == 13) {
+                bl.c(str, arrayList);
+            } else {
+                bl.b(str, arrayList);
+            }
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_launch";
+            if (i == 14) {
+                bl.c(str, arrayList);
+            } else {
+                bl.b(str, arrayList);
+            }
         }
     }
 }

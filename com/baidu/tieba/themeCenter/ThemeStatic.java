@@ -3,6 +3,7 @@ package com.baidu.tieba.themeCenter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
@@ -18,10 +19,9 @@ import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalCardCategoryActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.gca;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
@@ -33,7 +33,7 @@ import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), wg.g(substring.substring(0, indexOf), 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), JavaTypesHelper.toLong(substring.substring(0, indexOf), 0L))));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(tbPageContext.getPageActivity())));
@@ -123,14 +123,14 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        int e = wg.e(substring.substring(0, indexOf), 0);
-                        da5 p = da5.p();
-                        if (e == p.q("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), 0)) {
+                        int i2 = JavaTypesHelper.toInt(substring.substring(0, indexOf), 0);
+                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                        if (i2 == sharedPrefHelper.getInt("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), 0)) {
                             i = 1;
                         } else {
                             i = 0;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(tbPageContext.getPageActivity(), e, i)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(tbPageContext.getPageActivity(), i2, i)));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(tbPageContext.getPageActivity())));
@@ -277,8 +277,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        gca.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        gca.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        zaa.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        zaa.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

@@ -2,15 +2,15 @@ package com.baidu.tieba.faceshop;
 
 import android.content.Context;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,7 +127,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -138,12 +138,12 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         this.d = 0;
         this.a = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.c = yi.l(inst);
-        this.d = yi.j(inst);
+        this.c = BdUtilHelper.getEquipmentWidth(inst);
+        this.d = BdUtilHelper.getEquipmentHeight(inst);
         this.e = inst.getResources().getDisplayMetrics().density;
     }
 
-    public void c0(String str) {
+    public void U(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             a aVar = new a(this, str);

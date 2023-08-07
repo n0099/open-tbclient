@@ -1,191 +1,159 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.ubc.Flow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fh3 extends gh3<JSONObject> {
+public class fh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity m;
-    public final String n;
-    public final String o;
-    public boolean p;
-    public int q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947764088, "Lcom/baidu/tieba/fh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947764088, "Lcom/baidu/tieba/fh3;");
-                return;
-            }
-        }
-        r = fs1.a;
-    }
-
-    @Override // com.baidu.tieba.gh3
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (rg3.b() && !Q()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gh3
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.q++;
-        }
-    }
-
-    public boolean Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.q >= A()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.sg3
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            v("data", P().toString());
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gh3
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return SwanInterfaceType.OPEN_DATA;
-        }
-        return (SwanInterfaceType) invokeV.objValue;
-    }
-
-    public fh3(Activity activity, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = activity;
-        this.n = str;
-        this.o = str2;
-        this.p = z;
-    }
-
-    public JSONObject P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                vb3 M = M();
-                jSONObject.put("ma_id", M.O());
-                jSONObject.put("scope", this.n);
-                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject.put("host_key_hash", tg3.g());
-                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, M.O());
-                if (M.Y() != null && M.Y().T() != null) {
-                    jSONObject.put("scene", M.Y().T());
-                }
-                if (this.p) {
-                    jSONObject.put("action_type", "1");
-                }
-                String l = cv2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject.put("host_api_key", l);
-                }
-                if (!TextUtils.isEmpty(this.o)) {
-                    jSONObject.put("provider_appkey", this.o);
-                }
-            } catch (JSONException e) {
-                if (r) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg3
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: R */
-    public JSONObject m(JSONObject jSONObject) throws JSONException {
+    public static eh3 a(String str) {
         InterceptResult invokeL;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            JSONObject c = tg3.c(jSONObject);
-            int optInt = c.optInt("errno", 10001);
-            if (optInt != 0) {
-                if (11001 == optInt) {
-                    tg3.m(c);
-                    tg3.t("MaOpenDataRequest", c.toString());
-                }
-                if (r) {
-                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Flow d = eq4.d(str);
+            if (g()) {
+                obj = fu2.A0().beginFlow(str);
+            } else {
+                obj = null;
             }
-            return c;
+            return new eh3(obj, d);
         }
-        return (JSONObject) invokeL.objValue;
+        return (eh3) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gh3
-    public HttpRequest w(gh3 gh3Var) {
-        InterceptResult invokeL;
+    public static void b(@NonNull eh3 eh3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gh3Var)) == null) {
-            return cv2.o().u(this.m, gh3Var.B());
+        if (interceptable == null || interceptable.invokeL(65537, null, eh3Var) == null) {
+            if (g()) {
+                fu2.A0().b(eh3Var.b());
+            }
+            Flow a = eh3Var.a();
+            if (a != null) {
+                a.cancel();
+            }
         }
-        return (HttpRequest) invokeL.objValue;
+    }
+
+    public static void c(@NonNull eh3 eh3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, eh3Var) == null) {
+            if (g()) {
+                fu2.A0().c(eh3Var.b());
+            }
+            Flow a = eh3Var.a();
+            if (a != null) {
+                a.end();
+            }
+        }
+    }
+
+    public static void d(@NonNull eh3 eh3Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, eh3Var, str, str2) == null) {
+            if (g()) {
+                fu2.A0().a(eh3Var.b(), str, str2);
+            }
+            Flow a = eh3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2);
+            }
+        }
+    }
+
+    public static void i(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
+            if (g()) {
+                fu2.A0().f(str, jSONObject);
+            }
+            eq4.l(str2, jSONObject);
+        }
+    }
+
+    public static void e(@NonNull eh3 eh3Var, String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{eh3Var, str, str2, Long.valueOf(j)}) == null) {
+            if (g()) {
+                fu2.A0().g(eh3Var.b(), str, str2, j);
+            }
+            Flow a = eh3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2, j);
+            }
+        }
+    }
+
+    public static void f(@NonNull eh3 eh3Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eh3Var, str) == null) {
+            if (g()) {
+                fu2.A0().h(eh3Var.b(), str);
+            }
+            Flow a = eh3Var.a();
+            if (a != null) {
+                a.setValueWithDuration(str);
+            }
+        }
+    }
+
+    public static void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            if (g()) {
+                fu2.A0().i(str, str2);
+            }
+            eq4.h(str, str2);
+        }
+    }
+
+    public static void j(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
+            if (g()) {
+                fu2.A0().d(str, map);
+            }
+            eq4.j(str, map);
+        }
+    }
+
+    public static void k(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
+            if (g()) {
+                fu2.A0().f(str, jSONObject);
+            }
+            eq4.l(str, jSONObject);
+        }
+    }
+
+    public static void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            fu2.A0().i(str, str2);
+        }
+    }
+
+    public static void m(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
+            fu2.A0().f(str, jSONObject);
+        }
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return fu2.A0().e();
+        }
+        return invokeV.booleanValue;
     }
 }

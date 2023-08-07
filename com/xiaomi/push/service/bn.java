@@ -41,12 +41,12 @@ public class bn {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m797a() {
+    public Uri m798a() {
         return Settings.Global.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m798a() {
+    public boolean m799a() {
         return com.xiaomi.push.ab.f94a.contains("xmsf") || com.xiaomi.push.ab.f94a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f94a.contains("miui");
     }
 }

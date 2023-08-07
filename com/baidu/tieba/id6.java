@@ -1,106 +1,171 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class id6 extends wo6<sc6> {
+public class id6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hd6 i;
-    public hd6 j;
-    public LinearLayout k;
-    public ViewGroup l;
-    public View m;
+    public TbPageContext<?> a;
+    public List<ThreadData> b;
 
-    @Override // com.baidu.tieba.wo6
-    public int d() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0940 : invokeV.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public TbImageView b;
+        public AlaCardBottomUserInfoLayout c;
+        public RelativeLayout d;
+        public TextView e;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = (TbImageView) view2.findViewById(R.id.img_thumbnail);
+            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901d7);
+            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901d9);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901d8);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public id6(TbPageContext<?> tbPageContext, ViewGroup viewGroup, String str) {
-        super(tbPageContext, viewGroup);
+    public id6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new hd6(tbPageContext, str);
-        this.j = new hd6(tbPageContext, str);
-        ViewGroup viewGroup2 = (ViewGroup) h();
-        this.l = viewGroup2;
-        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f091024);
-        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f09101a);
-        View view2 = new View(getContext());
-        this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12));
-        this.k.addView(this.i.h());
-        this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.k.addView(this.j.h());
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: r */
-    public void i(sc6 sc6Var) {
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ThreadData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, sc6Var) == null) && sc6Var != null) {
-            this.i.i(sc6Var.a);
-            this.j.i(sc6Var.b);
-            if (sc6Var.c) {
-                this.m.setVisibility(0);
-            } else {
-                this.m.setVisibility(8);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<ThreadData> list = this.b;
+            if (list == null || i < 0 || i > list.size()) {
+                return null;
             }
+            return this.b.get(i);
+        }
+        return (ThreadData) invokeI.objValue;
+    }
+
+    public void b(List<ThreadData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+            notifyDataSetChanged();
         }
     }
 
-    public void s(nd6 nd6Var) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nd6Var) == null) {
-            this.i.l(nd6Var);
-            this.j.l(nd6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (ListUtils.isEmpty(this.b)) {
+                return 0;
+            }
+            return this.b.size();
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        AlaInfoData threadAlaInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            this.i.k(tbPageContext, i);
-            this.j.k(tbPageContext, i);
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ee, (ViewGroup) null);
+                aVar = new a(view2);
+                aVar.b.setIsRound(true);
+                aVar.b.setDrawBorder(false);
+                aVar.b.setAutoChangeStyle(true);
+                aVar.b.setGifIconSupport(false);
+                int equipmentWidth = (BdUtilHelper.getEquipmentWidth(this.a.getPageActivity()) - this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) / 3;
+                int i2 = (equipmentWidth * 16) / 9;
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.d.getLayoutParams();
+                layoutParams.height = equipmentWidth;
+                layoutParams.width = i2;
+                aVar.d.setLayoutParams(layoutParams);
+                AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
+                ((ViewGroup.LayoutParams) layoutParams2).width = i2;
+                view2.setLayoutParams(layoutParams2);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+            }
+            ThreadData item = getItem(i);
+            if (item == null || (threadAlaInfo = item.getThreadAlaInfo()) == null) {
+                return null;
+            }
+            aVar.b.startLoad(threadAlaInfo.cover, 10, false);
+            aVar.c.setData(item);
+            aVar.c.setUserHeadImgVisible(8);
+            aVar.e.setText(item.getTitle());
+            aVar.c.onChangeSkinType(this.a);
+            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

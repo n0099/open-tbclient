@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.UpdateTail.ResData;
 /* loaded from: classes7.dex */
-public class o59 extends pl1<ShareChannelService> {
+public class o59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public o59() {
         Interceptable interceptable = $ic;
@@ -26,15 +27,21 @@ public class o59 extends pl1<ShareChannelService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public ShareChannelService createService() throws ServiceNotFoundException {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new p59();
+            return this.a;
         }
-        return (ShareChannelService) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public void b(ResData resData) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
+            return;
+        }
+        this.a = l.intValue();
     }
 }

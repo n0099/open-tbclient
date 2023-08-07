@@ -32,7 +32,6 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotTy
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -211,28 +210,20 @@ public class LogSystemProcessor {
         return null;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00c4 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0015 */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v0 */
-    /* JADX WARN: Type inference failed for: r0v1 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.util.ArrayList<com.baidu.searchbox.logsystem.logsys.LogFile>] */
     @Nullable
     public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
-        BufferedReader bufferedReader = 0;
-        BufferedReader bufferedReader2 = null;
+        BufferedReader bufferedReader = null;
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
         }
-        ArrayList arrayList = new ArrayList(5);
+        ArrayList<LogFile> arrayList = new ArrayList<>(5);
         try {
             try {
-                BufferedReader bufferedReader3 = new BufferedReader(new FileReader(file));
+                BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
                 while (true) {
                     try {
-                        String readLine = bufferedReader3.readLine();
+                        String readLine = bufferedReader2.readLine();
                         if (readLine == null) {
                             break;
                         } else if (!TextUtils.isEmpty(readLine)) {
@@ -253,27 +244,25 @@ public class LogSystemProcessor {
                         }
                     } catch (IOException e) {
                         e = e;
-                        bufferedReader2 = bufferedReader3;
+                        bufferedReader = bufferedReader2;
                         e.printStackTrace();
-                        Closeables.closeSafely(bufferedReader2);
-                        bufferedReader = arrayList;
-                        return bufferedReader;
+                        Closeables.closeSafely(bufferedReader);
+                        return arrayList;
                     } catch (Throwable th) {
                         th = th;
-                        bufferedReader = bufferedReader3;
-                        Closeables.closeSafely((Closeable) bufferedReader);
+                        bufferedReader = bufferedReader2;
+                        Closeables.closeSafely(bufferedReader);
                         throw th;
                     }
                 }
-                Closeables.closeSafely(bufferedReader3);
-            } catch (Throwable th2) {
-                th = th2;
+                Closeables.closeSafely(bufferedReader2);
+            } catch (IOException e2) {
+                e = e2;
             }
-        } catch (IOException e2) {
-            e = e2;
+            return arrayList;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        bufferedReader = arrayList;
-        return bufferedReader;
     }
 
     public void process(@NonNull final Service service, final int i, @NonNull LogBaseObject logBaseObject) {

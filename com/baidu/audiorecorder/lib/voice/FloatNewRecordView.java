@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -14,15 +15,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.v98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements bc8 {
+/* loaded from: classes3.dex */
+public class FloatNewRecordView extends RelativeLayout implements v98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -37,59 +37,59 @@ public class FloatNewRecordView extends RelativeLayout implements bc8 {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onDeletedVoice(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onShowRecording(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onStartedRecorder(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onStopingRecorder() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,42 +166,15 @@ public class FloatNewRecordView extends RelativeLayout implements bc8 {
 
     public final void e(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && getMaxDuring() - i <= 10000 && !this.f) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc0), Integer.valueOf(((getMaxDuring() - i) / 1000) + 1)));
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && getMaxDuring() - i <= 10000 && !this.f) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc2), Integer.valueOf(((getMaxDuring() - i) / 1000) + 1)));
         }
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.v98
+    public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setBackgroundColor(SkinManager.getColor(R.color.CAM_X0502));
-            WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_press, null);
-        }
-    }
-
-    public int getMaxDuring() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.oj
-    public boolean isOnCancle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bc8
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             TBLottieAnimationView tBLottieAnimationView = this.a;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.cancelAnimation();
@@ -211,43 +184,70 @@ public class FloatNewRecordView extends RelativeLayout implements bc8 {
         }
     }
 
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setBackgroundColor(SkinManager.getColor(R.color.CAM_X0502));
+            WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_press, null);
+        }
+    }
+
+    public int getMaxDuring() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.qi
+    public boolean isOnCancle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
     public final void d(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, viewGroup) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0896, this);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, viewGroup) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a0, this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902f4);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091975);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091978);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09045f);
+            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902f5);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091989);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09198c);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09046c);
             this.d = imageView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
             layoutParams.width = -1;
-            layoutParams.height = yi.d(context, 117.0f);
-            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902f6);
+            layoutParams.height = BdUtilHelper.dip2px(context, 117.0f);
+            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902f7);
             this.e = audioCircleProgress;
             audioCircleProgress.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
-            this.e.setArcWidth(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds30));
+            this.e.setArcWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30));
             this.e.setBgColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.e.setPadding(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6));
+            this.e.setPadding(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6));
             this.a.addAnimatorListener(this.i);
-            this.a.setAnimation(R.raw.obfuscated_res_0x7f110023);
+            this.a.setAnimation(R.raw.obfuscated_res_0x7f110024);
             this.a.setImageAssetsFolder("lottie_audio_recoding/");
             this.a.setRepeatCount(-1);
-            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907b2)).getLayoutParams()).topMargin = (yi.j(TbadkCoreApplication.getInst()) * 36) / 100;
+            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907c1)).getLayoutParams()).topMargin = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * 36) / 100;
             a();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.f) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.f) {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc5));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc7));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b53, R.color.CAM_X0310, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b54, R.color.CAM_X0310, null);
             this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
             WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
             this.f = true;
@@ -257,10 +257,10 @@ public class FloatNewRecordView extends RelativeLayout implements bc8 {
 
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !this.g) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.g) {
             this.a.setVisibility(0);
             this.b.setVisibility(8);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cbd));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cbf));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             this.a.playAnimation();
             this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -272,21 +272,21 @@ public class FloatNewRecordView extends RelativeLayout implements bc8 {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc6));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cc8));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b54, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080b55, R.color.CAM_X0319, null);
             this.g = false;
         }
     }
 
-    @Override // com.baidu.tieba.oj
+    @Override // com.baidu.tieba.qi
     public void onShowRecordTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.e.setProgress((i / 1.0f) / getMaxDuring());
             e(i);
         }
@@ -294,7 +294,7 @@ public class FloatNewRecordView extends RelativeLayout implements bc8 {
 
     public void setMaxDuring(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.h = i;
         }
     }

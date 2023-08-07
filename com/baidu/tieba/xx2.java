@@ -1,91 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class xx2 {
+public final class xx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final xx2 d;
+    public static ArrayList<wx2> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public final List<ux2> b;
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends dx2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ xx2 b;
-
-        public b(xx2 xx2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xx2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xx2Var;
-            this.a = 0;
-        }
-
-        @Override // com.baidu.tieba.dx2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b.d(activity);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dx2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                int i = this.a - 1;
-                this.a = i;
-                if (i == 0) {
-                    this.b.e(activity);
-                }
-            }
-        }
-
-        public /* synthetic */ b(xx2 xx2Var, a aVar) {
-            this(xx2Var);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -100,97 +29,143 @@ public class xx2 {
                 return;
             }
         }
-        c = fs1.a;
-        d = new xx2();
+        a = new ArrayList<>();
     }
 
-    public static xx2 a() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
         }
-        return (xx2) invokeV.objValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wx2 wx2Var = a.get(size);
+                if (wx2Var != null) {
+                    wx2Var.onDestroy();
+                }
+            }
+        }
+    }
+
+    public static void a(wx2 wx2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, wx2Var) == null) && wx2Var != null && !a.contains(wx2Var)) {
+            a.add(wx2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wx2 wx2Var = a.get(size);
+                if (wx2Var != null) {
+                    wx2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wx2 wx2Var = a.get(size);
+                if (wx2Var != null) {
+                    wx2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(wx2 wx2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, wx2Var) != null) || wx2Var == null) {
+            return;
+        }
+        a.remove(wx2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            wx2 wx2Var = a.get(size);
+            if (wx2Var != null && TextUtils.equals(str, wx2Var.b())) {
+                wx2Var.onDestroy();
+            }
+        }
+    }
+
+    public static wx2 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wx2 wx2Var = a.get(size);
+                if (wx2Var != null && TextUtils.equals(str, wx2Var.c())) {
+                    return wx2Var;
+                }
+            }
+            return null;
+        }
+        return (wx2) invokeL.objValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wx2 wx2Var = a.get(size);
+                if (wx2Var != null && TextUtils.equals(str, wx2Var.b()) && wx2Var.onBackPressed()) {
+                    return true;
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public xx2() {
-        List<ux2> list;
+    public static wx2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
             }
-        }
-        this.a = new AtomicBoolean(false);
-        dl1<ux2> dl1Var = new wx2().a;
-        if (dl1Var == null) {
-            list = null;
-        } else {
-            list = dl1Var.getList();
-        }
-        this.b = list;
-    }
-
-    public void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext instanceof Application) {
-                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
-            }
-        }
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (ux2 ux2Var : this.b) {
-                    if (current == ux2Var.b()) {
-                        ux2Var.a(true, activity);
-                    }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wx2 wx2Var = a.get(size);
+                if (wx2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, wx2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, wx2Var.f())) || TextUtils.equals(str3, wx2Var.c())))) {
+                    return wx2Var;
                 }
             }
+            return null;
         }
+        return (wx2) invokeLLL.objValue;
     }
 
-    public void e(Activity activity) {
+    public static void i(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (ux2 ux2Var : this.b) {
-                    if (current == ux2Var.b()) {
-                        ux2Var.a(false, activity);
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            wx2 wx2Var = a.get(size);
+            if (wx2Var != null && TextUtils.equals(str, wx2Var.b())) {
+                wx2Var.k(z);
             }
         }
     }

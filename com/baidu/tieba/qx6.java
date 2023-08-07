@@ -1,82 +1,137 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.bi5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.Comparable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.properties.ReadWriteProperty;
-import kotlin.reflect.KProperty;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public final class qx6<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
+public class qx6 extends bi5 {
     public static /* synthetic */ Interceptable $ic;
+    public static qx6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<T, Unit> a;
-    public T b;
+    public LinkedList<ei5> a;
 
-    public qx6(T initial, Function1<? super T, Unit> onChange) {
+    @Override // com.baidu.tieba.bi5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.bi5
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107258, "Lcom/baidu/tieba/qx6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948107258, "Lcom/baidu/tieba/qx6;");
+                return;
+            }
+        }
+        b = new qx6();
+    }
+
+    public qx6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {initial, onChange};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(initial, "initial");
-        Intrinsics.checkNotNullParameter(onChange, "onChange");
-        this.a = onChange;
-        this.b = initial;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
-    /* renamed from: a */
-    public T getValue(Object thisRef, KProperty<?> property) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            return this.b;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty
-    /* renamed from: b */
-    public void setValue(Object thisRef, KProperty<?> property, T value) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            Intrinsics.checkNotNullParameter(value, "value");
-            T t = this.b;
-            this.b = value;
-            if (!Intrinsics.areEqual(t, value)) {
-                this.a.invoke(value);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String toString() {
+    public static synchronized qx6 e() {
+        InterceptResult invokeV;
+        qx6 qx6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (qx6.class) {
+                qx6Var = b;
+            }
+            return qx6Var;
+        }
+        return (qx6) invokeV.objValue;
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b.toString();
+            LinkedList<ei5> linkedList = this.a;
+            if (linkedList != null && linkedList.size() != 0) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bi5
+    public void b(bi5.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            LinkedList<ei5> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<ei5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    ei5 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
+                    }
+                }
+            } else if (TbFaceManager.i().m() > 0) {
+                this.a = new LinkedList<>();
+                px6 px6Var = new px6();
+                this.a.add(px6Var);
+                if (aVar != null) {
+                    aVar.a(px6Var);
+                }
+            }
+        }
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            LinkedList<ei5> linkedList = this.a;
+            if (linkedList != null) {
+                Iterator<ei5> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().m(str)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

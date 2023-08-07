@@ -1,164 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.tieba.yi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import okhttp3.Headers;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
 /* loaded from: classes6.dex */
-public class kv3<T> extends lv3 {
+public class kv3 implements jv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public ResponseCallback<T> f;
-    public int g;
-    public yi4.a h;
+    public lv3 a;
+    public boolean b;
 
-    @Override // com.baidu.tieba.lv3
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public final /* synthetic */ kv3 b;
-
-        public a(kv3 kv3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kv3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kv3Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (ru3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
-                }
-                if (this.b.f != null) {
-                    this.b.f.onFail(exc);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                if (ru3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
-                }
-                if (TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
-                    if (xu3.l().m().b()) {
-                        xu3.l().m().a();
-                        this.b.i(true);
-                        this.b.p();
-                        return;
-                    }
-                    this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
-                    return;
-                }
-                xu3.l().m().k();
-                kv3 kv3Var = this.b;
-                if (kv3Var.a) {
-                    if (kv3Var.b == 1) {
-                        wu3.a(MimeTypes.BASE_TYPE_APPLICATION);
-                        if (this.b.f != null) {
-                            this.b.f.onSuccess(this.a, i);
-                        }
-                        this.b.g = 0;
-                    } else if (kv3.m(kv3Var) >= 3) {
-                        ResponseCallback responseCallback = this.b.f;
-                        responseCallback.onFail(new IOException("request fail : " + this.a));
-                        this.b.g = 0;
-                    } else {
-                        kv3 kv3Var2 = this.b;
-                        kv3Var2.q(kv3Var2.d, this.b.e, this.b.f);
-                    }
-                } else if (kv3Var.f != null) {
-                    this.b.f.onSuccess(this.a, i);
-                    this.b.g = 0;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                Headers headers = response.headers();
-                String str = headers.get("Bdtls");
-                if (headers != null && TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
-                    xu3.l().m().s(0);
-                    return com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY;
-                }
-                kv3 kv3Var = this.b;
-                if (kv3Var.a) {
-                    ResponseBody body = response.body();
-                    String g = this.b.g(body.bytes());
-                    if (ru3.a) {
-                        Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
-                    }
-                    if (this.b.b == 1) {
-                        Buffer buffer = new Buffer();
-                        buffer.writeString(g, Charset.forName("utf-8"));
-                        Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                        if (this.b.f != null) {
-                            this.a = (T) this.b.f.parseResponse(build, i);
-                        }
-                    }
-                    return g;
-                } else if (kv3Var.f != null) {
-                    this.a = (T) this.b.f.parseResponse(response, i);
-                    return "";
-                } else {
-                    return "";
-                }
-            }
-            return (String) invokeLI.objValue;
-        }
-    }
-
-    public kv3() {
+    public kv3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -168,82 +29,41 @@ public class kv3<T> extends lv3 {
                 return;
             }
         }
-        this.d = null;
-        this.e = null;
-        this.f = null;
+        this.b = false;
+        c(context);
     }
 
-    public final void p() {
+    @Override // com.baidu.tieba.jv3
+    public void a() {
+        lv3 lv3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q(this.d, this.e, this.f);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (lv3Var = this.a) != null && lv3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
     }
 
-    public static /* synthetic */ int m(kv3 kv3Var) {
-        int i = kv3Var.g;
-        kv3Var.g = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.lv3
-    public void e(IOException iOException) {
-        ResponseCallback<T> responseCallback;
+    @Override // com.baidu.tieba.jv3
+    public void b(int i) {
+        lv3 lv3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) && (responseCallback = this.f) != null) {
-            responseCallback.onFail(iOException);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (lv3Var = this.a) != null && lv3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
     }
 
-    @Override // com.baidu.tieba.lv3
-    public void f(int i) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (ru3.a) {
-                Log.d("BDTLS", "onRequestError=" + i);
-            }
-            ResponseCallback<T> responseCallback = this.f;
-            if (responseCallback != null) {
-                responseCallback.onFail(new Exception("request error  code : " + i));
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = lv3.a(context);
         }
-    }
-
-    @Override // com.baidu.tieba.lv3
-    public void h(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            String str = this.d;
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/json");
-            if (this.a) {
-                hashMap.put("Bdtls", "Bdtls");
-            }
-            if (ru3.a) {
-                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
-            }
-            xg3 a2 = cv2.q().a();
-            PostByteRequest.PostByteRequestBuilder postByteRequest = zi4.g().postByteRequest();
-            yi4.a aVar = this.h;
-            if (aVar != null) {
-                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
-            }
-            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
-        }
-    }
-
-    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, responseCallback) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.d = str;
-        this.e = str2;
-        this.f = responseCallback;
-        if (ru3.a) {
-            Log.d("BDTLS", "requestPost url=" + str);
-            Log.d("BDTLS", "requestPost body=" + str2);
-        }
-        a(this.e);
     }
 }

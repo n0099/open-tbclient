@@ -219,12 +219,12 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo2295trySendJP2dKIU(E e) {
+    public Object mo2296trySendJP2dKIU(E e) {
         Closed offerInternal = offerInternal(e);
         if (offerInternal == null) {
-            return ChannelResult.Companion.m2315successJP2dKIU(Unit.INSTANCE);
+            return ChannelResult.Companion.m2316successJP2dKIU(Unit.INSTANCE);
         }
-        return ChannelResult.Companion.m2313closedJP2dKIU(offerInternal.getSendException());
+        return ChannelResult.Companion.m2314closedJP2dKIU(offerInternal.getSendException());
     }
 
     private final Subscriber<E>[] addSubscriber(Subscriber<E>[] subscriberArr, Subscriber<E> subscriber) {
@@ -309,7 +309,7 @@ public final class ConflatedBroadcastChannel<E> implements BroadcastChannel<E> {
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: invokeOnClose */
-    public void mo2354invokeOnClose(Function1<? super Throwable, Unit> function1) {
+    public void mo2355invokeOnClose(Function1<? super Throwable, Unit> function1) {
         if (!onCloseHandler$FU.compareAndSet(this, null, function1)) {
             Object obj = this.onCloseHandler;
             if (obj == AbstractChannelKt.HANDLER_INVOKED) {

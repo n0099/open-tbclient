@@ -1,45 +1,34 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lr3 {
+public class lr3 implements ku1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull kr3 kr3Var, @NonNull b23 b23Var) {
+    public lr3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, kr3Var, b23Var) == null) {
-            kr3Var.f(b23Var.d());
-            kr3Var.g(b23Var.e());
-            if (b23Var.g()) {
-                kr3Var.a(1);
-            } else {
-                kr3Var.e(1);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static FrameLayout.LayoutParams b(@NonNull cy1 cy1Var, @NonNull b23 b23Var) {
-        InterceptResult invokeLL;
-        int i;
+    @Override // com.baidu.tieba.ku1
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cy1Var, b23Var)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b23Var.f(), b23Var.c());
-            int i2 = 0;
-            if (b23Var.g()) {
-                i2 = cy1Var.getWebViewScrollX();
-                i = cy1Var.getWebViewScrollY();
-            } else {
-                i = 0;
-            }
-            layoutParams.leftMargin = b23Var.d() + i2;
-            layoutParams.topMargin = b23Var.e() + i;
-            return layoutParams;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            xr3.i(context);
         }
-        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

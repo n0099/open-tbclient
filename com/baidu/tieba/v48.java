@@ -1,88 +1,113 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class v48 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static HashMap<String, Integer> b;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190927, "Lcom/baidu/tieba/v48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a implements ThirdStatisticHelper.ThirdStatisticCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190927, "Lcom/baidu/tieba/v48;");
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onFailed(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                new StatisticItem("c12885").addParam("obj_param1", 1).eventStat();
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                new StatisticItem("c12885").addParam("obj_param1", 0).eventStat();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements ThirdStatisticHelper.ThirdStatisticCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onFailed(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                new StatisticItem("c12884").addParam("obj_param1", 1).eventStat();
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                new StatisticItem("c12884").addParam("obj_param1", 0).eventStat();
+            }
+        }
+    }
+
+    public static void a(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                new StatisticItem("c12885").addParam("obj_param1", 2).eventStat();
                 return;
             }
-        }
-        b = new HashMap<>();
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            b.clear();
-        }
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && !TextUtils.isEmpty(str) && e()) {
-            d(str);
-            if (b() >= 10) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
-                f(false);
+            for (String str : list) {
+                ThirdStatisticHelper.sendReq(str, new a());
             }
         }
     }
 
-    public static void d(String str) {
+    public static void b(List<String> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        b.put(str, 0);
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
-            if (!z) {
-                b.clear();
+        if (interceptable == null || interceptable.invokeL(65537, null, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                new StatisticItem("c12884").addParam("obj_param1", 2).eventStat();
+                return;
+            }
+            for (String str : list) {
+                ThirdStatisticHelper.sendReq(str, new b());
             }
         }
     }

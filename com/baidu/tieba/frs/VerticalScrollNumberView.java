@@ -3,12 +3,12 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,10 +50,10 @@ public class VerticalScrollNumberView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            this.b = yi.g(context, R.dimen.obfuscated_res_0x7f070201);
-            this.c = yi.g(this.a, R.dimen.obfuscated_res_0x7f070225);
-            this.d = yi.g(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = yi.g(this.a, R.dimen.obfuscated_res_0x7f07041c);
+            this.b = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070201);
+            this.c = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070225);
+            this.d = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f0701d4);
+            this.e = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f07041c);
         }
     }
 

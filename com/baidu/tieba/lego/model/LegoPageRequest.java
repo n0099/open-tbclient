@@ -3,12 +3,12 @@ package com.baidu.tieba.lego.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.yi;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,14 +56,14 @@ public class LegoPageRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ky5.a(builder, true);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             }
             builder.page_type = Integer.valueOf(this.pageType);
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
-            builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(yi.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
             if (!TextUtils.isEmpty(this.params)) {
                 builder.params = this.params;
             }

@@ -1,27 +1,15 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class uw9 {
+public class uw9 implements r26<tw9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public final dl1<tw9> a;
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bl1 b = bl1.b();
-            this.a = b;
-            b.a(new vw9());
-        }
-    }
 
     public uw9() {
         Interceptable interceptable = $ic;
@@ -33,18 +21,19 @@ public final class uw9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public final dl1<tw9> a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r26
+    /* renamed from: b */
+    public tw9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new tw9();
         }
-        return (dl1) invokeV.objValue;
+        return (tw9) invokeV.objValue;
     }
 }

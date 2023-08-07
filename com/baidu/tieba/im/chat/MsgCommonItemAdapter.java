@@ -8,13 +8,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ff;
+import com.baidu.tieba.gf;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.ln;
-import com.baidu.tieba.qf;
-import com.baidu.tieba.rf;
+import com.baidu.tieba.lm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class MsgCommonItemAdapter<T> extends ln<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends lm<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> a;
-    public qf b;
-    public rf c;
+    public ff b;
+    public gf c;
     public long d;
     public boolean e;
     public boolean f;
@@ -110,17 +110,17 @@ public abstract class MsgCommonItemAdapter<T> extends ln<ChatMessage, MsgViewHol
         }
     }
 
-    public void B(qf qfVar) {
+    public void B(ff ffVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qfVar) == null) {
-            this.b = qfVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ffVar) == null) {
+            this.b = ffVar;
         }
     }
 
-    public void C(rf rfVar) {
+    public void C(gf gfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rfVar) == null) {
-            this.c = rfVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gfVar) == null) {
+            this.c = gfVar;
         }
     }
 
@@ -185,7 +185,7 @@ public abstract class MsgCommonItemAdapter<T> extends ln<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.lm
     /* renamed from: x */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;

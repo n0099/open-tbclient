@@ -1,90 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dh3 extends gh3<JSONObject> {
+public class dh3 implements bh3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context m;
+    public JSONArray b;
 
-    public dh3(Context context) {
+    public dh3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.m = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg3
-    /* renamed from: P */
-    public JSONObject m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return tg3.c(jSONObject);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gh3
-    public HttpRequest w(gh3 gh3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gh3Var)) == null) {
-            return cv2.o().g(this.m, gh3Var.B());
-        }
-        return (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.sg3
-    public boolean j() {
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vb3 M = vb3.M();
-            if (M != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ma_id", M.O());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("stageError", this.b);
+            } catch (JSONException e) {
+                if (bh3.a) {
+                    Log.e("WhiteCollector", Log.getStackTraceString(e));
                 }
-                v("data", jSONObject.toString());
-                return true;
             }
-            return true;
+            return jSONObject;
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gh3
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return SwanInterfaceType.SWAN_ID;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            if (this.b == null) {
+                this.b = new JSONArray();
+            }
+            this.b.put(jSONObject);
+            if (bh3.a) {
+                Log.d("WhiteCollector", "FEStage: " + jSONObject);
+            }
         }
-        return (SwanInterfaceType) invokeV.objValue;
     }
 }

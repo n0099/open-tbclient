@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class tb6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sb6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public nb6 a;
+    public List<SpecialLiveTabInfo> b;
+    public boolean c;
+    public AlaUserInfoData d;
+    public ub6 e;
 
-    public static synchronized sb6 a() {
-        InterceptResult invokeV;
-        sb6 sb6Var;
+    public tb6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (tb6.class) {
-                if (a == null) {
-                    a = new sb6();
-                }
-                sb6Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb6Var;
         }
-        return (sb6) invokeV.objValue;
     }
 }

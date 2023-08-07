@@ -2,13 +2,13 @@ package com.baidu.tieba.pb.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jb5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jb5 o;
+    public z95 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -87,10 +87,10 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jb5 jb5Var = new jb5();
-            this.o = jb5Var;
-            jb5Var.s(R.color.CAM_X0903);
-            this.o.h(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
+            z95 z95Var = new z95();
+            this.o = z95Var;
+            z95Var.s(R.color.CAM_X0903);
+            this.o.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
             this.o.w(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.q(TBSpecificationButtonConfig.WebpType.PURE);
             this.o.i(R.color.CAM_X0304);

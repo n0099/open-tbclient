@@ -1,293 +1,233 @@
 package com.baidu.tieba;
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.os.Bundle;
+import android.database.Cursor;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.hy9;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.io.PrintStream;
 /* loaded from: classes5.dex */
-public final class f76 implements hy9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static f76 e;
+public class f76 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 0;
+    public static String b = "5";
+    public static String c = "6";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<hy9.a> a;
-    public final ConcurrentHashMap<String, hy9.b> b;
-    public hy9.c c;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hy9.a a;
-        public final /* synthetic */ f76 b;
-
-        public a(f76 f76Var, hy9.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f76Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f76Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.b.f(this.a);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717092, "Lcom/baidu/tieba/f76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947717092, "Lcom/baidu/tieba/f76;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947717092, "Lcom/baidu/tieba/f76;")) == null) {
+            return;
         }
-        d = Pattern.compile(UrlManager.patternText, 2);
-        e = new f76();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947717092, "Lcom/baidu/tieba/f76;");
+        }
     }
 
-    public static f76 l() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(a76.b);
+            if (file.exists()) {
+                FileHelper.deleteFileOrDir(file);
+            }
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", "").apply();
+        }
+    }
+
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).getString("bc_splash_info_new", "");
         }
-        return (f76) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public f76() {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList();
-        this.b = new ConcurrentHashMap<>();
-        this.c = null;
-    }
-
-    @Override // com.baidu.tieba.hy9
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || !d.matcher(str).find()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(hy9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (yi.F()) {
-                f(aVar);
-            } else {
-                zg.a().post(new a(this, aVar));
-            }
-        }
-    }
-
-    public final void f(hy9.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && !this.a.contains(aVar)) {
-            this.a.add(aVar);
-        }
-    }
-
-    public final String k(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (StringUtils.isNull(str) || (lastIndexOf = str.lastIndexOf(":")) < 0) {
-                return null;
-            }
-            return str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            if (str.contains(":")) {
-                return str.substring(0, str.lastIndexOf(":"));
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void o(hy9.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.hy9
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
-            h(context, strArr, false, null, z, bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.hy9
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) {
-            return h(context, strArr, false, null, false, bundle);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, hy9.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-                return false;
-            }
-            String str2 = strArr[0];
-            hy9.b bVar = this.b.get(m(str2));
-            if (bVar != null) {
-                bVar.a(context, j(k(str2)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = currentTimeMillis - a;
+            if (0 < j && j < 500) {
                 return true;
             }
-            Iterator<hy9.a> it = this.a.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    hy9.a next = it.next();
-                    if (next != null && next.a(context, strArr) != 3) {
-                        z3 = true;
-                        break;
-                    }
-                } else {
-                    z3 = false;
-                    break;
-                }
-            }
-            if (!z3 && this.c != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
-                }
-                n(context, str, strArr[0], z, dVar, z2, bundle);
-            }
-            return z3;
+            a = currentTimeMillis;
+            return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, hy9.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
+    public static void b(File file) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            return g(context, "", strArr, z, dVar, z2, bundle);
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File file2 = new File(a76.b);
+            if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
+                return;
+            }
+            for (File file3 : listFiles) {
+                if (file3 != null && !file3.equals(file)) {
+                    FileHelper.deleteFileOrDir(file3);
+                }
+            }
         }
-        return invokeCommon.booleanValue;
     }
 
-    public int i(Context context, String[] strArr) {
+    public static void f(AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, adInfo) == null) {
+            TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", l66.a(adInfo).toString()).apply();
+        }
+    }
+
+    public static void g(l66 l66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, l66Var) == null) {
+            if (l66Var == null) {
+                c();
+            } else {
+                TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", l66Var.toString()).apply();
+            }
+        }
+    }
+
+    public static void h(String str, String str2, String str3, String str4, int i, int i2, boolean z, long j) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param("resource_id", Math.max(i2, 0));
+            if (z) {
+                i3 = 2;
+            } else {
+                i3 = 1;
+            }
+            StatisticItem param2 = param.param("obj_param1", i3).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, j);
+            if (!StringUtils.isNull(str3)) {
+                param2.param(TiebaStatic.Params.OBJ_PARAM2, i);
+                param2.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+            }
+            if (StringUtils.isNull(str4)) {
+                param2.param(TiebaStatic.Params.OBJ_TO, str4);
+            }
+            TiebaStatic.log(param2);
+        }
+    }
+
+    public static void i(String str, String str2, String str3, String str4, String str5, String str6, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, str3, str4, str5, str6, Long.valueOf(j)}) == null) {
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, j);
+            if (!StringUtils.isNull(str4)) {
+                param.param(TiebaStatic.Params.OBJ_TO, str4);
+            }
+            if (!StringUtils.isNull(str3)) {
+                param.param("topic_id", str3);
+            }
+            if (!StringUtils.isNull(str5)) {
+                param.param("obj_param1", str5);
+                if (TbadkCoreApplication.getInst().isDebugMode() || GlobalBuildConfig.isTiebaDebugTool()) {
+                    PrintStream printStream = System.out;
+                    printStream.println("FunAdSdk show sid:" + str5 + " aid:" + str4 + " adAppId:" + str6);
+                }
+            }
+            if (!StringUtils.isNull(str6)) {
+                param.param(TiebaStatic.Params.OBJ_PARAM2, str6);
+            }
+            TiebaStatic.log(param);
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0056 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [android.database.Cursor] */
+    public static File j(Context context, Uri uri) {
         InterceptResult invokeLL;
-        int a2;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (hy9.a aVar : this.a) {
-                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                        return a2;
-                    }
-                }
-            }
-            return 3;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final Map<String, String> j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, uri)) == null) {
+            ?? r1 = 0;
+            if (context == null || uri == null) {
                 return null;
             }
-            HashMap hashMap = new HashMap();
-            String[] split = str.split("[&]");
-            if (split == null) {
-                hashMap.put(UrlManager.DEFAULT_PARAM, str);
-                return hashMap;
-            }
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
+            ContentResolver contentResolver = context.getContentResolver();
+            try {
+                if (contentResolver == null) {
+                    return null;
                 }
+                try {
+                    cursor = contentResolver.query(uri, new String[]{"_id", "_data"}, null, null, null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                                if (TextUtils.isEmpty(string)) {
+                                    Closeables.closeSafely(cursor);
+                                    return null;
+                                }
+                                Uri parse = Uri.parse(string);
+                                if (parse != null) {
+                                    String uri2 = parse.toString();
+                                    if (!TextUtils.isEmpty(uri2)) {
+                                        File file = new File(uri2);
+                                        Closeables.closeSafely(cursor);
+                                        return file;
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            Closeables.closeSafely(cursor);
+                            return null;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    Closeables.closeSafely((Cursor) r1);
+                    throw th;
+                }
+                Closeables.closeSafely(cursor);
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                r1 = context;
             }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, hy9.d dVar, boolean z2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
-            this.c.a(context, str, str2, z, dVar, z2, bundle);
+        } else {
+            return (File) invokeLL.objValue;
         }
     }
 }

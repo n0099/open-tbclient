@@ -1,89 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rn0 {
+public class rn0 extends jo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
+    public rn0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            y31.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            y31.e(jSONObject, "process", Math.round(d));
-            y31.f(jSONObject, "uri", str3);
-            y31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static void b(@Nullable jk0 jk0Var, boolean z, @Nullable Map<String, String> map) {
-        String str;
-        String str2;
+    @Override // com.baidu.tieba.jo0, com.baidu.tieba.mo0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{jk0Var, Boolean.valueOf(z), map}) != null) || jk0Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || !t61.b()) {
             return;
         }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        if (z) {
-            str = "0";
-        } else {
-            str = "202";
-        }
-        z31.e(map, "status", str);
-        if (z) {
-            str2 = "调用成功";
-        } else {
-            str2 = "";
-        }
-        z31.e(map, "message", str2);
-        jk0Var.a(z, map);
-    }
-
-    public static void c(@Nullable jk0 jk0Var, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, jk0Var, str, str2, str3, str4) != null) || jk0Var == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        y31.f(jSONObject, "uri", str2);
-        y31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        y31.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(jk0Var, true, hashMap);
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return y31.c(str).optString("bt_info");
-        }
-        return (String) invokeL.objValue;
+        qn0.b().request().a(true);
     }
 }

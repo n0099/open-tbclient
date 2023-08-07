@@ -5,9 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class v4c<E> extends w4c<E> {
+public abstract class v4c<E> extends x4c<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long e;
+    public E[] f;
 
     public v4c() {
         Interceptable interceptable = $ic;

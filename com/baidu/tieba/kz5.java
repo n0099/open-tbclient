@@ -1,163 +1,131 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.ViewGroupKt;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.sequences.Sequence;
 /* loaded from: classes6.dex */
-public final class kz5 {
+public class kz5 implements hz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kz5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public double c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947930403, "Lcom/baidu/tieba/kz5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947930403, "Lcom/baidu/tieba/kz5;");
-                return;
-            }
+    @Override // com.baidu.tieba.hz5
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return 1;
         }
-        a = new kz5();
+        return invokeI.intValue;
     }
 
-    public kz5() {
+    public kz5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @JvmStatic
-    public static final void a(View view2, View view3, View view4, View view5, UserIconBox userIconBox, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, view3, view4, view5, userIconBox, Integer.valueOf(i)}) == null) {
-            ArrayList arrayList = new ArrayList(4);
-            arrayList.add(view2);
-            arrayList.add(view3);
-            arrayList.add(view4);
-            arrayList.add(view5);
-            b(arrayList, userIconBox, i);
+        this.a = 3;
+        this.b = 3;
+        this.d = true;
+        if (i > 0) {
+            this.b = i;
         }
     }
 
-    @JvmStatic
-    public static final void b(List<? extends View> views, UserIconBox userIconBox, int i) {
+    @Override // com.baidu.tieba.hz5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, views, userIconBox, i) == null) {
-            Intrinsics.checkNotNullParameter(views, "views");
-            new StatisticItem("c15270").addParam("obj_locate", a.e(views).toString()).addParam("obj_type", a.d(userIconBox).toString()).addParam("obj_source", i).eventStat();
-        }
-    }
-
-    @JvmStatic
-    public static final void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", str2);
-            statisticItem.param("obj_locate", str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final StringBuilder d(UserIconBox userIconBox) {
-        InterceptResult invokeL;
-        Sequence<View> children;
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userIconBox)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (userIconBox != null && (children = ViewGroupKt.getChildren(userIconBox)) != null) {
-                int i = 0;
-                for (View view2 : children) {
-                    int i2 = i + 1;
-                    if (i < 0) {
-                        CollectionsKt__CollectionsKt.throwIndexOverflow();
-                    }
-                    View view3 = view2;
-                    if (view3 instanceof TbImageView) {
-                        tbImageView = (TbImageView) view3;
-                    } else {
-                        tbImageView = null;
-                    }
-                    if (tbImageView != null && tbImageView.getVisibility() == 0) {
-                        sb.append(tbImageView.getUrl());
-                        if (i != userIconBox.getChildCount() - 1) {
-                            sb.append(",");
-                        }
-                    }
-                    i = i2;
-                }
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return i2;
             }
-            return sb;
+            return e(constrainImageLayout, list, i2);
         }
-        return (StringBuilder) invokeL.objValue;
+        return invokeLLII.intValue;
     }
 
-    public final StringBuilder e(List<? extends View> list) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
+    public final double c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                View view2 = (View) obj;
-                if (view2 != null && view2.getVisibility() == 0) {
-                    z = true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            TbadkCoreApplication.getInst();
+            if (i == 1) {
+                return 0.5625d;
+            }
+            double d = this.c;
+            if (d > 0.0d) {
+                return d;
+            }
+            return 0.6666666666666666d;
+        }
+        return invokeI.doubleValue;
+    }
+
+    public void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.c = d;
+        }
+    }
+
+    public int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                if (count >= 2) {
+                    constrainImageLayout.setImageMaxChildCount(this.a);
+                    constrainImageLayout.setCanCenterStart(false);
                 } else {
-                    z = false;
+                    constrainImageLayout.setImageMaxChildCount(-1);
+                    constrainImageLayout.setCanCenterStart(true);
                 }
-                if (z) {
-                    str = "1";
+                int i3 = this.b;
+                int i4 = count - i3;
+                String str = null;
+                if (i4 > 0) {
+                    i2 = i3 + i;
+                    List<MediaData> subList = ListUtils.subList(list, i, i2);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i4)});
+                    if (this.d) {
+                        str = string;
+                    }
+                    constrainImageLayout.setExtraCenterText(str);
+                    constrainImageLayout.setUrls(subList, i, true, this.d);
                 } else {
-                    str = "0";
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
+                    constrainImageLayout.setExtraCenterText(null);
+                    i2 = count;
                 }
-                sb.append(str);
-                if (i != list.size() - 1) {
-                    sb.append(",");
-                }
-                i = i2;
+                constrainImageLayout.setSingleImageRatio(c(count));
+                return i2;
             }
-            return sb;
+            return i;
         }
-        return (StringBuilder) invokeL.objValue;
+        return invokeLLI.intValue;
     }
 }

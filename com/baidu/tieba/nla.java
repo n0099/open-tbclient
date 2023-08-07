@@ -1,36 +1,160 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ola;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class nla {
+public class nla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public vla b;
+    public ola c;
+    public ola.c d;
 
-    public static final int a() {
-        InterceptResult invokeV;
+    public nla(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                String e = rla.e();
-                Object systemService = TbadkCoreApplication.getInst().getContext().getSystemService("activity");
-                if (systemService != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) systemService).getRunningAppProcesses()) {
-                        if (Intrinsics.areEqual(runningAppProcessInfo.processName, e)) {
-                            return runningAppProcessInfo.pid;
-                        }
-                    }
-                    return -1;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type android.app.ActivityManager");
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        this.a = context;
+    }
+
+    public void h(vla vlaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vlaVar) == null) {
+            this.b = vlaVar;
+        }
+    }
+
+    public void i(ola.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.d = cVar;
+            ola olaVar = this.c;
+            if (olaVar != null) {
+                olaVar.h(cVar);
+            }
+        }
+    }
+
+    public static void a(List<vla> list, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65537, null, list, i, str, str2) != null) || list == null) {
+            return;
+        }
+        list.add(new vla(str, i, str2));
+    }
+
+    public static List<vla> c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a4, context.getString(R.string.obfuscated_res_0x7f0f073f), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a8, context.getString(R.string.obfuscated_res_0x7f0f073c), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806ab, context.getString(R.string.obfuscated_res_0x7f0f0740), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a7, context.getString(R.string.obfuscated_res_0x7f0f073a), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a2, context.getString(R.string.obfuscated_res_0x7f0f0737), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806af, context.getString(R.string.obfuscated_res_0x7f0f0744), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a1, context.getString(R.string.obfuscated_res_0x7f0f0736), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a9, context.getString(R.string.obfuscated_res_0x7f0f073d), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a3, context.getString(R.string.obfuscated_res_0x7f0f073b), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08069e, context.getString(R.string.obfuscated_res_0x7f0f0733), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a5, context.getString(R.string.obfuscated_res_0x7f0f0738), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806ad, context.getString(R.string.obfuscated_res_0x7f0f0742), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806ae, context.getString(R.string.obfuscated_res_0x7f0f0743), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a0, context.getString(R.string.obfuscated_res_0x7f0f0735), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806aa, context.getString(R.string.obfuscated_res_0x7f0f073e), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806a6, context.getString(R.string.obfuscated_res_0x7f0f0739), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806ac, context.getString(R.string.obfuscated_res_0x7f0f0741), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08069f, context.getString(R.string.obfuscated_res_0x7f0f0734), "blackwhite");
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return cla.f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            vla vlaVar = this.b;
+            if (vlaVar != null && !"normal".equalsIgnoreCase(vlaVar.c)) {
+                return this.b.c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e() {
+        ola olaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (olaVar = this.c) != null) {
+            olaVar.e();
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ola olaVar = this.c;
+            if (olaVar != null) {
+                return olaVar.f();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            ola olaVar = this.c;
+            if ((olaVar == null || !olaVar.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                ola olaVar2 = new ola(this.a, str, d(), str2);
+                this.c = olaVar2;
+                ola.c cVar = this.d;
+                if (cVar != null) {
+                    olaVar2.h(cVar);
+                }
+                this.c.i();
+            }
+        }
     }
 }

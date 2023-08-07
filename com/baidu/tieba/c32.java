@@ -1,116 +1,129 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c32 extends u22 {
+public class c32 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
 
-    @Override // com.baidu.tieba.yz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements b32 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ c32 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623751, "Lcom/baidu/tieba/c32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(c32 c32Var, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c32Var, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947623751, "Lcom/baidu/tieba/c32;");
-                return;
+            this.b = c32Var;
+            this.a = callbackHandler;
+        }
+
+        @Override // com.baidu.tieba.b32
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str == null) {
+                    str = "";
+                    str3 = str;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    jSONObject.put("scanType", str2);
+                    jSONObject.put("charSet", str3);
+                    jSONObject.put("result", str);
+                    y72.i("scanCode", jSONObject.toString());
+                    this.a.handleSchemeDispatchCallback(this.b.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                } catch (JSONException e) {
+                    if (vc3.b) {
+                        e.printStackTrace();
+                    }
+                    y72.i("scanCode", "scanCode exec fail");
+                    this.a.handleSchemeDispatchCallback(this.b.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                }
             }
         }
-        f = fs1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c32(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public c32(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/scanCode");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public static String z(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (!TextUtils.isEmpty(str)) {
-                    return str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.i("scanCode", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            } else if (ya3Var.n0()) {
+                if (vc3.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                return "log info is invalid";
-            } else if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.length() != 0) {
-                    return jSONObject.toString();
-                }
-                return "log info is invalid";
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
             } else {
-                return "log info is invalid";
+                String optString = yn3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    y72.i("scanCode", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                fu2.b0().a(ya3Var.w(), new a(this, callbackHandler));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void x(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || str == null || str.length() <= 3145728) {
-            return;
-        }
-        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
-    }
-
-    public v32 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f) {
-                Log.d("LogApi", "start logToFile action, params = " + str);
-                x(str);
-            }
-            Pair<v32, JSONObject> s = s(str);
-            if (!((v32) s.first).isSuccess()) {
-                return (v32) s.first;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            v82.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
-            return v32.f();
-        }
-        return (v32) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

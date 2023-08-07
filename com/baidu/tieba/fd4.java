@@ -1,158 +1,83 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes5.dex */
 public class fd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
-    public static String f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "boolean";
-                case 2:
-                case 3:
-                case 5:
-                    return "number";
-                case 4:
-                default:
-                    return "unknown";
-                case 6:
-                    return "array";
-                case 7:
-                    return EMABTest.TYPE_STRING;
-                case 8:
-                    return "function";
-                case 9:
-                    return "object";
-                case 10:
-                    return "arraybuffer";
-                case 11:
-                    return StringUtil.NULL_STRING;
-                case 12:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public fd4(String str, Object obj) {
+    public fd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = obj;
     }
 
-    public static Object a(fj2 fj2Var, String str, String str2, fd4 fd4Var) {
-        InterceptResult invokeLLLL;
+    public void b() {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, fj2Var, str, str2, fd4Var)) == null) {
-            if (fd4Var.g()) {
-                return fd4Var.d();
-            }
-            String a = cd4.a(str, str2, fd4Var.e());
-            fj2Var.throwJSException(JSExceptionType.Error, a);
-            return a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
+            jsFunction.call();
         }
-        return invokeLLLL.objValue;
     }
 
-    public static fd4 b(@NonNull String str) {
+    public void c() {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
+            jsFunction.call();
+        }
+    }
+
+    public static fd4 d(f32 f32Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new fd4(str, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f32Var)) == null) {
+            if (f32Var == null) {
+                return null;
+            }
+            fd4 fd4Var = new fd4();
+            JsFunction u = f32Var.u("onCheckForUpdate");
+            fd4Var.a = u;
+            if (u != null) {
+                u.setReleaseMode(false);
+            }
+            JsFunction u2 = f32Var.u("onUpdateReady");
+            fd4Var.b = u2;
+            if (u2 != null) {
+                u2.setReleaseMode(false);
+            }
+            JsFunction u3 = f32Var.u("onUpdateFailed");
+            fd4Var.c = u3;
+            if (u3 != null) {
+                u3.setReleaseMode(false);
+            }
+            return fd4Var;
         }
         return (fd4) invokeL.objValue;
     }
 
-    public static fd4 i(@Nullable Object obj) {
-        InterceptResult invokeL;
+    public void a(gd4 gd4Var) {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
-            return new fd4(null, obj);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, gd4Var) == null) && (jsFunction = this.a) != null) {
+            jsFunction.call(gd4Var);
         }
-        return (fd4) invokeL.objValue;
-    }
-
-    public static Object h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new JsObject();
-        }
-        return invokeV.objValue;
-    }
-
-    public Object d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (g()) {
-                return cd4.b(str);
-            }
-            return cd4.a(str, str2, e());
-        }
-        return (String) invokeLL.objValue;
     }
 }

@@ -1,214 +1,233 @@
 package com.baidu.tieba;
 
-import android.opengl.EGLContext;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Environment;
+import android.os.Process;
+import android.os.StatFs;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class af0 implements Cloneable, Comparable<af0> {
-    public static /* synthetic */ Interceptable $ic;
+public class af0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile int a = -1;
+    public static volatile String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLContext a;
-    public xe0 b;
-    public we0 c;
-    public ue0 d;
-    public ye0 e;
-    public boolean f;
-    public te0 g;
-    public ze0 h;
-    public int i;
-    public boolean j;
 
-    public af0(EGLContext eGLContext, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947613118, "Lcom/baidu/tieba/af0;")) == null) {
+            return;
         }
-        this.a = eGLContext;
-        this.i = i;
-        this.j = z;
-        this.b = new xe0();
-        this.c = new we0();
-        this.d = new ve0();
-        this.e = new ye0();
-        this.f = false;
-        this.g = null;
-        this.h = new ze0();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947613118, "Lcom/baidu/tieba/af0;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public af0 clone() {
-        af0 af0Var;
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                af0Var = (af0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                af0Var = null;
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    String path = Environment.getExternalStorageDirectory().getPath();
+                    if (path == null || path.length() <= 0) {
+                        xe0.d("sdk_Utils", "External path is null, so SDCard no free space");
+                        return -1L;
+                    }
+                    StatFs statFs = new StatFs(path);
+                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
+                }
+                return -1L;
+            } catch (Exception unused) {
+                xe0.d("sdk_Utils", "SDCard no free space");
+                return -1L;
             }
-            if (af0Var != null) {
-                af0Var.m(this.e.clone());
-                af0Var.q(this.h.clone());
-            }
-            return af0Var;
         }
-        return (af0) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: b */
-    public int compareTo(af0 af0Var) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, af0Var)) == null) {
-            if (this.i < af0Var.d()) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = null;
+            try {
+                if (e(context)) {
+                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
+                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+                    str = context.getExternalCacheDir().getPath();
+                }
+            } catch (Exception unused) {
             }
-            return 1;
+            return str;
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public void m(ye0 ye0Var) {
+    public static String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ye0Var) == null) {
-            this.e = ye0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String str = null;
+            if (context == null) {
+                xe0.e("sdk_Utils", "getVideoStatisticsPath ctx = null");
+                return null;
+            }
+            String b2 = b(context);
+            if (!TextUtils.isEmpty(b2)) {
+                str = b2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+            }
+            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
+            xe0.c("sdk_Utils", "Utils.getExternalStorageSpace():" + a());
+            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
+                str = str2;
+            }
+            new File(str).mkdirs();
+            if (!f()) {
+                str = str + File.separator + "remote";
+            }
+            xe0.c("sdk_Utils", "getVideoStatisticsPath folder:" + str);
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void n(EGLContext eGLContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, eGLContext) == null) {
-            this.a = eGLContext;
-        }
-    }
-
-    public void p(te0 te0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, te0Var) == null) {
-            this.g = te0Var;
-        }
-    }
-
-    public void q(ze0 ze0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, ze0Var) == null) {
-            this.h = ze0Var;
-        }
-    }
-
-    public void r(xe0 xe0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, xe0Var) == null) {
-            this.b = xe0Var;
-        }
-    }
-
-    public ye0 c() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = g();
+                if (TextUtils.isEmpty(b)) {
+                    b = h();
+                }
+                return b;
+            }
+            return b;
         }
-        return (ye0) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        PackageManager packageManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (context != null && (packageManager = context.getPackageManager()) != null) {
+                try {
+                    if (packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0) {
+                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public ue0 e() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (ue0) invokeV.objValue;
-    }
-
-    public EGLContext f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (EGLContext) invokeV.objValue;
-    }
-
-    public te0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return (te0) invokeV.objValue;
-    }
-
-    public ze0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.h;
-        }
-        return (ze0) invokeV.objValue;
-    }
-
-    public we0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (we0) invokeV.objValue;
-    }
-
-    public xe0 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (xe0) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a < 0) {
+                Context a2 = ve0.a();
+                if (a2 == null || a2.getPackageName().equals(d())) {
+                    a = 1;
+                } else {
+                    a = 0;
+                }
+            }
+            return a == 1;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean l() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int myPid = Process.myPid();
+            try {
+                ActivityManager activityManager = (ActivityManager) ve0.a().getSystemService("activity");
+                if (activityManager != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.pid == myPid) {
+                            return runningAppProcessInfo.processName;
+                        }
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
+            return (String) invokeV.objValue;
+        }
+        BufferedReader bufferedReader2 = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
+            try {
+                String readLine = bufferedReader.readLine();
+                if (!TextUtils.isEmpty(readLine)) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                } catch (IOException unused) {
+                }
+                return readLine;
+            } catch (Exception unused2) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused5) {
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 }

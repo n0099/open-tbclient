@@ -1,171 +1,161 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.z80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s90 {
+public class s90 extends p90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public z80.d b;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SharedPreferences a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Object c;
+    @Override // com.baidu.tieba.r90.b
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://httpsdns.baidu.com/v6/0025" : (String) invokeV.objValue;
+    }
 
-        public a(SharedPreferences sharedPreferences, String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sharedPreferences, str, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.r90.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p90, com.baidu.tieba.r90.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
+    }
+
+    public s90(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = context;
+    }
+
+    public void a(z80.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.b = dVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.r90.b
+    public Map<String, String> getHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Host", DnsTransmitter.IDC_HOST);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r90.b
+    public byte[] getRequestParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ("type=ipv4,ipv6&dn=" + e90.Z(this.a).D).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r90.d
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            if (v90.a) {
+                w90.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
+            }
+            z80.g(3, this.a);
+            z80.a(this.a).b(e90.Z(this.a).D, this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.r90.d
+    public void onSuccess(byte[] bArr) {
+        int length;
+        int length2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            String str = new String(bArr);
+            if (v90.a) {
+                w90.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + e90.Z(this.a).D + " is " + str);
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(e90.Z(this.a).D);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
+                if (optJSONArray2 == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray2.length();
+                }
+                if (optJSONArray == null) {
+                    length2 = 0;
+                } else {
+                    length2 = optJSONArray.length();
+                }
+                if (length2 + length > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && length2 > 0) {
+                        arrayList.add(optJSONArray.getString(0));
+                    }
+                    if (optJSONArray2 != null && length > 0) {
+                        arrayList.add(optJSONArray2.getString(0));
+                    }
+                    z80.h(arrayList, this.a);
+                    if (this.b != null && z80.b.size() > 0) {
+                        this.b.a(0, DnsModel.MSG_OK, z80.b.get(0));
+                        if (z80.b.size() > 1) {
+                            z80.c++;
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 }
-            }
-            this.a = sharedPreferences;
-            this.b = str;
-            this.c = obj;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                s90.l(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    public static int g(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, str, i)) == null) {
-            return context.getSharedPreferences("track_sp", 0).getInt(str, i);
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static void h(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65543, null, context, i, i2) == null) {
-            j(context, i + "real_time_track", i2);
-        }
-    }
-
-    public static void j(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65545, null, context, str, i) == null) {
-            m(context, str, Integer.valueOf(i));
-        }
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            context.getSharedPreferences("track_sp", 0).edit().clear().apply();
-        }
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            context.getSharedPreferences("track_sp", 0).edit().remove("track_request").remove("track_connection").apply();
-        }
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return g(context, "login_open_type", -1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (g(context, "track_upload_state", 1) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
-            if (g(context, i + "real_time_track", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void i(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, context, i) == null) {
-            j(context, "track_upload_state", i);
-        }
-    }
-
-    public static void k(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, context, i) == null) {
-            j(context, "login_open_type", i);
-        }
-    }
-
-    public static void l(SharedPreferences sharedPreferences, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, sharedPreferences, str, obj) == null) {
-            if (obj instanceof Boolean) {
-                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
-            } else if (obj instanceof Integer) {
-                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
-            } else if (obj instanceof Long) {
-                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
-            } else if (obj instanceof Float) {
-                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
-            } else if (obj instanceof String) {
-                sharedPreferences.edit().putString(str, (String) obj).apply();
-            }
-        }
-    }
-
-    public static void m(Context context, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, obj) == null) {
-            try {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("track_sp", 0);
-                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                    va0.a(context).b(new a(sharedPreferences, str, obj));
-                } else {
-                    l(sharedPreferences, str, obj);
+                if (v90.a) {
+                    w90.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
                 }
-            } catch (Throwable th) {
-                if (xa0.a) {
-                    ya0.b("TrackUtils", th.getMessage());
+                z80.g(3, this.a);
+                z80.a(this.a).b(e90.Z(this.a).D, this.b);
+            } catch (Exception e) {
+                if (v90.a) {
+                    w90.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
                 }
+                z80.g(3, this.a);
+                z80.a(this.a).b(e90.Z(this.a).D, this.b);
             }
         }
     }

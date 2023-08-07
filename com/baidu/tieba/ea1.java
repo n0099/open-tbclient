@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class ea1 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static <T> void a(@NonNull oa1 oa1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - a;
-            a = currentTimeMillis;
-            if (j > 0 && j < 1300) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, oa1Var, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeV.booleanValue;
+        if (!str.startsWith("javascript:")) {
+            str = "javascript:" + str;
+        }
+        oa1Var.loadUrl(str, null);
+    }
+
+    public static void b(@NonNull oa1 oa1Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{oa1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            a(oa1Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
+        }
     }
 }

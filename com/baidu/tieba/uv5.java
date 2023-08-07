@@ -1,367 +1,139 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Rect;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.Scopes;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class uv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public String i;
 
-    public uv5(eo eoVar) {
+    public static void a(int i, boolean z, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eoVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) != null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+    }
+
+    public static void b(int i, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) != null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+    }
+
+    public static void c(boolean z, Context context, ThreadData threadData, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, threadData, Integer.valueOf(i), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) && threadData != null) {
+            ArrayList arrayList = new ArrayList();
+            VideoItemData videoItemData = new VideoItemData();
+            if (z) {
+                videoItemData.buildWithOriginThreadData(threadData.originalThreadData);
+            } else {
+                videoItemData.buildWithThreadData(threadData);
+            }
+            arrayList.add(videoItemData);
+            OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+            boolean z3 = true;
+            if (originalThreadInfo != null && originalThreadInfo.r != null && threadData.getThreadData().originalThreadData.r.is_vertical.intValue() != 1) {
+                z3 = false;
+            }
+            String str6 = null;
+            OriginalThreadInfo originalThreadInfo2 = threadData.originalThreadData;
+            if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
+                str6 = baijiahaoData.oriUgcNid;
+            }
+            e(context, arrayList, str6, z3, i, rect, str, str2, str3, str4, str5, false, z2, true, threadData.getFid());
+        }
+    }
+
+    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(j)}) == null) {
+            e(context, list, str, z, i, rect, str2, str3, str4, str5, str6, z2, z3, false, j);
+        }
+    }
+
+    public static void e(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, boolean z4, long j) {
+        String str7;
+        String str8;
+        String str9;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Long.valueOf(j)}) == null) {
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i, rect, str2, str3, str4, str5, str6);
+            if (z4) {
+                videoPlayActivityConfig.setForceUseBigDataList(list);
+            }
+            videoPlayActivityConfig.setParamIsVertail(z);
+            videoPlayActivityConfig.setFid(String.valueOf(j));
+            TbSingleton tbSingleton = TbSingleton.getInstance();
+            if (z2 && ListUtils.getCount(list) > 0 && list.get(0) != null) {
+                str7 = list.get(0).thread_id;
+            } else {
+                str7 = null;
+            }
+            tbSingleton.setIsNeedShowPbCommentThreadId(str7);
+            if (str != null) {
+                videoPlayActivityConfig.setNid(str);
+            }
+            TbSingleton.getInstance().setIsNeedReuseVideoPlayer(true);
+            if ("frs".equals(str5)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(j)));
+            }
+            if (z3) {
+                if (ListUtils.getCount(list) > 0 && list.get(0) != null && !TextUtils.isEmpty(list.get(0).thread_id)) {
+                    String str10 = list.get(0).thread_id;
+                    str8 = list.get(0).forum_id;
+                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str8);
+                    int size = videoTabListByFid.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        if (videoTabListByFid.get(i3) != null && str10.equals(videoTabListByFid.get(i3).thread_id)) {
+                            str9 = str8;
+                            i2 = i3;
+                            break;
+                        }
+                    }
+                } else {
+                    str8 = "";
+                }
+                str9 = str8;
+                i2 = 0;
+                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i2, rect, str2, str3, str4, str5, str6);
+                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
+                frsVideoTabPlayActivityConfig.setFid(str9);
+                if ("frs".equals(str5)) {
+                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_FROM, FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE, "tran");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
                 return;
             }
-        }
-        this.a = 2;
-        this.b = "index";
-        this.c = "index";
-        this.d = "2001";
-        this.e = 1;
-        this.f = 1;
-        this.g = 1;
-        this.h = 3;
-        this.i = "personalize_page";
-        if (eoVar != null && eoVar.getListView() != null) {
-            String a = TbPageExtraHelper.findPageExtraByView(eoVar.getListView()).a();
-            this.a = c(a);
-            this.b = e(a);
-            this.c = d(a);
-            this.d = i(a);
-            this.e = a(a);
-            this.f = b(a);
-            this.g = f(a);
-            this.h = g(a);
-            this.i = h(a);
-            tw5.b("currentPageKey=" + a);
-            tw5.b(toString());
-        }
-    }
-
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if ("a072".equals(str)) {
-                return 10;
+            if ("frs".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_FRS, "video", "tran");
+            } else if ("index".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_HOME, "video", "tran");
             }
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 4;
-                }
-                if ("a007".equals(str)) {
-                    return 12;
-                }
-                if ("a038".equals(str)) {
-                    return 9;
-                }
-                if ("a066".equals(str)) {
-                    return 15;
-                }
-                if ("a067".equals(str)) {
-                    return 21;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 1;
-                }
-                if ("a011".equals(str)) {
-                    return 3;
-                }
-                if ("a068".equals(str)) {
-                    return 22;
-                }
-                if (!"a008".equals(str)) {
-                    return 1;
-                }
-                return 13;
-            }
-            return 2;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
         }
-        return invokeL.intValue;
-    }
-
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if ("a072".equals(str)) {
-                return 10;
-            }
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 7;
-                }
-                if ("a007".equals(str)) {
-                    return 9;
-                }
-                if ("a038".equals(str)) {
-                    return 4;
-                }
-                if ("a066".equals(str)) {
-                    return 11;
-                }
-                if ("a067".equals(str)) {
-                    return 18;
-                }
-                if (!"a001".equals(str) && !"a002".equals(str)) {
-                    if (!"a010".equals(str) && !"a014".equals(str)) {
-                        if ("a011".equals(str)) {
-                            return 3;
-                        }
-                        if ("a068".equals(str)) {
-                            return 19;
-                        }
-                        if ("a008".equals(str)) {
-                            return 10;
-                        }
-                    } else {
-                        return 5;
-                    }
-                }
-                return 1;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 20;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 2;
-                }
-                if ("a038".equals(str)) {
-                    return 1;
-                }
-                if ("a066".equals(str)) {
-                    return 18;
-                }
-                if ("a067".equals(str)) {
-                    return 19;
-                }
-                if ("a011".equals(str)) {
-                    return 4;
-                }
-                if ("a068".equals(str) || "a023".equals(str) || !"a024".equals(str)) {
-                    return 2;
-                }
-                return 17;
-            }
-            return 3;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return "pb";
-                }
-                if ("a007".equals(str) || "a001".equals(str) || "a002".equals(str)) {
-                    return "index";
-                }
-                if ("a038".equals(str)) {
-                    return "concern_tab";
-                }
-                if ("a066".equals(str)) {
-                    return ImageViewerConfig.FROM_GAME_VIDEO;
-                }
-                if ("a067".equals(str)) {
-                    return "video_tab";
-                }
-                if ("a011".equals(str)) {
-                    return Scopes.PROFILE;
-                }
-                if ("a068".equals(str)) {
-                    return "14";
-                }
-                if (!"a023".equals(str)) {
-                    return "index";
-                }
-                return "auto_midpage";
-            }
-            return "frs";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return "pb";
-                }
-                if ("a038".equals(str)) {
-                    return ImageViewerConfig.FROM_CONCERN;
-                }
-                if ("a066".equals(str)) {
-                    return ImageViewerConfig.FROM_GAME_VIDEO;
-                }
-                if ("a067".equals(str)) {
-                    return "video_tab";
-                }
-                if ("a001".equals(str)) {
-                    return "index";
-                }
-                "a002".equals(str);
-                return "index";
-            }
-            return "frs";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 4;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 1;
-                }
-                if ("a038".equals(str)) {
-                    return 9;
-                }
-                if ("a066".equals(str)) {
-                    return 12;
-                }
-                if ("a067".equals(str)) {
-                    return 16;
-                }
-                if (!"a011".equals(str)) {
-                    return 1;
-                }
-                return 8;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 2;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 3;
-                }
-                if ("a038".equals(str)) {
-                    return 4;
-                }
-                if ("a066".equals(str)) {
-                    return 9;
-                }
-                if ("a067".equals(str)) {
-                    return 10;
-                }
-                if ("a011".equals(str)) {
-                    return 6;
-                }
-                if ("a075".equals(str)) {
-                    return 12;
-                }
-                if (!"a076".equals(str)) {
-                    return 3;
-                }
-                return 13;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if (!"a001".equals(str) && !"a002".equals(str)) {
-                    if ("a011".equals(str)) {
-                        return "person_page";
-                    }
-                    if ("a038".equals(str)) {
-                        return "concern_page";
-                    }
-                    return null;
-                }
-                return "personalize_page";
-            }
-            return "frs_page";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return "2002";
-                }
-                if ("a023".equals(str)) {
-                    return "2005";
-                }
-                if ("a001".equals(str)) {
-                    return "2001";
-                }
-                "a002".equals(str);
-                return "2001";
-            }
-            return "2003";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "AdapterSourceItem:【pbPageFromType=" + this.a + ",imageViewerFromType=" + this.b + ",videoLocationType=" + this.c + ",videoStageType=" + this.d + ",agreeLocate=" + this.e + ",disagreeLocate=" + this.f + ",pageFrom=" + this.g + ",shareReportFrom=" + this.h + ",stType=" + this.i + "】";
-        }
-        return (String) invokeV.objValue;
     }
 }

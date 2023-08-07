@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public abstract class ab extends eb<CustomMessage<?>, CustomMessageTask> {
+public abstract class ab extends xa<SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +30,7 @@ public abstract class ab extends eb<CustomMessage<?>, CustomMessageTask> {
                 return;
             }
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.SOCKET) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

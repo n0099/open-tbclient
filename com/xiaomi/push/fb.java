@@ -43,21 +43,21 @@ public class fb implements bg.b.a {
         if (!this.f359a || this.a == 11) {
             return;
         }
-        ez m474a = fg.m472a().m474a();
+        ez m475a = fg.m473a().m475a();
         int i = fd.a[this.f358a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 eyVar = ey.BIND_SUCCESS;
             }
-            if (m474a != null) {
-                m474a.b(this.f355a.mo501a());
-                m474a.d(this.f357a.f938b);
-                m474a.f344b = 1;
+            if (m475a != null) {
+                m475a.b(this.f355a.mo502a());
+                m475a.d(this.f357a.f938b);
+                m475a.f344b = 1;
                 try {
-                    m474a.a((byte) Integer.parseInt(this.f357a.g));
+                    m475a.a((byte) Integer.parseInt(this.f357a.g));
                 } catch (NumberFormatException unused) {
                 }
-                fg.m472a().a(m474a);
+                fg.m473a().a(m475a);
                 return;
             }
             return;
@@ -70,22 +70,22 @@ public class fb implements bg.b.a {
         } else {
             try {
                 fe.a c = fe.c(fg.a().a());
-                m474a.f341a = c.a.a();
-                m474a.c(c.f360a);
+                m475a.f341a = c.a.a();
+                m475a.c(c.f360a);
             } catch (NullPointerException unused2) {
-                m474a = null;
+                m475a = null;
             }
-            if (m474a != null) {
+            if (m475a != null) {
             }
         }
-        m474a.f341a = eyVar.a();
-        if (m474a != null) {
+        m475a.f341a = eyVar.a();
+        if (m475a != null) {
         }
     }
 
     public void a() {
         this.f357a.a(this);
-        this.f355a = this.f356a.m742a();
+        this.f355a = this.f356a.m743a();
     }
 
     @Override // com.xiaomi.push.service.bg.b.a

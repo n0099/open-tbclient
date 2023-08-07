@@ -1,95 +1,111 @@
 package com.baidu.tieba;
 
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a8b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.Map;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
+import com.faceunity.gles.GeneratedTexture;
 /* loaded from: classes6.dex */
-public class k8b extends g8b {
+public class k8b extends MediaBaseRenderer implements z8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int[] b;
+    public int c;
+    public float d;
 
-    @Override // com.baidu.tieba.g8b
-    public Map<String, String> f(l8b l8bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l8bVar)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g8b
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 200;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.g8b
-    public void j(l8b l8bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l8bVar) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.g8b
-    public void n(l8b l8bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, l8bVar) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k8b(d8b d8bVar, l8b l8bVar, a8b.a aVar) {
-        super(d8bVar, l8bVar, aVar);
+    public k8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d8bVar, l8bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((d8b) objArr2[0], (l8b) objArr2[1], (a8b.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new int[1];
     }
 
-    @Override // com.baidu.tieba.g8b
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.z8b
+    public void a(t8b t8bVar, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(0L);
-            return randomAccessFile;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t8bVar, surfaceTexture) == null) {
+            int i = this.mSurfaceViewHeight;
+            int i2 = this.mSurfaceViewWidth;
+            float f = this.mRatio;
+            int i3 = i - ((int) (i2 * f));
+            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
+                b();
+                GLES20.glBindFramebuffer(36160, this.c);
+                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                GLES20.glClear(16640);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
+                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
+                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
+                GLES20.glBindFramebuffer(36160, 0);
+                t8bVar.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
+            } else if (this.mTextureMode == 1) {
+                t8bVar.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
+            } else {
+                t8bVar.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
+            }
+            t8bVar.f(surfaceTexture);
         }
-        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.g8b
-    public String h() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return k8b.class.getSimpleName();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d != this.mRatio) {
+                c();
+            }
+            if (this.a == 0) {
+                this.a = this.mFullScreen2D.createTexture2DObject();
+                int i = this.mSurfaceViewWidth;
+                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
+                GLES20.glBindTexture(3553, 0);
+                GLES20.glGenFramebuffers(1, this.b, 0);
+                this.c = this.b[0];
+                this.d = this.mRatio;
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
+            return;
+        }
+        GLES20.glDeleteFramebuffers(1, this.b, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
+        this.a = 0;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onDestroyInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroyInGlThread();
+            c();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onPauseInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPauseInGlThread();
+            c();
+        }
     }
 }

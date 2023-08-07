@@ -1,9 +1,11 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
 public interface ja5 {
-    void a(@Nullable Object... objArr);
+    void a(int i, float f);
 
-    void onDestroy();
+    void b(int i, float f);
+
+    void c(int i, float f);
+
+    void d(int i, float f);
 }

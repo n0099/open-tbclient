@@ -31,17 +31,17 @@ public class i {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a = a(eVar);
         String string = sharedPreferences.getString(a, "");
-        String m229c = b.m221a(context).m229c();
+        String m230c = b.m222a(context).m230c();
         String string2 = sharedPreferences.getString("last_check_token", "");
         if (TextUtils.isEmpty(a)) {
-            com.xiaomi.channel.commonutils.logger.b.m177a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m178a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return 0;
         } else if (TextUtils.isEmpty(string)) {
             return 1;
         } else {
             if (string.equals(str)) {
-                if (TextUtils.equals(m229c, string2)) {
-                    if (m246a(eVar)) {
+                if (TextUtils.equals(m230c, string2)) {
+                    if (m247a(eVar)) {
                         if (a() != sharedPreferences.getInt(b(eVar), 0)) {
                             return 4;
                         }
@@ -188,7 +188,7 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HashMap<String, String> m240a(Context context, e eVar) {
+    public static HashMap<String, String> m241a(Context context, e eVar) {
         t.a a;
         int a2;
         HashMap<String, String> hashMap = new HashMap<>();
@@ -227,7 +227,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m241a(Context context) {
+    public static void m242a(Context context) {
         boolean z = false;
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a = a(e.ASSEMBLE_PUSH_HUAWEI);
@@ -241,7 +241,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m242a(Context context, e eVar) {
+    public static void m243a(Context context, e eVar) {
         String a = a(eVar);
         if (TextUtils.isEmpty(a)) {
             return;
@@ -250,16 +250,16 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m243a(Context context, e eVar, String str) {
+    public static void m244a(Context context, e eVar, String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         int a = a(context, eVar, str);
         if (a == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m177a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m178a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m177a("ASSEMBLE_PUSH : send token upload, check:" + a);
+        com.xiaomi.channel.commonutils.logger.b.m178a("ASSEMBLE_PUSH : send token upload, check:" + a);
         a(context, str);
         au a2 = l.a(eVar);
         if (a2 == null) {
@@ -289,7 +289,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m244a(Context context) {
+    public static boolean m245a(Context context) {
         if (context == null) {
             return false;
         }
@@ -297,28 +297,28 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m245a(Context context, e eVar) {
-        if (l.m248a(eVar) != null) {
-            return ba.a(context).a(l.m248a(eVar).a(), true);
+    public static boolean m246a(Context context, e eVar) {
+        if (l.m249a(eVar) != null) {
+            return ba.a(context).a(l.m249a(eVar).a(), true);
         }
         return false;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m246a(e eVar) {
+    public static boolean m247a(e eVar) {
         return eVar == e.ASSEMBLE_PUSH_FTOS || eVar == e.ASSEMBLE_PUSH_FCM;
     }
 
     public static boolean a(id idVar, e eVar) {
-        if (idVar == null || idVar.m621a() == null || idVar.m621a().m582a() == null) {
+        if (idVar == null || idVar.m622a() == null || idVar.m622a().m583a() == null) {
             return false;
         }
-        return (eVar == e.ASSEMBLE_PUSH_FCM ? "FCM" : "").equalsIgnoreCase(idVar.m621a().m582a().get("assemble_push_type"));
+        return (eVar == e.ASSEMBLE_PUSH_FCM ? "FCM" : "").equalsIgnoreCase(idVar.m622a().m583a().get("assemble_push_type"));
     }
 
     public static byte[] a(Context context, id idVar, e eVar) {
         if (a(idVar, eVar)) {
-            return bn.m294a(a(context, eVar));
+            return bn.m295a(a(context, eVar));
         }
         return null;
     }
@@ -360,17 +360,17 @@ public class i {
         synchronized (i.class) {
             String a = a(eVar);
             if (TextUtils.isEmpty(a)) {
-                com.xiaomi.channel.commonutils.logger.b.m177a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                com.xiaomi.channel.commonutils.logger.b.m178a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 return;
             }
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
-            edit.putString(a, str).putString("last_check_token", b.m221a(context).m229c());
-            if (m246a(eVar)) {
+            edit.putString(a, str).putString("last_check_token", b.m222a(context).m230c());
+            if (m247a(eVar)) {
                 edit.putInt(b(eVar), a());
             }
             edit.putString("syncingToken", "");
             com.xiaomi.push.q.a(edit);
-            com.xiaomi.channel.commonutils.logger.b.m177a("ASSEMBLE_PUSH : update sp file success!  " + str);
+            com.xiaomi.channel.commonutils.logger.b.m178a("ASSEMBLE_PUSH : update sp file success!  " + str);
         }
     }
 }

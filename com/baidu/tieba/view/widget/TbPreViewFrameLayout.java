@@ -8,8 +8,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -205,12 +205,12 @@ public class TbPreViewFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int l = yi.l(getContext());
-            int j = yi.j(getContext());
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(getContext());
             a aVar = this.g;
-            int[] a2 = aVar != null ? aVar.a() : new int[]{yi.l(getContext()), yi.j(getContext())};
-            a2[0] = Math.min(l, a2[0]);
-            a2[1] = Math.min(j, a2[1]);
+            int[] a2 = aVar != null ? aVar.a() : new int[]{BdUtilHelper.getEquipmentWidth(getContext()), BdUtilHelper.getEquipmentHeight(getContext())};
+            a2[0] = Math.min(equipmentWidth, a2[0]);
+            a2[1] = Math.min(equipmentHeight, a2[1]);
             return a2;
         }
         return (int[]) invokeV.objValue;
@@ -237,7 +237,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
                     } else if (Math.abs(this.c - motionEvent.getX()) > this.e && (motionEvent.getX() - this.c) - 50.0f > Math.abs(this.d - motionEvent.getY()) && this.i && (cVar = this.f) != null) {
                         cVar.a(motionEvent);
                     }
-                    if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= yi.j(getContext()) * 0.6d && (cVar2 = this.f) != null) {
+                    if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= BdUtilHelper.getEquipmentHeight(getContext()) * 0.6d && (cVar2 = this.f) != null) {
                         cVar2.c(motionEvent);
                     }
                 }

@@ -4,17 +4,17 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class BdToastHelper {
                 if (contentBean2 != null) {
                     if (TbadkApplication.getInst().getSkinType() == 4) {
                         if (StringUtils.isNotNull(contentBean2.getTextColorDark())) {
-                            foregroundColorSpan = new ForegroundColorSpan(dba.f(contentBean2.getTextColorDark()));
+                            foregroundColorSpan = new ForegroundColorSpan(x9a.f(contentBean2.getTextColorDark()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -113,7 +113,7 @@ public class BdToastHelper {
                         }
                     } else {
                         if (StringUtils.isNotNull(contentBean2.getTextColor())) {
-                            foregroundColorSpan = new ForegroundColorSpan(dba.f(contentBean2.getTextColor()));
+                            foregroundColorSpan = new ForegroundColorSpan(x9a.f(contentBean2.getTextColor()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -135,41 +135,41 @@ public class BdToastHelper {
     public static void setToastIcon(BdToast bdToast, BdToastData bdToastData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, bdToast, bdToastData) == null) && bdToast != null && bdToastData != null) {
-            bdToast.j(bdToastData.getIconUrl());
-            bdToast.k(bdToastData.getIconUrlDark());
-            bdToast.h(bdToastData.getIconWidth(), bdToastData.getIconHeight());
-            bdToast.n(bdToastData.getHudWidth());
+            bdToast.setIconUrl(bdToastData.getIconUrl());
+            bdToast.setIconUrlDark(bdToastData.getIconUrlDark());
+            bdToast.setIconSize(bdToastData.getIconWidth(), bdToastData.getIconHeight());
+            bdToast.setTextViewMinWidth(bdToastData.getHudWidth());
             if (bdToastData.getIconType() == 1) {
-                bdToast.g(BdToast.ToastIcon.SUCCESS);
+                bdToast.setIcon(BdToast.ToastIcon.SUCCESS);
             } else if (bdToastData.getIconType() == 2) {
-                bdToast.g(BdToast.ToastIcon.FAILURE);
+                bdToast.setIcon(BdToast.ToastIcon.FAILURE);
             } else if (bdToastData.getIconType() == 3) {
-                bdToast.f(R.drawable.icon_mask_frs_firstlike40);
+                bdToast.setIcon(R.drawable.icon_mask_frs_firstlike40);
             } else if (bdToastData.getIconType() == 4) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds286);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds203);
-                bdToast.f(R.drawable.icon_mask_toast_grow);
-                bdToast.h(dimenPixelSize, dimenPixelSize2);
+                bdToast.setIcon(R.drawable.icon_mask_toast_grow);
+                bdToast.setIconSize(dimenPixelSize, dimenPixelSize2);
             } else if (bdToastData.getIconType() == 5) {
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds286);
                 int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds203);
-                bdToast.f(R.drawable.icon_mask_usergrowthjiasu);
-                bdToast.h(dimenPixelSize3, dimenPixelSize4);
+                bdToast.setIcon(R.drawable.icon_mask_usergrowthjiasu);
+                bdToast.setIconSize(dimenPixelSize3, dimenPixelSize4);
             } else if (bdToastData.getIconType() == 6) {
                 int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.tbds580);
                 int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.tbds231);
-                bdToast.f(R.drawable.icon_mask_world_cup_flag);
-                bdToast.h(dimenPixelSize5, dimenPixelSize6);
+                bdToast.setIcon(R.drawable.icon_mask_world_cup_flag);
+                bdToast.setIconSize(dimenPixelSize5, dimenPixelSize6);
             } else if (bdToastData.getIconType() == 7) {
                 int dimenPixelSize7 = UtilHelper.getDimenPixelSize(R.dimen.tbds580);
                 int dimenPixelSize8 = UtilHelper.getDimenPixelSize(R.dimen.tbds231);
-                bdToast.f(R.drawable.icon_mask_world_cup_ball);
-                bdToast.h(dimenPixelSize7, dimenPixelSize8);
+                bdToast.setIcon(R.drawable.icon_mask_world_cup_ball);
+                bdToast.setIconSize(dimenPixelSize7, dimenPixelSize8);
             } else if (bdToastData.getIconType() == 8) {
                 int dimenPixelSize9 = UtilHelper.getDimenPixelSize(R.dimen.tbds580);
                 int dimenPixelSize10 = UtilHelper.getDimenPixelSize(R.dimen.tbds231);
-                bdToast.f(R.drawable.icon_mask_festival_firworks);
-                bdToast.i(dimenPixelSize9, dimenPixelSize10, UtilHelper.getDimenPixelSize(R.dimen.tbds12));
+                bdToast.setIcon(R.drawable.icon_mask_festival_firworks);
+                bdToast.setIconSizeAndTopMargin(dimenPixelSize9, dimenPixelSize10, UtilHelper.getDimenPixelSize(R.dimen.tbds12));
             }
         }
     }
@@ -177,9 +177,9 @@ public class BdToastHelper {
     public static void showToastByUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            TbWebViewActivityConfig g = nx4.g(TbadkCoreApplication.getInst(), null, str, true);
-            g.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            g.start();
+            TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(TbadkCoreApplication.getInst(), null, str, true);
+            activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            activityConfig.start();
             if (mBdToastData.getTaskIds() != null && mBdToastData.getTaskIds().length > 0) {
                 showToastLog(mBdToastData.getTaskIds());
             }
@@ -209,11 +209,11 @@ public class BdToastHelper {
                 return;
             }
             if (!TextUtils.isEmpty(bdToastData.getUrl()) && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                if (yi.F()) {
+                if (BdUtilHelper.isMainThread()) {
                     showToastByUrl(bdToastData.getUrl());
                     return;
                 } else {
-                    zg.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                    SafeHandler.getInst().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToastData val$data;
@@ -249,16 +249,16 @@ public class BdToastHelper {
             }
             SpannableString toastSpannableString = getToastSpannableString(bdToastData);
             if (toastSpannableString != null) {
-                BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
-                setToastIcon(b, bdToastData);
-                int f = dba.f(bdToastData.getBackground());
+                BdToast makeText = BdToast.makeText(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
+                setToastIcon(makeText, bdToastData);
+                int f = x9a.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
-                    b.c(f);
+                    makeText.setBackgroundColor(f);
                 }
-                if (yi.F()) {
-                    b.q();
+                if (BdUtilHelper.isMainThread()) {
+                    makeText.show();
                 } else {
-                    zg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
+                    SafeHandler.getInst().post(new Runnable(makeText) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToast val$bdToast;
@@ -268,7 +268,7 @@ public class BdToastHelper {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {b};
+                                Object[] objArr = {makeText};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i = newInitContext.flag;
                                 if ((i & 1) != 0) {
@@ -278,14 +278,14 @@ public class BdToastHelper {
                                     return;
                                 }
                             }
-                            this.val$bdToast = b;
+                            this.val$bdToast = makeText;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.val$bdToast.q();
+                                this.val$bdToast.show();
                             }
                         }
                     });

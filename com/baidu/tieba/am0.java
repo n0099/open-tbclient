@@ -1,58 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import androidx.annotation.Nullable;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class am0 extends SQLiteOpenHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface am0 {
+    void a(int i, long j, long j2);
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
+    void b(long j, File file);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am0() {
-        super(rk0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((Context) objArr[0], (String) objArr[1], (SQLiteDatabase.CursorFactory) objArr[2], ((Integer) objArr[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void c(int i, int i2);
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            f51[] f51VarArr = {new l41().b()};
-            for (int i = 0; i < 1; i++) {
-                f51 f51Var = f51VarArr[i];
-                sQLiteDatabase.execSQL(c51.b(f51Var));
-                Iterator<String> it = c51.a(f51Var).iterator();
-                while (it.hasNext()) {
-                    sQLiteDatabase.execSQL(it.next());
-                }
-            }
-        }
-    }
+    void d(@Nullable ml0 ml0Var);
+
+    void onSuccess(int i);
 }

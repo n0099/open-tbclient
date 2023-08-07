@@ -92,9 +92,9 @@ public class EmotionFloatView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0294, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0297, (ViewGroup) this, true);
             this.a = (GifView) findViewById(R.id.emotion_view);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090865);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090874);
         }
     }
 
@@ -116,7 +116,7 @@ public class EmotionFloatView extends LinearLayout {
         GifView gifView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gifInfo) == null) && (gifView = this.a) != null) {
-            gifView.l0(gifInfo);
+            gifView.t(gifInfo);
         }
     }
 

@@ -17,18 +17,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.ji6;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.pf6;
+import com.baidu.tieba.vh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,13 +43,13 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public ji6.c f;
+    public pf6.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
 
     /* loaded from: classes5.dex */
-    public class a extends rg<jn> {
+    public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEffectPreviewView a;
@@ -73,26 +73,26 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
-            Bitmap p;
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
+            Bitmap rawBitmap;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
-                super.onLoaded((a) jnVar, str, i);
-                if (jnVar == null || (p = jnVar.p()) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((a) bdImage, str, i);
+                if (bdImage == null || (rawBitmap = bdImage.getRawBitmap()) == null) {
                     return;
                 }
                 try {
-                    if (p.getConfig() == null) {
-                        p = p.copy(Bitmap.Config.ARGB_8888, false);
+                    if (rawBitmap.getConfig() == null) {
+                        rawBitmap = rawBitmap.copy(Bitmap.Config.ARGB_8888, false);
                     } else {
-                        p = p.copy(p.getConfig(), false);
+                        rawBitmap = rawBitmap.copy(rawBitmap.getConfig(), false);
                     }
                 } catch (OutOfMemoryError e) {
                     BdLog.e(e);
-                    if (p.getConfig() == null) {
+                    if (rawBitmap.getConfig() == null) {
                         try {
-                            p = p.copy(Bitmap.Config.RGB_565, false);
+                            rawBitmap = rawBitmap.copy(Bitmap.Config.RGB_565, false);
                         } catch (OutOfMemoryError e2) {
                             BdLog.e(e2);
                             return;
@@ -101,19 +101,19 @@ public class AlaEffectPreviewView extends LinearLayout {
                         return;
                     }
                 }
-                if (p == null) {
+                if (rawBitmap == null) {
                     return;
                 }
                 try {
-                    Bitmap f = ri.d().f(p, yi.l(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
-                    if (f != p) {
-                        p.recycle();
+                    Bitmap f = vh.d().f(rawBitmap, BdUtilHelper.getEquipmentWidth(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    if (f != rawBitmap) {
+                        rawBitmap.recycle();
                     }
                     this.a.d.setImageBitmap(f);
                 } catch (OutOfMemoryError e3) {
                     BdLog.e(e3);
-                    if (p != null) {
-                        p.recycle();
+                    if (rawBitmap != null) {
+                        rawBitmap.recycle();
                     }
                 }
             }
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(ji6.c cVar) {
+    public void setAnimCompleteCallback(pf6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -335,10 +335,10 @@ public class AlaEffectPreviewView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f3, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901f4);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901db);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f6);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f6);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901f5);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901dc);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f7);
         }
     }
 
@@ -356,9 +356,9 @@ public class AlaEffectPreviewView extends LinearLayout {
             if (getMeasuredWidth() <= 0) {
                 measure(0, 0);
             }
-            int l = yi.l(getContext());
-            this.a = l;
-            this.b = (l - getMeasuredWidth()) / 2;
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            this.a = equipmentWidth;
+            this.b = (equipmentWidth - getMeasuredWidth()) / 2;
             View view2 = this.c;
             int i = this.a;
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "TranslationX", i, -i);
@@ -401,7 +401,7 @@ public class AlaEffectPreviewView extends LinearLayout {
             this.d.setVisibility(8);
         } else {
             this.d.setVisibility(0);
-            sg.h().m(str3, 10, new a(this), null);
+            BdResourceLoader.getInstance().loadResource(str3, 10, new a(this), null);
         }
         this.e.setText(spannableStringBuilder);
         String str4 = alaEnterEffectData.color;

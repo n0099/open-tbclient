@@ -6,15 +6,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class hl4 {
+public class hl4 implements il4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract xl4 a();
-
-    public abstract boolean b(xl4 xl4Var);
-
-    public abstract void c(boolean z);
 
     public hl4() {
         Interceptable interceptable = $ic;
@@ -30,12 +24,13 @@ public abstract class hl4 {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.il4
+    public uk4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return sk4.a(str, i);
         }
-        return (String) invokeV.objValue;
+        return (uk4) invokeLI.objValue;
     }
 }

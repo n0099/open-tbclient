@@ -1,7 +1,7 @@
 package com.baidu.bdtask.service.cache.storage.storer.file.history;
 
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.uv;
+import com.baidu.tieba.tu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
@@ -32,7 +32,7 @@ public interface b {
                     FilesKt__UtilsKt.copyTo$default(a, file, false, 0, 6, null);
                     a.delete();
                     DebugTrace.a.c(FileV1StorageUpgrade$onProcessV1StorageFile$1.INSTANCE);
-                    uv.c.a();
+                    tu.c.a();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }

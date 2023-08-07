@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class z1b {
+public class z1b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static int b;
+    public static final boolean f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,64 +34,71 @@ public final class z1b {
                 return;
             }
         }
-        a = new Object();
+        f = y1b.a & true;
+        g = "ControlData";
     }
 
-    public static void a(StringBuilder sb) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, sb) == null) {
-            sb.append(" TurboNet/");
-            sb.append(h1b.a());
-        }
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(context.getPackageName());
-            sb.append(WebvttCueParser.CHAR_SLASH);
-            sb.append(c(context));
-            sb.append(" (Linux; U; Android ");
-            sb.append(Build.VERSION.RELEASE);
-            sb.append("; ");
-            sb.append(Locale.getDefault().toString());
-            String str = Build.MODEL;
-            if (str.length() > 0) {
-                sb.append("; ");
-                sb.append(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i == this.c) {
+                return true;
             }
-            String str2 = Build.ID;
-            if (str2.length() > 0) {
-                sb.append("; Build/");
-                sb.append(str2);
-            }
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            a(sb);
-            sb.append(')');
-            return sb.toString();
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static int c(Context context) {
-        InterceptResult invokeL;
-        int i;
+    public z1b(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            synchronized (a) {
-                if (b == 0) {
-                    try {
-                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-                    } catch (PackageManager.NameNotFoundException e) {
-                        throw new IllegalStateException("Cannot determine package version", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = i;
+        this.c = i2;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                Long valueOf = Long.valueOf(System.currentTimeMillis());
+                if (f) {
+                    Log.d(g, "id " + this.a + " mLimitUnit " + this.b + " mLimitCnt " + this.c + "mCount =  " + this.e + " duration " + ((valueOf.longValue() - this.d) / 1000));
+                }
+                if (this.d != 0 && (valueOf.longValue() - this.d) / 1000 <= this.b && this.e >= this.c) {
+                    if (f) {
+                        Log.d(g, "control");
+                    }
+                    return true;
+                }
+                if (this.d == 0) {
+                    this.d = valueOf.longValue();
+                } else if ((valueOf.longValue() - this.d) / 1000 > this.b) {
+                    this.d = valueOf.longValue();
+                    this.e = 0;
+                    if (f) {
+                        Log.d(g, "reset");
                     }
                 }
-                i = b;
+                this.e++;
             }
-            return i;
+            return false;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 }

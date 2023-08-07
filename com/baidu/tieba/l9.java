@@ -1,26 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.base.BdPageContextSupport;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
-public interface l9<T> {
-    Context getContext();
+public class l9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    T getOrignalPage();
+    public static BdPageContext<?> a(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof BdPageContext) {
+                return (BdPageContext) context;
+            }
+            if (context instanceof BdPageContextSupport) {
+                return ((BdPageContextSupport) context).getPageContext();
+            }
+            Field b = th.b(context.getClass(), k9.class);
+            if (b == null || (a = th.a(context, b)) == null || !(a instanceof k9) || !(a instanceof BdPageContextSupport)) {
+                return null;
+            }
+            return ((BdPageContextSupport) a).getPageContext();
+        }
+        return (BdPageContext) invokeL.objValue;
+    }
 
-    Activity getPageActivity();
+    public static k9 c(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof k9) {
+                return (k9) context;
+            }
+            if (context instanceof BdPageContextSupport) {
+                Object orignalPage = ((BdPageContextSupport) context).getPageContext().getOrignalPage();
+                if (orignalPage instanceof k9) {
+                    return (k9) orignalPage;
+                }
+            }
+            Field b = th.b(context.getClass(), k9.class);
+            if (b == null || (a = th.a(context, b)) == null || !(a instanceof k9)) {
+                return null;
+            }
+            return (k9) a;
+        }
+        return (k9) invokeL.objValue;
+    }
 
-    Resources getResources();
-
-    String getString(int i);
-
-    BdUniqueId getUniqueId();
-
-    void registerListener(MessageListener<?> messageListener);
-
-    void sendMessage(Message<?> message);
+    public static BdPageContextSupport<?> b(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof BdPageContextSupport) {
+                return (BdPageContextSupport) context;
+            }
+            Field b = th.b(context.getClass(), k9.class);
+            if (b == null || (a = th.a(context, b)) == null || !(a instanceof k9) || !(a instanceof BdPageContextSupport)) {
+                return null;
+            }
+            return (BdPageContextSupport) a;
+        }
+        return (BdPageContextSupport) invokeL.objValue;
+    }
 }

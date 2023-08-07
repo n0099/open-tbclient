@@ -1,92 +1,146 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
+import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class he5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
-    public static List<String> b;
+    public static volatile he5 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public final HttpMessageListener c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820849, "Lcom/baidu/tieba/he5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ he5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(he5 he5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {he5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947820849, "Lcom/baidu/tieba/he5;");
+            this.a = he5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.a = false;
+                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003543 || !(httpResponsedMessage instanceof HotEventRespondedMessage) || httpResponsedMessage.getError() != 0) {
+                    return;
+                }
+                hf5.u(HotEventData.getInstance());
+            }
+        }
+    }
+
+    public he5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+        this.a = false;
+        this.b = "";
+        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
+        c();
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        String w;
+    public static he5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return false;
-            }
-            Uri parse = Uri.parse(str);
-            if (parse != null && "file".equals(parse.getScheme()) && parse.getPath() != null && parse.getPath().contains("bdtbNWCache")) {
-                return true;
-            }
-            if (b == null && (w = da5.p().w("js_host_white_list", null)) != null) {
-                b = b(w);
-            }
-            if (b == null) {
-                b = a;
-            }
-            if (parse != null) {
-                for (String str2 : b) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        String host = parse.getHost();
-                        if (!TextUtils.isEmpty(host) && host.endsWith(str2)) {
-                            return true;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (he5.class) {
+                    if (d == null) {
+                        d = new he5();
                     }
                 }
             }
-            return false;
+            return d;
         }
-        return invokeL.booleanValue;
+        return (he5) invokeV.objValue;
     }
 
-    public static List<String> b(String str) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return null;
-            }
-            return Arrays.asList(str.split(ParamableElem.DIVIDE_PARAM));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
         }
-        return (List) invokeL.objValue;
     }
 
-    public static void c(String str) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (str == null) {
-                da5.p().J("js_host_white_list", "");
-            } else {
-                da5.p().J("js_host_white_list", str);
-            }
-            b = b(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a) {
+            return;
+        }
+        if (!this.b.equals(str)) {
+            this.b = str;
+            g();
+            d(str);
+        }
+        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
+        this.a = true;
     }
 }

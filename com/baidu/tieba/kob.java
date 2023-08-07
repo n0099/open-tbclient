@@ -1,47 +1,90 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kob implements Handler.Callback {
+public class kob extends bob {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, bob> a;
+    public static final Object b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ lob a;
 
-    public kob(lob lobVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921227, "Lcom/baidu/tieba/kob;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947921227, "Lcom/baidu/tieba/kob;");
+                return;
+            }
+        }
+        a = new HashMap();
+        b = new Object();
+    }
+
+    public kob(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lobVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = lobVar;
+        gob.d(context, str);
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public static bob a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message != null && message.what == 1001) {
-                this.a.b(8002003);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
             }
-            return false;
+            String packageName = context.getPackageName();
+            c = packageName;
+            return b(context, packageName);
         }
-        return invokeL.booleanValue;
+        return (bob) invokeL.objValue;
+    }
+
+    public static bob b(Context context, String str) {
+        InterceptResult invokeLL;
+        bob bobVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException("packageName can not be empty");
+            }
+            synchronized (b) {
+                bobVar = a.get(str);
+                if (bobVar == null) {
+                    a.put(str, new kob(context, str));
+                }
+            }
+            return bobVar;
+        }
+        return (bob) invokeLL.objValue;
     }
 }

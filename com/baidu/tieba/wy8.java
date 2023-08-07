@@ -1,135 +1,223 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
-import com.baidu.tieba.nu6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wy8 extends pl1<nu6.a> {
+public class wy8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final Map<BdUniqueId, ConcurrentLinkedQueue<ku6>> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Animation a;
+    public Animation b;
+    public View c;
+    public ViewGroup d;
+    public c e;
+    public vy8 f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948287027, "Lcom/baidu/tieba/wy8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948287027, "Lcom/baidu/tieba/wy8;");
-                return;
-            }
-        }
-        a = new Object();
-        b = new HashMap();
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a();
     }
 
-    public wy8() {
+    /* loaded from: classes8.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ wy8 b;
+
+        public a(wy8 wy8Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wy8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wy8Var;
+            this.a = context;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                ty8 item = this.b.f.getItem(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
+                this.b.f(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends hg {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wy8 a;
+
+        public b(wy8 wy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wy8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wy8Var;
+        }
+
+        @Override // com.baidu.tieba.hg, android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.g = false;
+                if (this.a.e != null) {
+                    this.a.e.a();
+                }
+                this.a.d.removeView(this.a.c);
+            }
+        }
+    }
+
+    public wy8(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: c */
-    public nu6.a createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new nu6.a() { // from class: com.baidu.tieba.uy8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.nu6.a
-                public final void a(BdUniqueId bdUniqueId) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdUniqueId) == null) {
-                        wy8.b(bdUniqueId);
-                    }
-                }
-            };
-        }
-        return (nu6.a) invokeV.objValue;
-    }
-
-    public static void a(@NonNull ku6 ku6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ku6Var) == null) {
-            BdUniqueId a2 = ku6Var.a();
-            ConcurrentLinkedQueue<ku6> concurrentLinkedQueue = b.get(a2);
-            if (concurrentLinkedQueue == null) {
-                synchronized (a) {
-                    concurrentLinkedQueue = b.get(a2);
-                    if (concurrentLinkedQueue == null) {
-                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-                        b.put(a2, concurrentLinkedQueue);
-                    }
-                }
-            }
-            synchronized (a) {
-                concurrentLinkedQueue.add(ku6Var);
-            }
-        }
-    }
-
-    public static void b(BdUniqueId bdUniqueId) {
-        ConcurrentLinkedQueue<ku6> concurrentLinkedQueue;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, bdUniqueId) == null) && (concurrentLinkedQueue = b.get(bdUniqueId)) != null) {
-            synchronized (a) {
-                Iterator<ku6> it = concurrentLinkedQueue.iterator();
-                while (it.hasNext()) {
-                    BdEventBus.Companion.getDefault().unregister(it.next());
-                }
-                concurrentLinkedQueue.clear();
-                b.remove(bdUniqueId);
-            }
-        }
-    }
-
-    public static void d(@NonNull ku6 ku6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ku6Var) == null) {
-            BdUniqueId a2 = ku6Var.a();
-            ConcurrentLinkedQueue<ku6> concurrentLinkedQueue = b.get(a2);
-            if (concurrentLinkedQueue == null) {
-                synchronized (a) {
-                    ConcurrentLinkedQueue<ku6> concurrentLinkedQueue2 = b.get(a2);
-                    if (concurrentLinkedQueue2 != null) {
-                        concurrentLinkedQueue2.remove(ku6Var);
-                    }
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            synchronized (a) {
-                concurrentLinkedQueue.remove(ku6Var);
+        }
+        this.g = false;
+        this.d = viewGroup;
+    }
+
+    public void f(Context context) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.c) != null) {
+            view2.startAnimation(i(context));
+        }
+    }
+
+    public final Animation h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.a == null) {
+                this.a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+            }
+            return this.a;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public final Animation i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                this.b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+            }
+            this.b.setAnimationListener(new b(this));
+            return this.b;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+            vy8 vy8Var = this.f;
+            if (vy8Var != null) {
+                vy8Var.notifyDataSetChanged();
             }
         }
+    }
+
+    public void l(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public final View g(Context context, List<ty8> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a2, (ViewGroup) null);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d2);
+            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
+            vy8 vy8Var = new vy8(context, i);
+            this.f = vy8Var;
+            vy8Var.b(list);
+            gridView.setAdapter((ListAdapter) this.f);
+            gridView.setOnItemClickListener(new a(this, context));
+            return inflate;
+        }
+        return (View) invokeLLI.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m(Context context, List<ty8> list, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, list, i) != null) || this.g) {
+            return;
+        }
+        this.g = true;
+        View g = g(context, list, i);
+        this.c = g;
+        this.d.addView(g);
+        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+        this.c.startAnimation(h(context));
     }
 }

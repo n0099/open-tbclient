@@ -1,79 +1,150 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class z67 extends w77 {
+public final class z67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a87 f;
+    public final int a;
+    public final e77 b;
+    public final n67 c;
+    public final String d;
+    public final l57 e;
+    public final String f;
+    public final c77 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948311982, "Lcom/baidu/tieba/z67;")) == null) {
-            return;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof z67) {
+                z67 z67Var = (z67) obj;
+                return this.a == z67Var.a && Intrinsics.areEqual(this.b, z67Var.b) && Intrinsics.areEqual(this.c, z67Var.c) && Intrinsics.areEqual(this.d, z67Var.d) && Intrinsics.areEqual(this.e, z67Var.e) && Intrinsics.areEqual(this.f, z67Var.f) && Intrinsics.areEqual(this.g, z67Var.g);
+            }
+            return false;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948311982, "Lcom/baidu/tieba/z67;");
-        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z67(a87 abstractData) {
-        super(null, null, 3, null);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int hashCode = ((((((((((this.a * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31;
+            c77 c77Var = this.g;
+            return hashCode + (c77Var == null ? 0 : c77Var.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "RichTextData(type=" + this.a + ", textData=" + this.b + ", iconData=" + this.c + ", emoji=" + this.d + ", businessInfo=" + this.e + ", schema=" + this.f + ", statData=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public z67(int i, e77 textData, n67 iconData, String emoji, l57 businessInfo, String schema, c77 c77Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {abstractData};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+            Object[] objArr = {Integer.valueOf(i), textData, iconData, emoji, businessInfo, schema, c77Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(abstractData, "abstractData");
-        this.f = abstractData;
+        Intrinsics.checkNotNullParameter(textData, "textData");
+        Intrinsics.checkNotNullParameter(iconData, "iconData");
+        Intrinsics.checkNotNullParameter(emoji, "emoji");
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        this.a = i;
+        this.b = textData;
+        this.c = iconData;
+        this.d = emoji;
+        this.e = businessInfo;
+        this.f = schema;
+        this.g = c77Var;
     }
 
-    public final a87 h() {
+    public final l57 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.e;
         }
-        return (a87) invokeV.objValue;
+        return (l57) invokeV.objValue;
     }
 
-    public final boolean i() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f.a().length() > 0) {
-                return true;
-            }
-            return false;
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final n67 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (n67) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final c77 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (c77) invokeV.objValue;
+    }
+
+    public final e77 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (e77) invokeV.objValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

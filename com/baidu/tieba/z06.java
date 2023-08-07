@@ -1,116 +1,110 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.ViewGroup;
+import com.baidu.spswitch.utils.BDEmotionPanelManager;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes8.dex */
 public class z06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public ImageView b;
-    public d16 c;
-    public b d;
-    public final rg<jn> e;
+    public Context A;
+    public String B;
+    public String C;
+    public String D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public float Q;
+    public boolean R;
+    public boolean S;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a();
-    }
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1188T;
+    public WheelView.DividerType U;
+    public OnTimeSelectListener a;
+    public e16 b;
+    public a16 c;
+    public boolean[] d;
+    public Calendar e;
+    public Calendar f;
+    public Calendar g;
+    public int h;
+    public int i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public ViewGroup y;
+    public int z;
 
-    /* loaded from: classes8.dex */
-    public class a extends rg<jn> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z06 a;
-
-        public a(z06 z06Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z06Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z06Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
-                super.onLoaded((a) jnVar, str, i);
-                if (!StringUtils.isNull(str) && this.a.c != null && this.a.c.isValid()) {
-                    if (str.equals(this.a.c.a())) {
-                        this.a.b.setImageDrawable(jnVar.j());
-                    }
-                    if (str.equals(this.a.c.d())) {
-                        this.a.a.setImageDrawable(jnVar.j());
-                    }
-                    this.a.c.b(str);
-                    if (this.a.c.e() && this.a.d != null) {
-                        this.a.d.a();
-                    }
-                }
-            }
-        }
-    }
-
-    public z06(ImageView imageView, ImageView imageView2) {
+    public z06(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imageView, imageView2};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = imageView;
-        this.b = imageView2;
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void e() {
-        d16 d16Var;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (d16Var = this.c) == null || !d16Var.isValid() || !this.c.e() || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.a();
-    }
-
-    public void g(d16 d16Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d16Var) == null) && d16Var != null && d16Var.isValid()) {
-            this.c = d16Var;
-            sg.h().m(this.c.a(), 10, this.e, null);
-            sg.h().m(this.c.d(), 10, this.e, null);
+        this.d = new boolean[]{true, true, true, false, false, false};
+        this.j = false;
+        this.k = false;
+        this.z = 17;
+        this.E = -16417281;
+        this.F = -16417281;
+        this.G = -16777216;
+        this.H = -1;
+        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
+        this.J = 17;
+        this.K = 18;
+        this.L = 18;
+        this.M = -5723992;
+        this.N = -14013910;
+        this.O = -2763307;
+        this.P = -1;
+        this.Q = 1.6f;
+        this.S = true;
+        this.f1188T = false;
+        Typeface typeface = Typeface.MONOSPACE;
+        this.U = WheelView.DividerType.FILL;
+        if (i == 1) {
+            this.x = R.layout.pickerview_options;
+        } else {
+            this.x = R.layout.pickerview_time;
         }
     }
 }

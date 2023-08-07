@@ -1,9 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.annotation.WorkerThread;
-import java.util.List;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityMainProcessToastEvent;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface dp5 {
-    @WorkerThread
-    void a(int i, long j, List<Long> list, int i2, String str);
+public final class dp5 implements uo5<AICapacityMainProcessToastEvent> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public dp5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uo5
+    /* renamed from: a */
+    public boolean onEvent(AICapacityMainProcessToastEvent aICapacityMainProcessToastEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityMainProcessToastEvent)) == null) {
+            if (aICapacityMainProcessToastEvent == null) {
+                return false;
+            }
+            AICapacityApplyHelper.e.a().j(aICapacityMainProcessToastEvent.getToastString());
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

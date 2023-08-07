@@ -7,7 +7,7 @@ import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.ue6;
+import com.baidu.tieba.ac6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ue6 a;
+    public ac6 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -43,9 +43,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            ue6 ue6Var = this.a;
-            if (ue6Var != null) {
-                ue6Var.i();
+            ac6 ac6Var = this.a;
+            if (ac6Var != null) {
+                ac6Var.i();
             }
         }
     }
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            ue6 ue6Var = this.a;
-            if (ue6Var != null) {
-                ue6Var.h(getPageContext(), i);
+            ac6 ac6Var = this.a;
+            if (ac6Var != null) {
+                ac6Var.h(getPageContext(), i);
             }
         }
     }
@@ -76,7 +76,7 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new ue6(getPageContext(), true);
+            this.a = new ac6(getPageContext(), true);
             if (getIntent() != null) {
                 u1(getIntent());
             } else {

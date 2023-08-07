@@ -23,13 +23,13 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
     }
 
     /* loaded from: classes4.dex */
-    public static final class b {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+        public String thumbUrl;
+        public String videoUrl;
 
-        public b() {
+        public Builder() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             }
         }
 
-        public SimpleVideoPlayActivityConfig c(Context context) {
+        public SimpleVideoPlayActivityConfig build(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
@@ -52,36 +52,36 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             return (SimpleVideoPlayActivityConfig) invokeL.objValue;
         }
 
-        public b d(String str) {
+        public Builder setThumbUrl(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
+                this.thumbUrl = str;
                 return this;
             }
-            return (b) invokeL.objValue;
+            return (Builder) invokeL.objValue;
         }
 
-        public b e(String str) {
+        public Builder setVideoUrl(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.a = str;
+                this.videoUrl = str;
                 return this;
             }
-            return (b) invokeL.objValue;
+            return (Builder) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleVideoPlayActivityConfig(Context context, b bVar) {
+    public SimpleVideoPlayActivityConfig(Context context, Builder builder) {
         super(context);
         Intent intent;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bVar};
+            Object[] objArr = {context, builder};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,14 +92,14 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
                 return;
             }
         }
-        if (bVar == null || (intent = getIntent()) == null) {
+        if (builder == null || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra("video_url", bVar.a);
-        intent.putExtra("thumb_url", bVar.b);
+        intent.putExtra("video_url", builder.videoUrl);
+        intent.putExtra("thumb_url", builder.thumbUrl);
     }
 
-    public /* synthetic */ SimpleVideoPlayActivityConfig(Context context, b bVar, a aVar) {
-        this(context, bVar);
+    public /* synthetic */ SimpleVideoPlayActivityConfig(Context context, Builder builder, a aVar) {
+        this(context, builder);
     }
 }

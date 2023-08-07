@@ -8,8 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -188,7 +186,7 @@ public class BdBaseApplication extends Application {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Resources resources = n9.a().getResources();
+            Resources resources = BdResources.getInstance().getResources();
             if (resources != null && this.mIsPluginResourceOpen) {
                 return resources;
             }
@@ -221,7 +219,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            h9.f().p();
+            BdActivityStack.getInst().releaseAllPossibleAcitivities();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;

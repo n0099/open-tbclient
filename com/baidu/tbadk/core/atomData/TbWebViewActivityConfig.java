@@ -26,6 +26,7 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static final String PAGE_TYPE_NORMAL = "normal";
     public static final String PARAMS_KEY_PAGE_FROM = "page_from";
     public static final String PARAMS_KEY_PAGE_TYPE = "page_type";
+    public static final String PARAMS_LOADING_SIGNAL = "loadingSignal";
     public static final String V_PAGE_FROM_LIVE = "live";
     public transient /* synthetic */ FieldHolder $fh;
 

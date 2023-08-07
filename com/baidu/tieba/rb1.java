@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+@Autowired
 /* loaded from: classes7.dex */
-public interface rb1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "sailorIocUtil");
-    public static final rb1 b = new a();
-
-    boolean a();
-
-    void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2);
-
-    void c();
+public class rb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements rb1 {
+    public class a implements ec1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.rb1
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ec1
+        public Drawable a(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return null;
             }
-            return invokeV.booleanValue;
+            return (Drawable) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.rb1
-        public void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2) {
+        @Override // com.baidu.tieba.ec1
+        public Drawable b(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, str2) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
             }
-        }
-
-        @Override // com.baidu.tieba.rb1
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
+            return (Drawable) invokeL.objValue;
         }
 
         public a() {
@@ -62,5 +55,25 @@ public interface rb1 {
                 }
             }
         }
+    }
+
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return pj0.b();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @NonNull
+    @Inject(force = false)
+    public static ec1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new a();
+        }
+        return (ec1) invokeV.objValue;
     }
 }

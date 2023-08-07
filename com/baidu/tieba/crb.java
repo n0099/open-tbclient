@@ -1,468 +1,553 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.Shader;
+import android.media.SoundPool;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.brb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import javax.security.auth.x500.X500Principal;
-import org.apache.commons.codec.net.RFC1522Codec;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import java.util.HashMap;
+import kotlin.TypeCastException;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function4;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public class crb {
+public final class crb extends brb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public char[] g;
+    public final b c;
+    public final HashMap<String, Bitmap> d;
+    public final a e;
+    public final float[] f;
+    public final yqb g;
 
-    public crb(X500Principal x500Principal) {
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public final HashMap<SVGAVideoShapeEntity, Path> c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = new HashMap<>();
+        }
+
+        public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVGAVideoShapeEntity)) == null) {
+                if (!this.c.containsKey(sVGAVideoShapeEntity)) {
+                    Path path = new Path();
+                    path.set(sVGAVideoShapeEntity.b());
+                    this.c.put(sVGAVideoShapeEntity, path);
+                }
+                Path path2 = this.c.get(sVGAVideoShapeEntity);
+                if (path2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                return path2;
+            }
+            return (Path) invokeL.objValue;
+        }
+
+        public final void b(Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+                if (this.a != canvas.getWidth() || this.b != canvas.getHeight()) {
+                    this.c.clear();
+                }
+                this.a = canvas.getWidth();
+                this.b = canvas.getHeight();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Paint a;
+        public final Path b;
+        public final Path c;
+        public final Matrix d;
+        public final Matrix e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new Paint();
+            this.b = new Path();
+            this.c = new Path();
+            this.d = new Matrix();
+            this.e = new Matrix();
+        }
+
+        public final Matrix a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.d.reset();
+                return this.d;
+            }
+            return (Matrix) invokeV.objValue;
+        }
+
+        public final Matrix b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                this.e.reset();
+                return this.e;
+            }
+            return (Matrix) invokeV.objValue;
+        }
+
+        public final Paint c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.a.reset();
+                return this.a;
+            }
+            return (Paint) invokeV.objValue;
+        }
+
+        public final Path d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                this.b.reset();
+                return this.b;
+            }
+            return (Path) invokeV.objValue;
+        }
+
+        public final Path e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                this.c.reset();
+                return this.c;
+            }
+            return (Path) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public crb(SVGAVideoEntity sVGAVideoEntity, yqb yqbVar) {
+        super(sVGAVideoEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x500Principal};
+            Object[] objArr = {sVGAVideoEntity, yqbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SVGAVideoEntity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String name = x500Principal.getName("RFC2253");
-        this.a = name;
-        this.b = name.length();
+        this.g = yqbVar;
+        this.c = new b();
+        this.d = new HashMap<>();
+        this.e = new a();
+        this.f = new float[16];
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
-        int i2;
-        int i3;
+    @Override // com.baidu.tieba.brb
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i4 = i + 1;
-            if (i4 < this.b) {
-                char c = this.g[i];
-                if (c >= '0' && c <= '9') {
-                    i2 = c - TransactionIdCreater.FILL_BYTE;
-                } else if (c >= 'a' && c <= 'f') {
-                    i2 = c - 'W';
-                } else if (c >= 'A' && c <= 'F') {
-                    i2 = c - '7';
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            super.a(canvas, i, scaleType);
+            this.e.b(canvas);
+            for (brb.a aVar : d(i)) {
+                h(aVar, canvas, i);
+            }
+            k(i);
+        }
+    }
+
+    public final void h(brb.a aVar, Canvas canvas, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, aVar, canvas, i) == null) {
+            f(aVar, canvas);
+            g(aVar, canvas);
+            e(aVar, canvas, i);
+        }
+    }
+
+    public final void e(brb.a aVar, Canvas canvas, int i) {
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, canvas, i) == null) && (b2 = aVar.b()) != null) {
+            Function2<Canvas, Integer, Boolean> function2 = this.g.a().get(b2);
+            if (function2 != null) {
+                Matrix l = l(aVar.a().e());
+                canvas.save();
+                canvas.concat(l);
+                function2.invoke(canvas, Integer.valueOf(i));
+                canvas.restore();
+            }
+            Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.g.b().get(b2);
+            if (function4 != null) {
+                Matrix l2 = l(aVar.a().e());
+                canvas.save();
+                canvas.concat(l2);
+                function4.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) aVar.a().b().b()), Integer.valueOf((int) aVar.a().b().a()));
+                canvas.restore();
+            }
+        }
+    }
+
+    public final void f(brb.a aVar, Canvas canvas) {
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, canvas) != null) || (b2 = aVar.b()) == null || Intrinsics.areEqual(this.g.c().get(b2), Boolean.TRUE)) {
+            return;
+        }
+        Bitmap bitmap = this.g.d().get(b2);
+        if (bitmap == null) {
+            bitmap = c().e().get(b2);
+        }
+        if (bitmap != null) {
+            Matrix l = l(aVar.a().e());
+            Paint c = this.c.c();
+            c.setAntiAlias(c().a());
+            c.setFilterBitmap(c().a());
+            c.setAlpha((int) (aVar.a().a() * 255));
+            if (aVar.a().c() != null) {
+                erb c2 = aVar.a().c();
+                if (c2 != null) {
+                    canvas.save();
+                    c.reset();
+                    Path d = this.c.d();
+                    c2.a(d);
+                    d.transform(l);
+                    canvas.clipPath(d);
+                    l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
+                    canvas.drawBitmap(bitmap, l, c);
+                    canvas.restore();
                 } else {
-                    throw new IllegalStateException("Malformed DN: " + this.a);
+                    return;
                 }
-                char c2 = this.g[i4];
-                if (c2 >= '0' && c2 <= '9') {
-                    i3 = c2 - TransactionIdCreater.FILL_BYTE;
-                } else if (c2 >= 'a' && c2 <= 'f') {
-                    i3 = c2 - 'W';
-                } else if (c2 >= 'A' && c2 <= 'F') {
-                    i3 = c2 - '7';
-                } else {
-                    throw new IllegalStateException("Malformed DN: " + this.a);
-                }
-                return (i2 << 4) + i3;
-            }
-            throw new IllegalStateException("Malformed DN: " + this.a);
-        }
-        return invokeI.intValue;
-    }
-
-    public List<String> d(String str) {
-        InterceptResult invokeL;
-        String h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.c = 0;
-            this.d = 0;
-            this.e = 0;
-            this.f = 0;
-            this.g = this.a.toCharArray();
-            List<String> emptyList = Collections.emptyList();
-            String g = g();
-            if (g == null) {
-                return emptyList;
-            }
-            do {
-                int i = this.c;
-                if (i < this.b) {
-                    char c = this.g[i];
-                    if (c != '\"') {
-                        if (c != '#') {
-                            if (c != '+' && c != ',' && c != ';') {
-                                h = b();
-                            } else {
-                                h = "";
-                            }
-                        } else {
-                            h = f();
-                        }
-                    } else {
-                        h = h();
-                    }
-                    if (str.equalsIgnoreCase(g)) {
-                        if (emptyList.isEmpty()) {
-                            emptyList = new ArrayList<>();
-                        }
-                        emptyList.add(h);
-                    }
-                    int i2 = this.c;
-                    if (i2 < this.b) {
-                        char[] cArr = this.g;
-                        if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
-                            throw new IllegalStateException("Malformed DN: " + this.a);
-                        }
-                        this.c++;
-                        g = g();
-                    }
-                }
-                return emptyList;
-            } while (g != null);
-            throw new IllegalStateException("Malformed DN: " + this.a);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ab, code lost:
-        return new java.lang.String(r1, r2, r8.f - r2);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.c;
-            this.d = i;
-            this.e = i;
-            while (true) {
-                int i2 = this.c;
-                if (i2 >= this.b) {
-                    char[] cArr = this.g;
-                    int i3 = this.d;
-                    return new String(cArr, i3, this.e - i3);
-                }
-                char[] cArr2 = this.g;
-                char c = cArr2[i2];
-                if (c != ' ') {
-                    if (c == ';') {
-                        break;
-                    } else if (c != '\\') {
-                        if (c == '+' || c == ',') {
-                            break;
-                        }
-                        int i4 = this.e;
-                        this.e = i4 + 1;
-                        cArr2[i4] = cArr2[i2];
-                        this.c = i2 + 1;
-                    } else {
-                        int i5 = this.e;
-                        this.e = i5 + 1;
-                        cArr2[i5] = c();
-                        this.c++;
-                    }
-                } else {
-                    int i6 = this.e;
-                    this.f = i6;
-                    this.c = i2 + 1;
-                    this.e = i6 + 1;
-                    cArr2[i6] = WebvttCueParser.CHAR_SPACE;
-                    while (true) {
-                        int i7 = this.c;
-                        if (i7 >= this.b) {
-                            break;
-                        }
-                        char[] cArr3 = this.g;
-                        if (cArr3[i7] != ' ') {
-                            break;
-                        }
-                        int i8 = this.e;
-                        this.e = i8 + 1;
-                        cArr3[i8] = WebvttCueParser.CHAR_SPACE;
-                        this.c = i7 + 1;
-                    }
-                    int i9 = this.c;
-                    if (i9 == this.b) {
-                        break;
-                    }
-                    char[] cArr4 = this.g;
-                    if (cArr4[i9] == ',' || cArr4[i9] == '+' || cArr4[i9] == ';') {
-                        break;
-                    }
-                }
-            }
-            char[] cArr5 = this.g;
-            int i10 = this.d;
-            return new String(cArr5, i10, this.e - i10);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final char c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            if (i != this.b) {
-                char[] cArr = this.g;
-                char c = cArr[i];
-                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
-                    switch (c) {
-                        case '*':
-                        case '+':
-                        case ',':
-                            break;
-                        default:
-                            switch (c) {
-                                case ';':
-                                case '<':
-                                case '=':
-                                case '>':
-                                    break;
-                                default:
-                                    return e();
-                            }
-                    }
-                }
-                return cArr[i];
-            }
-            throw new IllegalStateException("Unexpected end of DN: " + this.a);
-        }
-        return invokeV.charValue;
-    }
-
-    public final char e() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int a = a(this.c);
-            this.c++;
-            if (a < 128) {
-                return (char) a;
-            }
-            if (a < 192 || a > 247) {
-                return RFC1522Codec.SEP;
-            }
-            if (a <= 223) {
-                i2 = a & 31;
-                i = 1;
-            } else if (a <= 239) {
-                i = 2;
-                i2 = a & 15;
             } else {
-                i = 3;
-                i2 = a & 7;
+                l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
+                canvas.drawBitmap(bitmap, l, c);
             }
-            for (int i3 = 0; i3 < i; i3++) {
-                int i4 = this.c + 1;
-                this.c = i4;
-                if (i4 == this.b || this.g[i4] != '\\') {
-                    return RFC1522Codec.SEP;
-                }
-                int i5 = i4 + 1;
-                this.c = i5;
-                int a2 = a(i5);
-                this.c++;
-                if ((a2 & 192) != 128) {
-                    return RFC1522Codec.SEP;
-                }
-                i2 = (i2 << 6) + (a2 & 63);
-            }
-            return (char) i2;
+            i(canvas, bitmap, aVar, l);
         }
-        return invokeV.charValue;
     }
 
-    public final String h() {
-        InterceptResult invokeV;
+    public final void g(brb.a aVar, Canvas canvas) {
+        SVGAVideoShapeEntity.a c;
+        float[] c2;
+        String d;
+        String b2;
+        int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            this.d = i;
-            this.e = i;
-            while (true) {
-                int i2 = this.c;
-                if (i2 != this.b) {
-                    char[] cArr = this.g;
-                    if (cArr[i2] == '\"') {
-                        this.c = i2 + 1;
-                        while (true) {
-                            int i3 = this.c;
-                            if (i3 >= this.b || this.g[i3] != ' ') {
-                                break;
-                            }
-                            this.c = i3 + 1;
-                        }
-                        char[] cArr2 = this.g;
-                        int i4 = this.d;
-                        return new String(cArr2, i4, this.e - i4);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, canvas) == null) {
+            Matrix l = l(aVar.a().e());
+            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : aVar.a().d()) {
+                sVGAVideoShapeEntity.a();
+                if (sVGAVideoShapeEntity.b() != null) {
+                    Paint c3 = this.c.c();
+                    c3.reset();
+                    c3.setAntiAlias(c().a());
+                    double d2 = 255;
+                    c3.setAlpha((int) (aVar.a().a() * d2));
+                    Path d3 = this.c.d();
+                    d3.reset();
+                    d3.addPath(this.e.a(sVGAVideoShapeEntity));
+                    Matrix b3 = this.c.b();
+                    b3.reset();
+                    Matrix d4 = sVGAVideoShapeEntity.d();
+                    if (d4 != null) {
+                        b3.postConcat(d4);
                     }
-                    if (cArr[i2] == '\\') {
-                        cArr[this.e] = c();
+                    b3.postConcat(l);
+                    d3.transform(b3);
+                    SVGAVideoShapeEntity.a c4 = sVGAVideoShapeEntity.c();
+                    if (c4 != null && (a2 = c4.a()) != 0) {
+                        c3.setStyle(Paint.Style.FILL);
+                        c3.setColor(a2);
+                        c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
+                        if (aVar.a().c() != null) {
+                            canvas.save();
+                        }
+                        erb c5 = aVar.a().c();
+                        if (c5 != null) {
+                            Path e = this.c.e();
+                            c5.a(e);
+                            e.transform(l);
+                            canvas.clipPath(e);
+                        }
+                        canvas.drawPath(d3, c3);
+                        if (aVar.a().c() != null) {
+                            canvas.restore();
+                        }
+                    }
+                    SVGAVideoShapeEntity.a c6 = sVGAVideoShapeEntity.c();
+                    if (c6 != null) {
+                        float f = 0;
+                        if (c6.g() > f) {
+                            c3.setStyle(Paint.Style.STROKE);
+                            SVGAVideoShapeEntity.a c7 = sVGAVideoShapeEntity.c();
+                            if (c7 != null) {
+                                c3.setColor(c7.f());
+                                c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
+                            }
+                            float j = j(l);
+                            SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
+                            if (c8 != null) {
+                                c3.setStrokeWidth(c8.g() * j);
+                            }
+                            SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
+                            if (c9 != null && (b2 = c9.b()) != null) {
+                                if (StringsKt__StringsJVMKt.equals(b2, "butt", true)) {
+                                    c3.setStrokeCap(Paint.Cap.BUTT);
+                                } else if (StringsKt__StringsJVMKt.equals(b2, "round", true)) {
+                                    c3.setStrokeCap(Paint.Cap.ROUND);
+                                } else if (StringsKt__StringsJVMKt.equals(b2, "square", true)) {
+                                    c3.setStrokeCap(Paint.Cap.SQUARE);
+                                }
+                            }
+                            SVGAVideoShapeEntity.a c10 = sVGAVideoShapeEntity.c();
+                            if (c10 != null && (d = c10.d()) != null) {
+                                if (StringsKt__StringsJVMKt.equals(d, "miter", true)) {
+                                    c3.setStrokeJoin(Paint.Join.MITER);
+                                } else if (StringsKt__StringsJVMKt.equals(d, "round", true)) {
+                                    c3.setStrokeJoin(Paint.Join.ROUND);
+                                } else if (StringsKt__StringsJVMKt.equals(d, "bevel", true)) {
+                                    c3.setStrokeJoin(Paint.Join.BEVEL);
+                                }
+                            }
+                            if (sVGAVideoShapeEntity.c() != null) {
+                                c3.setStrokeMiter(c.e() * j);
+                            }
+                            SVGAVideoShapeEntity.a c11 = sVGAVideoShapeEntity.c();
+                            if (c11 != null && (c2 = c11.c()) != null && c2.length == 3 && (c2[0] > f || c2[1] > f)) {
+                                float[] fArr = new float[2];
+                                float f2 = 1.0f;
+                                if (c2[0] >= 1.0f) {
+                                    f2 = c2[0];
+                                }
+                                fArr[0] = f2 * j;
+                                float f3 = 0.1f;
+                                if (c2[1] >= 0.1f) {
+                                    f3 = c2[1];
+                                }
+                                fArr[1] = f3 * j;
+                                c3.setPathEffect(new DashPathEffect(fArr, c2[2] * j));
+                            }
+                            if (aVar.a().c() != null) {
+                                canvas.save();
+                            }
+                            erb c12 = aVar.a().c();
+                            if (c12 != null) {
+                                Path e2 = this.c.e();
+                                c12.a(e2);
+                                e2.transform(l);
+                                canvas.clipPath(e2);
+                            }
+                            canvas.drawPath(d3, c3);
+                            if (aVar.a().c() != null) {
+                                canvas.restore();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public final void i(Canvas canvas, Bitmap bitmap, brb.a aVar, Matrix matrix) {
+        TextPaint drawingTextPaint;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, aVar, matrix) == null) {
+            if (this.g.h()) {
+                this.d.clear();
+                this.g.i(false);
+            }
+            String b2 = aVar.b();
+            if (b2 != null) {
+                Bitmap bitmap2 = null;
+                String str = this.g.f().get(b2);
+                if (str != null && (drawingTextPaint = this.g.g().get(b2)) != null && (bitmap2 = this.d.get(b2)) == null) {
+                    bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas2 = new Canvas(bitmap2);
+                    Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
+                    drawingTextPaint.setAntiAlias(true);
+                    Rect rect = new Rect();
+                    drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
+                    canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
+                    HashMap<String, Bitmap> hashMap = this.d;
+                    if (bitmap2 != null) {
+                        hashMap.put(b2, bitmap2);
                     } else {
-                        cArr[this.e] = cArr[i2];
+                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
-                    this.c++;
-                    this.e++;
-                } else {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
-            }
-        } else {
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.c;
-            if (i + 4 < this.b) {
-                this.d = i;
-                this.c = i + 1;
-                while (true) {
-                    int i2 = this.c;
-                    if (i2 == this.b) {
-                        break;
-                    }
-                    char[] cArr = this.g;
-                    if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
-                        break;
-                    } else if (cArr[i2] == ' ') {
-                        this.e = i2;
-                        this.c = i2 + 1;
-                        while (true) {
-                            int i3 = this.c;
-                            if (i3 >= this.b || this.g[i3] != ' ') {
-                                break;
-                            }
-                            this.c = i3 + 1;
-                        }
+                StaticLayout it = this.g.e().get(b2);
+                if (it != null && (bitmap2 = this.d.get(b2)) == null) {
+                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                    TextPaint paint = it.getPaint();
+                    Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
+                    paint.setAntiAlias(true);
+                    StaticLayout staticLayout = new StaticLayout(it.getText(), 0, it.getText().length(), it.getPaint(), bitmap.getWidth(), it.getAlignment(), it.getSpacingMultiplier(), it.getSpacingAdd(), false);
+                    Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas3 = new Canvas(createBitmap);
+                    canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
+                    staticLayout.draw(canvas3);
+                    HashMap<String, Bitmap> hashMap2 = this.d;
+                    if (createBitmap != null) {
+                        hashMap2.put(b2, createBitmap);
+                        bitmap2 = createBitmap;
                     } else {
-                        if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
-                            cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
+                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
+                    }
+                }
+                if (bitmap2 != null) {
+                    Paint c = this.c.c();
+                    c.setAntiAlias(c().a());
+                    if (aVar.a().c() != null) {
+                        erb c2 = aVar.a().c();
+                        if (c2 != null) {
+                            canvas.save();
+                            canvas.concat(matrix);
+                            canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                            Shader.TileMode tileMode = Shader.TileMode.REPEAT;
+                            c.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
+                            Path d = this.c.d();
+                            c2.a(d);
+                            canvas.drawPath(d, c);
+                            canvas.restore();
+                            return;
                         }
-                        this.c++;
+                        return;
                     }
+                    c.setFilterBitmap(c().a());
+                    canvas.drawBitmap(bitmap2, matrix, c);
                 }
-                this.e = this.c;
-                int i4 = this.e;
-                int i5 = this.d;
-                int i6 = i4 - i5;
-                if (i6 >= 5 && (i6 & 1) != 0) {
-                    int i7 = i6 / 2;
-                    byte[] bArr = new byte[i7];
-                    int i8 = i5 + 1;
-                    for (int i9 = 0; i9 < i7; i9++) {
-                        bArr[i9] = (byte) a(i8);
-                        i8 += 2;
-                    }
-                    return new String(this.g, this.d, i6);
-                }
-                throw new IllegalStateException("Unexpected end of DN: " + this.a);
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.a);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String g() {
-        InterceptResult invokeV;
+    public final float j(Matrix matrix) {
+        InterceptResult invokeL;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            while (true) {
-                int i = this.c;
-                if (i >= this.b || this.g[i] != ' ') {
-                    break;
-                }
-                this.c = i + 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, matrix)) == null) {
+            matrix.getValues(this.f);
+            float[] fArr = this.f;
+            if (fArr[0] == 0.0f) {
+                return 0.0f;
             }
-            int i2 = this.c;
-            if (i2 == this.b) {
-                return null;
+            double d = fArr[0];
+            double d2 = fArr[3];
+            double d3 = fArr[1];
+            double d4 = fArr[4];
+            if (d * d4 == d2 * d3) {
+                return 0.0f;
             }
-            this.d = i2;
-            this.c = i2 + 1;
-            while (true) {
-                int i3 = this.c;
-                if (i3 >= this.b) {
-                    break;
-                }
-                char[] cArr = this.g;
-                if (cArr[i3] == '=' || cArr[i3] == ' ') {
-                    break;
-                }
-                this.c = i3 + 1;
+            double sqrt = Math.sqrt((d * d) + (d2 * d2));
+            double d5 = d / sqrt;
+            double d6 = d2 / sqrt;
+            double d7 = (d5 * d3) + (d6 * d4);
+            double d8 = d3 - (d5 * d7);
+            double d9 = d4 - (d7 * d6);
+            double sqrt2 = Math.sqrt((d8 * d8) + (d9 * d9));
+            if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
+                sqrt = -sqrt;
             }
-            int i4 = this.c;
-            if (i4 < this.b) {
-                this.e = i4;
-                if (this.g[i4] == ' ') {
-                    while (true) {
-                        int i5 = this.c;
-                        if (i5 >= this.b) {
-                            break;
-                        }
-                        char[] cArr2 = this.g;
-                        if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
-                            break;
-                        }
-                        this.c = i5 + 1;
-                    }
-                    char[] cArr3 = this.g;
-                    int i6 = this.c;
-                    if (cArr3[i6] != '=' || i6 == this.b) {
-                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
-                    }
-                }
-                this.c++;
-                while (true) {
-                    int i7 = this.c;
-                    if (i7 >= this.b || this.g[i7] != ' ') {
-                        break;
-                    }
-                    this.c = i7 + 1;
-                }
-                int i8 = this.e;
-                int i9 = this.d;
-                if (i8 - i9 > 4) {
-                    char[] cArr4 = this.g;
-                    if (cArr4[i9 + 3] == '.' && (cArr4[i9] == 'O' || cArr4[i9] == 'o')) {
-                        char[] cArr5 = this.g;
-                        int i10 = this.d + 1;
-                        if (cArr5[i10] == 'I' || cArr5[i10] == 'i') {
-                            char[] cArr6 = this.g;
-                            int i11 = this.d + 2;
-                            if (cArr6[i11] == 'D' || cArr6[i11] == 'd') {
-                                this.d += 4;
-                            }
-                        }
-                    }
-                }
-                char[] cArr7 = this.g;
-                int i12 = this.d;
-                return new String(cArr7, i12, this.e - i12);
+            if (b().a()) {
+                f = (float) sqrt;
+            } else {
+                f = (float) sqrt2;
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            return Math.abs(f);
         }
-        return (String) invokeV.objValue;
+        return invokeL.floatValue;
+    }
+
+    public final void k(int i) {
+        SoundPool f;
+        Integer c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            for (drb drbVar : c().b()) {
+                if (drbVar.d() == i && (f = c().f()) != null && (c = drbVar.c()) != null) {
+                    drbVar.e(Integer.valueOf(f.play(c.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+                }
+                if (drbVar.a() <= i) {
+                    Integer b2 = drbVar.b();
+                    if (b2 != null) {
+                        int intValue = b2.intValue();
+                        SoundPool f2 = c().f();
+                        if (f2 != null) {
+                            f2.stop(intValue);
+                        }
+                    }
+                    drbVar.e(null);
+                }
+            }
+        }
+    }
+
+    public final Matrix l(Matrix matrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
+            Matrix a2 = this.c.a();
+            a2.postScale(b().b(), b().c());
+            a2.postTranslate(b().d(), b().e());
+            a2.preConcat(matrix);
+            return a2;
+        }
+        return (Matrix) invokeL.objValue;
     }
 }

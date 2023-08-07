@@ -17,11 +17,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -30,13 +32,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.pb5;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.sy;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.wq7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.eo7;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.rx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 /* loaded from: classes5.dex */
-public class CardItemRecommendLayout extends LinearLayout implements sy {
+public class CardItemRecommendLayout extends LinearLayout implements rx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -119,17 +119,17 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cdb);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ced);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
-            this.a.setPageId(r9.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cdc);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cde);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cdd);
+            this.a.setPageId(l9.a(view2.getContext()).getUniqueId());
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cee);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cf0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cef);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -141,7 +141,7 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
                 return;
             }
             this.f = itemInfo;
-            this.a.N(itemInfo.icon_url, 10, false);
+            this.a.startLoad(itemInfo.icon_url, 10, false);
             if (StringHelper.getChineseAndEnglishLength(itemInfo.name) <= 10) {
                 this.b.setText(itemInfo.name);
             } else {
@@ -175,7 +175,7 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_small_star, R.color.CAM_X0305, null);
-                d85.d(this.b).x(R.color.CAM_X0105);
+                EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -213,7 +213,7 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
         public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
-                rect.set(0, 0, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                rect.set(0, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
             }
         }
     }
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new pb5(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ea5(3, i + 1, 2)));
             }
         }
     }
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.c((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new pb5(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ea5(3, i + 1, 1)));
             }
         }
 
@@ -308,7 +308,7 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d037a, (ViewGroup) null));
+                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d037d, (ViewGroup) null));
                 dVar.d(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
         b();
     }
 
-    public void setData(t15 t15Var) {
+    public void setData(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t15Var) == null) && (t15Var instanceof wq7)) {
-            wq7 wq7Var = (wq7) t15Var;
-            if (wq7Var.c() != null) {
-                this.d = wq7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, q05Var) == null) && (q05Var instanceof eo7)) {
+            eo7 eo7Var = (eo7) q05Var;
+            if (eo7Var.c() != null) {
+                this.d = eo7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -402,16 +402,14 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f083b);
-            d85 d2 = d85.d(this.a);
-            d2.D(R.string.F_X02);
-            d2.C(R.dimen.T_X07);
-            this.a.setPadding(yi.g(getContext(), R.dimen.M_W_X005), yi.g(getContext(), R.dimen.M_H_X004), yi.g(getContext(), R.dimen.M_W_X005), yi.g(getContext(), R.dimen.M_H_X008));
+            this.a.setText(R.string.obfuscated_res_0x7f0f083c);
+            EMManager.from(this.a).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X07);
+            this.a.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X008));
             addView(this.a, new LinearLayout.LayoutParams(-1, -2));
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.b.setPadding(yi.g(getContext(), R.dimen.M_W_X004), 0, yi.g(getContext(), R.dimen.M_W_X005), 0);
+            this.b.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), 0);
             this.b.addItemDecoration(new a(this));
             this.b.setOnItemClickListener(new b(this));
             addView(this.b, new LinearLayout.LayoutParams(-1, -2));
@@ -421,15 +419,13 @@ public class CardItemRecommendLayout extends LinearLayout implements sy {
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            d85.d(this.a).x(R.color.CAM_X0105);
-            d85 d2 = d85.d(this);
-            d2.o(R.string.J_X06);
-            d2.f(R.color.CAM_X0205);
+            EMManager.from(this.a).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 

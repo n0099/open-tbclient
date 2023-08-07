@@ -1,170 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.io3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.ca3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gq3 extends io3.a {
+public class gq3 implements ca3.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
+    public FrameLayout a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802528, "Lcom/baidu/tieba/gq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ gq3 b;
+
+        public a(gq3 gq3Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq3Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802528, "Lcom/baidu/tieba/gq3;");
-                return;
+            this.b = gq3Var;
+            this.a = viewGroup;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.a == null) {
+                    this.b.a = new FrameLayout(this.a.getContext());
+                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f060449);
+                }
+                this.a.removeView(this.b.a);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                layoutParams.gravity = 17;
+                this.a.addView(this.b.a, layoutParams);
             }
         }
-        c = fs1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gq3(boolean z) {
-        super(z);
-        String str;
+    public gq3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (z) {
-            str = "swan_js_native_v8_ab.txt";
-        } else {
-            str = "swan_js_native_webview_ab.txt";
-        }
-        this.b = ru2.g().getPath() + File.separator + "js_native" + File.separator + str;
+        this.a = null;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        boolean z;
+    public final void e(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = ru2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = zr4.M(str + "swan_js_native_v8_ab.txt");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
+        }
+    }
+
+    public final void f(ca3 ca3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ca3Var) == null) {
+            Context context = ca3Var.getContext();
+            if (ca3Var.getContext() instanceof ContextWrapper) {
+                context = ((ContextWrapper) ca3Var.getContext()).getBaseContext();
+            }
+            if (context instanceof Activity) {
+                hn3.b((Activity) context, ca3Var);
+            }
+        }
+    }
+
+    public final void d(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
+            return;
+        }
+        view2.post(new a(this, viewGroup));
+    }
+
+    @Override // com.baidu.tieba.ca3.c
+    public void a(ca3 ca3Var, ca3.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, ca3Var, bVar) != null) || ca3Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        f(ca3Var);
+        ViewGroup viewGroup = (ViewGroup) ca3Var.findViewById(16908290);
+        if (viewGroup != null) {
+            if (fu2.M().a()) {
+                d(viewGroup, bVar.r);
             } else {
-                z = true;
+                e(viewGroup);
             }
-            if ((i & 2) != 0) {
-                return z & zr4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
         }
-        return invokeI.booleanValue;
-    }
-
-    @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if (z) {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
-            } else {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-            }
-            if (z) {
-                str3 = "swan/v8_ab";
-            } else {
-                str3 = "swan/webview_ab";
-            }
-            List<JSONObject> b = eq3.b(str2, str3);
-            if (b != null) {
-                File file = new File(str);
-                ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
-                    }
-                }
-                if (file.exists()) {
-                    zr4.L(file);
-                }
-                zr4.h(file);
-                zr4.P(arrayList, file);
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeZL.objValue;
-    }
-
-    public boolean c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() > 0 && zr4.v(this.b)) {
-                if (this.a) {
-                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
-                } else {
-                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-                }
-                return fq3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public List<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!co4.b() && !TextUtils.equals(co4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    zr4.L(file);
-                }
-            }
-            if (zr4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
-                }
-                return zr4.F(new File(this.b));
-            }
-            return b(this.a, this.b);
-        }
-        return (List) invokeV.objValue;
     }
 }

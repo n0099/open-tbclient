@@ -1,70 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class l26 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public List<String> c;
-    public String d;
-    public String e;
+public interface l26 extends o26<q26> {
+    void a(int i);
 
-    public l26() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new ArrayList();
-    }
+    List<Integer> d();
 
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c.add(str);
-        }
-    }
+    void e(List<k26> list, String str, String str2, String str3, String str4, boolean z, int i);
 
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
-        }
-    }
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
 
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.e = str;
-        }
-    }
+    void i(List<k26> list, int i);
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
+    void k(List<Object> list);
 
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-        }
-    }
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<k26> list, List<k26> list2, boolean z, int i);
+
+    void p(String str);
 }

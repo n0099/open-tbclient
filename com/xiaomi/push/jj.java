@@ -38,72 +38,72 @@ public class jj extends iz {
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public jb mo694a() {
+    public jb mo695a() {
         byte a2 = a();
-        int mo691a = mo691a();
-        if (mo691a <= c) {
-            return new jb(a2, mo691a);
+        int mo692a = mo692a();
+        if (mo692a <= c) {
+            return new jb(a2, mo692a);
         }
-        throw new je(3, "Thrift list size " + mo691a + " out of range!");
+        throw new je(3, "Thrift list size " + mo692a + " out of range!");
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public jc mo695a() {
+    public jc mo696a() {
         byte a2 = a();
         byte a3 = a();
-        int mo691a = mo691a();
-        if (mo691a <= b) {
-            return new jc(a2, a3, mo691a);
+        int mo692a = mo692a();
+        if (mo692a <= b) {
+            return new jc(a2, a3, mo692a);
         }
-        throw new je(3, "Thrift map size " + mo691a + " out of range!");
+        throw new je(3, "Thrift map size " + mo692a + " out of range!");
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public jh mo696a() {
+    public jh mo697a() {
         byte a2 = a();
-        int mo691a = mo691a();
-        if (mo691a <= d) {
-            return new jh(a2, mo691a);
+        int mo692a = mo692a();
+        if (mo692a <= d) {
+            return new jh(a2, mo692a);
         }
-        throw new je(3, "Thrift set size " + mo691a + " out of range!");
+        throw new je(3, "Thrift set size " + mo692a + " out of range!");
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public String mo698a() {
-        int mo691a = mo691a();
-        if (mo691a > e) {
-            throw new je(3, "Thrift string size " + mo691a + " out of range!");
-        } else if (((jd) this).a.b() >= mo691a) {
+    public String mo699a() {
+        int mo692a = mo692a();
+        if (mo692a > e) {
+            throw new je(3, "Thrift string size " + mo692a + " out of range!");
+        } else if (((jd) this).a.b() >= mo692a) {
             try {
-                String str = new String(((jd) this).a.mo716a(), ((jd) this).a.a(), mo691a, "UTF-8");
-                ((jd) this).a.a(mo691a);
+                String str = new String(((jd) this).a.mo717a(), ((jd) this).a.a(), mo692a, "UTF-8");
+                ((jd) this).a.a(mo692a);
                 return str;
             } catch (UnsupportedEncodingException unused) {
                 throw new ix("JVM DOES NOT SUPPORT UTF-8");
             }
         } else {
-            return a(mo691a);
+            return a(mo692a);
         }
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public ByteBuffer mo699a() {
-        int mo691a = mo691a();
-        if (mo691a > f) {
-            throw new je(3, "Thrift binary size " + mo691a + " out of range!");
+    public ByteBuffer mo700a() {
+        int mo692a = mo692a();
+        if (mo692a > f) {
+            throw new je(3, "Thrift binary size " + mo692a + " out of range!");
         }
-        c(mo691a);
-        if (((jd) this).a.b() >= mo691a) {
-            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo716a(), ((jd) this).a.a(), mo691a);
-            ((jd) this).a.a(mo691a);
+        c(mo692a);
+        if (((jd) this).a.b() >= mo692a) {
+            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo717a(), ((jd) this).a.a(), mo692a);
+            ((jd) this).a.a(mo692a);
             return wrap;
         }
-        byte[] bArr = new byte[mo691a];
-        ((jd) this).a.b(bArr, 0, mo691a);
+        byte[] bArr = new byte[mo692a];
+        ((jd) this).a.b(bArr, 0, mo692a);
         return ByteBuffer.wrap(bArr);
     }
 }

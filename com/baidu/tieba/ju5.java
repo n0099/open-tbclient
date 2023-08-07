@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ju5 {
+public abstract class ju5 implements ou5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lu5 a;
-    public String b;
+    public boolean a;
 
-    public ju5(String str) {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public abstract View getView();
+
+    public ju5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +34,26 @@ public class ju5 {
                 return;
             }
         }
-        this.b = str;
+        this.a = false;
+        new SparseArray();
     }
 
-    public final void a(String str, int i) {
-        int intValue;
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || xi.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
-            return;
-        }
-        int i2 = intValue + 1;
-        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
-        if (intValue2 > 0) {
-            i = (i + (intValue2 * (i2 - 1))) / i2;
-        }
-        TbSingleton.getInstance().setAnimAvgFps(str, i);
-        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
-        if (i2 >= 5) {
-            TbSingleton.getInstance().setAnimComputedFps(str, i);
-            ku5.a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            b(view2, false);
         }
     }
 
-    public void b() {
+    public void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
-            if (this.a == null) {
-                this.a = new lu5();
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
+            View view3 = getView();
+            if (view3.getParent() != null) {
+                return;
             }
-            this.a.c();
-        }
-    }
-
-    public void c() {
-        lu5 lu5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (lu5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
-            lu5Var.d();
-            a(this.b, this.a.b());
+            mm5.a(view2, this.a).a(view2, view3, z);
+            c();
         }
     }
 }

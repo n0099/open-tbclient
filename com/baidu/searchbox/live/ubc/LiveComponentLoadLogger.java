@@ -165,14 +165,11 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
     public final void bindRoomIdToExternalEnterFlow(String str, String str2, String str3) {
         String str4;
         int i;
-        boolean z;
-        Object obj;
-        boolean z2;
-        Object obj2;
+        String str5;
         IntentData schemeIntentData;
         IntentData.SchemeModel model;
         IntentData schemeIntentData2;
-        Object obj3;
+        Object obj;
         logDebug("bindRoomIdToExternalEnterFlow  :" + str);
         if (str != null) {
             this.mCurrentRoomId = str;
@@ -194,10 +191,10 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                 return;
             }
             YYStatInfo yYStatInfo = this.externalYYStatInfo;
-            if (yYStatInfo != null && (obj3 = yYStatInfo.flowObj) != null) {
+            if (yYStatInfo != null && (obj = yYStatInfo.flowObj) != null) {
                 Map<String, Flow> map2 = this.flowMaps;
-                if (obj3 != null) {
-                    map2.put(str, (Flow) obj3);
+                if (obj != null) {
+                    map2.put(str, (Flow) obj);
                 } else {
                     throw new TypeCastException("null cannot be cast to non-null type com.baidu.ubc.Flow");
                 }
@@ -209,53 +206,32 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                 jSONObject.put("setup_type", yYStatInfo2.loadType);
                 jSONObject.put("jump_source", str2);
                 ILivePageInfoInterface iLivePageInfoInterface = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
-                String str5 = (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str5 = schemeIntentData2.getId()) == null) ? "" : "";
+                String str6 = (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str6 = schemeIntentData2.getId()) == null) ? "" : "";
                 ILivePageInfoInterface iLivePageInfoInterface2 = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
-                boolean z3 = false;
+                boolean z = false;
                 if (iLivePageInfoInterface2 != null && (schemeIntentData = iLivePageInfoInterface2.getSchemeIntentData()) != null && (model = schemeIntentData.getModel()) != null) {
                     i = model.getInterventions();
                 } else {
                     i = 0;
                 }
-                if (Intrinsics.areEqual(str5, str)) {
+                if (Intrinsics.areEqual(str6, str)) {
                     jSONObject.put("ganyu_scene_qufen", i);
                 }
                 jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
                 jSONObject.put("templateId", str3);
+                jSONObject.put("prohibit_preload_media_business", "1");
                 AbConfigService abService = getAbService();
-                if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                if (abService != null && abService.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
                     z = true;
-                } else {
-                    z = false;
                 }
-                String str6 = "1";
                 if (z) {
-                    obj = "1";
+                    str5 = "1";
                 } else {
-                    obj = "0";
+                    str5 = "0";
                 }
-                jSONObject.put("prohibit_preload_media_business", obj);
-                AbConfigService abService2 = getAbService();
-                if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z2) {
-                    obj2 = "1";
-                } else {
-                    obj2 = "0";
-                }
-                jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
-                AbConfigService abService3 = getAbService();
-                if (abService3 != null && abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
-                    z3 = true;
-                }
-                if (!z3) {
-                    str6 = "0";
-                }
-                jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str6);
-                logDebug("禁止预加载二级实验 " + z + "， 延时加载二级实验： " + z2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z3);
+                jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, str5);
+                jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, "1");
+                logDebug("禁止预加载二级实验 true， 延时加载二级实验： " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 true");
                 this.flowExtContent.put(str, jSONObject);
             }
         }
@@ -352,10 +328,7 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
 
     public final void launchMediaCompLoadFlow(String str, String str2, boolean z, String str3) {
         int i;
-        boolean z2;
-        Object obj;
-        boolean z3;
-        Object obj2;
+        String str4;
         IntentData schemeIntentData;
         IntentData.SchemeModel model;
         IntentData schemeIntentData2;
@@ -374,53 +347,32 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                     jSONObject.put("setup_type", "launch");
                     jSONObject.put("jump_source", str3);
                     ILivePageInfoInterface iLivePageInfoInterface = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
-                    String str4 = (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str4 = schemeIntentData2.getId()) == null) ? "" : "";
+                    String str5 = (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str5 = schemeIntentData2.getId()) == null) ? "" : "";
                     ILivePageInfoInterface iLivePageInfoInterface2 = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
-                    boolean z4 = false;
+                    boolean z2 = false;
                     if (iLivePageInfoInterface2 != null && (schemeIntentData = iLivePageInfoInterface2.getSchemeIntentData()) != null && (model = schemeIntentData.getModel()) != null) {
                         i = model.getInterventions();
                     } else {
                         i = 0;
                     }
-                    if (Intrinsics.areEqual(str4, str)) {
+                    if (Intrinsics.areEqual(str5, str)) {
                         jSONObject.put("ganyu_scene_qufen", i);
                     }
                     jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
                     jSONObject.put("templateId", str2);
+                    jSONObject.put("prohibit_preload_media_business", "1");
                     AbConfigService abService = getAbService();
-                    if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                    if (abService != null && abService.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
                         z2 = true;
-                    } else {
-                        z2 = false;
                     }
-                    String str5 = "1";
                     if (z2) {
-                        obj = "1";
+                        str4 = "1";
                     } else {
-                        obj = "0";
+                        str4 = "0";
                     }
-                    jSONObject.put("prohibit_preload_media_business", obj);
-                    AbConfigService abService2 = getAbService();
-                    if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                    if (z3) {
-                        obj2 = "1";
-                    } else {
-                        obj2 = "0";
-                    }
-                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
-                    AbConfigService abService3 = getAbService();
-                    if (abService3 != null && abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
-                        z4 = true;
-                    }
-                    if (!z4) {
-                        str5 = "0";
-                    }
-                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str5);
-                    logDebug("禁止预加载二级实验 " + z2 + "， 延时加载二级实验： " + z3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z4);
+                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, str4);
+                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, "1");
+                    logDebug("禁止预加载二级实验 true， 延时加载二级实验： " + z2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 true");
                     this.flowExtContent.put(str, jSONObject);
                 }
                 this.mStartTime = System.currentTimeMillis();

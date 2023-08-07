@@ -1,48 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class fl2 extends cl2 {
+public class fl2 extends yk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String c;
+    public final String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fl2(@NonNull bl2 bl2Var) {
-        super(bl2Var);
+    public fl2(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bl2Var};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bl2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = str;
+        this.d = str2;
+        this.a = "firstMeaningfulPainted";
     }
 
-    @Override // com.baidu.tieba.cl2
-    public void e() {
+    @Override // com.baidu.tieba.yk2
+    public void m(Map<String, Object> map) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f(sj4.i().v().keySet());
-            d();
-            ArraySet<String> a = a();
-            kt1 kt1Var = this.b;
-            if (kt1Var != null) {
-                kt1Var.f();
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            String str2 = "";
+            if (TextUtils.isEmpty(this.c)) {
+                str = "";
+            } else {
+                str = this.c;
             }
-            c(a);
+            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+            if (!TextUtils.isEmpty(this.d)) {
+                str2 = this.d;
+            }
+            map.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
         }
     }
 }

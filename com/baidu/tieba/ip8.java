@@ -1,138 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.SparseIntArray;
-import android.view.View;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public class ip8 extends GridLayoutManager.SpanSizeLookup {
+public final class ip8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecyclerView a;
-    public final int b;
-    public final SparseIntArray c;
-    public final int d;
 
-    public ip8(RecyclerView recyclerView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recyclerView, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947861304, "Lcom/baidu/tieba/ip8;")) == null) {
+            return;
         }
-        this.c = new SparseIntArray();
-        this.a = recyclerView;
-        this.b = Math.max(1, d());
-        this.d = i;
-        setSpanIndexCacheEnabled(true);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947861304, "Lcom/baidu/tieba/ip8;");
+        }
     }
 
-    public static int d() {
+    @JvmStatic
+    public static final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Math.max(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 4);
+            }
+            return tv9.d.a().b("agree_message_bar");
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public int a() {
+    @JvmStatic
+    public static final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int measuredWidth = this.a.getMeasuredWidth();
-            if (measuredWidth == 0) {
-                measuredWidth = this.a.getWidth();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 3);
             }
-            return (measuredWidth - this.a.getPaddingLeft()) - this.a.getPaddingRight();
+            return tv9.d.a().b("at_message_bar");
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final int b() {
+    @JvmStatic
+    public static final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 5);
+            }
+            return tv9.d.a().b("fan_message_bar");
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public float c() {
+    @JvmStatic
+    public static final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (a() * 1.0f) / this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public void invalidateSpanIndexCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.clear();
-            super.invalidateSpanIndexCache();
-        }
-    }
-
-    public final int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (a() <= 0) {
-                return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 0);
             }
-            return ((int) Math.floor(f(i) / c())) + 1;
+            return tv9.d.a().b("im");
         }
-        return invokeI.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public int getSpanSize(int i) {
-        InterceptResult invokeI;
+    @JvmStatic
+    public static final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return Math.min(this.b, e(i));
-        }
-        return invokeI.intValue;
-    }
-
-    public final int f(int i) {
-        InterceptResult invokeI;
-        RecyclerView.ViewHolder createViewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            RecyclerView.Adapter adapter = this.a.getAdapter();
-            int i2 = this.c.get(i, -1);
-            if (i2 != -1) {
-                return i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 6);
             }
-            if (adapter == null || (createViewHolder = adapter.createViewHolder(this.a, adapter.getItemViewType(i))) == null) {
-                return 0;
-            }
-            adapter.onBindViewHolder(createViewHolder, i);
-            createViewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            int measuredWidth = createViewHolder.itemView.getMeasuredWidth() + this.d;
-            adapter.onViewRecycled(createViewHolder);
-            this.c.put(i, measuredWidth);
-            return measuredWidth;
+            return tv9.d.a().b("reply_message_bar");
         }
-        return invokeI.intValue;
+        return invokeV.booleanValue;
     }
 }

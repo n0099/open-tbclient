@@ -6,6 +6,7 @@ import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.searchbox.util.BaiduActiveStatistic;
 import com.baidu.smallgame.sdk.Log;
+import com.baidu.tbadk.core.log.Logger;
 import com.huawei.hms.framework.common.ExceptionCode;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -306,7 +307,7 @@ public class NetInfo {
 
     public Socket getSocket() {
         if (!isEmpty() && this.mSocket == null) {
-            this.mSocket = new Socket(JSONObjectUtils.getJSONObject(this.mJSONObject, "socket"));
+            this.mSocket = new Socket(JSONObjectUtils.getJSONObject(this.mJSONObject, Logger.SOCKET_TYPE));
         }
         return this.mSocket;
     }

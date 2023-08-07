@@ -1,75 +1,105 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vi1 {
     public static /* synthetic */ Interceptable $ic;
+    public static Toast a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bundle a(Map<String, String> map) {
-        InterceptResult invokeL;
+    public static View a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            for (String str : map.keySet()) {
-                bundle.putString(str, map.get(str));
-            }
-            return bundle;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc7)).setText(str);
+            return inflate;
         }
-        return (Bundle) invokeL.objValue;
+        return (View) invokeLL.objValue;
     }
 
-    public static JSONObject b(Map<String, String> map) {
-        InterceptResult invokeL;
+    public static void f(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                jSONObject.put(str, map.get(str));
-            }
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(a(context, str));
+        a.show();
     }
 
-    public static Map<String, String> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            Map<String, String> c = c();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next)) {
-                        c.put(next, jSONObject.optString(next));
-                    }
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            Toast toast = new Toast(context.getApplicationContext());
+            a = toast;
+            toast.setGravity(17, 0, 0);
+            a.setDuration(0);
+        }
+    }
+
+    public static View c(Context context, int i, String str, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc6);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc7);
+            if (-1 == i) {
+                imageView.setVisibility(8);
+            } else {
+                imageView.setVisibility(0);
+                imageView.setImageResource(i);
+                if (z) {
+                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100b4));
                 }
             }
-            return c;
+            textView.setText(str);
+            return inflate;
         }
-        return (Map) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public static <K, V> Map<K, V> c() {
-        InterceptResult invokeV;
+    public static void d(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new ArrayMap();
-            }
-            return new HashMap();
+        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
+            return;
         }
-        return (Map) invokeV.objValue;
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(c(context, i, str, false));
+        a.show();
+    }
+
+    public static void e(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
+            return;
+        }
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(c(context, i, str, true));
+        a.show();
     }
 }

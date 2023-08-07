@@ -1,54 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-@Singleton
+import com.baidu.util.Base64Encoder;
+import java.io.Serializable;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import kotlin.Result;
+import kotlin.ResultKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cb1 extends pl1<fu0> {
+public final class cb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947668887, "Lcom/baidu/tieba/cb1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947668887, "Lcom/baidu/tieba/cb1;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
     /* loaded from: classes5.dex */
-    public class a implements fu0 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.fu0
-        public boolean shouldAcceptCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.fu0
-        public boolean shouldSendCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public a(cb1 cb1Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cb1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,64 +65,135 @@ public class cb1 extends pl1<fu0> {
             }
         }
 
-        @Override // com.baidu.tieba.fu0
-        public String getCookie(String str) {
-            InterceptResult invokeL;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final void a(Intent intent) {
+            boolean z;
+            boolean z2;
+            boolean z3;
+            boolean z4;
+            boolean z5;
+            Object m847constructorimpl;
+            String jSONObject;
+            Charset charset;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                try {
-                    return CookieManager.getInstance().getCookie(str);
-                } catch (Exception unused) {
-                    return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+                Intrinsics.checkNotNullParameter(intent, "intent");
+                Bundle extras = intent.getExtras();
+                if (extras != null) {
+                    Intrinsics.checkNotNullExpressionValue(extras, "intent.extras ?: return");
+                    Serializable serializable = extras.getSerializable("map");
+                    if (!(serializable instanceof HashMap)) {
+                        serializable = null;
+                    }
+                    HashMap hashMap = (HashMap) serializable;
+                    if (hashMap != null) {
+                        if (hashMap != null) {
+                            if (hashMap == null || hashMap.isEmpty() || !TextUtils.equals((CharSequence) c31.b(hashMap, "append_da"), "1")) {
+                                return;
+                            }
+                            String str = (String) c31.b(hashMap, "url");
+                            boolean z6 = false;
+                            if (str != null && str.length() != 0) {
+                                z = false;
+                            } else {
+                                z = true;
+                            }
+                            if (z) {
+                                return;
+                            }
+                            String ver = pj0.d().w();
+                            Intrinsics.checkNotNullExpressionValue(ver, "ver");
+                            if (ver.length() > 0) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if (z2) {
+                                str = c71.a(str, "ver", ver);
+                            }
+                            String uid = pj0.d().t();
+                            Intrinsics.checkNotNullExpressionValue(uid, "uid");
+                            if (uid.length() > 0) {
+                                z3 = true;
+                            } else {
+                                z3 = false;
+                            }
+                            if (z3) {
+                                byte[] bytes = uid.getBytes(Charsets.UTF_8);
+                                Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+                                byte[] B64Encode = Base64Encoder.B64Encode(bytes);
+                                Intrinsics.checkNotNullExpressionValue(B64Encode, "Base64Encoder.B64Encode(uid.toByteArray())");
+                                str = c71.a(str, "uid", new String(B64Encode, Charsets.UTF_8));
+                            }
+                            String apna = pj0.d().packageName();
+                            Intrinsics.checkNotNullExpressionValue(apna, "apna");
+                            if (apna.length() > 0) {
+                                z4 = true;
+                            } else {
+                                z4 = false;
+                            }
+                            if (z4) {
+                                str = c71.a(str, "apna", apna);
+                            }
+                            String sid = pj0.d().i();
+                            Intrinsics.checkNotNullExpressionValue(sid, "sid");
+                            if (sid.length() > 0) {
+                                z5 = true;
+                            } else {
+                                z5 = false;
+                            }
+                            if (z5) {
+                                str = c71.a(str, "sid", sid);
+                            }
+                            String a = c71.a(str, "network", String.valueOf(new ct0().c()));
+                            String ua = pj0.d().h();
+                            Intrinsics.checkNotNullExpressionValue(ua, "ua");
+                            if (ua.length() > 0) {
+                                z6 = true;
+                            }
+                            if (z6) {
+                                byte[] bytes2 = ua.getBytes(Charsets.UTF_8);
+                                Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
+                                byte[] B64Encode2 = Base64Encoder.B64Encode(bytes2);
+                                Intrinsics.checkNotNullExpressionValue(B64Encode2, "Base64Encoder.B64Encode(ua.toByteArray())");
+                                a = c71.a(a, "ua", new String(B64Encode2, Charsets.UTF_8));
+                            }
+                            try {
+                                Result.Companion companion = Result.Companion;
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put(AdExtParam.KEY_IADEX, pj0.d().m());
+                                jSONObject = jSONObject2.toString();
+                                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …             }.toString()");
+                                charset = Charsets.UTF_8;
+                            } catch (Throwable th) {
+                                Result.Companion companion2 = Result.Companion;
+                                m847constructorimpl = Result.m847constructorimpl(ResultKt.createFailure(th));
+                            }
+                            if (jSONObject != null) {
+                                byte[] bytes3 = jSONObject.getBytes(charset);
+                                Intrinsics.checkNotNullExpressionValue(bytes3, "(this as java.lang.String).getBytes(charset)");
+                                m847constructorimpl = Result.m847constructorimpl(bytes3);
+                                if (Result.m854isSuccessimpl(m847constructorimpl)) {
+                                    byte[] bArr = (byte[]) m847constructorimpl;
+                                    if (Uri.parse(a).getQueryParameter("da") == null) {
+                                        byte[] encode = Base64.encode(bArr, 2);
+                                        Intrinsics.checkNotNullExpressionValue(encode, "Base64.encode(it, Base64.NO_WRAP)");
+                                        a = c71.a(a, "da", new String(encode, Charsets.UTF_8));
+                                    }
+                                }
+                                c31.e(hashMap, "url", a);
+                                return;
+                            }
+                            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
+                    }
                 }
             }
-            return (String) invokeL.objValue;
         }
-
-        @Override // com.baidu.tieba.fu0
-        public void storeCookie(String str, List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && list != null && list.size() > 0) {
-                try {
-                    CookieManager cookieManager = CookieManager.getInstance();
-                    for (String str2 : list) {
-                        cookieManager.setCookie(str, str2);
-                    }
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        CookieManager.getInstance().flush();
-                        return;
-                    }
-                    CookieSyncManager.createInstance(rk0.b());
-                    CookieSyncManager.getInstance().sync();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    public cb1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public fu0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (fu0) invokeV.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.client.socket.coder;
 
-import com.baidu.tieba.oa;
+import com.baidu.tieba.ia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class CoderException extends Exception {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CoderException(int i) {
-        super(oa.i(i));
+        super(ia.i(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

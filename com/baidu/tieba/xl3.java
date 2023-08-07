@@ -1,223 +1,285 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.di3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Stack;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class xl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                File file = new File(this.a);
-                try {
-                    jSONObject.put("file_name", this.b);
-                    jSONObject.put("file_tree", xl3.d(file));
-                    jSONObject.put("file_stack_info", this.c);
-                    jSONObject.put("file_free_space", file.getFreeSpace());
-                    jSONObject.put("file_total_space", file.getTotalSpace());
-                } catch (JSONException e) {
-                    if (xl3.a) {
-                        e.printStackTrace();
-                    }
-                }
-                di3.b bVar = new di3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
-                bVar.j(this.b);
-                bVar.h(ub3.K().getAppId());
-                bVar.i(jSONObject.toString());
-                bVar.m();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-                    jSONObject.put("pagePath", this.b);
-                } catch (JSONException e) {
-                    if (xl3.a) {
-                        e.printStackTrace();
-                    }
-                }
-                di3.b bVar = new di3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
-                bVar.i(jSONObject.toString());
-                bVar.h(ub3.K().getAppId());
-                bVar.m();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948304170, "Lcom/baidu/tieba/xl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948304170, "Lcom/baidu/tieba/xl3;");
+    public xl3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
-        b = -1;
+        f();
     }
 
-    public static int c() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b < 0) {
-                cv2.g0().getSwitch("swan_app_file_analysis_switch", 0);
-                b = 0;
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return WifiManager.calculateSignalLevel(this.d, 100);
         }
         return invokeV.intValue;
     }
 
-    public static void b(String str, String str2) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || c() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.b;
+            if (str == null) {
+                return Config.DEF_MAC_ID;
+            }
+            return str;
         }
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String f = np3.f(str2);
-            if (!new File(str, f + ".swan.js").exists()) {
-                f(str, f);
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            if (str == null) {
+                return "<unknown ssid>";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = "<unknown ssid>";
+            this.b = Config.DEF_MAC_ID;
+            this.c = -1;
+            this.d = 0;
+            this.e = 0;
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (e() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.hashCode() + this.b.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return n().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return o();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public xl3(ScanResult scanResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {scanResult};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        if (scanResult == null) {
+            f();
             return;
         }
-        e(str, str2);
+        m(scanResult.SSID);
+        h(scanResult.BSSID);
+        j(scanResult.level);
+        l(scanResult.capabilities);
+        i(scanResult.frequency);
     }
 
-    public static String d(File file) {
-        InterceptResult invokeL;
-        File[] listFiles;
+    public xl3(WifiInfo wifiInfo, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file != null && file.exists() && file.isDirectory()) {
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                Stack stack = new Stack();
-                stack.push(file);
-                while (!stack.isEmpty()) {
-                    File file2 = (File) stack.pop();
-                    if (file2 != null) {
-                        if (file2.isFile()) {
-                            arrayList.add(file2);
-                        } else if (file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length > 0) {
-                            Collections.addAll(stack, listFiles);
-                        }
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        File file3 = (File) arrayList.get(i);
-                        arrayList2.add(file3.getAbsolutePath() + "|" + new Date(file3.lastModified()));
-                    }
-                }
-                return Arrays.toString(arrayList2.toArray());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wifiInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+        if (wifiInfo == null) {
+            f();
+            return;
+        }
+        m(zl3.e(wifiInfo.getSSID()));
+        h(wifiInfo.getBSSID());
+        j(wifiInfo.getRssi());
+        k(i);
+        i(wifiInfo.getFrequency());
     }
 
-    public static void e(String str, String str2) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            po3.f().execute(new b(str, str2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (!(obj instanceof xl3)) {
+                return super.equals(obj);
+            }
+            xl3 xl3Var = (xl3) obj;
+            if (xl3Var.a.equals(this.a) && xl3Var.b.equals(this.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            if (str == null) {
+                str = Config.DEF_MAC_ID;
+            }
+            this.b = str;
         }
     }
 
-    public static void f(String str, String str2) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            po3.f().execute(new a(str, str2, Arrays.toString(new Exception().getStackTrace())));
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
         }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.c = am3.c(str);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            if (str == null) {
+                str = "<unknown ssid>";
+            }
+            this.a = str;
+        }
+    }
+
+    public JSONObject n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("SSID", d());
+                jSONObject.put("BSSID", b());
+                jSONObject.put(ClientCookie.SECURE_ATTR, g());
+                jSONObject.put("signalStrength", a());
+                jSONObject.put(FetchTimer.FREQUENCY, c());
+                return jSONObject;
+            } catch (JSONException e) {
+                if (ir1.a) {
+                    Log.d("WifiAccessPoint", Log.getStackTraceString(e));
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

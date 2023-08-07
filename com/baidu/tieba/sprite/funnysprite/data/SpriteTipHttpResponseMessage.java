@@ -3,14 +3,14 @@ package com.baidu.tieba.sprite.funnysprite.data;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.bi;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.qla;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.uka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sg.h().m(this.a, 59, null, null);
+                BdResourceLoader.getInstance().loadResource(this.a, 59, null, null);
             }
         }
     }
@@ -133,9 +133,9 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = qla.g(themeColorInfo);
-        if (!xi.isEmpty(g)) {
-            dh.c(new a(this, g));
+        String g = uka.g(themeColorInfo);
+        if (!bi.isEmpty(g)) {
+            lg.c(new a(this, g));
         }
     }
 
@@ -261,8 +261,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
                     this.disappearSeconds = optJSONObject.optInt("disappear_seconds", -1);
-                    this.textColorTheme = qla.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = qla.j(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = uka.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = uka.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

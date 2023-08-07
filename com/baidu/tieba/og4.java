@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.tieba.jg4;
+import com.baidu.tieba.zf4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +13,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class og4 extends hg4<gy2> {
+public class og4 extends kf4<ix2> implements jg4.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public hx2 a;
+    public ix2 b;
+
+    /* loaded from: classes7.dex */
+    public class a implements zf4.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hx2 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ og4 c;
+
+        public a(og4 og4Var, hx2 hx2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og4Var, hx2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = og4Var;
+            this.a = hx2Var;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.zf4.c
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                y72.o("map", "location permission fail");
+                this.a.b(this.b, 1003, "location permission fail");
+            }
+        }
+
+        @Override // com.baidu.tieba.zf4.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                y72.o("map", "location permission success");
+                this.c.g();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +81,7 @@ public class og4 extends hg4<gy2> {
                 return;
             }
         }
-        boolean z = fs1.a;
+        boolean z = ir1.a;
     }
 
     public og4() {
@@ -50,67 +98,92 @@ public class og4 extends hg4<gy2> {
         }
     }
 
-    public static og4 e() {
+    public static og4 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             return new og4();
         }
         return (og4) invokeV.objValue;
     }
 
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            jg4 d3 = jg4.d3(null);
+            d3.i3(this);
+            d3.k3();
+        }
+    }
+
+    @Override // com.baidu.tieba.jg4.b
+    public void onCancel() {
+        ix2 ix2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            y72.i("map", "choose location cancel");
+            hx2 hx2Var = this.a;
+            if (hx2Var != null && (ix2Var = this.b) != null) {
+                hx2Var.b(ix2Var.z, 1002, "choose location canceled");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jg4.b
+    public void onError() {
+        ix2 ix2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            y72.i("map", "choose location fail");
+            hx2 hx2Var = this.a;
+            if (hx2Var != null && (ix2Var = this.b) != null) {
+                hx2Var.b(ix2Var.z, 1007, "choose location failed");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jg4.b
+    public void a(SelectedLocationInfo selectedLocationInfo) {
+        hx2 hx2Var;
+        ix2 ix2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) && (hx2Var = this.a) != null && (ix2Var = this.b) != null) {
+            hx2Var.c(ix2Var.z, selectedLocationInfo.toJson());
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hg4
-    /* renamed from: d */
-    public boolean b(Context context, gy2 gy2Var, ey2 ey2Var, vb3 vb3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.kf4
+    /* renamed from: f */
+    public boolean b(Context context, ix2 ix2Var, hx2 hx2Var, ya3 ya3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gy2Var, ey2Var, vb3Var, jSONObject)) == null) {
-            return f(context, gy2Var, ey2Var, vb3Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, ix2Var, hx2Var, ya3Var, jSONObject)) == null) {
+            return e(context, ix2Var, hx2Var, ya3Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean f(Context context, gy2 gy2Var, ey2 ey2Var, vb3 vb3Var) {
+    public final boolean e(Context context, ix2 ix2Var, hx2 hx2Var, ya3 ya3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, gy2Var, ey2Var, vb3Var)) == null) {
-            v82.i("map", "IncludePointsAction start");
-            dy1 A = ix2.T().A(gy2Var.c);
-            if (!(A instanceof by1)) {
-                v82.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, ix2Var, hx2Var, ya3Var)) == null) {
+            y72.i("map", "ChooseLocationAction start");
+            if (!ix2Var.isValid()) {
+                y72.c("map", "model is invalid");
                 return false;
             }
-            fh4 d = eg4.b().c((by1) A).d(gy2Var.b);
-            if (d == null) {
-                v82.c("map", "can not find map by id " + gy2Var.b);
+            String str = ix2Var.z;
+            if (TextUtils.isEmpty(str)) {
+                y72.c("map", "cb is empty");
                 return false;
             }
-            v82.i("map", "IncludePointsAction end");
-            return g(gy2Var, d);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean g(gy2 gy2Var, fh4 fh4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, gy2Var, fh4Var)) == null) {
-            if (gy2Var == null || !gy2Var.isValid()) {
-                return false;
-            }
-            BaiduMap map = fh4Var.l.getMap();
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            Iterator<oy2> it = gy2Var.z.iterator();
-            while (it.hasNext()) {
-                oy2 next = it.next();
-                builder.include(new LatLng(next.a, next.b));
-            }
-            LatLngBounds build = builder.build();
-            int[] iArr = gy2Var.A;
-            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
+            this.a = hx2Var;
+            this.b = ix2Var;
+            zf4.b(context, new a(this, hx2Var, str));
+            y72.i("map", "ChooseLocationAction end");
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

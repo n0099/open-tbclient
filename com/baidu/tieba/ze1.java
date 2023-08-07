@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
+import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.af1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +16,130 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+@Autowired
 /* loaded from: classes8.dex */
 public class ze1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ze1 b;
+    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public cl1<IPackageGetter> a;
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            al1 b2 = al1.b();
-            this.a = b2;
-            b2.a(new IPackageGetter_PackageGetter_Provider());
+    /* loaded from: classes8.dex */
+    public static class a implements af1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.af1
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.af1
+        public String b(Activity activity, String str, af1.a aVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, aVar)) == null) {
+                return null;
+            }
+            return (String) invokeLLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.af1
+        public void c(String str, String str2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ af1.a c;
+        public final /* synthetic */ String d;
+
+        public b(Activity activity, String str, af1.a aVar, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity, str, aVar, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+            this.b = str;
+            this.c = aVar;
+            this.d = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ze1.f(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            ze1.e(this.a);
         }
     }
 
@@ -41,40 +156,72 @@ public class ze1 {
                 return;
             }
         }
-        b = new ze1();
+        a = new HashMap();
     }
 
-    public ze1() {
+    @Inject(force = false)
+    public static af1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new a();
+        }
+        return (af1) invokeV.objValue;
+    }
+
+    public static void f(Activity activity, String str, af1.a aVar, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, activity, str, aVar, str2) == null) {
+            String b2 = d().b(activity, str, aVar);
+            if (!TextUtils.isEmpty(b2)) {
+                a.put(str2, b2);
             }
         }
-        c();
     }
 
-    public static ze1 a() {
-        InterceptResult invokeV;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                new Handler(Looper.getMainLooper()).post(new c(str));
+            } else {
+                e(str);
+            }
         }
-        return (ze1) invokeV.objValue;
     }
 
-    public IPackageGetter b() {
-        InterceptResult invokeV;
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            String remove = a.remove(str);
+            if (!TextUtils.isEmpty(remove)) {
+                d().a(remove);
+            }
         }
-        return (IPackageGetter) invokeV.objValue;
+    }
+
+    public static String g(Activity activity, String str, af1.a aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, activity, str, aVar)) == null) {
+            String uuid = UUID.randomUUID().toString();
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                new Handler(Looper.getMainLooper()).post(new b(activity, str, aVar, uuid));
+            } else {
+                f(activity, str, aVar, uuid);
+            }
+            return uuid;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void h(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65544, null, str, str2, i) == null) {
+            String str3 = a.get(str);
+            if (!TextUtils.isEmpty(str3)) {
+                d().c(str3, str2, i);
+            }
+        }
     }
 }

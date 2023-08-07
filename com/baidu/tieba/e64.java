@@ -10,7 +10,7 @@ public class e64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String errMsg;
+    public int state;
 
     public e64() {
         Interceptable interceptable = $ic;

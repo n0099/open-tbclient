@@ -4,30 +4,30 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
-import com.baidu.tieba.l90;
-import com.baidu.tieba.uy3;
-import com.baidu.tieba.v2a;
-import com.baidu.tieba.wy3;
+import com.baidu.tieba.j80;
+import com.baidu.tieba.p1a;
+import com.baidu.tieba.xx3;
+import com.baidu.tieba.zx3;
 @Autowired
 /* loaded from: classes4.dex */
 public class SchemeRuntime {
     @Inject(force = false)
     public static IExternalTransferIoc getExternalTransferIoc() {
-        return l90.a();
+        return j80.a();
     }
 
     @Inject
     public static IFlyingScheduleIoc getFlyingScheduleIoc() {
-        return v2a.a();
+        return p1a.a();
     }
 
     @Inject
     public static ISchemeHeadIoc getSchemeHeadIoc() {
-        return uy3.a();
+        return xx3.a();
     }
 
     @Inject
     public static ISchemeIoc getSchemeIoc() {
-        return wy3.a();
+        return zx3.a();
     }
 }

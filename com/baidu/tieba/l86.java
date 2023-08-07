@@ -1,29 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.addresslist.relationship.ContactComparator;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l86 {
+public class l86 extends ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static l86 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public List<kg5> b;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void u(List<kg5> list);
-    }
 
     public l86() {
         Interceptable interceptable = $ic;
@@ -35,137 +28,86 @@ public class l86 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public static synchronized l86 d() {
+    public String a() {
         InterceptResult invokeV;
-        l86 l86Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (l86.class) {
-                if (c == null) {
-                    c = new l86();
-                }
-                l86Var = c;
-            }
-            return l86Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cmdContent;
         }
-        return (l86) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public List<kg5> c() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cmdKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.mediaType;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void e() {
+    public JSONArray d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a aVar : this.a) {
-                aVar.u(this.b);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.cmdPannel;
         }
+        return (JSONArray) invokeV.objValue;
     }
 
-    public void a(kg5 kg5Var) {
+    public void e(JSONObject jSONObject) throws JSONException {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, kg5Var) == null) && this.b != null && kg5Var != null) {
-            String a2 = kg5Var.a();
-            if (TextUtils.isEmpty(a2)) {
-                a2 = "#";
-                kg5Var.j("#");
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            int i = 1;
+            this.isAiApps = true;
+            this.title = jSONObject.getString("title");
+            this.linkUrl = jSONObject.getString(GameAssistConstKt.KEY_LINKURL);
+            this.content = jSONObject.optString("content");
+            this.imageUrl = jSONObject.optString("imageUrl");
+            this.mediaType = jSONObject.optString("mediaType");
+            if (StringUtils.isNull(this.imageUrl)) {
+                str = jSONObject.optString(GameAssistConstKt.KEY_ICONURL);
+            } else {
+                str = this.imageUrl;
             }
-            String e = kg5Var.e();
-            if (e == null) {
-                e = "";
+            this.imageUrl = str;
+            this.imageUri = Uri.parse(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
+            if (optJSONObject != null) {
+                this.aiAppId = optJSONObject.optString("source2");
+                this.aiAppSource = optJSONObject.optString("source3");
             }
-            boolean z = false;
-            boolean z2 = false;
-            for (kg5 kg5Var2 : this.b) {
-                if (e.equals(kg5Var2.e())) {
-                    z = true;
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
+            if (optJSONObject2 != null) {
+                this.aiAppType = 2;
+                this.cmdPannel = optJSONObject2.optJSONArray("cmd_pannel");
+                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
+                this.commandInfo = optJSONObject3;
+                if (optJSONObject3 != null) {
+                    this.cmdKey = optJSONObject3.optString("key");
+                    this.cmdContent = this.commandInfo.optString("content");
+                    return;
                 }
-                if (a2.equals(kg5Var2.a())) {
-                    z2 = true;
-                }
-            }
-            if (z) {
                 return;
             }
-            if (!z2) {
-                kg5 kg5Var3 = new kg5();
-                kg5Var3.j(a2);
-                this.b.add(kg5Var3);
+            if (!"url".equals(jSONObject.optString("type"))) {
+                i = 3;
             }
-            this.b.add(kg5Var);
-            Collections.sort(this.b, new ContactComparator());
-            e();
-        }
-    }
-
-    public void b(long j) {
-        List<kg5> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
-            return;
-        }
-        String str = null;
-        Iterator<kg5> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            kg5 next = it.next();
-            if (next.d() == j) {
-                str = next.a();
-                this.b.remove(next);
-                break;
-            }
-        }
-        if (str != null) {
-            ArrayList arrayList = new ArrayList();
-            for (kg5 kg5Var : this.b) {
-                if (str.equals(kg5Var.a())) {
-                    arrayList.add(kg5Var);
-                }
-            }
-            if (arrayList.size() <= 1) {
-                this.b.removeAll(arrayList);
-            }
-        }
-        e();
-    }
-
-    public void f(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
-            this.a.add(aVar);
-        }
-    }
-
-    public void g(List<kg5> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                Collections.sort(list, new ContactComparator());
-            }
-            e();
-        }
-    }
-
-    public void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
-            this.a.remove(aVar);
+            this.aiAppType = i;
         }
     }
 }

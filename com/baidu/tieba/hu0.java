@@ -1,230 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.net.request.RequestMethod;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hu0 {
+public class hu0 implements au0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final MediaType a;
-    public static final MediaType b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-735296823, "Lcom/baidu/tieba/hu0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-735296823, "Lcom/baidu/tieba/hu0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[BodyStyle.values().length];
-            b = iArr;
-            try {
-                iArr[BodyStyle.BYTE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[BodyStyle.STRING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[BodyStyle.FILE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[BodyStyle.FORM.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            int[] iArr2 = new int[RequestMethod.values().length];
-            a = iArr2;
-            try {
-                iArr2[RequestMethod.HEAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RequestMethod.GET.ordinal()] = 2;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[RequestMethod.POST.ordinal()] = 3;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[RequestMethod.PUT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[RequestMethod.DELETE.ordinal()] = 5;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                a[RequestMethod.PATCH.ordinal()] = 6;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                a[RequestMethod.OPTIONS.ordinal()] = 7;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                a[RequestMethod.TRACE.ordinal()] = 8;
-            } catch (NoSuchFieldError unused12) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836070, "Lcom/baidu/tieba/hu0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836070, "Lcom/baidu/tieba/hu0;");
-                return;
-            }
-        }
-        a = MediaType.parse("text/plain");
-        b = MediaType.parse("application/octet-stream");
-        MediaType.parse("application/x-www-form-urlencoded");
-    }
-
-    public static RequestBody a(@NonNull ju0 ju0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.au0
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ju0Var)) == null) {
-            byte[] bArr = ju0Var.d;
-            if (bArr != null && bArr.length > 0) {
-                return RequestBody.create(d(ju0Var.b, b), ju0Var.d);
-            }
-            return RequestBody.create((MediaType) null, new byte[0]);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
-        return (RequestBody) invokeL.objValue;
     }
 
-    public static RequestBody f(@NonNull ju0 ju0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.au0
+    public void onBufferEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ju0Var)) == null) {
-            if (!TextUtils.isEmpty(ju0Var.c)) {
-                return RequestBody.create(d(ju0Var.b, a), ju0Var.c);
-            }
-            return RequestBody.create((MediaType) null, new byte[0]);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (RequestBody) invokeL.objValue;
     }
 
-    public static RequestBody b(@NonNull ju0 ju0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.au0
+    public void onBufferStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ju0Var)) == null) {
-            if (ju0Var.e != null) {
-                return RequestBody.create(d(ju0Var.b, b), ju0Var.e);
-            }
-            return RequestBody.create((MediaType) null, new byte[0]);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (RequestBody) invokeL.objValue;
     }
 
-    public static RequestBody c(@NonNull ju0 ju0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.au0
+    public void onEnd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ju0Var)) == null) {
-            if (!x31.h(ju0Var.f)) {
-                FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : ju0Var.f.entrySet()) {
-                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                        try {
-                            builder.add(entry.getKey(), entry.getValue());
-                        } catch (Exception unused) {
-                        }
-                    }
-                }
-                return builder.build();
-            }
-            return RequestBody.create((MediaType) null, new byte[0]);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
-        return (RequestBody) invokeL.objValue;
     }
 
-    public static MediaType d(@NonNull String str, MediaType mediaType) {
-        InterceptResult invokeLL;
-        MediaType mediaType2;
+    @Override // com.baidu.tieba.au0
+    public void onError(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mediaType)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                mediaType2 = MediaType.parse(str);
-            } else {
-                mediaType2 = null;
-            }
-            if (mediaType2 != null || mediaType == null) {
-                return mediaType2;
-            }
-            return mediaType;
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, str) == null) {
         }
-        return (MediaType) invokeLL.objValue;
     }
 
-    public static RequestBody e(@NonNull ju0 ju0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.au0
+    public void onInfo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, ju0Var)) == null) {
-            int i = a.b[ju0Var.a.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return RequestBody.create((MediaType) null, new byte[0]);
-                        }
-                        return c(ju0Var);
-                    }
-                    return b(ju0Var);
-                }
-                return f(ju0Var);
-            }
-            return a(ju0Var);
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
         }
-        return (RequestBody) invokeL.objValue;
     }
 
-    public static RequestBody g(@NonNull String str, ju0 ju0Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.au0
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, ju0Var)) == null) {
-            if (ju0Var == null) {
-                return null;
-            }
-            int i = a.a[RequestMethod.reverse(str).ordinal()];
-            if (i != 3 && i != 4 && i != 5 && i != 6) {
-                return null;
-            }
-            return e(ju0Var);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
-        return (RequestBody) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void onUpdateProgress(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void onVideoSizeChanged(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+        }
+    }
+
+    public hu0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

@@ -1,155 +1,90 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class i96 extends pl1<ik0> {
+public class i96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public Context b;
+    public BdTypeRecyclerView c;
+    public List<lm> d;
+    public p96 e;
+    public p96 f;
+    public o96 g;
+    public n96 h;
+    public db6 i;
+    public m96 j;
+    public int k;
+    public int l;
+    public String m;
 
-    /* loaded from: classes6.dex */
-    public class a implements ik0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ik0
-        public String[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public boolean d(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.i96$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0330a implements lk0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean[] a;
-            public final /* synthetic */ jk0 b;
-
-            public C0330a(a aVar, boolean[] zArr, jk0 jk0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, zArr, jk0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = zArr;
-                this.b = jk0Var;
-            }
-
-            @Override // com.baidu.tieba.lk0
-            public void onResult(boolean z) {
-                jk0 jk0Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    this.a[0] = z;
-                    if (z && (jk0Var = this.b) != null) {
-                        jk0Var.a(true, null);
-                    }
-                }
-            }
-        }
-
-        public a(i96 i96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, jk0Var)) == null) {
-                Log.e("CMDConfig", "host invoke command = " + str);
-                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
-                    return true;
-                }
-                if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                    nk0.a(context, str, null, new C0330a(this, new boolean[1], jk0Var), false);
-                    return true;
-                }
-                UrlManager.getInstance().dealOneLink(new String[]{str});
-                return true;
-            }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public void b(String str, String str2, lk0 lk0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, lk0Var) == null) && lk0Var != null) {
-                lk0Var.onResult(true);
-            }
-        }
-    }
-
-    public i96() {
+    public i96(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.m = "0";
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = bdTypeRecyclerView;
+        this.k = i;
+        this.l = i2;
+        this.m = str;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new ArrayList();
+            this.e = new p96(this.a, this.k, false);
+            this.f = new p96(this.a, this.k, true);
+            this.g = new o96(this.a);
+            this.h = new n96(this.a);
+            this.i = new db6(this.a, this.l, this.m);
+            this.j = new m96(this.a);
+            this.d.add(this.e);
+            this.d.add(this.f);
+            this.d.add(this.g);
+            this.d.add(this.h);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.c.addAdapters(this.d);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public ik0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void b() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeRecyclerView = this.c) != null) {
+            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
-        return (ik0) invokeV.objValue;
+    }
+
+    public void c(List<ym> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
+        }
     }
 }

@@ -1,79 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ee2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ee2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public xd2 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731383, "Lcom/baidu/tieba/ee2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
+        if (r10.equals("1") != false) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            char c = 0;
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947731383, "Lcom/baidu/tieba/ee2;");
-                return;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 49:
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 52:
+                    if (str.equals("4")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 53:
+                    if (str.equals("5")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 54:
+                    if (str.equals("6")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 55:
+                    if (str.equals("7")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 56:
+                    if (str.equals("8")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 57:
+                    if (str.equals("9")) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 1567:
+                            if (str.equals("10")) {
+                                c = '\t';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1568:
+                            if (str.equals("11")) {
+                                c = '\n';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1569:
+                            if (str.equals("12")) {
+                                c = 11;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        default:
+                            c = 65535;
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return 6;
+                case 1:
+                    return 5;
+                case 2:
+                    return 8;
+                case 3:
+                    return 9;
+                case 4:
+                    return 10;
+                case 5:
+                    return 11;
+                case 6:
+                    return 12;
+                case 7:
+                    return 13;
+                case '\b':
+                    return 14;
+                case '\t':
+                    return 15;
+                case '\n':
+                    return 11;
+                case 11:
+                    return 12;
+                default:
+                    return 7;
             }
         }
-        b = new ee2();
-    }
-
-    public ee2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static ee2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (ee2) invokeV.objValue;
-    }
-
-    public xd2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (xd2) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void c(xd2 xd2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xd2Var) == null) {
-            this.a = xd2Var;
-        }
+        return invokeL.intValue;
     }
 }

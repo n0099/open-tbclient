@@ -7,13 +7,13 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.im.data.GameMatchUser;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public jd8 d;
+    public GameMatchUser d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class GameContactsItemView extends RelativeLayout {
                 return;
             }
         }
-        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
+        e = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds114);
     }
 
     public void a() {
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public jd8 getGameMatchUser() {
+    public GameMatchUser getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (jd8) invokeV.objValue;
+        return (GameMatchUser) invokeV.objValue;
     }
 
     public void h() {
@@ -91,7 +91,7 @@ public class GameContactsItemView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d != null) {
-            this.a.getImgView().N(this.d.a(), 12, false);
+            this.a.getImgView().startLoad(this.d.getAvatar(), 12, false);
         }
     }
 
@@ -178,14 +178,12 @@ public class GameContactsItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = new View(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(yi.g(getContext(), R.dimen.tbds13), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds13), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds47));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            d85 d = d85.d(this.c);
-            d.o(R.string.J_X12);
-            d.f(R.color.CAM_X0302);
+            EMManager.from(this.c).setCorner(R.string.J_X12).setBackGroundColor(R.color.CAM_X0302);
             addView(this.c);
         }
     }
@@ -197,7 +195,7 @@ public class GameContactsItemView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(6, this.a.getId());
             layoutParams.addRule(7, this.a.getId());
-            layoutParams.setMargins(0, -yi.g(getContext(), R.dimen.tbds10), -yi.g(getContext(), R.dimen.tbds14), 0);
+            layoutParams.setMargins(0, -BdUtilHelper.getDimens(getContext(), R.dimen.tbds10), -BdUtilHelper.getDimens(getContext(), R.dimen.tbds14), 0);
             this.b.setLayoutParams(layoutParams);
             addView(this.b);
         }
@@ -206,7 +204,7 @@ public class GameContactsItemView extends RelativeLayout {
     public void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b.f(i);
+            this.b.refresh(i);
             if (i > 0) {
                 this.b.setVisibility(0);
             } else {
@@ -215,12 +213,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull jd8 jd8Var) {
+    public void setGameMatchUser(@NonNull GameMatchUser gameMatchUser) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, jd8Var) != null) || jd8Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, gameMatchUser) != null) || gameMatchUser.equals(this.d)) {
             return;
         }
-        this.d = jd8Var;
+        this.d = gameMatchUser;
         i();
     }
 }

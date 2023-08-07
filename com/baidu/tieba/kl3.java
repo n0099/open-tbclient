@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.media.AudioManager;
+import android.provider.Settings;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kl3 extends sd3 {
+public class kl3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kl3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/getMediaVolumeSync");
+    public kl3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/getAutoRotationSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,61 +40,53 @@ public class kl3 extends sd3 {
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
         InterceptResult invokeLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (vb3Var == null) {
-                v82.c("getMediaVolumeSync", "none swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.c("getAutoRotationSync", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (sd3.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
+                if (vc3.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
                 }
                 return false;
             } else if (context == null) {
-                v82.c("getMediaVolumeSync", "none context");
+                y72.c("getAutoRotationSync", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (sd3.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
+                if (vc3.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
                 }
                 return false;
             } else {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                if (audioManager == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    if (sd3.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
-                    }
-                    return false;
-                }
-                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
-                int streamVolume = audioManager.getStreamVolume(3);
-                if (streamMaxVolume <= 0) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    if (sd3.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
-                    }
-                    return false;
-                }
-                double d = streamVolume / streamMaxVolume;
-                if (d < 0.0d) {
-                    d = 0.0d;
-                } else if (d > 1.0d) {
-                    d = 1.0d;
-                }
-                if (sd3.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
-                }
-                JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("value", d);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    return true;
-                } catch (JSONException unused) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    if (sd3.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
+                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
+                    if (vc3.b) {
+                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    if (i != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    try {
+                        jSONObject.put("isRotateOn", z);
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        return true;
+                    } catch (JSONException unused) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                        if (vc3.b) {
+                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
+                        }
+                        return false;
+                    }
+                } catch (Exception e) {
+                    if (vc3.b) {
+                        e.printStackTrace();
+                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
                     }
                     return false;
                 }

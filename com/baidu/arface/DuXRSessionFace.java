@@ -14,12 +14,12 @@ import com.baidu.ar.dumix.face.FaceListener;
 import com.baidu.ar.dumix.face.FaceSession;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.ap1;
+import com.baidu.tieba.do1;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class DuXRSessionFace {
     public static final boolean DEBUG = false;
     public static final int FACE_INPUT_IMAGE_BGR = 0;
@@ -266,7 +266,7 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        PermissionProxy permissionProxy = ap1.o;
+        PermissionProxy permissionProxy = do1.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a());
         } else {

@@ -1,45 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Rect;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.logsys.LogFile;
-import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes8.dex */
-public class v95 extends DeviceEventSceneHandler {
+public class v95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+    public int b;
+    public int c;
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
-        InterceptResult invokeLLL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
         }
-        return (Set) invokeLLL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        InterceptResult invokeLLL;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 32;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.intValue;
     }
 
     public v95() {
@@ -52,22 +48,114 @@ public class v95 extends DeviceEventSceneHandler {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = 0;
+        this.c = 0;
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void a(int i, int i2, Rect rect, u95 u95Var) {
+        LinearLayout.LayoutParams layoutParams;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, u95Var}) == null) {
+            if (u95Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                layoutParams = (LinearLayout.LayoutParams) u95Var.getView().getLayoutParams();
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            }
+            int dimens = (i / 2) - BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
+            boolean z2 = false;
+            if (rect.centerX() >= dimens) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= dimens) {
+                z2 = true;
+            }
+            if (z && z2) {
+                layoutParams.gravity = 1;
+            } else if (z) {
+                layoutParams.gravity = 5;
+                this.b = (-(i - i2)) / 2;
+            } else {
+                layoutParams.gravity = 3;
+                this.b = (i - i2) / 2;
+            }
+            this.a.addView(u95Var.getView(), layoutParams);
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set<DeviceSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
-        InterceptResult invokeLL;
+    public final void b(int i, int i2, Rect rect, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
-            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
-                HashSet hashSet = new HashSet(1);
-                hashSet.add(DeviceSnapshotType.DEVICE_LINUX_KERNEL_VERSION);
-                return hashSet;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
+            if (i > rect.centerY() - (i2 / 2)) {
+                this.a.addView(view2);
+                this.c = ((rect.height() + i2) / 2) + i;
+                return;
             }
-            return null;
+            this.a.addView(view2, 0);
+            this.c = (rect.height() + i2) / 2;
         }
-        return (Set) invokeLL.objValue;
+    }
+
+    public void h(BreatheTipView breatheTipView, u95 u95Var, View view2) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, u95Var, view2) == null) {
+            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
+            this.a = linearLayout;
+            linearLayout.setOrientation(1);
+            Rect rect = new Rect();
+            if (view2 != null) {
+                view2.getGlobalVisibleRect(rect);
+            }
+            int i3 = 0;
+            if (breatheTipView.getLayoutParams() != null) {
+                i = breatheTipView.getLayoutParams().height;
+            } else {
+                i = 0;
+            }
+            if (breatheTipView.getLayoutParams() != null) {
+                i2 = breatheTipView.getLayoutParams().width;
+            } else {
+                i2 = 0;
+            }
+            if (u95Var.getView().getLayoutParams() != null) {
+                i3 = u95Var.getView().getLayoutParams().width;
+            }
+            a(i2, i3, rect, u95Var);
+            b(i, i3, rect, breatheTipView);
+        }
     }
 }

@@ -1,94 +1,435 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.os.Parcelable;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tieba.bw2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.TypeCastException;
 /* loaded from: classes5.dex */
-public interface bw2 {
+public abstract class bw2<SelfT extends bw2<SelfT>> implements up3<SelfT> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void b(bw2 bw2Var);
+    public static final class a extends bw2<a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a E() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.up3
+        public /* bridge */ /* synthetic */ up3 i() {
+            E();
+            return this;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Bundle bundle) {
+            super(bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Bundle) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        boolean f(bw2 bw2Var, int i, int i2);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public bw2() {
+        this(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Bundle) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void c(bw2 bw2Var);
+    public Bundle C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!q()) {
+                this.a = new Bundle();
+            }
+            return this.a;
+        }
+        return (Bundle) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void e(bw2 bw2Var);
+    public Bundle D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (q()) {
+                return new Bundle(C());
+            }
+            return new Bundle();
+        }
+        return (Bundle) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(bw2 bw2Var);
+    public SelfT a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (q()) {
+                this.a.clear();
+            }
+            return (SelfT) i();
+        }
+        return (SelfT) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface f {
-        void d(bw2 bw2Var);
+    public final boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    void a(FrameLayout frameLayout);
+    public synchronized String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            synchronized (this) {
+                if (q()) {
+                    str = this.a.toString();
+                } else {
+                    str = SchemeCollecter.CLASSIFY_EMPTY;
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void b();
+    public bw2(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        new bp3();
+        this.a = bundle;
+    }
 
-    void c();
+    public static String r(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return str + "." + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
 
-    void d(boolean z);
+    public SelfT A(@Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
+            zv2.f.d(this, str, strArr);
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLL.objValue;
+    }
 
-    bw2 e(Context context, @NonNull p03 p03Var);
+    public boolean d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            return zv2.a.b(this, str, Boolean.valueOf(z)).booleanValue();
+        }
+        return invokeLZ.booleanValue;
+    }
 
-    void f();
+    public float g(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048586, this, str, f)) == null) {
+            return zv2.d.b(this, str, Float.valueOf(f)).floatValue();
+        }
+        return invokeLF.floatValue;
+    }
 
-    void g(a aVar);
+    public int j(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
+            return zv2.b.b(this, str, Integer.valueOf(i)).intValue();
+        }
+        return invokeLI.intValue;
+    }
 
-    int getCurrentPosition();
+    public long l(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j)) == null) {
+            return zv2.c.b(this, str, Long.valueOf(j)).longValue();
+        }
+        return invokeLJ.longValue;
+    }
 
-    int getDuration();
+    public String o(@Nullable String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
+            return zv2.e.b(this, str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
 
-    void h(p03 p03Var, boolean z);
+    public SelfT t(@Nullable String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, str, z)) == null) {
+            zv2.a.d(this, str, Boolean.valueOf(z));
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLZ.objValue;
+    }
 
-    void i(String str);
+    public SelfT u(@Nullable String str, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, bundle)) == null) {
+            zv2.g.d(this, str, bundle);
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLL.objValue;
+    }
 
-    boolean isEnd();
+    public SelfT v(@Nullable String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048601, this, str, f)) == null) {
+            zv2.d.d(this, str, Float.valueOf(f));
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLF.objValue;
+    }
 
-    boolean isPlaying();
+    public SelfT w(@Nullable String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, str, i)) == null) {
+            zv2.b.d(this, str, Integer.valueOf(i));
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLI.objValue;
+    }
 
-    void j(e eVar);
+    public SelfT x(@Nullable String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j)) == null) {
+            zv2.c.d(this, str, Long.valueOf(j));
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLJ.objValue;
+    }
 
-    void k(f fVar);
+    public SelfT y(@Nullable String str, @Nullable Parcelable parcelable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, parcelable)) == null) {
+            zv2.h.d(this, str, parcelable);
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLL.objValue;
+    }
 
-    void l(boolean z, int i);
+    public SelfT z(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, str2)) == null) {
+            zv2.e.d(this, str, str2);
+            return (SelfT) i();
+        }
+        return (SelfT) invokeLL.objValue;
+    }
 
-    void m(d dVar);
+    public SelfT B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (q()) {
+                this.a.remove(str);
+            }
+            return (SelfT) i();
+        }
+        return (SelfT) invokeL.objValue;
+    }
 
-    void mute(boolean z);
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (q() && this.a.containsKey(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void n(p03 p03Var);
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return zv2.a.a(this, str).booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
 
-    void o(p03 p03Var);
+    @Nullable
+    public Bundle e(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return zv2.g.a(this, str);
+        }
+        return (Bundle) invokeL.objValue;
+    }
 
-    boolean onBackPressed();
+    public float f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return zv2.d.a(this, str).floatValue();
+        }
+        return invokeL.floatValue;
+    }
 
-    void p(b bVar);
+    public int h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return zv2.b.a(this, str).intValue();
+        }
+        return invokeL.intValue;
+    }
 
-    void pause();
+    public long k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return zv2.c.a(this, str).longValue();
+        }
+        return invokeL.longValue;
+    }
 
-    int q(String str);
+    @Nullable
+    public <T extends Parcelable> T m(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            try {
+                return (T) zv2.h.a(this, str);
+            } catch (TypeCastException unused) {
+                return null;
+            }
+        }
+        return (T) invokeL.objValue;
+    }
 
-    void r(c cVar);
+    @Nullable
+    public String n(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return zv2.e.a(this, str);
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void resume();
+    @Nullable
+    public String[] p(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            return zv2.f.a(this, str);
+        }
+        return (String[]) invokeL.objValue;
+    }
 
-    void seekTo(int i);
+    public SelfT s(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bundle)) == null) {
+            if (bundle != null && !bundle.isEmpty()) {
+                C().putAll(bundle);
+            }
+            return (SelfT) i();
+        }
+        return (SelfT) invokeL.objValue;
+    }
 
-    void stop();
+    public SelfT update(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, bundle)) == null) {
+            s(bundle);
+            return (SelfT) i();
+        }
+        return (SelfT) invokeL.objValue;
+    }
 }

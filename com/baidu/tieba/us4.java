@@ -1,50 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.util.zip.GZIPInputStream;
 /* loaded from: classes8.dex */
 public class us4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
-            if (activity != null && view2 != null && (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) != null) {
-                b(view2);
-                viewGroup.removeView(view2);
-                viewGroup.addView(view2);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(View view2) {
+    @NonNull
+    public static String a(@NonNull File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view2.getParent();
-                if (viewGroup.indexOfChild(view2) != -1) {
-                    try {
-                        viewGroup.removeView(view2);
-                        return true;
-                    } catch (Exception unused) {
-                        return true;
-                    }
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            String canonicalPath = file.getCanonicalPath();
+            if (!canonicalPath.endsWith("/")) {
+                return canonicalPath + "/";
             }
-            return false;
+            return canonicalPath;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static String c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
+            if (guessContentTypeFromName == null) {
+                return "text/plain";
+            }
+            return guessContentTypeFromName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            return d(file.getPath(), new FileInputStream(file));
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Nullable
+    public static File b(@NonNull File file, @NonNull String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            String a = a(file);
+            String canonicalPath = new File(file, str).getCanonicalPath();
+            if (canonicalPath.startsWith(a)) {
+                return new File(canonicalPath);
+            }
+            return null;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
+            if (str.endsWith(".svgz")) {
+                return new GZIPInputStream(inputStream);
+            }
+            return inputStream;
+        }
+        return (InputStream) invokeLL.objValue;
     }
 }

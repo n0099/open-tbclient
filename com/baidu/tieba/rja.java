@@ -1,70 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetCardByCategory.ThemeCardInMain;
-import tbclient.ThemeCardPropMain;
+import com.baidu.ufosdk.FeedbackConfigurations;
+import com.baidu.ufosdk.FeedbackManager;
+import com.baidu.ufosdk.IConfigurations;
 /* loaded from: classes7.dex */
 public class rja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList<uia> b;
 
-    public rja() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public ArrayList<uia> a() {
+    public static Intent a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            b();
+            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
         }
-        return (ArrayList) invokeV.objValue;
+        return (Intent) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static void b() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(ThemeCardInMain themeCardInMain) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) != null) || themeCardInMain == null) {
-            return;
-        }
-        this.a = themeCardInMain.card_category;
-        List<ThemeCardPropMain> list = themeCardInMain.props;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (ThemeCardPropMain themeCardPropMain : list) {
-                if (themeCardPropMain != null) {
-                    uia uiaVar = new uia();
-                    uiaVar.k(themeCardPropMain);
-                    this.b.add(uiaVar);
-                }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
+            if (TbadkCoreApplication.getInst().getVersionName() != null) {
+                str = TbadkCoreApplication.getInst().getVersionName();
+            } else {
+                str = "";
             }
+            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), str);
+            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
+            }
+            int i = 0;
+            builder.setFeedbackBackbar(0);
+            IConfigurations build = builder.build();
+            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
+                i = 1;
+            }
+            build.setThemeMode(i);
+            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
         }
     }
 }

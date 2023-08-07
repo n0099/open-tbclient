@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,7 +58,7 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.jc5
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.ya5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -100,8 +100,8 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            setTextSize(0, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
-            setCompoundDrawablePadding(yi.g(getContext(), R.dimen.obfuscated_res_0x7f070400));
+            setTextSize(0, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            setCompoundDrawablePadding(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070400));
             setGravity(5);
             setGravity(16);
         }

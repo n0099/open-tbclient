@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d1b;
+import com.baidu.tieba.g0b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import org.chromium.base.annotations.JNINamespace;
 import org.chromium.base.annotations.NativeClassQualifiedName;
 @JNINamespace("cronet")
 @VisibleForTesting
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CronetUploadDataStream extends UploadDataSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String n = "CronetUploadDataStream";
@@ -46,7 +46,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
     public boolean l;
     public Runnable m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         @NativeClassQualifiedName("CronetUploadDataStreamAdapter")
         void a(long j, CronetUploadDataStream cronetUploadDataStream);
@@ -75,7 +75,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +259,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             synchronized (this.i) {
-                this.j = d1b.d().c(this, j, this.d);
+                this.j = g0b.d().c(this, j, this.d);
             }
         }
     }
@@ -347,7 +347,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
                     if (this.j == 0) {
                         return;
                     }
-                    d1b.d().b(this.j, this, position, z);
+                    g0b.d().b(this.j, this, position, z);
                     return;
                 }
                 throw new IllegalStateException("ByteBuffer limit changed");
@@ -366,7 +366,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
                 if (this.j == 0) {
                     return;
                 }
-                d1b.d().a(this.j, this);
+                g0b.d().a(this.j, this);
             }
         }
     }
@@ -379,7 +379,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
                     this.l = true;
                 } else if (this.j == 0) {
                 } else {
-                    d1b.d().destroy(this.j);
+                    g0b.d().destroy(this.j);
                     this.j = 0L;
                     if (this.m != null) {
                         this.m.run();

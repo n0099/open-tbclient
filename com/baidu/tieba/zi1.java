@@ -1,36 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zi1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public eh1 a;
-    public Bundle b;
-    public PayChannelEntity c;
+public interface zi1 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
+    public static final zi1 b = new a();
 
-    public zi1(eh1 eh1Var, Bundle bundle, PayChannelEntity payChannelEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eh1Var, bundle, payChannelEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    boolean a(String str, tj1 tj1Var);
+
+    /* loaded from: classes8.dex */
+    public class a implements zi1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.zi1
+        public boolean a(String str, tj1 tj1Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, tj1Var)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.a = eh1Var;
-        this.b = bundle;
-        this.c = payChannelEntity;
     }
 }

@@ -1,10 +1,13 @@
 package com.baidu.tieba;
-
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface f3b {
-    boolean a(JSONObject jSONObject, boolean z, boolean z2);
+    c3b a();
 
-    boolean b(File file, long j, boolean z, boolean z2);
+    e3b b();
+
+    e2b c();
+
+    i2b d();
+
+    d3b e();
 }

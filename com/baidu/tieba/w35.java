@@ -1,28 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Page;
 /* loaded from: classes8.dex */
-public class w35 {
+public class w35 extends q05 implements ym {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public ThreadData t;
+    public int u;
+    public int v;
 
     public w35() {
         Interceptable interceptable = $ic;
@@ -37,168 +52,216 @@ public class w35 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.c = 0;
-        this.d = 0;
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.u = 0;
+        this.v = 0;
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.q05
+    public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
+        SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            ThreadData threadData = this.t;
+            if (threadData != null && (sparseArray = threadData.feedBackReasonMap) != null && sparseArray.size() > 0) {
+                NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+                negativeFeedBackData.setTid(getThreadData().getTid());
+                negativeFeedBackData.setFid(getThreadData().getFid());
+                negativeFeedBackData.setNid(getThreadData().getNid());
+                negativeFeedBackData.setFeedBackReasonMap(this.t.feedBackReasonMap);
+                ThreadData threadData2 = this.t;
+                negativeFeedBackData.feedBackExtraMap = threadData2.feedBackExtraMap;
+                negativeFeedBackData.abTag = threadData2.mRecomAbTag;
+                negativeFeedBackData.weight = threadData2.mRecomWeight;
+                negativeFeedBackData.extra = threadData2.mRecomExtra;
+                negativeFeedBackData.source = threadData2.mRecomSource;
+                negativeFeedBackData.statFloor = threadData2.statFloor;
+                negativeFeedBackData.cardType = threadData2.getRecomCardType();
+                return negativeFeedBackData;
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    public int b() {
+    @Override // com.baidu.tieba.q05
+    public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            return this.t.mRecomReason;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int c() {
+    @Override // com.baidu.tieba.q05
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
+            return this.t;
         }
-        return invokeV.intValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    public int d() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
         InterceptResult invokeV;
+        OriginalThreadInfo originalThreadInfo;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            ThreadData threadData = this.t;
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getIsDailyThread()) {
+                if (this.t.getThreadVideoInfo() != null) {
+                    return ThreadData.TYPE_VIDEO;
+                }
+                return ThreadData.TYPE_NORMAL;
+            }
+            int is_top = this.t.getIs_top();
+            ThreadData threadData2 = this.t;
+            if (threadData2.threadType == 63) {
+                return ThreadData.TYPE_SMART_APP_IMAGE;
+            }
+            if (threadData2.getThreadAlaInfo() != null && this.t.threadType == 60) {
+                return ThreadData.TYPE_ALA_SHARE_THREAD;
+            }
+            if (this.t.getThreadAlaInfo() != null && ((i = this.t.threadType) == 49 || i == 69)) {
+                return ThreadData.TYPE_VIDEO_ALA_ONLIVE;
+            }
+            ThreadData threadData3 = this.t;
+            if (threadData3.threadType == 51) {
+                return ThreadData.TYPE_ALA_LIVE_EMPTY;
+            }
+            if (is_top != 2 && is_top != 1) {
+                if (threadData3.getThreadVideoInfo() != null && this.t.isInsertThread() && !this.t.isLiveInterviewLiveType()) {
+                    return ThreadData.TYPE_INSERT_VIDEO;
+                }
+                ThreadData threadData4 = this.t;
+                if (threadData4.isShareThread && (originalThreadInfo = threadData4.originalThreadData) != null) {
+                    if (originalThreadInfo.x) {
+                        if (originalThreadInfo.r != null) {
+                            return ThreadData.TYPE_NEW_VIDEO_SHARE_THREAD;
+                        }
+                        if (originalThreadInfo.i()) {
+                            return ThreadData.TYPE_ARTICLE_SHARE_THREAD;
+                        }
+                        return ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD;
+                    }
+                    return ThreadData.TYPE_SHARE_THREAD;
+                } else if (this.t.isInterviewLiveStyle()) {
+                    if (ThreadData.isFRSExtraLoaded.get()) {
+                        return ThreadData.TYPE_STAR_INTERVIEW;
+                    }
+                    return ThreadData.TYPE_NORMAL;
+                } else if (this.t.isActInfo() && this.t.getActInfoType() == 1) {
+                    if (ThreadData.isFRSExtraLoaded.get()) {
+                        return ThreadData.TYPE_LOTTERY;
+                    }
+                    return ThreadData.TYPE_NORMAL;
+                } else if (this.t.isLinkThread()) {
+                    return ThreadData.TYPE_LINK;
+                } else {
+                    if (this.t.isTopicThread()) {
+                        if (this.t.getHotTopicInfo() != null) {
+                            return ThreadData.TYPE_FRS_HOTTOPIC_VIDEO;
+                        }
+                        return ThreadData.TYPE_FRS_HOTTOPIC;
+                    }
+                    oba obaVar = this.t.funAdData;
+                    if (obaVar != null && obaVar.h()) {
+                        if (this.t.funAdData.i()) {
+                            return AdvertAppInfo.H;
+                        }
+                        return AdvertAppInfo.I;
+                    } else if (this.r) {
+                        return ThreadData.TYPE_FORUM_HEADER;
+                    } else {
+                        if (this.a) {
+                            return ThreadData.TYPE_USER_NORMAL;
+                        }
+                        if (this.b) {
+                            return ThreadData.TYPE_CONTENT_TEXT_NORMAL;
+                        }
+                        if (this.c) {
+                            return ThreadData.TYPE_CONTENT_SINGLE_H_NORMAL;
+                        }
+                        if (this.d) {
+                            return ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL;
+                        }
+                        if (this.e) {
+                            return ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL;
+                        }
+                        if (this.f) {
+                            return ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL;
+                        }
+                        if (this.g) {
+                            return ThreadData.TYPE_BOTTOM_NORMAL;
+                        }
+                        if (this.h) {
+                            return ThreadData.TYPE_GODREPLY_NORMAL;
+                        }
+                        if (this.i) {
+                            return ThreadData.TYPE_VIDEO;
+                        }
+                        if (this.j) {
+                            return ThreadData.TYPE_FAKE_VIDEO;
+                        }
+                        if (this.t.isGodThread()) {
+                            if (this.k) {
+                                return ThreadData.TYPE_VIDEO_GOD;
+                            }
+                            return ThreadData.TYPE_GOD_NORMAL;
+                        } else if (this.l) {
+                            return ThreadData.TYPE_SMART_APP;
+                        } else {
+                            if (this.m) {
+                                return ThreadData.TYPE_ENTER_FORUM;
+                            }
+                            if (this.n) {
+                                return ThreadData.TYPE_ITEM;
+                            }
+                            if (this.o) {
+                                return ThreadData.TYPE_VOTE;
+                            }
+                            if (this.p) {
+                                return ThreadData.TYPE_SINGLE_LINK;
+                            }
+                            if (this.q) {
+                                return ThreadData.TYPE_MULTI_LINK;
+                            }
+                            if (this.s) {
+                                return ThreadData.TYPE_RECOMMEND_INFO;
+                            }
+                            return ThreadData.TYPE_NORMAL;
+                        }
+                    }
+                }
+            }
+            return ThreadData.TYPE_TOP;
         }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("total_page", 0);
-            this.b = jSONObject.optInt("total_num", 0);
-            this.c = jSONObject.optInt("total_count", 0);
-            this.e = jSONObject.optInt("current_page", 0);
-            this.f = jSONObject.optInt(SuggestAddrField.KEY_PAGE_SIZE, 0);
-            this.g = jSONObject.optInt("has_more", 0);
-            this.h = jSONObject.optInt("has_prev", 0);
-            this.d = jSONObject.optInt("lz_total_floor", 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void j(Page page) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, page) != null) || page == null) {
-            return;
-        }
-        this.a = page.total_page.intValue();
-        this.b = page.total_num.intValue();
-        this.c = page.total_count.intValue();
-        this.e = page.current_page.intValue();
-        this.f = page.page_size.intValue();
-        this.g = page.has_more.intValue();
-        this.h = page.has_prev.intValue();
-        this.d = page.lz_total_floor.intValue();
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.a = i;
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

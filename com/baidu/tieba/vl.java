@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.pm.Signature;
-import android.util.Base64;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
-public final class vl {
-    public static /* synthetic */ Interceptable $ic;
+public class vl {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "http://mbd.baidu.com";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,75 +27,12 @@ public final class vl {
         }
     }
 
-    public static byte[] a(Signature[] signatureArr) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
-            if (signatureArr != null) {
-                int i = 0;
-                for (Signature signature : signatureArr) {
-                    i += signature.toByteArray().length;
-                }
-                byte[] bArr = new byte[i];
-                int i2 = 0;
-                for (Signature signature2 : signatureArr) {
-                    byte[] byteArray = signature2.toByteArray();
-                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
-                    i2 += byteArray.length;
-                }
-                return bArr;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return String.format(CloudControlUrlConfig.mUrl, a);
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        NoSuchAlgorithmException e;
-        String str;
-        byte[] digest;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            try {
-                digest = MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (NoSuchAlgorithmException e2) {
-                e = e2;
-                str = null;
-            }
-            if (digest == null) {
-                return null;
-            }
-            str = Base64.encodeToString(digest, 0);
-            if (str != null) {
-                try {
-                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
-                } catch (NoSuchAlgorithmException e3) {
-                    e = e3;
-                    if (BdLog.isDebugMode()) {
-                        e.printStackTrace();
-                    }
-                    return str;
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, signatureArr)) == null) {
-            if (signatureArr != null && (a = a(signatureArr)) != null) {
-                return b(a);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

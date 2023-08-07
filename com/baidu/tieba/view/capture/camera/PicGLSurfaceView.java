@@ -9,12 +9,12 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.xu6;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yla;
+import com.baidu.tieba.cla;
+import com.baidu.tieba.ds6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class PicGLSurfaceView extends AspectGLSurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xu6.c e;
+    public ds6.c e;
     public boolean f;
     public int g;
     public int h;
@@ -156,9 +156,9 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
                 try {
                     String str = "pic_" + System.currentTimeMillis();
                     if (this.b.getContext() != null) {
-                        bitmap = BitmapHelper.getClipBitmap(bitmap, (yi.j(context) * 1.0f) / yi.l(context));
+                        bitmap = BitmapHelper.getClipBitmap(bitmap, (BdUtilHelper.getEquipmentHeight(context) * 1.0f) / BdUtilHelper.getEquipmentWidth(context));
                     }
-                    this.c.i = FileHelper.saveFileAsPic(yla.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    this.c.i = FileHelper.saveFileAsPic(cla.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
                     return null;
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
@@ -212,7 +212,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
     }
 
     public final void l(PicGLSurfaceView picGLSurfaceView, Bitmap bitmap) {
-        xu6.c cVar;
+        ds6.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, picGLSurfaceView, bitmap) == null) {
             this.i = null;
@@ -233,7 +233,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
         }
     }
 
-    public void m(xu6.c cVar) {
+    public void m(ds6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.e = cVar;

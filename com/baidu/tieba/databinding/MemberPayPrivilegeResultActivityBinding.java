@@ -84,38 +84,38 @@ public final class MemberPayPrivilegeResultActivityBinding implements ViewBindin
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0904ab;
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904ab);
+            int i = R.id.obfuscated_res_0x7f0904b8;
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904b8);
             if (imageView != null) {
-                i = R.id.obfuscated_res_0x7f0910d2;
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d2);
+                i = R.id.obfuscated_res_0x7f0910e5;
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e5);
                 if (tbImageView != null) {
-                    i = R.id.obfuscated_res_0x7f0910d3;
-                    TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d3);
+                    i = R.id.obfuscated_res_0x7f0910e6;
+                    TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e6);
                     if (tbImageView2 != null) {
                         i = R.id.main_container;
                         RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) view2.findViewById(R.id.main_container);
                         if (roundRelativeLayout != null) {
-                            i = R.id.obfuscated_res_0x7f0916f9;
-                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0916f9);
+                            i = R.id.obfuscated_res_0x7f09170d;
+                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09170d);
                             if (findViewById != null) {
                                 i = R.id.navigation_bar;
                                 RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.navigation_bar);
                                 if (relativeLayout != null) {
-                                    i = R.id.obfuscated_res_0x7f0918c0;
-                                    TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918c0);
+                                    i = R.id.obfuscated_res_0x7f0918d4;
+                                    TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918d4);
                                     if (tbImageView3 != null) {
-                                        i = R.id.obfuscated_res_0x7f0925da;
-                                        TbImageView tbImageView4 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925da);
+                                        i = R.id.obfuscated_res_0x7f0925f2;
+                                        TbImageView tbImageView4 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925f2);
                                         if (tbImageView4 != null) {
-                                            i = R.id.obfuscated_res_0x7f0926f6;
-                                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926f6);
+                                            i = R.id.obfuscated_res_0x7f09270f;
+                                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09270f);
                                             if (imageView2 != null) {
-                                                i = R.id.obfuscated_res_0x7f09270f;
-                                                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09270f);
+                                                i = R.id.obfuscated_res_0x7f092728;
+                                                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092728);
                                                 if (textView != null) {
-                                                    i = R.id.obfuscated_res_0x7f092710;
-                                                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092710);
+                                                    i = R.id.obfuscated_res_0x7f092729;
+                                                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092729);
                                                     if (eMTextView != null) {
                                                         i = R.id.tv_title;
                                                         TextView textView2 = (TextView) view2.findViewById(R.id.tv_title);
@@ -153,7 +153,7 @@ public final class MemberPayPrivilegeResultActivityBinding implements ViewBindin
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0604, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0609, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

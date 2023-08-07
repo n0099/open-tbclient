@@ -1,88 +1,185 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.connect.NetWorkUtils;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class sk0 {
+public class sk0 implements am0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<fp0> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final el0 a;
+    public int b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (fp0 fp0Var : sk0.a) {
-                    fp0Var.b();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        List<fp0> list;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948154161, "Lcom/baidu/tieba/sk0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948154161, "Lcom/baidu/tieba/sk0;");
+    public sk0(@NonNull el0 el0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {el0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList();
-        dl1<fp0> dl1Var = new hp0().a;
-        if (dl1Var != null && (list = dl1Var.getList()) != null) {
-            a.addAll(list);
-        }
+        this.b = 0;
+        this.a = el0Var;
     }
 
-    public static void c() {
+    @Override // com.baidu.tieba.am0
+    public void a(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            o51.c(new a(), "nad_core_init_on_create", 0);
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
+            return;
         }
+        this.a.i = (float) d31.a(j, j2);
+        this.a.c = AdDownloadStatus.DOWNLOADING;
+        rk0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
     }
 
-    public static void b(@NonNull Application application) {
+    @Override // com.baidu.tieba.am0
+    public void b(long j, File file) {
+        AdDownloadAction adDownloadAction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
-            rk0.a = application;
-            jt0.a(application);
-            for (fp0 fp0Var : a) {
-                fp0Var.a(application);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
+            if (this.a.c == AdDownloadStatus.PAUSE) {
+                adDownloadAction = AdDownloadAction.RESUME;
+            } else {
+                adDownloadAction = AdDownloadAction.START;
             }
+            this.a.l = System.currentTimeMillis();
+            el0 el0Var = this.a;
+            el0Var.c = AdDownloadStatus.DOWNLOADING;
+            el0Var.h = file;
+            fl0 fl0Var = el0Var.q;
+            fl0Var.e = j;
+            fl0Var.v = true;
+            rk0.c().g(adDownloadAction, this.a);
+            vk0.b().update(this.a);
+            vk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.am0
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c = AdDownloadStatus.PAUSE;
+            rk0.c().g(AdDownloadAction.PAUSE, this.a);
+            nl0.f().i(this.a, "notify_type_pause");
+            vk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.am0
+    public void d(@Nullable ml0 ml0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ml0Var) == null) {
+            if (e(ml0Var)) {
+                el0 el0Var = this.a;
+                if (el0Var.c == AdDownloadStatus.PAUSE) {
+                    rk0.c().l(this.a);
+                } else {
+                    el0Var.i = 0.0f;
+                    el0Var.j = 0.0f;
+                    rk0.c().m(this.a);
+                }
+                this.b++;
+            } else {
+                el0 el0Var2 = this.a;
+                el0Var2.c = AdDownloadStatus.FAILED;
+                el0Var2.i = 0.0f;
+                el0Var2.j = 0.0f;
+                rk0.c().h(AdDownloadAction.FAIL, this.a, ml0Var);
+                nl0.f().i(this.a, "notify_type_stop");
+            }
+            vk0.b().e(this.a);
+        }
+    }
+
+    public final boolean e(@Nullable ml0 ml0Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ml0Var)) == null) {
+            if (ml0Var == null || !ml0Var.c) {
+                return false;
+            }
+            if (qn0.b().a().a("nad_failed_retry_switch", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (this.b >= qn0.b().a().a("nad_failed_retry_count", 0)) {
+                return false;
+            }
+            if (qn0.b().a().a("nad_failed_retry_without_wifi", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2 && !NetWorkUtils.c(pj0.b())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.am0
+    public void onSuccess(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.m = System.currentTimeMillis();
+            if (TextUtils.isEmpty(this.a.d)) {
+                el0 el0Var = this.a;
+                el0Var.d = om0.b(el0Var.h);
+            }
+            if (om0.g(this.a.h)) {
+                PackageInfo packageArchiveInfo = pj0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
+                if (packageArchiveInfo != null) {
+                    el0 el0Var2 = this.a;
+                    el0Var2.o = packageArchiveInfo.versionName;
+                    el0Var2.n = packageArchiveInfo.versionCode;
+                }
+                AdAppStateManager.instance().register(this.a);
+                el0 el0Var3 = this.a;
+                el0Var3.c = AdDownloadStatus.COMPLETED;
+                el0Var3.i = 1.0f;
+                el0Var3.j = 1.0f;
+                rk0.c().g(AdDownloadAction.COMPLETE, this.a);
+                gm0.f().k(this.a);
+                nl0.f().k(this.a);
+                vk0.b().e(this.a);
+                el0 el0Var4 = this.a;
+                om0.e(el0Var4.h, el0Var4.a());
+                return;
+            }
+            el0 el0Var5 = this.a;
+            el0Var5.c = AdDownloadStatus.FAILED;
+            el0Var5.i = 0.0f;
+            el0Var5.j = 0.0f;
+            rk0.c().g(AdDownloadAction.FAIL, this.a);
+            vk0.b().e(this.a);
         }
     }
 }

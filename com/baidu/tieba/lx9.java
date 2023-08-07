@@ -1,116 +1,192 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.os.Build;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public class lx9 {
+public class lx9 implements ix9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<ix9> a;
+    public static final ix9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        float height;
-        float width;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
-            if (bitmap == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947958396, "Lcom/baidu/tieba/lx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Matrix matrix = new Matrix();
-            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
-            if (i == 90) {
-                height = bitmap.getHeight();
-                width = 0.0f;
-            } else {
-                height = bitmap.getHeight();
-                width = bitmap.getWidth();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947958396, "Lcom/baidu/tieba/lx9;");
+                return;
             }
-            float[] fArr = new float[9];
-            matrix.getValues(fArr);
-            matrix.postTranslate(height - fArr[2], width - fArr[5]);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
-            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
-            return createBitmap;
         }
-        return (Bitmap) invokeLI.objValue;
+        a = new AtomicReference<>(null);
+        b = new lx9();
     }
 
-    public static int b(Context context, float f) {
-        InterceptResult invokeLF;
+    public lx9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
-            return (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics());
-        }
-        return invokeLF.intValue;
-    }
-
-    public static int f(Context context, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) {
-            return (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics());
-        }
-        return invokeLF.intValue;
-    }
-
-    public static final int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Point d = d(context);
-            if (d.x > d.y) {
-                return 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return 0;
         }
-        return invokeL.intValue;
     }
 
-    public static Point d(Context context) {
-        InterceptResult invokeL;
+    public static ix9 m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Display defaultDisplay = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
-            Point point = new Point();
-            if (Build.VERSION.SDK_INT >= 13) {
-                defaultDisplay.getSize(point);
-            } else {
-                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ix9 ix9Var = a.get();
+            if (ix9Var == null) {
+                return b;
             }
-            return point;
+            return ix9Var;
         }
-        return (Point) invokeL.objValue;
+        return (ix9) invokeV.objValue;
     }
 
-    public static Bitmap e(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.ix9
+    public dx9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            Canvas canvas = new Canvas(createBitmap);
-            Paint paint = new Paint();
-            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
-            return createBitmap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
         }
-        return (Bitmap) invokeLI.objValue;
+        return (dx9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public yw9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (yw9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BdLog.e("recapp plugin install failed!");
+        }
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public List<AdvertAppInfo> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public fx9 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (fx9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public lm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public lm<?, ?> e(hx9 hx9Var, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, hx9Var, bdUniqueId)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public IAdBaseAsyncController i(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, aVar)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public void l(HashMap<String, String> hashMap, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, hashMap, context) == null) {
+            BdLog.e("recapp plugin install failed!");
+        }
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public void c(AdvertAppInfo advertAppInfo, ky8<?> ky8Var, String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{advertAppInfo, ky8Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            BdLog.e("recapp plugin install failed!");
+        }
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public lm<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, tbPageContext, bdUniqueId, str)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (lm) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public void k(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, advertAppInfo) == null) {
+            BdLog.e("recapp plugin install failed!");
+        }
     }
 }

@@ -7,13 +7,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.r7a;
-import com.baidu.tieba.s7a;
+import com.baidu.tieba.g6a;
+import com.baidu.tieba.m6a;
+import com.baidu.tieba.n6a;
+import com.baidu.tieba.o9a;
+import com.baidu.tieba.p7a;
+import com.baidu.tieba.q9a;
 import com.baidu.tieba.sprite.view.NormalSpriteView;
-import com.baidu.tieba.u8a;
-import com.baidu.tieba.vaa;
-import com.baidu.tieba.xaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,12 +32,12 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SpriteEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s7a a;
+    public final n6a a;
     public final Lazy b;
     public final Lazy c;
     public final Lazy d;
 
-    public SpriteEdgeFloat(final Activity activity, s7a spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
+    public SpriteEdgeFloat(final Activity activity, n6a spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class SpriteEdgeFloat {
         Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
         Intrinsics.checkNotNullParameter(pageSupportList, "pageSupportList");
         this.a = spriteStateMap;
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<r7a>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<m6a>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteEdgeFloat this$0;
@@ -85,15 +85,15 @@ public final class SpriteEdgeFloat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final r7a invoke() {
+            public final m6a invoke() {
                 InterceptResult invokeV;
-                s7a s7aVar;
+                n6a n6aVar;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (r7a) invokeV.objValue;
+                    return (m6a) invokeV.objValue;
                 }
-                s7aVar = this.this$0.a;
-                return new r7a(s7aVar);
+                n6aVar = this.this$0.a;
+                return new m6a(n6aVar);
             }
         });
         this.c = LazyKt__LazyJVMKt.lazy(new Function0<NormalSpriteView>(activity) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$normalSpriteView$2
@@ -180,22 +180,22 @@ public final class SpriteEdgeFloat {
                 NormalSpriteView f;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    l7a l7aVar = new l7a(this.$activity);
+                    g6a g6aVar = new g6a(this.$activity);
                     f = this.this$0.f();
-                    l7aVar.M(f);
-                    l7aVar.y(this.$gravity);
-                    l7aVar.I(this.$startX);
-                    l7aVar.J(this.$startY);
-                    l7aVar.d(this.$canDrag);
-                    l7aVar.D(this.$pageSupportList);
-                    return l7aVar.c();
+                    g6aVar.M(f);
+                    g6aVar.y(this.$gravity);
+                    g6aVar.I(this.$startX);
+                    g6aVar.J(this.$startY);
+                    g6aVar.d(this.$canDrag);
+                    g6aVar.D(this.$pageSupportList);
+                    return g6aVar.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }
         });
     }
 
-    public final void k(vaa event) {
+    public final void k(o9a event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -218,7 +218,7 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final void o(u8a data) {
+    public final void o(p7a data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -226,13 +226,13 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final xaa c() {
+    public final q9a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return g().c();
         }
-        return (xaa) invokeV.objValue;
+        return (q9a) invokeV.objValue;
     }
 
     public final EdgeFloat d() {
@@ -244,13 +244,13 @@ public final class SpriteEdgeFloat {
         return (EdgeFloat) invokeV.objValue;
     }
 
-    public final r7a e() {
+    public final m6a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return g();
         }
-        return (r7a) invokeV.objValue;
+        return (m6a) invokeV.objValue;
     }
 
     public final NormalSpriteView f() {
@@ -262,13 +262,13 @@ public final class SpriteEdgeFloat {
         return (NormalSpriteView) invokeV.objValue;
     }
 
-    public final r7a g() {
+    public final m6a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (r7a) this.b.getValue();
+            return (m6a) this.b.getValue();
         }
-        return (r7a) invokeV.objValue;
+        return (m6a) invokeV.objValue;
     }
 
     public final void h() {
@@ -290,7 +290,7 @@ public final class SpriteEdgeFloat {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            EdgeFloatLifecycle.b.a().l(d());
+            EdgeFloatLifecycle.Companion.a().unRegister(d());
         }
     }
 

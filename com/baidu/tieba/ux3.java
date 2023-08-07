@@ -1,195 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+@Service
 /* loaded from: classes8.dex */
-public class ux3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "ux3";
-    public static final boolean c;
-    public static SharedPreferences d;
+public class ux3 implements ww1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public final void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948226329, "Lcom/baidu/tieba/ux3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948226329, "Lcom/baidu/tieba/ux3;");
-                return;
-            }
-        }
-        c = fs1.a;
-        d = null;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c) {
-            String str = b;
-            Log.d(str, "新旧版本一样:" + b(this.a));
-        }
-    }
-
-    public ux3(Context context) {
+    public ux3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ww1
+    public xn4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return tx3.b().a();
+        }
+        return (xn4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ww1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !tx3.b().c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ww1
+    public void b(ch2 ch2Var, ah2 ah2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ch2Var, ah2Var) != null) || ah2Var == null) {
+            return;
+        }
+        if (ch2Var != null && !TextUtils.isEmpty(ch2Var.a)) {
+            String str = ch2Var.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1195918653) {
+                if (hashCode == 1825003424 && str.equals("by_click")) {
+                    c = 0;
+                }
+            } else if (str.equals("by_silent")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    ah2Var.onFail();
+                    return;
+                } else {
+                    tx3.b().b(true, ah2Var);
+                    return;
+                }
+            } else if (ch2Var.b) {
+                tx3.b().b(false, ah2Var);
+                return;
+            } else {
+                tx3.b().b(true, ah2Var);
                 return;
             }
         }
-        this.a = null;
-        this.a = context;
+        ah2Var.onFail();
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ww1
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (PackageManager.NameNotFoundException e) {
-                if (c) {
-                    String str = b;
-                    Log.e(str, "error:" + e.getMessage());
-                    return -1;
-                }
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!d() && !nk2.d.w() && (!nk2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) || !sh2.U().s0())) {
+                return false;
             }
+            return true;
         }
-        return invokeL.intValue;
-    }
-
-    public final int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            int i = c(context).getInt("old_versioncode_key", 0);
-            if (c) {
-                String str = b;
-                Log.d(str, "get old versioncode:" + i);
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                d = context.getSharedPreferences("downgradefile", 0);
-            }
-            return d;
-        }
-        return (SharedPreferences) invokeL.objValue;
-    }
-
-    public static ux3 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return new ux3(context);
-        }
-        return (ux3) invokeL.objValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            wn3.d(0, i);
-        }
-    }
-
-    public static void j(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
-            if (c) {
-                String str = b;
-                Log.d(str, "set last version code:" + i);
-            }
-            SharedPreferences.Editor edit = c(context).edit();
-            edit.putInt("last_versioncode_key", i);
-            edit.apply();
-        }
-    }
-
-    public final void k(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
-            if (c) {
-                String str = b;
-                Log.d(str, "set new versioncode:" + i);
-            }
-            SharedPreferences.Editor edit = c(context).edit();
-            edit.putInt("old_versioncode_key", i);
-            edit.apply();
-        }
-    }
-
-    public final void h(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            wn3.d(i2, i);
-            kl2.d.u();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int a = a(this.a);
-            int b2 = b(this.a);
-            if (c) {
-                String str = b;
-                Log.d(str, "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2);
-            }
-            if (b2 == 0) {
-                f(a);
-                k(this.a, a);
-                j(this.a, b2);
-            } else if (a > b2) {
-                h(a, b2);
-                k(this.a, a);
-                j(this.a, b2);
-            } else if (a < b2) {
-                e(a, b2);
-                k(this.a, a);
-                j(this.a, b2);
-            } else {
-                g();
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

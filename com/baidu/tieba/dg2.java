@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class dg2 implements cg2 {
+public class dg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MD5KeyProvider" : (String) invokeV.objValue;
-    }
+    public File a;
+    public boolean b;
+    public String c;
 
     public dg2() {
         Interceptable interceptable = $ic;
@@ -33,13 +28,15 @@ public class dg2 implements cg2 {
         }
     }
 
-    @Override // com.baidu.tieba.cg2
-    public String a(@NonNull String str) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return bs4.d(str.getBytes(), false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

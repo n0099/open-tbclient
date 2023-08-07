@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface lx1 {
-    String[] a();
+    kx1 a();
 
-    boolean b();
-
-    String c();
+    jx1 b();
 }

@@ -1,14 +1,14 @@
 package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.f35;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.d25;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<f35> a;
+    public ArrayList<d25> a;
     public b b;
-    public kb c;
+    public NetMessageListener c;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, ArrayList<f35> arrayList);
+        void a(int i, String str, int i2, ArrayList<d25> arrayList);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -49,7 +49,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CategoryGiftListModel a;
@@ -76,7 +76,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
             this.a = categoryGiftListModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -103,18 +103,18 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CategoryGiftListModel(l9<GiftTabActivity> l9Var) {
-        super(l9Var);
+    public CategoryGiftListModel(BdPageContext<GiftTabActivity> bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -125,7 +125,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
         registerListener();
     }
 
-    public void Y(int i) {
+    public void Q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             CategoryGiftListRequest categoryGiftListRequest = new CategoryGiftListRequest();
@@ -134,7 +134,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    public void Z(b bVar) {
+    public void R(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
@@ -151,8 +151,8 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            gca.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            gca.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+            zaa.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            zaa.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

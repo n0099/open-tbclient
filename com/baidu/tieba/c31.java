@@ -4,62 +4,132 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class c31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static boolean d(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return f31.k().getString("key_clarity_lifecycle", "");
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void i(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return f31.k().getString("key_clarity_login", "");
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static <K, V> boolean a(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f31.k().getString("key_clarity_mobile", "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, k)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                return map.containsKey(k);
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public static <K, V> V b(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f31.k().getString("key_clarity_smart", "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, k)) == null) {
+            if (d(map)) {
+                return null;
+            }
+            try {
+                return map.get(k);
+            } catch (Exception e) {
+                i(e);
+                return null;
+            }
         }
-        return (String) invokeV.objValue;
+        return (V) invokeLL.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public static <K, V> boolean f(Map<K, V> map, Map<? extends K, ? extends V> map2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return f31.k().getString("key_clarity_wifi", "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                map.putAll(map2);
+                return true;
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static int f() {
-        InterceptResult invokeV;
+    public static <K, V> V g(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f31.k().getInt("key_clarity_user", -2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, k)) == null) {
+            if (d(map)) {
+                return null;
+            }
+            try {
+                return map.remove(k);
+            } catch (Exception e) {
+                i(e);
+                return null;
+            }
         }
-        return invokeV.intValue;
+        return (V) invokeLL.objValue;
+    }
+
+    public static <K, V> boolean c(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            if (!d(map) && !map.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <K, V> int h(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
+            if (d(map)) {
+                return 0;
+            }
+            return map.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static <K, V> boolean e(Map<K, V> map, K k, V v) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, k, v)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                map.put(k, v);
+                return true;
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

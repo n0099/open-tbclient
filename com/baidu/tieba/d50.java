@@ -1,49 +1,61 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class d50 {
+public final class d50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String[] b;
+    public int c;
+    public String d;
+    public long e;
+    public long f;
 
-    public static void a(byte[] bArr, byte[] bArr2, int i) {
+    public d50(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, bArr, bArr2, i) == null) {
-            if (i < 0) {
-                throw new IllegalArgumentException("start should be more than zero!");
-            }
-            if (bArr == null || bArr.length == 0) {
-                throw new IllegalArgumentException("dst array should not be null or empty");
-            }
-            if (bArr2 == null || bArr2.length == 0) {
-                throw new IllegalArgumentException("src array should not be null or empty");
-            }
-            if (bArr.length < bArr2.length) {
-                throw new IllegalArgumentException("dst array length should be longer than:" + bArr2.length);
-            }
-            if (bArr.length >= bArr2.length + i) {
-                System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
+        }
+        this.a = str;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            this.d = packageInfo.versionName;
+            this.c = packageInfo.versionCode;
+            this.e = packageInfo.firstInstallTime;
+            this.f = packageInfo.lastUpdateTime;
+            this.b = new String[packageInfo.signatures.length];
+            for (int i3 = 0; i3 < this.b.length; i3++) {
+                this.b[i3] = z40.c(packageInfo.signatures[i3].toByteArray());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public static byte[] b(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                throw new IllegalArgumentException("original array should not be null or empty");
-            }
-            if (i >= 0) {
-                return Arrays.copyOf(bArr, i);
-            }
-            throw new IllegalArgumentException("length should be more than zero!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
         }
-        return (byte[]) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 }

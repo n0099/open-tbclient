@@ -9,11 +9,9 @@ import android.os.Build;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.wa;
+import com.baidu.tieba.ig;
+import com.baidu.tieba.qa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static wa sCallBack;
+    public static qa sCallBack;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public b myBinder;
@@ -126,32 +124,15 @@ public class BdSocketDaemonService extends BdBaseService {
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ah.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            ig.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ah.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            ig.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
         }
-    }
-
-    public static void setLinkServiceDisconnectCallBack(wa waVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, waVar) == null) {
-            sCallBack = waVar;
-        }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            return this.myBinder;
-        }
-        return (IBinder) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -163,9 +144,6 @@ public class BdSocketDaemonService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    eh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                    statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onCreate-startForeground");
-                    BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }
             }
             bindServiceInternal();
@@ -180,19 +158,30 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 unbindService(this.conn);
             } catch (Exception unused) {
-                eh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-unbindService");
-                BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
             Intent intent = new Intent();
             intent.setClass(this, BdSocketDaemonService.class);
             try {
                 startService(intent);
             } catch (Exception unused2) {
-                eh statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                statsItem2.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-startService");
-                BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
             }
         }
+    }
+
+    public static void setLinkServiceDisconnectCallBack(qa qaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, qaVar) == null) {
+            sCallBack = qaVar;
+        }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            return this.myBinder;
+        }
+        return (IBinder) invokeL.objValue;
     }
 }

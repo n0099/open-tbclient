@@ -1,88 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.lego.LegoItemHolder;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes8.dex */
-public class zq7 extends yh7<ICardInfo, LegoItemHolder> {
+public class zq7 implements t55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ICardInfo l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zq7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    @Override // com.baidu.tieba.t55
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGroupChatGuide" : (String) invokeV.objValue;
+    }
+
+    public zq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public View getView(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.t55
+    public Class<? extends r55> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
-            this.l = iCardInfo;
-            return super.getView(i, view2, viewGroup, iCardInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return yq7.class;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: H */
-    public LegoItemHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            p09 a = uz8.h().a(this.c, this.l, 1);
-            if (a == null) {
-                return null;
-            }
-            a.i(this.mPageId);
-            return new LegoItemHolder(a);
-        }
-        return (LegoItemHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    /* renamed from: I */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) iCardInfo, (ICardInfo) legoItemHolder);
-            View view3 = legoItemHolder.getView();
-            if (view3 != null && iCardInfo != null) {
-                ((p09) view3).update(iCardInfo);
-            }
-            return view3;
-        }
-        return (View) invokeCommon.objValue;
+        return (Class) invokeV.objValue;
     }
 }

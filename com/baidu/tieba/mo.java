@@ -1,147 +1,210 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class mo extends DynamicDrawableSpan {
+public class mo {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static no b;
+    public static String c;
+    public static ri d;
+    public static long e;
+    public static Handler f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Drawable a;
-    public Uri b;
-    public int c;
-    public Context d;
-    public a e;
-    public Rect f;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        Drawable a(mo moVar);
+    public static class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                int i = message.what;
+                if (i != 100) {
+                    switch (i) {
+                        case 0:
+                            if (mo.d != null) {
+                                mo.d.c(mo.c, message.arg1);
+                                ri unused = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 1:
+                        case 3:
+                            if (mo.d != null) {
+                                if (xh.d()) {
+                                    mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f183f));
+                                } else {
+                                    mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f1848));
+                                }
+                                ri unused2 = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 2:
+                            if (mo.d != null) {
+                                mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f1840));
+                                ri unused3 = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 4:
+                            if (mo.d != null) {
+                                mo.d.b(message.arg1);
+                                break;
+                            }
+                            break;
+                        case 5:
+                            if (mo.d != null) {
+                                mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f1844));
+                                ri unused4 = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 6:
+                            if (mo.d != null) {
+                                mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f1841));
+                                ri unused5 = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 7:
+                            if (mo.d != null) {
+                                mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f1851));
+                                ri unused6 = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 8:
+                            if (mo.d != null) {
+                                mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f184e));
+                                ri unused7 = mo.d = null;
+                                break;
+                            }
+                            break;
+                        case 9:
+                            if (mo.d != null) {
+                                mo.d.a(message.arg1);
+                                break;
+                            }
+                            break;
+                        default:
+                            if (mo.d != null) {
+                                mo.d.error(message.what, si.a(R.string.obfuscated_res_0x7f0f1846));
+                                ri unused8 = mo.d = null;
+                                break;
+                            }
+                            break;
+                    }
+                } else if (mo.d != null) {
+                    mo.d.e();
+                }
+                int unused9 = mo.a = 0;
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mo(a aVar, int i, int i2) {
-        super(i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311371, "Lcom/baidu/tieba/mo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448311371, "Lcom/baidu/tieba/mo;");
                 return;
             }
         }
-        this.f = new Rect();
-        this.c = i;
-        this.e = aVar;
+        f = new Handler(new a());
     }
 
-    public void a(Drawable drawable) {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            this.a = drawable;
-        }
-    }
-
-    public void b(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            this.f.set(i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (drawable = getDrawable()) == null) {
-            return;
-        }
-        canvas.save();
-        int i6 = drawable.getBounds().bottom;
-        if (((DynamicDrawableSpan) this).mVerticalAlignment == 0) {
-            i4 = i5;
-        }
-        canvas.translate(f, i4 - (drawable.getBounds().bottom - 4));
-        drawable.draw(canvas);
-        canvas.restore();
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Drawable drawable = this.a;
-            if (drawable == null) {
-                a aVar = this.e;
-                if (aVar != null) {
-                    drawable = aVar.a(this);
-                } else {
-                    drawable = null;
-                }
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            no noVar = b;
+            if (noVar != null) {
+                noVar.cancel();
             }
-            if (drawable != null) {
-                return drawable;
+            a = 0;
+        }
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            no noVar = b;
+            if (noVar != null) {
+                noVar.k();
             }
+            a = 0;
+        }
+    }
+
+    public static void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
             try {
-                if (this.b != null) {
-                    InputStream openInputStream = this.d.getContentResolver().openInputStream(this.b);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.d.getResources(), BitmapFactory.decodeStream(openInputStream));
-                    try {
-                        bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-                        openInputStream.close();
-                        return bitmapDrawable;
-                    } catch (Exception unused) {
-                        drawable = bitmapDrawable;
-                    }
-                } else {
-                    drawable = this.d.getResources().getDrawable(this.c);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                if (b != null) {
+                    b.h(i);
                 }
-            } catch (Exception unused2) {
+            } catch (NoClassDefFoundError e2) {
+                e2.printStackTrace();
             }
-            return drawable;
         }
-        return (Drawable) invokeV.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static boolean g(String str, int i, ri riVar) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            if (this.a == null && this.e != null) {
-                if (fontMetricsInt != null) {
-                    int i3 = -this.f.bottom;
-                    fontMetricsInt.ascent = i3;
-                    fontMetricsInt.descent = 0;
-                    fontMetricsInt.top = i3;
-                    fontMetricsInt.bottom = 0;
-                }
-                return this.f.right;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, str, i, riVar)) == null) {
+            if (System.currentTimeMillis() - e < 1000) {
+                return false;
             }
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+            e = System.currentTimeMillis();
+            if (a == 0) {
+                if (b == null) {
+                    b = new no(f);
+                }
+                c = str;
+                d = riVar;
+                if (b.j(str, i)) {
+                    a = 3;
+                    fs6.a(b, "AmrRecorder", 1);
+                    return true;
+                }
+                b = null;
+            }
+            return false;
         }
-        return invokeCommon.intValue;
+        return invokeLIL.booleanValue;
     }
 }

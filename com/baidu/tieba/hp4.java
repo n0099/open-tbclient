@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class hp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
-    }
-
-    public static boolean a(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public static void a(Object obj, StringBuilder sb) {
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            return activity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (activity instanceof a) {
-                ((a) activity).validateRequestPermissionsRequestCode(i);
+        if (interceptable == null || interceptable.invokeLL(65536, null, obj, sb) == null) {
+            if (obj == null) {
+                sb.append(StringUtil.NULL_STRING);
+                return;
             }
-            activity.requestPermissions(strArr, i);
+            String simpleName = obj.getClass().getSimpleName();
+            if ((simpleName == null || simpleName.length() <= 0) && (lastIndexOf = (simpleName = obj.getClass().getName()).lastIndexOf(46)) > 0) {
+                simpleName = simpleName.substring(lastIndexOf + 1);
+            }
+            sb.append(simpleName);
+            sb.append('{');
+            sb.append(Integer.toHexString(System.identityHashCode(obj)));
         }
     }
 }

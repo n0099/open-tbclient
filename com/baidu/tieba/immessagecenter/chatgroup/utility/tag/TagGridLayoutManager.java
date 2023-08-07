@@ -89,17 +89,10 @@ public class TagGridLayoutManager extends GridLayoutManager {
         }
     }
 
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
-        }
-    }
-
     @Override // androidx.recyclerview.widget.GridLayoutManager, androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
     public void onLayoutCompleted(RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, state) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             super.onLayoutCompleted(state);
             if (this.a) {
                 a();

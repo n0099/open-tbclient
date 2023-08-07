@@ -1,69 +1,40 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vk3 extends wk3 {
+public class vk3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayList a;
-        public final /* synthetic */ vk3 b;
-
-        public a(vk3 vk3Var, ArrayList arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vk3Var, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vk3Var;
-            this.a = arrayList;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m(this.a);
-                this.b.j();
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vk3(rk3 rk3Var) {
-        super(rk3Var);
+    public vk3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/brightness");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rk3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rk3) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,109 +42,122 @@ public final class vk3 extends wk3 {
         }
     }
 
-    @Override // com.baidu.tieba.wk3
-    public void f() {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (vc3.b) {
+                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
+            }
+            return false;
         }
-        long j = 0;
-        if (wk3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.g(new a(this, this.b.n()));
-        if (wk3.f) {
-            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
-        }
+        return invokeLLLL.booleanValue;
     }
 
-    public final void j() {
+    /* JADX WARN: Removed duplicated region for block: B:65:0x010c  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x011a  */
+    @Override // com.baidu.tieba.vc3
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, ya3 ya3Var) {
+        InterceptResult invokeLLLLL;
+        Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        long j = 0;
-        if (wk3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.b();
-        this.g = true;
-        if (wk3.f) {
-            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public void l() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (wk3.f) {
-                j = System.currentTimeMillis();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, ya3Var)) == null) {
+            if (vc3.b) {
+                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (vc3.b) {
+                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
+            }
+            JSONObject jSONObject = null;
+            if (context instanceof Activity) {
+                activity = (Activity) context;
             } else {
-                j = 0;
+                activity = null;
             }
-            this.a.h();
-            if (wk3.f) {
-                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
+            if (activity == null) {
+                y72.c("brightness", "activity is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
-        }
-    }
-
-    public ArrayList<qk3> k(String str) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (wk3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            ArrayList<qk3> arrayList = new ArrayList<>();
-            try {
-                arrayList = this.a.e(str);
-            } catch (Exception e) {
-                v82.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
-            }
-            if (wk3.f) {
-                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void m(ArrayList<qk3> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
-            if (wk3.f) {
-                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
-            }
-            Iterator<qk3> it = arrayList.iterator();
-            while (it.hasNext()) {
-                qk3 next = it.next();
-                if (next != null) {
-                    if (wk3.f) {
-                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
+            int i = 1001;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            boolean z = true;
+            if (hashCode != -1634890823) {
+                if (hashCode != 1913219981) {
+                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
+                        c = 0;
                     }
-                    int i = next.i;
-                    if (i != 0) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                this.a.d(next.a, next.b, next.c);
-                                this.a.a(next);
-                                this.b.y(next);
-                            }
-                        } else {
-                            this.a.d(next.a, next.b, next.c);
-                            this.b.g(next);
+                } else if (str.equals("/swanAPI/brightness/get")) {
+                    c = 1;
+                }
+            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        if (optParamsAsJo == null) {
+                            y72.c("brightness", "paramsJson is null");
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                            return false;
                         }
-                    } else {
-                        this.a.a(next);
-                        this.b.y(next);
+                        try {
+                            wk3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                        } catch (JSONException unused) {
+                        }
+                    }
+                    z = false;
+                } else {
+                    jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("value", wk3.c().a(activity));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
+                if (z) {
+                    if (jSONObject != null) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    } else {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    }
+                } else {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+                }
+                return z;
+            } else if (optParamsAsJo == null) {
+                y72.c("brightness", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else {
+                String optString = optParamsAsJo.optString("value");
+                float f = -1.0f;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        f = Float.parseFloat(optString);
+                    } catch (Exception unused2) {
+                    }
+                }
+                if (f >= 0.0f && f <= 1.0f) {
+                    wk3.c().e(activity, f);
+                    if (z) {
+                    }
+                    return z;
+                }
+                i = 202;
+                z = false;
+                if (z) {
+                }
+                return z;
             }
         }
+        return invokeLLLLL.booleanValue;
     }
 }

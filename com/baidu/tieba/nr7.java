@@ -1,48 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class nr7 {
+public final class nr7 implements h65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ei7 a;
-    public final FrsFragment b;
-    public final xw7 c;
-    public final rw7 d;
-    public final FrsModelController e;
-    public final lj7 f;
-    public final gr7 g;
 
-    public nr7(FrsFragment frsFragment) {
+    @Override // com.baidu.tieba.h65
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_NEWUSER_STRATEGY" : (String) invokeV.objValue;
+    }
+
+    public nr7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (frsFragment != null) {
-            this.b = frsFragment;
-            this.d = frsFragment.x0();
-            this.a = this.b.y1();
-            this.c = this.b.W3();
-            this.e = this.b.V0();
-            this.f = this.b.Q3();
-            this.g = this.b.n1();
-            return;
+    }
+
+    @Override // com.baidu.tieba.h65
+    public f65 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new mr7();
         }
-        throw new NullPointerException("FrsActivity is NullPointerException");
+        return (f65) invokeV.objValue;
     }
 }

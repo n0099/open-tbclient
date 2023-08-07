@@ -1,113 +1,163 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
-import com.baidu.live.LiveFeedPageSdk;
+import android.opengl.Matrix;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ae0 extends be0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
+public class ae0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "ae0";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612157, "Lcom/baidu/tieba/ae0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947612157, "Lcom/baidu/tieba/ae0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947612157, "Lcom/baidu/tieba/ae0;")) == null) {
+            return;
         }
-        b = new HashMap<>();
-    }
-
-    public ae0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "#666666", "", "#858585", "#E6FFFFFF"});
-        b.put("color_white1", new String[]{"#FFFFFF", "#191919", "", "#161823", "#161823"});
-        b.put("color_white2", new String[]{"#FFFFFF", "#222222", "", "#1F2337", "#1F2337"});
-        b.put("color_white3", new String[]{"#FFFFFF", "#4DFFFFFF", "", "#FFFFFF", "#E6FFFFFF"});
-        b.put("color_F5F5F51", new String[]{"#F5F5F5", "#191919", "", "#161823", "#00000000"});
-        b.put("color_F5F5F52", new String[]{"#F5F5F5", "#121212", "", "#161823", "#161823"});
-        b.put("color_F5F5F53", new String[]{"#F5F5F5", "#121212", "", "#1AFFFFFF", "#1AFFFFFF"});
-        b.put("color_FF33551", new String[]{"#FF3355", "#80192A", "", "#FF3355", "#FF3355"});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "#1A80192A", "", "#26FF3355", "#26FF3355"});
-        b.put("color_858585", new String[]{"#858585", "#444444", "", "#858585", "#80FFFFFF"});
-        b.put("color_525252", new String[]{"#525252", "#555555", "", "#858585", "#858585"});
-        b.put("color_FF3333", new String[]{"#FF3333", "#7F1919", "", "#FF3333", "#FF3333"});
-        b.put("color_768CAE", new String[]{"#768CAE", "#3A4556", "", "#768CAE", "#768CAE"});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "#263678", "", "#4E6EF2", "#4E6EF2"});
-        b.put("color_8585852", new String[]{"#858585", "#444444", "", "#858585", "#858585"});
-        b.put("color_5252522", new String[]{"#525252", "#555555", "", "#99FFFFFF", "#99FFFFFF"});
-        b.put("color_btn_stroke", new String[]{"#B8B8B8", "#00000000", "", "#00000000", "#00000000"});
-        b.put("color_btn_fill", new String[]{"#00000000", "#303030", "", "#66666666", "#66666666"});
-        b.put("color_sub_tab_normal", new String[]{"#1F1F1F", "#666666", "", "#858585", "#858585"});
-        b.put("color_main_bg", new String[]{"#FFFFFF", "#191919", "", "#161823", "#00000000"});
-        b.put("color_white4", new String[]{"#1F1F1F", "#666666", "", "#FFFFFF", "#E6FFFFFF"});
-        b.put("color_gradient_1", new String[]{"#FFFFFF", "#191919", "", "#161823", "#161823"});
-        b.put("color_gradient_2", new String[]{"#00FFFFFF", "#00191919", "", "#00161823", "#00161823"});
-        b.put("color_4367B4", new String[]{"#4367B4", "#21335A", "", "#BF75B1FF", "#BF75B1FF"});
-        b.put("color_8585853", new String[]{"#858585", "#444444", "", "#7FFFFFFF", "#7FFFFFFF"});
-        b.put("color_B8B8B8", new String[]{"#B8B8B8", "#4D4D4D", "", "#66FFFFFF", "#66FFFFFF"});
-        b.put("color_E0E0E0", new String[]{"#E0E0E0", "#33ffffff", "", ""});
-        b.put("color_EEEEEE", new String[]{"#eeeeee", "#121212", "", ""});
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947612157, "Lcom/baidu/tieba/ae0;");
+        }
     }
 
-    @Override // com.baidu.tieba.be0
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            String[] strArr = b.get(str2);
-            if (strArr == null) {
-                return -16777216;
-            }
-            String str3 = strArr[0];
-            if ("recommend".equals(str)) {
-                return fe0.c().a(context, str, str2);
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                str3 = strArr[3];
-            } else if (!LiveFeedPageSdk.VIDEO_BAR.equals(str) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                if ("night".equals(this.a)) {
-                    str3 = strArr[1];
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-950477216, "Lcom/baidu/tieba/ae0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            } else {
-                str3 = strArr[4];
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-950477216, "Lcom/baidu/tieba/ae0$a;");
+                    return;
+                }
             }
-            if (vd0.a(str3)) {
-                return -16777216;
+            int[] iArr = new int[ScaleType.values().length];
+            a = iArr;
+            try {
+                iArr[ScaleType.FIT_XY.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
             try {
-                return Color.parseColor(str3);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -16777216;
+                a[ScaleType.FIT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ScaleType.CENTER_CROP.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
-        return invokeLLL.intValue;
+    }
+
+    public static void a(float[] fArr, MirrorType mirrorType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
+            if (fArr == null) {
+                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            }
+            if (mirrorType == MirrorType.HORIZONTALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            } else if (mirrorType == MirrorType.VERTICALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
+                fArr[6] = 0.0f;
+                fArr[9] = 0.0f;
+            }
+        }
+    }
+
+    public static void b(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
+            Matrix.setIdentityM(fArr, 0);
+        }
+    }
+
+    public static void c(float[] fArr, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
+            if (fArr == null) {
+                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            }
+            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
+        if (r0 > r5) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
+        if (r0 > r5) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
+        r5 = r5 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
+        r8 = r0 / r5;
+        r5 = 1.0f;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(float[] fArr, vd0 vd0Var, ud0 ud0Var, ScaleType scaleType, float f) {
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, vd0Var, ud0Var, scaleType, Float.valueOf(f)}) == null) {
+            if (fArr == null) {
+                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            } else if (vd0Var != null && vd0Var.d() > 0 && vd0Var.b() > 0) {
+                if (ud0Var != null && ud0Var.c() > 0 && ud0Var.b() > 0) {
+                    float d = (vd0Var.d() * 1.0f) / vd0Var.b();
+                    float c = (ud0Var.c() * 1.0f) / ud0Var.b();
+                    int i = a.a[scaleType.ordinal()];
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i == 4) {
+                                    f2 = f;
+                                }
+                            }
+                        }
+                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                        return;
+                    }
+                    f2 = 1.0f;
+                    f = 1.0f;
+                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                    return;
+                }
+                Log.e(a, "scaleDraw2DMVP draw target error!!!");
+            } else {
+                Log.e(a, "scaleDraw2DMVP source texture error!!!");
+            }
+        }
+    }
+
+    public static void e(float[] fArr, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            Matrix.translateM(fArr, 0, f, f2, 1.0f);
+        }
     }
 }

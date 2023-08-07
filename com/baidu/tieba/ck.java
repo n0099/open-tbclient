@@ -1,28 +1,28 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes5.dex */
-public class ck extends ik {
+public class ck extends ak {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String[] e;
-    public List<BasicNameValuePair> f;
+    public Rect s;
 
-    public ck(String str) {
+    public ck() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,10 +32,72 @@ public class ck extends ik {
                 return;
             }
         }
-        this.a = str;
-        this.b = "/";
-        this.d = null;
-        this.e = null;
-        this.f = null;
+        this.s = new Rect();
+    }
+
+    @Override // com.baidu.tieba.ak
+    public void a(dk dkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, dkVar, imageView) == null) {
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            float f = drawerArgs.d / 2.0f;
+            if (!drawerArgs.g) {
+                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                return;
+            }
+            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            RectF rectF = this.g;
+            PointF b = b(rectF.left, rectF.top, this.f);
+            RectF rectF2 = this.g;
+            PointF b2 = b(rectF2.right, rectF2.bottom, this.f);
+            this.h.set(Math.max((int) b.x, 0) + f, Math.max((int) b.y, 0) + f, Math.min((int) b2.x, width) - f, Math.min((int) b2.y, height) - f);
+        }
+    }
+
+    @Override // com.baidu.tieba.ak
+    public void f(Canvas canvas, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) != null) || !this.l.c) {
+            return;
+        }
+        canvas.drawRect(this.h, this.d);
+    }
+
+    @Override // com.baidu.tieba.ak
+    public void h(Canvas canvas, dk dkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, dkVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
+            }
+            if (dkVar.e()) {
+                Bitmap bitmap = dkVar.a.getBitmap();
+                this.s.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.s, this.g, this.c);
+            } else if (dkVar.d()) {
+                this.s.set(0, 0, dkVar.b(), dkVar.a());
+                dkVar.b.drawImageTo(canvas, this.s, this.g, this.c);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ak
+    public void i(Canvas canvas, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
+            return;
+        }
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+        this.e.setColor(this.l.m);
+        canvas.drawRect(this.o, this.e);
+        canvas.translate(-scrollX, -scrollY);
     }
 }

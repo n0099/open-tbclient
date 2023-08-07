@@ -1,15 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import java.util.List;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Serializable;
 /* loaded from: classes8.dex */
-public interface tu7 {
-    void a(Context context, xu7 xu7Var);
+public final class tu7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
+    public static final long d(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+            return bundle.getLong("extra_fid");
+        }
+        return invokeL.longValue;
+    }
 
-    View getView();
+    public static final String e(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            return bundle.getString("extra_forum_name");
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void setData(List<wj7> list);
+    public static final Frs$From f(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+            Serializable serializable = bundle.getSerializable("extra_from");
+            if (serializable != null) {
+                return (Frs$From) serializable;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
+        }
+        return (Frs$From) invokeL.objValue;
+    }
 }

@@ -1,66 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.data.protobuf.FeedHeadExtensionKt;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.i97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.AbstractComponent;
-import tbclient.ComponentFactory;
-import tbclient.FeedEntrybarComponent;
-import tbclient.FeedFeedback;
-import tbclient.FeedHeadComponent;
-import tbclient.FeedHeadFigureComponent;
-import tbclient.FeedItem;
-import tbclient.FeedKV;
-import tbclient.FeedLayout;
-import tbclient.FeedLinkComponent;
-import tbclient.FeedLiveComponent;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedPicComponent;
-import tbclient.FeedPostExpose;
-import tbclient.FeedSocialComponent;
-import tbclient.FeedVideoAdComponent;
-import tbclient.FeedVideoComponent;
-import tbclient.LayoutFactory;
-import tbclient.ThreadRecommendInfo;
-import tbclient.TitleComponent;
-import tbclient.Voice;
 /* loaded from: classes5.dex */
-public abstract class ba7 implements ca7<LayoutFactory>, pc7, qb7, e97 {
+public final class ba7 implements i97.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends qc7> a;
-    public Map<String, String> b;
-    public boolean c;
+    public final y97 a;
 
-    public Object e(String key, String value) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, key, value)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(value, "value");
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public abstract mc7<?> h(e87<?> e87Var, s87 s87Var);
-
-    public ba7() {
+    public ba7(y97 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,346 +30,35 @@ public abstract class ba7 implements ca7<LayoutFactory>, pc7, qb7, e97 {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    @Override // com.baidu.tieba.qb7
-    public void a(Map<String, String> map) {
+    @Override // com.baidu.tieba.i97.b
+    public void a(u97<?> data, int i) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            this.b = map;
-        }
-    }
-
-    @Override // com.baidu.tieba.e97
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.pc7
-    public void d(Map<String, ? extends qc7> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            this.a = map;
-        }
-    }
-
-    public final Map<String, Object> f(List<FeedKV> list) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            e97 e97Var = (e97) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            l57 l57Var = new l57();
+            l57 l57Var2 = e97Var.b;
+            if (l57Var2 != null) {
+                l57Var = l57Var2;
             }
-            if (z) {
-                return null;
-            }
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                if (str != null && str.length() != 0) {
-                    z2 = false;
-                } else {
-                    z2 = true;
-                }
-                if (!z2) {
-                    String str2 = feedKV.value;
-                    if (str2 != null && str2.length() != 0) {
-                        z3 = false;
-                    } else {
-                        z3 = true;
-                    }
-                    if (!z3) {
-                        String str3 = feedKV.key;
-                        Intrinsics.checkNotNullExpressionValue(str3, "info.key");
-                        String str4 = feedKV.value;
-                        Intrinsics.checkNotNullExpressionValue(str4, "info.value");
-                        Object e = e(str3, str4);
-                        if (e != null) {
-                            String str5 = feedKV.key;
-                            Intrinsics.checkNotNullExpressionValue(str5, "info.key");
-                            linkedHashMap.put(str5, e);
-                        }
-                    }
+            if (e97Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(l57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
                 }
             }
-            return linkedHashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ca7
-    /* renamed from: g */
-    public mc7<?> b(LayoutFactory originData) {
-        InterceptResult invokeL;
-        u87 u87Var;
-        ThreadRecommendInfo threadRecommendInfo;
-        u87 u87Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            ArrayList arrayList = new ArrayList();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            s87 s87Var = new s87();
-            s87Var.h(this.a);
-            FeedLayout feedLayout = originData.feed;
-            Intrinsics.checkNotNullExpressionValue(feedLayout, "originData.feed");
-            t87.a(s87Var, feedLayout);
-            s87Var.g(this.b);
-            s87Var.f(this.c);
-            y97 y97Var = new y97();
-            for (ComponentFactory componentFactory : originData.feed.components) {
-                String str = componentFactory.component;
-                if (str != null) {
-                    String str2 = "";
-                    String str3 = null;
-                    switch (str.hashCode()) {
-                        case -1644137503:
-                            if (str.equals("feed_head")) {
-                                FeedHeadComponent feedHeadComponent = componentFactory.feed_head;
-                                if (feedHeadComponent == null) {
-                                    break;
-                                } else {
-                                    FeedFeedback feedFeedback = originData.feed.feedback;
-                                    if (feedFeedback != null) {
-                                        u87Var = wa7.a(feedFeedback, s87Var);
-                                    } else {
-                                        u87Var = null;
-                                    }
-                                    boolean c = FeedHeadExtensionKt.c(originData.feed.business_info);
-                                    List<ComponentFactory> list = originData.feed.components;
-                                    Intrinsics.checkNotNullExpressionValue(list, "originData.feed.components");
-                                    FeedHeadExtensionKt.h(feedHeadComponent, arrayList, u87Var, c, s87Var, list);
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1644093164:
-                            if (str.equals("feed_item")) {
-                                FeedItem feedItem = componentFactory.feed_item;
-                                if (feedItem != null) {
-                                    ja7.c(feedItem, arrayList, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1644014085:
-                            if (str.equals("feed_link")) {
-                                FeedLinkComponent feedLinkComponent = componentFactory.feed_link;
-                                if (feedLinkComponent != null) {
-                                    la7.a(feedLinkComponent, arrayList);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1644013843:
-                            if (str.equals("feed_live")) {
-                                FeedLiveComponent feedLiveComponent = componentFactory.feed_live;
-                                if (feedLiveComponent != null) {
-                                    ma7.a(feedLiveComponent, arrayList, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1461408349:
-                            if (str.equals("feed_abstract")) {
-                                AbstractComponent abstractComponent = componentFactory.feed_abstract;
-                                if (abstractComponent != null) {
-                                    ga7.b(abstractComponent, arrayList, spannableStringBuilder, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1035731907:
-                            if (str.equals("feed_videoad")) {
-                                FeedVideoComponent feedVideoComponent = componentFactory.feed_video;
-                                if (feedVideoComponent != null) {
-                                    str3 = feedVideoComponent.schema;
-                                }
-                                if (str3 != null) {
-                                    str2 = str3;
-                                }
-                                y97Var.j(ua7.a(str2, s87Var));
-                                FeedVideoAdComponent feedVideoAdComponent = componentFactory.feed_videoad;
-                                if (feedVideoAdComponent != null) {
-                                    ta7.b(feedVideoAdComponent, arrayList, y97Var, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -993000478:
-                            if (str.equals("feed_entrybar")) {
-                                FeedEntrybarComponent feedEntrybarComponent = componentFactory.feed_entrybar;
-                                if (feedEntrybarComponent != null) {
-                                    ia7.a(feedEntrybarComponent, arrayList, t87.b(s87Var, "enter_forum_btn_click"));
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -984476251:
-                            if (str.equals("feed_postexpose")) {
-                                FeedPostExpose feedPostExpose = componentFactory.feed_postexpose;
-                                if (feedPostExpose != null) {
-                                    pa7.a(feedPostExpose, arrayList, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -191576215:
-                            if (str.equals("feed_pic")) {
-                                FeedPicComponent feedPicComponent = componentFactory.feed_pic;
-                                if (feedPicComponent != null) {
-                                    oa7.b(feedPicComponent, arrayList, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 301292525:
-                            if (str.equals("feed_recomtag")) {
-                                List<ThreadRecommendInfo> list2 = componentFactory.feed_recomtag;
-                                if (list2 != null && (threadRecommendInfo = (ThreadRecommendInfo) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) list2)) != null) {
-                                    xa7.a(threadRecommendInfo, arrayList);
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                            break;
-                        case 582564983:
-                            if (str.equals("feed_title")) {
-                                List<ComponentFactory> list3 = originData.feed.components;
-                                Intrinsics.checkNotNullExpressionValue(list3, "originData.feed.components");
-                                boolean a = sb7.a(list3);
-                                TitleComponent titleComponent = componentFactory.feed_title;
-                                if (titleComponent != null) {
-                                    sa7.a(titleComponent, arrayList, spannableStringBuilder, s87Var, a);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 584396442:
-                            if (str.equals("feed_video")) {
-                                FeedVideoComponent feedVideoComponent2 = componentFactory.feed_video;
-                                if (feedVideoComponent2 != null) {
-                                    str3 = feedVideoComponent2.schema;
-                                }
-                                if (str3 != null) {
-                                    str2 = str3;
-                                }
-                                y97Var.j(ua7.a(str2, s87Var));
-                                FeedVideoComponent feedVideoComponent3 = componentFactory.feed_video;
-                                if (feedVideoComponent3 != null) {
-                                    ua7.c(feedVideoComponent3, arrayList, y97Var, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 584579921:
-                            if (str.equals("feed_voice")) {
-                                Voice voice = componentFactory.feed_voice;
-                                if (voice != null) {
-                                    va7.a(voice, arrayList, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 744478951:
-                            if (str.equals("feed_origin")) {
-                                FeedOriginComponent feedOriginComponent = componentFactory.feed_origin;
-                                if (feedOriginComponent != null) {
-                                    na7.a(feedOriginComponent, arrayList, s87Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 856047918:
-                            if (str.equals("feed_social")) {
-                                FeedSocialComponent feedSocialComponent = componentFactory.feed_social;
-                                if (feedSocialComponent != null) {
-                                    ra7.a(feedSocialComponent, arrayList, s87Var, y97Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 1804018946:
-                            if (str.equals("feed_head_figure")) {
-                                FeedHeadFigureComponent feedHeadFigureComponent = componentFactory.feed_head_figure;
-                                if (feedHeadFigureComponent != null) {
-                                    u97 b = t87.b(s87Var, "virtual_head_show");
-                                    u97 b2 = t87.b(s87Var, "virtual_head_click");
-                                    FeedFeedback feedFeedback2 = originData.feed.feedback;
-                                    if (feedFeedback2 != null) {
-                                        u87Var2 = wa7.a(feedFeedback2, s87Var);
-                                    } else {
-                                        u87Var2 = null;
-                                    }
-                                    FeedHeadExtensionKt.i(feedHeadFigureComponent, arrayList, b, b2, u87Var2, t87.c(s87Var, "head_local_stat_info"));
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                    }
+            s67 s67Var = e97Var.a;
+            if (s67Var != null && (a = s67Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
                 }
             }
-            String str4 = originData.feed.schema;
-            Intrinsics.checkNotNullExpressionValue(str4, "originData.feed.schema");
-            return h(new e87<>(arrayList, str4, Intrinsics.areEqual(s87Var.a().a().get("is_grey_mode"), "1"), s87Var.a().a().get("thread_id"), s87Var.a().a().get("user_id"), f(originData.feed.appendix), null, 64, null), s87Var);
+            TiebaStatic.log(statisticItem);
         }
-        return (mc7) invokeL.objValue;
     }
 }

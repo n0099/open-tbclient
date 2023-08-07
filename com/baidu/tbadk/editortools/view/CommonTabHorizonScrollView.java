@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pl5;
+import com.baidu.tieba.bk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
     public DeskLinearLayout a;
     public int b;
-    public List<pl5> c;
+    public List<bk5> c;
     public CommonTabWidgetView.b d;
     public LinearLayout.LayoutParams e;
     public int f;
@@ -147,7 +147,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         d();
     }
 
-    public void b(pl5.b bVar) {
+    public void b(bk5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             c(bVar);
@@ -155,7 +155,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public void setDatas(List<pl5> list) {
+    public void setDatas(List<bk5> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.c = list;
@@ -169,7 +169,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public final TbImageView c(pl5.b bVar) {
+    public final TbImageView c(bk5.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {

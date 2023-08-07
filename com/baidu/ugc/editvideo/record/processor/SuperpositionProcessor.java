@@ -1,14 +1,14 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.kab;
-import com.baidu.tieba.rh0;
+import com.baidu.tieba.n9b;
+import com.baidu.tieba.pg0;
 /* loaded from: classes9.dex */
 public class SuperpositionProcessor extends BaseEffectProcessor {
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(rh0 rh0Var, int i, float[] fArr) {
+    public int onProcessFrame(pg0 pg0Var, int i, float[] fArr) {
         int e;
-        return (rh0Var == null || (e = rh0Var.e((MediaTrack) kab.c(rh0Var.l(), 0), i, null)) == 0) ? i : e;
+        return (pg0Var == null || (e = pg0Var.e((MediaTrack) n9b.c(pg0Var.l(), 0), i, null)) == 0) ? i : e;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor

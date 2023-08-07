@@ -3,13 +3,13 @@ package com.baidu.tieba.quickWebView;
 import android.content.Context;
 import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.lp;
-import com.baidu.tieba.qda;
+import com.baidu.tieba.iw9;
+import com.baidu.tieba.jca;
+import com.baidu.tieba.ko;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.qx9;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-@lp
+@ko
 /* loaded from: classes7.dex */
 public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public qx9 mProxy;
+    public iw9 mProxy;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -56,21 +56,21 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qx9 qx9Var = this.b.mProxy;
+                iw9 iw9Var = this.b.mProxy;
                 QuickWebViewBridgeData quickWebViewBridgeData = this.a;
-                qx9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+                iw9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, qx9 qx9Var) {
+    public QuickWebViewBridge(Context context, iw9 iw9Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, qx9Var};
+            Object[] objArr = {context, iw9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,10 +82,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = qx9Var;
+        this.mProxy = iw9Var;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.mda
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.fca
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public qda requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public jca requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -129,26 +129,26 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
             if (this.mProxy != null) {
-                zg.a().post(new a(this, quickWebViewBridgeData));
+                SafeHandler.getInst().post(new a(this, quickWebViewBridgeData));
             }
-            qdaVar.x(str);
-            return qdaVar;
+            jcaVar.x(str);
+            return jcaVar;
         }
-        return (qda) invokeLLLL.objValue;
+        return (jca) invokeLLLL.objValue;
     }
 
-    public qda requestByNativeToH5(HashMap<String, String> hashMap) {
+    public jca requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            qda qdaVar = new qda();
+            jca jcaVar = new jca();
             if (hashMap != null && hashMap.get("result") != null) {
-                qdaVar.o(hashMap.get("result"));
-                qdaVar.x(hashMap.get("NotificationKey"));
+                jcaVar.o(hashMap.get("result"));
+                jcaVar.x(hashMap.get("NotificationKey"));
             }
-            qdaVar.A(true);
-            return qdaVar;
+            jcaVar.A(true);
+            return jcaVar;
         }
-        return (qda) invokeL.objValue;
+        return (jca) invokeL.objValue;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean i;
+    public boolean a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabLiveStageLiveZanLottieView(Context context) {
@@ -32,7 +32,7 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.i = false;
+        this.a = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,7 +54,7 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.i = false;
+        this.a = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,13 +76,13 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.i = false;
+        this.a = false;
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.i) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a) {
             return;
         }
         super.onAttachedToWindow();
@@ -91,7 +91,7 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
     @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.i) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a) {
             return;
         }
         super.onDetachedFromWindow();
@@ -100,7 +100,7 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
     public void setForbidAutoUpdateState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.i = z;
+            this.a = z;
         }
     }
 }

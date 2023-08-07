@@ -1,115 +1,153 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpCommonRequest;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpOptions;
 /* loaded from: classes5.dex */
-public class fi4 {
+public class fi4 extends HttpCommonRequest<a> {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<di4> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765080, "Lcom/baidu/tieba/fi4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a extends HttpCommonRequestBuilder<a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(AbstractHttpManager abstractHttpManager) {
+            super(abstractHttpManager);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractHttpManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((AbstractHttpManager) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947765080, "Lcom/baidu/tieba/fi4;");
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public a(fi4 fi4Var) {
+            this(fi4Var, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi4Var};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((fi4) objArr2[0], (AbstractHttpManager) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(fi4 fi4Var, AbstractHttpManager abstractHttpManager) {
+            super(fi4Var, abstractHttpManager);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi4Var, abstractHttpManager};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpCommonRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        /* renamed from: a */
+        public fi4 build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new fi4(this);
+            }
+            return (fi4) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fi4(a aVar) {
+        super(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((HttpCommonRequestBuilder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SparseArray<di4> sparseArray = new SparseArray<>();
-        a = sparseArray;
-        sparseArray.put(5, new di4(5, R.string.obfuscated_res_0x7f0f0128, R.drawable.obfuscated_res_0x7f08010f, true));
-        a.put(35, new di4(35, R.string.obfuscated_res_0x7f0f011b, R.drawable.obfuscated_res_0x7f0800ef, true));
-        a.put(39, new di4(39, R.string.obfuscated_res_0x7f0f0122, R.drawable.obfuscated_res_0x7f080112, true));
-        a.put(4, new di4(4, R.string.obfuscated_res_0x7f0f0129, R.drawable.obfuscated_res_0x7f080115, true));
-        a.put(37, new di4(37, R.string.obfuscated_res_0x7f0f011d, R.drawable.obfuscated_res_0x7f0800f2, true));
-        a.put(38, new di4(38, R.string.obfuscated_res_0x7f0f0126, R.drawable.obfuscated_res_0x7f0800ee, true));
-        a.put(42, new di4(42, R.string.obfuscated_res_0x7f0f011e, R.drawable.obfuscated_res_0x7f080112, true));
-        a.put(49, new di4(49, R.string.obfuscated_res_0x7f0f14ad, R.drawable.obfuscated_res_0x7f081403, true));
-        a.put(50, new di4(50, R.string.obfuscated_res_0x7f0f1531, R.drawable.obfuscated_res_0x7f081402, true));
-        a.put(43, new di4(43, R.string.obfuscated_res_0x7f0f011c, R.drawable.obfuscated_res_0x7f0800f3, true));
-        a.put(9, new di4(9, R.string.obfuscated_res_0x7f0f0127, R.drawable.obfuscated_res_0x7f0800ff, true));
-        a.put(46, new di4(46, R.string.obfuscated_res_0x7f0f011f, R.drawable.obfuscated_res_0x7f080104, true));
-        a.put(47, new di4(47, R.string.obfuscated_res_0x7f0f0120, R.drawable.obfuscated_res_0x7f080107, true));
     }
 
-    public static di4 a(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: a */
+    public a newBuilder() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return di4.k(a.get(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (di4) invokeI.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public static List<di4> b(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: b */
+    public a newBuilder(AbstractHttpManager abstractHttpManager) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i != 0) {
-                if (i != 12) {
-                    if (i != 13) {
-                        switch (i) {
-                            case 16:
-                                arrayList.add(di4.k(a.get(5)));
-                                break;
-                            case 17:
-                            case 18:
-                                arrayList.add(di4.k(a.get(38)));
-                                arrayList.add(di4.k(a.get(4)));
-                                arrayList.add(di4.k(a.get(39)));
-                                arrayList.add(di4.k(a.get(35)));
-                                arrayList.add(di4.k(a.get(5)));
-                                arrayList.add(di4.k(a.get(49)));
-                                break;
-                            case 19:
-                                arrayList.add(di4.l(a.get(38), false));
-                                arrayList.add(di4.l(a.get(4), false));
-                                arrayList.add(di4.k(a.get(39)));
-                                arrayList.add(di4.l(a.get(35), false));
-                                arrayList.add(di4.k(a.get(5)));
-                                arrayList.add(di4.l(a.get(49), false));
-                                break;
-                            case 20:
-                                arrayList.add(di4.k(a.get(38)));
-                                arrayList.add(di4.k(a.get(4)));
-                                arrayList.add(di4.k(a.get(39)));
-                                arrayList.add(di4.k(a.get(35)));
-                                arrayList.add(di4.k(a.get(5)));
-                                arrayList.add(di4.k(a.get(49)));
-                                break;
-                        }
-                    } else {
-                        arrayList.add(di4.k(a.get(43)));
-                    }
-                }
-                arrayList.add(di4.k(a.get(38)));
-                arrayList.add(di4.k(a.get(4)));
-                arrayList.add(di4.k(a.get(39)));
-                arrayList.add(di4.k(a.get(35)));
-                arrayList.add(di4.k(a.get(5)));
-                arrayList.add(di4.k(a.get(49)));
-            } else {
-                arrayList.add(di4.k(a.get(38)));
-                arrayList.add(di4.k(a.get(5)));
-                arrayList.add(di4.k(a.get(4)));
-                arrayList.add(di4.k(a.get(35)));
-                arrayList.add(di4.k(a.get(42)));
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) {
+            return new a(this, abstractHttpManager);
         }
-        return (List) invokeI.objValue;
+        return (a) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public Request buildOkRequest(RequestBody requestBody) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) {
+            return this.okRequestBuilder.method(HttpOptions.METHOD_NAME, requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 }

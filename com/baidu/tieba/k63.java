@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class k63 implements n63 {
+public class k63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public zk2 a;
 
-    @Override // com.baidu.tieba.n63
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageSwitchCost" : (String) invokeV.objValue;
-    }
-
-    public k63() {
+    public k63(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,41 +27,19 @@ public class k63 implements n63 {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
+        TreeMap treeMap = new TreeMap();
+        treeMap.put("functionPagePath", str);
+        treeMap.put("paymentArgs", str2);
+        treeMap.put("slaveId", str3);
+        this.a = new zk2("beforeRequestPayment", treeMap);
     }
 
-    @Override // com.baidu.tieba.n63
-    public long a() {
+    public zk2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.a;
-            if (j >= 0) {
-                long j2 = this.b;
-                if (j2 >= 0) {
-                    return j2 - j;
-                }
-                return -1L;
-            }
-            return -1L;
+            return this.a;
         }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.n63
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    @Override // com.baidu.tieba.n63
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
-        }
+        return (zk2) invokeV.objValue;
     }
 }

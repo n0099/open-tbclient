@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hh8<T> {
+public class hh8 implements jh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public T b;
+    public RelativeLayout a;
+    public TextView b;
+    public ImageView c;
+    public RecyclerView d;
+    public hh8 e;
 
     public hh8() {
         Interceptable interceptable = $ic;
@@ -34,90 +37,66 @@ public class hh8<T> {
         }
     }
 
-    public T a() {
+    @Override // com.baidu.tieba.jh8
+    public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.e.a;
         }
-        return (T) invokeV.objValue;
+        return (RelativeLayout) invokeV.objValue;
     }
 
-    public int b() {
+    @Override // com.baidu.tieba.jh8
+    public RecyclerView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e.d;
         }
-        return invokeV.intValue;
+        return (RecyclerView) invokeV.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
-    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.jh8
+    public ImageView d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (str == null) {
-                return -1;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() == 3) {
-                    jSONArray.optString(0);
-                    this.a = jSONArray.optInt(1);
-                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                    if (1 == this.a) {
-                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
-                        String optString2 = optJSONObject.optString("shareSourceIcon");
-                        String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString("shareUrl");
-                        String optString5 = optJSONObject.optString("shareSourceUrl");
-                        if (TextUtils.isEmpty(optString4)) {
-                            ?? r4 = (T) new ShareFromPBMsgData();
-                            r4.setContent(optJSONObject.optString("themeContent"));
-                            r4.setForumName(optJSONObject.optString("forumName"));
-                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                            r4.setPostId(optJSONObject.optString("postID"));
-                            r4.setThreadId(optJSONObject.optString("themeID"));
-                            r4.setTitle(optJSONObject.optString("themeTitle"));
-                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.b = r4;
-                            return 0;
-                        }
-                        ?? r1 = (T) new ShareFromGameCenterMsgData();
-                        r1.setContent(optJSONObject.optString("themeContent"));
-                        r1.setForumName(optJSONObject.optString("forumName"));
-                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r1.setPostId(optJSONObject.optString("postID"));
-                        r1.setThreadId(optJSONObject.optString("themeID"));
-                        r1.setTitle(optJSONObject.optString("themeTitle"));
-                        r1.setButton(optString);
-                        r1.setShareSource(optString3);
-                        r1.setShareSourceIcon(optString2);
-                        r1.setShareSourceUrl(optString5);
-                        r1.setShareUrl(optString4);
-                        this.b = r1;
-                        return 1;
-                    } else if (4 == this.a) {
-                        ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
-                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
-                        r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.b = r12;
-                        return 2;
-                    } else {
-                        return -1;
-                    }
-                }
-                return -1;
-            } catch (Exception unused) {
-                return -1;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e.c;
         }
-        return invokeLL.intValue;
+        return (ImageView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jh8
+    public TextView e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.b;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public static hh8 f(@NonNull View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            hh8 hh8Var = new hh8();
+            hh8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09189b);
+            hh8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ea2);
+            hh8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebe);
+            hh8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090eaf);
+            hh8Var.e = hh8Var;
+            return hh8Var;
+        }
+        return (hh8) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jh8
+    public void b(int i, @NonNull ai8 ai8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ai8Var) == null) && !ai8Var.e()) {
+            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+        }
     }
 }

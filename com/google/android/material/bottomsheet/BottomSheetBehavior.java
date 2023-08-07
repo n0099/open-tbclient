@@ -140,10 +140,10 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public int targetState;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1206view;
+        public final View f1205view;
 
         public SettleRunnable(View view2, int i) {
-            this.f1206view = view2;
+            this.f1205view = view2;
             this.targetState = i;
         }
 
@@ -151,7 +151,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public void run() {
             ViewDragHelper viewDragHelper = BottomSheetBehavior.this.viewDragHelper;
             if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                ViewCompat.postOnAnimation(this.f1206view, this);
+                ViewCompat.postOnAnimation(this.f1205view, this);
             } else {
                 BottomSheetBehavior.this.setStateInternal(this.targetState);
             }

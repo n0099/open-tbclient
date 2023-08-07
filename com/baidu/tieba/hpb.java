@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +8,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
-public class hpb extends yob {
+public final class hpb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, yob> a;
-    public static final Object b;
-    public static String c;
+    public static final hpb d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
+    public final ExecutorService b;
+    public final Executor c;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                runnable.run();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,16 +60,13 @@ public class hpb extends yob {
                 return;
             }
         }
-        a = new HashMap();
-        b = new Object();
+        d = new hpb();
     }
 
-    public hpb(Context context, String str) {
+    public hpb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,40 +76,26 @@ public class hpb extends yob {
                 return;
             }
         }
-        dpb.d(context, str);
+        this.b = jpb.a();
+        this.a = new a();
+        this.c = jpb.b();
     }
 
-    public static yob a(Context context) {
-        InterceptResult invokeL;
+    public static ExecutorService a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
-        }
-        return (yob) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
     }
 
-    public static yob b(Context context, String str) {
-        InterceptResult invokeLL;
-        yob yobVar;
+    public static Executor b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
-            }
-            synchronized (b) {
-                yobVar = a.get(str);
-                if (yobVar == null) {
-                    a.put(str, new hpb(context, str));
-                }
-            }
-            return yobVar;
-        }
-        return (yob) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
+    }
+
+    public static Executor c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
     }
 }

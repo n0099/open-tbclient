@@ -1,36 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ae3 extends zd3 {
+public class ae3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/isFavor");
+    public ae3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/setNavigationBarColor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,64 +40,51 @@ public class ae3 extends zd3 {
         }
     }
 
-    @Override // com.baidu.tieba.zd3
-    public boolean j(vb3 vb3Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
-        String optString;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vb3Var, unitedSchemeEntity)) == null) {
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (vc3.b) {
+                Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            try {
-                JSONObject jSONObject = new JSONObject(param);
-                if (this.d) {
-                    optString = vb3Var.O();
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            ha2 U = lw2.T().U();
+            if (U == null) {
+                y72.c("navigationColor", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (optParamsAsJo == null) {
+                y72.c("navigationColor", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                String optString = optParamsAsJo.optString("frontColor");
+                String optString2 = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+                JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
+                ea2 m = U.m();
+                if (m == null) {
+                    y72.c("navigationColor", "slave container exception");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (!m.G2(optString, true)) {
+                    y72.c("navigationColor", "set title color fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (!m.w2(SwanAppConfigData.t(optString2), true)) {
+                    y72.c("navigationColor", "set title background fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
                 } else {
-                    optString = jSONObject.optString("appid");
+                    if (optJSONObject != null) {
+                        m.u2(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
+                        y72.i("navigationColor", "set action bar animator");
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
                 }
-                this.c = optString;
-                return !TextUtils.isEmpty(optString);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
             }
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zd3
-    public void k(vb3 vb3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vb3Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (ti2.n(this.c)) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                jSONObject.put("isFavor", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-        }
-    }
-
-    @Override // com.baidu.tieba.zd3
-    public boolean o(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
-            String optString = vo3.d(unitedSchemeEntity.getParam("params")).optString("invokeFrom");
-            if (TextUtils.isEmpty(optString)) {
-                return false;
-            }
-            return TextUtils.equals(optString, "boxjs");
-        }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

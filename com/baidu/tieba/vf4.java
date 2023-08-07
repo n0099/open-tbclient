@@ -1,51 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.animation.TypeEvaluator;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vf4 extends uf4 {
+public class vf4 implements TypeEvaluator<LatLng> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errCode;
-    @V8JavascriptField
-    public String errMsg;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vf4(String str, String str2, String str3) {
-        super(str);
+    public vf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.errCode = str2;
-        this.errMsg = str3;
     }
 
-    @Override // com.baidu.tieba.uf4
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.animation.TypeEvaluator
+    /* renamed from: a */
+    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
+            double d = latLng.latitude;
+            double d2 = f;
+            double d3 = latLng.longitude;
+            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
         }
-        return (String) invokeV.objValue;
+        return (LatLng) invokeCommon.objValue;
     }
 }

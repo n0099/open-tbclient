@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SpriteTypeWriterSwitch;
-import com.baidu.tieba.impersonal.components.uistate.MsgEvents;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class hw8 {
@@ -53,100 +51,48 @@ public final class hw8 {
         }
     }
 
-    public final mc7<?> a(lx8 lx8Var, cw8<?> cw8Var, SpriteMsgProcessor.e eVar, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
-        String str2;
-        String str3;
-        boolean z2;
+    public static final void b(Function1 switchVoiceMode, u45 builder, w45 w45Var, int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{lx8Var, cw8Var, eVar, Boolean.valueOf(z)})) == null) {
-            Object f = cw8Var.f();
-            Class<?> cls = null;
-            if (f instanceof dw8) {
-                if (cw8Var.e().d()) {
-                    str3 = "text_right";
-                } else {
-                    str3 = "text_left";
-                }
-                uv8 uv8Var = new uv8(cw8Var, str3);
-                if (SpriteTypeWriterSwitch.Companion.isOn() && eVar.getType() == 3 && z && !cw8Var.e().d()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                uv8Var.k(z2);
-                uv8Var.h(MsgEvents.a.b(lx8Var));
-                return uv8Var;
-            } else if (f instanceof zv8) {
-                return new tv8(cw8Var, "loading_left");
-            } else {
-                if (f instanceof VoiceMsgContent) {
-                    if (cw8Var.e().d()) {
-                        str2 = "voice_right";
-                    } else {
-                        str2 = "voice_left";
-                    }
-                    vv8 vv8Var = new vv8(cw8Var, str2);
-                    vv8Var.g(MsgEvents.a.a());
-                    return vv8Var;
-                } else if (f instanceof yv8) {
-                    if (cw8Var.e().d()) {
-                        str = "image_right";
-                    } else {
-                        str = "image_left";
-                    }
-                    return new sv8(cw8Var, str);
-                } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    return null;
-                } else {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("unknown msg content ");
-                    Object f2 = cw8Var.f();
-                    if (f2 != null) {
-                        cls = f2.getClass();
-                    }
-                    sb.append(cls);
-                    throw new IllegalStateException(sb.toString());
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{switchVoiceMode, builder, w45Var, Integer.valueOf(i), view2}) == null) {
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "$switchVoiceMode");
+            Intrinsics.checkNotNullParameter(builder, "$builder");
+            switchVoiceMode.invoke(Integer.valueOf(i));
+            builder.dismiss();
         }
-        return (mc7) invokeCommon.objValue;
     }
 
-    public final List<mc7<?>> b(lx8 repo, List<? extends xv8> list, SpriteMsgProcessor.e loadType) {
-        InterceptResult invokeLLL;
+    public final void a(TbPageContext<?> context, final Function1<? super Integer, Unit> switchVoiceMode) {
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, repo, list, loadType)) == null) {
-            Intrinsics.checkNotNullParameter(repo, "repo");
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(loadType, "loadType");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, switchVoiceMode) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "switchVoiceMode");
             ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                xv8 xv8Var = (xv8) obj;
-                if (xv8Var instanceof cw8) {
-                    hw8 hw8Var = a;
-                    cw8<?> cw8Var = (cw8) xv8Var;
-                    boolean z = true;
-                    if (i != list.size() - 1) {
-                        z = false;
-                    }
-                    mc7<?> a2 = hw8Var.a(repo, cw8Var, loadType, z);
-                    if (a2 != null) {
-                        arrayList.add(a2);
-                    }
-                } else if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    throw new IllegalStateException("unknown msg template " + xv8Var.getClass());
-                }
-                i = i2;
+            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_close_receiver);
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_open_receiver);
             }
-            return arrayList;
+            arrayList.add(string);
+            final u45 u45Var = new u45(context);
+            Object[] array = arrayList.toArray(new String[0]);
+            if (array != null) {
+                u45Var.i(null, (String[]) array, new w45.f() { // from class: com.baidu.tieba.ew8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.w45.f
+                    public final void K0(w45 w45Var, int i, View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, w45Var, i, view2) == null) {
+                            hw8.b(Function1.this, u45Var, w45Var, i, view2);
+                        }
+                    }
+                });
+                u45Var.l();
+                return;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
         }
-        return (List) invokeLLL.objValue;
     }
 }

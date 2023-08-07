@@ -1,154 +1,274 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.util.DownloadErrorLogger;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.browser.exception.UnzipErrorException;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
+import com.baidu.tieba.util.TopicListUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class pm6 extends BdAsyncTask<Void, Void, nm6> {
+public class pm6 extends dm6<vn6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
+    public View i;
+    public TextView j;
+    public TextView k;
+    public LinearLayout l;
+    public LinearLayout m;
+    public LinearLayout n;
+    public LinearLayout o;
+    public TextView p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public View t;
+    public View u;
+    public View v;
+    public View w;
+    public View x;
+    public vn6 y;
+    public String z;
 
-    public pm6(String str, vx9 vx9Var) {
+    @Override // com.baidu.tieba.dm6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.home_card_hot_topic_item : invokeV.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(pm6 pm6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pm6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TopicListUtil.openWebTopicListPage();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, vx9Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.c = vx9Var.c();
-        this.b = vx9Var.a();
-        this.d = vx9Var.b();
+        r(h());
     }
 
-    public static void c(String str, vx9 vx9Var) {
+    public void x(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, vx9Var) == null) {
-            pm6 pm6Var = new pm6(str, vx9Var);
-            pm6Var.setPriority(4);
-            pm6Var.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
+            layoutParams.height = i;
+            this.w.setLayoutParams(layoutParams);
         }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                this.x.setVisibility(0);
+            } else {
+                this.x.setVisibility(8);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dm6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+                SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.p, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.q, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
+                SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(this.u, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(this.w, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(this.x, R.color.CAM_X0204);
+                SkinManager.setBackgroundResource(this.l, R.drawable.card_topic_click_selector);
+                SkinManager.setBackgroundResource(this.m, R.drawable.card_topic_click_selector);
+                SkinManager.setBackgroundResource(this.n, R.drawable.card_topic_click_selector);
+                SkinManager.setBackgroundResource(this.o, R.drawable.card_topic_click_selector);
+                s(this.p, 0);
+                s(this.q, 1);
+                s(this.r, 2);
+                s(this.s, 3);
+            }
+            this.a = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            int i = JavaTypesHelper.toInt((String) view2.getTag(), -1);
+            vn6 vn6Var = this.y;
+            if (vn6Var != null && ListUtils.getItem(vn6Var.d, i) != null) {
+                TiebaStatic.log(new StatisticItem(this.z).param("obj_locate", String.valueOf(this.y.f)).param("obj_name", this.y.d.get(i).b));
+                if (i >= 0 && !nv5.b(g())) {
+                    if (this.y.d.get(i).a() != 1 && NewWebHotTopicPageSwitch.isOn()) {
+                        zv5.f(this.b, String.valueOf(this.y.d.get(i).a), this.y.d.get(i).b);
+                    } else {
+                        g().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(g().getPageActivity()).createNormalConfig(String.valueOf(this.y.d.get(i).a), this.y.d.get(i).b, "")));
+                    }
+                }
+            }
+        }
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.home_card_hot_topic_root_view);
+            this.j = (TextView) view2.findViewById(R.id.home_card_topic_title);
+            this.k = (TextView) view2.findViewById(R.id.home_card_topic_more);
+            this.l = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_one);
+            this.m = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_two);
+            this.n = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_three);
+            this.o = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_four);
+            this.p = (TextView) view2.findViewById(R.id.home_card_topic_one);
+            this.q = (TextView) view2.findViewById(R.id.home_card_topic_two);
+            this.r = (TextView) view2.findViewById(R.id.home_card_topic_three);
+            this.s = (TextView) view2.findViewById(R.id.home_card_topic_four);
+            this.t = view2.findViewById(R.id.home_top_div);
+            this.u = view2.findViewById(R.id.home_top_topic_div_one);
+            this.v = view2.findViewById(R.id.home_top_topic_div_two);
+            this.w = view2.findViewById(R.id.home_card_top_divider_line);
+            this.x = view2.findViewById(R.id.home_card_bottom_divider_line);
+            this.l.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.n.setOnClickListener(this);
+            this.o.setOnClickListener(this);
+            this.k.setOnClickListener(new a(this));
+        }
+    }
+
+    public final void s(TextView textView, int i) {
+        vn6 vn6Var;
+        un6 un6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, textView, i) != null) || (vn6Var = this.y) == null || ListUtils.getCount(vn6Var.d) < 4 || (un6Var = (un6) ListUtils.getItem(this.y.d, i)) == null) {
+            return;
+        }
+        int i2 = un6Var.c;
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 == 3) {
+                    textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_tuijian), (Drawable) null);
+                    return;
+                }
+                return;
+            }
+            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_hot), (Drawable) null);
+            return;
+        }
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_new), (Drawable) null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public nm6 doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        boolean z;
-        nm6 nm6Var;
+    @Override // com.baidu.tieba.dm6
+    /* renamed from: t */
+    public void i(vn6 vn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            File file = new File(jm6.n().o(), this.a);
-            HybridLog.getInstance().b("Offline", "离线包开始下载：" + this.a + " 目录：" + file);
-            if (!zn6.a(file)) {
-                vn6.b("newHybrid", "离线包下载失败：" + this.a + "->目录创建失败");
-            }
-            File file2 = new File(file, this.c + ".zip");
-            if (!file2.exists()) {
-                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
-            } else {
-                z = true;
-            }
-            if (!z) {
-                zn6.c(file2);
-                vn6.b("newHybrid", "离线包下载失败:网络下载异常：" + this.a);
-                jm6.w("download bundle", DownloadErrorLogger.LOGGER_SPACE, this.a, this.c, ao6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
-                return null;
-            } else if (!yn6.d(file2, this.d)) {
-                zn6.c(file2);
-                vn6.b("newHybrid", "离线包目md5验证失败：" + this.a);
-                jm6.w("download bundle", "md5_error", this.a, this.c, ao6.a(Pair.create("detail", this.d + "_" + yn6.b(file2))));
-                return null;
-            } else {
-                File file3 = new File(jm6.n().m(), this.a);
-                if (!e(file2, file3, this.c)) {
-                    jm6.w("download bundle", "unzip_error", this.a, this.c, "");
-                    return null;
+        if (interceptable == null || interceptable.invokeL(1048582, this, vn6Var) == null) {
+            int i = 8;
+            if (vn6Var != null && !StringUtils.isNull(vn6Var.c) && ListUtils.getCount(vn6Var.d) >= 4) {
+                if (this.i.getVisibility() != 0) {
+                    this.i.setVisibility(0);
                 }
-                File file4 = new File(file3, this.c);
-                Map<String, sm6> b = qm6.b(file4);
-                if (qm6.f(file4, b)) {
-                    nm6Var = new nm6(file4, this.c, b);
-                } else {
-                    nm6Var = null;
+                this.y = vn6Var;
+                View view2 = this.w;
+                if (vn6Var.a) {
+                    i = 0;
                 }
-                if (nm6Var != null && nm6Var.c()) {
-                    jm6.j(jm6.n().m(), this.c, this.a);
-                    jm6.j(jm6.n().o(), this.c + ".zip", this.a);
-                    return nm6Var;
-                }
-                zn6.b(file4);
-                vn6.b("newHybrid", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
-                return null;
+                view2.setVisibility(i);
+                z(this.y.b);
+                this.j.setText(this.y.c.trim());
+                y(this.p, 0);
+                y(this.q, 1);
+                y(this.r, 2);
+                y(this.s, 3);
+                s(this.p, 0);
+                s(this.q, 1);
+                s(this.r, 2);
+                s(this.s, 3);
+                return;
             }
-        }
-        return (nm6) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public void onPostExecute(nm6 nm6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nm6Var) == null) {
-            super.onPostExecute(nm6Var);
-            if (nm6Var != null) {
-                jm6.n().y(this.a, nm6Var.b());
-                jm6.n().v();
-                km6.e().k(this.a, nm6Var.a());
-                km6.e().c(this.a);
-                jm6.w("download bundle", "success", this.a, nm6Var.b(), "");
-            } else {
-                jm6.n().i(this.a);
-                jm6.n().v();
-                km6.e().i(this.a);
-            }
-            im6.b(nm6Var, this.a);
+            this.i.setVisibility(8);
         }
     }
 
-    public final boolean e(File file, File file2, String str) {
-        InterceptResult invokeLLL;
+    public void u(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
-            File file3 = new File(file2, str);
-            if (!file3.exists()) {
-                try {
-                    do6.c(file, file3);
-                    return true;
-                } catch (UnzipErrorException e) {
-                    zn6.b(file2);
-                    vn6.b("newHybrid", "离线包资源解压缩失败：" + e);
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+            this.z = str2;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public final void y(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, textView, i) == null) {
+            un6 un6Var = this.y.d.get(i);
+            if (!StringUtils.isNull(un6Var.b)) {
+                textView.setText(un6Var.b.trim());
+            }
+        }
     }
 }

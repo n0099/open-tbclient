@@ -1,144 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.z97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class c0a implements p09<AdCard> {
+public final class c0a implements z97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdCard a;
-    public AdvertAppInfo b;
-    public Context c;
-    public TbPageContext d;
-    public tz8 e;
 
-    public abstract void b();
-
-    @Override // com.baidu.tieba.p09
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void setBusinessType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void setMulDel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-        }
-    }
-
-    public c0a(TbPageContext tbPageContext) {
+    public c0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
     }
 
-    public AdvertAppInfo a() {
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return z97.a.b(this);
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c(AdCard adCard) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 l57Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
-            this.a = adCard;
-            this.b = adCard.getAdvertAppInfo();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l57Var)) == null) {
+            return z97.a.a(this, l57Var);
         }
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.p09
-    public void setAfterClickSchemeListener(tz8 tz8Var) {
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:
+        if (r5.equals("video_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
+        if (r5.equals("live_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0048, code lost:
+        if (r5.equals("common_forum") == false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004b, code lost:
+        return "forum_head_click";
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.z97
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(l57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tz8Var) == null) {
-            this.e = tz8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (str.equals("common_user")) {
+                        return "";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+                case -1617812209:
+                    if (str.equals("video_user")) {
+                        return "video_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    if (str.equals("live_user")) {
+                        return "live_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
+                    break;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-    }
-
-    @Override // com.baidu.tieba.p09
-    public void update(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, obj) != null) || !(obj instanceof AdCard)) {
-            return;
-        }
-        this.a = (AdCard) obj;
-        b();
-        c(this.a);
     }
 }

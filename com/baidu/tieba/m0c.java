@@ -1,95 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.java_websocket.WebSocket;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public abstract class m0c extends n0c {
+public class m0c implements i0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int connectionLostTimeout;
-    public Timer connectionLostTimer;
-    public TimerTask connectionLostTimerTask;
-    public boolean reuseAddr;
-    public boolean tcpNoDelay;
-    public boolean websocketRunning;
-
-    public abstract Collection<WebSocket> getConnections();
-
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<WebSocket> a;
-        public final /* synthetic */ m0c b;
-
-        public a(m0c m0cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m0cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m0cVar;
-            this.a = new ArrayList<>();
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.clear();
-                try {
-                    this.a.addAll(this.b.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (this.b.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        WebSocket next = it.next();
-                        if (next instanceof o0c) {
-                            o0c o0cVar = (o0c) next;
-                            if (o0cVar.r() < currentTimeMillis) {
-                                if (o0c.u) {
-                                    PrintStream printStream = System.out;
-                                    printStream.println("Closing connection due to no pong received: " + next.toString());
-                                }
-                                o0cVar.f(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
-                            } else if (o0cVar.B()) {
-                                o0cVar.J();
-                            } else if (o0c.u) {
-                                PrintStream printStream2 = System.out;
-                                printStream2.println("Trying to ping a non open connection: " + next.toString());
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    if (o0c.u) {
-                        PrintStream printStream3 = System.out;
-                        printStream3.println("Exception during connection lost ping: " + e.getMessage());
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
+    public byte[] a;
+    public TreeMap<String, String> b;
 
     public m0c() {
         Interceptable interceptable = $ic;
@@ -104,140 +29,58 @@ public abstract class m0c extends n0c {
                 return;
             }
         }
-        this.connectionLostTimeout = 60;
-        this.websocketRunning = false;
+        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    private void cancelConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            Timer timer = this.connectionLostTimer;
-            if (timer != null) {
-                timer.cancel();
-                this.connectionLostTimer = null;
-            }
-            TimerTask timerTask = this.connectionLostTimerTask;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.connectionLostTimerTask = null;
-            }
-        }
-    }
-
-    private void restartConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            cancelConnectionLostTimer();
-            this.connectionLostTimer = new Timer("WebSocketTimer");
-            a aVar = new a(this);
-            this.connectionLostTimerTask = aVar;
-            Timer timer = this.connectionLostTimer;
-            int i = this.connectionLostTimeout;
-            timer.scheduleAtFixedRate(aVar, i * 1000, i * 1000);
-        }
-    }
-
-    public int getConnectionLostTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.connectionLostTimeout;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isReuseAddr() {
+    @Override // com.baidu.tieba.l0c
+    public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.reuseAddr;
+            return Collections.unmodifiableSet(this.b.keySet()).iterator();
         }
-        return invokeV.booleanValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    public boolean isTcpNoDelay() {
+    @Override // com.baidu.tieba.l0c
+    public byte[] getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.tcpNoDelay;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public void startConnectionLostTimer() {
+    @Override // com.baidu.tieba.l0c
+    public String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.connectionLostTimeout <= 0) {
-                if (o0c.u) {
-                    System.out.println("Connection lost timer deactivated");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.b.get(str);
+            if (str2 == null) {
+                return "";
             }
-            if (o0c.u) {
-                System.out.println("Connection lost timer started");
-            }
-            this.websocketRunning = true;
-            restartConnectionLostTimer();
+            return str2;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void stopConnectionLostTimer() {
+    @Override // com.baidu.tieba.l0c
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.connectionLostTimer != null || this.connectionLostTimerTask != null) {
-                this.websocketRunning = false;
-                if (o0c.u) {
-                    System.out.println("Connection lost timer stopped");
-                }
-                cancelConnectionLostTimer();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.containsKey(str);
         }
+        return invokeL.booleanValue;
     }
 
-    public void setReuseAddr(boolean z) {
+    @Override // com.baidu.tieba.i0c
+    public void put(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.reuseAddr = z;
-        }
-    }
-
-    public void setTcpNoDelay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.tcpNoDelay = z;
-        }
-    }
-
-    public void setConnectionLostTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.connectionLostTimeout = i;
-            if (i <= 0) {
-                if (o0c.u) {
-                    System.out.println("Connection lost timer stopped");
-                }
-                cancelConnectionLostTimer();
-            } else if (this.websocketRunning) {
-                if (o0c.u) {
-                    System.out.println("Connection lost timer restarted");
-                }
-                try {
-                    Iterator it = new ArrayList(getConnections()).iterator();
-                    while (it.hasNext()) {
-                        WebSocket webSocket = (WebSocket) it.next();
-                        if (webSocket instanceof o0c) {
-                            ((o0c) webSocket).N();
-                        }
-                    }
-                } catch (Exception e) {
-                    if (o0c.u) {
-                        PrintStream printStream = System.out;
-                        printStream.println("Exception during connection lost restart: " + e.getMessage());
-                    }
-                }
-                restartConnectionLostTimer();
-            }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.b.put(str, str2);
         }
     }
 }

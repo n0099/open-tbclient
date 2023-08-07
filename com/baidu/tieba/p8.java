@@ -20,10 +20,10 @@ public class p8 {
     public static final p8 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public zj1 b;
+    public cj1 b;
     public long c;
     public final Handler d;
-    public final CopyOnWriteArrayList<mm1> e;
+    public final CopyOnWriteArrayList<pl1> e;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -62,11 +62,11 @@ public class p8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < kk1.i() * 60000.0f) || !rk0.a().n()) {
+                if ((this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < nj1.i() * 60000.0f) || !pj0.a().n()) {
                     return;
                 }
                 if (this.b.b == null) {
-                    this.b.b = new zj1();
+                    this.b.b = new cj1();
                 }
                 this.b.b.k();
                 this.b.c = System.currentTimeMillis();
@@ -108,12 +108,12 @@ public class p8 {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !q71.b()) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || pj0.b() == null || !t61.b()) {
             return;
         }
-        Context b2 = rk0.b();
+        Context b2 = pj0.b();
         if (b2 instanceof Application) {
-            ((Application) b2).registerActivityLifecycleCallbacks(new dk1());
+            ((Application) b2).registerActivityLifecycleCallbacks(new gj1());
         }
     }
 
@@ -121,7 +121,7 @@ public class p8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = xj1.a().d();
+            JSONObject d = aj1.a().d();
             if (d == null || d.optBoolean("real_time_query_switch", true)) {
                 return true;
             }

@@ -1,55 +1,75 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r84 implements i94 {
+public class r84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ii2 a;
 
-    public r84() {
+    public r84(ii2 ii2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ii2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = ii2Var;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            a(str, "keyboardcomplete");
         }
     }
 
-    @Override // com.baidu.tieba.i94
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str != null && bArr != null) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 76158) {
-                    if (hashCode == 1952093519 && str.equals("BASE64")) {
-                        c = 1;
-                    }
-                } else if (str.equals("MD5")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        return bArr;
-                    }
-                    return Base64.encode(bArr, 2);
-                }
-                return bs4.d(bArr, false).getBytes();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            return bArr;
+            a(str, "keyboardconfirm");
         }
-        return (byte[]) invokeLL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            a(str, "keyboardinput");
+        }
+    }
+
+    public final void a(String str, String str2) {
+        ii2 ii2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && (ii2Var = this.a) != null && ii2Var.m() != null && this.a.m().hasEventListener(str2)) {
+            t84 t84Var = new t84();
+            t84Var.value = str;
+            JSEvent jSEvent = new JSEvent(str2);
+            jSEvent.data = t84Var;
+            this.a.m().dispatchEvent(jSEvent);
+        }
     }
 }

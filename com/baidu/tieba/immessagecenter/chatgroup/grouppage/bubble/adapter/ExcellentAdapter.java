@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl8;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
+import com.baidu.tieba.vi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,13 +71,13 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
                 }
             }
             view2.setVisibility(0);
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ae);
-            this.b = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ad);
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090511);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090510);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092170);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bb);
+            this.b = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ba);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092187);
         }
     }
 
@@ -219,26 +219,15 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             TextView textView = excellentHolder.e;
             textView.setText(topBubbleData.getUserName() + "：" + topBubbleData.getContent());
             excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f040a);
-            if (!cl8.a(topBubbleData.getVersionKey())) {
+            if (!vi8.a(topBubbleData.getVersionKey())) {
                 excellentHolder.f.setVisibility(0);
             } else {
                 excellentHolder.f.setVisibility(8);
             }
-            d85 d = d85.d(excellentHolder.b);
-            d.m(R.dimen.L_X02);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0207);
-            d85 d2 = d85.d(excellentHolder.d);
-            d2.x(R.color.CAM_X0101);
-            d2.D(R.string.F_X01);
-            d2.C(R.dimen.T_X10);
-            d85 d3 = d85.d(excellentHolder.e);
-            d3.D(R.string.F_X01);
-            d3.x(R.color.CAM_X0107);
-            d3.C(R.dimen.T_X08);
-            d85 d4 = d85.d(excellentHolder.c);
-            d4.o(R.string.J_X04);
-            d4.f(R.color.CAM_X0303);
+            EMManager.from(excellentHolder.b).setBorderWidth(R.dimen.L_X02).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0207);
+            EMManager.from(excellentHolder.d).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X10);
+            EMManager.from(excellentHolder.e).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X08);
+            EMManager.from(excellentHolder.c).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0303);
             SkinManager.setImageResource(excellentHolder.g, R.drawable.top_bubble_excellent_bg);
             SkinManager.setViewTextColor(excellentHolder.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(excellentHolder.e, (int) R.color.CAM_X0107);
@@ -257,7 +246,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new ExcellentHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d098e, viewGroup, false));
+            return new ExcellentHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0998, viewGroup, false));
         }
         return (ExcellentHolder) invokeLI.objValue;
     }

@@ -1,60 +1,48 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class sfa extends rfa {
+public class sfa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<View> b;
+    public final MainTabActivity a;
+    public final sea b;
 
-    public sfa(View view2, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sfa(MainTabActivity mainTabActivity, hea heaVar) {
+        super(2921543);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
+            Object[] objArr = {mainTabActivity, heaVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new WeakReference<>(view2);
-        this.a = i;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    @Override // com.baidu.tieba.rfa
-    public void b() {
-        View view2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        sea seaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.b.get()) != null) {
-            view2.setVisibility(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.rfa
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lfa.a = Math.max(lfa.a, this.a + 1);
-        }
-    }
-
-    @Override // com.baidu.tieba.rfa
-    public void d() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = this.b.get()) != null) {
-            view2.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (seaVar = this.b) != null && seaVar.i() != null) {
+            this.b.i().a();
         }
     }
 }

@@ -1,41 +1,87 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
 public class cw {
     public static /* synthetic */ Interceptable $ic;
+    public static cw f;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public int b;
-    public CharSequence c;
-    public int d;
-    public int e;
-    public a f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public au m;
+    public ExecutorService a;
+    public ExecutorService b;
+    public Handler c;
+    public Handler d;
+    public List<bw> e;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void onToastClick();
-    }
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cw a;
 
-    public cw a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this : (cw) invokeI.objValue;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cw cwVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cwVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cwVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            Object obj = message.obj;
+                            if (obj instanceof BdRunnable) {
+                                post((BdRunnable) obj);
+                            }
+                        }
+                    } else if (message.obj instanceof bw) {
+                        this.a.e.add((bw) message.obj);
+                    }
+                } else if (this.a.e != null) {
+                    Iterator it = this.a.e.iterator();
+                    while (it.hasNext()) {
+                        bw bwVar = (bw) it.next();
+                        if (this.a.e(bwVar)) {
+                            this.a.a.submit(bwVar);
+                            it.remove();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public cw() {
@@ -51,171 +97,80 @@ public class cw {
                 return;
             }
         }
-        this.e = 2;
-        this.b = 14;
-        this.d = 14;
+        this.e = new ArrayList();
+        this.a = Executors.newFixedThreadPool(5);
+        this.b = Executors.newSingleThreadExecutor();
+        this.c = new a(this, aw.a("threadpool").getLooper());
+        this.d = new Handler(Looper.getMainLooper());
     }
 
-    public static void f() {
+    public void h(BdRunnable bdRunnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ew.e();
-            gw.f();
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
+            this.d.post(bdRunnable);
         }
     }
 
-    public final boolean l() {
+    public static cw f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.a == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f == null) {
+                synchronized (cw.class) {
+                    if (f == null) {
+                        f = new cw();
+                    }
+                }
+            }
+            return f;
+        }
+        return (cw) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.removeMessages(0);
+            this.c.sendEmptyMessage(0);
+        }
+    }
+
+    public final boolean e(bw bwVar) {
+        InterceptResult invokeL;
+        List<BdRunnable> e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bwVar)) == null) {
+            if (bwVar != null && (e = bwVar.e()) != null) {
+                for (int i = 0; i < e.size(); i++) {
+                    BdRunnable bdRunnable = e.get(i);
+                    if (bdRunnable != null && !bdRunnable.d()) {
+                        return false;
+                    }
+                }
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static int m(Context context) {
-        InterceptResult invokeL;
+    public void g(BdRunnable bdRunnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return eu.a();
-        }
-        return invokeL.intValue;
-    }
-
-    public cw b(au auVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, auVar)) == null) {
-            this.m = auVar;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw c(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f = aVar;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw d(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-            this.a = charSequence;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, context) != null) || !l()) {
-            return;
-        }
-        f();
-        ew.g(context, this.a, this.e, this.g, this.l, this.h, this.m);
-    }
-
-    public cw h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i >= 1 && i <= 10) {
-                this.e = i;
-            } else {
-                this.e = 2;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdRunnable) == null) && bdRunnable != null) {
+            if (bdRunnable instanceof bw) {
+                if (e((bw) bdRunnable)) {
+                    this.a.submit(bdRunnable);
+                    return;
+                } else {
+                    this.c.obtainMessage(1, bdRunnable).sendToTarget();
+                    return;
+                }
             }
-            return this;
-        }
-        return (cw) invokeI.objValue;
-    }
-
-    public cw i(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.h = str;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public cw q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.l = str;
-            return this;
-        }
-        return (cw) invokeL.objValue;
-    }
-
-    public void k(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, context) == null) && l() && context != null) {
-            f();
-            if (context instanceof Activity) {
-                gw.g((Activity) context, this.a, this.b, this.c, this.d, this.e, this.g, this.l, this.h, this.i, this.j, this.k, this.f, this.m);
-            } else {
-                ew.f(context, this.a, this.b, this.l, this.c, this.d, this.e, this.g, this.h, this.i, this.j, this.k, this.f, this.m);
+            try {
+                this.a.submit(bdRunnable);
+            } catch (Error e) {
+                bdRunnable.b(e);
+            } catch (Exception e2) {
+                bdRunnable.a(e2);
             }
         }
     }

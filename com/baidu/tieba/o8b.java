@@ -1,245 +1,97 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.IOException;
-import java.util.List;
-@TargetApi(18)
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes7.dex */
-public class o8b {
+public class o8b extends l8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
-    public MediaMuxer c;
-    public int d;
-    public int e;
-    public MediaFormat f;
-    public MediaFormat g;
-    public e9b h;
+    public boolean B;
 
-    public o8b(List<String> list, String str, e9b e9bVar) {
+    @Override // com.baidu.tieba.k8b, com.baidu.tieba.z8b
+    public void a(t8b t8bVar, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, e9bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t8bVar, surfaceTexture) == null) {
+            t8bVar.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
+            t8bVar.f(surfaceTexture);
         }
-        fab.e("VideoComposer", list.size() + " composer to " + str);
-        this.a = list;
-        this.b = str;
-        this.h = e9bVar;
     }
 
-    public final long a(long j, String str) throws IOException {
-        InterceptResult invokeJL;
-        boolean z;
-        int i;
-        int i2;
-        n8b n8bVar;
-        int i3;
-        n8b n8bVar2;
-        int i4;
-        n8b n8bVar3;
-        String str2;
+    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
-            String str3 = "VideoComposer";
-            fab.e("VideoComposer", j + " compose " + str);
-            n8b n8bVar4 = new n8b();
-            n8bVar4.m(str, FileUtils.VIDEO_FILE_START);
-            int d = n8bVar4.d();
-            n8b n8bVar5 = null;
-            if (d < 0) {
-                n8bVar4.j();
-                n8bVar4 = null;
-            } else {
-                n8bVar4.l(this.e);
-            }
-            n8b n8bVar6 = new n8b();
-            n8bVar6.m(str, "audio/");
-            int d2 = n8bVar6.d();
-            if (d2 < 0) {
-                n8bVar6.j();
-            } else {
-                n8bVar6.l(this.d);
-                n8bVar5 = n8bVar6;
-            }
-            boolean z2 = false;
-            if (n8bVar4 == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (n8bVar5 == null) {
-                z2 = true;
-            }
-            long j2 = 0;
-            long j3 = 0;
-            while (true) {
-                if (z && z2) {
-                    break;
-                }
-                if (!z2 && (z || n8bVar5.e() - n8bVar4.e() <= 50000)) {
-                    i = this.d;
-                    i3 = d2;
-                    i2 = i3;
-                    n8bVar = n8bVar5;
-                } else {
-                    i = this.e;
-                    i2 = d2;
-                    n8bVar = n8bVar4;
-                    i3 = d;
-                }
-                MediaCodec.BufferInfo h = n8bVar.h();
-                if (h == null) {
-                    i4 = d;
-                    n8b n8bVar7 = n8bVar;
-                    if (n8bVar7 == n8bVar4) {
-                        j2 = n8bVar4.e();
-                        d2 = i2;
-                        d = i4;
-                        z = true;
-                    } else if (n8bVar7 == n8bVar5) {
-                        j3 = n8bVar5.e();
-                        d2 = i2;
-                        d = i4;
-                        z2 = true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            GLES20.glBindFramebuffer(36160, i2);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            GLES20.glClear(16640);
+            if (this.z) {
+                if (z) {
+                    int i8 = this.j;
+                    int i9 = this.k;
+                    if (i8 > i9) {
+                        int i10 = this.p;
+                        float f = (i10 * 1.0f) / i8;
+                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
                     } else {
-                        n8bVar2 = n8bVar4;
-                        n8bVar3 = n8bVar5;
-                        str2 = str3;
+                        GLES20.glViewport(0, 0, this.p, this.q);
                     }
-                } else {
-                    n8bVar2 = n8bVar4;
-                    i4 = d;
-                    n8b n8bVar8 = n8bVar;
-                    if (n8bVar8.f() != i3) {
-                        StringBuilder sb = new StringBuilder();
-                        n8bVar3 = n8bVar5;
-                        sb.append("WEIRD: got sample from track ");
-                        sb.append(n8bVar8.f());
-                        sb.append(", expected ");
-                        sb.append(i3);
-                        fab.e(str3, sb.toString());
-                    } else {
-                        n8bVar3 = n8bVar5;
-                    }
-                    str2 = str3;
-                    h.presentationTimeUs += j;
-                    this.c.writeSampleData(i, n8bVar8.c(), h);
-                    n8bVar8.a();
+                    this.o.drawFrame(this.l, fArr2);
                 }
-                str3 = str2;
-                d2 = i2;
-                d = i4;
-                n8bVar4 = n8bVar2;
-                n8bVar5 = n8bVar3;
+                if (z2) {
+                    GLES20.glViewport(0, 0, this.p, this.q);
+                } else {
+                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                }
+                this.mFullScreen2D.drawFrame(i, fArr);
+            } else {
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(i, fArr);
+                if (z) {
+                    int i11 = i4 + this.w;
+                    int i12 = this.q;
+                    int i13 = this.k;
+                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
+                    this.o.drawFrame(this.l, fArr2);
+                }
             }
-            long max = j + Math.max(j2, j3) + 10000;
-            e9b e9bVar = this.h;
-            if (e9bVar != null) {
-                e9bVar.c(max);
-            }
-            fab.e(str3, "finish one file, ptsOffset " + max);
-            if (n8bVar4 != null) {
-                n8bVar4.j();
-            }
-            if (n8bVar5 != null) {
-                n8bVar5.j();
-            }
-            return max;
+            GLES20.glBindFramebuffer(36160, 0);
         }
-        return invokeJL.longValue;
     }
 
-    public boolean b(StringBuilder sb) {
+    public boolean j(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
-            boolean z = false;
-            boolean z2 = false;
-            for (String str : this.a) {
-                try {
-                    n8b n8bVar = new n8b();
-                    try {
-                        n8bVar.m(str, FileUtils.VIDEO_FILE_START);
-                        if (!z) {
-                            MediaFormat mediaFormat = n8bVar.g().a;
-                            this.g = mediaFormat;
-                            if (mediaFormat == null) {
-                                fab.e("VideoComposer", "No video track found in " + str);
-                            } else {
-                                z = true;
-                            }
-                        }
-                        if (!z2) {
-                            MediaFormat mediaFormat2 = n8bVar.b().a;
-                            this.f = mediaFormat2;
-                            if (mediaFormat2 == null) {
-                                fab.e("VideoComposer", "No audio track found in " + str);
-                            } else {
-                                z2 = true;
-                            }
-                        }
-                    } catch (Exception e) {
-                        fab.e("VideoComposer", e.getMessage());
-                        e.printStackTrace();
-                    }
-                    n8bVar.j();
-                    if (z && z2) {
-                        break;
-                    }
-                } catch (Exception e2) {
-                    if (sb != null) {
-                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
-                    }
-                    e2.printStackTrace();
-                    return false;
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onDrawFrame(pg0 pg0Var, int i, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, pg0Var, i, fArr) == null) && this.s && this.l != 0) {
+            try {
+                this.mTextureId = i;
+                this.m.updateTexImage();
+                this.m.getTransformMatrix(this.n);
+                f();
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
+            } catch (Throwable th) {
+                i9b.c("followvideo", th.toString());
             }
-            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
-            this.c = mediaMuxer;
-            if (z) {
-                this.e = mediaMuxer.addTrack(this.g);
-            }
-            if (z2) {
-                this.d = this.c.addTrack(this.f);
-            }
-            this.c.start();
-            long j = 0;
-            for (String str2 : this.a) {
-                j = a(j, str2);
-            }
-            if (this.c != null) {
-                try {
-                    this.c.stop();
-                    this.c.release();
-                } catch (Exception unused) {
-                    fab.e("VideoComposer", "Muxer close error. No data was written");
-                }
-                this.c = null;
-            }
-            fab.j("VideoComposer", "video join finished");
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,30 +1,156 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.SimpleTimeZone;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class us3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+
+    /* loaded from: classes8.dex */
+    public class a implements et3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ kr1 b;
+        public final /* synthetic */ us3 c;
+
+        /* renamed from: com.baidu.tieba.us3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0491a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0491a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ga3.d(this.a.a);
+                }
+            }
+        }
+
+        public a(us3 us3Var, ViewGroup viewGroup, kr1 kr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {us3Var, viewGroup, kr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = us3Var;
+            this.a = viewGroup;
+            this.b = kr1Var;
+        }
+
+        @Override // com.baidu.tieba.et3
+        public void a(QuickLoginInfo quickLoginInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                ViewGroup viewGroup = this.a;
+                if (viewGroup != null) {
+                    viewGroup.post(new RunnableC0491a(this));
+                }
+                if (this.c.i(quickLoginInfo)) {
+                    this.c.a.putParcelable("quick_login_info", quickLoginInfo);
+                }
+                String T2 = xa3.K().q().W().T();
+                String appId = xa3.K().getAppId();
+                this.c.a.putString("app_name", xa3.K().q().Z());
+                this.c.a.putString("appid", appId);
+                this.c.a.putString("launch_from", T2);
+                if (us3.b) {
+                    Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + this.c.a.toString());
+                }
+                xs3.a("show", "login", null, T2, appId);
+                this.c.f(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kr1 a;
+
+        public b(us3 us3Var, kr1 kr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {us3Var, kr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kr1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                if (delegateResult.isOk()) {
+                    this.a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
+                    return;
+                }
+                this.a.onResult(-2);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,155 +165,80 @@ public class us3 {
                 return;
             }
         }
-        a = fs1.a;
+        b = ir1.a;
     }
 
-    public static List<String> e() {
-        InterceptResult invokeV;
+    public us3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
-            arrayList.add("hao123.com");
-            arrayList.add("nuomi.com");
-            arrayList.add("baifubao.com");
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return b(str, HttpRequest.BDUSS, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            return b(str, "PTOKEN", str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str3)) {
-                i = -8;
-            } else {
-                i = 8;
-            }
-            calendar.add(1, i);
-            return c(str, str2, str3, calendar.getTime(), false);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String c(String str, String str2, String str3, Date date, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
-            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("=");
-            sb.append(str3);
-            sb.append(";domain=");
-            sb.append(str);
-            sb.append(";path=/;expires=");
-            sb.append(simpleDateFormat.format(date));
-            sb.append(";httponly");
-            if (z) {
-                str4 = ";secure";
-            } else {
-                str4 = "";
-            }
-            sb.append(str4);
-            return sb.toString();
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static void f(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
-            CookieManager.getInstance().setCookie(str, str2);
-            if (z) {
-                CookieSyncManager.getInstance().sync();
-            }
-        }
-    }
-
-    public static void g(Context context, String str, List<String> list) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, list) == null) {
-            if (list == null) {
-                if (a) {
-                    Log.w("SwanAppCookieUtils", "bduss domains is invalid");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (String str2 : list) {
-                if (TextUtils.isEmpty(str)) {
-                    a2 = np3.k(str2, HttpRequest.BDUSS, "deleted", 0L);
-                } else {
-                    a2 = a(str2, str);
-                }
-                f("http://www." + str2, a2, false);
+        }
+        this.a = new Bundle();
+    }
+
+    public final void f(kr1 kr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kr1Var) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                e(kr1Var);
+            } else {
+                g(kr1Var);
             }
         }
     }
 
-    public static void j(Context context, String str, List<String> list) {
-        String d;
+    public final void g(kr1 kr1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, list) == null) {
-            if (list == null) {
-                if (a) {
-                    Log.w("SwanAppCookieUtils", "ptoken domains is invalid");
-                    return;
-                }
-                return;
-            }
-            for (String str2 : list) {
-                if (TextUtils.isEmpty(str)) {
-                    d = np3.k(str2, "PTOKEN", "deleted", 0L);
-                } else {
-                    d = d(str2, str);
-                }
-                f("http://www." + str2, d, false);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kr1Var) == null) {
+            DelegateUtils.callOnMainWithActivity(lw2.T().getActivity(), PluginDelegateActivity.class, vs3.class, this.a, new b(this, kr1Var));
         }
     }
 
-    public static void h(Context context) {
+    public final boolean i(QuickLoginInfo quickLoginInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, context) != null) || context == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, quickLoginInfo)) == null) {
+            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e(kr1 kr1Var) {
+        SwanAppActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, kr1Var) != null) || (activity = lw2.T().getActivity()) == null) {
             return;
         }
-        String i = wr3.i(context);
-        String r = wr3.r(context);
-        g(context, i, e());
-        j(context, r, e());
+        Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
+        intent.putExtras(this.a);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.obfuscated_res_0x7f0100b5, 0);
+        ws3.c(kr1Var);
     }
 
-    public static void i(Context context) {
+    public void h(kr1 kr1Var) {
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            h(context);
+        if (interceptable == null || interceptable.invokeL(1048579, this, kr1Var) == null) {
+            SwanAppActivity w = xa3.K().w();
+            if (w != null && !w.isFinishing()) {
+                viewGroup = (ViewGroup) w.findViewById(16908290);
+                ga3.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f152f));
+            } else {
+                viewGroup = null;
+            }
+            ht3.b(new a(this, viewGroup, kr1Var));
         }
     }
 }

@@ -1,126 +1,202 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class fp4 extends yp4 {
+public class fp4<K, V> extends kp4<K, V> implements Map<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jp4<K, V> h;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a extends jp4<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ int c;
+        public final /* synthetic */ fp4 d;
 
-        public a(String[] strArr, Activity activity, int i) {
+        public a(fp4 fp4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
+                Object[] objArr = {fp4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = i;
+            this.d = fp4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.jp4
+        public int e(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+                return this.d.e(obj);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public int f(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                return this.d.g(obj);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public void h(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.d.i(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
+                this.d.clear();
+            }
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public Map<K, V> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public int d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.d.c;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public Object b(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                return this.d.b[(i << 1) + i2];
+            }
+            return invokeII.objValue;
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public void g(K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
+                this.d.put(k, v);
+            }
+        }
+
+        @Override // com.baidu.tieba.jp4
+        public V i(int i, V v) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
+                return this.d.j(i, v);
+            }
+            return (V) invokeIL.objValue;
+        }
+    }
+
+    public fp4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void e(Activity activity) {
+    @Override // java.util.Map
+    public Set<Map.Entry<K, V>> entrySet() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                gp4.a(activity);
-            } else {
-                activity.finish();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return l().l();
         }
+        return (Set) invokeV.objValue;
     }
 
-    public static boolean f(@NonNull Activity activity, @NonNull String str) {
-        InterceptResult invokeLL;
+    @Override // java.util.Map
+    public Set<K> keySet() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return hp4.a(activity, str);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l().m();
         }
-        return invokeLL.booleanValue;
+        return (Set) invokeV.objValue;
     }
 
-    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+    public final jp4<K, V> l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                hp4.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.h == null) {
+                this.h = new a(this);
             }
+            return this.h;
         }
+        return (jp4) invokeV.objValue;
     }
 
-    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+    @Override // java.util.Map
+    public Collection<V> values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                jp4.startActivity(activity, intent, bundle);
-            } else {
-                activity.startActivity(intent);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return l().n();
         }
+        return (Collection) invokeV.objValue;
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
+    public boolean m(Collection<?> collection) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                jp4.startActivityForResult(activity, intent, i, bundle);
-            } else {
-                activity.startActivityForResult(intent, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
+            return jp4.p(this, collection);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Map
+    public void putAll(Map<? extends K, ? extends V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            b(this.c + map.size());
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
             }
         }
     }

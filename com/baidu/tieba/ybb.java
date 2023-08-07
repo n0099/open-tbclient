@@ -1,115 +1,184 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.js.BaseInterpreter;
-import com.baidu.validation.utils.ValidationLog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes8.dex */
 public class ybb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        @NonNull
+        public File a;
+        @NonNull
+        public String b;
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ybb a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-264658574, "Lcom/baidu/tieba/ybb$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-264658574, "Lcom/baidu/tieba/ybb$b;");
+        public a(@NonNull File file, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new ybb(null);
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
+
+        public a(@NonNull File file, @NonNull String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
         }
     }
 
-    public ybb() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
+    public static void a(File file, List<a> list) throws IOException {
+        ?? r2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            r2 = interceptable;
+            if (r2.invokeLL(65536, null, file, list) != null) {
+                return;
             }
         }
-    }
-
-    public /* synthetic */ ybb(a aVar) {
-        this();
-    }
-
-    public static ybb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ybb) invokeV.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String[] split = str.split("_");
-            StringBuilder sb = new StringBuilder();
-            sb.append("com.baidu.validation.js.interpreter.");
-            for (String str2 : split) {
-                char[] charArray = str2.toCharArray();
-                if (charArray[0] >= 'a' && charArray[0] <= 'z') {
-                    charArray[0] = (char) (charArray[0] - ' ');
-                }
-                sb.append(new String(charArray));
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public BaseInterpreter a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? c(str) : (BaseInterpreter) invokeL.objValue;
-    }
-
-    public final BaseInterpreter c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (file != null && file.exists() && list != null && list.size() != 0) {
+            FileInputStream fileInputStream = null;
             try {
-                BaseInterpreter baseInterpreter = (BaseInterpreter) Class.forName(d(str)).newInstance();
-                baseInterpreter.setName(str);
-                return baseInterpreter;
-            } catch (Exception e) {
-                ValidationLog.e(e);
-                return null;
+                try {
+                    try {
+                        byte[] bArr = new byte[8192];
+                        r2 = new ZipOutputStream(new FileOutputStream(file));
+                        try {
+                            r2.setComment(file.getName());
+                            for (a aVar : list) {
+                                File file2 = aVar.a;
+                                if (file2.canRead()) {
+                                    FileInputStream fileInputStream2 = new FileInputStream(file2);
+                                    try {
+                                        r2.putNextEntry(new ZipEntry(aVar.b));
+                                        while (true) {
+                                            int read = fileInputStream2.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            r2.write(bArr, 0, read);
+                                        }
+                                        fileInputStream2.close();
+                                        fileInputStream = fileInputStream2;
+                                    } catch (FileNotFoundException e) {
+                                        e = e;
+                                        fileInputStream = fileInputStream2;
+                                        e.printStackTrace();
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e2) {
+                                                e2.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            r2.close();
+                                        }
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        fileInputStream = fileInputStream2;
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            try {
+                                                r2.close();
+                                            } catch (IOException e4) {
+                                                e4.printStackTrace();
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                            }
+                            r2.flush();
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            r2.close();
+                        } catch (FileNotFoundException e6) {
+                            e = e6;
+                        }
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                } catch (FileNotFoundException e8) {
+                    e = e8;
+                    r2 = 0;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r2 = 0;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
-        return (BaseInterpreter) invokeL.objValue;
     }
 }

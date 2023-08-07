@@ -7,14 +7,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c85;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -196,8 +196,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof c85) {
-                    ((c85) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof x65) {
+                    ((x65) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -293,8 +293,8 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new RelativeLayout(context);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, yi.g(context, R.dimen.tbds86));
-            layoutParams.bottomMargin = yi.g(context, R.dimen.M_H_X006);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(context, R.dimen.tbds86));
+            layoutParams.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.M_H_X006);
             this.a.setLayoutParams(layoutParams);
             this.a.setGravity(17);
             RelativeLayout relativeLayout = new RelativeLayout(context);
@@ -302,14 +302,14 @@ public class AdInfoButton extends RelativeLayout {
             ImageView imageView = new ImageView(context);
             this.b = imageView;
             imageView.setId(R.id.obfuscated_res_0x7f0900b9);
-            int g = yi.g(context, R.dimen.tbds42);
-            this.b.setLayoutParams(new RelativeLayout.LayoutParams(g, g));
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds42);
+            this.b.setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens));
             relativeLayout.addView(this.b);
             this.c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900b9);
             layoutParams2.addRule(15);
-            layoutParams2.leftMargin = yi.g(context, R.dimen.M_W_X002);
+            layoutParams2.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X002);
             this.c.setLayoutParams(layoutParams2);
             relativeLayout.addView(this.c);
             this.a.addView(relativeLayout);
@@ -322,25 +322,17 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e == AdChannel.CSJ) {
-                d85 d = d85.d(this.a);
-                d.o(R.string.J_X05);
-                d.n(0);
-                d.f(R.color.CAM_X0614);
+                EMManager.from(this.a).setCorner(R.string.J_X05).setCardType(0).setBackGroundColor(R.color.CAM_X0614);
             } else {
-                d85 d2 = d85.d(this.a);
-                d2.o(R.string.J_X05);
-                d2.n(0);
-                d2.f(R.color.CAM_X0302);
+                EMManager.from(this.a).setCorner(R.string.J_X05).setCardType(0).setBackGroundColor(R.color.CAM_X0302);
             }
             AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080889, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080888, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08096b, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            d85 d3 = d85.d(this.c);
-            d3.C(R.dimen.T_X08);
-            d3.x(R.color.CAM_X0101);
+            EMManager.from(this.c).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0101);
         }
     }
 

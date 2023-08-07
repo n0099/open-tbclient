@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class vq2 extends pp2<fs2> {
+public class vq2 extends so2<jr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onZoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCheekThin" : (String) invokeV.objValue;
     }
 
     public vq2() {
@@ -36,16 +36,16 @@ public class vq2 extends pp2<fs2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fs2 fs2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jr2 jr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fs2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jr2Var) == null) {
             String str = command.what;
-            d(fs2Var, str, "" + command.obj, true);
+            d(jr2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Integer) {
-                fs2Var.z(((Integer) obj).intValue());
+                jr2Var.J(((Integer) obj).intValue());
             }
         }
     }

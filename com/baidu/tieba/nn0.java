@@ -1,36 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class nn0 {
+public class nn0 implements wn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public String a;
-    @NonNull
-    public String b;
-    @NonNull
-    public String c;
-    public Long d;
-    @NonNull
-    public String e;
-    public boolean f;
-    @Nullable
-    public String g;
-    @Nullable
-    public String h;
+    public on0 b;
+    public int c;
+    public long d;
+    public AtomicBoolean e;
 
-    public nn0(@NonNull String str, @NonNull String str2, @NonNull Long l, @NonNull String str3, @NonNull String str4) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final nn0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-569986533, "Lcom/baidu/tieba/nn0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-569986533, "Lcom/baidu/tieba/nn0$b;");
+                    return;
+                }
+            }
+            a = new nn0(null);
+        }
+    }
+
+    public nn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, l, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,12 +60,69 @@ public class nn0 {
                 return;
             }
         }
-        this.d = -1L;
-        this.f = false;
-        this.a = str;
-        this.b = str2;
-        this.d = l;
-        this.c = str3;
-        this.e = str4;
+        this.c = -1;
+        this.d = 0L;
+        this.e = new AtomicBoolean(false);
+    }
+
+    public static nn0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (nn0) invokeV.objValue;
+    }
+
+    public void b() {
+        on0 on0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i <= 2 && (on0Var = this.b) != null) {
+                on0Var.e();
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.set(false);
+        }
+    }
+
+    public /* synthetic */ nn0(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.wn0
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.e.get()) {
+            return;
+        }
+        on0 on0Var = this.b;
+        if (on0Var != null) {
+            on0Var.d();
+            this.b = null;
+            this.c = -1;
+        }
+        if (z) {
+            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
+                return;
+            }
+            if (this.e.compareAndSet(false, true)) {
+                this.b = new on0(60, this.c + 1, true);
+            }
+        } else {
+            if (this.e.compareAndSet(false, true)) {
+                this.b = new on0(60, this.c + 1, false);
+            }
+            kn0.d().f();
+        }
+        b();
+        this.d = System.currentTimeMillis();
     }
 }

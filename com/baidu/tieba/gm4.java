@@ -1,61 +1,43 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gm4 extends yk4 {
+public abstract class gm4 implements jm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, cl4<String> cl4Var) {
+    @Override // com.baidu.tieba.jm4
+    public void a(JSONArray jSONArray, ti4 ti4Var, @Nullable ti4 ti4Var2, @Nullable ti4 ti4Var3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, cl4Var) != null) || d(str, cl4Var)) {
-            return;
-        }
-        c(zi4.g().getRequest(), str, map, map2, cl4Var);
-    }
-
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, cl4<String> cl4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, cl4Var) != null) || d(str, cl4Var)) {
-            return;
-        }
-        vi4 postStringRequest = zi4.g().postStringRequest();
-        hj4.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, cl4Var);
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, cl4<String> cl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, cl4Var) == null) {
-            httpRequestBuilder.url(dl4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(yk4.b).cookieManager(yk4.a).enableStat(true).build().executeStat(cl4Var);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, ti4Var, ti4Var2, ti4Var3) == null) {
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, cl4<String> cl4Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.jm4
+    public void b(JSONObject jSONObject, ti4 ti4Var, @Nullable ti4 ti4Var2, @Nullable ti4 ti4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cl4Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, ti4Var, ti4Var2, ti4Var3) == null) {
+        }
+    }
+
+    public gm4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (cl4Var != null) {
-                cl4Var.onStart();
-                return false;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 }

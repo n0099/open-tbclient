@@ -11,14 +11,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.mn;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.mm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PbListView extends mn {
+public class PbListView extends mm {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int E = 2131235000;
+    public static final int E = 2131235006;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public int B;
@@ -157,9 +157,9 @@ public class PbListView extends mn {
                 return;
             }
         }
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
-        this.b = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
         this.c = null;
         this.d = null;
         this.e = null;
@@ -237,7 +237,7 @@ public class PbListView extends mn {
     public void L(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d.setTextSize(0, yi.g(this.c, i));
+            this.d.setTextSize(0, BdUtilHelper.getDimens(this.c, i));
         }
     }
 
@@ -377,7 +377,7 @@ public class PbListView extends mn {
         }
     }
 
-    @Override // com.baidu.tieba.mn
+    @Override // com.baidu.tieba.mm
     public void d() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -470,7 +470,7 @@ public class PbListView extends mn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.v.getLayoutParams();
-            layoutParams.height = yi.g(this.c, R.dimen.obfuscated_res_0x7f070198);
+            layoutParams.height = BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f070198);
             this.v.setLayoutParams(layoutParams);
         }
     }
@@ -548,7 +548,7 @@ public class PbListView extends mn {
             this.g.setVisibility(0);
             this.f.setVisibility(8);
             this.e.setVisibility(8);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0be2));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0be4));
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -580,11 +580,11 @@ public class PbListView extends mn {
                 return;
             }
             this.d.setVisibility(0);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0be2));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0be4));
         }
     }
 
-    @Override // com.baidu.tieba.mn
+    @Override // com.baidu.tieba.mm
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -604,15 +604,12 @@ public class PbListView extends mn {
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091d48);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091d5e);
             this.v = (ImageView) this.i.findViewById(R.id.pb_more_view_top_line);
             this.j = this.i.findViewById(R.id.empty_view);
             this.x = (LinearLayout) this.i.findViewById(R.id.pb_more_top_extra_view);
             this.y = (LinearLayout) this.i.findViewById(R.id.pb_more_bottom_extra_view);
-            d85 d = d85.d(this.r);
-            d.C(R.dimen.T_X12);
-            d.D(R.string.F_X01);
-            d.x(R.color.CAM_X0107);
+            EMManager.from(this.r).setTextSize(R.dimen.T_X12).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
             return this.i;
         }
         return (View) invokeV.objValue;
@@ -633,7 +630,7 @@ public class PbListView extends mn {
             boolean z = false;
             if (charSequence.equals(this.c.getText(R.string.pb_load_more))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0be2))) {
+            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0be4))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
             } else if (!charSequence.equals(this.c.getText(R.string.list_no_more)) && !charSequence.equals(this.c.getText(R.string.list_has_all_comments)) && !charSequence.equals(this.c.getText(R.string.sub_pb_list_no_more)) && !this.w) {
                 if (charSequence.equals(this.c.getText(R.string.list_no_more_new))) {

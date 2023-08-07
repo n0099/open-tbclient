@@ -1,301 +1,350 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.adp.titan.TitanDownloadService;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tm a;
+    public xm b;
+    public RecyclerView c;
+    public VelocityTracker d;
+    public float e;
+    public float f;
+    public int g;
+    public int h;
+    public int i;
+    public yr5 j;
+    public RecyclerView.OnChildAttachStateChangeListener k;
+    public RecyclerView.OnScrollListener l;
+    public RecyclerView.OnItemTouchListener m;
 
     /* loaded from: classes8.dex */
-    public interface b<T> {
-        T a(int i, String str, InputStream inputStream) throws IOException;
-
-        void b(int i, String str, T t);
-    }
-
-    /* loaded from: classes8.dex */
-    public static abstract class a implements b<JSONObject> {
+    public class a implements RecyclerView.OnChildAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wm a;
 
-        public a() {
+        public a(wm wmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wmVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = wmVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wm.b
-        /* renamed from: c */
-        public JSONObject a(int i, String str, InputStream inputStream) throws IOException {
-            InterceptResult invokeILL;
+        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
+        public void onChildViewAttachedToWindow(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, inputStream)) == null) {
-                if (i == 200) {
-                    if (inputStream != null) {
-                        try {
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                int read = inputStream.read(bArr);
-                                if (read != -1) {
-                                    byteArrayOutputStream.write(bArr, 0, read);
-                                } else {
-                                    JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
-                                    DefaultLog.getInstance().c(TitanDownloadService.TAG, jSONObject.toString());
-                                    return jSONObject;
-                                }
-                            }
-                        } catch (Exception e) {
-                            throw new IOException(e);
-                        }
-                    } else {
-                        throw new IOException("parse response error: input stream is null");
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.r(view2);
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
+        public void onChildViewDetachedFromWindow(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) {
+                return;
+            }
+            this.a.s(view2);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wm a;
+
+        public b(wm wmVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wmVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wmVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                this.a.u(i);
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) != null) {
+                return;
+            }
+            this.a.t(i, i2);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements RecyclerView.OnItemTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wm a;
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public void onRequestDisallowInterceptTouchEvent(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
+            }
+        }
+
+        public c(wm wmVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wmVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wmVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            float f;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0) {
+                    this.a.c.stopScroll();
+                    this.a.e = motionEvent.getX();
+                    this.a.f = motionEvent.getY();
+                    wm wmVar = this.a;
+                    View x = wmVar.x(wmVar.e, this.a.f);
+                    wm wmVar2 = this.a;
+                    wmVar2.g = wmVar2.c.getChildAdapterPosition(x);
+                    if (this.a.d == null) {
+                        this.a.d = VelocityTracker.obtain();
                     }
+                    this.a.d.addMovement(motionEvent);
+                    return false;
+                }
+                int i = 1;
+                if (actionMasked == 2) {
+                    float x2 = motionEvent.getX();
+                    float y = motionEvent.getY();
+                    if (this.a.i == 2) {
+                        f = y - this.a.f;
+                    } else {
+                        f = x2 - this.a.e;
+                    }
+                    if (f >= 0.0f) {
+                        i = 2;
+                    }
+                    if (i != this.a.h) {
+                        this.a.h = i;
+                        this.a.d.clear();
+                    }
+                    this.a.d.addMovement(motionEvent);
+                    this.a.d.computeCurrentVelocity(50);
+                    wm wmVar3 = this.a;
+                    wmVar3.v(wmVar3.d.getXVelocity(), this.a.d.getYVelocity());
+                    this.a.e = x2;
+                    this.a.f = y;
+                    return false;
+                } else if (actionMasked == 3 || actionMasked == 1) {
+                    this.a.e = 0.0f;
+                    this.a.f = 0.0f;
+                    this.a.d.clear();
+                    return false;
                 } else {
-                    throw new IOException("parse response error: statuscode is " + i);
+                    return false;
                 }
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public wm(um umVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {umVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new c(this);
+        this.a = new tm(umVar);
+        this.b = new xm(umVar);
+    }
+
+    public final void t(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.p(i, i2, this.g);
+            }
+            this.a.l(i, i2, this.g);
+        }
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.k(view2);
             } else {
-                return (JSONObject) invokeILL.objValue;
+                this.a.g(view2);
             }
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public final void s(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                h29 defaultLog = DefaultLog.getInstance();
-                defaultLog.b(TitanDownloadService.TAG, "getVersionName Exception:" + e);
-                return "0.8";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.l(view2);
+            } else {
+                this.a.h(view2);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        String sb;
-        String replace;
+    public void q(RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String property = System.getProperty("http.agent");
-            if (TextUtils.isEmpty(property)) {
-                sb = "";
-            } else {
-                StringBuilder sb2 = new StringBuilder();
-                int length = property.length();
-                for (int i = 0; i < length; i++) {
-                    char charAt = property.charAt(i);
-                    if (charAt > 31 && charAt < 127) {
-                        sb2.append(charAt);
-                    } else {
-                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                    }
-                }
-                sb = sb2.toString();
-            }
-            String k = aj.k();
-            if (TextUtils.isEmpty(k)) {
-                replace = "0.0";
-            } else {
-                replace = k.replace("_", "-");
-            }
-            return sb + " baiduboxapp/" + a(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, recyclerView, i) != null) || recyclerView == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        RecyclerView recyclerView2 = this.c;
+        if (recyclerView2 != null) {
+            recyclerView2.removeOnItemTouchListener(this.m);
+            this.c.removeOnScrollListener(this.l);
+            this.c.removeOnChildAttachStateChangeListener(this.k);
+        }
+        this.c = recyclerView;
+        this.i = i;
+        if (recyclerView instanceof BdTypeRecyclerView) {
+            this.b.e((BdTypeRecyclerView) recyclerView, i);
+        } else {
+            this.a.e(recyclerView, i);
+        }
+        this.c.addOnItemTouchListener(this.m);
+        this.c.addOnScrollListener(this.l);
+        this.c.addOnChildAttachStateChangeListener(this.k);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0123 A[Catch: all -> 0x0136, TRY_LEAVE, TryCatch #3 {all -> 0x0136, blocks: (B:64:0x0109, B:66:0x0123), top: B:80:0x0109 }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0132  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0141  */
-    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static <T> void c(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        OutputStream outputStream;
-        HttpURLConnection httpURLConnection2;
-        OutputStream outputStream2;
-        T t;
+    public final void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
-            OutputStream outputStream3 = null;
-            try {
-                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                try {
-                    httpURLConnection.setConnectTimeout(30000);
-                    httpURLConnection.setReadTimeout(30000);
-                    httpURLConnection.setRequestProperty("User-Agent", b(context));
-                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                    httpURLConnection.setRequestMethod(str2);
-                    if (map != null) {
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                        }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i == 1) {
+                if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                    if (this.j == null) {
+                        this.j = new yr5("anim_switch_slide");
                     }
-                    if (TextUtils.equals(str2, "POST")) {
-                        if (bArr == null) {
-                            DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync body is null");
-                            if (bVar != null) {
-                                bVar.b(-1, "post requestSync body is null", null);
-                            }
-                            Closeables.closeSafely((Closeable) null);
-                            Closeables.closeSafely((Closeable) null);
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                                return;
-                            }
-                            return;
-                        }
-                        httpURLConnection.setDoOutput(true);
-                        if (map == null || !map.containsKey("Content-Type")) {
-                            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                        }
-                        outputStream2 = httpURLConnection.getOutputStream();
-                        try {
-                            outputStream2.write(bArr);
-                        } catch (Exception e) {
-                            e = e;
-                            inputStream = null;
-                            outputStream = outputStream2;
-                            e = e;
-                            httpURLConnection2 = httpURLConnection;
-                            try {
-                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
-                                if (bVar != null) {
-                                }
-                                Closeables.closeSafely(outputStream);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection2 == null) {
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                outputStream3 = outputStream;
-                                httpURLConnection = httpURLConnection2;
-                                Closeables.closeSafely(outputStream3);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = null;
-                            outputStream3 = outputStream2;
-                            th = th;
-                            Closeables.closeSafely(outputStream3);
-                            Closeables.closeSafely(inputStream);
-                            if (httpURLConnection != null) {
-                            }
-                            throw th;
-                        }
-                    } else {
-                        outputStream2 = null;
-                    }
-                    int responseCode = httpURLConnection.getResponseCode();
-                    DefaultLog.getInstance().c(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
-                    if (responseCode == 200) {
-                        inputStream = httpURLConnection.getInputStream();
-                        if (bVar != null) {
-                            try {
-                                t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
-                            } catch (Exception e2) {
-                                e = e2;
-                                outputStream = outputStream2;
-                                e = e;
-                                httpURLConnection2 = httpURLConnection;
-                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
-                                if (bVar != null) {
-                                    bVar.b(-1, e.getMessage(), null);
-                                }
-                                Closeables.closeSafely(outputStream);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection2 == null) {
-                                    httpURLConnection2.disconnect();
-                                    return;
-                                }
-                                return;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                outputStream3 = outputStream2;
-                                th = th;
-                                Closeables.closeSafely(outputStream3);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection != null) {
-                                }
-                                throw th;
-                            }
-                        } else {
-                            t = null;
-                        }
-                    } else {
-                        inputStream = null;
-                        t = null;
-                    }
-                    if (bVar != null) {
-                        bVar.b(responseCode, httpURLConnection.getResponseMessage(), t);
-                    }
-                    Closeables.closeSafely(outputStream2);
-                    Closeables.closeSafely(inputStream);
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    httpURLConnection2 = httpURLConnection;
-                    outputStream = null;
-                    inputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    inputStream = null;
+                    this.j.b();
                 }
-            } catch (Exception e4) {
-                e = e4;
-                outputStream = null;
-                httpURLConnection2 = null;
-                inputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                httpURLConnection = null;
-                inputStream = null;
+            } else if (i == 0 && this.j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                this.j.c();
             }
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.q(i);
+            }
+            this.a.m(i);
         }
+    }
+
+    public final void v(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.t(f, f2, this.g);
+            }
+            this.a.o(f, f2, this.g);
+        }
+    }
+
+    public void w() {
+        RecyclerView recyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (recyclerView = this.c) != null) {
+            recyclerView.removeOnItemTouchListener(this.m);
+            this.c.removeOnScrollListener(this.l);
+            this.c.removeOnChildAttachStateChangeListener(this.k);
+        }
+    }
+
+    public View x(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            RecyclerView recyclerView = this.c;
+            if (recyclerView == null) {
+                return null;
+            }
+            for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
+                View childAt = this.c.getChildAt(childCount);
+                float translationX = childAt.getTranslationX();
+                float translationY = childAt.getTranslationY();
+                if (f >= childAt.getLeft() + translationX && f <= childAt.getRight() + translationX && f2 >= childAt.getTop() + translationY && f2 <= childAt.getBottom() + translationY) {
+                    return childAt;
+                }
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

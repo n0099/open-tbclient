@@ -6,14 +6,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,17 +135,17 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new jn(fixBitmap, z2));
+                addPicMemoryCache(str, new BdImage(fixBitmap, z2));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void addPicMemoryCache(String str, jn jnVar) {
+    public static void addPicMemoryCache(String str, BdImage bdImage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jnVar) == null) {
-            TbImageMemoryCache.v().m(str, jnVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bdImage) == null) {
+            TbImageMemoryCache.B().m(str, bdImage);
         }
     }
 
@@ -153,25 +153,25 @@ public class PicManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds408);
-            int g2 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds174);
+            int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds408);
+            int dimens2 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds174);
             float f = (i * 1.0f) / i2;
             int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
             if (i3 == 0) {
-                i = g;
+                i = dimens;
                 i2 = i;
             } else if (i3 > 0 && f < 2.4f) {
-                i2 = (int) ((g * 1.0f) / f);
-                i = g;
+                i2 = (int) ((dimens * 1.0f) / f);
+                i = dimens;
             } else if (f >= 2.4f) {
-                i = g;
-                i2 = g2;
+                i = dimens;
+                i2 = dimens2;
             } else if (f < 1.0f && f > 0.41666666f) {
-                i = (int) (g * f);
-                i2 = g;
+                i = (int) (dimens * f);
+                i2 = dimens;
             } else if (f <= 0.41666666f) {
-                i2 = g;
-                i = g2;
+                i2 = dimens;
+                i = dimens2;
             }
             return new IMImageSize(i, i2, false);
         }
@@ -311,7 +311,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    TbImageMemoryCache.v().t(imageSize);
+                    TbImageMemoryCache.B().v(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

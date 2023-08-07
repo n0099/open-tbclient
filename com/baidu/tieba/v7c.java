@@ -1,35 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes8.dex */
-public class v7c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 4;
-    public static int e = 5;
-    public static int f = 6;
-    public static int g = 7;
-    public static int h = 8;
+public class v7c implements xac {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c7c.a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948195143, "Lcom/baidu/tieba/v7c;")) == null) {
-            return;
+    @Override // com.baidu.tieba.xac
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        return invokeLL.booleanValue;
+    }
+
+    public v7c(c7c.a aVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948195143, "Lcom/baidu/tieba/v7c;");
+        this.a = aVar;
+    }
+
+    @Override // com.baidu.tieba.xac
+    public void a(CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayConfirmDialogListener", "createConfirmFinishDialog cancel clickArea:" + cancelType);
+            c7c.a aVar = this.a;
+            if (aVar != null) {
+                aVar.a(cancelType);
+            }
         }
     }
 }

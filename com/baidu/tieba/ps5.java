@@ -1,47 +1,94 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.ks5;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.tieba.rt5;
+import com.baidu.tieba.st5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ps5<D, S extends ks5> extends ss5<D, S> {
+public class ps5<Q extends rt5, P extends st5> implements qs5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
+    public boolean a;
+    public int b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ps5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
+    public ps5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = true;
+        this.b = 1;
+        this.c = 1;
     }
 
-    public int i() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qs5
+    public void a(Q q, P p) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
+            return;
+        }
+        if (p.getPageInfo() != null) {
+            mt5 pageInfo = p.getPageInfo();
+            this.c = pageInfo.a;
+            this.a = pageInfo.b;
+            if (q != null && q.c() != null) {
+                q.c().d = pageInfo.c;
+            }
+        }
+        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
+            this.c = q.c().c;
+            this.a = true;
+        }
+        hu5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
+    }
+
+    @Override // com.baidu.tieba.qs5
+    public void b(Q q, boolean z) {
+        LoadType loadType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
+            lt5 c = q.c();
+            if (z) {
+                if (!c.a()) {
+                    this.c = this.b;
+                }
+                if (c.a()) {
+                    loadType = LoadType.PREPEND;
+                } else {
+                    loadType = LoadType.REFRESH;
+                }
+                c.b = loadType;
+                c.c = this.c;
+            } else {
+                int i = this.c + 1;
+                this.c = i;
+                c.b = LoadType.APPEND;
+                c.c = i;
+            }
+            hu5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
+        }
     }
 }

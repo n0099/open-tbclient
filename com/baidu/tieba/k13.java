@@ -1,74 +1,103 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import com.baidu.tieba.vv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k13 extends i13 {
+public class k13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860188, "Lcom/baidu/tieba/k13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860188, "Lcom/baidu/tieba/k13;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k13(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private void update(d13 d13Var, f13 f13Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, this, d13Var, f13Var, unitedSchemeEntity, callbackHandler) == null) {
-            d13Var.h(f13Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
-    @Override // com.baidu.tieba.i13
-    public boolean a(d13 d13Var, f13 f13Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+    public static JSONObject a(i13 i13Var, boolean z, Bitmap bitmap, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{d13Var, f13Var, context, unitedSchemeEntity, callbackHandler, vb3Var})) == null) {
-            v82.b("vrvideo", "update, video id:" + f13Var.j + " slave id: " + f13Var.c);
-            update(d13Var, f13Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{i13Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
+            JSONObject e = h13.e();
+            if (i13Var != null) {
+                try {
+                    e.put("page", i13Var.b);
+                } catch (JSONException e2) {
+                    if (ya3.v) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            e.put("firstPage", z2);
+            if (z && bitmap != null) {
+                e.put("image", h13.c(bitmap));
+            }
+            return e;
         }
-        return invokeCommon.booleanValue;
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public static JSONObject b(i13 i13Var) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, i13Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (i13Var != null) {
+                try {
+                    if (i13Var.g == 0) {
+                        str = "0";
+                    } else {
+                        str = "1";
+                    }
+                    jSONObject.put("isH5Componet", str);
+                } catch (JSONException e) {
+                    if (ya3.v) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void c(i13 i13Var, int i, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{i13Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            d(i13Var, i, false, null, z, i2);
+        }
+    }
+
+    public static void d(i13 i13Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
+        vv2.a W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{i13Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            rm3 rm3Var = new rm3();
+            rm3Var.k(5L);
+            rm3Var.i(i);
+            if (!mh3.d || z2) {
+                rm3Var.f(a(i13Var, z, bitmap, z2).toString());
+            }
+            String valueOf = String.valueOf(i2);
+            zh3 zh3Var = new zh3();
+            zh3Var.p(rm3Var);
+            zh3Var.q(rh3.n(xa3.K().k()));
+            zh3Var.m(xa3.K().getAppId());
+            zh3Var.s = i13Var.b;
+            zh3Var.n(false);
+            ya3 b0 = ya3.b0();
+            if (b0 == null) {
+                W = null;
+            } else {
+                W = b0.W();
+            }
+            if (!mh3.d || z2) {
+                zh3Var.s(valueOf);
+                zh3Var.r(W);
+                zh3Var.e(b(i13Var));
+                zh3Var.e(yg3.d().e());
+                zh3Var.e(yg3.d().g());
+            }
+            rh3.R(zh3Var);
+        }
     }
 }

@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.a2c;
-import com.baidu.tieba.h2c;
-import com.baidu.tieba.i2c;
-import com.baidu.tieba.u1c;
-import com.baidu.tieba.v1c;
-import com.baidu.tieba.x6c;
+import com.baidu.tieba.a6c;
+import com.baidu.tieba.d1c;
+import com.baidu.tieba.k1c;
+import com.baidu.tieba.l1c;
+import com.baidu.tieba.x0c;
+import com.baidu.tieba.y0c;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements u1c.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements x0c.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public i2c<c<T>> onAdded;
-    public i2c<c<T>> onStart;
-    public i2c<c<T>> onTerminated;
+    public l1c<c<T>> onAdded;
+    public l1c<c<T>> onStart;
+    public l1c<c<T>> onTerminated;
 
     /* loaded from: classes2.dex */
-    public class a implements h2c {
+    public class a implements k1c {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.h2c
+        @Override // com.baidu.tieba.k1c
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements v1c<T> {
-        public final a2c<? super T> a;
+    public static final class c<T> implements y0c<T> {
+        public final d1c<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(a2c<? super T> a2cVar) {
-            this.a = a2cVar;
+        public c(d1c<? super T> d1cVar) {
+            this.a = d1cVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.v1c
+        @Override // com.baidu.tieba.y0c
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(a2c<? super T> a2cVar) {
-        c<T> cVar = new c<>(a2cVar);
-        addUnsubscriber(a2cVar, cVar);
+    public void call(d1c<? super T> d1cVar) {
+        c<T> cVar = new c<>(d1cVar);
+        addUnsubscriber(d1cVar, cVar);
         this.onStart.call(cVar);
-        if (!a2cVar.isUnsubscribed() && add(cVar) && a2cVar.isUnsubscribed()) {
+        if (!d1cVar.isUnsubscribed() && add(cVar) && d1cVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(a2c<? super T> a2cVar, c<T> cVar) {
-        a2cVar.b(x6c.a(new a(cVar)));
+    public void addUnsubscriber(d1c<? super T> d1cVar, c<T> cVar) {
+        d1cVar.b(a6c.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
+    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((a2c) ((a2c) obj));
+        call((d1c) ((d1c) obj));
     }
 }

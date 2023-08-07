@@ -81,7 +81,7 @@ public class AddressListActivity extends BaseFragmentActivity {
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.a.setTitleText(getPageContext().getString(R.string.my_good_friends));
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09013e, new AddressListFragment()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09013f, new AddressListFragment()).commit();
         }
     }
 }

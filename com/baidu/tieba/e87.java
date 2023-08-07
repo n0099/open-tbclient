@@ -1,221 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.data.CardDataKt;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedFeedback;
+import tbclient.FeedbackReason;
 /* loaded from: classes5.dex */
-public final class e87<T> implements mb7 {
+public final class e87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<mc7<? extends Object>> a;
-    public final String b;
-    public final boolean c;
-    public final String d;
-    public final String e;
-    public final Map<String, Object> f;
-    public final Function2<Context, e87<?>, Unit> g;
-    public Object h;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static final c67 a(FeedFeedback feedFeedback, a67 feedExtraData) {
+        InterceptResult invokeLL;
+        e67 e67Var;
+        int i;
+        Object d67Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof e87) {
-                e87 e87Var = (e87) obj;
-                return Intrinsics.areEqual(this.a, e87Var.a) && Intrinsics.areEqual(this.b, e87Var.b) && this.c == e87Var.c && Intrinsics.areEqual(this.d, e87Var.d) && Intrinsics.areEqual(this.e, e87Var.e) && Intrinsics.areEqual(this.f, e87Var.f) && Intrinsics.areEqual(this.g, e87Var.g);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            int i2 = (hashCode + i) * 31;
-            String str = this.d;
-            int hashCode2 = (i2 + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.e;
-            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            Map<String, Object> map = this.f;
-            return ((hashCode3 + (map != null ? map.hashCode() : 0)) * 31) + this.g.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "CardData(dataList=" + this.a + ", schema=" + this.b + ", isGreyMode=" + this.c + ", threadId=" + this.d + ", userId=" + this.e + ", appendixMap=" + this.f + ", onCardClick=" + this.g + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public e87(List<mc7<? extends Object>> dataList, String schema, boolean z, String str, String str2, Map<String, ? extends Object> map, Function2<? super Context, ? super e87<?>, Unit> onCardClick) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataList, schema, Boolean.valueOf(z), str, str2, map, onCardClick};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(dataList, "dataList");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(onCardClick, "onCardClick");
-        this.a = dataList;
-        this.b = schema;
-        this.c = z;
-        this.d = str;
-        this.e = str2;
-        this.f = map;
-        this.g = onCardClick;
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ e87(List list, String str, boolean z, String str2, String str3, Map map, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(list, str, r4, str2, str3, map, r8);
-        boolean z2;
-        Function2 function22;
-        Function2 function23;
-        if ((i & 4) != 0) {
-            z2 = false;
-        } else {
-            z2 = z;
-        }
-        if ((i & 64) != 0) {
-            function23 = CardDataKt.a;
-            function22 = function23;
-        } else {
-            function22 = function2;
-        }
-    }
-
-    public final Map<String, Object> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final List<mc7<? extends Object>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final Object c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.objValue;
-    }
-
-    public final Function2<Context, e87<?>, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mb7
-    public void d(Object event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            for (mc7<? extends Object> mc7Var : this.a) {
-                if (mc7Var instanceof mb7) {
-                    ((mb7) mc7Var).d(event);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, feedFeedback, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(feedFeedback, "<this>");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String type = feedFeedback.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            String str = feedFeedback.title;
+            String str2 = feedFeedback.button_text;
+            String str3 = feedFeedback.common_id;
+            String str4 = feedFeedback.type;
+            if (Intrinsics.areEqual(str4, ImageViewerConfig.FROM_CONCERN)) {
+                e67Var = new e67(feedExtraData.a().a().get("user_id"), feedExtraData.a().a().get("portrait"));
+            } else if (Intrinsics.areEqual(str4, "recommend_post")) {
+                String str5 = feedExtraData.a().a().get("thread_id");
+                String str6 = feedExtraData.a().a().get("forum_id");
+                List<FeedbackReason> list = feedFeedback.dislike;
+                SparseArray sparseArray = new SparseArray();
+                for (FeedbackReason feedbackReason : list) {
+                    Integer num = feedbackReason.id;
+                    Intrinsics.checkNotNullExpressionValue(num, "reason.id");
+                    sparseArray.put(num.intValue(), feedbackReason.reason);
                 }
+                List<FeedbackReason> list2 = feedFeedback.dislike;
+                SparseArray sparseArray2 = new SparseArray();
+                for (FeedbackReason feedbackReason2 : list2) {
+                    Integer num2 = feedbackReason2.id;
+                    Intrinsics.checkNotNullExpressionValue(num2, "reason.id");
+                    sparseArray2.put(num2.intValue(), feedbackReason2.extra);
+                }
+                String str7 = feedExtraData.a().a().get("weight");
+                String str8 = feedExtraData.a().a().get("source");
+                String str9 = feedExtraData.a().a().get("threadType");
+                if (str9 != null) {
+                    i = Integer.parseInt(str9);
+                } else {
+                    i = 0;
+                }
+                d67Var = new d67(str5, str6, null, sparseArray, sparseArray2, str7, str8, feedExtraData.a().a().get("extra"), i, 4, null);
+                return new c67(type, str, str2, str3, d67Var);
+            } else {
+                e67Var = null;
             }
+            d67Var = e67Var;
+            return new c67(type, str, str2, str3, d67Var);
         }
-    }
-
-    public final void j(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
-            this.h = obj;
-        }
+        return (c67) invokeLL.objValue;
     }
 }

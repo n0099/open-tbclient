@@ -1,239 +1,228 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.bumptech.glide.load.engine.GlideException;
+import java.util.Date;
 /* loaded from: classes8.dex */
-public class y72 extends uc3 {
+public class y72 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uc3
-    @NonNull
-    public String j() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948282997, "Lcom/baidu/tieba/y72;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948282997, "Lcom/baidu/tieba/y72;");
+        }
+    }
+
+    public static String a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            return PreferencesUtil.LEFT_MOUNT + str + "] " + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b(String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) && ir1.a && objArr != null) {
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
+                }
+            }
+            Log.d(str, sb.toString());
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            m("error", str, str2);
+            fu2.p0().e(str, str2);
+            if (ir1.a) {
+                Log.e(str, str2);
+            }
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            m("info", str, str2);
+            fu2.p0().i(str, str2);
+            if (ir1.a) {
+                Log.i(str, str2);
+            }
+        }
+    }
+
+    public static void k(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            fu2.p0().i(str, str2);
+            if (ir1.a) {
+                Log.i(str, str2);
+            }
+        }
+    }
+
+    public static void o(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
+            m("warn", str, str2);
+            fu2.p0().w(str, str2);
+            if (ir1.a) {
+                Log.w(str, str2);
+            }
+        }
+    }
+
+    public static void d(String str, String str2, Throwable th) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
+            if (th != null) {
+                str3 = "Exception:" + th.getMessage() + "\n" + str2;
+            } else {
+                str3 = str2;
+            }
+            m("error", str, str3);
+            fu2.p0().e(str, str2, th);
+            if (ir1.a) {
+                Log.e(str, str2, th);
+            }
+        }
+    }
+
+    public static void e(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            fu2.p0().e(str, a2, th);
+            if (z) {
+                m("error", str, a2);
+            }
+        }
+    }
+
+    public static void p(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            fu2.p0().w(str, a2, th);
+            if (z) {
+                m("warn", str, a2);
+            }
+        }
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverimage" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements z72 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a82 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ y72 c;
-
-        public a(y72 y72Var, a82 a82Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y72Var, a82Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = y72Var;
-            this.a = a82Var;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.z72
-        public void a(int i, View view2, @Nullable Object obj) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, view2, obj) == null) {
-                b82 b82Var = (b82) this.a.n();
-                if (i == 0 || i == 1) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "loadState");
-                        jSONObject.put("parentId", b82Var.d);
-                        jSONObject.put("viewId", b82Var.b);
-                        if (i == 1) {
-                            str = "finish";
-                        } else {
-                            str = "error";
-                        }
-                        jSONObject.put("loadState", str);
-                    } catch (JSONException e) {
-                        v82.d("Component-Action-ImageCover", "loadState callback error", e);
-                    }
-                    this.c.s(this.b, jSONObject, b82Var.e);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y72(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/coverimage");
+    public static int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace != null && stackTrace.length > 5) {
+                return stackTrace[5].getLineNumber();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace != null && stackTrace.length > 5) {
+                return stackTrace[5].getFileName();
+            }
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0186);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            fu2.p0().i(str, a2);
+            if (z) {
+                m("info", str, a2);
             }
         }
     }
 
-    @Nullable
-    public final b82 r(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public static void l(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
+            fu2.p0().e(str, str2, th);
+            if (ir1.a) {
+                Log.e(str, str2, th);
             }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v82.c("Component-Action-ImageCover", "params is null");
-                return null;
-            }
-            b82 b82Var = new b82();
-            try {
-                b82Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                v82.d("Component-Action-ImageCover", "model parse exception:", e);
-            }
-            return b82Var;
         }
-        return (b82) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uc3
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
+    public static void m(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, vb3Var)) == null) {
-            if (sd3.b) {
-                Log.d("Component-Action-ImageCover", "insert");
-            }
-            b82 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v82.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            a82 a82Var = new a82(context, r);
-            a82Var.e0(new a(this, a82Var, callbackHandler));
-            m72 insert = a82Var.insert();
-            boolean a2 = insert.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-            }
-            return a2;
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, str, str2, str3) == null) && a && !TextUtils.isEmpty(str3)) {
+            StringBuilder sb = new StringBuilder();
+            String b = mn3.b(new Date(), "yyyy-MM-dd HH:mm:ss");
+            String g = g();
+            int h = h();
+            sb.append(b);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+            sb.append(g);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+            sb.append("line:");
+            sb.append(h);
+            sb.append("\n");
+            sb.append("module:");
+            sb.append(str2);
+            sb.append("\n");
+            sb.append(str3);
+            lw2.T().q().d0(str, sb.toString());
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uc3
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
+    public static void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, vb3Var)) == null) {
-            if (sd3.b) {
-                Log.d("Component-Action-ImageCover", "remove");
-            }
-            b82 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v82.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            a82 a82Var = (a82) i82.a(r);
-            if (a82Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                v82.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            m72 B = a82Var.B();
-            boolean a2 = B.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a2;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.uc3
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, vb3Var)) == null) {
-            if (sd3.b) {
-                Log.d("Component-Action-ImageCover", StickerDataChangeType.UPDATE);
-            }
-            b82 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v82.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            a82 a82Var = (a82) i82.a(r);
-            if (a82Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                v82.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            m72 update = a82Var.update((a82) r);
-            boolean a2 = update.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a2;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final void s(@NonNull CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, callbackHandler, jSONObject, str) == null) {
-            v82.i("Component-Action-ImageCover", "sendAsyncCallback info: " + jSONObject);
-            if (!TextUtils.isEmpty(str)) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            }
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            a = z;
         }
     }
 }

@@ -1,8 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.FriendBotView;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,40 +20,185 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
+import tbclient.StyleConf;
+import tbclient.StyleConfExtra;
 /* loaded from: classes7.dex */
-public class rc9 implements yn {
+public final class rc9 extends r55 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public String d;
-    public String e;
-    public int f;
-    public int g;
-    public boolean h;
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116961, "Lcom/baidu/tieba/rc9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948116961, "Lcom/baidu/tieba/rc9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948116961, "Lcom/baidu/tieba/rc9;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a implements yc9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ c b;
+
+        public a(Context context, c cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948116961, "Lcom/baidu/tieba/rc9;");
-                return;
+            this.a = context;
+            this.b = cVar;
+        }
+
+        @Override // com.baidu.tieba.yc9
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.onDismiss();
             }
         }
-        i = BdUniqueId.gen();
+
+        @Override // com.baidu.tieba.yc9
+        public void onShow() {
+            bi9 M5;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment X1 = ((PbActivity) this.a).X1();
+                if (X1 != null && (M5 = X1.M5()) != null && (V0 = M5.V0()) != null) {
+                    V0.setDynamicLooping(false);
+                }
+                this.b.onShow();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements yc9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ c b;
+
+        public b(Context context, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = cVar;
+        }
+
+        @Override // com.baidu.tieba.yc9
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.onDismiss();
+            }
+        }
+
+        @Override // com.baidu.tieba.yc9
+        public void onShow() {
+            bi9 M5;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment X1 = ((PbActivity) this.a).X1();
+                if (X1 != null && (M5 = X1.M5()) != null && (V0 = M5.V0()) != null) {
+                    V0.setDynamicLooping(true);
+                }
+                this.b.onShow();
+                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_click_last_time", System.currentTimeMillis());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c implements yc9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.yc9
+        public void onDismiss() {
+            bi9 M5;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                PbFragment X1 = ((PbActivity) this.a).X1();
+                if (X1 != null && (M5 = X1.M5()) != null && (V0 = M5.V0()) != null) {
+                    V0.x();
+                }
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+            }
+        }
+
+        @Override // com.baidu.tieba.yc9
+        public void onShow() {
+            bi9 M5;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment X1 = ((PbActivity) this.a).X1();
+                if (X1 != null && (M5 = X1.M5()) != null && (V0 = M5.V0()) != null) {
+                    V0.r();
+                }
+                tc9.a.a();
+                SharedPrefHelper.getInstance().putInt("pb_friend_bot_bottom_no_use_count", SharedPrefHelper.getInstance().getInt("pb_friend_bot_bottom_no_use_count", 0) + 1);
+            }
+        }
     }
 
     public rc9() {
@@ -51,152 +206,109 @@ public class rc9 implements yn {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.h = true;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static final void b(Context context, c onDialogVisibleListener) {
+        bi9 M5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return i;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, onDialogVisibleListener) == null) {
+            Intrinsics.checkNotNullParameter(context, "$context");
+            Intrinsics.checkNotNullParameter(onDialogVisibleListener, "$onDialogVisibleListener");
+            PbFragment X1 = ((PbActivity) context).X1();
+            if (X1 != null && (M5 = X1.M5()) != null) {
+                M5.Z3(new a(context, onDialogVisibleListener));
+            }
         }
     }
 
-    public void k(int i2) {
+    @Override // com.baidu.tieba.r55
+    public void a(final Context context, j55 data) {
+        boolean z;
+        List<RobotSkillInfo> list;
+        List<RobotSkill> list2;
+        StyleConf styleConf;
+        StyleConfExtra styleConfExtra;
+        String str;
+        bi9 M5;
+        sd9 r1;
+        RobotEntrance K;
+        sd9 r12;
+        RobotEntrance K2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.a = i2;
-        }
-    }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!(context instanceof PbActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导失败：当前Activity非PbActivity");
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                return;
+            }
+            final c cVar = new c(context);
+            boolean z2 = true;
+            if (BotEntranceManager.c.c().f().length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z && BotEntranceManager.c.c().g() != -1) {
+                PbActivity pbActivity = (PbActivity) context;
+                PbModel J1 = pbActivity.J1();
+                FriendBotView friendBotView = null;
+                if (J1 != null && (r12 = J1.r1()) != null && (K2 = r12.K()) != null) {
+                    list = K2.robot_skill_info;
+                } else {
+                    list = null;
+                }
+                PbModel J12 = pbActivity.J1();
+                if (J12 != null && (r1 = J12.r1()) != null && (K = r1.K()) != null) {
+                    list2 = K.bottom_bar_robot_skill;
+                } else {
+                    list2 = null;
+                }
+                if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+                    BotEntranceManager c2 = BotEntranceManager.c.c();
+                    Intrinsics.checkNotNull(list);
+                    Intrinsics.checkNotNull(list2);
+                    CallRobotEntrance c3 = c2.c(list, list2);
+                    if (c3 != null && (styleConf = c3.style_conf) != null && (styleConfExtra = styleConf.android_extra) != null && (str = styleConfExtra.guide_content) != null) {
+                        if (str.length() != 0) {
+                            z2 = false;
+                        }
+                        if (z2) {
+                            YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                            return;
+                        }
+                        PbFragment X1 = pbActivity.X1();
+                        if (X1 != null && (M5 = X1.M5()) != null) {
+                            friendBotView = M5.V0();
+                        }
+                        bd9.e(str, friendBotView, (BaseFragmentActivity) context, new b(context, cVar));
+                        return;
+                    }
+                    return;
+                }
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                return;
+            }
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.qc9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void p(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.g = i2;
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void t(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f = i2;
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        rc9.b(context, cVar);
+                    }
+                }
+            }, 1000L);
         }
     }
 }

@@ -1,23 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class m91 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static final a b;
+    public static final n91.a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,77 +25,6 @@ public final class m91 {
                 return;
             }
         }
-        b = new a(null);
-    }
-
-    public static final /* synthetic */ void b(boolean z) {
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return m91.a;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final void b(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                m91.b(z);
-            }
-        }
-
-        public final void c(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                m91.a = z;
-            }
-        }
-
-        @JvmStatic
-        public final void d(Context context, y91 y91Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, context, y91Var) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                if (ea1.a() || a()) {
-                    return;
-                }
-                if (y91Var == null) {
-                    xb1.d(new IllegalArgumentException("Error, WebPanel Data Model is NUll."));
-                }
-                if (context instanceof Activity) {
-                    q91 q91Var = new q91(context);
-                    q91Var.h(y91Var);
-                    q91Var.j();
-                    return;
-                }
-                xb1.d(new IllegalArgumentException("Error, WebPanel need context is Activity."));
-            }
-        }
+        a = new o91();
     }
 }

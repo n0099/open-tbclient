@@ -1,27 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class gu1 implements lw1 {
+public class gu1 implements xw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lw1
-    @Nullable
-    public List<ContentValues> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xw1
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
         }
-        return (List) invokeV.objValue;
     }
 
     public gu1() {

@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.v3a;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.p2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v3a a;
+    public p2a a;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new v3a(this);
+            this.a = new p2a(this);
         }
     }
 
@@ -69,8 +69,8 @@ public class BrowseSettingActivity extends BaseActivity {
                 this.a.V();
             } else if (view2 == this.a.G()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/app-tool"});
-            } else if (view2 == this.a.L()) {
-                yz4.j(this, null).q();
+            } else if (view2 == this.a.K()) {
+                cz4.j(this, null).q();
             }
         }
     }

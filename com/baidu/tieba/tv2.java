@@ -1,18 +1,147 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public interface tv2 {
-    void a(sc3 sc3Var);
+public class tv2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, Integer> a;
 
-    @Nullable
-    Map<String, Object> b(@NonNull wz1 wz1Var);
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tv2 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    Map<String, Object> c(@NonNull wz1 wz1Var);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-390763908, "Lcom/baidu/tieba/tv2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-390763908, "Lcom/baidu/tieba/tv2$a;");
+                    return;
+                }
+            }
+            a = new tv2();
+        }
+    }
 
-    @Nullable
-    Map<Class, Object> d();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194585, "Lcom/baidu/tieba/tv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948194585, "Lcom/baidu/tieba/tv2;");
+                return;
+            }
+        }
+        boolean z = ir1.a;
+        fu2.g0().getSwitch("swan_pms_request_retry_count", 1);
+        b = 1;
+    }
+
+    public tv2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap();
+    }
+
+    public static tv2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
+        }
+        return (tv2) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.put(str, Integer.valueOf(c(str) + 1));
+        }
+    }
+
+    public final int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (d() && c(str) < b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = ji4.b().i().getInt("get_pkg_retry_switch", 0);
+            y72.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
+            if (i != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return str + "_" + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
 }

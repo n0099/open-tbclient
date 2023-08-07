@@ -1,74 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p75 implements k75 {
+public class p75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p75() {
+    public static void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 5).param("obj_locate", i).param("obj_type", i2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
         }
-    }
-
-    @Override // com.baidu.tieba.k75
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "newGod");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.k75
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            boolean l = da5.p().l(da5.t("key_new_god_pop_is_show"), false);
-            if (TbSingleton.getInstance().getNewGodData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!l || !z) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -73,7 +73,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m176a(String str) {
+    public static String m177a(String str) {
         return b() + str;
     }
 
@@ -108,10 +108,10 @@ public abstract class b {
 
     public static void a(Context context) {
         f11a = context;
-        if (j.m708a(context)) {
+        if (j.m709a(context)) {
             f17a = true;
         }
-        if (j.m707a()) {
+        if (j.m708a()) {
             f18b = true;
         }
     }
@@ -130,17 +130,17 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m177a(String str) {
-        a(2, m176a(str));
+    public static void m178a(String str) {
+        a(2, m177a(str));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m178a(String str, String str2) {
+    public static void m179a(String str, String str2) {
         a(2, b(str, str2));
     }
 
     public static void a(String str, Throwable th) {
-        a(4, m176a(str), th);
+        a(4, m177a(str), th);
     }
 
     public static void a(Throwable th) {
@@ -156,24 +156,24 @@ public abstract class b {
     }
 
     public static void b(String str) {
-        a(0, m176a(str));
+        a(0, m177a(str));
     }
 
     public static void c(String str) {
-        a(1, m176a(str));
+        a(1, m177a(str));
     }
 
     public static void d(String str) {
-        a(4, m176a(str));
+        a(4, m177a(str));
     }
 
     public static void e(String str) {
         if (!f17a) {
-            Log.w(f14a, m176a(str));
+            Log.w(f14a, m177a(str));
             if (f18b) {
                 return;
             }
         }
-        m177a(str);
+        m178a(str);
     }
 }

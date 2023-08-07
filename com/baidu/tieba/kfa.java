@@ -1,32 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kfa {
+public class kfa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kfa(MainTabActivity mainTabActivity, hea heaVar) {
+        super(2016311);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
-            lfa.b(mainTabScheduleStrategy);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, heaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = mainTabActivity;
     }
 
-    public static void b(Runnable runnable, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
-            lfa.f(new qfa(runnable, i));
-        }
-    }
-
-    public static void c(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
-            lfa.f(new sfa(view2, i));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !"advertevent://ignore".equals((String) customResponsedMessage.getData())) {
+            TbSingleton.getInstance().mIsSplashClick = true;
         }
     }
 }

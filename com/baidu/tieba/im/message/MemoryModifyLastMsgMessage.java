@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
+public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<ModifyData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CLEAR_ALL = 1;
     public static final int TYPE_DELETE = 2;
@@ -15,15 +15,15 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static class ModifyData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public ChatMessage c;
-        public int d;
+        public int customGroupType;
+        public String id;
+        public ChatMessage message;
+        public int type;
 
-        public a() {
+        public ModifyData() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +37,7 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
             }
         }
 
-        public a(String str, int i, ChatMessage chatMessage, int i2) {
+        public ModifyData(String str, int i, ChatMessage chatMessage, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,21 +52,21 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.a = str;
-            this.b = i;
-            this.c = chatMessage;
-            this.d = i2;
+            this.id = str;
+            this.customGroupType = i;
+            this.message = chatMessage;
+            this.type = i2;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemoryModifyLastMsgMessage(a aVar) {
-        super(2016003, aVar);
+    public MemoryModifyLastMsgMessage(ModifyData modifyData) {
+        super(2016003, modifyData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {modifyData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

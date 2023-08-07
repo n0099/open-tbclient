@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u1c;
-import com.baidu.tieba.x1c;
+import com.baidu.tieba.a1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,33 +9,85 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.Notification;
-import rx.schedulers.Schedulers;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.schedulers.ScheduledAction;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes8.dex */
-public final class x2c<T> implements u1c.a<T> {
+public final class x2c extends a1c implements e3c {
     public static /* synthetic */ Interceptable $ic;
-    public static final m2c<u1c<? extends Notification<?>>, u1c<?>> f;
+    public static final long c;
+    public static final TimeUnit d;
+    public static final c e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u1c<T> a;
-    public final m2c<? super u1c<? extends Notification<?>>, ? extends u1c<?>> b;
-    public final boolean c;
-    public final boolean d;
-    public final x1c e;
+    public final ThreadFactory a;
+    public final AtomicReference<a> b;
 
     /* loaded from: classes8.dex */
-    public static class a implements m2c<u1c<? extends Notification<?>>, u1c<?>> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final ThreadFactory a;
+        public final long b;
+        public final ConcurrentLinkedQueue<c> c;
+        public final x5c d;
+        public final ScheduledExecutorService e;
+        public final Future<?> f;
 
         /* renamed from: com.baidu.tieba.x2c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0533a implements m2c<Notification<?>, Notification<?>> {
+        public class ThreadFactoryC0534a implements ThreadFactory {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ThreadFactory a;
 
-            public C0533a(a aVar) {
+            public ThreadFactoryC0534a(a aVar, ThreadFactory threadFactory) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, threadFactory};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = threadFactory;
+            }
+
+            @Override // java.util.concurrent.ThreadFactory
+            public Thread newThread(Runnable runnable) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                    Thread newThread = this.a.newThread(runnable);
+                    newThread.setName(newThread.getName() + " (Evictor)");
+                    return newThread;
+                }
+                return (Thread) invokeL.objValue;
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,254 +99,184 @@ public final class x2c<T> implements u1c.a<T> {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.a = aVar;
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.m2c
-            public Notification<?> call(Notification<?> notification) {
-                InterceptResult invokeL;
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification)) == null) {
-                    return Notification.c(null);
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a();
                 }
-                return (Notification) invokeL.objValue;
             }
         }
 
-        public a() {
+        public a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+            long j2;
+            ScheduledFuture<?> scheduledFuture;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory, Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = threadFactory;
+            if (timeUnit != null) {
+                j2 = timeUnit.toNanos(j);
+            } else {
+                j2 = 0;
+            }
+            this.b = j2;
+            this.c = new ConcurrentLinkedQueue<>();
+            this.d = new x5c();
+            ScheduledExecutorService scheduledExecutorService = null;
+            if (timeUnit != null) {
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC0534a(this, threadFactory));
+                d3c.k(scheduledExecutorService);
+                b bVar = new b(this);
+                long j3 = this.b;
+                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(bVar, j3, j3, TimeUnit.NANOSECONDS);
+            } else {
+                scheduledFuture = null;
+            }
+            this.e = scheduledExecutorService;
+            this.f = scheduledFuture;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.baidu.tieba.u1c<R>, com.baidu.tieba.u1c<?> */
-        @Override // com.baidu.tieba.m2c
-        public u1c<?> call(u1c<? extends Notification<?>> u1cVar) {
-            InterceptResult invokeL;
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u1cVar)) == null) {
-                return u1cVar.p(new C0533a(this));
-            }
-            return (u1c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements h2c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a2c a;
-        public final /* synthetic */ s6c b;
-        public final /* synthetic */ t3c c;
-        public final /* synthetic */ AtomicLong d;
-        public final /* synthetic */ w6c e;
-        public final /* synthetic */ x2c f;
-
-        /* loaded from: classes8.dex */
-        public class a extends a2c<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public boolean e;
-            public final /* synthetic */ b f;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f = bVar;
-            }
-
-            @Override // com.baidu.tieba.a2c
-            public void f(w1c w1cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, w1cVar) == null) {
-                    this.f.c.c(w1cVar);
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, th) == null) && !this.e) {
-                    this.e = true;
-                    unsubscribe();
-                    this.f.b.onNext(Notification.b(th));
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.e) {
-                    this.f.a.onNext(t);
-                    g();
-                    this.f.c.b(1L);
-                }
-            }
-
-            public final void g() {
-                long j;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    do {
-                        j = this.f.d.get();
-                        if (j == Long.MAX_VALUE) {
-                            return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.c.isEmpty()) {
+                long c = c();
+                Iterator<c> it = this.c.iterator();
+                while (it.hasNext()) {
+                    c next = it.next();
+                    if (next.l() <= c) {
+                        if (this.c.remove(next)) {
+                            this.d.d(next);
                         }
-                    } while (!this.f.d.compareAndSet(j, j - 1));
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.e) {
-                    this.e = true;
-                    unsubscribe();
-                    this.f.b.onNext(Notification.a());
+                    } else {
+                        return;
+                    }
                 }
             }
         }
 
-        public b(x2c x2cVar, a2c a2cVar, s6c s6cVar, t3c t3cVar, AtomicLong atomicLong, w6c w6cVar) {
+        public c b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x2cVar, a2cVar, s6cVar, t3cVar, atomicLong, w6cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.d.isUnsubscribed()) {
+                    return x2c.e;
                 }
+                while (!this.c.isEmpty()) {
+                    c poll = this.c.poll();
+                    if (poll != null) {
+                        return poll;
+                    }
+                }
+                c cVar = new c(this.a);
+                this.d.a(cVar);
+                return cVar;
             }
-            this.f = x2cVar;
-            this.a = a2cVar;
-            this.b = s6cVar;
-            this.c = t3cVar;
-            this.d = atomicLong;
-            this.e = w6cVar;
+            return (c) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.h2c
-        public void call() {
+        public long c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isUnsubscribed()) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return System.nanoTime();
             }
-            a aVar = new a(this);
-            this.e.a(aVar);
-            this.f.a.O(aVar);
+            return invokeV.longValue;
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                try {
+                    if (this.f != null) {
+                        this.f.cancel(true);
+                    }
+                    if (this.e != null) {
+                        this.e.shutdownNow();
+                    }
+                } finally {
+                    this.d.unsubscribe();
+                }
+            }
+        }
+
+        public void d(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+                cVar.m(c() + this.b);
+                this.c.offer(cVar);
+            }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements u1c.b<Notification<?>, Notification<?>> {
+    public static final class b extends a1c.a implements k1c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x2c a;
+        public final x5c a;
+        public final a b;
+        public final c c;
+        public final AtomicBoolean d;
 
         /* loaded from: classes8.dex */
-        public class a extends a2c<Notification<?>> {
+        public class a implements k1c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a2c e;
-            public final /* synthetic */ c f;
+            public final /* synthetic */ k1c a;
+            public final /* synthetic */ b b;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(c cVar, a2c a2cVar, a2c a2cVar2) {
-                super(a2cVar);
+            public a(b bVar, k1c k1cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, a2cVar, a2cVar2};
+                    Object[] objArr = {bVar, k1cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
-                        super((a2c) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f = cVar;
-                this.e = a2cVar2;
+                this.b = bVar;
+                this.a = k1cVar;
             }
 
-            @Override // com.baidu.tieba.a2c
-            public void f(w1c w1cVar) {
+            @Override // com.baidu.tieba.k1c
+            public void call() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, w1cVar) == null) {
-                    w1cVar.request(Long.MAX_VALUE);
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+                    return;
                 }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                    this.e.onError(th);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.v1c
-            /* renamed from: g */
-            public void onNext(Notification<?> notification) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification) == null) {
-                    if (notification.i() && this.f.a.c) {
-                        this.e.onCompleted();
-                    } else if (notification.j() && this.f.a.d) {
-                        this.e.onError(notification.e());
-                    } else {
-                        this.e.onNext(notification);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.e.onCompleted();
-                }
+                this.a.call();
             }
         }
 
-        public c(x2c x2cVar) {
+        public b(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x2cVar};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -305,170 +286,108 @@ public final class x2c<T> implements u1c.a<T> {
                     return;
                 }
             }
-            this.a = x2cVar;
+            this.a = new x5c();
+            this.b = aVar;
+            this.d = new AtomicBoolean();
+            this.c = aVar.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.u1c.b, com.baidu.tieba.m2c
-        public a2c<? super Notification<?>> call(a2c<? super Notification<?>> a2cVar) {
+        @Override // com.baidu.tieba.a1c.a
+        public e1c b(k1c k1cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2cVar)) == null) {
-                return new a(this, a2cVar, a2cVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k1cVar)) == null) {
+                return c(k1cVar, 0L, null);
             }
-            return (a2c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements h2c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u1c a;
-        public final /* synthetic */ a2c b;
-        public final /* synthetic */ AtomicLong c;
-        public final /* synthetic */ x1c.a d;
-        public final /* synthetic */ h2c e;
-        public final /* synthetic */ AtomicBoolean f;
-
-        /* loaded from: classes8.dex */
-        public class a extends a2c<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d e;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(d dVar, a2c a2cVar) {
-                super(a2cVar);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, a2cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((a2c) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = dVar;
-            }
-
-            @Override // com.baidu.tieba.a2c
-            public void f(w1c w1cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, w1cVar) == null) {
-                    w1cVar.request(Long.MAX_VALUE);
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.e.b.onError(th);
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.e.b.onCompleted();
-                }
-            }
-
-            @Override // com.baidu.tieba.v1c
-            public void onNext(Object obj) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.e.b.isUnsubscribed()) {
-                    if (this.e.c.get() > 0) {
-                        d dVar = this.e;
-                        dVar.d.b(dVar.e);
-                        return;
-                    }
-                    this.e.f.compareAndSet(false, true);
-                }
-            }
+            return (e1c) invokeL.objValue;
         }
 
-        public d(x2c x2cVar, u1c u1cVar, a2c a2cVar, AtomicLong atomicLong, x1c.a aVar, h2c h2cVar, AtomicBoolean atomicBoolean) {
+        @Override // com.baidu.tieba.a1c.a
+        public e1c c(k1c k1cVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x2cVar, u1cVar, a2cVar, atomicLong, aVar, h2cVar, atomicBoolean};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{k1cVar, Long.valueOf(j), timeUnit})) == null) {
+                if (this.a.isUnsubscribed()) {
+                    return a6c.c();
                 }
+                ScheduledAction h = this.c.h(new a(this, k1cVar), j, timeUnit);
+                this.a.a(h);
+                h.addParent(this.a);
+                return h;
             }
-            this.a = u1cVar;
-            this.b = a2cVar;
-            this.c = atomicLong;
-            this.d = aVar;
-            this.e = h2cVar;
-            this.f = atomicBoolean;
+            return (e1c) invokeCommon.objValue;
         }
 
-        @Override // com.baidu.tieba.h2c
+        @Override // com.baidu.tieba.k1c
         public void call() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.O(new a(this, this.b));
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b.d(this.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.e1c
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.isUnsubscribed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.e1c
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                if (this.d.compareAndSet(false, true)) {
+                    this.c.b(this);
+                }
+                this.a.unsubscribe();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class e implements w1c {
+    public static final class c extends d3c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicLong a;
-        public final /* synthetic */ t3c b;
-        public final /* synthetic */ AtomicBoolean c;
-        public final /* synthetic */ x1c.a d;
-        public final /* synthetic */ h2c e;
+        public long i;
 
-        public e(x2c x2cVar, AtomicLong atomicLong, t3c t3cVar, AtomicBoolean atomicBoolean, x1c.a aVar, h2c h2cVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ThreadFactory threadFactory) {
+            super(threadFactory);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x2cVar, atomicLong, t3cVar, atomicBoolean, aVar, h2cVar};
+                Object[] objArr = {threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((ThreadFactory) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = atomicLong;
-            this.b = t3cVar;
-            this.c = atomicBoolean;
-            this.d = aVar;
-            this.e = h2cVar;
+            this.i = 0L;
         }
 
-        @Override // com.baidu.tieba.w1c
-        public void request(long j) {
+        public long l() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j > 0) {
-                q2c.b(this.a, j);
-                this.b.request(j);
-                if (this.c.compareAndSet(true, false)) {
-                    this.d.b(this.e);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.i;
+            }
+            return invokeV.longValue;
+        }
+
+        public void m(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.i = j;
             }
         }
     }
@@ -486,15 +405,22 @@ public final class x2c<T> implements u1c.a<T> {
                 return;
             }
         }
-        f = new a();
+        d = TimeUnit.SECONDS;
+        c cVar = new c(RxThreadFactory.NONE);
+        e = cVar;
+        cVar.unsubscribe();
+        a aVar = new a(null, 0L, null);
+        f = aVar;
+        aVar.e();
+        c = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
     }
 
-    public x2c(u1c<T> u1cVar, m2c<? super u1c<? extends Notification<?>>, ? extends u1c<?>> m2cVar, boolean z, boolean z2, x1c x1cVar) {
+    public x2c(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u1cVar, m2cVar, Boolean.valueOf(z), Boolean.valueOf(z2), x1cVar};
+            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -504,51 +430,46 @@ public final class x2c<T> implements u1c.a<T> {
                 return;
             }
         }
-        this.a = u1cVar;
-        this.b = m2cVar;
-        this.c = z;
-        this.d = z2;
-        this.e = x1cVar;
+        this.a = threadFactory;
+        this.b = new AtomicReference<>(f);
+        start();
     }
 
-    public static <T> u1c<T> a(u1c<T> u1cVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a1c
+    public a1c.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, u1cVar)) == null) {
-            return b(u1cVar, f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(this.b.get());
         }
-        return (u1c) invokeL.objValue;
+        return (a1c.a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((a2c) ((a2c) obj));
-    }
-
-    public static <T> u1c<T> b(u1c<T> u1cVar, m2c<? super u1c<? extends Notification<?>>, ? extends u1c<?>> m2cVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e3c
+    public void shutdown() {
+        a aVar;
+        a aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, u1cVar, m2cVar)) == null) {
-            return u1c.d(new x2c(u1cVar, m2cVar, true, false, Schedulers.trampoline()));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            do {
+                aVar = this.b.get();
+                aVar2 = f;
+                if (aVar == aVar2) {
+                    return;
+                }
+            } while (!this.b.compareAndSet(aVar, aVar2));
+            aVar.e();
         }
-        return (u1c) invokeLL.objValue;
     }
 
-    public void call(a2c<? super T> a2cVar) {
+    @Override // com.baidu.tieba.e3c
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a2cVar) == null) {
-            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
-            AtomicLong atomicLong = new AtomicLong();
-            x1c.a createWorker = this.e.createWorker();
-            a2cVar.b(createWorker);
-            w6c w6cVar = new w6c();
-            a2cVar.b(w6cVar);
-            r6c<T, T> P = p6c.Q().P();
-            P.F(e6c.a());
-            t3c t3cVar = new t3c();
-            b bVar = new b(this, a2cVar, P, t3cVar, atomicLong, w6cVar);
-            createWorker.b(new d(this, this.b.call(P.o(new c(this))), a2cVar, atomicLong, createWorker, bVar, atomicBoolean));
-            a2cVar.f(new e(this, atomicLong, t3cVar, atomicBoolean, createWorker, bVar));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a aVar = new a(this.a, c, d);
+            if (!this.b.compareAndSet(f, aVar)) {
+                aVar.e();
+            }
         }
     }
 }

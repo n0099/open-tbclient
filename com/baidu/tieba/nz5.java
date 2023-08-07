@@ -1,106 +1,146 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class nz5 {
+public class nz5 extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public NetWork c;
+    public a d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948019776, "Lcom/baidu/tieba/nz5;")) == null) {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(boolean z, String str);
+    }
+
+    public nz5(String str, String str2, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+        this.d = aVar;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                return true;
+            }
+            try {
+                return file.mkdirs();
+            } catch (Exception e) {
+                TiebaStatic.file(e, bi.join("FileHelper", ".", "CheckTempDir", " ", str));
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || bi.isEmpty(str)) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948019776, "Lcom/baidu/tieba/nz5;");
-        }
+        FileHelper.deleteFileOrDir(new File(str));
     }
 
-    public static void a(int i, int i2) {
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            int i3 = 1;
-            if (ProfileVirtualImageInfo.getInstance().isDisplayVirtual() && ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            if (bi.isEmpty(this.a) || bi.isEmpty(this.b) || !b(this.a)) {
+                return null;
             }
-            StatisticItem statisticItem = new StatisticItem("c10605");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!z) {
-                i3 = 2;
+            String c = hi.c(this.b);
+            String str = this.a + c + "/";
+            if (e(str)) {
+                return c;
             }
-            statisticItem.param("obj_id", i3);
-            if (z) {
-                statisticItem.param("obj_locate", i);
-            } else {
-                statisticItem.param("obj_param1", i2);
+            NetWork netWork = new NetWork();
+            this.c = netWork;
+            netWork.setUrl(this.b);
+            String str2 = this.a + c + ".zip";
+            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+                c(str2);
+                return c;
             }
-            TiebaStatic.log(statisticItem);
+            c(str2);
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b() {
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
-            int i = 1;
-            a = true;
-            StatisticItem statisticItem = new StatisticItem("c14994");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!ProfileVirtualImageInfo.getInstance().isDisplayVirtual() || (TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getVirtualImageUrl()) && TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getDynamicVirtualImageUrl()))) {
-                i = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (bi.isEmpty(str)) {
+                return false;
             }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
+            File file = new File(str);
+            if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length > 0) {
+                return true;
+            }
+            file.delete();
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void c() {
+    public final boolean f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (!bi.isEmpty(str) && !bi.isEmpty(str2)) {
+                return d85.b(str, str2);
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 1);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d == null) {
+            return;
         }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 1);
-            TiebaStatic.log(statisticItem);
+        if (!bi.isEmpty(str)) {
+            this.d.a(true, str);
+        } else {
+            this.d.a(false, null);
         }
     }
 }

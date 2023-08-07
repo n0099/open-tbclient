@@ -1,15 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class hl extends bl {
+public class hl implements IExceptionHandlerContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext
+    public long getAppLaunchStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
 
     public hl() {
         Interceptable interceptable = $ic;
@@ -22,15 +36,6 @@ public class hl extends bl {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.bl, com.baidu.tieba.zk
-    public void h(Canvas canvas, cl clVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, clVar, imageView) == null) {
-            this.c.setColorFilter(null);
-            super.h(canvas, clVar, imageView);
         }
     }
 }

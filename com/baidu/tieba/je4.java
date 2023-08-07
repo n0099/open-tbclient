@@ -1,27 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
 public class je4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -33,6 +27,14 @@ public class je4 {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
             }
         }
 
@@ -49,62 +51,58 @@ public class je4 {
                 }
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && 200 == i) {
-                try {
-                    if (!TextUtils.isEmpty(str)) {
-                        JSONObject jSONObject = new JSONObject(str);
-                        if (je4.a && jSONObject.optInt("errno") != 0) {
-                            Log.e("SwanGameNowUtils", "report game history error");
-                        }
-                    }
-                } catch (JSONException unused) {
-                }
-            }
-        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880400, "Lcom/baidu/tieba/je4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Map<String, String> a(@NonNull ya3 ya3Var, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, ya3Var, i, str)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, ya3Var.O());
+            treeMap.put("to_app_key", str);
+            treeMap.put("source", String.valueOf(i));
+            treeMap.put("timestamp", c());
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : treeMap.keySet()) {
+                sb.append(str2);
+                sb.append("=");
+                sb.append((String) treeMap.get(str2));
+                sb.append("&");
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947880400, "Lcom/baidu/tieba/je4;");
+            sb.append("dsb9Ao44");
+            treeMap.put("sign", er4.d(sb.toString().getBytes(), false));
+            return treeMap;
+        }
+        return (Map) invokeLIL.objValue;
+    }
+
+    public static void b(int i, @NonNull ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
+            ya3 M = ya3.M();
+            if (M == null) {
+                responseCallback.onFail(new Exception("framework error: swan app is null."));
                 return;
             }
+            M.i0().getRequest().cookieManager(fu2.q().a()).url(p74.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
         }
-        a = fs1.a;
     }
 
-    public static void b() {
-        vb3 M;
-        String str;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || (M = vb3.M()) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return String.valueOf(System.currentTimeMillis() / 1000);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(int i, String str) {
+        ya3 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || (M = ya3.M()) == null) {
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", cv2.h0().i(cv2.c()));
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("game", M.O());
-            jSONObject2.put("type", 0);
-            jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(jSONObject2);
-            jSONObject.put("app_infos", jSONArray);
-            str = jSONObject.toString();
-        } catch (Exception unused) {
-            str = "";
-        }
-        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) M.i0().postRequest().cookieManager(cv2.q().a())).url(m84.b().l())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).requestFrom(16)).requestFrom(1606)).build().executeAsync(new a());
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(fu2.q().a())).url(p74.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
     }
 }

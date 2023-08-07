@@ -142,7 +142,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
             }
             AgreeView agreeView2 = this.e;
             if (agreeView2 != null) {
-                agreeView2.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jr6
+                agreeView2.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qo6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,7 +161,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
     public final void setOnAgreeNumUpdateListener(final Function2<? super Long, ? super Boolean, Unit> function2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, function2) == null) && function2 != null) {
-            this.e.setOnAgreeNumUpdateListener(new AgreeView.j() { // from class: com.baidu.tieba.er6
+            this.e.setOnAgreeNumUpdateListener(new AgreeView.j() { // from class: com.baidu.tieba.lo6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,7 +179,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
     public final void setOnCommentClick(final Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, function0) == null) {
-            this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ir6
+            this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.po6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,7 +197,7 @@ public final class SocialBarWrapper extends ThreadCardBottomOpSegmentLayout {
     public final void setOnShareClick(final Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, function0) == null) {
-            this.l.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kr6
+            this.l.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ro6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,10 +18,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k25;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public k25 c;
+    public h15 c;
     public String d;
     public boolean e;
     public int f;
@@ -96,7 +96,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f0923ee) {
+                if (id == R.id.obfuscated_res_0x7f092406) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -141,7 +141,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.main_view || id == R.id.obfuscated_res_0x7f0903f8 || id == R.id.obfuscated_res_0x7f0903f7) {
+                } else if (id == R.id.main_view || id == R.id.obfuscated_res_0x7f0903f9 || id == R.id.obfuscated_res_0x7f0903f8) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -213,21 +213,21 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.w = new a(this);
         this.b = absPbActivity;
         this.g = view2.findViewById(R.id.main_view);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b0c);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
-        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903f8);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0903f7);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b1c);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0903fb);
+        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903f9);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0903f8);
         this.l = (TextView) view2.findViewById(R.id.bjh_content);
-        this.m = view2.findViewById(R.id.obfuscated_res_0x7f0903fc);
-        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903ff);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fd);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f091452);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
-        this.q = view2.findViewById(R.id.obfuscated_res_0x7f091450);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091451);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fb);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fe);
-        this.v = view2.findViewById(R.id.obfuscated_res_0x7f0903f9);
+        this.m = view2.findViewById(R.id.obfuscated_res_0x7f0903fd);
+        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090400);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fe);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f091465);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092406);
+        this.q = view2.findViewById(R.id.obfuscated_res_0x7f091463);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091464);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903fc);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903ff);
+        this.v = view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
     }
 
     public void h(int i) {
@@ -251,37 +251,37 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(k25 k25Var) {
+    public void g(h15 h15Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k25Var) == null) {
-            this.c = k25Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, h15Var) == null) {
+            this.c = h15Var;
             View view2 = this.h;
-            if (k25Var.d()) {
+            if (h15Var.d()) {
                 i = 0;
             } else {
                 i = 8;
             }
             view2.setVisibility(i);
             View view3 = this.r;
-            if (k25Var.f()) {
+            if (h15Var.f()) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
             view3.setVisibility(i2);
             View view4 = this.i;
-            if (k25Var.e()) {
+            if (h15Var.e()) {
                 i3 = 8;
             } else {
                 i3 = 0;
             }
             view4.setVisibility(i3);
             View view5 = this.p;
-            if (k25Var.e()) {
+            if (h15Var.e()) {
                 i4 = 0;
             } else {
                 i4 = 8;
@@ -291,32 +291,32 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             this.k.setOnClickListener(this.w);
             this.j.setOnClickListener(this.w);
             this.j.setConrers(15);
-            this.j.setRadius(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            this.j.setRadius(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.j.setDrawCorner(true);
             this.j.setPlaceHolder(2);
-            if (k25Var.getThreadVideoInfo() != null) {
-                this.l.setText(k25Var.getTitle());
-                this.j.N(k25Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (h15Var.getThreadVideoInfo() != null) {
+                this.l.setText(h15Var.getTitle());
+                this.j.startLoad(h15Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.k.setVisibility(0);
                 this.k.setAlpha(0.5f);
                 this.m.setVisibility(0);
-                this.o.setText(StringUtils.translateSecondsToString(k25Var.getThreadVideoInfo().video_duration.intValue()));
+                this.o.setText(StringUtils.translateSecondsToString(h15Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-                if (k25Var.getAuthor() != null && !xi.isEmpty(k25Var.getAuthor().getName_show())) {
-                    this.t.setText(k25Var.getAuthor().getName_show());
+                if (h15Var.getAuthor() != null && !bi.isEmpty(h15Var.getAuthor().getName_show())) {
+                    this.t.setText(h15Var.getAuthor().getName_show());
                     this.t.setVisibility(0);
-                    layoutParams.leftMargin = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+                    layoutParams.leftMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
                     this.t.setVisibility(8);
                     layoutParams.leftMargin = 0;
                 }
                 this.u.setLayoutParams(layoutParams);
-                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(k25Var.getThreadVideoInfo().play_count.intValue())));
+                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(h15Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.m.setVisibility(8);
                 this.k.setVisibility(8);
-                this.j.N(k25Var.getArticeCover(), 10, false);
-                this.l.setText(k25Var.getTitle());
+                this.j.startLoad(h15Var.getArticeCover(), 10, false);
+                this.l.setText(h15Var.getTitle());
             }
             this.g.setOnClickListener(this.w);
         }

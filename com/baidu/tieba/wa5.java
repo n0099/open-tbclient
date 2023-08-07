@@ -1,80 +1,79 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import tbclient.UrlParser.DataRes;
+import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes8.dex */
-public class wa5 extends ImageSpan {
+public class wa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public WeakReference<Drawable> b;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public CardLinkInfoData j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wa5(Drawable drawable) {
-        super(drawable);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948263870, "Lcom/baidu/tieba/wa5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948263870, "Lcom/baidu/tieba/wa5;");
+        }
+    }
+
+    public wa5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
+    public void a(UrlParserResIdl urlParserResIdl) {
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.b;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
+            this.a = dataRes.status.intValue();
+            this.b = urlParserResIdl.data.url_type.intValue();
+            DataRes dataRes2 = urlParserResIdl.data;
+            this.d = dataRes2.image;
+            this.e = dataRes2.title;
+            this.f = dataRes2.link_from;
+            this.g = dataRes2.price_txt;
+            boolean z = true;
+            if (dataRes2.is_recognize.intValue() != 1) {
+                z = false;
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.b = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, (((i4 + paint.getFontMetricsInt().descent) - a.getBounds().height()) / 2) + this.a);
-            a.draw(canvas);
-            canvas.restore();
+            this.h = z;
+            this.i = urlParserResIdl.data.description;
+            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
+            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
+            this.j = cardLinkInfoData;
         }
     }
 }

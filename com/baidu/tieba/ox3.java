@@ -1,91 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Singleton
-@Service
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
-public class ox3 implements tv2 {
+public class ox3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tv2
-    public Map<Class, Object> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public ox3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tv2
-    public void a(sc3 sc3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) {
-            kx3.b().a(sc3Var);
-            kx3.a().a(sc3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.tv2
-    public Map<String, Object> b(@NonNull wz1 wz1Var) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz1Var)) == null) {
-            Map<String, Object> b = kx3.b().b(wz1Var);
-            Map<String, Object> b2 = kx3.a().b(wz1Var);
-            HashMap hashMap = new HashMap();
-            if (b != null) {
-                hashMap.putAll(b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-            if (b2 != null) {
-                hashMap.putAll(b2);
-            }
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tv2
-    public Map<String, Object> c(@NonNull wz1 wz1Var) {
-        InterceptResult invokeL;
+    @SuppressLint({"DefaultLocale"})
+    public static String b(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wz1Var)) == null) {
-            Map<String, Object> c = kx3.b().c(wz1Var);
-            Map<String, Object> c2 = kx3.a().c(wz1Var);
-            HashMap hashMap = new HashMap();
-            if (c != null) {
-                hashMap.putAll(c);
-            }
-            if (c2 != null) {
-                hashMap.putAll(c2);
-            }
-            return hashMap;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) {
+            return a(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeLJ.objValue;
     }
 }

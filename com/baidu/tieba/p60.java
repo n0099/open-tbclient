@@ -1,41 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.r60;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class p60 {
+public abstract class p60 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static String a(Context context, r60.a aVar) {
-        InterceptResult invokeLL;
+    public abstract void a();
+
+    public p60(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, aVar)) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr2 = {str, objArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                if (cls != null) {
-                    Object newInstance = cls.newInstance();
-                    Method method = cls.getMethod("getOAID", Context.class);
-                    method.setAccessible(true);
-                    if (newInstance != null && method != null) {
-                        String str = (String) method.invoke(newInstance, context);
-                        aVar.a(true, str);
-                        return str;
-                    }
-                }
-            } catch (Throwable unused) {
-                aVar.a(false, null);
-            }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        this.a = Util.format(str, objArr);
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String name = Thread.currentThread().getName();
+            Thread.currentThread().setName(this.a);
+            try {
+                a();
+            } finally {
+                Thread.currentThread().setName(name);
+            }
+        }
     }
 }

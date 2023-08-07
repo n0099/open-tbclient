@@ -1,58 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileFilter;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z13 {
+public final class z13 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final List<x13> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (file.isDirectory() && TextUtils.isDigitsOnly(file.getName())) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -67,131 +31,59 @@ public class z13 {
                 return;
             }
         }
-        a = fs1.a;
+        a = ya3.v;
+        b = Arrays.asList(new x13());
     }
 
-    public static void a(String str) {
+    @NonNull
+    public static JSONObject b() {
+        JSONObject jSONObject;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(ru2.g(), str);
-        if (!file.exists()) {
-            return;
-        }
-        if (a) {
-            Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
-        }
-        File[] listFiles = file.listFiles(new a());
-        if (listFiles != null && listFiles.length > 0) {
-            for (File file2 : listFiles) {
-                b(str, file2.getName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                jSONObject = a();
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                    y72.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
+                }
+                jSONObject = null;
             }
-        }
-    }
-
-    public static String f(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                return "";
-            }
-            String c = c(pMSAppInfo);
-            if (TextUtils.isEmpty(c)) {
-                return "";
-            }
-            String string = jk3.a().getString(c, "");
-            if (a) {
-                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            String e = e(str, str2);
-            if (TextUtils.isEmpty(e)) {
-                return;
-            }
-            jk3.a().edit().remove(e).apply();
-            if (a) {
-                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
-            }
-        }
-    }
-
-    public static String c(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) {
-            return d(pMSAppInfo.appId, pMSAppInfo.versionCode);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
-            return e(str, String.valueOf(j));
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return str + "_" + str2 + "_pkg_info_ext";
-            } else if (a) {
-                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
-                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
-                return null;
-            } else {
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void g(String str, JSONObject jSONObject, uk4 uk4Var, List<vk4> list) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, uk4Var, list) == null) {
             if (jSONObject == null) {
-                if (a) {
-                    Log.d("PkgInfoExt", "pkgObject from pms is null");
-                }
-            } else if (uk4Var == null && list == null) {
-                if (a) {
-                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
-                }
-            } else {
-                String str2 = null;
-                if (uk4Var != null) {
-                    str = uk4Var.g;
-                    j = uk4Var.i;
-                    str2 = uk4Var.p;
-                } else if (list.size() > 0) {
-                    vk4 vk4Var = list.get(0);
-                    j = vk4Var.i;
-                    str2 = vk4Var.s;
-                } else {
-                    j = -1;
-                }
-                if (str2 == null) {
-                    if (a) {
-                        Log.e("PkgInfoExt", "can not get ext from pkg ");
+                return new JSONObject();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static JSONObject a() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
+            if (a) {
+                y72.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
+            }
+            c(jSONObject);
+            if (a) {
+                y72.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                for (x13 x13Var : b) {
+                    if (x13Var.a(keys.next())) {
+                        keys.remove();
                     }
-                } else if (!TextUtils.isEmpty(str) && j != -1) {
-                    jk3.a().edit().putString(d(str, j), str2).apply();
-                } else if (a) {
-                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
                 }
             }
         }

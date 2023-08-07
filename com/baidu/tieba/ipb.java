@@ -1,156 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cpb;
+import com.baidu.tieba.opb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes6.dex */
-public class ipb implements apb {
+public class ipb {
     public static /* synthetic */ Interceptable $ic;
+    public static opb a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final xob d;
-    public final kpb e;
-    public final lpb f;
-    public final Map<String, String> g;
-    public final List<spb> h;
-    public final Map<String, String> i;
 
-    public ipb(Context context, String str, xob xobVar, InputStream inputStream, Map<String, String> map, List<spb> list, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, xobVar, inputStream, map, list, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862606, "Lcom/baidu/tieba/ipb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862606, "Lcom/baidu/tieba/ipb;");
                 return;
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new opb(inputStream, str);
-            gpb.a(inputStream);
-        } else {
-            this.e = new rpb(this.b, str);
-        }
-        this.f = new lpb(this.e);
-        if (xobVar != xob.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (xobVar == null || xobVar == xob.b) ? gpb.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : xobVar;
-        this.g = gpb.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
+        a = new opb();
     }
 
-    @Override // com.baidu.tieba.apb
-    public String a(String str) {
+    public static <TResult> TResult a(fpb<TResult> fpbVar) throws ExecutionException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.apb
-    public xob b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xob xobVar = this.d;
-            return xobVar == null ? xob.b : xobVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fpbVar)) == null) {
+            opb.c("await must not be called on the UI thread");
+            if (fpbVar.g()) {
+                return (TResult) opb.b(fpbVar);
+            }
+            opb.b bVar = new opb.b();
+            fpbVar.c(bVar);
+            fpbVar.b(bVar);
+            bVar.a.await();
+            return (TResult) opb.b(fpbVar);
         }
-        return (xob) invokeV.objValue;
+        return (TResult) invokeL.objValue;
     }
 
-    public final String c(String str) {
+    public static <TResult> fpb<TResult> b(Callable<TResult> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, cpb.a> a = cpb.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
-                }
-                cpb.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
-                }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(hpb.a(), callable) : (fpb) invokeL.objValue;
     }
 
-    public List<spb> d() {
-        InterceptResult invokeV;
+    public static <TResult> fpb<TResult> call(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
-            }
-            String e = gpb.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return lpb.c(a) ? this.f.a(a, str2) : a;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.apb
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.apb
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(hpb.b(), callable) : (fpb) invokeL.objValue;
     }
 }

@@ -111,7 +111,7 @@ public class SimpleFloatingBackElement extends AbsElement {
         view2.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         view2.setPadding(BdPlayerUtils.dp2px(view2, 4.0f), BdPlayerUtils.dp2px(view2, 1.0f), BdPlayerUtils.dp2px(view2, 4.0f), BdPlayerUtils.dp2px(view2, 1.0f));
         view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080268);
-        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jo1
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mn1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

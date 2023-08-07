@@ -1,125 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.DuTokenNewSwitch;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class uga extends CustomMessageListener {
+public class uga implements hfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final aga b;
+    public bha a;
+    public f55 b;
+    public aha c;
+    public zga d;
+    public xga e;
+    public vga f;
+    public yga g;
+    public wga h;
+    public MainTabActivity i;
+    public hea j;
+    public boolean k;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(uga ugaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ugaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DuTokenNewSwitch.isOn() && PermissionUtil.isAgreePrivacyPolicy()) {
-                WordCommandManager.setOnInitialUIReadyState(true);
-                WordCommandManager.getInstance().handleClipboardData();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uga(MainTabActivity mainTabActivity) {
-        super(2001011);
+    public uga(@NonNull MainTabActivity mainTabActivity, @NonNull hea heaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, heaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.k = false;
+        this.i = mainTabActivity;
+        this.j = heaVar;
+        this.a = new bha(mainTabActivity.getPageContext(), heaVar, mainTabActivity, false);
+        this.b = new f55(mainTabActivity.getPageContext());
+        this.c = new aha(mainTabActivity, heaVar);
+        this.d = new zga(mainTabActivity, heaVar);
+        this.g = new yga(mainTabActivity, heaVar);
+        this.h = new wga(mainTabActivity, heaVar);
+        this.e = new xga(mainTabActivity, heaVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.hfa
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean z = false;
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ol.f();
-                ol.i();
-                this.a.V = UtilHelper.getCurrentDay();
-                da5.p().H("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
-                MainTabActivity mainTabActivity = this.a;
-                if (!mainTabActivity.C) {
-                    aga agaVar = this.b;
-                    if (agaVar != null && agaVar.j() != null) {
-                        this.b.j().b();
-                        return;
-                    }
-                    return;
-                }
-                mainTabActivity.C = false;
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(this.a);
+                c55.g(linkedList);
+            } else if (!this.k) {
+            } else {
+                jw8.m = false;
+                LinkedList linkedList2 = new LinkedList();
+                linkedList2.add(this.h);
+                linkedList2.add(this.a);
+                c55.g(linkedList2);
             }
-            bc.b().a("WORDCOMMAND", new a(this));
-            String currentDay = UtilHelper.getCurrentDay();
-            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.V)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || LooperBlockSwitch.getIsOn() || !this.k) {
+            return;
+        }
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.h);
+        linkedList.add(this.c);
+        linkedList.add(this.d);
+        linkedList.add(this.e);
+        c55.g(linkedList);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(this.a);
+            if (!LooperBlockSwitch.getIsOn()) {
+                linkedList.add(this.c);
+                linkedList.add(this.d);
+                linkedList.add(this.h);
+                linkedList.add(this.b);
+                linkedList.add(this.g);
             }
-            MainTabActivity mainTabActivity2 = this.a;
-            if (mainTabActivity2.x == null) {
-                mainTabActivity2.x = new jka();
-            }
-            jka jkaVar = this.a.x;
-            jkaVar.c(jkaVar.c);
-            this.a.x.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
-            if (r46.a()) {
-                int i = Calendar.getInstance().get(11);
-                r46.a = (i >= 23 || i < 7) ? true : true;
-                aga agaVar2 = this.b;
-                if (agaVar2 != null && agaVar2.j() != null) {
-                    this.b.j().b();
-                    this.b.j().a();
-                }
-            }
+            vga vgaVar = new vga(this.i, this.j, "source_from_theme");
+            this.f = vgaVar;
+            linkedList.add(vgaVar);
+            c55.g(linkedList);
+            this.k = true;
         }
     }
 }

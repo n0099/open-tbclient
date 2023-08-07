@@ -2,8 +2,8 @@ package com.baidu.swan.apps.adaptation.interfaces.apkfetcher;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.dc3;
-import com.baidu.tieba.xx1;
+import com.baidu.tieba.ax1;
+import com.baidu.tieba.gb3;
 /* loaded from: classes4.dex */
 public interface ISwanApkFetcher {
 
@@ -26,7 +26,7 @@ public interface ISwanApkFetcher {
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends dc3 implements ISwanApkFetcher {
+    public static class b extends gb3 implements ISwanApkFetcher {
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
         public boolean D() {
             return false;
@@ -37,15 +37,15 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(@NonNull String str, @NonNull xx1 xx1Var) {
+        public void d(@NonNull String str, @NonNull ax1 ax1Var) {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(@NonNull String str, @NonNull xx1 xx1Var) {
+        public void e(@NonNull String str, @NonNull ax1 ax1Var) {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void f(@NonNull String str, @NonNull xx1 xx1Var) {
+        public void f(@NonNull String str, @NonNull ax1 ax1Var) {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
@@ -53,11 +53,11 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void h(@NonNull String str, @NonNull xx1 xx1Var) {
+        public void h(@NonNull String str, @NonNull ax1 ax1Var) {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void j(@NonNull String str, @NonNull xx1 xx1Var) {
+        public void j(@NonNull String str, @NonNull ax1 ax1Var) {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
@@ -69,17 +69,17 @@ public interface ISwanApkFetcher {
 
     void F(@NonNull String str, @Nullable a aVar);
 
-    void d(@NonNull String str, @NonNull xx1 xx1Var);
+    void d(@NonNull String str, @NonNull ax1 ax1Var);
 
-    void e(@NonNull String str, @NonNull xx1 xx1Var);
+    void e(@NonNull String str, @NonNull ax1 ax1Var);
 
-    void f(@NonNull String str, @NonNull xx1 xx1Var);
+    void f(@NonNull String str, @NonNull ax1 ax1Var);
 
     void g(@NonNull String str, @Nullable a aVar);
 
-    void h(@NonNull String str, @NonNull xx1 xx1Var);
+    void h(@NonNull String str, @NonNull ax1 ax1Var);
 
-    void j(@NonNull String str, @NonNull xx1 xx1Var);
+    void j(@NonNull String str, @NonNull ax1 ax1Var);
 
     void release();
 }

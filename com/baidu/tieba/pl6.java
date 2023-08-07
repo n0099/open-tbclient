@@ -1,47 +1,22 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes7.dex */
-public final class pl6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pl6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrerenderManager");
 
-    public static void a(WebView webView, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
-            try {
-                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(webView, list, null);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
+    @UiThread
+    void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2);
 
-    @SuppressLint({"WebViewApiAvailability"})
-    public static void b(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i == 26) {
-                webView.setImportantForAutofill(2);
-                webView.getSettings().setSafeBrowsingEnabled(false);
-            } else if (i >= 27) {
-                List<String> a = rk6.a();
-                try {
-                    WebView.setSafeBrowsingWhitelist(a, null);
-                } catch (Throwable unused) {
-                    a(webView, a);
-                }
-            }
-        }
-    }
+    @NonNull
+    @UiThread
+    android.webkit.WebView b(Context context, @NonNull String str);
+
+    @UiThread
+    boolean c(@NonNull String str, android.webkit.WebView webView);
 }

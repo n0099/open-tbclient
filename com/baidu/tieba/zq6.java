@@ -1,136 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class zq6 {
+public final class zq6 implements y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, String> a;
 
-    @Nullable
-    public static Intent a(Context context, String str, String str2, boolean z, yq6 yq6Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), yq6Var})) == null) {
-            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            int i = 0;
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            while (true) {
-                if (i >= queryIntentActivities.size()) {
-                    break;
-                }
-                String str3 = queryIntentActivities.get(i).activityInfo.packageName;
-                if (TextUtils.equals(str3, str2)) {
-                    intent.setPackage(str3);
-                    break;
-                }
-                i++;
-            }
-            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
-                if (yq6Var != null) {
-                    yq6Var.onFailed(-104);
-                    return null;
-                }
-                return null;
-            }
-            return intent;
-        }
-        return (Intent) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
     }
 
-    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable yq6 yq6Var) {
-        InterceptResult invokeCommon;
+    public zq6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), yq6Var})) == null) {
-            if (!d(str) && !e(str)) {
-                return a(context, str, str2, z, yq6Var);
-            }
-            return c(context, str, str2, yq6Var);
-        }
-        return (Intent) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public static Intent c(Context context, String str, String str2, yq6 yq6Var) {
-        InterceptResult invokeLLLL;
-        List<ResolveInfo> queryIntentActivities;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, yq6Var)) == null) {
-            Intent intent = null;
-            try {
-                Intent parseUri = Intent.parseUri(str, 1);
-                if (parseUri == null) {
-                    if (yq6Var != null) {
-                        yq6Var.onFailed(-103);
-                    }
-                    return null;
-                }
-                String str3 = parseUri.getPackage();
-                if (str3 != null && !TextUtils.isEmpty(str3)) {
-                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    Set<String> categories = parseUri.getCategories();
-                    if (categories == null || categories.isEmpty()) {
-                        parseUri.addCategory("android.intent.category.LAUNCHER");
-                    }
-                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
-                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
-                    }
-                    return parseUri;
-                }
-                return context.getPackageManager().getLaunchIntentForPackage(str2);
-            } catch (URISyntaxException unused) {
-                if (!TextUtils.isEmpty(str2)) {
-                    intent = context.getPackageManager().getLaunchIntentForPackage(str2);
-                }
-                if (intent == null && yq6Var != null) {
-                    yq6Var.onFailed(-102);
-                }
-                return intent;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Intent) invokeLLLL.objValue;
+        this.a = new HashMap<>();
     }
 
-    public static boolean d(String str) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            Map<String, String> a = businessInfo.a();
+            HashMap<String, String> hashMap = this.a;
+            String str = a.get("has_customstate");
+            String str2 = "";
+            if (str == null) {
+                str = "";
             }
-            return str.startsWith("android-app:");
+            hashMap.put("obj_source", str);
+            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
+                HashMap<String, String> hashMap2 = this.a;
+                String str3 = a.get("customstate_name");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                hashMap2.put("obj_name", str3);
+            }
+            HashMap<String, String> hashMap3 = this.a;
+            String str4 = a.get("user_id");
+            if (str4 != null) {
+                str2 = str4;
+            }
+            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    public static boolean e(String str) {
+    public final zq6 b(String locate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (!str.startsWith("intent:") && !str.startsWith("#Intent;")) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            Intrinsics.checkNotNullParameter(locate, "locate");
+            this.a.put("obj_locate", locate);
+            return this;
         }
-        return invokeL.booleanValue;
+        return (zq6) invokeL.objValue;
+    }
+
+    public final zq6 d(String type) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            this.a.put("obj_type", type);
+            return this;
+        }
+        return (zq6) invokeL.objValue;
     }
 }

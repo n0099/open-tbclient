@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Rect;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class n52 extends b52 {
+public class n52 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public int e;
+    public int f;
 
     public n52() {
         Interceptable interceptable = $ic;
@@ -28,29 +33,37 @@ public class n52 extends b52 {
         }
     }
 
-    @Override // com.baidu.tieba.b52
-    public void a(c52 c52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.e42
+    public void a(f42 f42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) && this.a != null) {
-            int alpha = c52Var.b.getAlpha();
-            c52Var.c(c52Var.b);
-            canvas.drawRect(this.a, c52Var.b);
-            c52Var.b.setAlpha(alpha);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) {
+            if (f42Var.a() == 0) {
+                f42Var.b(canvas.save());
+            } else {
+                canvas.restoreToCount(f42Var.a());
+                f42Var.b(canvas.save());
+            }
+            Matrix matrix = new Matrix();
+            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
+            canvas.concat(matrix);
         }
     }
 
-    @Override // com.baidu.tieba.b52
+    @Override // com.baidu.tieba.e42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                if (jSONArray.length() == 4) {
-                    int g = mp3.g((float) jSONArray.optDouble(0));
-                    int g2 = mp3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, mp3.g((float) jSONArray.optDouble(2)) + g, mp3.g((float) jSONArray.optDouble(3)) + g2);
+                if (jSONArray.length() == 6) {
+                    this.a = (float) jSONArray.optDouble(0);
+                    this.b = (float) jSONArray.optDouble(1);
+                    this.c = (float) jSONArray.optDouble(2);
+                    this.d = (float) jSONArray.optDouble(3);
+                    this.e = po3.g((float) jSONArray.optDouble(4));
+                    this.f = po3.g((float) jSONArray.optDouble(5));
                 }
             } catch (Exception e) {
-                if (fs1.a) {
+                if (ir1.a) {
                     e.printStackTrace();
                 }
             }

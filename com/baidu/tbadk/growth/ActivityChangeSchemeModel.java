@@ -3,6 +3,7 @@ package com.baidu.tbadk.growth;
 import android.app.Activity;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -14,11 +15,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cn5;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.ol5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,17 +99,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    cn5.c(scheme);
+                    ol5.c(scheme);
                 } else if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    int a = y95.a();
-                    if (a != 2) {
-                        this.a.Y(a);
+                    int currentTabType = MainEntrance.getCurrentTabType();
+                    if (currentTabType != 2) {
+                        this.a.Q(currentTabType);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    cn5.c(scheme);
+                    ol5.c(scheme);
                 } else {
-                    this.a.X();
+                    this.a.P();
                 }
             }
         }
@@ -130,22 +130,22 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
         this.a = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
-        Z();
+        R();
         this.a.setTag(getUniqueId());
         this.a.setSelfListener(true);
         registerListener(this.a);
     }
 
-    public final void X() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = null;
             try {
-                Object invoke = h9.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(h9.f().b(), new Object[0]);
+                Object invoke = BdActivityStack.getInst().currentActivity().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(BdActivityStack.getInst().currentActivity(), new Object[0]);
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                cn5.b(str);
+                ol5.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -156,7 +156,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public static void Z() {
+    public static void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_DEEPLINK_SCHEME);
@@ -167,17 +167,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public final void Y(int i) {
+    public final void Q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                cn5.b("a025");
+                ol5.b("a025");
             } else if (i == 22) {
-                cn5.b("a088");
+                ol5.b("a088");
             } else if (i == 3) {
-                cn5.b("a079");
+                ol5.b("a079");
             } else if (i == 8) {
-                cn5.b("a011");
+                ol5.b("a011");
             }
         }
     }

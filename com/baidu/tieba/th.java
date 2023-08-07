@@ -1,65 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.log.NetLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class th {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "net_work_http_log";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448317881, "Lcom/baidu/tieba/th;")) == null) {
-            return;
+    public static Object a(Object obj, Field field) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, field)) == null) {
+            Object obj2 = null;
+            if (obj == null || field == null) {
+                return null;
+            }
+            boolean isAccessible = field.isAccessible();
+            try {
+                field.setAccessible(true);
+                obj2 = field.get(obj);
+                field.setAccessible(isAccessible);
+                return obj2;
+            } catch (Throwable unused) {
+                return obj2;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448317881, "Lcom/baidu/tieba/th;");
-        }
+        return invokeLL.objValue;
     }
 
-    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
-        String str3;
+    public static Field b(Class<?> cls, Class<?> cls2) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) != null) || !BdBaseApplication.getInst().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, cls2)) == null) {
+            if (cls == null) {
+                return null;
+            }
+            while (cls != Object.class) {
+                try {
+                    for (Field field : cls.getDeclaredFields()) {
+                        if (cls2.isAssignableFrom(field.getType())) {
+                            return field;
+                        }
+                    }
+                    continue;
+                } catch (Throwable unused) {
+                }
+                cls = cls.getSuperclass();
+            }
+            return null;
         }
-        eh statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-        statsItem.b("action", "network_monitor_a");
-        statsItem.b("cmd", String.valueOf(i));
-        statsItem.b("url", str2);
-        String str4 = "1";
-        if (z) {
-            str3 = "1";
-        } else {
-            str3 = "0";
+        return (Field) invokeLL.objValue;
+    }
+
+    public static List<Field> c(Object obj, Class<?> cls) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, cls)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Field field : obj.getClass().getDeclaredFields()) {
+                if (field.getType().isAssignableFrom(cls)) {
+                    arrayList.add(field);
+                }
+            }
+            return arrayList;
         }
-        statsItem.b("issuccess", str3);
-        if (!z2) {
-            str4 = "0";
-        }
-        statsItem.b("ishttp", str4);
-        statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, BdNetTypeUtil.getNetType());
-        statsItem.b("connt", String.valueOf(j));
-        statsItem.b("rwt", String.valueOf(j2));
-        statsItem.b("parset", String.valueOf(j3));
-        statsItem.b("fbt", String.valueOf(j4));
-        statsItem.b("abt", String.valueOf(j5));
-        statsItem.b("salno", String.valueOf(i2));
-        NetLog.getInstance().c(a, statsItem.toString());
-        BdStatisticsManager.getInstance().performance(str, statsItem);
+        return (List) invokeLL.objValue;
     }
 }

@@ -7,24 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.qx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RichTextLayout extends LinearLayout implements ry<t15>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements qx<q05>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -125,11 +125,11 @@ public class RichTextLayout extends LinearLayout implements ry<t15>, View.OnClic
                 return;
             }
         }
-        this.a = yi.l(TbadkCoreApplication.getInst()) - ((yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.e = false;
         this.g = false;
         this.d = context;
-        c();
+        b();
     }
 
     @Override // android.view.View.OnClickListener
@@ -162,9 +162,9 @@ public class RichTextLayout extends LinearLayout implements ry<t15>, View.OnClic
         }
     }
 
-    public final void c() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.richtext_normal_layout, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
@@ -176,19 +176,17 @@ public class RichTextLayout extends LinearLayout implements ry<t15>, View.OnClic
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: d */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: c */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) && t15Var != null && t15Var.getThreadData() != null) {
-            ThreadData threadData = t15Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) && q05Var != null && q05Var.getThreadData() != null) {
+            ThreadData threadData = q05Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
-                d85 d = d85.d(this.c);
-                d.D(R.string.F_X01);
-                d.C(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !t15Var.getThreadData().shouldShowBlockedState()) {
+                EMManager.from(this.c).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07);
+                if (!originalThreadInfo.m && !q05Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {

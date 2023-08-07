@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,11 +98,11 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int l = yi.l(this.mContext);
-            if (l >= 1080) {
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
+            if (equipmentWidth >= 1080) {
                 return 1080;
             }
-            if (l >= 720 && l < 1080) {
+            if (equipmentWidth >= 720 && equipmentWidth < 1080) {
                 return 720;
             }
             return 480;
@@ -115,8 +115,8 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ImageSize imageSize = new ImageSize();
-            imageSize.height = yi.j(this.mContext);
-            imageSize.width = yi.l(this.mContext);
+            imageSize.height = BdUtilHelper.getEquipmentHeight(this.mContext);
+            imageSize.width = BdUtilHelper.getEquipmentWidth(this.mContext);
             return imageSize;
         }
         return (ImageSize) invokeV.objValue;
@@ -244,16 +244,16 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int l = yi.l(this.mContext);
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
             int i = 240;
-            if (l < 240) {
-                i = l / 3;
-            } else if (l <= 320) {
+            if (equipmentWidth < 240) {
+                i = equipmentWidth / 3;
+            } else if (equipmentWidth <= 320) {
                 i = 80;
-            } else if (l <= 480) {
+            } else if (equipmentWidth <= 480) {
                 i = 160;
-            } else if (l > 720) {
-                i = l / 3;
+            } else if (equipmentWidth > 720) {
+                i = equipmentWidth / 3;
             }
             ImageSize imageSize = new ImageSize();
             imageSize.height = i;

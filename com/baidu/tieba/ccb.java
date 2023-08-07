@@ -1,55 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.yalog.LoggerManager;
 /* loaded from: classes5.dex */
 public class ccb {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile LoggerManager.c a;
+    public static dcb b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671367, "Lcom/baidu/tieba/ccb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947671367, "Lcom/baidu/tieba/ccb;");
+                return;
             }
-            sb.append("&");
-            sb.append("clientfrom=native");
-            sb.append("&");
-            sb.append("client=android");
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        b = new dcb();
     }
 
-    public static String b(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public static LoggerManager.c a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
-            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
-            }
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                sb.append("&");
-                sb.append(entry.getKey());
-                sb.append("=");
-                sb.append(entry.getValue());
-            }
-            return sb.toString();
+            return a;
         }
-        return (String) invokeLL.objValue;
+        return (LoggerManager.c) invokeV.objValue;
     }
 }

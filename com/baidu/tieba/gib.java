@@ -1,36 +1,99 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes6.dex */
-public class gib {
+public class gib implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static RippedAd a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
+    public gib() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            if (optJSONObject != null) {
-                str2 = optJSONObject.optString("appname");
-                str3 = optJSONObject.optString("pkg_name");
-                str = optJSONObject.optString("pkgurl");
-            } else {
-                str = null;
-                str2 = null;
-                str3 = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            RippedAd.Builder builder = new RippedAd.Builder();
-            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
-            return builder.build();
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1900686778:
+                    if (str.equals(FunAdType.JY_NATIVE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1743934314:
+                    if (str.equals(FunAdType.JY_SPLASH)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1659486968:
+                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -39027267:
+                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1872382491:
+                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return null;
+                            }
+                            return new jib(pid);
+                        }
+                        return new mib(pid);
+                    }
+                    return new hib(pid);
+                }
+                return new nib(pid);
+            }
+            return new kib(pid);
+        }
+        return (PidLoader) invokeL.objValue;
     }
 }

@@ -1,133 +1,84 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class gd implements xc {
+public class gd implements fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<?> a;
+    public Integer a;
 
-    public gd(SparseArray<?> sparseArray) {
+    public gd(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = sparseArray;
+        this.a = Integer.valueOf(i);
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object a(ge geVar) {
+    @Override // com.baidu.tieba.fd
+    public Object a(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
-            Object f = f(geVar);
-            if (f != null) {
-                if (f instanceof JSONObject) {
-                    return f.toString();
-                }
-                if (f instanceof JSONArray) {
-                    return f.toString();
-                }
-                return f;
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object b(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object c(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object d(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, geVar)) == null) {
-            Object f = f(geVar);
-            if (f != null && (f instanceof JSONObject)) {
-                return f.toString();
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object e(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, geVar)) == null) {
-            return d(geVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object f(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, geVar)) == null) {
-            Type[] b = geVar.b();
-            JSONObject jSONObject = new JSONObject();
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                int keyAt = this.a.keyAt(i);
-                Object obj = this.a.get(keyAt);
-                if (obj != null) {
-                    if (b != null && b.length >= 1) {
-                        Object f = je.a(obj).f(new ge(b[0]));
-                        if (f != null) {
-                            try {
-                                jSONObject.put(String.valueOf(keyAt), f);
-                            } catch (JSONException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
+            Class<?> a = vdVar.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return uh.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (this.a.byteValue() == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf((char) this.a.intValue());
+                                }
+                                return Double.valueOf(this.a.doubleValue());
                             }
+                            return Float.valueOf(this.a.floatValue());
                         }
-                    } else {
-                        Object f2 = je.a(obj).f(new ge(geVar.a()));
-                        if (f2 != null) {
-                            jSONObject.put(String.valueOf(keyAt), f2);
-                        }
+                        return Long.valueOf(this.a.longValue());
                     }
+                    return Integer.valueOf(this.a.intValue());
                 }
+                return Short.valueOf(this.a.shortValue());
             }
-            return jSONObject;
+            return Byte.valueOf(this.a.byteValue());
         }
         return invokeL.objValue;
     }

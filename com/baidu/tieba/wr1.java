@@ -1,44 +1,44 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wr1 extends ContentObserver {
+public class wr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wr1(yr1 yr1Var) {
-        super(null);
+    public static JSONObject a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yr1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("isEnded", z);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-        this.a = yr1Var;
+        return (JSONObject) invokeZ.objValue;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        yr1 yr1Var;
+    public static JSONObject b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (yr1Var = this.a) != null) {
-            yr1Var.b = yr1Var.a.a(0, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
+                jSONObject.put("errDes", l04.a(str));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

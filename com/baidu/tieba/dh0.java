@@ -1,59 +1,59 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.hh0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class dh0 extends fh0 {
+public class dh0 extends zi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static dh0 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public File d;
-    public Context e;
-    public Boolean f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947704413, "Lcom/baidu/tieba/dh0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947704413, "Lcom/baidu/tieba/dh0;");
-        }
+    @Override // com.baidu.tieba.zi0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NotificationCompat.CATEGORY_CALL : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a extends gt0<Map<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dh0 a;
+        public final /* synthetic */ vb1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ hj0 e;
+        public final /* synthetic */ dj0 f;
+        public final /* synthetic */ HashMap g;
+        public final /* synthetic */ String h;
+        public final /* synthetic */ dh0 i;
 
-        public a(dh0 dh0Var) {
+        public a(dh0 dh0Var, vb1 vb1Var, String str, Context context, String str2, hj0 hj0Var, dj0 dj0Var, HashMap hashMap, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dh0Var};
+                Object[] objArr = {dh0Var, vb1Var, str, context, str2, hj0Var, dj0Var, hashMap, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,15 +63,119 @@ public class dh0 extends fh0 {
                     return;
                 }
             }
-            this.a = dh0Var;
+            this.i = dh0Var;
+            this.a = vb1Var;
+            this.b = str;
+            this.c = context;
+            this.d = str2;
+            this.e = hj0Var;
+            this.f = dj0Var;
+            this.g = hashMap;
+            this.h = str3;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.et0
+        public void a(Exception exc, int i) {
+            int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dh0 dh0Var = this.a;
-                dh0Var.p(dh0Var.e);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                this.a.dismiss();
+                this.i.n("4", this.b);
+                boolean l = this.i.l(this.c, this.d, this.b);
+                dh0 dh0Var = this.i;
+                hj0 hj0Var = this.e;
+                dj0 dj0Var = this.f;
+                if (l) {
+                    i2 = 0;
+                } else {
+                    i2 = 1001;
+                }
+                dh0Var.c(hj0Var, dj0Var, i2, l);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft0
+        @Nullable
+        /* renamed from: f */
+        public Map<String, String> d(Headers headers, String str, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
+                return dh0.m(str);
+            }
+            return (Map) invokeLLI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft0
+        /* renamed from: e */
+        public void b(Headers headers, @Nullable Map<String, String> map, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, map, i) == null) {
+                this.a.dismiss();
+                int i2 = 0;
+                if (map == null) {
+                    this.i.n("8", this.b);
+                    boolean l = this.i.l(this.c, this.d, this.b);
+                    dh0 dh0Var = this.i;
+                    hj0 hj0Var = this.e;
+                    dj0 dj0Var = this.f;
+                    if (!l) {
+                        i2 = 1001;
+                    }
+                    dh0Var.c(hj0Var, dj0Var, i2, l);
+                    return;
+                }
+                String str = (String) c31.b(map, "virtualPhone");
+                if (TextUtils.isEmpty(str)) {
+                    this.i.n("5", this.b);
+                    boolean l2 = this.i.l(this.c, this.d, this.b);
+                    dh0 dh0Var2 = this.i;
+                    hj0 hj0Var2 = this.e;
+                    dj0 dj0Var2 = this.f;
+                    if (!l2) {
+                        i2 = 1001;
+                    }
+                    dh0Var2.c(hj0Var2, dj0Var2, i2, l2);
+                    return;
+                }
+                String str2 = (String) c31.b(map, "solutionId");
+                if (TextUtils.isEmpty(str2)) {
+                    this.i.n("6", this.b);
+                    boolean l3 = this.i.l(this.c, this.d, this.b);
+                    dh0 dh0Var3 = this.i;
+                    hj0 hj0Var3 = this.e;
+                    dj0 dj0Var3 = this.f;
+                    if (!l3) {
+                        i2 = 1001;
+                    }
+                    dh0Var3.c(hj0Var3, dj0Var3, i2, l3);
+                    return;
+                }
+                String str3 = (String) c31.b(this.g, "log_url");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                if (TextUtils.isEmpty(str3)) {
+                    this.i.n("3", this.b);
+                } else {
+                    this.i.n("7", this.b);
+                    String replaceAll = str3.replaceAll("\\__TIMESTAMP__", this.h).replaceAll("\\__VIRTUALPHONE__", str).replaceAll("\\__SOLUTIONID__", str2);
+                    nt0 nt0Var = new nt0();
+                    nt0Var.l(replaceAll);
+                    nt0Var.g(3000);
+                    nt0Var.c();
+                    us0.b().a().a(nt0Var, null);
+                }
+                boolean l4 = this.i.l(this.c, str, this.b);
+                dh0 dh0Var4 = this.i;
+                hj0 hj0Var4 = this.e;
+                dj0 dj0Var4 = this.f;
+                if (!l4) {
+                    i2 = 1001;
+                }
+                dh0Var4.c(hj0Var4, dj0Var4, i2, l4);
             }
         }
     }
@@ -80,196 +184,121 @@ public class dh0 extends fh0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = "arsource";
     }
 
-    public static synchronized void h() {
+    @Nullable
+    public static Map<String, String> m(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (dh0.class) {
-                if (g == null) {
-                    g = new dh0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            JSONArray optJSONArray = b31.c(str).optJSONArray("data");
+            if (optJSONArray == null || optJSONArray.length() <= 0 || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
+                return null;
+            }
+            hashMap.put("virtualPhone", optJSONObject.optString("virtualPhone"));
+            hashMap.put("solutionId", optJSONObject.optString("solutionId"));
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zi0
+    public boolean b(@NonNull Context context, @NonNull dj0 dj0Var, @Nullable Map<String, Object> map, @Nullable hj0 hj0Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dj0Var, map, hj0Var)) == null) {
+            super.b(context, dj0Var, map, hj0Var);
+            HashMap<String, String> d = dj0Var.d();
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String str2 = (String) c31.b(d, MigrateStatisticUtils.EXT_INFO);
+            String str3 = (String) c31.b(d, "phone");
+            int i = 0;
+            if (TextUtils.isEmpty(str3)) {
+                n("1", str2);
+                c(hj0Var, dj0Var, 202, false);
+                return true;
+            }
+            if (d.containsKey("type")) {
+                str = (String) c31.b(d, "type");
+            } else {
+                str = "0";
+            }
+            if (TextUtils.equals(str, "1")) {
+                String str4 = (String) c31.b(d, "number_url");
+                if (str4 == null) {
+                    str4 = "";
                 }
+                String str5 = str4;
+                if (TextUtils.isEmpty(str5)) {
+                    n("2", str2);
+                    boolean l = l(context, str3, str2);
+                    if (!l) {
+                        i = 1001;
+                    }
+                    c(hj0Var, dj0Var, i, l);
+                    return true;
+                }
+                vb1 vb1Var = new vb1(context);
+                vb1Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
+                vb1Var.c(false);
+                vb1Var.d(false);
+                z51.b(vb1Var);
+                a aVar = new a(this, vb1Var, str2, context, str3, hj0Var, dj0Var, d, valueOf);
+                String replaceAll = str5.replaceAll("\\__TIMESTAMP__", valueOf);
+                nt0 nt0Var = new nt0();
+                nt0Var.l(replaceAll);
+                nt0Var.g(3000);
+                nt0Var.c();
+                us0.b().a().a(nt0Var, aVar);
+            } else {
+                boolean l2 = l(context, str3, str2);
+                if (!l2) {
+                    i = 1001;
+                }
+                c(hj0Var, dj0Var, i, l2);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static final dh0 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (g == null) {
-                h();
-            }
-            return g;
-        }
-        return (dh0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fh0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return hg0.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Log.d("DuAr_AssetsLoader", str);
-        }
-    }
-
-    public final boolean i(Context context, String str, File file) {
+    public final boolean l(@NonNull Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, file)) == null) {
-            if (file.isDirectory()) {
-                gh0.b(file);
-            } else {
-                gh0.d(file);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            File file2 = new File(file + ".loading");
-            boolean a2 = new eh0(context).a(str, file2);
-            if (n()) {
-                q(a2 + " assetsToSD " + file2.getAbsolutePath());
+            if (z51.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
+                n("11", str2);
+                new rd1().p(context, str2, "makePhoneCall");
+                return true;
             }
-            if (a2) {
-                a2 = file2.renameTo(file);
-            }
-            if (n()) {
-                q(a2 + " renameTo " + file);
-            }
-            if (!a2) {
-                q("del temp ...");
-                gh0.b(file2);
-                if (file.exists()) {
-                    q("del " + file);
-                    gh0.b(file);
-                }
-            }
-            return a2;
+            n("9", str2);
+            return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public final File l() {
-        InterceptResult invokeV;
+    public final void n(@NonNull String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.d == null && hg0.g() != null && !TextUtils.isEmpty(ig0.a())) {
-                this.d = new File(ig0.a());
-            }
-            return this.d;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (File) invokeV.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public void m(Context context, String str, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, str, file) == null) {
-            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-            this.c = (String) Objects.requireNonNull(str);
-            this.d = (File) Objects.requireNonNull(file);
-            if (n()) {
-                q("init " + str + " to " + file.getAbsolutePath());
-            }
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Boolean bool = this.f;
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            String j = j();
-            File l = l();
-            boolean z = false;
-            if (n()) {
-                q(String.format("from %s to %s ", j, l));
-            }
-            String str2 = null;
-            if (l != null && l.exists() && l.isDirectory()) {
-                str = gh0.h(new File(l, "version"));
-            } else {
-                str = null;
-            }
-            if (!TextUtils.isEmpty(str)) {
-                str2 = gh0.g(this.e, j + "/version");
-            }
-            if (n()) {
-                q("assets=" + str2 + ", sdcard=" + str);
-            }
-            z = (TextUtils.isEmpty(str) || !TextUtils.equals(str, str2)) ? true : true;
-            this.f = Boolean.valueOf(!z);
-            return !z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void p(Context context) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            if (!o()) {
-                z = i(context, j(), l());
-            } else {
-                z = true;
-            }
-            if (z) {
-                this.f = null;
-                d(2);
-            }
-            if (n()) {
-                q("arVersion=" + hg0.h() + ", arVersionName=" + hg0.i());
-            }
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public void r(Context context, String str, File file, hh0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, file, aVar) == null) {
-            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-            this.c = (String) Objects.requireNonNull(str);
-            this.d = (File) Objects.requireNonNull(file);
-            if (n()) {
-                q("start " + str + " to " + file.getAbsolutePath());
-            }
-            super.e(aVar);
-        }
+        q31.e(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
     }
 }

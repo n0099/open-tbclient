@@ -1,59 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class bk0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bk0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "host.scheme");
+    public static final bk0 b = new a();
 
-    public abstract String a();
+    String a(String str);
 
-    public bk0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements bk0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    @CallSuper
-    public boolean b(@NonNull Context context, @NonNull fk0 fk0Var, @Nullable Map<String, Object> map, @Nullable jk0 jk0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fk0Var, map, jk0Var)) == null) {
-            o41.b((String) z31.b(fk0Var.d(), "charge_url"));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void c(jk0 jk0Var, @Nullable fk0 fk0Var, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jk0Var, fk0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            ok0.b(jk0Var, fk0Var, i, z);
-        }
-    }
-
-    public void d(jk0 jk0Var, @Nullable fk0 fk0Var, @Nullable String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{jk0Var, fk0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            ok0.c(jk0Var, fk0Var, str, i, z);
+        @Override // com.baidu.tieba.bk0
+        public String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return "nadcorevendor://vendor/ad/easybrowse?url=" + str + "&newbrowser=1";
+            }
+            return (String) invokeL.objValue;
         }
     }
 }

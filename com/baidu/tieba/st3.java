@@ -1,18 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class st3 extends ActivityDelegation implements hs1 {
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public class st3 implements vu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rr1 a;
+
+        public a(st3 st3Var, rr1 rr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {st3Var, rr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rr1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                Bundle bundle = delegateResult.mResult;
+                if (bundle == null) {
+                    this.a.a(0);
+                    return;
+                }
+                String string = bundle.getString("invoiceInfo");
+                if (TextUtils.isEmpty(string)) {
+                    this.a.a(0);
+                } else {
+                    this.a.b(yn3.d(string));
+                }
+            }
+        }
+    }
 
     public st3() {
         Interceptable interceptable = $ic;
@@ -28,35 +79,11 @@ public class st3 extends ActivityDelegation implements hs1 {
         }
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.vu2
+    public void a(Context context, String str, String str2, rr1 rr1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tt3.b();
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
-            intent.putExtras(this.mParams);
-            getAgent().startActivity(intent);
-            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100b3, 0);
-            tt3.c(this);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hs1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mResult.putInt("loginStatusCode", i);
-            c();
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, rr1Var) == null) && context != null && rr1Var != null) {
+            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, rt3.class, new a(this, rr1Var));
         }
     }
 }

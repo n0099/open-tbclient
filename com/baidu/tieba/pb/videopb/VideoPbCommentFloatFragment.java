@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.videopb;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fz6;
+import com.baidu.tieba.nw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public boolean U3() {
+    public boolean V3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -25,10 +25,10 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int t3() {
+    public int u3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d09d9 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d09e3 : invokeV.intValue;
     }
 
     public VideoPbCommentFloatFragment() {
@@ -46,19 +46,19 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public void S3() {
+    public void T3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.S3();
-            fz6 fz6Var = this.b0;
-            if (fz6Var != null) {
-                fz6Var.i(null);
+            super.T3();
+            nw6 nw6Var = this.b0;
+            if (nw6Var != null) {
+                nw6Var.i(null);
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int r3() {
+    public int s3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

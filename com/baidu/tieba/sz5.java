@@ -1,159 +1,151 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.util.gson.Holder;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.multidelmenu.model.MultiDelPostNetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmClassMappingKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Reflection;
-import kotlin.reflect.KClass;
-import kotlin.reflect.KClassifier;
-import kotlin.reflect.KParameter;
-import kotlin.reflect.full.KClasses;
-import kotlin.reflect.jvm.ReflectJvmMapping;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class sz5 {
+public class sz5 extends qz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, tz5> b;
+    public rz5 c;
+    public String d;
+    public String e;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ Object a(KParameter kParameter) {
-        return e(kParameter);
-    }
+    /* loaded from: classes8.dex */
+    public class a extends h9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sz5 a;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ KClass d(TypeToken typeToken) {
-        return h(typeToken);
-    }
-
-    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
-            Class<? super T> rawType = typeToken.getRawType();
-            if (rawType != null) {
-                return JvmClassMappingKt.getKotlinClass(rawType);
+        public a(sz5 sz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
+            this.a = sz5Var;
         }
-        return (KClass) invokeL.objValue;
-    }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
-        return f(kParameter, cls);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
-        return g(typeToken, kParameter);
-    }
-
-    public static final Object e(KParameter kParameter) {
-        InterceptResult invokeL;
-        KClass kClass;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
-            if (kParameter.getType().isMarkedNullable()) {
-                return null;
+        @Override // com.baidu.tieba.h9
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof vz5)) {
+                this.a.j((vz5) obj);
             }
-            KClassifier classifier = kParameter.getType().getClassifier();
-            if (classifier instanceof KClass) {
-                kClass = (KClass) classifier;
-            } else {
-                kClass = null;
-            }
-            if (kClass == null) {
-                return null;
-            }
-            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
-                    return "";
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
-                    return Boolean.FALSE;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
-                    return (byte) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
-                    return (char) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
-                    return Double.valueOf(0.0d);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
-                    return Float.valueOf(0.0f);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
-                    return 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
-                    return 0L;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
-                    return (short) 0;
-                }
-                return Holder.OBJECT;
-            }
-            return Holder.ARRAY;
         }
-        return invokeL.objValue;
     }
 
-    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
-        InterceptResult invokeLL;
-        Field field;
+    public sz5(rz5 rz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
-            String name = kParameter.getName();
-            if (name == null) {
-                return CollectionsKt__CollectionsKt.emptyList();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rz5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            SerializedName serializedName = null;
-            try {
-                field = cls.getDeclaredField(name);
-            } catch (NoSuchFieldException unused) {
-                field = null;
-            }
-            if (field != null) {
-                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
-            }
-            if (field != null && !Modifier.isTransient(field.getModifiers())) {
-                if (serializedName != null) {
-                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
-                }
-                return CollectionsKt__CollectionsJVMKt.listOf(name);
-            }
-            return CollectionsKt__CollectionsKt.emptyList();
         }
-        return (List) invokeLL.objValue;
+        this.b = new ArrayMap();
+        this.c = rz5Var;
     }
 
-    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.qz5
+    public rz5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
-            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
-            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
-            return resolveParameterType;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (TypeToken) invokeLL.objValue;
+        return (rz5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qz5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.qz5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MultiDelPostNetModel multiDelPostNetModel = new MultiDelPostNetModel();
+            uz5 uz5Var = new uz5();
+            for (tz5 tz5Var : this.b.values()) {
+                uz5Var.d(tz5Var.a());
+                uz5Var.e(tz5Var.c());
+                uz5Var.b(this.d);
+                uz5Var.c(this.e);
+                uz5Var.a(tz5Var.b());
+            }
+            multiDelPostNetModel.U(uz5Var);
+            multiDelPostNetModel.setLoadDataCallBack(new a(this));
+            multiDelPostNetModel.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.qz5
+    public void f(tz5 tz5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tz5Var) == null) && tz5Var != null && !TextUtils.isEmpty(tz5Var.b())) {
+            this.b.put(tz5Var.b(), tz5Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.qz5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.qz5
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.qz5
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.b.remove(str);
+        }
+    }
+
+    public void j(vz5 vz5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, vz5Var) == null) && d() != null) {
+            d().h(vz5Var);
+        }
     }
 }

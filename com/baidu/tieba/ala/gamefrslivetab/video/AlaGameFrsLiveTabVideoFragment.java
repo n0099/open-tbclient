@@ -8,21 +8,21 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.hj7;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.pg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements pg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -32,13 +32,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    public void K1(String str) {
+    public void L1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.gt5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.IPageStayDuration
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,12 +84,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
                 if (split.length != 2) {
                     return;
                 }
-                if ("FrsGameLive".equals(split[0]) && 8 == wg.e(split[1], 0)) {
+                if ("FrsGameLive".equals(split[0]) && 8 == JavaTypesHelper.toInt(split[1], 0)) {
                     if (this.a.d != null) {
-                        this.a.d.g();
+                        this.a.d.h();
                     }
-                } else if ("FrsGameLiveLive".equals(split[0]) && 3 == wg.e(split[1], 0) && this.a.d != null) {
-                    this.a.d.g();
+                } else if ("FrsGameLiveLive".equals(split[0]) && 3 == JavaTypesHelper.toInt(split[1], 0) && this.a.d != null) {
+                    this.a.d.h();
                 }
             }
         }
@@ -128,7 +128,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.I1().contains(str) || str.contains(this.a.I1())) {
+                if (this.a.J1().contains(str) || str.contains(this.a.J1())) {
                     this.a.d.hideLoadingView();
                 }
             }
@@ -154,14 +154,14 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
         this.f = new b(this, 2921023);
     }
 
-    public void J1(String str) {
+    public void K1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void L1(boolean z) {
+    public void M1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.a = z;
@@ -173,7 +173,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.d.y(this);
+            this.d.u(this);
             registerListener(this.f);
         }
     }
@@ -186,7 +186,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
             if (this.c) {
                 return;
             }
-            this.d.loadUrl(I1());
+            this.d.loadUrl(J1());
             this.d.onChangeSkinType(i);
         }
     }
@@ -200,14 +200,14 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
         }
     }
 
-    public String I1() {
+    public String J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String w = da5.p().w("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
-            if (w != null) {
-                StringBuilder sb = new StringBuilder(w);
-                if (w.endsWith("?")) {
+            String string = SharedPrefHelper.getInstance().getString("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            if (string != null) {
+                StringBuilder sb = new StringBuilder(string);
+                if (string.endsWith("?")) {
                     sb.append("fid=");
                     sb.append(this.b);
                 } else {
@@ -221,12 +221,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hj7
-    public NavigationBar n() {
+    @Override // com.baidu.tieba.pg7
+    public NavigationBar o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d.n();
+            return this.d.o();
         }
         return (NavigationBar) invokeV.objValue;
     }
@@ -261,7 +261,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
             if (this.c || StringUtils.isNull(this.d.getUrl())) {
-                this.d.loadUrl(I1());
+                this.d.loadUrl(J1());
                 this.c = false;
             }
         }
@@ -284,12 +284,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hj7 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (nx4.b(I1())) {
+            if (BrowserHelper.allowedUseNewWebContainer(J1())) {
                 this.d = new NewAlaGameFrsLiveTabVideoView(this.a);
             } else {
                 this.d = new AlaGameFrsLiveTabVideoView(this.a);
             }
-            return this.d.L(layoutInflater, viewGroup);
+            return this.d.G(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }

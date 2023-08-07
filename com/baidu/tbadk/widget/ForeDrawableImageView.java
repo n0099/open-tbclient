@@ -11,19 +11,19 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.a15;
+import com.baidu.tieba.b05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForeDrawableImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint A0;
-    public Drawable x0;
-    public String y0;
-    public int z0;
+    public Drawable a;
+    public String b;
+    public int c;
+    public Paint d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForeDrawableImageView(Context context) {
@@ -43,7 +43,7 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.A0 = new Paint();
+        this.d = new Paint();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,7 +65,7 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.A0 = new Paint();
+        this.d = new Paint();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -87,13 +87,13 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.A0 = new Paint();
+        this.d = new Paint();
     }
 
-    public final void T(Canvas canvas, int i, int i2) {
+    public final void c(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) && !StringUtils.isNull(this.y0) && !a15.c().g()) {
-            canvas.drawText(this.y0, (int) (i - (this.A0.measureText(this.y0) / 2.0f)), i2 + this.z0, this.A0);
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) && !StringUtils.isNull(this.b) && !b05.c().g()) {
+            canvas.drawText(this.b, (int) (i - (this.d.measureText(this.b) / 2.0f)), i2 + this.c, this.d);
         }
     }
 
@@ -102,8 +102,8 @@ public class ForeDrawableImageView extends TbImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.drawableStateChanged();
-            Drawable drawable = this.x0;
-            if (drawable != null && drawable.isStateful() && this.x0.setState(getDrawableState())) {
+            Drawable drawable = this.a;
+            if (drawable != null && drawable.isStateful() && this.a.setState(getDrawableState())) {
                 invalidate();
             }
         }
@@ -114,7 +114,7 @@ public class ForeDrawableImageView extends TbImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.x0 != null) {
+            if (this.a != null) {
                 canvas.save();
                 ViewParent parent = getParent();
                 int i = 0;
@@ -125,15 +125,15 @@ public class ForeDrawableImageView extends TbImageView {
                 if (width <= i) {
                     i = width;
                 }
-                int intrinsicWidth = this.x0.getIntrinsicWidth();
-                int intrinsicHeight = this.x0.getIntrinsicHeight();
+                int intrinsicWidth = this.a.getIntrinsicWidth();
+                int intrinsicHeight = this.a.getIntrinsicHeight();
                 int i2 = intrinsicWidth / 2;
                 int i3 = (i / 2) - i2;
                 int height = (getHeight() / 2) - (intrinsicHeight / 2);
                 canvas.translate(i3, height);
-                this.x0.draw(canvas);
+                this.a.draw(canvas);
                 canvas.restore();
-                T(canvas, i3 + i2, height + intrinsicHeight);
+                c(canvas, i3 + i2, height + intrinsicHeight);
             }
         }
     }
@@ -148,37 +148,37 @@ public class ForeDrawableImageView extends TbImageView {
     public void setNoImageBottomText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.y0 = str;
+            this.b = str;
         }
     }
 
     public void setNoImageBottomTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.A0.setColor(SkinManager.getColor(i));
+            this.d.setColor(SkinManager.getColor(i));
         }
     }
 
     public void setNoImageBottomTextPadding(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.z0 = i;
+            this.c = i;
         }
     }
 
     public void setNoImageBottomTextSize(float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) && f > 0.0f) {
-            this.A0.setTextSize(f);
+            this.d.setTextSize(f);
         }
     }
 
     public void setForegroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.x0 = drawable;
+            this.a = drawable;
             if (drawable != null) {
-                drawable.setBounds(0, 0, drawable.getIntrinsicHeight(), this.x0.getMinimumWidth());
+                drawable.setBounds(0, 0, drawable.getIntrinsicHeight(), this.a.getMinimumWidth());
             }
             invalidate();
         }

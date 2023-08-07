@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class c43 {
+public final class c43 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile b43 a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized b43 a() {
-        InterceptResult invokeV;
-        b43 b43Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (c43.class) {
-                if (a == null) {
-                    a = new b43();
-                }
-                b43Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624743, "Lcom/baidu/tieba/c43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return b43Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624743, "Lcom/baidu/tieba/c43;");
+                return;
+            }
         }
-        return (b43) invokeV.objValue;
+        a = ir1.a;
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, str2);
+        }
     }
 }

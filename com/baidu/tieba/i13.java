@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,14 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public abstract class i13 {
+public class i13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(d13 d13Var, f13 f13Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var);
+    public String a;
+    public String b;
+    public boolean c;
+    public int d;
+    public long e;
+    public long f;
+    public int g;
+    public Rect h;
+    public boolean i;
 
     static {
         InterceptResult invokeClinit;
@@ -38,66 +40,96 @@ public abstract class i13 {
                 return;
             }
         }
-        a = fs1.a;
+        j = ya3.v;
     }
 
-    public i13(@NonNull String str) {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = 2;
+        }
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
+            }
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = 1;
+        }
+    }
+
+    public i13(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.g = 0;
+        this.a = str;
+        this.b = str2;
+        this.e = System.currentTimeMillis();
+        this.f = j2;
+        this.d = 0;
+        this.i = z;
     }
 
-    @Nullable
-    public d13 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        ty2 f;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3) || (f = uy2.f(str, str2, str3)) == null || !(f.i() instanceof d13)) {
-                return null;
-            }
-            return (d13) f.i();
-        }
-        return (d13) invokeLLLLL.objValue;
-    }
-
-    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (a) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                v82.c("vrvideo", "param is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            d13 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("sanId"), optParamsAsJo.optString("videoId"), optParamsAsJo);
-            if (b != null && context != null) {
-                f13 h = f13.h(optParamsAsJo, b.d());
-                if (!h.isValid()) {
-                    v82.c("vrvideo", "param is invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
+                if (j) {
+                    Log.d("SwanAppPageMonitor", "pause, left " + this.f + "ms");
                 }
-                return a(b, h, context, unitedSchemeEntity, callbackHandler, vb3Var);
             }
-            v82.c("vrvideo", "player id is invalid or context is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void f(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
+            new WeakReference(bitmap);
+        }
     }
 }

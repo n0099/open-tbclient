@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -13,7 +14,6 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalNavBinding;
 import com.baidu.tieba.impersonal.slices.ChatNavSlice;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public final class ChatNavSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            FragmentActivity activity = this$0.E().getActivity();
+            FragmentActivity activity = this$0.F().getActivity();
             if (activity != null) {
                 activity.finish();
             }
@@ -54,7 +54,7 @@ public final class ChatNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View O(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -80,11 +80,11 @@ public final class ChatNavSlice extends Slice {
             }
             NavigationBar navigationBar = slicePersonalNavBinding.b;
             ImageView imageView = new ImageView(navigationBar.getContext());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(yi.g(imageView.getContext(), R.dimen.tbds104), yi.g(imageView.getContext(), R.dimen.tbds104));
-            marginLayoutParams.setMargins(yi.g(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(BdUtilHelper.getDimens(imageView.getContext(), R.dimen.tbds104), BdUtilHelper.getDimens(imageView.getContext(), R.dimen.tbds104));
+            marginLayoutParams.setMargins(BdUtilHelper.getDimens(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
             imageView.setLayoutParams(marginLayoutParams);
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_topbar_return40_svg, imageView.getContext().getResources().getColor(R.color.CAM_X0105), null));
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.rw8
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.nu8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

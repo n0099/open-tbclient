@@ -1,165 +1,176 @@
 package com.baidu.tieba;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gg9 implements View.OnTouchListener, GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
-    public static /* synthetic */ Interceptable $ic;
+public class gg9 extends j06 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double O = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
-    public GestureDetector a;
-    public a b;
-    public View c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947793104, "Lcom/baidu/tieba/gg9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947793104, "Lcom/baidu/tieba/gg9;");
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public interface a {
-        boolean a(View view2, MotionEvent motionEvent);
+    public class a implements TbImageView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gg9 a;
 
-        boolean b(View view2, MotionEvent motionEvent);
-
-        boolean c(View view2, MotionEvent motionEvent);
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            return false;
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
         }
-        return invokeL.booleanValue;
-    }
 
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
+        public a(gg9 gg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gg9Var;
         }
-        return invokeCommon.booleanValue;
-    }
 
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            int i2;
+            float f;
+            float f2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                Matrix imageMatrix = tbImageView.getImageMatrix();
+                if (this.a.u) {
+                    i = 17;
+                } else {
+                    i = 18;
+                }
+                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (D != null) {
+                    i3 = D.getWidth();
+                    i2 = D.getHeight();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    if (i3 * height > width * i2) {
+                        f = height;
+                        f2 = i2;
+                    } else {
+                        f = width;
+                        f2 = i3;
+                    }
+                    float f3 = f / f2;
+                    imageMatrix.setScale(f3, f3);
+                    imageMatrix.postTranslate(0.0f, 0.0f);
+                }
+            }
         }
     }
 
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public gg9(a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gg9(j06 j06Var) {
+        super(j06Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {j06Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((j06) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = aVar;
-        this.a = new GestureDetector(TbadkCoreApplication.getInst(), this);
+        l(true);
+        v();
+        p(TbConfig.getPostLineSpace(), 1.0f);
+        A(0);
+        m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        t(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.J = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.K = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.M = new a(this);
     }
 
-    public void a(View view2) {
+    @Override // com.baidu.tieba.j06
+    public int[] f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = view2;
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.c(this.c, motionEvent);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
+                if (this.v) {
+                    float f = j06.N;
+                    if (f > 1.0f) {
+                        float f2 = i;
+                        if (f2 * f <= i3 * O) {
+                            i3 = (int) (f2 * f);
+                        }
+                        i2 = (i2 * i3) / i;
+                        if (i2 > 4096) {
+                            this.s = ImageView.ScaleType.MATRIX;
+                            i = i3;
+                            i2 = 4096;
+                        } else {
+                            this.s = ImageView.ScaleType.CENTER_CROP;
+                            i = i3;
+                        }
+                    }
+                }
+                return new int[]{i, i2};
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.a(this.c, motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.b(this.c, motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
-            this.c = view2;
-            GestureDetector gestureDetector = this.a;
-            if (gestureDetector != null) {
-                return gestureDetector.onTouchEvent(motionEvent);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
+        return (int[]) invokeIIII.objValue;
     }
 }

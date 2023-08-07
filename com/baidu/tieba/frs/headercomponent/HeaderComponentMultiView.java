@@ -10,12 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wp7;
-import com.baidu.tieba.xp7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.en7;
+import com.baidu.tieba.fn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes5.dex */
-public class HeaderComponentMultiView extends FrameLayout implements xp7 {
+public class HeaderComponentMultiView extends FrameLayout implements fn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements xp7 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.xp7
+    @Override // com.baidu.tieba.fn7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class HeaderComponentMultiView extends FrameLayout implements xp7 {
             }
         }
         this.c = new ArrayList();
-        c();
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,7 +82,7 @@ public class HeaderComponentMultiView extends FrameLayout implements xp7 {
             }
         }
         this.c = new ArrayList();
-        c();
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -105,44 +105,44 @@ public class HeaderComponentMultiView extends FrameLayout implements xp7 {
             }
         }
         this.c = new ArrayList();
-        c();
+        b();
     }
 
-    @Override // com.baidu.tieba.xp7
-    public void a(List<LiveFuseForumData> list, wp7 wp7Var) {
+    @Override // com.baidu.tieba.fn7
+    public void a(List<LiveFuseForumData> list, en7 en7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, wp7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, en7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.n(wp7Var);
+        this.d.n(en7Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.xp7
-    public void b() {
-        HeaderComponentMultiAdapter headerComponentMultiAdapter;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
-            headerComponentMultiAdapter.b();
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int l = yi.l(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0364, (ViewGroup) null);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0367, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090780);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09078f);
             this.b = recyclerView;
-            recyclerView.getLayoutParams().width = l;
+            recyclerView.getLayoutParams().width = equipmentWidth;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
             HeaderComponentMultiAdapter headerComponentMultiAdapter = new HeaderComponentMultiAdapter(getContext(), this.c);
             this.d = headerComponentMultiAdapter;
             this.b.setAdapter(headerComponentMultiAdapter);
+        }
+    }
+
+    @Override // com.baidu.tieba.fn7
+    public void c() {
+        HeaderComponentMultiAdapter headerComponentMultiAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
+            headerComponentMultiAdapter.c();
         }
     }
 }

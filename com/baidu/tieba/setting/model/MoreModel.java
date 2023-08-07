@@ -1,9 +1,9 @@
 package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.l9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +116,7 @@ public class MoreModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -130,7 +130,7 @@ public class MoreModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData V() {
+    public PersonChangeData N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -139,7 +139,7 @@ public class MoreModel extends BdBaseModel {
         return (PersonChangeData) invokeV.objValue;
     }
 
-    public boolean W() {
+    public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -148,14 +148,14 @@ public class MoreModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void X(PersonChangeData personChangeData) {
+    public void P(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personChangeData) == null) {
             this.a = personChangeData;
         }
     }
 
-    public void Y(boolean z) {
+    public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.b = z;

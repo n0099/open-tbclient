@@ -3,46 +3,79 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Map;
+import kotlin.TypeCastException;
+import kotlin.Unit;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.io.CloseableKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hu {
+public final class hu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final Map<String, Object> a(byte[] bArr) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr.length == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            return sb.toString();
+            if (z) {
+                return MapsKt__MapsKt.emptyMap();
+            }
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                Object readObject = objectInputStream.readObject();
+                if (readObject != null) {
+                    Map<String, Object> map = (Map) readObject;
+                    CloseableKt.closeFinally(objectInputStream, null);
+                    CloseableKt.closeFinally(byteArrayInputStream, null);
+                    return map;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
+            } catch (Throwable th) {
+                try {
+                    throw th;
+                } catch (Throwable th2) {
+                    CloseableKt.closeFinally(byteArrayInputStream, th);
+                    throw th2;
+                }
+            }
         }
-        return (String) invokeLLZ.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final byte[] b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                bArr = messageDigest.digest();
-            } catch (Exception unused) {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(map);
+                Unit unit = Unit.INSTANCE;
+                CloseableKt.closeFinally(objectOutputStream, null);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
+                CloseableKt.closeFinally(byteArrayOutputStream, null);
+                Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
+                return byteArray;
+            } finally {
             }
-            return a(bArr, "", z);
+        } else {
+            return (byte[]) invokeL.objValue;
         }
-        return (String) invokeLZ.objValue;
     }
 }

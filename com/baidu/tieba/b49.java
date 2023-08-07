@@ -1,40 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b49 extends pl1<AbConfigService> {
+public class b49 extends xh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b49() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b49(Context context) {
+        super(context, context.getString(R.string.editor_privilege), 12);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = R.drawable.icon_pure_post_bubble24;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.r = R.drawable.icon_pure_pic_vip64;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        CommonTabHost commonTabHost = new CommonTabHost(context);
+        this.m = commonTabHost;
+        commonTabHost.h(new a49());
+        this.n = 6;
+        this.p = new int[]{1};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public AbConfigService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.xh5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new c49();
+            TiebaStatic.log(new StatisticItem("c15104").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            return super.a();
         }
-        return (AbConfigService) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

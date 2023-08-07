@@ -1,70 +1,170 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.tieba.ik3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class e74 implements lj2 {
+public class e74 extends ge2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static String a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (TextUtils.isEmpty(a)) {
-                    a = vn3.b();
-                }
-                return a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public e74() {
+    @Override // com.baidu.tieba.ge2
+    public int U() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.lj2
-    public String getUserAgent() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947687239, "Lcom/baidu/tieba/e74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947687239, "Lcom/baidu/tieba/e74;");
+                return;
+            }
+        }
+        k = ir1.a;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public PMSDownloadType V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.a();
+            return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
+        }
+        return (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return qe2.f();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lj2
-    public dj2 a(String str, ak2 ak2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ge2
+    public String X() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, ak2Var, v8ThreadDelegatePolicy)) == null) {
-            return new f74(str, ak2Var, v8ThreadDelegatePolicy);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return qe2.e();
         }
-        return (dj2) invokeLLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e74(rp3<Exception> rp3Var) {
+        super(rp3Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rp3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((rp3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public rm3 b0(tj4 tj4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tj4Var)) == null) {
+            if (tj4Var == null) {
+                rm3 rm3Var = new rm3();
+                rm3Var.k(14L);
+                rm3Var.b(2908L);
+                rm3Var.d("小游戏Extension包 Extension null");
+                return rm3Var;
+            }
+            em2 em2Var = new em2();
+            em2Var.b = tj4Var.i;
+            em2Var.a = tj4Var.j;
+            em2Var.c = tj4Var.a;
+            em2Var.d = tj4Var.m;
+            boolean z = true;
+            if (hl2.b(1, em2Var) != null) {
+                z = false;
+            }
+            if (z) {
+                if (k) {
+                    Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
+                    return null;
+                }
+                return null;
+            }
+            rm3 rm3Var2 = new rm3();
+            rm3Var2.k(14L);
+            rm3Var2.b(2908L);
+            rm3Var2.d("小游戏Extension包更新失败");
+            return rm3Var2;
+        }
+        return (rm3) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public rm3 c0(vj4 vj4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vj4Var)) == null) {
+            if (k) {
+                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + vj4Var);
+            }
+            if (vj4Var == null) {
+                rm3 rm3Var = new rm3();
+                rm3Var.k(13L);
+                rm3Var.b(2907L);
+                rm3Var.d("小游戏GameCore包 Framework null");
+                return rm3Var;
+            }
+            ik3.b c = ik3.c(vj4Var, 1);
+            cr4.k(vj4Var.a);
+            if (c.c()) {
+                if (k) {
+                    Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");
+                }
+                long e = ik3.e(1);
+                if (e > 0) {
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(117, e);
+                    return null;
+                }
+                return null;
+            }
+            rm3 rm3Var2 = new rm3();
+            rm3Var2.k(13L);
+            rm3Var2.b(2907L);
+            rm3Var2.d("小游戏GameCore包更新失败");
+            return rm3Var2;
+        }
+        return (rm3) invokeL.objValue;
     }
 }

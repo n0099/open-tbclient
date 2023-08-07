@@ -1,34 +1,34 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.WebView;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* compiled from: JsPromptInterface.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class hn6 {
+public abstract class hn6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String mBottomLink;
+    public String mBottomText;
+    public String mGroupTitle;
+    public int mRightIconResId;
+    public boolean showBottomDivider;
+    public boolean showTopDivider;
 
-    public static void b(in6 in6Var) {
+    public hn6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, in6Var) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-    }
-
-    public static void a(in6 in6Var, WebView webView, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, in6Var, webView, str, jSONObject) != null) || webView == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
-        StringBuilder sb = new StringBuilder();
-        sb.append("javascript 执行成功:");
-        sb.append(str);
-        sb.append(" 耗时：");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        Log.i("newHybrid", sb.toString());
+        this.showBottomDivider = true;
     }
 }

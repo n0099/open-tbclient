@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class im9 extends PbListView {
+public class im9 extends j95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> F;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public im9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,37 +24,21 @@ public class im9 extends PbListView {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.F = tbPageContext;
-        x(false);
-        c().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416));
-        D();
-        C();
-        z();
-        L(R.dimen.tbfontsize33);
     }
 
-    public void V() {
+    @Override // com.baidu.tieba.i95, com.baidu.tieba.nm
+    public View i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.g();
-            H(this.F.getResources().getString(R.string.load_more));
-            c().setVisibility(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.i();
         }
-    }
-
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.g();
-            H(this.F.getResources().getString(R.string.sub_pb_list_no_more));
-            c().setVisibility(0);
-        }
+        return (View) invokeV.objValue;
     }
 }

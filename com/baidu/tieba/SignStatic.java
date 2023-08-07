@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
@@ -103,7 +104,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!xi.isEmpty(postNetData)) {
+                                } else if (!bi.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -227,14 +228,14 @@ public class SignStatic {
     }
 
     public static void a(NetWork netWork) {
-        Address j;
+        Address address;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = sf.n().j(false)) != null) {
-                locationLng = String.valueOf(j.getLongitude());
-                locationLat = String.valueOf(j.getLatitude());
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (address = BdLocationMananger.getInstance().getAddress(false)) != null) {
+                locationLng = String.valueOf(address.getLongitude());
+                locationLat = String.valueOf(address.getLatitude());
             }
             if (!TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
                 netWork.addPostData("location", locationLng + "," + locationLat);

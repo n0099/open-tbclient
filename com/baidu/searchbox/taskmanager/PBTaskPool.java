@@ -64,6 +64,7 @@ import com.baidu.searchbox.task.sync.appcreate.InitVersionTask;
 import com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask;
 import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
+import com.baidu.searchbox.task.view.appcreate.InitMonitorTask;
 import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
@@ -141,6 +142,7 @@ public class PBTaskPool extends BaseTaskPool {
             arrayList.add(new InitEmotionsTask());
             arrayList.add(new InitDiskStatTask());
             arrayList.add(new InitFlutterNpsPluginTask());
+            arrayList.add(new InitMonitorTask());
         }
         return arrayList;
     }

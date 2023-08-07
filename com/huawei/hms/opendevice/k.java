@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dqb;
+import com.baidu.tieba.gpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,27 +49,27 @@ public class k extends TaskApiCall<PushClient, Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
     /* renamed from: a */
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, dqb<Void> dqbVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, gpb<Void> gpbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, dqbVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, gpbVar) == null) {
             if (responseErrorCode.getErrorCode() != 0) {
                 String str2 = HmsInstanceId.TAG;
                 HMSLog.e(str2, "DeleteTokenTask failed, ErrorCode: " + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    dqbVar.c(fromCode.toApiException());
+                    gpbVar.c(fromCode.toApiException());
                     return;
                 } else {
-                    dqbVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    gpbVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                     return;
                 }
             }
             ErrorEnum fromCode2 = ErrorEnum.fromCode(((DeleteTokenResp) JsonUtil.jsonToEntity(str, new DeleteTokenResp())).getRetCode());
             if (fromCode2 != ErrorEnum.SUCCESS) {
-                dqbVar.c(fromCode2.toApiException());
+                gpbVar.c(fromCode2.toApiException());
                 return;
             }
-            dqbVar.setResult(null);
+            gpbVar.setResult(null);
             q.a(pushClient.getContext(), getUri(), responseErrorCode);
         }
     }

@@ -1,78 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.eu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fu9 implements Runnable {
+public class fu9 extends eu9.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public pu9 e;
+    public final int d;
+    public final String e;
 
-    public fu9(pu9 pu9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fu9(int i, String str, int i2, String str2) {
+        super(i, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pu9Var};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.e = pu9Var;
+        this.d = i2;
+        this.e = str2;
     }
 
-    public void a(int i) {
+    @Override // com.baidu.tieba.eu9.b, com.baidu.tieba.eu9
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject a = super.a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (this.d != -4399) {
+                    jSONObject.put("code", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    jSONObject.put("msg", this.e);
+                }
+                a.put("ext", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return a;
         }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        pu9 pu9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (pu9Var = this.e) == null) {
-            return;
-        }
-        if (!this.d) {
-            pu9Var.m(this.b, this.c, this.a, 2);
-        } else {
-            pu9Var.m(this.b, this.c, this.a, 1);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,91 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public interface ywa {
-    void A();
-
-    void C();
-
-    void D(zi5 zi5Var);
-
-    void E();
-
-    LinkedList<bc5> F();
-
-    void b(boolean z);
-
-    void c(String str);
-
-    void d();
-
-    void e(int i, boolean z);
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean i();
-
-    void j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    boolean onBackPressed();
-
-    void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void onStart();
-
-    void onStop();
-
-    void p(boolean z);
-
-    void r();
-
-    void s();
-
+public class ywa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    PermissionJudgePolicy t();
+    public final EditorTools a;
+    public final Map<Integer, axa> b;
 
-    void u();
+    public ywa(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new HashMap();
+        this.a = editorTools;
+    }
 
-    void v();
+    public void b(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
+            for (int i : iArr) {
+                if (this.b.containsKey(Integer.valueOf(i))) {
+                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
+                }
+            }
+        }
+    }
 
-    void w();
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry<Integer, axa> entry : this.b.entrySet()) {
+                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
+            }
+        }
+    }
 
-    void x(int[] iArr);
-
-    void y(boolean z);
-
-    void z(zi5 zi5Var);
+    public void c(int i, @NonNull axa axaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, axaVar) != null) || this.b.containsKey(Integer.valueOf(i))) {
+            return;
+        }
+        this.b.put(Integer.valueOf(i), axaVar);
+    }
 }

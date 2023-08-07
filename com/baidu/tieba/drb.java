@@ -1,210 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.cert.CertificateParsingException;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Pattern;
-import javax.net.ssl.SSLException;
-import okhttp3.CertificatePinner;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.opensource.svgaplayer.proto.AudioEntity;
 /* loaded from: classes5.dex */
-public class drb {
+public final class drb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public Integer c;
+    public Integer d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715573, "Lcom/baidu/tieba/drb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715573, "Lcom/baidu/tieba/drb;");
+    public drb(AudioEntity audioEntity) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {audioEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
-        String[] strArr = {"ac", "co", FkApkInfoSearchRequestKt.PARAMS_KEY_COM, Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        b = strArr;
-        Arrays.sort(strArr);
-    }
-
-    public static final void a(String str, X509Certificate x509Certificate, boolean z) throws SSLException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, x509Certificate, z) == null) {
-            String[] d = d(x509Certificate);
-            String[] f = f(x509Certificate);
-            jrb.b("", "cn is : " + Arrays.toString(d));
-            jrb.b("", "san is : " + Arrays.toString(f));
-            b(str, d, f, z);
+        String str = audioEntity.audioKey;
+        Integer num = audioEntity.startFrame;
+        if (num != null) {
+            i = num.intValue();
+        } else {
+            i = 0;
+        }
+        this.a = i;
+        Integer num2 = audioEntity.endFrame;
+        this.b = num2 != null ? num2.intValue() : 0;
+        Integer num3 = audioEntity.startTime;
+        if (num3 != null) {
+            num3.intValue();
+        }
+        Integer num4 = audioEntity.totalTime;
+        if (num4 != null) {
+            num4.intValue();
         }
     }
 
-    public static final void b(String str, String[] strArr, String[] strArr2, boolean z) throws SSLException {
-        boolean z2;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, strArr, strArr2, Boolean.valueOf(z)}) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (strArr != null && strArr.length > 0 && strArr[0] != null) {
-                linkedList.add(strArr[0]);
-            }
-            if (strArr2 != null) {
-                for (String str2 : strArr2) {
-                    if (str2 != null) {
-                        linkedList.add(str2);
-                    }
-                }
-            }
-            if (!linkedList.isEmpty()) {
-                StringBuffer stringBuffer = new StringBuffer();
-                String lowerCase = str.trim().toLowerCase(Locale.ENGLISH);
-                Iterator it = linkedList.iterator();
-                boolean z3 = false;
-                while (it.hasNext()) {
-                    String lowerCase2 = ((String) it.next()).toLowerCase(Locale.ENGLISH);
-                    stringBuffer.append(" <");
-                    stringBuffer.append(lowerCase2);
-                    stringBuffer.append('>');
-                    if (it.hasNext()) {
-                        stringBuffer.append(" OR");
-                    }
-                    if (lowerCase2.startsWith(CertificatePinner.Pin.WILDCARD) && lowerCase2.indexOf(46, 2) != -1 && c(lowerCase2) && !g(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        boolean endsWith = lowerCase.endsWith(lowerCase2.substring(1));
-                        if (endsWith && z) {
-                            if (e(lowerCase) == e(lowerCase2)) {
-                                z3 = true;
-                                continue;
-                            } else {
-                                z3 = false;
-                                continue;
-                            }
-                        } else {
-                            z3 = endsWith;
-                            continue;
-                        }
-                    } else {
-                        z3 = lowerCase.equals(lowerCase2);
-                        continue;
-                    }
-                    if (z3) {
-                        break;
-                    }
-                }
-                if (z3) {
-                    return;
-                }
-                throw new SSLException("hostname in certificate didn't match: <" + str + "> !=" + ((Object) stringBuffer));
-            }
-            throw new SSLException("Certificate for <" + str + "> doesn't contain CN or DNS subjectAlt");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Integer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final Integer c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
+            this.d = num;
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public final void f(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = str.length();
-            if (length < 7 || length > 9) {
-                return true;
-            }
-            int i = length - 3;
-            if (str.charAt(i) != '.') {
-                return true;
-            }
-            if (Arrays.binarySearch(b, str.substring(2, i)) < 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
+            this.c = num;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] d(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
-            List<String> d = new crb(x509Certificate.getSubjectX500Principal()).d("cn");
-            if (!d.isEmpty()) {
-                String[] strArr = new String[d.size()];
-                d.toArray(strArr);
-                return strArr;
-            }
-            return null;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (str.charAt(i2) == '.') {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return a.matcher(str).matches();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] f(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
-        Collection<List<?>> collection;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x509Certificate)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                collection = x509Certificate.getSubjectAlternativeNames();
-            } catch (CertificateParsingException e) {
-                jrb.c("", "Error parsing certificate.", e);
-                collection = null;
-            }
-            if (collection != null) {
-                for (List<?> list : collection) {
-                    if (((Integer) list.get(0)).intValue() == 2) {
-                        linkedList.add((String) list.get(1));
-                    }
-                }
-            }
-            if (linkedList.isEmpty()) {
-                return null;
-            }
-            String[] strArr = new String[linkedList.size()];
-            linkedList.toArray(strArr);
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
     }
 }

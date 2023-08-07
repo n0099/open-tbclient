@@ -86,9 +86,9 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05e9, this);
-            this.a = (CompressProgressView) findViewById(R.id.obfuscated_res_0x7f090788);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090787);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ee, this);
+            this.a = (CompressProgressView) findViewById(R.id.obfuscated_res_0x7f090797);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090796);
         }
     }
 

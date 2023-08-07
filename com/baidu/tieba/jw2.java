@@ -1,64 +1,114 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.kw2;
 /* loaded from: classes6.dex */
-public class jw2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final kw2[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jw2 extends kw2.b {
+    gx1 A(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897636, "Lcom/baidu/tieba/jw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947897636, "Lcom/baidu/tieba/jw2;");
-                return;
-            }
-        }
-        a = new kw2[]{new hw2(), new iw2()};
-    }
+    View B(String str);
 
-    public static String a() {
-        InterceptResult invokeV;
-        kw2[] kw2VarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (kw2 kw2Var : a) {
-                sb.append(kw2Var.b());
-                sb.append(kw2Var.enable() ? 1 : 0);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
+    String C();
+
+    ya3 D();
+
+    void E(vv2 vv2Var, st2 st2Var);
+
+    ms1 F();
 
     @NonNull
-    public static List<kw2> b() {
-        InterceptResult invokeV;
-        kw2[] kw2VarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (kw2 kw2Var : a) {
-                if (kw2Var.enable()) {
-                    arrayList.add(kw2Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
+    bj3 G();
+
+    ga2 H();
+
+    void I();
+
+    SwanAppPropertyWindow J(Activity activity);
+
+    void K(String str);
+
+    ps1 L();
+
+    boolean M();
+
+    void N();
+
+    ps1 O();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(vv2 vv2Var, st2 st2Var);
+
+    @NonNull
+    nb3 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    nb3 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    SwanCoreVersion getCoreVersion();
+
+    fx1 i();
+
+    @NonNull
+    nb3 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, yk2 yk2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    dx1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(yk2 yk2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(bl2 bl2Var, boolean z);
+
+    String z();
 }

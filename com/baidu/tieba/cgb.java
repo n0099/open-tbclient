@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,26 +11,82 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdSdk;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cgb extends ogb<rgb> {
+public class cgb extends rfb<agb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public class a implements TTAdNative.FullScreenVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cgb a;
+
+        public a(cgb cgbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cgbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cgbVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded(new agb(tTFullScreenVideoAd), new String[0]);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cgb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+    public cgb(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,100 +100,41 @@ public class cgb extends ogb<rgb> {
         }
     }
 
-    @Override // com.baidu.tieba.ogb
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            agb agbVar = (agb) obj;
+        }
+    }
+
+    @Override // com.baidu.tieba.rfb
     public void f(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
-            }
-            this.e.loadBannerExpressAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build(), new a(this, funAdSlot));
+            this.e.loadFullScreenVideoAd(i(funAdSlot), new a(this));
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
-        public final /* synthetic */ cgb b;
-
-        public a(cgb cgbVar, FunAdSlot funAdSlot) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cgbVar, funAdSlot};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cgbVar;
-            this.a = funAdSlot;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
-                if (list != null && !list.isEmpty()) {
-                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    cgb cgbVar = this.b;
-                    rgb rgbVar = new rgb(tTNativeExpressAd);
-                    this.a.getSid();
-                    cgbVar.getClass();
-                    tTNativeExpressAd.setExpressInteractionListener(new fgb(cgbVar, rgbVar));
-                    tTNativeExpressAd.render();
-                    return;
-                }
-                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
-                this.b.onError(0, "NoFill");
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        rgb rgbVar;
+    public AdSlot i(FunAdSlot funAdSlot) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (rgbVar = (rgb) obj) != null) {
-            ((TTNativeExpressAd) rgbVar.a).destroy();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
+        return (AdSlot) invokeL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            rgb rgbVar = (rgb) obj;
-            onShowStart(rgbVar);
-            ((TTNativeExpressAd) rgbVar.a).setSlideIntervalTime(this.mPid.interval);
-            View expressAdView = ((TTNativeExpressAd) rgbVar.a).getExpressAdView();
-            if (expressAdView.getParent() != null) {
-                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
-            }
-            ((TTNativeExpressAd) rgbVar.a).setDislikeCallback(activity, new ggb(this, expressAdView, rgbVar));
-            ((TTNativeExpressAd) rgbVar.a).setDownloadListener(new egb(null));
-            viewGroup.removeAllViews();
-            viewGroup.addView(expressAdView);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            agb agbVar = (agb) obj;
+            onShowStart(agbVar);
+            ((TTFullScreenVideoAd) agbVar.a).setFullScreenVideoAdInteractionListener(new fgb(this, agbVar));
+            ((TTFullScreenVideoAd) agbVar.a).setDownloadListener(new hfb(null));
+            ((TTFullScreenVideoAd) agbVar.a).showFullScreenVideoAd(activity);
             return true;
         }
         return invokeLLLL.booleanValue;

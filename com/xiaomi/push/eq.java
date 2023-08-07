@@ -57,9 +57,9 @@ public class eq extends er {
 
     @Override // com.xiaomi.push.er
     public eq a(Bitmap bitmap) {
-        if (m462b() && bitmap != null) {
+        if (m463b() && bitmap != null) {
             if (bitmap.getWidth() != 984 || bitmap.getHeight() < 177 || bitmap.getHeight() > 207) {
-                com.xiaomi.channel.commonutils.logger.b.m177a("colorful notification bg image resolution error, must [984*177, 984*207]");
+                com.xiaomi.channel.commonutils.logger.b.m178a("colorful notification bg image resolution error, must [984*177, 984*207]");
             } else {
                 this.f317b = bitmap;
             }
@@ -68,7 +68,7 @@ public class eq extends er {
     }
 
     public eq a(CharSequence charSequence, PendingIntent pendingIntent) {
-        if (m462b()) {
+        if (m463b()) {
             super.addAction(0, charSequence, pendingIntent);
             this.f318c = charSequence;
             this.f316a = pendingIntent;
@@ -79,12 +79,12 @@ public class eq extends er {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a(Ljava/lang/String;)I */
     @Override // com.xiaomi.push.ep
     /* renamed from: a */
-    public eq mo454a(String str) {
-        if (m462b() && !TextUtils.isEmpty(str)) {
+    public eq mo455a(String str) {
+        if (m463b() && !TextUtils.isEmpty(str)) {
             try {
                 this.b = Color.parseColor(str);
             } catch (Exception unused) {
-                com.xiaomi.channel.commonutils.logger.b.m177a("parse colorful notification button bg color error");
+                com.xiaomi.channel.commonutils.logger.b.m178a("parse colorful notification button bg color error");
             }
         }
         return this;
@@ -92,105 +92,105 @@ public class eq extends er {
 
     @Override // com.xiaomi.push.er
     /* renamed from: a */
-    public String mo459a() {
+    public String mo460a() {
         return "notification_colorful";
     }
 
     @Override // com.xiaomi.push.er, com.xiaomi.push.ep
     /* renamed from: a */
-    public void mo452a() {
-        RemoteViews m458a;
+    public void mo453a() {
+        RemoteViews m459a;
         Bitmap bitmap;
         boolean z;
-        RemoteViews m458a2;
-        RemoteViews m458a3;
+        RemoteViews m459a2;
+        RemoteViews m459a3;
         Drawable a;
-        if (!m462b()) {
-            m461b();
+        if (!m463b()) {
+            m462b();
             return;
         }
-        super.mo452a();
+        super.mo453a();
         Resources resources = a().getResources();
         String packageName = a().getPackageName();
         int a2 = a(resources, "icon", "id", packageName);
         if (((er) this).f319a == null) {
             a(a2);
         } else {
-            m458a().setImageViewBitmap(a2, ((er) this).f319a);
+            m459a().setImageViewBitmap(a2, ((er) this).f319a);
         }
         int a3 = a(resources, "title", "id", packageName);
         int a4 = a(resources, "content", "id", packageName);
-        m458a().setTextViewText(a3, ((er) this).f321a);
-        m458a().setTextViewText(a4, ((er) this).f326b);
+        m459a().setTextViewText(a3, ((er) this).f321a);
+        m459a().setTextViewText(a4, ((er) this).f326b);
         if (!TextUtils.isEmpty(this.f318c)) {
             int a5 = a(resources, "buttonContainer", "id", packageName);
             int a6 = a(resources, NativeConstants.ID_BUTTON, "id", packageName);
             int a7 = a(resources, "buttonBg", "id", packageName);
-            m458a().setViewVisibility(a5, 0);
-            m458a().setTextViewText(a6, this.f318c);
-            m458a().setOnClickPendingIntent(a5, this.f316a);
+            m459a().setViewVisibility(a5, 0);
+            m459a().setTextViewText(a6, this.f318c);
+            m459a().setOnClickPendingIntent(a5, this.f316a);
             if (this.b != 16777216) {
                 int a8 = a(70.0f);
                 int a9 = a(29.0f);
-                m458a().setImageViewBitmap(a7, com.xiaomi.push.service.ak.a(a(this.b, a8, a9, a9 / 2.0f)));
-                m458a().setTextColor(a6, m460a(this.b) ? -1 : -16777216);
+                m459a().setImageViewBitmap(a7, com.xiaomi.push.service.ak.a(a(this.b, a8, a9, a9 / 2.0f)));
+                m459a().setTextColor(a6, m461a(this.b) ? -1 : -16777216);
             }
         }
         int a10 = a(resources, "bg", "id", packageName);
         int a11 = a(resources, "container", "id", packageName);
         if (this.a != 16777216) {
             if (j.a(a()) >= 10) {
-                m458a3 = m458a();
+                m459a3 = m459a();
                 a = a(this.a, 984, 192, 30.0f);
             } else {
-                m458a3 = m458a();
+                m459a3 = m459a();
                 a = a(this.a, 984, 192, 0.0f);
             }
-            m458a3.setImageViewBitmap(a10, com.xiaomi.push.service.ak.a(a));
-            m458a2 = m458a();
-            z = m460a(this.a);
+            m459a3.setImageViewBitmap(a10, com.xiaomi.push.service.ak.a(a));
+            m459a2 = m459a();
+            z = m461a(this.a);
         } else if (this.f317b == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                m458a().setViewVisibility(a2, 8);
-                m458a().setViewVisibility(a10, 8);
+                m459a().setViewVisibility(a2, 8);
+                m459a().setViewVisibility(a10, 8);
                 try {
                     bj.a((Object) this, "setStyle", s.a(a(), "android.app.Notification$DecoratedCustomViewStyle").getConstructor(new Class[0]).newInstance(new Object[0]));
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m177a("load class DecoratedCustomViewStyle failed");
+                    com.xiaomi.channel.commonutils.logger.b.m178a("load class DecoratedCustomViewStyle failed");
                 }
             }
             Bundle bundle = new Bundle();
             bundle.putBoolean("miui.customHeight", true);
             addExtras(bundle);
-            setCustomContentView(m458a());
+            setCustomContentView(m459a());
         } else {
             if (j.a(a()) >= 10) {
-                m458a = m458a();
+                m459a = m459a();
                 bitmap = a(this.f317b, 30.0f);
             } else {
-                m458a = m458a();
+                m459a = m459a();
                 bitmap = this.f317b;
             }
-            m458a.setImageViewBitmap(a10, bitmap);
+            m459a.setImageViewBitmap(a10, bitmap);
             Map<String, String> map = ((er) this).f324a;
             if (map != null && this.c == 16777216) {
                 c(map.get("notification_image_text_color"));
             }
             int i = this.c;
-            z = i == 16777216 || !m460a(i);
-            m458a2 = m458a();
+            z = i == 16777216 || !m461a(i);
+            m459a2 = m459a();
         }
-        a(m458a2, a11, a3, a4, z);
+        a(m459a2, a11, a3, a4, z);
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean("miui.customHeight", true);
         addExtras(bundle2);
-        setCustomContentView(m458a());
+        setCustomContentView(m459a());
     }
 
     @Override // com.xiaomi.push.er
     /* renamed from: a */
-    public boolean mo453a() {
-        if (j.m707a()) {
+    public boolean mo454a() {
+        if (j.m708a()) {
             Resources resources = a().getResources();
             String packageName = a().getPackageName();
             return (a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || a(resources, "content", "id", packageName) == 0) ? false : true;
@@ -199,11 +199,11 @@ public class eq extends er {
     }
 
     public eq b(String str) {
-        if (m462b() && !TextUtils.isEmpty(str)) {
+        if (m463b() && !TextUtils.isEmpty(str)) {
             try {
                 this.a = Color.parseColor(str);
             } catch (Exception unused) {
-                com.xiaomi.channel.commonutils.logger.b.m177a("parse colorful notification bg color error");
+                com.xiaomi.channel.commonutils.logger.b.m178a("parse colorful notification bg color error");
             }
         }
         return this;
@@ -215,11 +215,11 @@ public class eq extends er {
     }
 
     public eq c(String str) {
-        if (m462b() && !TextUtils.isEmpty(str)) {
+        if (m463b() && !TextUtils.isEmpty(str)) {
             try {
                 this.c = Color.parseColor(str);
             } catch (Exception unused) {
-                com.xiaomi.channel.commonutils.logger.b.m177a("parse colorful notification image text color error");
+                com.xiaomi.channel.commonutils.logger.b.m178a("parse colorful notification image text color error");
             }
         }
         return this;

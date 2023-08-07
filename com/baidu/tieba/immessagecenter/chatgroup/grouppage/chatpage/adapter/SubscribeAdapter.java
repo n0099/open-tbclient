@@ -10,8 +10,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SubscribeSysMsg;
@@ -53,9 +53,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09253e);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c3);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092475);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092556);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922db);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09248d);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -98,7 +98,7 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08fa, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0904, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -118,25 +118,19 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, subscribeSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            d85 d = d85.d(holder.c);
-            d.o(R.string.J_X04);
-            d.f(R.color.CAM_X0625);
-            d85 d2 = d85.d(holder.a);
+            EMManager.from(holder.c).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0625);
+            EMManager from = EMManager.from(holder.a);
             int i3 = R.color.CAM_X0101;
-            d2.x(R.color.CAM_X0101);
-            d2.D(R.string.F_X01);
-            d2.C(R.dimen.T_X09);
-            d85 d3 = d85.d(holder.b);
-            d3.C(R.dimen.T_X09);
+            from.setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09);
+            EMManager textSize = EMManager.from(holder.b).setTextSize(R.dimen.T_X09);
             if (!this.k) {
                 i3 = R.color.CAM_X0304;
             }
-            d3.x(i3);
-            d3.D(R.string.F_X01);
-            holder.b.setText(R.string.obfuscated_res_0x7f0f1479);
+            textSize.setTextColor(i3).setTextStyle(R.string.F_X01);
+            holder.b.setText(R.string.obfuscated_res_0x7f0f147d);
             if (getContext() != null) {
                 TextView textView = holder.a;
-                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f147a));
+                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f147e));
             }
             return holder.getView();
         }

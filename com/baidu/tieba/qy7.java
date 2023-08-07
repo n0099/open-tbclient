@@ -1,86 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountToolsCallback;
-import com.baidu.sapi2.dto.AccountToolsDTO;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.utils.ToastUtil;
-import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes7.dex */
-public class qy7 implements LoginModifyPwdServices {
+public class qy7 extends l35 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean f;
+    public List<MetaData> g;
 
-    /* loaded from: classes7.dex */
-    public class a implements AccountToolsCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
+    @Override // com.baidu.tieba.l35, com.baidu.tieba.q05
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
-        public a(qy7 qy7Var, Function1 function1) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108250, "Lcom/baidu/tieba/qy7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qy7Var, function1};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = function1;
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiWebCallback
-        public void onFinish(SapiResult sapiResult) {
-            Function1 function1;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) && (function1 = this.a) != null) {
-                function1.invoke(sapiResult.getResultMsg());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948108250, "Lcom/baidu/tieba/qy7;");
+                return;
             }
         }
+        h = 6;
     }
 
     public qy7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.g = new ArrayList();
+    }
+
+    @Override // com.baidu.tieba.l35
+    public List<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.l35, com.baidu.tieba.q05
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new NegativeFeedBackData();
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l35, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return l35.e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static boolean f(ConcernData concernData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
+            }
+            return concernData.recom_type.equals(h);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices
-    public void openModifyPwd(@NonNull Context context, @Nullable Function1<? super String, Unit> function1) {
+    @Override // com.baidu.tieba.l35
+    public void d(List<User> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, function1) == null) {
-            AccountToolsDTO accountToolsDTO = new AccountToolsDTO();
-            accountToolsDTO.context = context;
-            accountToolsDTO.toolsType = 5;
-            if (!SapiAccountManager.getInstance().isLogin()) {
-                ToastUtil.show(R.string.obfuscated_res_0x7f0f10dc + "");
-                return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
+            int min = Math.min(list.size(), 10);
+            for (int i = 0; i < min; i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserProtobuf(list.get(i));
+                this.g.add(metaData);
             }
-            PassportSDK.getInstance().loadAccountTools(accountToolsDTO, new a(this, function1));
         }
     }
 }

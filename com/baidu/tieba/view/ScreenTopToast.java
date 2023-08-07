@@ -13,13 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gb5;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -278,7 +278,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zg.a().removeCallbacks(this.g);
+            SafeHandler.getInst().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -295,7 +295,7 @@ public class ScreenTopToast extends LinearLayout {
             this.b = (TextView) findViewById(R.id.screen_top_toast_title);
             this.c = (TextView) findViewById(R.id.screen_top_toast_content);
             this.d = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-            this.d.setConfig(new gb5());
+            this.d.setConfig(new w95());
             f();
             h();
         }
@@ -305,7 +305,7 @@ public class ScreenTopToast extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100fe);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010100);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
             this.g = new b(this);
@@ -327,6 +327,6 @@ public class ScreenTopToast extends LinearLayout {
         viewGroup.addView(this, -1, -2);
         this.h = true;
         startAnimation(this.e);
-        zg.a().postDelayed(this.g, 5000L);
+        SafeHandler.getInst().postDelayed(this.g, 5000L);
     }
 }

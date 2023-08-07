@@ -16,7 +16,7 @@ public final class aj implements bg.b.a {
             x.a(this.a, true);
             x.a(this.a);
         } else if (cVar2 == bg.c.unbind) {
-            com.xiaomi.channel.commonutils.logger.b.m177a("onChange unbind");
+            com.xiaomi.channel.commonutils.logger.b.m178a("onChange unbind");
             x.a(this.a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
         }
     }

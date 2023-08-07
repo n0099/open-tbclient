@@ -1,138 +1,126 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.sw5;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class nw5 implements mw5 {
+public class nw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
+    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<ViewType, ow5> a;
-    public final ViewGroup b;
-    public final vw5 c;
-    public final sw5 d;
-    public ViewType e;
-    public ow5 f;
 
-    public nw5(vw5 vw5Var, @NonNull ViewGroup viewGroup, @NonNull sw5 sw5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vw5Var, viewGroup, sw5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public jw5<T> a;
+        public ov5<T> b;
+
+        public a(jw5<T> jw5Var, ov5<T> ov5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw5Var, ov5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.a = jw5Var;
+            this.b = ov5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public T doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    if (this.a == null) {
+                        return null;
+                    }
+                    return this.a.doInBackground();
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return null;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            ov5<T> ov5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && (ov5Var = this.b) != null) {
+                ov5Var.onReturnDataInUI(t);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016893, "Lcom/baidu/tieba/nw5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948016893, "Lcom/baidu/tieba/nw5;");
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = viewGroup;
-        this.c = vw5Var;
-        this.d = sw5Var;
+        a = BdUniqueId.gen();
+        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
     }
 
-    @Override // com.baidu.tieba.mw5
-    public void a(ViewType viewType, String str) {
-        sw5.a aVar;
-        sw5.b bVar;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
-            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
-                bVar.a = str;
-            } else if (viewType == ViewType.EMPTY && (aVar = this.d.b) != null) {
-                aVar.a = str;
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            BdAsyncTask.removeAllTask(a);
         }
     }
 
-    @Override // com.baidu.tieba.mw5
-    public void c(ViewType viewType, @NonNull ow5 ow5Var) {
+    public static <T> void b(jw5<T> jw5Var, ov5<T> ov5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, ow5Var) == null) {
-            this.a.put(viewType, ow5Var);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, jw5Var, ov5Var) == null) && jw5Var != null) {
+            a aVar = new a(jw5Var, ov5Var);
+            aVar.setParallel(b);
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
     }
 
-    @Override // com.baidu.tieba.mw5
-    public void b(ViewType viewType) {
-        int i;
+    public static <T> void c(jw5<T> jw5Var, ov5<T> ov5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) != null) || this.e == viewType) {
-            return;
-        }
-        this.e = viewType;
-        if (this.b == null) {
-            return;
-        }
-        vw5 vw5Var = this.c;
-        if (vw5Var != null && vw5Var.getView() != null) {
-            View view2 = this.c.getView();
-            if (viewType == ViewType.CONTENT) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
-        }
-        ow5 ow5Var = this.f;
-        if (ow5Var != null) {
-            ow5Var.b(this.b);
-        }
-        ow5 ow5Var2 = this.a.get(viewType);
-        sw5.e d = d(viewType);
-        if (ow5Var2 != null && d != null) {
-            ow5Var2.c(viewType, this.b, d);
-            this.f = ow5Var2;
-            this.a.put(viewType, ow5Var2);
-        }
-    }
-
-    public final sw5.e d(ViewType viewType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
-            if (viewType == ViewType.ERROR) {
-                return this.d.c;
-            }
-            if (viewType == ViewType.EMPTY) {
-                return this.d.b;
-            }
-            if (viewType == ViewType.LOADING) {
-                return this.d.a;
-            }
-            return null;
-        }
-        return (sw5.e) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mw5
-    public void onChangeSkinType(int i) {
-        ow5 ow5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (ow5Var = this.f) != null) {
-            ow5Var.e(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.mw5
-    public void onDestroy() {
-        ow5 ow5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ow5Var = this.f) != null) {
-            ow5Var.b(this.b);
+        if ((interceptable == null || interceptable.invokeLL(65539, null, jw5Var, ov5Var) == null) && jw5Var != null) {
+            a aVar = new a(jw5Var, ov5Var);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
     }
 }

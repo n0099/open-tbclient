@@ -1,47 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.e71;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes7.dex */
 public class r81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    @Inject(force = false)
+    public static y81 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return e71.c.a(rk0.b(), f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return y81.a;
         }
-        return invokeF.intValue;
-    }
-
-    public static int b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return e71.c.a(rk0.b(), f);
-        }
-        return invokeF.intValue;
-    }
-
-    public static int c(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
-            return Math.round(f / 1.5f);
-        }
-        return invokeF.intValue;
-    }
-
-    public static int d(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            return b(f / 1.5f);
-        }
-        return invokeF.intValue;
+        return (y81) invokeV.objValue;
     }
 }

@@ -1,25 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.db1;
+import android.content.Context;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface ta1 {
-    boolean a(String str);
+    public static final ta1 a = new a();
 
-    Activity c();
+    WebView a(@NonNull Context context);
 
-    boolean d();
+    /* loaded from: classes8.dex */
+    public class a implements ta1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    LinearLayout g();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    boolean h();
-
-    FrameLayout j();
-
-    db1.d l();
-
-    AbsNadBrowserView m();
+        @Override // com.baidu.tieba.ta1
+        public WebView a(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new WebView(context);
+            }
+            return (WebView) invokeL.objValue;
+        }
+    }
 }

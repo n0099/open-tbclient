@@ -1,58 +1,163 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes8.dex */
-public class y8c implements ubc {
-    public static /* synthetic */ Interceptable $ic;
+public class y8c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static PaysSettingInfo a = null;
+    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String e = "https://web.yy.com/yy_wallet/help-faq.html?";
+    public static String f = "https://web.yy.com/yy_wallet/sec_currency_charge.html?";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    @Override // com.baidu.tieba.ubc
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948285477, "Lcom/baidu/tieba/y8c;")) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948285477, "Lcom/baidu/tieba/y8c;");
+        }
     }
 
-    public y8c(int i, int i2) {
+    public static String a(String str, PayUIKitConfig payUIKitConfig, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, payUIKitConfig, i)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                StringBuilder sb = new StringBuilder(str);
+                sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
+                sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
+                sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
+                sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
+                sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
+                sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
+                sb.append("&sdkVersion=4.3.45-bdpay");
+                if (i != 0) {
+                    sb.append("&currencyType=" + i);
+                }
+                int i2 = 0;
+                ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
+                if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100168) {
+                    i2 = 1;
+                }
+                sb.append("&theme=" + i2);
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public static String b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(d, payUIKitConfig, 0);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(e, payUIKitConfig, 0);
+            }
+            return e;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(f, payUIKitConfig, 71);
+            }
+            return f;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(c, payUIKitConfig, 0);
+            }
+            return c;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
+                return b;
+            }
+            return a(b, payUIKitConfig, 0);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static PaysSettingInfo d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (PaysSettingInfo) invokeV.objValue;
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            if (z) {
+                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                e = "https://webtest.yy.com/yy_wallet/help-faq.html?";
+                f = "https://webtest.yy.com/yy_wallet/sec_currency_charge.html?";
                 return;
             }
+            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            c = "https://web.yy.com/yy_wallet/wallet.html?";
+            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            e = "https://web.yy.com/yy_wallet/help-faq.html?";
+            f = "https://web.yy.com/yy_wallet/sec_currency_charge.html?";
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.ubc
-    public void a(CancelType cancelType) {
+    public static void i(PaysSettingInfo paysSettingInfo, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PaySignDialogListener", "PaySignDialogListener cancel clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                dac.b(this.a, this.b, "64", "", "", "");
-            }
+        if (interceptable == null || interceptable.invokeLL(65545, null, paysSettingInfo, str) == null) {
+            RLog.info("PaySettingConfig", "setPaysSettingInfo info:" + paysSettingInfo + " from:" + str);
+            a = paysSettingInfo;
         }
     }
 }

@@ -1,124 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eua {
+public class eua extends dua {
     public static /* synthetic */ Interceptable $ic;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<MetaData> a;
-    public final Set<String> b;
-    public final ArrayList<MetaData> c;
-    public HashMap<String, String> d;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
 
-    public eua() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eua(BdPageContext bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new HashSet();
-        this.c = new ArrayList<>();
-        this.d = null;
+        g = bdPageContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07041c);
     }
 
-    public ArrayList<MetaData> a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+            this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+            this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+            this.c.setCompoundDrawablePadding(g);
+            this.d.setCompoundDrawablePadding(g);
+            this.f.setCompoundDrawablePadding(g);
+            this.e.setCompoundDrawablePadding(g);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public Set<String> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dua
+    public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fc, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.rotate_left);
+            this.d = (TextView) this.b.findViewById(R.id.rotate_right);
+            this.e = (TextView) this.b.findViewById(R.id.rotate_left_right);
+            this.f = (TextView) this.b.findViewById(R.id.rotate_up_down);
         }
-        return (Set) invokeV.objValue;
     }
 
-    public ArrayList<MetaData> c() {
+    public View x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (ArrayList) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void d(String str) {
+    public void y(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                e(new JSONObject(str), true);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public void e(JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, jSONObject, z) != null) || jSONObject == null) {
-            return;
-        }
-        if (z) {
-            try {
-                if (this.d == null) {
-                    this.d = new HashMap<>();
-                }
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                return;
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserJson(optJSONArray.getJSONObject(i));
-                if (!TextUtils.isEmpty(metaData.getName_show())) {
-                    this.a.add(metaData);
-                    if (z) {
-                        this.d.put(metaData.getName_show(), metaData.getPortrait());
-                    }
-                }
-            }
-        }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("bot_list");
-        if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                MetaData metaData2 = new MetaData();
-                metaData2.parserJson(optJSONArray2.getJSONObject(i2));
-                if (!TextUtils.isEmpty(metaData2.getName_show())) {
-                    this.c.add(metaData2);
-                    this.b.add(metaData2.getUserId());
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c.setTag(0);
+            this.d.setTag(1);
+            this.e.setTag(2);
+            this.f.setTag(3);
+            this.c.setOnClickListener(onClickListener);
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
+            this.f.setOnClickListener(onClickListener);
         }
     }
 }

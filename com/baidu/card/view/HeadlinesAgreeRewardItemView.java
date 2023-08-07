@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
                 return;
             }
         }
-        c = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
+        c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
         d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.L_X04);
     }
 
@@ -58,7 +58,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setPlaceHolder(1);
-            d85.d(this.b).x(R.color.CAM_X0105);
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
         }
     }
 
@@ -138,13 +138,13 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
         a(context);
     }
 
-    public void setData(s45 s45Var) {
+    public void setData(p35 p35Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s45Var) != null) || s45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p35Var) != null) || p35Var == null) {
             return;
         }
         b();
-        this.a.N(s45Var.a(), 10, false);
-        this.b.setText(s45Var.b());
+        this.a.startLoad(p35Var.a(), 10, false);
+        this.b.setText(p35Var.b());
     }
 }

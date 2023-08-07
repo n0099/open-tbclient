@@ -84,7 +84,7 @@ public final class c extends b {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static boolean m173do(String str) {
+    public static boolean m174do(String str) {
         return !com.kwad.sdk.pngencrypt.chunk.b.dr(str);
     }
 
@@ -128,7 +128,7 @@ public final class c extends b {
             }
             this.ajP = new com.kwad.sdk.pngencrypt.chunk.e(this.ajL);
         }
-        if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER && m173do(chunkReader.xT().alB)) {
+        if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER && m174do(chunkReader.xT().alB)) {
             this.ajR += chunkReader.xT().len;
         }
         if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER || this.ajT) {

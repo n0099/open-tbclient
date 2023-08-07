@@ -263,9 +263,9 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             } else {
                 headImageView.setVisibility(0);
                 if (this.h == 12) {
-                    headImageView.J(str, 12, this.b, this.c, false);
+                    headImageView.startLoad(str, 12, this.b, this.c, false);
                 } else {
-                    headImageView.J(str, 10, this.b, this.c, false);
+                    headImageView.startLoad(str, 10, this.b, this.c, false);
                 }
             }
         }

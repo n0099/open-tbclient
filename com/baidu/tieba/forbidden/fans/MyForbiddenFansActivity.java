@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,11 +24,10 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf7;
-import com.baidu.tieba.cf7;
-import com.baidu.tieba.ef7;
+import com.baidu.tieba.jc7;
+import com.baidu.tieba.kc7;
+import com.baidu.tieba.mc7;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,17 +44,17 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public BdRecyclerView e;
     public NoDataView f;
     public MyForbiddenFansListAdapter g;
-    public cf7 h;
-    public ef7 i;
+    public kc7 h;
+    public mc7 i;
     public PbListView j;
     public TextView k;
-    public cf7.b l;
+    public kc7.b l;
     public View.OnClickListener m;
     public View.OnClickListener n;
     public View.OnClickListener o;
 
     /* loaded from: classes5.dex */
-    public class a implements cf7.b {
+    public class a implements kc7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyForbiddenFansActivity a;
@@ -77,8 +77,8 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.a = myForbiddenFansActivity;
         }
 
-        @Override // com.baidu.tieba.cf7.b
-        public void a(int i, String str, ArrayList<bf7> arrayList) {
+        @Override // com.baidu.tieba.kc7.b
+        public void a(int i, String str, ArrayList<jc7> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, arrayList) == null) {
                 if (this.a.isProgressBarShown()) {
@@ -91,7 +91,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                     this.a.showNoDataView();
                 } else if (i == 0) {
                     this.a.hideNoDataView();
-                    this.a.H1(arrayList);
+                    this.a.G1(arrayList);
                     this.a.g.s(arrayList);
                     this.a.g.notifyDataSetChanged();
                 }
@@ -127,9 +127,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!yi.G()) {
+                if (!BdUtilHelper.isNetOk()) {
                     MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0e1f));
+                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0e21));
                 } else if (view2 == this.a.d) {
                     TiebaStatic.log(new StatisticItem("c13104").param("obj_locate", 2));
                     this.a.i.e();
@@ -166,13 +166,13 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!yi.G()) {
+                if (!BdUtilHelper.isNetOk()) {
                     MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0e1f));
-                } else if (!(view2.getTag() instanceof bf7)) {
+                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0e21));
+                } else if (!(view2.getTag() instanceof jc7)) {
                 } else {
                     TiebaStatic.log(new StatisticItem("c13105"));
-                    this.a.i.f(((bf7) view2.getTag()).a);
+                    this.a.i.f(((jc7) view2.getTag()).a);
                 }
             }
         }
@@ -205,11 +205,11 @@ public class MyForbiddenFansActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(view2.getTag() instanceof bf7)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(view2.getTag() instanceof jc7)) {
                 return;
             }
-            bf7 bf7Var = (bf7) view2.getTag();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getActivity(), String.valueOf(bf7Var.a), bf7Var.b)));
+            jc7 jc7Var = (jc7) view2.getTag();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getActivity(), String.valueOf(jc7Var.a), jc7Var.b)));
         }
     }
 
@@ -250,7 +250,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements ef7.e {
+    public class f implements mc7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyForbiddenFansActivity a;
@@ -273,7 +273,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.a = myForbiddenFansActivity;
         }
 
-        @Override // com.baidu.tieba.ef7.e
+        @Override // com.baidu.tieba.mc7.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -282,7 +282,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.ef7.e
+        @Override // com.baidu.tieba.mc7.e
         public void b(int i, String str, boolean z, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
@@ -297,9 +297,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         if (this.a.k == null) {
                             this.a.k = new TextView(this.a.getActivity());
                             this.a.k.setGravity(19);
-                            this.a.k.setPadding(yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
-                            this.a.k.setLayoutParams(new ViewGroup.LayoutParams(-1, yi.g(this.a.getActivity(), R.dimen.tbds112)));
-                            this.a.k.setTextSize(0, yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070459));
+                            this.a.k.setPadding(BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
+                            this.a.k.setLayoutParams(new ViewGroup.LayoutParams(-1, BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.tbds112)));
+                            this.a.k.setTextSize(0, BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070459));
                             this.a.k.setTextColor(this.a.getResources().getColor(R.color.CAM_X0101));
                         }
                         this.a.k.setText(str);
@@ -312,7 +312,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                     } else if (i2 != 1 || i == 2260104) {
                     } else {
                         if (i != 0) {
-                            yi.R(this.a.getActivity(), str);
+                            BdUtilHelper.showToast(this.a.getActivity(), str);
                         } else if (this.a.g.m(j)) {
                             if (this.a.g.p()) {
                                 this.a.showNoDataView();
@@ -320,7 +320,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                                 this.a.h.h();
                             } else {
                                 MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                                myForbiddenFansActivity.H1(myForbiddenFansActivity.g.n());
+                                myForbiddenFansActivity.G1(myForbiddenFansActivity.g.n());
                                 this.a.g.notifyDataSetChanged();
                             }
                         }
@@ -332,7 +332,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         this.a.h.h();
                     } else {
                         MyForbiddenFansActivity myForbiddenFansActivity2 = this.a;
-                        myForbiddenFansActivity2.H1(myForbiddenFansActivity2.g.n());
+                        myForbiddenFansActivity2.G1(myForbiddenFansActivity2.g.n());
                         this.a.g.notifyDataSetChanged();
                     }
                 }
@@ -359,7 +359,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         this.o = new d(this);
     }
 
-    public final void H1(ArrayList<bf7> arrayList) {
+    public final void G1(ArrayList<jc7> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, arrayList) != null) || ListUtils.isEmpty(arrayList)) {
             return;
@@ -420,17 +420,17 @@ public class MyForbiddenFansActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02e6);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a7);
-            this.h = new cf7();
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918a0);
+            setContentView(R.layout.obfuscated_res_0x7f0d02e9);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b6);
+            this.h = new kc7();
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918b4);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f076a));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f076b));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.showBottomLine();
-            this.d = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f120b));
-            this.c = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f09189b);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09153a);
+            this.d = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f120e));
+            this.c = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f0918af);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09154d);
             this.e = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             this.e.setOnSrollToBottomListener(new e(this));
@@ -442,13 +442,13 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.j.J(SkinManager.getColor(R.color.CAM_X0107));
             this.j.L(R.dimen.tbfontsize33);
             this.j.F(R.color.CAM_X0110);
-            this.j.w(yi.g(getActivity(), R.dimen.tbds182));
+            this.j.w(BdUtilHelper.getDimens(getActivity(), R.dimen.tbds182));
             this.j.v();
             MyForbiddenFansListAdapter myForbiddenFansListAdapter = new MyForbiddenFansListAdapter(this);
             this.g = myForbiddenFansListAdapter;
             this.e.setAdapter(myForbiddenFansListAdapter);
             this.h.j(this.l);
-            this.i = new ef7(getPageContext(), getUniqueId());
+            this.i = new mc7(getPageContext(), getUniqueId());
             this.d.setOnClickListener(this.m);
             this.g.t(this.o);
             this.g.u(this.n);
@@ -462,9 +462,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.f == null) {
-                NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070364)), null, null);
+                NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070364)), null, null);
                 this.f = a2;
-                a2.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0e4a));
+                a2.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0e4c));
                 this.f.setSubTitleTextColor(R.color.CAM_X0106);
                 this.f.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }

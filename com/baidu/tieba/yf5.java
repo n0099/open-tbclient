@@ -1,87 +1,214 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.core.util.CommonHelper;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.coreExtra.data.WhiteListData;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.data.LightEmotionData;
-import com.baidu.tbadk.data.UserGrowthTaskListData;
-import com.baidu.tbadk.dynamicres.data.AgreeMaterial;
-import com.baidu.tieba.wallet.YYLiveConfig;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
+import com.baidu.tieba.sf5;
+import com.baidu.tieba.vf5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class yf5 {
     public static /* synthetic */ Interceptable $ic;
+    public static yf5 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public x0b A;
-    public NewGodData B;
-    public ee5 C;
-    public id5 D;
-    public de5 E;
-    public pd5 F;
-    public UserGrowthTaskListData G;
-    public ArrayList<LightEmotionData> H;
-    public VersionData a;
-    public vd5 b;
-    public wd5 c;
-    public String d;
-    public CombineDownload e;
-    public je5 f;
-    public ze5 g;
-    public jd5 h;
-    public ed5 i;
-    public gd5 j;
-    public be5 k;
-    public final dd5 l;
-    public ne5 m;
-    public ce5 n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public xd5 s;
-    public cd5 t;
-    public ABTestExtraData u;
-    public JSONArray v;
-    public JSONArray w;
-    public JSONArray x;
-    public JSONObject y;
-    public YYLiveConfig z;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public List<String> e;
+    public boolean f;
+    public final Object g;
+    public List<String> h;
+    public boolean i;
+    public BDHttpDnsResult j;
+    public final yi k;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948328257, "Lcom/baidu/tieba/yf5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948328257, "Lcom/baidu/tieba/yf5;");
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class d implements vf5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yf5 a;
+
+        /* loaded from: classes8.dex */
+        public class a implements sf5.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // com.baidu.tieba.sf5.b
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                    return;
+                }
+                this.a.a.b = 0;
+                this.a.a.e = sf5.f().g();
+                if (this.a.a.e != null) {
+                    this.a.a.A("change ip to reconnect with DNS' failed.");
+                } else {
+                    this.a.a.f = false;
+                }
+            }
+        }
+
+        public d(yf5 yf5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yf5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yf5Var;
+        }
+
+        @Override // com.baidu.tieba.vf5.c
+        public void a(boolean z) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                tf5 e = tf5.e();
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                e.a(i);
+                if (z) {
+                    this.a.e = sf5.f().g();
+                    if (this.a.e == null) {
+                        sf5.f().m(new a(this));
+                        return;
+                    } else {
+                        this.a.A("change ip to reconnect with DNS' failed.");
+                        return;
+                    }
+                }
+                this.a.f = false;
+                this.a.D();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements yi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yf5 a;
+
+        @Override // com.baidu.tieba.yi
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void c(ui uiVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uiVar) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void d(byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void f(cj cjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, cjVar) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void g(int i, ui uiVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048582, this, i, uiVar) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void h(ui uiVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, uiVar) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void i(ui uiVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uiVar) == null) {
+            }
+        }
 
         public a(yf5 yf5Var) {
             Interceptable interceptable = $ic;
@@ -95,31 +222,90 @@ public class yf5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yf5Var;
+        }
+
+        @Override // com.baidu.tieba.yi
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if ((i == 2 || i == 9) && BdNetTypeUtil.isNetWorkAvailable()) {
+                    yf5.d(this.a);
+                    if (UseHttpdnsSdkSwitch.isOn()) {
+                        if (this.a.h == null || this.a.h.isEmpty()) {
+                            this.a.w();
+                        } else {
+                            this.a.a();
+                        }
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("retryiplist_");
+                        stringBuffer.append(ia.d());
+                        if (this.a.j != null) {
+                            stringBuffer.append("-dnsResolveIp_");
+                            stringBuffer.append(this.a.j.getIpv4List());
+                            stringBuffer.append("-dnsResolveType_");
+                            stringBuffer.append(this.a.j.getResolveType());
+                            stringBuffer.append("-dnsResolveStatus_");
+                            stringBuffer.append(this.a.j.getResolveStatus());
+                        }
+                        ja.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
+                        if (this.a.a >= 5) {
+                            BdSocketLinkService.setAvailable(false);
+                            this.a.B();
+                        }
+                    } else if (this.a.a >= 5) {
+                        ja.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + ia.d());
+                        this.a.C();
+                    }
                 }
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.yi
+        public void onOpen(Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qo5.f().j();
+            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+                if (UseHttpdnsSdkSwitch.isOn()) {
+                    if (this.a.a > 0) {
+                        this.a.i = false;
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("URL_");
+                        stringBuffer.append(ia.d());
+                        if (this.a.j != null) {
+                            stringBuffer.append("-dnsResolveIp_");
+                            stringBuffer.append(this.a.j.getIpv4List());
+                            stringBuffer.append("-dnsResolveType_");
+                            stringBuffer.append(this.a.j.getResolveType());
+                            stringBuffer.append("-dnsResolveStatus_");
+                            stringBuffer.append(this.a.j.getResolveStatus());
+                        }
+                        ja.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
+                    }
+                } else if (this.a.a >= 5) {
+                    ja.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + ia.d());
+                    sf5.f().l(ia.d());
+                    sf5.f().k();
+                }
+                this.a.a = 0;
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Runnable {
+    public class b implements BDHttpDns.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
+        public final /* synthetic */ yf5 a;
 
-        public b(yf5 yf5Var, JSONArray jSONArray) {
+        public b(yf5 yf5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yf5Var, jSONArray};
+                Object[] objArr = {yf5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -129,16 +315,65 @@ public class yf5 {
                     return;
                 }
             }
-            this.a = jSONArray;
+            this.a = yf5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.bdhttpdns.BDHttpDns.e
+        public void a(BDHttpDnsResult bDHttpDnsResult) {
+            ArrayList<String> ipv4List;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h29 defaultLog = DefaultLog.getInstance();
-                defaultLog.c("WebPreheat", "sync返回预热H5:" + this.a);
-                b06.e(this.a);
+            if (interceptable != null && interceptable.invokeL(1048576, this, bDHttpDnsResult) != null) {
+                return;
+            }
+            this.a.i = false;
+            this.a.j = bDHttpDnsResult;
+            if (bDHttpDnsResult != null && (ipv4List = bDHttpDnsResult.getIpv4List()) != null && !ipv4List.isEmpty()) {
+                synchronized (this.a.g) {
+                    this.a.h = ipv4List;
+                }
+                this.a.a();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements sf5.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ yf5 b;
+
+        public c(yf5 yf5Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yf5Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yf5Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.sf5.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.b.b = 0;
+            this.b.e = sf5.f().g();
+            if (this.b.e != null) {
+                this.b.A(this.a);
+            } else {
+                this.b.f = false;
             }
         }
     }
@@ -147,575 +382,202 @@ public class yf5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.p = 0;
-        this.a = new VersionData();
-        this.b = new vd5();
-        this.c = new wd5();
-        this.e = new CombineDownload();
-        this.f = new je5();
-        this.g = new ze5();
-        this.s = new xd5();
-        this.h = new jd5();
-        this.i = new ed5();
-        this.l = new dd5();
-        this.t = new cd5();
-        this.m = new ne5();
-        this.n = new ce5();
-        this.u = new ABTestExtraData();
-        this.B = new NewGodData();
-        this.C = new ee5();
-        this.j = new gd5();
-        this.k = new be5();
-        this.D = new id5();
-        this.E = new de5();
-        this.F = new pd5();
-        this.H = new ArrayList<>();
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = null;
+        this.f = false;
+        this.g = new Object();
+        this.h = new ArrayList();
+        this.i = false;
+        this.j = null;
+        this.k = new a(this);
     }
 
-    public final JSONObject A(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public final void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, str)) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.f) {
+            return;
+        }
+        this.f = true;
+        if (this.c) {
+            this.c = false;
+            tf5.e().d(TiebaIMConfig.url);
+        }
+        tf5.e().b();
+        if (!this.d) {
+            new vf5("www.baidu.com", new d(this));
+            this.d = true;
+            return;
+        }
+        A("change ip to reconnect with DNS' failed.");
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.g) {
+                if (this.h != null && !this.h.isEmpty()) {
+                    String remove = this.h.remove(0);
+                    if (!TextUtils.isEmpty(remove)) {
+                        ia.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
+                        BdSocketLinkService.init();
+                    }
+                }
+            }
+        }
+    }
+
+    public static /* synthetic */ int d(yf5 yf5Var) {
+        int i = yf5Var.a;
+        yf5Var.a = i + 1;
+        return i;
+    }
+
+    public static String u(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+            if (str == null || (lastIndexOf = str.lastIndexOf(":")) < 5) {
+                return null;
+            }
             try {
-                return jSONObject.optJSONObject(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                return str.substring(5, lastIndexOf);
+            } catch (Exception unused) {
                 return null;
             }
         }
-        return (JSONObject) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final JSONArray z(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public static String v(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            if (str == null || (lastIndexOf = str.lastIndexOf(":")) < 5) {
+                return null;
+            }
             try {
-                return jSONObject.optJSONArray(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                return str.substring(lastIndexOf + 1);
+            } catch (Exception unused) {
                 return null;
             }
         }
-        return (JSONArray) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void B(String str) {
+    public static synchronized yf5 y() {
+        InterceptResult invokeV;
+        yf5 yf5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                C(new JSONObject(str));
-            } catch (Exception e) {
-                h29 a2 = yk.a();
-                a2.b(Config.DEVICE_PART, "sync exception1: " + e.getMessage());
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            synchronized (yf5.class) {
+                if (l == null) {
+                    synchronized (yf5.class) {
+                        if (l == null) {
+                            l = new yf5();
+                        }
+                    }
+                }
+                yf5Var = l;
             }
+            return yf5Var;
         }
+        return (yf5) invokeV.objValue;
     }
 
-    public void C(JSONObject jSONObject) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        JSONObject jSONObject2;
-        boolean z6;
-        boolean z7;
+    public final void w() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.i) {
             return;
         }
         try {
-            TbSingleton.getInstance().setSyncJson(jSONObject);
-            YunDialogDataManager.j().o(jSONObject.optJSONArray("h5_pop_ups"));
-            JSONObject optJSONObject = jSONObject.optJSONObject("h5_pop_ups_config");
-            if (optJSONObject != null) {
-                YunDialogDataManager.j().p(optJSONObject);
+            String u = u(TiebaIMConfig.url);
+            if (bi.isEmpty(u)) {
+                B();
+                return;
             }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                m65.p(currentActivity, l65.c);
-            }
-            BdTokenController.J().R(jSONObject);
-            TbSingleton.getInstance().setVoiceRoomConfig(xe5.a(jSONObject));
-            TbSingleton.getInstance().setUpgradePopWindowConfig(te5.j(jSONObject));
-            TbSingleton.getInstance().setPushStrategyConfig(oe5.e(jSONObject));
-            TbSingleton.getInstance().setMainTabPopConfig(ke5.c(jSONObject));
-            this.C.a(z(jSONObject, "index_tab_info"));
-            this.a.parserJson(jSONObject.optJSONObject("version"));
-            this.b.b(jSONObject.optJSONObject(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT));
-            CommonHelper.setIp(jSONObject.optString("client_ip", null));
-            kh.g(jSONObject.optString("client_ip", null));
-            this.c.f(jSONObject.optJSONObject("config"));
-            this.g.f0(jSONObject.optJSONObject("wl_config"));
-            TbSingleton.getInstance().setWlConfigData(this.g);
-            jSONObject.optJSONObject("channel_icon_config");
-            this.j.c(jSONObject.optJSONObject("floating_icon"));
-            TbSingleton.getInstance().setAdFloatViewData(this.j);
-            this.k.d(jSONObject.optJSONObject("home_screen_ad"));
-            TbSingleton.getInstance().setHomeInsertAdData(this.k);
-            this.E.c(jSONObject.optJSONObject("https_switch_strategy_info"));
-            TbadkCoreApplication.getInst().setHttpsWhileData(this.E);
-            zh5 zh5Var = new zh5();
-            zh5Var.d(jSONObject);
-            if (zh5Var.c()) {
-                TbSingleton.getInstance().setHomeOperateData(zh5Var);
-            }
-            String optString = jSONObject.optString("new_god_data", "");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("new_god_data");
-            boolean z8 = true;
-            if (!StringUtils.isNull(optString) && optJSONObject2 != null) {
-                optJSONObject2.put("portrait", c15.t().r());
-                TbSingleton.getInstance().setNewGodDataJson(optJSONObject2);
-                if (optJSONObject2.optInt("need_show_toast_bubble") == 1) {
-                    da5.p().A(da5.t("key_new_god_pop_is_show"), true);
-                    da5.p().A(da5.t("key_new_god_tip_is_show"), true);
-                }
-                this.B.parserJson(optString);
-            }
-            this.s.c(jSONObject.optJSONObject("consume_path"));
-            TbadkCoreApplication.getInst().setConsumePathData(this.s);
-            this.d = jSONObject.optString("config_version");
-            this.p = jSONObject.optInt("is_uninterest");
-            this.q = jSONObject.optInt("first_time_motivate");
-            this.r = jSONObject.optInt("needNewUserLead");
-            this.e.parserJson(jSONObject.optJSONObject("combine_download"));
-            this.f.a(jSONObject.optJSONObject("mainbar"));
-            jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
-            this.o = jSONObject.optInt("faceshop_version");
-            if (this.o > TbadkCoreApplication.getInst().getFaceShopVersion()) {
-                TbadkCoreApplication.getInst().setTempFaceShopVersion(this.o);
-                TbadkCoreApplication.getInst().setFaceShopNew(true);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("lcs_strategy");
-            if (optJSONObject3 != null) {
-                TbadkCoreApplication.getInst().setLcsSwitchStratgy(optJSONObject3.toString());
-            }
-            new wf5().c(jSONObject.optJSONObject("dis_adv_config"));
-            WhiteListData whiteListData = new WhiteListData();
-            whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
-            TbSingleton.getInstance().setHostWhiteList(whiteListData);
-            kd5.c(jSONObject.optJSONArray("scheme_whitelist"));
-            UrlSchemaJumpHelper.setBlackList(z(jSONObject, UrlSchemaJumpHelper.KEY_APP_JUMP_BLACK_LIST));
-            this.h.a(jSONObject.optJSONObject("app_entrance"));
-            this.i.g(jSONObject.optJSONObject("ad_adsense"));
-            ag5.d(jSONObject.optJSONObject("video_report_config"));
-            this.l.b(jSONObject.optJSONObject("activity_switch"));
-            this.t.b(A(jSONObject, "abtest_config"));
-            this.u.parseJson(A(jSONObject, "new_abtest_entra"));
-            this.v = z(jSONObject, "new_abtest_config");
-            this.w = z(jSONObject, UbsABTestDataManager.PREF_KEY_SWITCHS);
-            z(jSONObject, "outside_callback_icon");
-            this.x = jSONObject.optJSONArray("windowStrategyList");
-            this.y = A(jSONObject, "bear_sdk_config");
-            if (A(jSONObject, "advertisement_config") != null) {
-                this.D.d(A(jSONObject, "advertisement_config"));
-            }
-            YYLiveConfig yYLiveConfig = new YYLiveConfig();
-            this.z = yYLiveConfig;
-            yYLiveConfig.parseJson(A(jSONObject, "yy_live_config"));
-            x0b x0bVar = new x0b();
-            this.A = x0bVar;
-            x0bVar.b(z(jSONObject, "yy_live_tab"));
-            this.n.c(jSONObject.optJSONObject("hot_notify_config"));
-            TbSingleton.getInstance().setHotNotifyConfig(this.n);
-            o15.b().f(this.x);
-            this.m.d(jSONObject.optJSONObject("profile_icon"));
-            TbSingleton tbSingleton = TbSingleton.getInstance();
-            if (jSONObject.optInt("recommend_userstatus", 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            tbSingleton.setNewUser(z);
-            da5 p = da5.p();
-            if (jSONObject.optInt("ala_channel_white", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            p.A("key_live_forum_enter_switch", z2);
-            TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
-            JSONArray z9 = z(jSONObject, "offpack");
-            if (z9 != null && z9.length() > 0 && (jSONObject2 = z9.getJSONObject(0)) != null) {
-                ux9 ux9Var = new ux9();
-                ux9Var.e(jSONObject2.optString("mod_name"));
-                if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
-                    z6 = true;
-                } else {
-                    z6 = false;
-                }
-                ux9Var.f(z6);
-                if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
-                    z7 = true;
-                } else {
-                    z7 = false;
-                }
-                ux9Var.d(z7);
-                if (!TextUtils.isEmpty(ux9Var.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(ux9Var);
-                }
-            }
-            String optString2 = jSONObject.optString("proxy_ip");
-            String optString3 = jSONObject.optString("proxy_port");
-            TbadkCoreApplication.getInst().setProxyIp(optString2);
-            TbadkCoreApplication.getInst().setProxyPort(optString3);
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("ad_sdk_priority", jSONObject.optString("ad_sdk_priority", null));
-            jSONObject3.put("12_20_0_screen_fill_Ad_experiment", jSONObject.optString("12_20_0_screen_fill_Ad_experiment", null));
-            jSONObject3.put("ad_origin_config_switch", jSONObject.optString("ad_origin_config_switch", null));
-            jSONObject3.put("bear_sid_type", jSONObject.optString("bear_sid_type", null));
-            jSONObject3.put("screen_fill_data_result", jSONObject.optJSONObject("screen_fill_data_result"));
-            int optInt = jSONObject.optInt("ad_num_competition_frs", 5);
-            int optInt2 = jSONObject.optInt("ad_num_competition_personalize", 2);
-            da5.p().F("key_mix_frs_ad_count", optInt);
-            da5.p().F("key_mix_home_page_ad_count", optInt2);
-            MessageManager.getInstance().runTask(2016552, null, jSONObject3);
-            TbSingleton tbSingleton2 = TbSingleton.getInstance();
-            if (jSONObject.optInt("is_yy_user", 1) == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            tbSingleton2.setSyncYYSwitch(z3);
-            JSONObject optJSONObject4 = jSONObject.optJSONObject(LowFlowsActivityConfig.LF_USER_INFO);
-            if (optJSONObject4 != null) {
-                String optString4 = optJSONObject4.optString(LowFlowsActivityConfig.LF_USER);
-                TbSingleton.getInstance().setLFUser(optString4);
-                if (!StringUtils.isNull(optString4) && "2".equals(optString4)) {
-                    TbSingleton.getInstance().setLFUserTaskId(optJSONObject4.optString(LowFlowsActivityConfig.LF_USER_TASKID));
-                    TbSingleton.getInstance().setBannerText(optJSONObject4.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
-                }
-            }
-            da5.p().F("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("bottom_bubble_config");
-            if (optJSONObject5 != null) {
-                qo5.f().k(optJSONObject5);
-                zg.a().post(new a(this));
-            }
-            da5.p().F("key_work_video_guide_pop", jSONObject.optInt("videoup_guide_pop", -1));
-            TbSingleton.getInstance().setVideoEventsConfig(we5.d(jSONObject));
-            da5.p().J("key_sync_extra_field", jSONObject.optString("extra"));
-            int optInt3 = jSONObject.optInt("icon_task_flag");
-            TbSingleton tbSingleton3 = TbSingleton.getInstance();
-            if (optInt3 == 1) {
-                z4 = true;
-            } else {
-                z4 = false;
-            }
-            tbSingleton3.showStampMissionDialog = z4;
-            int optInt4 = jSONObject.optInt("afSearch_tab", 0);
-            g3a d = g3a.d();
-            if (optInt4 == 1) {
-                z5 = true;
-            } else {
-                z5 = false;
-            }
-            d.h(z5);
-            int optInt5 = jSONObject.optInt("is_need_remind_live_rooms");
-            TbSingleton tbSingleton4 = TbSingleton.getInstance();
-            if (optInt5 != 1) {
-                z8 = false;
-            }
-            tbSingleton4.setIsNeedRemindLiveRoom(z8);
-            yi5.g().a(AgreeMaterial.X(jSONObject.optJSONObject("agree_material")));
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("live_activity_guide");
-            if (optJSONObject6 != null) {
-                bi5 bi5Var = new bi5();
-                bi5Var.f(optJSONObject6);
-                TbSingleton.getInstance().mLiveActivityGuide = bi5Var;
-            } else {
-                TbSingleton.getInstance().mLiveActivityGuide = null;
-            }
-            b06.c(jSONObject.optJSONArray("support_cache_url_list"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("cache_url_list");
-            if (optJSONArray != null) {
-                da5.p().J("key_cache_url_list", optJSONArray.toString());
-                zg.a().post(new b(this, optJSONArray));
-            } else {
-                da5.p().J("key_cache_url_list", "");
-            }
-            this.F.h(jSONObject.optJSONObject("bear_sid_config"));
-            D();
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("top_level_navi");
-            if (optJSONObject7 != null) {
-                da5.p().J("key_home_color_header_config", optJSONObject7.toString());
-            } else {
-                da5.p().Q("key_home_color_header_config");
-            }
-            TbSingleton.getInstance().setColourHeaderConfig(uh5.p(optJSONObject7));
-            z66.e().k(jSONObject.optJSONObject("member_guide"));
-            z66.e().j(jSONObject.optJSONObject("close_ad_tips"));
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("interact_memes");
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    LightEmotionData lightEmotionData = new LightEmotionData();
-                    lightEmotionData.parseJson(optJSONArray2.getJSONObject(i));
-                    this.H.add(lightEmotionData);
-                }
-                TbSingleton.getInstance().setLightEmotionInfo(this.H);
-            }
-            UserGrowthTaskListData userGrowthTaskListData = (UserGrowthTaskListData) new Gson().fromJson(jSONObject.optString("user_growth_task_list"), (Class<Object>) UserGrowthTaskListData.class);
-            TbSingleton.getInstance().setUserGrowthTaskListData(userGrowthTaskListData);
-            HotEventData.getInstance().parsJson(jSONObject.optJSONObject("thread_recommend_info"));
-            this.G = userGrowthTaskListData;
-            new eg5().b(jSONObject);
+            this.i = true;
+            BDHttpDns.getService(BdBaseApplication.getInst().getApplicationContext()).asyncResolve(u, new b(this));
         } catch (Exception e) {
-            h29 a2 = yk.a();
-            a2.b(Config.DEVICE_PART, "sync exception2: " + e.getMessage());
-            BdLog.e(e.getMessage());
+            BdLog.e(e);
+        }
+    }
+
+    public final String x() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<String> list = this.e;
+            if (list != null && (i = this.b) > -1 && i < list.size()) {
+                return sf5.f().g().get(this.b);
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            String x = x();
+            if (x == null) {
+                if (!sf5.f().i()) {
+                    sf5.f().m(new c(this, str));
+                }
+                ia.h(TiebaIMConfig.url);
+                BdSocketLinkService.setAvailable(false);
+                D();
+            } else if (u(x) == null) {
+                D();
+            } else {
+                this.f = false;
+                BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
+                ia.h(x);
+                BdSocketLinkService.init();
+                BdSocketLinkService.startService(true, str);
+                this.c = true;
+                this.b++;
+            }
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            NoNetworkView.updateUI();
+            this.b = 0;
+            this.i = false;
         }
     }
 
     public final void D() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.F != null) {
-            da5.p().J("key_server_splash_bear_sid", this.F.f());
-            da5.p().J("key_server_homepage_bear_sid", this.F.b());
-            da5.p().J("key_server_frs_bear_sid", this.F.a());
-            da5.p().J("key_server_pb_banner_bear_sid", this.F.c());
-            da5.p().J("key_server_pb_comment_bear_sid", this.F.d());
-            da5.p().J("key_server_picpage_bear_sid", this.F.e());
-            da5.p().J("key_server_videoflow_bear_sid", this.F.g());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            NoNetworkView.updateUI();
+            this.d = false;
+            this.b = 0;
+            this.f = false;
+            this.c = false;
         }
     }
 
-    public cd5 a() {
-        InterceptResult invokeV;
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.t;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            zi.h().c(this.k);
         }
-        return (cd5) invokeV.objValue;
-    }
-
-    public ABTestExtraData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.u;
-        }
-        return (ABTestExtraData) invokeV.objValue;
-    }
-
-    public JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.v;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public dd5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
-        }
-        return (dd5) invokeV.objValue;
-    }
-
-    public ed5 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
-        }
-        return (ed5) invokeV.objValue;
-    }
-
-    public gd5 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (gd5) invokeV.objValue;
-    }
-
-    public id5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.D;
-        }
-        return (id5) invokeV.objValue;
-    }
-
-    public jd5 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return (jd5) invokeV.objValue;
-    }
-
-    public vd5 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (vd5) invokeV.objValue;
-    }
-
-    public CombineDownload j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.e;
-        }
-        return (CombineDownload) invokeV.objValue;
-    }
-
-    public wd5 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.c;
-        }
-        return (wd5) invokeV.objValue;
-    }
-
-    public JSONObject l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.y;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public ce5 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.n;
-        }
-        return (ce5) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.q == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.r;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public NewGodData q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.B;
-        }
-        return (NewGodData) invokeV.objValue;
-    }
-
-    public ne5 r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.m;
-        }
-        return (ne5) invokeV.objValue;
-    }
-
-    public JSONArray s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.w;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public UserGrowthTaskListData t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.G;
-        }
-        return (UserGrowthTaskListData) invokeV.objValue;
-    }
-
-    public VersionData u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a;
-        }
-        return (VersionData) invokeV.objValue;
-    }
-
-    public ze5 v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.g;
-        }
-        return (ze5) invokeV.objValue;
-    }
-
-    public YYLiveConfig w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.z;
-        }
-        return (YYLiveConfig) invokeV.objValue;
-    }
-
-    public x0b x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.A;
-        }
-        return (x0b) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
     }
 }

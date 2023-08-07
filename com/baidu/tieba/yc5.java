@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,16 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yc5 extends MediaPlayer implements wc5 {
+public class yc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object d;
-    public static yc5 e;
+    public static final yc5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
+    public HashMap<String, zc5> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +32,7 @@ public class yc5 extends MediaPlayer implements wc5 {
                 return;
             }
         }
-        d = new Object();
+        b = new yc5();
     }
 
     public yc5() {
@@ -47,160 +45,60 @@ public class yc5 extends MediaPlayer implements wc5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = -1;
     }
 
-    public static yc5 h() {
-        InterceptResult invokeV;
+    public static yc5 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (d) {
-                    if (e == null) {
-                        e = new yc5();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return b;
             }
-            return e;
+            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
+            yc5 yc5Var = new yc5();
+            yc5Var.a(optJSONObject);
+            return yc5Var;
         }
-        return (yc5) invokeV.objValue;
+        return (yc5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wc5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
-            return;
-        }
-        stop();
-        this.b = true;
-        this.a = false;
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pause();
-        }
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            reset();
-            this.a = false;
-            this.b = true;
-            this.c = -1;
-        }
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return getCurrentPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            start();
-            this.b = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public boolean isPrepared() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public boolean b(String str) {
+    public zc5 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.c = -1;
-            if (!this.a) {
-                this.b = true;
-                reset();
-                try {
-                    setDataSource(str);
-                    i(qj.b);
-                    try {
-                        prepare();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                        this.c = 2;
-                        return false;
-                    } catch (IllegalStateException unused) {
-                        this.c = 1;
-                        return false;
+            if (this.a != null && !StringUtils.isNull(str)) {
+                return this.a.get(str);
+            }
+            return null;
+        }
+        return (zc5) invokeL.objValue;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        if (optJSONArray != null) {
+            this.a = new HashMap<>();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    zc5 g = zc5.g(optJSONObject);
+                    if (!StringUtils.isNull(g.f())) {
+                        this.a.put(g.f(), g);
                     }
-                } catch (IOException unused2) {
-                    this.c = 2;
-                    return false;
-                } catch (IllegalArgumentException unused3) {
-                    this.c = 0;
-                    return false;
-                } catch (IllegalStateException unused4) {
-                    this.c = 1;
-                    return false;
                 }
             }
-            this.a = true;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            setAudioStreamType(i);
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            try {
-                seekTo(i);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wc5
-    public void seek(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            j(i);
         }
     }
 }

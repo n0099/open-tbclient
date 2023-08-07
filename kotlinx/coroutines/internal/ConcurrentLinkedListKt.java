@@ -41,7 +41,7 @@ public final class ConcurrentLinkedListKt {
             if (s.getId() < j || s.getRemoved()) {
                 Object nextOrClosed = s.getNextOrClosed();
                 if (nextOrClosed == CLOSED) {
-                    return SegmentOrClosed.m2344constructorimpl(CLOSED);
+                    return SegmentOrClosed.m2345constructorimpl(CLOSED);
                 }
                 S s2 = (S) ((ConcurrentLinkedListNode) nextOrClosed);
                 if (s2 == null) {
@@ -54,7 +54,7 @@ public final class ConcurrentLinkedListKt {
                 }
                 s = s2;
             } else {
-                return SegmentOrClosed.m2344constructorimpl(s);
+                return SegmentOrClosed.m2345constructorimpl(s);
             }
         }
     }

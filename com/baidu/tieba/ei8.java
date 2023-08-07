@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.arch.base.ReqState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ei8<T> {
+public class ei8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("errorCode")
-    public int a;
-    @SerializedName("errorMsg")
-    public String b;
-    @SerializedName("data")
-    public T c;
-    @SerializedName("state")
-    public ReqState d;
+    public BotsDTO.BotListDTO.UserDTO a;
+    public BotsDTO.BotListDTO.SkillDTO b;
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
+    @NonNull
+    public boolean d;
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
 
     public ei8() {
         Interceptable interceptable = $ic;
@@ -35,60 +39,50 @@ public class ei8<T> {
                 return;
             }
         }
-        this.a = -1;
-        this.d = ReqState.Error;
+        this.d = true;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = false;
         }
-        return invokeV.intValue;
     }
 
-    public final T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final String c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final ReqState d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
-        return (ReqState) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void e(ReqState reqState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, reqState) == null) {
-            Intrinsics.checkNotNullParameter(reqState, "<set-?>");
-            this.d = reqState;
-        }
-    }
-
-    public String toString() {
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "BaseData(code=" + this.a + ", msg=" + this.b + ", data=" + this.c + ", state=" + this.d + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
+            if (list != null && !list.isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
+                    if (itemsDTO.isFileType()) {
+                        return itemsDTO;
+                    }
+                }
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
     }
 }

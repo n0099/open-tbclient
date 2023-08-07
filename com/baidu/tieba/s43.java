@@ -2,190 +2,104 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s43 extends g43 {
+public class s43 implements u43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public Set<String> c;
 
-    @Override // com.baidu.tieba.yz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101399, "Lcom/baidu/tieba/s43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948101399, "Lcom/baidu/tieba/s43;");
-                return;
-            }
-        }
-        f = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s43(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public s43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = "boxjs.";
+        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
-    public v32 x(String str) {
+    @Override // com.baidu.tieba.u43
+    public List<g43> a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#chooseCoupon", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new v32(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new v32(1001, "swan activity is null");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                return v32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
             if (TextUtils.isEmpty(optString)) {
-                return new v32(202, "cb is empty");
+                return arrayList;
             }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new v32(202, "empty componentId");
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt <= 0) {
+                return arrayList;
             }
-            String optString3 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString3)) {
-                return new v32(202, "empty appKey");
+            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+            if (optJSONArray != null && optJSONArray2 != null) {
+                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+                if (min <= 0) {
+                    return arrayList;
+                }
+                for (int i = 0; i < min; i++) {
+                    g43 g43Var = new g43();
+                    g43Var.f(optString);
+                    g43Var.g(b(g43Var));
+                    g43Var.i(optJSONArray.optLong(i));
+                    g43Var.h(optJSONArray2.optLong(i));
+                    arrayList.add(g43Var);
+                    if (u43.a) {
+                        c(g43Var.toString());
+                    }
+                }
+                return arrayList;
             }
-            String optString4 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString4)) {
-                return new v32(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
-            return v32.f();
+            c("startTimes or endTimes is empty");
+            return arrayList;
         }
-        return (v32) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public v32 y(String str) {
+    public final int b(g43 g43Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getPaymentInfo", false);
-            if (vb3.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new v32(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g43Var)) == null) {
+            String a = g43Var.a();
+            if (TextUtils.isEmpty(a)) {
+                return 0;
             }
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                return v32Var;
+            if (!a.startsWith(this.b) && !this.c.contains(a)) {
+                return 0;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new v32(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new v32(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("dealId");
-            if (TextUtils.isEmpty(optString3)) {
-                return new v32(202, "empty dealId");
-            }
-            String optString4 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString4)) {
-                return new v32(202, "empty appKey");
-            }
-            String optString5 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString5)) {
-                return new v32(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-            return v32.f();
+            return 1;
         }
-        return (v32) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public v32 z(String str) {
-        InterceptResult invokeL;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setPaymentInfo", false);
-            if (vb3.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new v32(1001, "swan app is null");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                return v32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new v32(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new v32(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("chosenChannel");
-            if (TextUtils.isEmpty(optString3)) {
-                return new v32(202, "empty chosenChannel");
-            }
-            PaymentPanelManager.z().J(this, optString2, optString3, optString);
-            return v32.f();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && u43.a) {
+            Log.d("Api-Parser", str);
         }
-        return (v32) invokeL.objValue;
     }
 }

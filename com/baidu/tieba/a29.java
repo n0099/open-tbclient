@@ -1,378 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.sf;
+import com.baidu.searchbox.live.data.constant.PwLogConstant;
+import com.baidu.searchbox.live.interfaces.LiveConstants;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a29 implements tf {
+public class a29 implements EventDispatcherService {
     public static /* synthetic */ Interceptable $ic;
-    public static a29 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public Context b;
-    public sf.d c;
-    public LocationManager d;
-    public Address e;
-    public long f;
-    public Handler g;
-    public int h;
-    public boolean i;
-    public Runnable j;
-    public Runnable k;
-    public final LocationListener l;
-    public final LocationListener m;
 
-    /* loaded from: classes5.dex */
-    public class a implements LocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a29 a;
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
-            }
-        }
-
-        public a(a29 a29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a29Var;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-                if (this.a.g.hasMessages(0)) {
-                    this.a.g.removeMessages(0);
-                }
-                this.a.g.removeCallbacks(this.a.k);
-                this.a.g.removeCallbacks(this.a.j);
-                if (this.a.a != null) {
-                    return;
-                }
-                this.a.a = new f(this.a, null);
-                this.a.a.setSelfExecute(true);
-                this.a.a.execute(location);
-            }
+    public final void a(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements LocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a29 a;
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
-            }
-        }
-
-        public b(a29 a29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a29Var;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-                if (this.a.g.hasMessages(0)) {
-                    this.a.g.removeMessages(0);
-                }
-                this.a.g.removeCallbacks(this.a.k);
-                this.a.g.removeCallbacks(this.a.j);
-                if (this.a.a != null) {
-                    return;
-                }
-                this.a.a = new f(this.a, null);
-                this.a.a.setSelfExecute(true);
-                this.a.a.execute(location);
-            }
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a29 a;
-
-        public c(a29 a29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a29Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
-                try {
-                    this.a.d.requestLocationUpdates("network", 10000L, 100.0f, this.a.l);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a29 a;
-
-        public d(a29 a29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a29Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
-                try {
-                    this.a.d.requestLocationUpdates("gps", 10000L, 100.0f, this.a.m);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a29 a;
-
-        public e(a29 a29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a29Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what == 0) {
-                    this.a.c();
-                    this.a.c.a(this.a.h, "", null, this.a.f, this.a.i);
-                    return false;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f extends BdAsyncTask<Location, Void, Address> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a29 a;
-
-        public f(a29 a29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a29Var;
-        }
-
-        public /* synthetic */ f(a29 a29Var, a aVar) {
-            this(a29Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Address doInBackground(Location... locationArr) {
-            InterceptResult invokeL;
-            List<Address> list;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationArr)) == null) {
-                Geocoder geocoder = new Geocoder(this.a.b, Locale.getDefault());
-                if (locationArr != null && locationArr.length >= 1) {
-                    Location location = locationArr[0];
-                    try {
-                        list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    } catch (IOException | IllegalArgumentException unused) {
-                        list = null;
-                    }
-                    if (list != null && list.size() > 0) {
-                        Address address = list.get(0);
-                        StringBuffer stringBuffer = new StringBuffer();
-                        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
-                            stringBuffer.append(address.getLocality());
-                        }
-                        stringBuffer.append(address.getSubLocality());
-                        stringBuffer.append(address.getThoroughfare());
-                        address.setAddressLine(0, stringBuffer.toString());
-                        return address;
-                    }
-                }
-                return null;
-            }
-            return (Address) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(Address address) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, address) == null) {
-                super.onPostExecute(address);
-                this.a.a = null;
-                if (address != null) {
-                    this.a.c();
-                    this.a.f = System.currentTimeMillis();
-                    this.a.e = address;
-                    this.a.c.a(0, "", this.a.e, this.a.f, this.a.i);
-                    f0a.e().i(String.valueOf(address.getLatitude()));
-                    f0a.e().j(String.valueOf(address.getLongitude()));
-                    f0a.e().k(System.currentTimeMillis());
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreCancel();
-                this.a.a = null;
-            }
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -386,149 +54,214 @@ public class a29 implements tf {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = 0L;
-        this.g = null;
-        this.i = false;
-        this.j = null;
-        this.k = null;
-        this.l = new a(this);
-        this.m = new b(this);
     }
 
-    public static a29 t() {
-        InterceptResult invokeV;
+    public static void g(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (n == null) {
-                synchronized (a29.class) {
-                    if (n == null) {
-                        n = new a29();
-                    }
-                }
-            }
-            return n;
-        }
-        return (a29) invokeV.objValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g = new Handler(Looper.getMainLooper(), new e(this));
+        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
         }
     }
 
-    @Override // com.baidu.tieba.tf
-    public void a(boolean z) {
-        LocationManager locationManager;
+    public final void i(Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.c != null && (locationManager = this.d) != null) {
-            try {
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            String str = (String) map.get("data");
+            if (!TextUtils.isEmpty(str) && str != null) {
                 try {
-                    locationManager.removeUpdates(this.l);
-                    this.h = 4;
-                    this.i = z;
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                    c();
-                    this.h = 5;
+                    iz8.o(new JSONObject(str));
+                } catch (JSONException unused) {
                 }
-                if (PermissionUtil.checkLocationForGoogle(this.b) && (this.d.isProviderEnabled("gps") || this.d.isProviderEnabled("network"))) {
-                    if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("gps")) {
-                        this.g.post(this.k);
-                    } else {
-                        this.h = 1;
+            }
+        }
+    }
+
+    public final void b(String str, Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) != null) || map == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        for (String str2 : map.keySet()) {
+            Object obj = map.get(str2);
+            if (obj != null) {
+                statisticItem.addParam(str2, obj.toString());
+            }
+        }
+        statisticItem.addParam("uid", BdStatisticsManager.getInstance().getUid());
+        TiebaStatic.log(statisticItem);
+    }
+
+    public final void d(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("roomId", map.get("roomId"));
+                jSONObject.put("isClosed", map.get("isClosed"));
+                jSONObject.put("liveId", map.get("liveId"));
+                jSONObject.put("type", map.get("type"));
+                jSONObject.put("sid", map.get("sid"));
+                jSONObject.put(YyLiveRoomConfig.KEY_SSID, map.get(YyLiveRoomConfig.KEY_SSID));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
+        }
+    }
+
+    public void e(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || bi.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                statisticItem.param(str2, map.get(str2));
+            }
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    public void f(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || map == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        String obj = map.remove("key").toString();
+        for (String str : map.keySet()) {
+            hashMap.put(str, map.get(str).toString());
+        }
+        e(obj, hashMap);
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
+    public void onEvent(String str, Map<String, ?> map) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
+            switch (str.hashCode()) {
+                case -2147386482:
+                    if (str.equals("sync_webview_cookie")) {
+                        c = 0;
+                        break;
                     }
-                    if (!z) {
-                        if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("network")) {
-                            this.g.post(this.j);
-                        } else {
-                            this.h = 2;
-                        }
+                    c = 65535;
+                    break;
+                case -1369745389:
+                    if (str.equals("living_room_is_closed")) {
+                        c = 6;
+                        break;
                     }
+                    c = 65535;
+                    break;
+                case -1326603888:
+                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1284765503:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_DUR)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -841542404:
+                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -807428011:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_START)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -442093365:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_FAIL)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 152519529:
+                    if (str.equals("live_show_close")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1480780598:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_SUC)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1766660371:
+                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1785162541:
+                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    h();
                     return;
-                }
-                this.h = 3;
-                this.g.sendMessageDelayed(this.g.obtainMessage(0), sf.n().o());
-            } finally {
-                Handler handler = this.g;
-                handler.sendMessageDelayed(handler.obtainMessage(0), sf.n().o());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tf
-    public void b(sf.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            this.b = context;
-            this.c = dVar;
-            try {
-                this.d = (LocationManager) context.getSystemService("location");
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-            }
-            this.j = new c(this);
-            this.k = new d(this);
-            u();
-        }
-    }
-
-    @Override // com.baidu.tieba.tf
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.g.hasMessages(0)) {
-                this.g.removeMessages(0);
-            }
-            this.g.removeCallbacks(this.k);
-            this.g.removeCallbacks(this.j);
-            LocationManager locationManager = this.d;
-            if (locationManager != null) {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.d.removeUpdates(this.m);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
-            }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.cancel();
-                this.a = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tf
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.g.hasMessages(0)) {
-                this.g.removeMessages(0);
-            }
-            this.g.removeCallbacks(this.k);
-            this.g.removeCallbacks(this.j);
-            LocationManager locationManager = this.d;
-            if (locationManager != null) {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.d.removeUpdates(this.m);
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
-                }
-            }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.cancel();
-                this.a = null;
+                case 1:
+                    c();
+                    return;
+                case 2:
+                    f(map);
+                    return;
+                case 3:
+                    g((ArrayList) map.get(str));
+                    return;
+                case 4:
+                    a(map);
+                    return;
+                case 5:
+                    i(map);
+                    return;
+                case 6:
+                    d(map);
+                    return;
+                case 7:
+                    b("c15400", map);
+                    return;
+                case '\b':
+                    b("c15401", map);
+                    return;
+                case '\t':
+                    b("c15402", map);
+                    return;
+                case '\n':
+                    b("c15403", map);
+                    return;
+                default:
+                    return;
             }
         }
     }

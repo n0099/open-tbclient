@@ -8,13 +8,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.ColorInt;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be7;
 import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
 import com.baidu.tieba.feed.widget.roundcorners.RoundLinearLayout;
-import com.baidu.tieba.ne7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.jb7;
+import com.baidu.tieba.vb7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,9 +31,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VirtualImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ne7 a;
-    public ne7 b;
-    public ne7 c;
+    public vb7 a;
+    public vb7 b;
+    public vb7 c;
 
     static {
         InterceptResult invokeClinit;
@@ -94,15 +94,15 @@ public final class VirtualImageView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        int g = yi.g(context, R.dimen.tbds94);
-        float f = g;
+        int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds94);
+        float f = dimens;
         int i3 = (int) (1.2f * f);
         RoundFrameLayout roundFrameLayout = new RoundFrameLayout(context);
-        roundFrameLayout.setId(R.id.obfuscated_res_0x7f0905d5);
-        ne7 ne7Var = new ne7(context);
-        this.a = ne7Var;
-        roundFrameLayout.addView(ne7Var.h(), new FrameLayout.LayoutParams(-1, -1));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
+        roundFrameLayout.setId(R.id.obfuscated_res_0x7f0905e2);
+        vb7 vb7Var = new vb7(context);
+        this.a = vb7Var;
+        roundFrameLayout.addView(vb7Var.h(), new FrameLayout.LayoutParams(-1, -1));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
         roundFrameLayout.setRadius(f);
         layoutParams.addRule(13);
         addView(roundFrameLayout, layoutParams);
@@ -110,22 +110,22 @@ public final class VirtualImageView extends RelativeLayout {
         RoundLinearLayout roundLinearLayout = new RoundLinearLayout(context);
         roundLinearLayout.setOrientation(0);
         roundLinearLayout.setGravity(80);
-        roundLinearLayout.setId(R.id.obfuscated_res_0x7f0905d1);
-        this.b = new ne7(context);
+        roundLinearLayout.setId(R.id.obfuscated_res_0x7f0905de);
+        this.b = new vb7(context);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(i3, i3);
-        layoutParams2.leftMargin = (-(i3 - g)) / 2;
+        layoutParams2.leftMargin = (-(i3 - dimens)) / 2;
         roundLinearLayout.addView(this.b.h(), layoutParams2);
         roundLinearLayout.setRadius(0.0f, 0.0f, f, f);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(g, -1);
-        layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0905d5);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(dimens, -1);
+        layoutParams3.addRule(8, R.id.obfuscated_res_0x7f0905e2);
         layoutParams3.addRule(10);
         layoutParams3.addRule(14);
         addView(roundLinearLayout, layoutParams3);
-        this.c = new ne7(context);
-        int g2 = yi.g(context, R.dimen.tbds42);
-        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(g2, g2);
-        layoutParams4.addRule(8, R.id.obfuscated_res_0x7f0905d1);
-        layoutParams4.addRule(7, R.id.obfuscated_res_0x7f0905d1);
+        this.c = new vb7(context);
+        int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds42);
+        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(dimens2, dimens2);
+        layoutParams4.addRule(8, R.id.obfuscated_res_0x7f0905de);
+        layoutParams4.addRule(7, R.id.obfuscated_res_0x7f0905de);
         addView(this.c.h(), layoutParams4);
         this.c.c(R.color.transparent);
     }
@@ -173,7 +173,7 @@ public final class VirtualImageView extends RelativeLayout {
                 return;
             }
             this.c.h().setVisibility(0);
-            be7.a(this.c.h(), str);
+            jb7.a(this.c.h(), str);
         }
     }
 

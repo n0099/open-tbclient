@@ -1,883 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.http.SslError;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.data.LoginDialogData;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
-import com.baidu.tieba.mainentrance.HotSearchInfoData;
-import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListNetMessage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.DuMediaConstants;
+import com.baidu.searchbox.live.interfaces.player.DuMediaView;
+import com.baidu.searchbox.live.interfaces.player.IDuMediaPnPController;
+import com.baidu.searchbox.live.interfaces.player.LiveDlnaSearchListener;
+import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Stack;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import tbclient.SearchSug.DataRes;
+import com.google.android.exoplayer2.util.MimeTypes;
 /* loaded from: classes8.dex */
-public class u29 implements k39 {
+public class u29 implements IDuMediaService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public t29 b;
-    public View c;
-    public boolean d;
-    public HotSearchInfoData e;
-    public boolean f;
-    public String g;
-    public Stack<String> h;
-    public s29 i;
-    public CustomMessageListener j;
-    public final CustomMessageListener k;
 
-    /* loaded from: classes8.dex */
-    public class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ h a;
-
-            public a(h hVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {hVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = hVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.a.finish();
-                }
-            }
-        }
-
-        public h(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.b.g() && this.a.b.g().getText() != null) {
-                    u29 u29Var = this.a;
-                    u29Var.g = u29Var.b.g().getText().toString();
-                    if (StringUtils.isNull(this.a.g)) {
-                        this.a.x();
-                    }
-                } else if (view2 == this.a.b.d()) {
-                    yi.A(this.a.a.getPageContext().getPageActivity(), this.a.b.g());
-                    zg.a().postDelayed(new a(this), 1000L);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements on6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        public a(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        @Override // com.baidu.tieba.on6
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                s95.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
-                if (!TbadkCoreApplication.isLogin() && str != null && vy5.e(str) && vy5.a()) {
-                    LoginDialogData loginDialogData = new LoginDialogData(this.a.a, LoginDialogData.SEARCH_RESULT_PAGE);
-                    loginDialogData.setUrl(str);
-                    DialogLoginHelper.checkUpIsLogin(loginDialogData);
-                    return true;
-                } else if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.a.a.getPageContext(), new String[]{str}) != 3) {
-                    return true;
-                } else {
-                    if (str != null && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        UrlManager.getInstance().dealOneLink(this.a.a.getPageContext(), new String[]{str}, true);
-                        return true;
-                    }
-                    Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.a.a.getApplicationContext(), str);
-                    if (parseIntentFromUrl == null) {
-                        return false;
-                    }
-                    try {
-                        ArrayList<String> arrayList = (ArrayList) this.a.a.getCurrentPageSourceKeyList();
-                        String currentPageKey = this.a.a.getCurrentPageKey();
-                        if (arrayList != null && !StringUtils.isNull(currentPageKey) && !arrayList.contains(currentPageKey)) {
-                            arrayList.add(currentPageKey);
-                        }
-                        if (!ListUtils.isEmpty(arrayList)) {
-                            parseIntentFromUrl.putStringArrayListExtra("obj_source", arrayList);
-                        }
-                        this.a.a.startActivity(parseIntentFromUrl);
-                    } catch (Throwable th) {
-                        BdLog.detailException(th);
-                    }
-                    return true;
-                }
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends wy5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public b(u29 u29Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.wy5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                xda.o(this.a);
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(u29 u29Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.a.b.K(!((Boolean) customResponsedMessage.getData()).booleanValue());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(u29 u29Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.a((String) customResponsedMessage.getData(), true, 3);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        public e(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
-                if (!z) {
-                    yi.A(this.a.a.getPageContext().getPageActivity(), view2);
-                    return;
-                }
-                if (this.a.b != null && this.a.b.g() != null) {
-                    u29 u29Var = this.a;
-                    u29Var.g = u29Var.b.g().getText().toString();
-                }
-                if (StringUtils.isNull(this.a.g)) {
-                    this.a.r();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class f implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        public f(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                if (i != 3) {
-                    return false;
-                }
-                if (StringUtils.isNull(this.a.g)) {
-                    yi.A(this.a.a.getPageContext().getPageActivity(), textView);
-                    this.a.v();
-                } else {
-                    u29 u29Var = this.a;
-                    u29Var.a(u29Var.g, false, 1);
-                    TiebaStatic.log(new StatisticItem("c12842").param("obj_name", this.a.g).param("obj_source", "1").param("obj_type", "1"));
-                }
-                return true;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class g implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u29 a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public g(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u29Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || editable == null) {
-                return;
-            }
-            if (this.a.f) {
-                this.a.g = editable.toString();
-                this.a.y();
-            }
-            this.a.b.u(!StringUtils.isNull(editable.toString()));
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class i implements pn6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pn6
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                s95.a("search", -1L, 0, "PageFinished", 0, "", "requesturl", str);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class j implements rn6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.rn6
-        public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
-            }
-        }
-
-        public j(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class k implements sn6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public k(u29 u29Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u29Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sn6
-        public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) && sslError != null) {
-                s95.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
-            }
-        }
-    }
-
-    public u29(BaseActivity baseActivity, boolean z) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    public void dlnaRefresh(@NonNull LiveDlnaSearchListener liveDlnaSearchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = true;
-        this.h = new Stack<>();
-        this.j = new c(this, 2921444);
-        this.k = new d(this, 2921595);
-        this.a = baseActivity;
-        this.d = z;
-        s();
-    }
-
-    @Override // com.baidu.tieba.k39
-    public void d(HotSearchInfoData hotSearchInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hotSearchInfoData) == null) {
-            this.e = hotSearchInfoData;
-            w();
+        if (interceptable == null || interceptable.invokeL(1048576, this, liveDlnaSearchListener) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.k39
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.b.q(this.a.getPageContext(), i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.k39
-    public void f(DataRes dataRes, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, dataRes, str) == null) && !TextUtils.isEmpty(str) && str.equals(this.g)) {
-            this.b.I(dataRes, this.g);
-        }
-    }
-
-    @Override // com.baidu.tieba.k39
-    public void a(String str, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
-            } else if (StringUtils.isNull(str)) {
-            } else {
-                t(str);
-                Matcher matcher = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2).matcher(str);
-                if (matcher != null && matcher.find() && !TextUtils.isEmpty(matcher.group(2))) {
-                    str = matcher.group(2);
-                }
-                if (z) {
-                    this.f = false;
-                    this.b.G(str);
-                    this.f = true;
-                }
-                yi.A(this.a.getPageContext().getPageActivity(), this.b.g());
-                this.b.C();
-                String str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + str + "&sug_type=" + i2;
-                try {
-                    str2 = "https://tieba.baidu.com/mo/q/hybrid/search?keyword=" + URLEncoder.encode(str, "utf-8") + "&sug_type=" + i2;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                this.b.p(str2);
-                this.h.push(str);
-                az5.b(new b(this, str), null);
-                this.i.i(str);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921345, str));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.k39
-    public void b() {
-        t29 t29Var;
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    public void dlnaStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.h.size() > 1) {
-                this.h.pop();
-                String peek = this.h.peek();
-                if (!TextUtils.isEmpty(peek) && (t29Var = this.b) != null) {
-                    boolean z = this.f;
-                    this.f = false;
-                    t29Var.G(peek);
-                    this.f = z;
-                    this.b.C();
-                    return;
-                }
-                return;
-            }
-            this.h.clear();
         }
     }
 
-    public void q() {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public IDuMediaPnPController getCtrlPoint(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            e eVar = new e(this);
-            f fVar = new f(this);
-            g gVar = new g(this);
-            h hVar = new h(this);
-            this.b.E(eVar);
-            this.b.D(fVar);
-            this.b.H(gVar);
-            this.b.y(hVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return null;
         }
+        return (IDuMediaPnPController) invokeL.objValue;
     }
 
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (StringUtils.isNull(this.g)) {
-                x();
-                return;
-            }
-            SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-            searchListNetMessage.mKey = this.g.trim();
-            searchListNetMessage.isForum = 0;
-            this.a.sendMessage(searchListNetMessage);
-        }
-    }
-
-    @Override // com.baidu.tieba.k39
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.f();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k39
-    public View e() {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public DuMediaView getDuMediaView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b.g();
+            return null;
         }
-        return (View) invokeV.objValue;
+        return (DuMediaView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k39
-    public void onDestroy() {
+    public u29() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            t29 t29Var = this.b;
-            if (t29Var != null) {
-                t29Var.r();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            s29 s29Var = this.i;
-            if (s29Var != null) {
-                s29Var.r();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Integer getDevicePlayQualityScore(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            return Integer.valueOf(CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, i, i2, null));
+        }
+        return (Integer) invokeII.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Integer getMediaIntConstant(@Nullable DuMediaConstants.Key key) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, key)) == null) {
+            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROPPING) {
+                return 0;
             }
+            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING) {
+                return 2;
+            }
+            if (key == DuMediaConstants.Key.INSTALL_TYPE_CYBER_MEDIA) {
+                return 1;
+            }
+            if (key == DuMediaConstants.Key.SEEK_PREVIOUS_SYNC) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.SEEK_CLOSEST) {
+                return 3;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_RESTART_PLAYED) {
+                return 956;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_FIRST_DISP_INTERVAL) {
+                return 904;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_START) {
+                return 701;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_END) {
+                return 702;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_STATUS) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_UNKNOW) {
+                return -1;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_IDLE) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PLAYING) {
+                return 1;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PAUSED) {
+                return 2;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PREPARED) {
+                return 3;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_COMPLETE) {
+                return 4;
+            }
+            if (key != DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_CONNECTED) {
+                return 0;
+            }
+            return 5;
         }
+        return (Integer) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k39
-    public void onPause() {
-        t29 t29Var;
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Boolean isCoreLoaded(@Nullable Integer num) {
+        InterceptResult invokeL;
+        int intValue;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (t29Var = this.b) != null) {
-            t29Var.s();
-        }
-    }
-
-    @Override // com.baidu.tieba.k39
-    public void onResume() {
-        t29 t29Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (t29Var = this.b) != null) {
-            t29Var.t();
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i iVar = new i(this);
-            j jVar = new j(this);
-            k kVar = new k(this);
-            this.b.A(new a(this), iVar, jVar, kVar);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.b.n()) {
-            return;
-        }
-        u();
-    }
-
-    public final void w() {
-        t29 t29Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || (t29Var = this.b) == null) {
-            return;
-        }
-        HotSearchInfoData hotSearchInfoData = this.e;
-        if (hotSearchInfoData == null) {
-            t29Var.F(this.a.getResources().getString(R.string.search_bar));
-        } else {
-            t29Var.F(hotSearchInfoData.W());
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.i.q();
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (!StringUtils.isNull(this.g)) {
-                u();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, num)) == null) {
+            if (num == null) {
+                intValue = 1;
             } else {
-                x();
+                intValue = num.intValue();
             }
+            return Boolean.valueOf(CyberPlayerManager.isCoreLoaded(intValue));
         }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            try {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) null);
-                this.c = inflate;
-                this.a.setContentView(inflate);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                Map<String, String> a2 = j39.a();
-                if (a2 != null) {
-                    int size = a2.size();
-                    int i2 = 0;
-                    for (String str : a2.keySet()) {
-                        j39.b(str);
-                        try {
-                            View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) null);
-                            this.c = inflate2;
-                            this.a.setContentView(inflate2);
-                            break;
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                            i2++;
-                        }
-                    }
-                    if (i2 == size) {
-                        this.a.finish();
-                        return;
-                    }
-                } else {
-                    this.a.finish();
-                    return;
-                }
-            }
-            View view2 = this.c;
-            if (view2 == null) {
-                this.a.finish();
-                return;
-            }
-            t29 t29Var = new t29(view2, this.a.getPageContext().getPageActivity());
-            this.b = t29Var;
-            this.i = new s29(this.a, this, t29Var);
-            q();
-            p();
-            w();
-            y();
-            pz5.e(this.b.f(), this.a.getUniqueId());
-            pz5.e(this.b.e(), this.a.getUniqueId());
-            this.a.registerListener(this.j);
-            this.k.setTag(this.a.getUniqueId());
-            this.k.setSelfListener(true);
-            this.a.registerListener(this.k);
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            HotSearchInfoData hotSearchInfoData = this.e;
-            if (hotSearchInfoData == null) {
-                BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f18b7));
-                return;
-            }
-            int i2 = 1;
-            if (hotSearchInfoData.getType() != 0 && this.e.getType() != 2) {
-                if (this.e.getType() == 1 && !zx5.b(this.a.getPageContext())) {
-                    if (this.e.V() != 1 && NewWebHotTopicPageSwitch.isOn()) {
-                        my5.f(this.a.getPageContext(), String.valueOf(this.e.getId()), this.e.getName());
-                    } else {
-                        new HotTopicActivityConfig(this.a).createNormalConfig(String.valueOf(this.e.getId()), this.e.getName(), String.valueOf(this.e.V()), null).start();
-                    }
-                }
-            } else {
-                a(this.e.getName(), true, 1);
-            }
-            StatisticItem param = new StatisticItem("c15199").param("obj_name", this.e.getName()).param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (this.d) {
-                i2 = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i2));
-        }
-    }
-
-    public final void t(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            if ("tiebalog:true".equals(str)) {
-                da5.p().A("key_tieba_exception_log_enable", true);
-                BdLog.enableExceptionLog = true;
-            } else if ("tiebalog:false".equals(str)) {
-                da5.p().A("key_tieba_exception_log_enable", false);
-                BdLog.enableExceptionLog = false;
-            }
-        }
+        return (Boolean) invokeL.objValue;
     }
 }

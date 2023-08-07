@@ -1,97 +1,69 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class yd7 {
+public class yd7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public BdTypeRecyclerView b;
+    public zd7 c;
+    public gn d;
+    public List<lm> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948326397, "Lcom/baidu/tieba/yd7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948326397, "Lcom/baidu/tieba/yd7;");
+    public yd7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.e = new LinkedList();
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zd7 zd7Var = new zd7(this.a);
+            this.c = zd7Var;
+            this.e.add(zd7Var);
+            gn gnVar = new gn(this.a);
+            this.d = gnVar;
+            this.e.add(gnVar);
+            this.b.addAdapters(this.e);
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
+    }
 
-        public final int a(k87 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                int type = colorData.getType();
-                if (type != 1) {
-                    if (type == 2) {
-                        return SkinManager.getColor(z57.a.getResources().getIdentifier(colorData.b(), "color", z57.a.getPackageName()));
-                    }
-                } else {
-                    int currentSkinType = SkinManager.getCurrentSkinType();
-                    if (currentSkinType != 0) {
-                        if (currentSkinType == 4) {
-                            return dba.f(colorData.a());
-                        }
-                    } else {
-                        return dba.f(colorData.b());
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final int b(k87 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                if (colorData.getType() == 2) {
-                    return z57.a.getResources().getIdentifier(colorData.b(), "color", z57.a.getPackageName());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
+    public void c(List<ym> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setData(list);
         }
     }
 }

@@ -1,35 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.i97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Abstract;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class i0a {
+public final class i0a implements i97.b {
     public static /* synthetic */ Interceptable $ic;
-    public static i0a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, List<JSONObject>> a;
-    public ConcurrentHashMap<String, Integer> b;
+    public final y97 a;
+    public final BdUniqueId b;
 
-    public i0a() {
+    public i0a(y97 statStrategy, BdUniqueId pageId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statStrategy, pageId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,153 +33,57 @@ public class i0a {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        Intrinsics.checkNotNullParameter(pageId, "pageId");
+        this.a = statStrategy;
+        this.b = pageId;
     }
 
-    public static i0a f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i97.b
+    public void a(u97<?> data, int i) {
+        Map<String, String> hashMap;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (i0a.class) {
-                    if (c == null) {
-                        c = new i0a();
-                    }
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            e97 e97Var = (e97) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            int i2 = i + 1;
+            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
+            l57 l57Var = new l57();
+            l57 l57Var2 = e97Var.b;
+            if (l57Var2 != null) {
+                l57Var = l57Var2;
+            }
+            if (e97Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(l57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
                 }
             }
-            return c;
-        }
-        return (i0a) invokeV.objValue;
-    }
-
-    public static JSONObject b(ThreadInfo threadInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadInfo)) == null) {
-            if (threadInfo == null) {
-                return null;
-            }
-            return c(threadInfo, threadInfo.fname);
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, new ArrayList());
-        }
-    }
-
-    public String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return g(this.a.get(str));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Integer num = this.b.get(str);
-            if (num == null) {
-                return 0;
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public static JSONObject c(ThreadInfo threadInfo, String str) {
-        InterceptResult invokeLL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, threadInfo, str)) == null) {
-            if (threadInfo == null) {
-                return null;
-            }
-            String str2 = "" + threadInfo.tid;
-            String str3 = "0";
-            if (StringUtils.isNull(str2) || "0".equals(str2)) {
-                str2 = "" + threadInfo.id;
-            }
-            if (threadInfo.video_info != null) {
-                str3 = "" + threadInfo.video_info.video_duration;
-            }
-            StringBuilder sb = new StringBuilder();
-            List<Abstract> list = threadInfo._abstract;
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    Abstract r6 = (Abstract) g09.d(list, i);
-                    if (r6 != null && r6.type.intValue() == 0) {
-                        sb.append(r6.text);
-                    }
+            s67 s67Var = e97Var.a;
+            if (s67Var != null && (a = s67Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
                 }
             }
-            String sb2 = sb.toString();
-            String str4 = "" + threadInfo.author_id;
-            User user = threadInfo.author;
-            if (user != null && (l = user.id) != null && l.longValue() != 0) {
-                str4 = "" + threadInfo.author.id;
+            t9a.g().c(this.b, statisticItem);
+            s67 s67Var2 = e97Var.a;
+            if (s67Var2 == null || (hashMap = s67Var2.a()) == null) {
+                hashMap = new HashMap<>();
             }
-            if (StringUtils.isNull(str)) {
-                str = threadInfo.fname;
+            l57Var.a().put("position_from_1", String.valueOf(i2));
+            if (Intrinsics.areEqual(l57Var.a().get("is_video_card"), "1")) {
+                g1a g1aVar = new g1a();
+                aa7.a.a(new c77(g1aVar.getKey(), g1aVar.a(l57Var), hashMap, null, null, 24, null));
+            } else if (Intrinsics.areEqual(l57Var.a().get("is_live_card"), "1")) {
+                p0a p0aVar = new p0a();
+                aa7.a.a(new c77(p0aVar.getKey(), p0aVar.a(l57Var), hashMap, null, null, 24, null));
+            } else {
+                y0a y0aVar = new y0a();
+                aa7.a.a(new c77(y0aVar.getKey(), y0aVar.a(l57Var), hashMap, null, null, 24, null));
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("title", threadInfo.title);
-                jSONObject.put("tid", str2);
-                jSONObject.put("fname", str);
-                jSONObject.put("abstract", sb2);
-                jSONObject.put("author_id", str4);
-                jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final String g(List<JSONObject> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            try {
-                if (ListUtils.isEmpty(list)) {
-                    return "";
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (JSONObject jSONObject : list) {
-                    if (jSONObject != null) {
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                return qi.j(jSONArray.toString().getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h(String str, List<JSONObject> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(list);
-            this.a.put(str, arrayList);
-        }
-    }
-
-    public void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.b.put(str, Integer.valueOf(i));
+            b1a b1aVar = new b1a();
+            aa7.a.a(new c77(b1aVar.getKey(), b1aVar.a(l57Var), hashMap, b1aVar.b(), b1aVar.d()));
         }
     }
 }

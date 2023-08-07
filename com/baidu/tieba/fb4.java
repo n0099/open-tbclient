@@ -1,115 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fb4 {
+public abstract class fb4 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public fj2 a;
-    @V8JavascriptField
-    public JsObject canvas;
+    public final String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947758353, "Lcom/baidu/tieba/fb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947758353, "Lcom/baidu/tieba/fb4;");
-                return;
-            }
-        }
-        b = fs1.a;
-    }
+    public abstract boolean k(@NonNull ib4 ib4Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c(this.a.getInitBasePath(), "swan-game-open-data.js");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JavascriptInterface
-    public void destroyOpenDataContext() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b0().a();
-        }
-    }
-
-    public fb4(fj2 fj2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fb4(vb3 vb3Var, String str, String str2) {
+        super(vb3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fj2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vb3Var, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.canvas = null;
-        this.a = fj2Var;
-        a();
-        b();
+        this.c = str2;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String z = ix2.T().z();
-            String b2 = gb4.a().b();
-            if (b) {
-                Log.d("SwanGameOpenDataContext", "baseFilePath: " + z);
-                Log.d("SwanGameOpenDataContext", "openDataJSFile: " + b2);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            ha2 U = lw2.T().U();
+            if (U == null) {
+                y72.c(this.c, "fragment manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            return c(z, b2);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (gb4.a().c() && !TextUtils.isEmpty(str)) {
-                this.a.b0().b(str, str2);
-                return true;
+            jb4 jb4Var = (jb4) U.n(v64.class);
+            if (jb4Var == null) {
+                y72.c(this.c, "fragment is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            return false;
+            return k(jb4Var.b(), unitedSchemeEntity, callbackHandler);
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @JavascriptInterface
-    public void postMessage(JsObject jsObject) {
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-            this.a.v().dispatchEvent(new JSEvent("postmessage", jsObject));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler) == null) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

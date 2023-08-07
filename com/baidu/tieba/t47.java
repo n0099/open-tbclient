@@ -1,144 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class t47 extends BaseAdapter {
+public final class t47 extends e57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ArrayList<String> b;
+    public final SpannableStringBuilder f;
+    public final boolean g;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-
-        public b(t47 t47Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t47Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(t47 t47Var, a aVar) {
-            this(t47Var);
-        }
-    }
-
-    public t47(Context context, ArrayList<String> arrayList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t47(SpannableStringBuilder titleBuilder, boolean z) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
+            Object[] objArr = {titleBuilder, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = arrayList;
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        this.f = titleBuilder;
+        this.g = z;
     }
 
-    public void a(ArrayList<String> arrayList) {
+    public final SpannableStringBuilder h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null || arrayList.size() <= 0 || i < 0 || i >= this.b.size()) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+            return this.g;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            int l = (yi.l(this.a) - yi.g(this.a, R.dimen.obfuscated_res_0x7f070399)) / 4;
-            if (view2 == null) {
-                b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ca, (ViewGroup) null);
-                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091067);
-                inflate.setTag(bVar);
-                inflate.setLayoutParams(new AbsListView.LayoutParams(l, l));
-                view2 = inflate;
-            }
-            b bVar2 = (b) view2.getTag();
-            String obj = getItem(i).toString();
-            SkinManager.setBackgroundResource(bVar2.a, R.drawable.btn_choose_face_selector);
-            bVar2.a.J(obj, 10, l, l, false);
-            if (i == getCount() - 1) {
-                viewGroup.invalidate();
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return invokeV.booleanValue;
     }
 }

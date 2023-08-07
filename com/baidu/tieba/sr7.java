@@ -1,85 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sr7 extends PriorityOrganizer.Task {
+public class sr7 extends r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
 
-    public sr7(FrsActivity frsActivity, FrsFragment frsFragment) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(sr7 sr7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sr7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                YunDialogManager.unMarkShowingDialogName("frsToast");
+            }
+        }
+    }
+
+    public sr7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.r55
+    public void a(@NonNull Context context, @NonNull j55 j55Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, j55Var) == null) {
+            if (TbSingleton.getInstance().getFrsResponseData() == null) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "Frs Toast展示失败：当前Frs数据为空");
+                YunDialogManager.unMarkShowingDialogName("frsToast");
                 return;
             }
-        }
-        this.n = frsActivity;
-        this.m = frsFragment;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.K3() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                return true;
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "Frs Toast展示失败：当前Activity非FrsActivity");
+                YunDialogManager.unMarkShowingDialogName("frsToast");
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            t();
-        }
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean z = false;
-            if (m65.k()) {
-                return false;
+            String stringExtra = currentActivity.getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
+            if (TextUtils.isEmpty(stringExtra)) {
+                YunDialogManager.unMarkShowingDialogName("frsToast");
+                return;
             }
-            nba frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
-                z = true;
+            BdToastData bdToastData = new BdToastData();
+            try {
+                bdToastData.parserJson(new JSONObject(stringExtra));
+                BdToastHelper.toast(bdToastData);
+                currentActivity.getIntent().putExtra(FrsActivityConfig.TOAST_DATA, "");
+                SafeHandler.getInst().postDelayed(new a(this), 3000L);
+            } catch (JSONException e) {
+                YunDialogManager.unMarkShowingDialogName("frsToast");
+                BdLog.e(e);
             }
-            if (z) {
-                boolean j = vv7.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
-                this.m.Q4(j);
-                this.m.U4(j);
-                return j;
-            }
-            return z;
         }
-        return invokeV.booleanValue;
     }
 }

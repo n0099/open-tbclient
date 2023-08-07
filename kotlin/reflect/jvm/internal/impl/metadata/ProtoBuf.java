@@ -56,39 +56,39 @@ public final class ProtoBuf {
     public interface FunctionOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface PackageFragmentOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface PackageOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface PropertyOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface QualifiedNameTableOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface StringTableOrBuilder extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface TypeAliasOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface TypeOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface TypeParameterOrBuilder extends GeneratedMessageLite.ExtendableMessageOrBuilder {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public interface TypeTableOrBuilder extends MessageLiteOrBuilder {
     }
 
@@ -1688,7 +1688,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class QualifiedNameTable extends GeneratedMessageLite implements QualifiedNameTableOrBuilder {
         public static Parser<QualifiedNameTable> PARSER = new AbstractParser<QualifiedNameTable>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.QualifiedNameTable.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1703,11 +1703,11 @@ public final class ProtoBuf {
         public List<QualifiedName> qualifiedName_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public interface QualifiedNameOrBuilder extends MessageLiteOrBuilder {
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class QualifiedName extends GeneratedMessageLite implements QualifiedNameOrBuilder {
             public static Parser<QualifiedName> PARSER = new AbstractParser<QualifiedName>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.QualifiedNameTable.QualifiedName.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1725,7 +1725,7 @@ public final class ProtoBuf {
             public int shortName_;
             public final ByteString unknownFields;
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes2.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<QualifiedName, Builder> implements QualifiedNameOrBuilder {
                 public int bitField0_;
                 public int shortName_;
@@ -1974,7 +1974,7 @@ public final class ProtoBuf {
                 return newBuilder(this);
             }
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes2.dex */
             public enum Kind implements Internal.EnumLite {
                 CLASS(0, 0),
                 PACKAGE(1, 1),
@@ -2135,7 +2135,7 @@ public final class ProtoBuf {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<QualifiedNameTable, Builder> implements QualifiedNameTableOrBuilder {
             public int bitField0_;
             public List<QualifiedName> qualifiedName_ = Collections.emptyList();
@@ -2441,7 +2441,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Type extends GeneratedMessageLite.ExtendableMessage<Type> implements TypeOrBuilder {
         public static Parser<Type> PARSER = new AbstractParser<Type>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.Type.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -2470,11 +2470,11 @@ public final class ProtoBuf {
         public int typeParameter_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public interface ArgumentOrBuilder extends MessageLiteOrBuilder {
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Argument extends GeneratedMessageLite implements ArgumentOrBuilder {
             public static Parser<Argument> PARSER = new AbstractParser<Argument>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.Type.Argument.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2492,7 +2492,7 @@ public final class ProtoBuf {
             public Type type_;
             public final ByteString unknownFields;
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes2.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<Argument, Builder> implements ArgumentOrBuilder {
                 public int bitField0_;
                 public int typeId_;
@@ -2749,7 +2749,7 @@ public final class ProtoBuf {
                 return newBuilder(this);
             }
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes2.dex */
             public enum Projection implements Internal.EnumLite {
                 IN(0, 0),
                 OUT(1, 1),
@@ -2922,7 +2922,7 @@ public final class ProtoBuf {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<Type, Builder> implements TypeOrBuilder {
             public int abbreviatedTypeId_;
             public int bitField0_;
@@ -9015,7 +9015,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class PackageFragment extends GeneratedMessageLite.ExtendableMessage<PackageFragment> implements PackageFragmentOrBuilder {
         public static Parser<PackageFragment> PARSER = new AbstractParser<PackageFragment>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.PackageFragment.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -9034,7 +9034,7 @@ public final class ProtoBuf {
         public StringTable strings_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<PackageFragment, Builder> implements PackageFragmentOrBuilder {
             public int bitField0_;
             public StringTable strings_ = StringTable.getDefaultInstance();
@@ -9542,7 +9542,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Property extends GeneratedMessageLite.ExtendableMessage<Property> implements PropertyOrBuilder {
         public static Parser<Property> PARSER = new AbstractParser<Property>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.Property.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -9569,7 +9569,7 @@ public final class ProtoBuf {
         public final ByteString unknownFields;
         public List<Integer> versionRequirement_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<Property, Builder> implements PropertyOrBuilder {
             public int bitField0_;
             public int getterFlags_;
@@ -10424,7 +10424,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class StringTable extends GeneratedMessageLite implements StringTableOrBuilder {
         public static Parser<StringTable> PARSER = new AbstractParser<StringTable>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.StringTable.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -10439,7 +10439,7 @@ public final class ProtoBuf {
         public LazyStringList string_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<StringTable, Builder> implements StringTableOrBuilder {
             public int bitField0_;
             public LazyStringList string_ = LazyStringArrayList.EMPTY;
@@ -10727,7 +10727,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class TypeAlias extends GeneratedMessageLite.ExtendableMessage<TypeAlias> implements TypeAliasOrBuilder {
         public static Parser<TypeAlias> PARSER = new AbstractParser<TypeAlias>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.TypeAlias.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -10751,7 +10751,7 @@ public final class ProtoBuf {
         public final ByteString unknownFields;
         public List<Integer> versionRequirement_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<TypeAlias, Builder> implements TypeAliasOrBuilder {
             public int bitField0_;
             public int expandedTypeId_;
@@ -11517,7 +11517,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class TypeParameter extends GeneratedMessageLite.ExtendableMessage<TypeParameter> implements TypeParameterOrBuilder {
         public static Parser<TypeParameter> PARSER = new AbstractParser<TypeParameter>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.TypeParameter.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -11539,7 +11539,7 @@ public final class ProtoBuf {
         public List<Type> upperBound_;
         public Variance variance_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<TypeParameter, Builder> implements TypeParameterOrBuilder {
             public int bitField0_;
             public int id_;
@@ -11879,7 +11879,7 @@ public final class ProtoBuf {
             return newBuilder(this);
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public enum Variance implements Internal.EnumLite {
             IN(0, 0),
             OUT(1, 1),
@@ -12160,7 +12160,7 @@ public final class ProtoBuf {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class TypeTable extends GeneratedMessageLite implements TypeTableOrBuilder {
         public static Parser<TypeTable> PARSER = new AbstractParser<TypeTable>() { // from class: kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf.TypeTable.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -12177,7 +12177,7 @@ public final class ProtoBuf {
         public List<Type> type_;
         public final ByteString unknownFields;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TypeTable, Builder> implements TypeTableOrBuilder {
             public int bitField0_;
             public List<Type> type_ = Collections.emptyList();
@@ -12548,7 +12548,7 @@ public final class ProtoBuf {
         public int varargElementTypeId_;
         public Type varargElementType_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Builder extends GeneratedMessageLite.ExtendableBuilder<ValueParameter, Builder> implements ValueParameterOrBuilder {
             public int bitField0_;
             public int flags_;

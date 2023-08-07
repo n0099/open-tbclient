@@ -214,10 +214,10 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
 
     private void init(Context context) {
         this.mExplosionLottie = new LottieAnimationView(this.mContext);
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02c1, (ViewGroup) this, false);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02c4, (ViewGroup) this, false);
         this.mRoot = relativeLayout;
-        this.mExplosionView = (ImageView) relativeLayout.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090aa3);
-        this.mExplosionText = (TextView) this.mRoot.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090aa5);
+        this.mExplosionView = (ImageView) relativeLayout.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090ab3);
+        this.mExplosionText = (TextView) this.mRoot.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090ab5);
         setUI();
         this.mRoot.setOnTouchListener(new TouchStateListener());
         this.mRoot.setOnClickListener(this);

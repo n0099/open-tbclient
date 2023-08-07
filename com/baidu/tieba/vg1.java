@@ -1,30 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface vg1 {
-    void a(Activity activity, String str, String str2);
+public class vg1 extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void aLiAuth(Activity activity, String str, ch1<JSONObject> ch1Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vg1() {
+        super(Looper.getMainLooper());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    boolean b(Context context);
-
-    void c(Activity activity, String str, qg1 qg1Var);
-
-    void d(Context context, JSONObject jSONObject, qg1 qg1Var);
-
-    void e(Activity activity, String str, qg1 qg1Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, qg1 qg1Var);
-
-    String j(Context context);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            wg1 wg1Var = (wg1) message.obj;
+            ImageView imageView = wg1Var.a;
+            if (((String) imageView.getTag()).equals(wg1Var.b)) {
+                imageView.setImageBitmap(wg1Var.c);
+            } else {
+                xh1.g("不是最新数据");
+            }
+        }
+    }
 }

@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,7 +102,7 @@ public class EmptyView extends View {
     public void setHeightDip(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = yi.d(getContext(), i);
+            this.a = BdUtilHelper.dip2px(getContext(), i);
         }
     }
 
@@ -116,7 +116,7 @@ public class EmptyView extends View {
     public void setWidthDip(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = yi.d(getContext(), i);
+            this.b = BdUtilHelper.dip2px(getContext(), i);
         }
     }
 

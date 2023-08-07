@@ -1,73 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes5.dex */
-public class e35 extends ThreadData {
+public class e35 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683426, "Lcom/baidu/tieba/e35;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947683426, "Lcom/baidu/tieba/e35;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     public e35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(RecommendBook recommendBook) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, recommendBook) != null) || recommendBook == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
             return;
         }
-        recommendBook.type.intValue();
-        String str = recommendBook.book_id;
-        String str2 = recommendBook.title;
-        String str3 = recommendBook.image;
-        List<String> list = recommendBook.desc;
-        String str4 = recommendBook.link_url;
+        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.b = intent.getStringExtra("recom_source");
+        this.c = intent.getStringExtra("recom_abtag");
+        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+    }
+
+    public void b(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
+            return;
+        }
+        this.a = threadData.mRecomWeight;
+        this.b = threadData.mRecomSource;
+        this.c = threadData.mRecomAbTag;
+        this.d = threadData.mRecomExtra;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
+            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
+            intent.putExtra("recom_source", this.b);
+            intent.putExtra("recom_abtag", this.c);
+            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
+        }
     }
 }

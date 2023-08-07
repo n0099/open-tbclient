@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fb8;
+import com.baidu.tieba.z88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.TopicList.TopicListResIdl;
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fb8 ranklistData;
+    public z88 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotRanklistMessage() {
@@ -35,13 +35,13 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
         }
     }
 
-    public fb8 getHotRanklistData() {
+    public z88 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.ranklistData;
         }
-        return (fb8) invokeV.objValue;
+        return (z88) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,9 +66,9 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return topicListResIdl;
                 }
-                fb8 fb8Var = new fb8();
-                this.ranklistData = fb8Var;
-                fb8Var.b(topicListResIdl.data);
+                z88 z88Var = new z88();
+                this.ranklistData = z88Var;
+                z88Var.b(topicListResIdl.data);
             }
             return topicListResIdl;
         }

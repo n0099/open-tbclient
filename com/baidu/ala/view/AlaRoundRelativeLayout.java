@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,9 +42,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.mRoundLayoutRadius = g;
-        this.mRadius = new float[]{g, g, g, g, g, g, g, g};
+        float dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.mRoundLayoutRadius = dimens;
+        this.mRadius = new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens};
         init();
     }
 
@@ -67,9 +67,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.mRoundLayoutRadius = g;
-        this.mRadius = new float[]{g, g, g, g, g, g, g, g};
+        float dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.mRoundLayoutRadius = dimens;
+        this.mRadius = new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens};
         init();
     }
 
@@ -92,9 +92,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.mRoundLayoutRadius = g;
-        this.mRadius = new float[]{g, g, g, g, g, g, g, g};
+        float dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.mRoundLayoutRadius = dimens;
+        this.mRadius = new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens};
         init();
     }
 

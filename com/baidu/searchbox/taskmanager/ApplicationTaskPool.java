@@ -68,6 +68,7 @@ import com.baidu.searchbox.task.view.appcreate.CreatePersonalizeViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBearAdViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorView2Task;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorViewTask;
+import com.baidu.searchbox.task.view.appcreate.InitMonitorTask;
 import com.baidu.searchbox.task.view.appcreate.InitPersonalizeChildViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitAdCardViewTask;
@@ -192,6 +193,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitEmotionsTask());
             arrayList.add(new InitDiskStatTask());
             arrayList.add(new InitFlutterNpsPluginTask());
+            arrayList.add(new InitMonitorTask());
         }
         return arrayList;
     }

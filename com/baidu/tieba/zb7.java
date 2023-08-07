@@ -1,17 +1,29 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import java.util.List;
 /* loaded from: classes8.dex */
 public interface zb7 {
-    void d(@NonNull RecyclerView recyclerView, boolean z);
+    void setRadius(float f);
 
-    void f(@NonNull RecyclerView recyclerView);
+    void setRadius(float f, float f2, float f3, float f4);
 
-    void j(dc7 dc7Var);
+    void setRadiusBottom(float f);
 
-    void notifyDataSetChanged();
+    void setRadiusBottomLeft(float f);
 
-    void setList(List<? extends mc7<?>> list);
+    void setRadiusBottomRight(float f);
+
+    void setRadiusLeft(float f);
+
+    void setRadiusRight(float f);
+
+    void setRadiusTop(float f);
+
+    void setRadiusTopLeft(float f);
+
+    void setRadiusTopRight(float f);
+
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setStrokeWidthColor(float f, int i);
 }

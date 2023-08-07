@@ -16,7 +16,10 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -30,14 +33,11 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a15;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.up6;
-import com.baidu.tieba.x45;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.qx;
+import com.baidu.tieba.u35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
+public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public up6<t15> c;
-    public t15 d;
+    public bn6<q05> c;
+    public q05 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -93,7 +93,7 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ListUtils.getCount(this.a.i) > 0) {
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                    yi.Q(this.a.getContext(), R.string.plugin_image_viewer_install_error_tips);
+                    BdUtilHelper.showToast(this.a.getContext(), (int) R.string.plugin_image_viewer_install_error_tips);
                     return;
                 }
                 String str = (String) this.a.i.get(0);
@@ -116,21 +116,13 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
                 imageUrlData.postId = 0L;
                 concurrentHashMap.put(str, imageUrlData);
                 ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-                builder.A(this.a.i);
-                builder.F(this.a.b);
-                builder.M(str);
-                builder.I(false);
-                builder.y(concurrentHashMap);
-                builder.K(false);
-                builder.Q(this.a.j);
-                builder.L(false);
-                builder.O(this.a.j.getFirst_post_id());
-                ImageViewerConfig x = builder.x(this.a.getContext());
-                x.getIntent().putExtra("from", "frs");
+                builder.setData(this.a.i).setIsCDN(this.a.b).setLastId(str).setIsReserve(false).setAssistUrls(concurrentHashMap).setIsShowAd(false).setThreadData(this.a.j).setIsShowHost(false).setPostId(this.a.j.getFirst_post_id());
+                ImageViewerConfig bulid = builder.bulid(this.a.getContext());
+                bulid.getIntent().putExtra("from", "frs");
                 Rect rect = new Rect();
                 view2.getGlobalVisibleRect(rect);
-                x.getIntent().putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, rect);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
+                bulid.getIntent().putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, rect);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2010000, bulid));
                 StatisticItem statisticItem = new StatisticItem("c13327");
                 statisticItem.param("fid", this.a.k);
                 statisticItem.param("obj_id", this.a.l);
@@ -189,11 +181,11 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
                 } else {
                     i = 14;
                 }
-                jn A = TbImageMemoryCache.v().A(sg.h().g(tbImageView.getUrl(), i));
+                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (A != null) {
-                    i3 = A.r();
-                    i2 = A.m();
+                if (D != null) {
+                    i3 = D.getWidth();
+                    i2 = D.getHeight();
                 } else {
                     i2 = 0;
                 }
@@ -201,7 +193,7 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
                     int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
                     int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    if (tbImageView.z() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                    if (tbImageView.isLongPic() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                         if (i3 * height > width * i2) {
                             f4 = height;
                             f5 = i2;
@@ -280,12 +272,12 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
         this.i = new ArrayList<>();
         this.m = new a(this);
         this.n = new b(this);
-        j();
+        i();
     }
 
-    public void l(int i) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && i != this.a) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i != this.a) {
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
             SkinManager.setImageResource(this.g, R.drawable.interview_live_circle_share);
             SkinManager.setBackgroundResource(this.f, R.drawable.interview_live_circle_bg_shape);
@@ -307,40 +299,40 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
         }
     }
 
-    public void setSubClickListener(up6<t15> up6Var) {
+    public void setSubClickListener(bn6<q05> bn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, up6Var) == null) {
-            this.c = up6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bn6Var) == null) {
+            this.c = bn6Var;
         }
     }
 
-    public final void j() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             TbImageView tbImageView = (TbImageView) findViewById(R.id.img_interview_live);
             this.e = tbImageView;
-            tbImageView.r(15);
+            tbImageView.addCornerFlags(15);
             this.e.setPlaceHolder(3);
             this.f = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
             this.g = (ImageView) findViewById(R.id.interview_live_tip_img);
             this.h = (TextView) findViewById(R.id.interview_live_tip);
-            l(TbadkCoreApplication.getInst().getSkinType());
+            k(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: k */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: j */
+    public void onBindDataToView(q05 q05Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) {
-            this.d = t15Var;
-            if (t15Var != null && this.e != null) {
-                ThreadData threadData = t15Var.getThreadData();
-                x45 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
+            this.d = q05Var;
+            if (q05Var != null && this.e != null) {
+                ThreadData threadData = q05Var.getThreadData();
+                u35 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -348,7 +340,7 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.h();
-                if (a15.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
+                if (b05.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
                     this.i.add(taskInfoData.m());
                     setVisibility(0);
@@ -362,11 +354,11 @@ public class InterviewLiveLayout extends FrameLayout implements ry<t15> {
                     } else {
                         i = 14;
                     }
-                    tbImageView.N(m, i, false);
+                    tbImageView.startLoad(m, i, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-                    int l = yi.l(getContext()) - yi.g(getContext(), R.dimen.tbds88);
-                    layoutParams.width = l;
-                    layoutParams.height = (int) ((l * 428.0f) / 760.0f);
+                    int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext()) - BdUtilHelper.getDimens(getContext(), R.dimen.tbds88);
+                    layoutParams.width = equipmentWidth;
+                    layoutParams.height = (int) ((equipmentWidth * 428.0f) / 760.0f);
                     setLayoutParams(layoutParams);
                 } else {
                     setVisibility(8);

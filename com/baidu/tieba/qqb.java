@@ -1,123 +1,74 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class qqb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "BaseKeyUtil";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948101895, "Lcom/baidu/tieba/qqb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948101895, "Lcom/baidu/tieba/qqb;");
+    public static void a(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
+            webSettings.setAllowContentAccess(false);
         }
     }
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    public static void b(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
-            if (i2 < i) {
-                i = i2;
+        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
+            webSettings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= 16) {
+                webSettings.setAllowFileAccessFromFileURLs(false);
+                webSettings.setAllowUniversalAccessFromFileURLs(false);
             }
-            return i3 < i ? i3 : i;
         }
-        return invokeIII.intValue;
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
+    public static void c(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
+        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
+            webSettings.setGeolocationEnabled(false);
+        }
     }
 
-    public static boolean c(int i, byte[] bArr) {
-        InterceptResult invokeIL;
+    public static void d(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
-            return b(i) & d(bArr);
+        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
+            webSettings.setMixedContentMode(1);
         }
-        return invokeIL.booleanValue;
     }
 
-    public static boolean d(byte[] bArr) {
-        InterceptResult invokeL;
+    public static void e(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr.length >= 16) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
+            webSettings.setSavePassword(false);
         }
-        return invokeL.booleanValue;
     }
 
-    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void f(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, sqb.b(str4), i, z);
+        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
+            WebSettings settings = webView.getSettings();
+            b(settings);
+            g(webView);
+            e(settings);
+            c(settings);
+            d(settings);
+            a(settings);
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void g(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return f(str, str2, str3, bArr, 10000, i, z);
+        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
+            webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            webView.removeJavascriptInterface("accessibility");
+            webView.removeJavascriptInterface("accessibilityTraversal");
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            byte[] b = sqb.b(str);
-            byte[] b2 = sqb.b(str2);
-            byte[] b3 = sqb.b(str3);
-            int a2 = a(b.length, b2.length, b3.length);
-            if (c(a2, bArr)) {
-                char[] cArr = new char[a2];
-                for (int i3 = 0; i3 < a2; i3++) {
-                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
-                }
-                if (!z) {
-                    vqb.d(a, "exportRootKey: sha1");
-                    return nqb.b(cArr, bArr, i, i2 * 8);
-                }
-                vqb.d(a, "exportRootKey: sha256");
-                return nqb.c(cArr, bArr, i, i2 * 8);
-            }
-            throw new IllegalArgumentException("key length must be more than 128bit.");
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, bArr, 16, z);
-        }
-        return (byte[]) invokeCommon.objValue;
     }
 }

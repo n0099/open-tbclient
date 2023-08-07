@@ -1,27 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class n05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<io5> a;
-    public Context b;
+    public final LinkedList<o05> a;
 
-    public n05(Context context) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final n05 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-627095880, "Lcom/baidu/tieba/n05$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-627095880, "Lcom/baidu/tieba/n05$b;");
+                    return;
+                }
+            }
+            a = new n05(null);
+        }
+    }
+
+    public n05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,39 +61,54 @@ public class n05 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
+        this.a = new LinkedList<>();
     }
 
-    public void a(io5 io5Var) {
+    public static n05 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, io5Var) == null) && io5Var != null && io5Var.b() != null) {
-            Iterator<io5> it = this.a.iterator();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (n05) invokeV.objValue;
+    }
+
+    public /* synthetic */ n05(a aVar) {
+        this();
+    }
+
+    public final o05 a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Iterator<o05> it = this.a.iterator();
             while (it.hasNext()) {
-                io5 next = it.next();
-                if (next != null && next.b() != null && next.b().e == io5Var.b().e) {
-                    return;
+                o05 next = it.next();
+                if (next.b() == i) {
+                    return next;
                 }
             }
-            this.a.add(io5Var);
+            return null;
+        }
+        return (o05) invokeI.objValue;
+    }
+
+    @MainThread
+    public void b(int i) {
+        o05 a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
+            a2.run();
         }
     }
 
-    public ArrayList<io5> b() {
-        InterceptResult invokeV;
+    public void d(@Nullable BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            Iterator<o05> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().a(bdUniqueId);
+            }
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
     }
 }

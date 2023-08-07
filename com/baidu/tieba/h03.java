@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,22 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.facebook.imageutils.JfifUtil;
+import com.qq.e.comm.adevent.AdEventType;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
+    public static final HashMap<String, Integer> a;
+    public static final HashMap<String, Integer> b;
+    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler a;
-    public UnitedSchemeEntity b;
 
     static {
         InterceptResult invokeClinit;
@@ -46,93 +34,77 @@ public class h03 {
                 return;
             }
         }
-        c = fs1.a;
+        HashMap<String, Integer> hashMap = new HashMap<>(16);
+        a = hashMap;
+        hashMap.put("VRModeProjectionSphere", 201);
+        a.put("VRModeProjectionDome180", 202);
+        a.put("VRModeProjectionDome230", 203);
+        a.put("VRModeProjectionDome180Upper", 204);
+        a.put("VRModeProjectionDome230Upper", 205);
+        a.put("VRModeProjectionPlaneFit", 207);
+        a.put("VRModeProjectionPlaneCrop", 208);
+        a.put("VRModeProjectionPlaneFull", 209);
+        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        a.put("VRModeProjectionMultiFishEyeVertical", Integer.valueOf((int) AdEventType.VIDEO_LOADING));
+        a.put("VRModeProjectionStereoSphereHorizontal", 212);
+        a.put("VRModeProjectionStereoSphereVertical", 213);
+        a.put("VRModeProjectionStereoPlaneFitHorizontal", Integer.valueOf((int) Constants.METHOD_IM_EMOJI));
+        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
+        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
+        a.put("VRModeProjectionPlaneFullVertical", 217);
+        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
+        b = hashMap2;
+        hashMap2.put("VRModeDisplayNormal", 101);
+        b.put("VRModeDisplayGlass", 102);
+        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
+        c = hashMap3;
+        hashMap3.put("VRModeInteractiveMotion", 1);
+        c.put("VRModeInteractiveTouch", 2);
+        c.put("VRModeInteractiveMotionWithTouch", 3);
+        c.put("VRModeInteractiveGVRMotion", 4);
+        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
-    public h03(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public h03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2, str3, str4, str5, str6, str7};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = callbackHandler;
-        this.b = unitedSchemeEntity;
-        d = str;
-        e = str2;
-        f = str3;
-        g = str4;
-        h = str5;
-        i = str6;
-        j = str7;
     }
 
-    public static h03 a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, h03 h03Var) {
-        InterceptResult invokeLLLL;
+    public h03 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, callbackHandler, unitedSchemeEntity, str, h03Var)) == null) {
-            if (str == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            h03 h03Var = new h03();
+            if (jSONObject == null) {
                 return h03Var;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("onStart");
-                String optString2 = jSONObject.optString(MissionEvent.MESSAGE_PAUSE);
-                String optString3 = jSONObject.optString("onResume");
-                String optString4 = jSONObject.optString(MissionEvent.MESSAGE_STOP);
-                String optString5 = jSONObject.optString(GameAssistConstKt.TYPE_CALLBACK_ERROR);
-                String optString6 = jSONObject.optString("onInterruptionBegin");
-                String optString7 = jSONObject.optString("onInterruptionEnd");
-                if (callbackHandler != null && unitedSchemeEntity != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
-                    return new h03(callbackHandler, unitedSchemeEntity, optString, optString2, optString3, optString4, optString5, optString6, optString7);
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            String optString = jSONObject.optString("projectionMode");
+            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
+                a.get(optString).intValue();
             }
+            String optString2 = jSONObject.optString("displayMode");
+            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
+                b.get(optString2).intValue();
+            }
+            String optString3 = jSONObject.optString("interactiveMode");
+            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
+                c.get(optString3).intValue();
+            }
+            jSONObject.optInt("fov", -1);
+            jSONObject.optInt("minFov", -1);
+            jSONObject.optInt("maxFov", -1);
+            jSONObject.optBoolean("pinchEnable", true);
             return h03Var;
         }
-        return (h03) invokeLLLL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(str, null);
-        }
-    }
-
-    public void c(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.a, this.b, wrapCallbackParams.toString(), str);
-        if (c) {
-            Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
-        }
-    }
-
-    public void d(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        c(h, jSONObject);
+        return (h03) invokeL.objValue;
     }
 }

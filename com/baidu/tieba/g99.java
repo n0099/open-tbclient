@@ -7,9 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g99 implements f99 {
+public class g99 implements Comparable<g99> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
 
     public g99() {
         Interceptable interceptable = $ic;
@@ -25,23 +31,33 @@ public class g99 implements f99 {
         }
     }
 
-    @Override // com.baidu.tieba.f99
-    public b99 get() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(g99 g99Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return xv9.m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g99Var)) == null) {
+            if (this == g99Var) {
+                return 0;
+            }
+            if (g99Var == null || this.a <= g99Var.a) {
+                return -1;
+            }
+            return 1;
         }
-        return (b99) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.f99
-    public c99 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new d99(str, str2, str3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof g99) || compareTo((g99) obj) != 0) {
+                return false;
+            }
+            return true;
         }
-        return (c99) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 }

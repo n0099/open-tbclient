@@ -1,40 +1,113 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.mi3;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class li3 extends v73 {
+public class li3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public li3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public li3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/file/getInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.v73
-    public void b(@NonNull Bundle bundle) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            mi3.a aVar = mi3.a().a;
-            if (ProcessUtils.isMainProcess() && aVar != null) {
-                aVar.a(bundle.getString("statTag"), bundle.getString("statisticData"));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (context != null && callbackHandler != null && ya3Var != null && ya3Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y72.c("fileInfo", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("filePath");
+                if (gi3.s(optString) == PathType.BD_FILE) {
+                    str = gi3.M(optString, ya3.g0());
+                } else if (gi3.s(optString) == PathType.RELATIVE) {
+                    str = gi3.L(optString, ya3Var, ya3Var.k0());
+                } else {
+                    str = "";
+                }
+                if (vc3.b) {
+                    Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
+                    Log.d("GetFileInfoAction", "——> handle: filePath " + str);
+                }
+                if (TextUtils.isEmpty(str)) {
+                    y72.c("fileInfo", "absolute filePath is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                File file = new File(str);
+                if (TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", PackageTable.MD5), PackageTable.MD5)) {
+                    str2 = "MD5";
+                } else {
+                    str2 = "SHA-1";
+                }
+                String b = qn3.b(str2, file, false);
+                if (TextUtils.isEmpty(b)) {
+                    y72.c("fileInfo", "hash is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, sb3.a(2001)));
+                    if (vc3.b) {
+                        Log.d("GetFileInfoAction", "——> handle: file not exist");
+                    }
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("digest", b);
+                    jSONObject.put("size", file.length());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, sb3.a(2003)));
+                    if (vc3.b) {
+                        Log.d("GetFileInfoAction", "——> handle: jsonException ");
+                    }
+                    return false;
+                }
             }
+            y72.c("fileInfo", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 }

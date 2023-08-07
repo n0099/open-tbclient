@@ -1,291 +1,243 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.tieba.ce2;
+import com.baidu.tieba.ud2;
+import com.baidu.tieba.ut2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.File;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class de2 {
+public abstract class de2<T extends ce2> extends mi4<zj4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<he2> a;
-    public final Object b;
-    public final int c;
+    @NonNull
+    public final T a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701592, "Lcom/baidu/tieba/de2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    public abstract void r(@NonNull zj4 zj4Var);
+
+    public abstract void u(zj4 zj4Var, rm3 rm3Var);
+
+    /* loaded from: classes5.dex */
+    public class a implements ud2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zj4 a;
+        public final /* synthetic */ de2 b;
+
+        public a(de2 de2Var, zj4 zj4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de2Var, zj4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947701592, "Lcom/baidu/tieba/de2;");
-                return;
+            this.b = de2Var;
+            this.a = zj4Var;
+        }
+
+        @Override // com.baidu.tieba.ud2.c
+        public void a(PMSDownloadType pMSDownloadType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
+                this.b.r(this.a);
             }
         }
-        d = fs1.a;
+
+        @Override // com.baidu.tieba.ud2.c
+        public void b(PMSDownloadType pMSDownloadType, rm3 rm3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, rm3Var) == null) {
+                this.b.u(this.a, rm3Var);
+            }
+        }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public de2(int i) {
+    public de2(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i < 1) {
-            if (!d) {
-                i = 1;
-            } else {
-                throw new RuntimeException("MasterPool size can not less than 1");
-            }
-        }
-        this.c = i;
-        this.b = new Object();
-        this.a = new LinkedList();
+        this.a = t;
     }
 
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str) || TextUtils.equals(str, "_default_id_")) {
-            return;
-        }
-        synchronized (this.b) {
-            ArrayList arrayList = new ArrayList();
-            for (he2 he2Var : this.a) {
-                if (TextUtils.equals(he2Var.h(), str)) {
-                    arrayList.add(he2Var);
-                }
-            }
-            b(arrayList);
-        }
-    }
-
-    public void a(Collection<he2> collection) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
-            int i = 0;
-            if (collection != null && collection.size() > 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (d) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("master pool clear, excludes size - ");
-                if (collection != null) {
-                    i = collection.size();
-                }
-                sb.append(i);
-                Log.i("MasterPool", sb.toString());
-                if (collection != null) {
-                    for (he2 he2Var : collection) {
-                        if (he2Var.i() != null) {
-                            Log.i("MasterPool", "excludes  - " + he2Var.i().a());
-                        }
-                    }
-                }
-            }
-            synchronized (this.b) {
-                ArrayList arrayList = new ArrayList();
-                for (he2 he2Var2 : this.a) {
-                    if (z || (collection != null && !collection.contains(he2Var2))) {
-                        arrayList.add(he2Var2);
-                    }
-                }
-                b(arrayList);
-            }
-        }
-    }
-
-    public final void b(Collection<he2> collection) {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) && collection.size() > 0) {
-            if (d) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a.removeAll(collection);
-            if (d) {
-                Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
-            }
-            for (he2 he2Var : collection) {
-                if (he2Var.i() != null) {
-                    he2Var.i().destroy();
-                    if (d) {
-                        Log.i("MasterPool", "master destroy, id - " + he2Var.i().a() + ", isReady - " + he2Var.n() + ", is Default - " + he2Var.l() + ", is Prefetch - " + he2Var.j());
-                    }
-                }
-            }
-            if (d) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("MasterPool", "destroy masters cost - " + (currentTimeMillis - j) + "ms");
-            }
-        }
-    }
-
-    public void g(Collection<he2> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            if (this.c >= 3) {
-                boolean z = true;
-                if (this.a.size() > 1) {
-                    if (collection != null && collection.size() > 0) {
-                        z = false;
-                    }
-                    synchronized (this.b) {
-                        ArrayList arrayList = new ArrayList();
-                        for (he2 he2Var : this.a) {
-                            if (!he2Var.l() && he2Var.j() && (z || !collection.contains(he2Var))) {
-                                arrayList.add(he2Var);
-                            }
-                        }
-                        if (d) {
-                            Log.d("MasterPool", "remove all prefetch event master, size - " + arrayList.size());
-                        }
-                        b(arrayList);
-                    }
-                    return;
-                }
-            }
-            if (d) {
-                Log.d("MasterPool", "no need to remove prefetch master");
-                Log.d("MasterPool", "max size - " + this.c);
-                Log.d("MasterPool", "current cache size - " + this.a.size());
-            }
-        }
-    }
-
-    public he2 d(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pi4
+    /* renamed from: l */
+    public String d(zj4 zj4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            he2 he2Var = null;
-            if (TextUtils.isEmpty(str)) {
-                if (d) {
-                    Log.w("MasterPool", "appId can not be empty");
-                }
-                return null;
-            }
-            synchronized (this.b) {
-                if (TextUtils.equals(str, "_default_id_")) {
-                    if (d) {
-                        Log.i("MasterPool", "get default master manger for id - " + str);
-                    }
-                    return e();
-                }
-                int size = this.a.size() - 1;
-                int i = size;
-                while (true) {
-                    if (i < 0) {
-                        break;
-                    }
-                    he2 he2Var2 = this.a.get(i);
-                    if (TextUtils.equals(he2Var2.h(), str)) {
-                        if (d) {
-                            Log.i("MasterPool", "get master in pool for id - " + str);
-                        }
-                        he2Var = he2Var2;
-                    } else {
-                        i--;
-                    }
-                }
-                if (he2Var != null && i != size) {
-                    this.a.remove(i);
-                    this.a.add(he2Var);
-                }
-                if (d) {
-                    if (he2Var == null) {
-                        Log.i("MasterPool", "find no master for id - " + str);
-                    } else {
-                        Log.i("MasterPool", "hit a master cache for id - " + str);
-                    }
-                }
-                return he2Var;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zj4Var)) == null) {
+            return ut2.e.h().getAbsolutePath();
         }
-        return (he2) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public final he2 e() {
+    public final void q(@NonNull zj4 zj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, zj4Var) == null) {
+            r(zj4Var);
+            ud2.c().b(zj4Var, o());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4, com.baidu.tieba.pi4
+    /* renamed from: v */
+    public void c(zj4 zj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, zj4Var) == null) {
+            super.c(zj4Var);
+            if (zj4Var != null) {
+                q63.b("plugin download start: bundleId = " + zj4Var.g);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4, com.baidu.tieba.pi4
+    /* renamed from: w */
+    public void f(zj4 zj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, zj4Var) == null) {
+            super.f(zj4Var);
+            if (zj4Var != null) {
+                q63.b("plugin on downloading: bundleId = " + zj4Var.g);
+            }
+            x(zj4Var);
+        }
+    }
+
+    public final void x(zj4 zj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, zj4Var) == null) {
+            ud2.c().d(zj4Var, new a(this, zj4Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.ri4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
+            return this.a.m(bundle, set);
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public final void p(zj4 zj4Var, rm3 rm3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zj4Var, rm3Var) == null) {
+            u(zj4Var, rm3Var);
+            ud2.c().a(zj4Var, o(), rm3Var);
+        }
+    }
+
+    public PMSDownloadType o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            for (he2 he2Var : this.a) {
-                if (he2Var.l()) {
-                    return he2Var;
-                }
-            }
-            if (!d) {
-                return null;
-            }
-            throw new RuntimeException("there must be one default master in pool, you should add default one first");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return PMSDownloadType.PLUGIN;
         }
-        return (he2) invokeV.objValue;
+        return (PMSDownloadType) invokeV.objValue;
     }
 
-    public void f(he2 he2Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4, com.baidu.tieba.pi4
+    /* renamed from: s */
+    public void e(zj4 zj4Var, sj4 sj4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, he2Var) != null) || he2Var == null) {
-            return;
-        }
-        synchronized (this.b) {
-            if (!this.a.contains(he2Var)) {
-                this.a.add(he2Var);
-            }
-            h();
+        if (interceptable == null || interceptable.invokeLL(1048587, this, zj4Var, sj4Var) == null) {
+            super.e(zj4Var, sj4Var);
+            q63.b("plugin download error: " + sj4Var);
+            rm3 rm3Var = new rm3();
+            rm3Var.k(17L);
+            rm3Var.i((long) sj4Var.a);
+            rm3Var.d(sj4Var.b);
+            rm3Var.f(sj4Var.toString());
+            p(zj4Var, rm3Var);
         }
     }
 
-    public final void h() {
-        int size;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4, com.baidu.tieba.pi4
+    /* renamed from: t */
+    public void i(zj4 zj4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (size = this.a.size()) <= this.c) {
-            return;
-        }
-        if (d) {
-            Log.i("MasterPool", "resize, current - " + size + ", target - " + this.c);
-        }
-        ArrayList arrayList = new ArrayList();
-        boolean z = false;
-        for (int i = 0; i < size; i++) {
-            he2 he2Var = this.a.get(i);
-            if (he2Var.l() && !z) {
-                z = true;
+        if (interceptable == null || interceptable.invokeL(1048588, this, zj4Var) == null) {
+            super.i(zj4Var);
+            if (zj4Var == null) {
+                q63.b("download finish, plugin is null");
+                rm3 rm3Var = new rm3();
+                rm3Var.k(17L);
+                rm3Var.i(2201L);
+                rm3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+                p(null, rm3Var);
+            } else if (!lo3.a(new File(zj4Var.a), zj4Var.m)) {
+                cr4.M(zj4Var.a);
+                q63.b("download finish, check zip sign failure");
+                rm3 rm3Var2 = new rm3();
+                rm3Var2.k(17L);
+                rm3Var2.i(2202L);
+                rm3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
+                p(zj4Var, rm3Var2);
             } else {
-                arrayList.add(he2Var);
-                if (arrayList.size() >= size - this.c) {
-                    break;
+                File t = ut2.t(zj4Var.g, String.valueOf(zj4Var.i));
+                cr4.l(t);
+                if (t != null && t.exists()) {
+                    boolean U = cr4.U(zj4Var.a, t.getAbsolutePath());
+                    cr4.M(zj4Var.a);
+                    q63.b("download finish, unZipSuccess = " + U);
+                    if (!U) {
+                        rm3 rm3Var3 = new rm3();
+                        rm3Var3.k(17L);
+                        rm3Var3.i(2320L);
+                        rm3Var3.d("plugin unzip fail.");
+                        p(zj4Var, rm3Var3);
+                        return;
+                    }
+                    zj4Var.c = zj4Var.b();
+                    zj4Var.d = zj4Var.b();
+                    vi4.i().m(zj4Var);
+                    q(zj4Var);
+                    return;
                 }
+                cr4.M(zj4Var.a);
+                q63.b("download finish, create file failure, name = " + zj4Var.g + " ; version = " + zj4Var.i);
+                rm3 rm3Var4 = new rm3();
+                rm3Var4.k(17L);
+                rm3Var4.i(2203L);
+                rm3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
+                p(zj4Var, rm3Var4);
             }
         }
-        b(arrayList);
     }
 }

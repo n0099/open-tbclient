@@ -1,99 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public abstract class gv0 {
+public class gv0 extends hv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static final class a extends gv0 {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-763002453, "Lcom/baidu/tieba/gv0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-763002453, "Lcom/baidu/tieba/gv0$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b extends gv0 {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-763002422, "Lcom/baidu/tieba/gv0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-763002422, "Lcom/baidu/tieba/gv0$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
+    public av0 c;
 
     public gv0() {
         Interceptable interceptable = $ic;
@@ -109,7 +28,81 @@ public abstract class gv0 {
         }
     }
 
-    public /* synthetic */ gv0(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+    public void A() {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (av0Var = this.c) != null) {
+            av0Var.onVideoSwitchToHalf();
+        }
+    }
+
+    @Override // com.baidu.tieba.hv0
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.r();
+            this.c = null;
+        }
+    }
+
+    public void t() {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (av0Var = this.c) != null) {
+            av0Var.onBeforeSwitchToFull();
+        }
+    }
+
+    public void u() {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (av0Var = this.c) != null) {
+            av0Var.onBeforeSwitchToHalf();
+        }
+    }
+
+    public void v() {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (av0Var = this.c) != null) {
+            av0Var.onGestureActionEnd();
+        }
+    }
+
+    public void w() {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (av0Var = this.c) != null) {
+            av0Var.onGestureActionStart();
+        }
+    }
+
+    public void z() {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (av0Var = this.c) != null) {
+            av0Var.onVideoSwitchToFull();
+        }
+    }
+
+    public boolean x(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            av0 av0Var = this.c;
+            if (av0Var != null) {
+                return av0Var.onGestureDoubleClick(motionEvent);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void y(boolean z) {
+        av0 av0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (av0Var = this.c) != null) {
+            av0Var.onPanelVisibilityChanged(z);
+        }
     }
 }

@@ -1,83 +1,143 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ct0 {
+public class ct0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
     public final int b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof ct0) {
-                    ct0 ct0Var = (ct0) obj;
-                    return this.a == ct0Var.a && this.b == ct0Var.b;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a * 31) + this.b : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "RequestRewardExtra(sessionCount=" + this.a + ", rewardCount=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ct0(int i, int i2) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ct0() {
+        this(pj0.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0009: IGET  (r1v2 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.ct0 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.ct0.a int), ('_' char), (wrap: int : 0x0013: IGET  (r1v4 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.ct0 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.ct0.b int)] */
-    public final String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append('_');
-            sb.append(this.b);
-            String sb2 = sb.toString();
-            Intrinsics.checkNotNullExpressionValue(sb2, "StringBuilder().append(s…d(rewardCount).toString()");
-            return sb2;
+            if (c() == 1) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.a;
+            if (i != 0) {
+                if (i == 1) {
+                    return 1;
+                }
+                return 0;
+            }
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    public ct0(Context context) {
+        ConnectivityManager connectivityManager;
+        int type;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        NetworkInfo networkInfo = null;
+        if (context != null && context.getApplicationContext() != null) {
+            connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+        } else {
+            connectivityManager = null;
+        }
+        if (connectivityManager != null) {
+            try {
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception unused) {
+            }
+        }
+        if (networkInfo == null) {
+            type = -1;
+        } else {
+            type = networkInfo.getType();
+        }
+        this.a = type;
+        if (networkInfo != null && type == 0) {
+            i = networkInfo.getSubtype();
+        } else {
+            i = 0;
+        }
+        this.b = i;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            switch (this.b) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return 2;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return 3;
+                case 13:
+                case 18:
+                case 19:
+                default:
+                    return 4;
+                case 20:
+                    return 5;
+            }
+        }
+        return invokeV.intValue;
     }
 }

@@ -1,194 +1,197 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.util.BdLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.card.view.BjhArticleLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.vy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public final class xw {
+public class xw extends ww<q05> {
     public static /* synthetic */ Interceptable $ic;
-    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
-    public static b b;
-    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public BjhArticleLayout f;
+    public q05 g;
+    public View.OnClickListener h;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ xw a;
 
-    /* loaded from: classes8.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
+        public a(xw xwVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
+                Object[] objArr = {xwVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = xwVar;
         }
 
-        public /* synthetic */ b(Looper looper, a aVar) {
-            this(looper);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                xw.d();
-                xw.b.sendEmptyMessageDelayed(0, 15000L);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                xw xwVar = this.a;
+                xwVar.y(xwVar.a.k(), this.a.g);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322190, "Lcom/baidu/tieba/xw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class b implements vy.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw a;
+
+        public b(xw xwVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xwVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322190, "Lcom/baidu/tieba/xw;");
+            this.a = xwVar;
+        }
+
+        @Override // com.baidu.tieba.vy.b
+        public boolean a(vy.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.g != null && this.a.g.getThreadData() != null) {
+                    nm6.a(this.a.g.getThreadData().getId());
+                    nm6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xw(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ConcurrentHashMap<>();
-        c = false;
-        b bVar = new b(bx.a("PreferenceQueue").getLooper(), null);
-        b = bVar;
-        bVar.sendEmptyMessageDelayed(0, 15000L);
+        this.h = new a(this);
+        BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(context);
+        this.f = bjhArticleLayout;
+        bjhArticleLayout.setJumpToPbListener(this.h);
     }
 
-    public static void f() {
+    @Override // com.baidu.tieba.ww
+    public void p(bn6<q05> bn6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && !b.hasMessages(0)) {
-            b.sendEmptyMessageDelayed(0, 15000L);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bn6Var) == null) {
+            super.p(bn6Var);
+            this.f.setSubClickListener(bn6Var);
         }
     }
 
-    public static void g() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qx
+    /* renamed from: z */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            Log.d("BdPreferenceQueueWorker", "wait to finish");
-            b.removeMessages(0);
-            d();
-            f();
+        if (interceptable == null || interceptable.invokeL(1048582, this, q05Var) == null) {
+            this.g = q05Var;
+            this.f.onBindDataToView(q05Var);
         }
     }
 
-    public static void c(String str, String str2, Object obj) {
+    @Override // com.baidu.tieba.ww
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, obj) != null) || str == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        if (a.containsKey(str)) {
-            ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
-            if (concurrentHashMap != null) {
-                if (obj != null) {
-                    concurrentHashMap.put(str2, obj);
-                } else {
-                    concurrentHashMap.remove(str2);
-                }
-            } else if (obj != null && str2 != null) {
-                ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
-                concurrentHashMap2.put(str2, obj);
-                a.put(str, concurrentHashMap2);
-            }
-        } else if (obj != null && str2 != null) {
-            ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
-            concurrentHashMap3.put(str2, obj);
-            a.put(str, concurrentHashMap3);
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ww
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.l();
+            m(1, new b(this));
         }
     }
 
-    public static void d() {
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
+        }
+    }
+
+    public final void y(View view2, ym ymVar) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c) {
-            return;
-        }
-        c = true;
-        try {
-            try {
-                Context baseContext = tw.a().getBaseContext();
-                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
-                for (String str : a.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
-                    if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
-                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
-                        i = 0;
-                        for (String str2 : concurrentHashMap.keySet()) {
-                            Object obj = concurrentHashMap.get(str2);
-                            if (obj != null) {
-                                if (obj instanceof Integer) {
-                                    edit.putInt(str2, ((Integer) obj).intValue());
-                                } else if (obj instanceof Long) {
-                                    edit.putLong(str2, ((Long) obj).longValue());
-                                } else if (obj instanceof Float) {
-                                    edit.putFloat(str2, ((Float) obj).floatValue());
-                                } else if (obj instanceof Boolean) {
-                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
-                                } else if (obj instanceof String) {
-                                    edit.putString(str2, (String) obj);
-                                } else if (obj instanceof Set) {
-                                    edit.putStringSet(str2, (Set) obj);
-                                }
-                                i++;
-                            }
-                        }
-                        edit.commit();
-                    } else {
-                        i = 0;
-                    }
-                    concurrentHashMap.clear();
-                    if (i > 0) {
-                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, ymVar) == null) {
+            q05 q05Var = this.g;
+            if ((!(q05Var instanceof mn6) && !(q05Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+                return;
             }
-        } finally {
-            c = false;
-        }
-    }
-
-    public static void e(String str) {
-        ConcurrentHashMap<String, Object> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && (concurrentHashMap = a.get(str)) != null) {
-            concurrentHashMap.clear();
+            ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+            if (ymVar instanceof mn6) {
+                mn6 mn6Var = (mn6) this.g;
+                mn6Var.f = 1;
+                Context context = view2.getContext();
+                if (mn6Var.a.isFromHomPage) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                ThreadCardUtils.jumpToPB((q05) mn6Var, context, i, false);
+                threadCardViewHolder.b().p(new vy.a(1));
+            } else if (ymVar instanceof ThreadData) {
+                ThreadData threadData = (ThreadData) this.g;
+                threadData.objType = 1;
+                ThreadCardUtils.jumpToPB((q05) threadData, view2.getContext(), 3, false);
+                threadCardViewHolder.b().p(new vy.a(1));
+            }
         }
     }
 }

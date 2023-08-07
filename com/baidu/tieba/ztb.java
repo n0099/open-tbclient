@@ -1,17 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface ztb {
-    void d(String str, String str2);
-
-    void e(String str, String str2);
-
-    void e(String str, String str2, Throwable th);
-
-    void i(String str, String str2);
-
-    void i(String str, String str2, Throwable th);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void a(int i, long j, long j2, long j3, String str, Object obj);
 }

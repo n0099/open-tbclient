@@ -1,32 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.nps.interfa.IPackageGetCallback;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.pm.IBundleInfo;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+@Service
 /* loaded from: classes7.dex */
-public class qk extends ik {
+public class qk implements IPackageGetter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
-    public qk(int i, String str) {
+    public qk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = str;
+    }
+
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
+            pk.f().g().i(iBundleInfo, str, i, iPackageDownloadCallback);
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
+            pk.f().g().k(list, iPackageGetCallback);
+        }
     }
 }

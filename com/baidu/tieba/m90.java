@@ -1,290 +1,262 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.devicescore.IDeviceScore;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmResponse;
+import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcResponseMeta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.huawei.hms.support.api.entity.core.JosStatusCodes;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.util.zip.GZIPInputStream;
+/* loaded from: classes7.dex */
 public class m90 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile long b;
-    public static volatile long c;
-    public static volatile long d;
-    public static volatile long e;
-    public static volatile String f;
-    public static volatile JSONObject g;
-    public static volatile boolean h;
-    public static volatile String i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            m90.h(2);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927365, "Lcom/baidu/tieba/m90;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927365, "Lcom/baidu/tieba/m90;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
-        b = 0L;
-        c = 0L;
-        d = 0L;
-        e = 0L;
-        f = "";
-        h = false;
-        i = "";
-    }
-
-    public static void f() {
+    public m90() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            if (a) {
-                Log.d("ExternalTransferStats", "resetStats");
-            }
-            b = 0L;
-            c = 0L;
-            d = 0L;
-            e = 0L;
-            g = null;
-            f = "";
-            h = false;
-            i = "";
-        }
-    }
-
-    public static synchronized void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            synchronized (m90.class) {
-                c(str, String.valueOf(System.currentTimeMillis()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static synchronized void c(String str, String str2) {
+    public final b90 a(b90 b90Var, byte[] bArr) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            synchronized (m90.class) {
-                if ((!h && n90.a() == -1) || TextUtils.isEmpty(n90.c())) {
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, b90Var, bArr)) == null) {
+            LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
+            if (parseFrom.hasLcmResponse()) {
+                LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
+                if (v90.a) {
+                    w90.a("PbProcessor", "methodId ：" + b90Var.j + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
                 }
-                if (a) {
-                    Log.d("ExternalTransferStats", "addEvent id " + str + " value " + str2);
+                if (lcmResponse.getErrorCode() == 0) {
+                    long j = b90Var.j;
+                    if (j == 1) {
+                        b90Var.k = 0;
+                        b90Var.h = lcmResponse.getNextIntervalMs();
+                        b90Var.r = lcmResponse.getServerInfo();
+                    } else if (j == 2) {
+                        b90Var.k = -1;
+                    } else if (j == 3) {
+                        b90Var.h = lcmResponse.getNextIntervalMs();
+                    } else if (j == 4 && v90.a) {
+                        w90.a("PbProcessor", "parseLcmResponse notify");
+                    }
+                    b90Var.d = 0;
+                } else {
+                    b90Var.d = lcmResponse.getErrorCode();
+                    b90Var.e = lcmResponse.getErrorMsg();
+                    b90Var.k = -1;
                 }
-                if (TextUtils.equals(str, "external_dispatch_start") && b == 0) {
-                    b = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sSchemeDispatcherStartTimeStamp: " + b);
-                    }
-                } else if (TextUtils.equals(str, "external_dispatch_end") && c == 0) {
-                    c = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sSchemeDispatcherEndTimeStamp: " + c);
-                    }
-                } else if (TextUtils.equals(str, "external_business_create") && d == 0) {
-                    d = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sBusinessPageCreateTimeStamp: " + d);
-                    }
-                } else if (TextUtils.equals(str, "external_business_ui_ready") && e == 0) {
-                    e = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sBusinessPageUiReadyTimeStamp: " + e);
-                    }
-                } else if (TextUtils.equals(str, "c_dom_first_screen_paint") && f == "feed") {
-                    e = Long.valueOf(str2).longValue();
+            } else if (parseFrom.hasLcmNotify()) {
+                if (v90.a) {
+                    w90.a("PbProcessor", "lcmpb hasLcmNotify");
                 }
-                if (!TextUtils.equals(str, "external_dispatch_start") && !TextUtils.equals(str, "external_dispatch_end") && !TextUtils.equals(str, "external_business_create") && !TextUtils.equals(str, "external_business_ui_ready")) {
-                    d(str, str2);
-                }
+            } else if (parseFrom.hasLcmRequest()) {
+                b90Var.o = parseFrom.getLcmRequest().getLogId();
+                b90Var.d = 0;
             }
+            return b90Var;
         }
+        return (b90) invokeLL.objValue;
     }
 
-    public static synchronized void d(String str, String str2) {
+    public b90 b(DataInputStream dataInputStream) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            synchronized (m90.class) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataInputStream)) == null) {
+            w90.a("PbProcessor", "parseResponse");
+            b90 b90Var = new b90();
+            byte readByte = dataInputStream.readByte();
+            byte readByte2 = dataInputStream.readByte();
+            byte readByte3 = dataInputStream.readByte();
+            byte readByte4 = dataInputStream.readByte();
+            int readInt = dataInputStream.readInt();
+            int readInt2 = dataInputStream.readInt();
+            if (readInt <= 1048576 && readInt2 <= 1048576) {
+                byte[] bArr = new byte[readInt2];
+                dataInputStream.readFully(bArr);
+                int i = readInt - readInt2;
+                byte[] bArr2 = new byte[i];
+                dataInputStream.readFully(bArr2);
+                w90.e("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2 + ", payload :" + i);
+                c(b90Var, bArr, bArr2);
+                b90Var.t = (long) i;
+                if (b90Var.d == -1) {
+                    b90Var.d = JosStatusCodes.RNT_CODE_NO_JOS_INFO;
+                }
+                return b90Var;
+            }
+            w90.b("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2);
+            throw new Exception(" Failed to allocate a larger byte allocation, data length = " + readInt);
+        }
+        return (b90) invokeL.objValue;
+    }
+
+    public final b90 c(b90 b90Var, byte[] bArr, byte[] bArr2) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, b90Var, bArr, bArr2)) == null) {
+            RpcMetaPb$RpcMeta parseFrom = RpcMetaPb$RpcMeta.parseFrom(bArr);
+            if (parseFrom.getCompressType() == 1) {
+                bArr2 = d(bArr2);
+                if (v90.a) {
+                    w90.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
+                }
+            }
+            b90Var.g = bArr2;
+            int i = 0;
+            if (parseFrom.hasNotify()) {
+                RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
+                b90Var.d = 0;
+                b90Var.e = "notify";
+                b90Var.i = notify.getServiceId();
+                b90Var.j = notify.getMethodId();
+                b90Var.o = notify.getLogId();
+                b90Var.f = true;
+                b90Var.q.clear();
+                while (i < notify.getEventListCount()) {
+                    b90Var.q.add(new v80(notify.getEventList(i).getEvent(), notify.getEventList(i).getTimestampMs()));
+                    i++;
+                }
+                b90Var.q.add(new v80("CLCPNotify", System.currentTimeMillis()));
+            } else if (parseFrom.hasResponse()) {
+                RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
+                b90Var.d = response.getErrorCode();
+                b90Var.e = response.getErrorText();
+                b90Var.i = response.getServiceId();
+                b90Var.j = response.getMethodId();
+                b90Var.o = response.getLogId();
+                b90Var.f = false;
+                b90Var.q.clear();
+                while (i < response.getEventListCount()) {
+                    b90Var.q.add(new v80(response.getEventList(i).getEvent(), response.getEventList(i).getTimestampMs()));
+                    i++;
+                }
+                b90Var.q.add(new v80("CLCPResEnd", System.currentTimeMillis()));
+                if (b90Var.d == 0 && b90Var.i == 1) {
+                    a(b90Var, bArr2);
+                    return b90Var;
+                }
+            } else if (parseFrom.hasRequest()) {
+                RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
+                b90Var.i = request.getServiceId();
+                b90Var.j = request.getMethodId();
+                if (v90.a) {
+                    w90.a("PbProcessor", "parseRpcMeta requestMeta");
+                }
+                a(b90Var, bArr2);
+            }
+            return b90Var;
+        }
+        return (b90) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 5, insn: 0x0065: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:38:0x0065 */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0068 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        GZIPInputStream gZIPInputStream;
+        IOException e;
+        GZIPInputStream gZIPInputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            GZIPInputStream gZIPInputStream3 = null;
+            try {
                 try {
-                    if (g == null) {
-                        g = new JSONObject();
+                    gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    try {
+                        byte[] bArr2 = new byte[1024];
+                        while (true) {
+                            int read = gZIPInputStream.read(bArr2);
+                            if (read < 0) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr2, 0, read);
+                        }
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        try {
+                            gZIPInputStream.close();
+                            byteArrayInputStream.close();
+                            byteArrayOutputStream.close();
+                        } catch (Exception e2) {
+                            if (v90.a) {
+                                w90.c("SocketTransceiver", "Exception ", e2);
+                            }
+                        }
+                        return byteArray;
+                    } catch (IOException e3) {
+                        e = e3;
+                        if (v90.a) {
+                            w90.c("SocketTransceiver", "unzip exception :", e);
+                        }
+                        if (gZIPInputStream != null) {
+                            try {
+                                gZIPInputStream.close();
+                            } catch (Exception e4) {
+                                if (v90.a) {
+                                    w90.c("SocketTransceiver", "Exception ", e4);
+                                }
+                                return bArr;
+                            }
+                        }
+                        byteArrayInputStream.close();
+                        byteArrayOutputStream.close();
+                        return bArr;
                     }
-                    if (!g.has(str)) {
-                        g.put(str, str2);
+                } catch (Throwable th) {
+                    th = th;
+                    gZIPInputStream3 = gZIPInputStream2;
+                    if (gZIPInputStream3 != null) {
+                        try {
+                            gZIPInputStream3.close();
+                        } catch (Exception e5) {
+                            if (v90.a) {
+                                w90.c("SocketTransceiver", "Exception ", e5);
+                            }
+                            throw th;
+                        }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                    byteArrayInputStream.close();
+                    byteArrayOutputStream.close();
+                    throw th;
                 }
+            } catch (IOException e6) {
+                gZIPInputStream = null;
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                if (gZIPInputStream3 != null) {
+                }
+                byteArrayInputStream.close();
+                byteArrayOutputStream.close();
+                throw th;
             }
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            b = 0L;
-            c = 0L;
-            d = 0L;
-            e = 0L;
-            g = null;
-            f = "";
-            h = true;
-            i = str;
-            ExecutorUtilsExt.delayPostOnElastic(new a(), "asyncUploadExternalTransferInfo", 3, 15000L);
-        }
-    }
-
-    public static synchronized void h(int i2) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
-            synchronized (m90.class) {
-                if (!h) {
-                    return;
-                }
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager == null) {
-                    f();
-                    return;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("from", "research");
-                    IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
-                    if (iDeviceScore != null) {
-                        jSONObject.put("device_score", iDeviceScore.getFinalScore(AppRuntime.getAppContext()));
-                    }
-                    jSONObject.put("upload_type", i2);
-                    if (d == 0) {
-                        jSONObject.put("type", "");
-                    } else {
-                        long b2 = n90.b();
-                        if (b2 != 0 && d - b2 < 0) {
-                            jSONObject.put("type", "normal");
-                        }
-                        jSONObject.put("type", "quick");
-                    }
-                    jSONObject.put("page", f);
-                    jSONObject.put("source", n90.c());
-                    if (i90.a()) {
-                        jSONObject.put("boot_type", "cold_boot");
-                        j = n90.a();
-                    } else {
-                        jSONObject.put("boot_type", "warm_boot");
-                        j = b;
-                    }
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(DiskUpdateListener.BEGIN_TIME, n90.a());
-                    if (b != 0) {
-                        long j2 = b - j;
-                        if (j2 >= 0 && j2 < 60000) {
-                            jSONObject2.put("dispatcher_start_duration", j2);
-                        } else {
-                            jSONObject2.put("dispatcher_start_duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("dispatcher_start_duration", -1);
-                    }
-                    if (c != 0) {
-                        long j3 = c - j;
-                        if (j3 >= 0 && j3 < 60000) {
-                            jSONObject2.put("dispatcher_duration", j3);
-                        } else {
-                            jSONObject2.put("dispatcher_duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("dispatcher_duration", -1);
-                    }
-                    if (d != 0) {
-                        long j4 = d - j;
-                        if (j4 >= 0 && j4 < 60000) {
-                            jSONObject2.put("will_show_duration", j4);
-                        } else {
-                            jSONObject2.put("will_show_duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("will_show_duration", -1);
-                    }
-                    if (e != 0) {
-                        long j5 = e - j;
-                        if (j5 >= 0 && j5 < 60000) {
-                            jSONObject2.put("duration", e - j);
-                        } else {
-                            jSONObject2.put("duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("duration", -1);
-                    }
-                    jSONObject2.put("addition_info", g);
-                    jSONObject.put("ext", jSONObject2);
-                    uBCManager.onEvent("1090", jSONObject.toString());
-                    if (a) {
-                        Log.d("ExternalTransferStats", jSONObject.toString());
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                f();
-            }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 }

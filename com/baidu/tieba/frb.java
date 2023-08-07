@@ -1,22 +1,33 @@
 package com.baidu.tieba;
 
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes5.dex */
-public class frb {
+public final class frb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775155, "Lcom/baidu/tieba/frb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947775155, "Lcom/baidu/tieba/frb;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
     }
 }

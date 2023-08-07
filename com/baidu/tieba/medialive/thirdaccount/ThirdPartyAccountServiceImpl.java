@@ -133,7 +133,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             @Override // com.baidu.tbadk.ala.ILoginListener
             public void onCancel() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && ThirdPartyAccountServiceImpl.a != null) {
                     ThirdPartyAccountServiceImpl.a.onResult(-2);
                 }
             }
@@ -141,7 +141,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             @Override // com.baidu.tbadk.ala.ILoginListener
             public void onFail() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ThirdPartyAccountServiceImpl.a != null) {
                     ThirdPartyAccountServiceImpl.a.onResult(-1);
                 }
             }
@@ -149,7 +149,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             @Override // com.baidu.tbadk.ala.ILoginListener
             public void onSuccess() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && ThirdPartyAccountServiceImpl.a != null) {
                     ThirdPartyAccountServiceImpl.a.onResult(0);
                 }
             }

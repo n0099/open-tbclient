@@ -11,13 +11,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q76;
-import com.baidu.tieba.v15;
-import com.baidu.tieba.vy9;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.s05;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,10 +41,10 @@ public class DownloadRectifyView extends RelativeLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v15.b a;
+        public final /* synthetic */ s05.b a;
         public final /* synthetic */ DownloadRectifyView b;
 
-        public a(DownloadRectifyView downloadRectifyView, v15.b bVar) {
+        public a(DownloadRectifyView downloadRectifyView, s05.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,8 +68,8 @@ public class DownloadRectifyView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
-                v15.b bVar = this.a;
-                vy9.a(context, bVar.b, null, null, bVar.c);
+                s05.b bVar = this.a;
+                mx9.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -78,10 +78,10 @@ public class DownloadRectifyView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v15.a a;
+        public final /* synthetic */ s05.a a;
         public final /* synthetic */ DownloadRectifyView b;
 
-        public b(DownloadRectifyView downloadRectifyView, v15.a aVar) {
+        public b(DownloadRectifyView downloadRectifyView, s05.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,8 +105,8 @@ public class DownloadRectifyView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
-                v15.a aVar = this.a;
-                vy9.a(context, aVar.b, null, null, aVar.c);
+                s05.a aVar = this.a;
+                mx9.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }
@@ -154,29 +154,29 @@ public class DownloadRectifyView extends RelativeLayout {
         b(context);
     }
 
-    public void a(q76 q76Var) {
+    public void a(x46 x46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q76Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, x46Var) == null) {
             int i = 8;
-            if (q76Var != null && q76Var.b != null) {
-                this.i.setText(q76Var.c);
+            if (x46Var != null && x46Var.b != null) {
+                this.i.setText(x46Var.c);
                 TextView textView = this.i;
-                if (q76Var.a != 2) {
+                if (x46Var.a != 2) {
                     i = 0;
                 }
                 textView.setVisibility(i);
-                v15 v15Var = q76Var.b;
-                this.b.N(v15Var.b, 30, false);
-                this.c.setText(v15Var.c);
-                this.d.setText(v15Var.i);
-                this.f.setText(v15Var.d);
-                this.e.setText(v15Var.f);
-                v15.b bVar = v15Var.g;
+                s05 s05Var = x46Var.b;
+                this.b.startLoad(s05Var.b, 30, false);
+                this.c.setText(s05Var.c);
+                this.d.setText(s05Var.i);
+                this.f.setText(s05Var.d);
+                this.e.setText(s05Var.f);
+                s05.b bVar = s05Var.g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                     this.g.setText(bVar.a);
                     this.g.setOnClickListener(new a(this, bVar));
                 }
-                v15.a aVar = v15Var.h;
+                s05.a aVar = s05Var.h;
                 if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
                     this.h.setText(aVar.a);
                     this.h.setOnClickListener(new b(this, aVar));
@@ -191,20 +191,20 @@ public class DownloadRectifyView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a0f, this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091031);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0911df);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a19, this);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091044);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0911f2);
             this.b = tbImageView;
-            tbImageView.setRadius(yi.d(context, 9.0f));
+            tbImageView.setRadius(BdUtilHelper.dip2px(context, 9.0f));
             this.b.setConrers(15);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926ab);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926ad);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092777);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c2);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09273f);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09272f);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926d6);
-            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090936);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c4);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c6);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092791);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926db);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092759);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092749);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926ef);
+            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090947);
         }
     }
 

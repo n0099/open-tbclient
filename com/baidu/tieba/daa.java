@@ -1,51 +1,62 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.stamp.model.FetchStampModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.BusinessPromotCommentList;
 /* loaded from: classes5.dex */
 public class daa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FetchStampModel a;
-    public aaa b;
+    public String a;
+    public int b;
 
-    public daa(TbPageContext tbPageContext, aaa<w9a> aaaVar) {
+    public daa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, aaaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = aaaVar;
-        this.a = new FetchStampModel(tbPageContext, aaaVar);
     }
 
-    public void a() {
-        FetchStampModel fetchStampModel;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.cancelLoadData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        FetchStampModel fetchStampModel;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.loadData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == 1) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public void c(BusinessPromotCommentList businessPromotCommentList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromotCommentList) != null) || businessPromotCommentList == null) {
+            return;
+        }
+        this.a = businessPromotCommentList.title;
+        String str = businessPromotCommentList.username;
+        businessPromotCommentList.uid.longValue();
+        this.b = businessPromotCommentList.is_lz.intValue();
     }
 }

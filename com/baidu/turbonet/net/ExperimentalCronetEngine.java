@@ -11,7 +11,7 @@ import com.baidu.turbonet.net.ExperimentalUrlRequest;
 import com.baidu.turbonet.net.TurbonetEngine;
 import com.baidu.turbonet.net.UrlRequest;
 import java.util.concurrent.Executor;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ExperimentalCronetEngine extends TurbonetEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public abstract class ExperimentalCronetEngine extends TurbonetEngine {
     /* renamed from: f */
     public abstract ExperimentalUrlRequest.Builder d(String str, UrlRequest.Callback callback, Executor executor);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder extends TurbonetEngine.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

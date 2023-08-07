@@ -1,63 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public abstract class i6c {
+public class i6c implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    @Deprecated
-    public <T> u1c.a<T> a(u1c.a<T> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (u1c.a) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T, R> u1c.b<? extends R, ? super T> b(u1c.b<? extends R, ? super T> bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (u1c.b) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> Throwable c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> b2c d(b2c b2cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, b2cVar)) == null) ? b2cVar : (b2c) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> u1c.a<T> e(u1c<? extends T> u1cVar, u1c.a<T> aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, u1cVar, aVar)) == null) ? aVar : (u1c.a) invokeLL.objValue;
-    }
-
-    public i6c() {
+    public i6c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.a = i;
+    }
+
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            Request request = chain.request();
+            Response proceed = chain.proceed(request);
+            while (!proceed.isSuccessful() && (i = this.b) < this.a) {
+                this.b = i + 1;
+                proceed.close();
+                proceed = chain.proceed(request);
+                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.b));
+            }
+            return proceed;
+        }
+        return (Response) invokeL.objValue;
     }
 }

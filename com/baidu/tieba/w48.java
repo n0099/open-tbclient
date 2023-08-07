@@ -2,103 +2,111 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w48 extends ln<d68, CardViewHolder<dp6>> {
+public class w48 extends ww<q05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public dp6 b;
-    public BdUniqueId c;
+    public AlaRecommendLayout f;
+    public int g;
+
+    @Override // com.baidu.tieba.ww
+    public void q(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w48(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), f68.f);
+    public w48(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        dp6 dp6Var = new dp6(tbPageContext);
-        this.b = dp6Var;
-        dp6Var.I("c10714", "c10739", "c10712", "c10738");
-        this.b.setFrom("home");
-    }
-
-    public void s(int i) {
-        dp6 dp6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (dp6Var = this.b) != null) {
-            dp6Var.j(this.a, i);
+        this.g = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
+            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
+        } else {
+            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
         }
     }
 
-    public void x(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.ww
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
-            dp6 dp6Var = this.b;
-            if (dp6Var != null) {
-                dp6Var.H(bdUniqueId);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.d(i);
+                r(this.f, 3);
             }
+            this.g = i;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public fn6 t(q05 q05Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            if (this.b == null) {
-                dp6 dp6Var = new dp6(this.a);
-                this.b = dp6Var;
-                dp6Var.H(this.c);
-                this.b.I("c10714", "c10739", "c10712", "c10738");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, q05Var)) == null) {
+            if (q05Var instanceof w38) {
+                w38 w38Var = (w38) q05Var;
+                return new fn6(w38Var.getType(), w38Var.c(), "recommend");
+            } else if (q05Var instanceof ry7) {
+                ry7 ry7Var = (ry7) q05Var;
+                return new fn6(ry7Var.getType(), ry7Var.c(), ImageViewerConfig.FROM_CONCERN);
+            } else {
+                return new fn6();
             }
-            return new CardViewHolder(this.b);
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (fn6) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.qx
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d68 d68Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d68Var, cardViewHolder})) == null) {
-            if (cardViewHolder.b() == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048581, this, q05Var) == null) {
+            fn6 t = t(q05Var);
+            if (t != null && !ListUtils.isEmpty(t.c())) {
+                this.f.setData(t);
+                this.f.d(TbadkCoreApplication.getInst().getSkinType());
+                this.f.setVisibility(0);
+                return;
             }
-            cardViewHolder.b().i(d68Var);
-            np6.b().a(new StatisticItem("c10714").param(TiebaStatic.Params.OBJ_PARAM3, gp6.e()));
-            return cardViewHolder.getView();
+            this.f.setVisibility(8);
         }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class jw {
+public final class jw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, View view3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
-            b(view2, view3, i, i, i, i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448308736, "Lcom/baidu/tieba/jw;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448308736, "Lcom/baidu/tieba/jw;");
         }
     }
 
-    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
-            if (view2.getTouchDelegate() instanceof hw) {
-                ((hw) view2.getTouchDelegate()).b(view3, i, i2, i3, i4);
-            } else {
-                view2.setTouchDelegate(new hw(view3, i, i2, i3, i4, new Rect(0, 0, 0, 0)));
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return Math.round(f * sv.a().getResources().getDisplayMetrics().density);
         }
+        return invokeF.intValue;
     }
 }

@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes6.dex */
 public class kvb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public boolean a;
+    public boolean b;
     public int c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public transient oxb j;
-    public transient nxb k;
-    public int l;
-    public boolean m;
-    public int n;
-    public int o;
+    public long d;
+    public long e;
 
     public kvb() {
         Interceptable interceptable = $ic;
@@ -41,86 +30,91 @@ public class kvb {
                 return;
             }
         }
-        this.a = null;
-        this.b = 1;
-        this.c = 1;
-        this.d = 0;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.k = null;
-        this.l = 0;
-        this.m = false;
-        this.n = 1;
-        this.o = 4000;
+        this.a = false;
+        this.b = true;
+        this.c = 0;
+        this.d = 0L;
+        this.e = 0L;
     }
 
-    public static kvb a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            kvb kvbVar = new kvb();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                kvbVar.a = jSONObject.optString("cacheDirectory");
-                kvbVar.b = jSONObject.optInt("avcCodec");
-                kvbVar.c = jSONObject.optInt("hevcCodec");
-                kvbVar.d = jSONObject.optInt("audioCodec");
-                kvbVar.e = jSONObject.optInt("videoSeekMode");
-                kvbVar.f = jSONObject.optBoolean("clearRender");
-                kvbVar.g = jSONObject.optBoolean("usingSurfaceView");
-                kvbVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
-                kvbVar.i = jSONObject.optBoolean("forceNotCrop");
-                kvbVar.l = jSONObject.optInt("samplerFilter");
-                kvbVar.m = jSONObject.optBoolean("isSubProcess");
-                kvbVar.n = jSONObject.optInt("pcdnCatonTime");
-                kvbVar.o = jSONObject.optInt("pcdnCatonCount");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return kvbVar;
-        }
-        return (kvb) invokeL.objValue;
-    }
-
-    public static String b(kvb kvbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kvbVar)) == null) {
-            if (kvbVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cacheDirectory", kvbVar.a);
-                jSONObject.put("avcCodec", kvbVar.b);
-                jSONObject.put("hevcCodec", kvbVar.c);
-                jSONObject.put("audioCodec", kvbVar.d);
-                jSONObject.put("videoSeekMode", kvbVar.e);
-                jSONObject.put("clearRender", kvbVar.f);
-                jSONObject.put("usingSurfaceView", kvbVar.g);
-                jSONObject.put("hardDecodeOutputToBuffer", kvbVar.h);
-                jSONObject.put("forceNotCrop", kvbVar.i);
-                jSONObject.put("samplerFilter", kvbVar.l);
-                jSONObject.put("isSubProcess", kvbVar.m);
-                jSONObject.put("pcdnCatonTime", kvbVar.n);
-                jSONObject.put("pcdnCatonCount", kvbVar.o);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
+    public synchronized boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (this.c < 2) {
+                    return false;
+                }
+                if (Math.abs(this.d - this.e) < 100) {
+                    z = true;
+                }
+                return z;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.a;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceCreated");
+                if (this.c > 0) {
+                    this.e = this.d;
+                }
+                this.c++;
+                this.d = System.currentTimeMillis();
+                this.b = true;
+                this.a = true;
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceDestroy");
+                this.b = true;
+                this.a = false;
+            }
+        }
+    }
+
+    public synchronized boolean a(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (this.b == z) {
+                    this.b = z2;
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public synchronized void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            synchronized (this) {
+            }
+        }
     }
 }

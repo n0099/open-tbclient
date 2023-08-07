@@ -58,7 +58,7 @@ public final class b extends Presenter {
     public final void aq() {
         super.aq();
         this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) xR()).adTemplate;
-        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09142f);
+        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091442);
         this.Gg = nestedScrollWebView;
         this.Gg.setClientConfig(nestedScrollWebView.getClientConfig().R(this.mAdTemplate));
         this.Gg.setNestedScrollingEnabled(true);

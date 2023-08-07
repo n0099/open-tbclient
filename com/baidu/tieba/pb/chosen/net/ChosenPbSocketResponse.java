@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ne9;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.ye;
+import com.baidu.tieba.gd9;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes7.dex */
-public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne9 {
+public class ChosenPbSocketResponse extends SocketResponsedMessage implements gd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -49,7 +49,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         }
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         return (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ne9
+    @Override // com.baidu.tieba.gd9
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -131,8 +131,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ne
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0) {
-                o55.e();
-                ye<byte[]> c = o55.c("tb.pb_normal");
+                l45.e();
+                ne<byte[]> c = l45.c("tb.pb_normal");
                 c.remove("chosen_pb_page_cache");
                 c.g("chosen_pb_page_cache", bArr);
             }

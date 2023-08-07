@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import android.view.ViewGroup;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class g75 extends w65 {
+public class g75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public g75() {
         Interceptable interceptable = $ic;
@@ -24,42 +24,32 @@ public final class g75 extends w65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static final void b(DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
-            m65.u("userIcon");
-        }
-    }
-
-    @Override // com.baidu.tieba.w65
-    public void a(Context context, o65 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!PollingModel.z0()) {
-                m65.u("userIcon");
                 return;
             }
-            x9a x9aVar = new x9a();
-            x9aVar.f(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.q65
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.content.DialogInterface.OnDismissListener
-                public final void onDismiss(DialogInterface dialogInterface) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                        g75.b(dialogInterface);
-                    }
-                }
-            });
-            x9aVar.d(TbSingleton.getInstance().getIconPopData());
-            m65.n("userIcon");
         }
+        this.a = -2;
+        this.b = -1;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void b(ViewPager viewPager) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) != null) || viewPager == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
+        } else {
+            layoutParams.height = this.a;
+            layoutParams.width = this.b;
+        }
+        viewPager.setLayoutParams(layoutParams);
     }
 }

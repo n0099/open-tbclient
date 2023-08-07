@@ -1,71 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "ChatUtil")
 /* loaded from: classes6.dex */
-public class jj8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "1";
-    public static String b = "2";
-    public static String c = "3";
-    public static String d = "1";
-    public static String e = "2";
+public final class jj8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947885329, "Lcom/baidu/tieba/jj8;")) == null) {
-            return;
+    public static final long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            try {
+                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
+                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
+                return Long.parseLong(bdUidFromBdUK);
+            } catch (NumberFormatException unused) {
+                return 0L;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947885329, "Lcom/baidu/tieba/jj8;");
-        }
+        return invokeL.longValue;
     }
 
-    public static void a(long j, String str, String str2, String str3) {
+    public static final String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_DIALOG_SHOW);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("fname", str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("obj_locate", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            return c(String.valueOf(j));
         }
+        return (String) invokeJ.objValue;
     }
 
-    public static void b(long j, String str) {
+    public static final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65538, null, j, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_CREATE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            return BIMManager.getBdUKFromBdUid(str);
         }
-    }
-
-    public static void c(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_MANAGE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
-        }
+        return (String) invokeL.objValue;
     }
 }

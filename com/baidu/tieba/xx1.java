@@ -1,147 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class xx1 extends yw2<xx1> {
+public class xx1 extends SwanAppDownloadAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        public static final String a = yw2.r("SwanApkFetcher.Params", "title");
-        public static final String b = yw2.r("SwanApkFetcher.Params", "pkg_name");
-        public static final String c = yw2.r("SwanApkFetcher.Params", "description");
-        public static final String d = yw2.r("SwanApkFetcher.Params", "should_auto_install");
-        public static final String e = yw2.r("SwanApkFetcher.Params", "current_swan_app");
-        public static final String f = yw2.r("SwanApkFetcher.Params", "content_disposition");
-        public static final String g = yw2.r("SwanApkFetcher.Params", "mime_type");
-        public static final String h = yw2.r("SwanApkFetcher.Params", HttpRequest.USER_AGENT);
-        public static final String i = yw2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
-        public static final String j = yw2.r("SwanApkFetcher.Params", MigrateStatisticUtils.EXT_INFO);
-    }
-
-    public xx1 M() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction
+    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable ya3 ya3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (xx1) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, unitedSchemeEntity, ya3Var)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
-    public xx1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xx1(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/installApp4Ad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vb3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.rq3
-    public /* bridge */ /* synthetic */ rq3 h() {
-        M();
-        return this;
-    }
-
-    public xx1 E(Boolean bool) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) {
-            return t(a.d, bool.booleanValue());
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 F(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return z(a.f, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 G(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return z(a.i, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return z(a.e, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return z(a.c, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 J(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return z(a.j, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 K(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return z(a.g, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 L(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return z(a.b, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 N(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return z(a.a, str);
-        }
-        return (xx1) invokeL.objValue;
-    }
-
-    public xx1 O(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return z(a.h, str);
-        }
-        return (xx1) invokeL.objValue;
     }
 }

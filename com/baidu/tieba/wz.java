@@ -1,140 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes8.dex */
-public class wz extends ey {
+public final class wz implements xz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext h;
-    public int i;
-    public VoteView j;
+    public int a;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t15 a;
-        public final /* synthetic */ wz b;
-
-        public a(wz wzVar, t15 t15Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wzVar, t15Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wzVar;
-            this.a = t15Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ThreadCardUtils.jumpToPB(this.a, (Context) this.b.h.getPageActivity(), this.b.i, false);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wz(Context context) {
-        super(context);
+    public wz(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new VoteView(context);
-        z(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: D */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.xz
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t15Var) == null) {
-            if (C(t15Var)) {
-                this.j.setVisibility(0);
-                this.j.setThreadData(t15Var.getThreadData());
-                this.j.setOnItemClickListener(new a(this, t15Var));
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.xz
+    public void a(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || bArr == null) {
+            return;
+        }
+        if (i + i2 > bArr.length) {
+            throw new ShortBufferException("Buffer too small to hold padding");
+        }
+        byte b = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b;
+        }
+    }
+
+    @Override // com.baidu.tieba.xz
+    public int b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
+                return 0;
             }
-            this.j.setVisibility(8);
-        }
-    }
-
-    public void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void F(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
-            this.h = tbPageContext;
-            this.j.setPageContext(tbPageContext);
-        }
-    }
-
-    public final boolean C(t15 t15Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t15Var)) == null) {
-            if (t15Var != null && t15Var.getThreadData() != null && t15Var.getThreadData().getPollData() != null && t15Var.getThreadData().getPollData().getOptions() != null && t15Var.getThreadData().getPollData().getOptions().size() > 0 && !t15Var.getThreadData().isVideoThreadType()) {
-                return true;
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
+                return -1;
             }
-            return false;
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
+                    return -1;
+                }
+            }
+            return i3;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xx
-    public View l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
-            this.j.D(i);
-        }
+        return invokeLII.intValue;
     }
 }

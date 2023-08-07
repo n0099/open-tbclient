@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fu {
+public final class fu implements as {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public fu() {
@@ -28,53 +25,25 @@ public class fu {
         }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.as
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
+            if (!(b instanceof String)) {
+                b = null;
             }
-            return false;
+            return (String) b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.as
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (fu.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
-                }
-            }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
-        }
-    }
-
-    public static void d(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            if (j > 0) {
-                a().postDelayed(runnable, j);
-            } else {
-                c(runnable);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
         }
     }
 }

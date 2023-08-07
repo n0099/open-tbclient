@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fjb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,31 +13,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.CustomInflater;
 import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.win.opensdk.PBMediaView;
-import com.win.opensdk.PBNative;
-import com.win.opensdk.PBNativeListener;
 /* loaded from: classes6.dex */
-public class ijb extends FunNativeAd2Bridger<PBNative, JYNativeAdView> {
+public class ijb extends FunNativeAd2Bridger<zib, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ljb b;
-    public final /* synthetic */ hjb c;
+    public boolean b;
+    public fjb.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ fjb e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ijb(hjb hjbVar, ReporterPidLoader reporterPidLoader, ljb ljbVar) {
+    public ijb(fjb fjbVar, ReporterPidLoader reporterPidLoader, Context context) {
         super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hjbVar, reporterPidLoader, ljbVar};
+            Object[] objArr = {fjbVar, reporterPidLoader, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,52 +43,45 @@ public class ijb extends FunNativeAd2Bridger<PBNative, JYNativeAdView> {
                 return;
             }
         }
-        this.c = hjbVar;
-        this.b = ljbVar;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.ad.sdk.channel.model.jy.JYNativeAdView, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public JYNativeAdView createExpressView(PBNative pBNative) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBNative)) == null) {
-            return this.c.e(pBNative);
-        }
-        return (View) invokeL.objValue;
+        this.e = fjbVar;
+        this.d = context;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, zib zibVar, BaseNativeAd2<zib, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
-            PBNative pBNative2 = pBNative;
-            hjb hjbVar = this.c;
-            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = hjbVar.e;
-            pid = hjbVar.mPid;
-            funNativeAdListenerHelper.startShow(pBNative2, str, pid, null, funAdInteractionListener);
-            ViewGroup inflate = customInflater.inflate();
-            if (inflate instanceof FunNativeView) {
-                inflate = ((FunNativeView) inflate).getRoot();
-            }
-            pBNative2.registerViewForInteraction(inflate, (PBMediaView) this.b.getVideoView(), customInflater.getClickViews());
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, zibVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(zib zibVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zibVar)) == null) {
+            return this.e.f(this.d, zibVar);
+        }
+        return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, zib zibVar, BaseNativeAd2<zib, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
-            hjb hjbVar = this.c;
-            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = hjbVar.e;
-            pid = hjbVar.mPid;
-            funNativeAdListenerHelper.startShow(pBNative, str, pid, null, funAdInteractionListener);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, zibVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            zib zibVar2 = zibVar;
+            this.e.onShowStart(zibVar2, this.b);
+            this.b = true;
+            View expressView = expressInflater.getExpressView();
+            if (this.c == null) {
+                fjb fjbVar = this.e;
+                fjb.b bVar = new fjb.b(fjbVar, zibVar2, expressView, str);
+                this.c = bVar;
+                fjbVar.h(zibVar2, bVar);
+            }
+            this.c.d = funAdInteractionListener;
             expressInflater.inflate();
         }
     }

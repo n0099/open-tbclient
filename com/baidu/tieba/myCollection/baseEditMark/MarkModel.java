@@ -2,6 +2,7 @@ package com.baidu.tieba.myCollection.baseEditMark;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,12 +10,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.t99;
-import com.baidu.tieba.v99;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.r79;
+import com.baidu.tieba.t79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public ax4.a d;
+    public bw4.a d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -45,7 +45,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public v99 c;
+        public t79 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -75,7 +75,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new v99();
+            this.c = new t79();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,9 +88,9 @@ public class MarkModel extends BdBaseModel {
                 boolean z = false;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    t99 t99Var = new t99();
-                    t99Var.j(this.d.b);
-                    this.a.addPostData("data", t99Var.E(0, 1));
+                    r79 r79Var = new r79();
+                    r79Var.j(this.d.b);
+                    this.a.addPostData("data", r79Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -118,7 +118,7 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        s95.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        Logger.addLog(Logger.COLLECTION, 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
@@ -128,7 +128,7 @@ public class MarkModel extends BdBaseModel {
                         if (this.a != null && !this.a.getNetContext().getResponse().isRequestSuccess()) {
                             this.d.d.a(false, this.b, this.a.getErrorString());
                         } else {
-                            ax4.a aVar = this.d.d;
+                            bw4.a aVar = this.d.d;
                             boolean z = this.b;
                             if (this.c != null) {
                                 str = this.c.b();
@@ -171,7 +171,7 @@ public class MarkModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -196,7 +196,7 @@ public class MarkModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -209,28 +209,28 @@ public class MarkModel extends BdBaseModel {
         this.b = new MarkData();
     }
 
-    public void d0(boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.a = z;
         }
     }
 
-    public void e0(MarkData markData) {
+    public void W(MarkData markData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, markData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
             this.b = markData;
         }
     }
 
-    public void f0(ax4.a aVar) {
+    public void X(bw4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;
         }
     }
 
-    public void Y() {
+    public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = this.c;
@@ -244,7 +244,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void Z() {
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a aVar = this.c;
@@ -258,7 +258,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public boolean a0() {
+    public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -267,7 +267,7 @@ public class MarkModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public MarkData b0() {
+    public MarkData T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -276,7 +276,7 @@ public class MarkModel extends BdBaseModel {
         return (MarkData) invokeV.objValue;
     }
 
-    public String c0() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -293,7 +293,7 @@ public class MarkModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             a aVar = this.c;
             if (aVar != null) {
                 aVar.cancel();

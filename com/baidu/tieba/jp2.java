@@ -1,53 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class jp2 {
+public class jp2 extends so2<gp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890909, "Lcom/baidu/tieba/jp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947890909, "Lcom/baidu/tieba/jp2;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
+    @Override // com.baidu.tieba.so2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public jp2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] b = vn4.a().b();
-            v82.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
-            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
-                if (str != null && str.trim().length() > 0) {
-                    str2 = String.format("(%s) AND ", str.trim());
-                } else {
-                    str2 = "";
-                }
-                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
-                v82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
-                return format;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            v82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.so2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull gp2 gp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gp2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof ArrayList) {
+                ArrayList arrayList = (ArrayList) obj;
+                if (arrayList.size() < 4) {
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("Cookie", (String) arrayList.get(1));
+                hashMap.put("User-Agent", (String) arrayList.get(2));
+                hashMap.put("Referer", (String) arrayList.get(3));
+                gp2Var.k((String) arrayList.get(0), hashMap);
+            }
+        }
     }
 }

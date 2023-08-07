@@ -1,73 +1,62 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class xk5 {
+public class xk5 extends sk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
+    public int d;
+    public byte[] e;
 
-    @TargetApi(16)
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303271, "Lcom/baidu/tieba/xk5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948303271, "Lcom/baidu/tieba/xk5;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        f = sk5.a("IHDR");
     }
 
-    public static boolean b(Activity activity) {
-        InterceptResult invokeL;
+    public xk5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.e = new byte[5];
     }
 
-    @TargetApi(19)
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sk5
+    public void b(zk5 zk5Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & 67108864) == 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zk5Var) == null) {
+            this.c = zk5Var.e();
+            this.d = zk5Var.e();
+            byte[] bArr = this.e;
+            zk5Var.read(bArr, 0, bArr.length);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == wk5.a(view2.getContext())) {
-                return false;
-            }
-            int h = vk5.h(view2.getContext());
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams == null) {
-                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
-                return true;
-            }
-            layoutParams.height = h;
-            view2.requestLayout();
-            return true;
-        }
-        return invokeLI.booleanValue;
     }
 }

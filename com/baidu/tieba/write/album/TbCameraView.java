@@ -8,11 +8,11 @@ import android.view.MotionEvent;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zg;
-import com.baidu.tieba.zu6;
+import com.baidu.tieba.fs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class TbCameraView extends TextureView {
                     tbCameraView.p = z;
                 }
                 if (this.a.p) {
-                    zu6.a(this.a.s, "mTextureAvailable", 1);
+                    fs6.a(this.a.s, "mTextureAvailable", 1);
                 }
             }
         }
@@ -443,7 +443,7 @@ public class TbCameraView extends TextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            zg.a().removeCallbacks(this.t);
+            SafeHandler.getInst().removeCallbacks(this.t);
         }
     }
 

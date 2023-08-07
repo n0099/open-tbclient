@@ -2,17 +2,16 @@ package com.baidu.tbadk.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aj;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TbClipImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean x0;
+    public boolean canClipPath;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context) {
@@ -75,16 +74,16 @@ public class TbClipImageView extends TbImageView {
                 return;
             }
         }
-        this.x0 = false;
-        T(context, attributeSet, i);
+        this.canClipPath = false;
+        init(context, attributeSet, i);
     }
 
-    public final void T(Context context, AttributeSet attributeSet, int i) {
+    private void init(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            String trim = aj.g().trim();
+        if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
+            String trim = DeviceInfoHelper.getModel().trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
                 int i2 = 0;
@@ -119,9 +118,9 @@ public class TbClipImageView extends TbImageView {
                 z2 = false;
             }
             if (!z2 && !z) {
-                this.x0 = true;
+                this.canClipPath = true;
             } else {
-                this.x0 = false;
+                this.canClipPath = false;
             }
         }
     }
@@ -130,11 +129,11 @@ public class TbClipImageView extends TbImageView {
     public void setDrawerType(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 0) {
                 super.setDrawerType(i);
             } else if (i == 1) {
-                if (this.x0) {
+                if (this.canClipPath) {
                     i2 = 4;
                 } else {
                     i2 = 5;

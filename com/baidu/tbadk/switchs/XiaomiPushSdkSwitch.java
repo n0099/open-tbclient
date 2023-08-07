@@ -3,21 +3,21 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ff;
+import com.baidu.tieba.ue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class XiaomiPushSdkSwitch extends ff {
+public class XiaomiPushSdkSwitch extends ue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
     public static final String XIAOMIPUSH_SDK_KEY = "switch_xiaomipush_sdk";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -28,7 +28,7 @@ public class XiaomiPushSdkSwitch extends ff {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class XiaomiPushSdkSwitch extends ff {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class XiaomiPushSdkSwitch extends ff {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? XIAOMIPUSH_SDK_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class XiaomiPushSdkSwitch extends ff {
         }
     }
 
-    @Override // com.baidu.tieba.ff
+    @Override // com.baidu.tieba.ue
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {

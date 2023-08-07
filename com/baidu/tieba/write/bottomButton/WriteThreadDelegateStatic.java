@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.MaintabAddResponedData;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.io5;
-import com.baidu.tieba.jo5;
-import com.baidu.tieba.ko5;
-import com.baidu.tieba.lo5;
-import com.baidu.tieba.qo5;
+import com.baidu.tieba.tm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class WriteThreadDelegateStatic extends io5 {
+public class WriteThreadDelegateStatic extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.io5
-    public boolean d() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -37,7 +37,7 @@ public class WriteThreadDelegateStatic extends io5 {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements lo5.b {
+    public class a implements tm5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -60,7 +60,7 @@ public class WriteThreadDelegateStatic extends io5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.lo5.b
+        @Override // com.baidu.tieba.tm5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class WriteThreadDelegateStatic extends io5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((ko5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+            ((MaintabAddResponedData) customResponsedMessage.getData()).addFragment(new WriteThreadDelegateStatic());
         }
     }
 
@@ -137,29 +137,29 @@ public class WriteThreadDelegateStatic extends io5 {
         }
     }
 
-    @Override // com.baidu.tieba.io5
-    public jo5 a() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public FragmentTabStructure createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            jo5 jo5Var = new jo5();
-            jo5Var.a = new WriteThreadFragment();
-            jo5Var.e = 9;
-            jo5Var.d = R.drawable.icon_mask_home_publish;
-            jo5Var.h = qo5.f().d("write");
-            jo5Var.i = jo5.j;
-            return jo5Var;
+            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+            fragmentTabStructure.frag = new WriteThreadFragment();
+            fragmentTabStructure.type = 9;
+            fragmentTabStructure.drawableResId = R.drawable.icon_mask_home_publish;
+            fragmentTabStructure.dynamicIconData = MainTabBottomDynamicIconManager.getInstance().getIconData("write");
+            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWICON;
+            return fragmentTabStructure;
         }
-        return (jo5) invokeV.objValue;
+        return (FragmentTabStructure) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.io5
-    public TbFragmentTabIndicator c(Context context) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) lo5.e().d(1003, new a(this, context));
-            this.b = maintabBottomIndicator;
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) tm5.e().d(1003, new a(this, context));
+            this.mIndicator = maintabBottomIndicator;
             return maintabBottomIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;

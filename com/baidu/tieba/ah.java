@@ -1,125 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
 
-    public static boolean a(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public ah() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
-            try {
-                context.sendBroadcast(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        this.a = 0L;
+        this.b = null;
     }
 
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            zb zbVar = new zb("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
+            zbVar.setSdCard(false);
+            zbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ub.f().call(zbVar);
+            if (zbVar.isSuccess()) {
+                str = zbVar.a();
+            } else {
+                str = null;
+            }
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.getLong("time");
+                this.b = jSONObject.getString("data");
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
+            }
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean startService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
-            try {
-                context.startService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean stopService(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
-            try {
-                context.stopService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
+        long currentTimeMillis = System.currentTimeMillis();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("time", currentTimeMillis);
+            jSONObject.put("data", str);
+            zb zbVar = new zb("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
+            zbVar.setSdCard(false);
+            zbVar.b(jSONObject.toString());
+            zbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ub.f().call(zbVar);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
-            try {
-                context.unbindService(serviceConnection);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
-            try {
-                context.bindService(intent, serviceConnection, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLLLI.booleanValue;
-    }
-
-    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
-            try {
-                activity.startActivityForResult(intent, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLLI.booleanValue;
     }
 }

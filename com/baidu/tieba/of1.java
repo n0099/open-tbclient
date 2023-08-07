@@ -1,67 +1,23 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes7.dex */
-public abstract class of1 {
+public final class of1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
-
-    public of1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-    }
-
-    public boolean a() {
+    @Inject
+    public static yf1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return xf1.a();
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            this.a = false;
-            try {
-                sQLiteDatabase.beginTransaction();
-                if (b(sQLiteDatabase)) {
-                    sQLiteDatabase.setTransactionSuccessful();
-                    this.a = true;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                try {
-                    sQLiteDatabase.endTransaction();
-                } catch (Exception unused2) {
-                }
-                throw th;
-            }
-            try {
-                sQLiteDatabase.endTransaction();
-            } catch (Exception unused3) {
-            }
-        }
+        return (yf1) invokeV.objValue;
     }
 }

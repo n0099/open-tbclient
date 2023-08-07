@@ -1,24 +1,35 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.win.opensdk.PBDrawVideo;
+import com.win.opensdk.PBDrawVideoListener;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class hib extends BaseAdRipper {
+public class hib extends ReporterPidLoader<PBDrawVideo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hib(Ssp.Pid pid) {
-        super(pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,60 +39,125 @@ public class hib extends BaseAdRipper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object obj2;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Object obj3 = ((xib) obj).a;
-                Field declaredField = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                obj2 = declaredField.get(obj3);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-            }
-            if (obj2 == null) {
-                return null;
-            }
-            Field declaredField2 = obj2.getClass().getDeclaredField("c");
-            declaredField2.setAccessible(true);
-            Object obj4 = declaredField2.get(obj2);
-            if (obj4 == null) {
-                return null;
-            }
-            Field declaredField3 = obj4.getClass().getDeclaredField("c");
-            declaredField3.setAccessible(true);
-            Object obj5 = declaredField3.get(obj4);
-            if (obj5 == null) {
-                return null;
-            }
-            Field declaredField4 = obj5.getClass().getDeclaredField("v");
-            declaredField4.setAccessible(true);
-            Object obj6 = declaredField4.get(obj5);
-            if (obj6 == null) {
-                return null;
-            }
-            Field declaredField5 = obj6.getClass().getSuperclass().getDeclaredField("M");
-            declaredField5.setAccessible(true);
-            JSONObject jSONObject = (JSONObject) declaredField5.get(obj6);
-            if (jSONObject != null) {
-                return gib.a(jSONObject);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBDrawVideo pBDrawVideo = new PBDrawVideo(context.getApplicationContext(), this.mPid.pid);
+            pBDrawVideo.setDrawVideoListener(new a(this, pBDrawVideo));
+            pBDrawVideo.load();
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements PBDrawVideoListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PBDrawVideo a;
+        public final /* synthetic */ hib b;
+
+        public a(hib hibVar, PBDrawVideo pBDrawVideo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hibVar, pBDrawVideo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hibVar;
+            this.a = pBDrawVideo;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                LogPrinter.e("onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.b.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.b.onAdLoaded(this.a, new String[0]);
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBDrawVideoListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdShow(this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBDrawVideo pBDrawVideo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBDrawVideo = (PBDrawVideo) obj) != null) {
+            this.e.destroy(pBDrawVideo);
+            pBDrawVideo.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
+            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (PBDrawVideo) obj, new iib(this, this));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            PBDrawVideo pBDrawVideo = (PBDrawVideo) obj;
+            this.e.startShow(pBDrawVideo, str, this.mPid, null, null);
+            View drawVideoView = pBDrawVideo.getDrawVideoView();
+            if (drawVideoView.getParent() != null) {
+                ((ViewGroup) drawVideoView.getParent()).removeView(drawVideoView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(drawVideoView);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

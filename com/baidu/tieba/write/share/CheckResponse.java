@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.kua;
+import com.baidu.tieba.nta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kua mCheckResponseData;
+    public nta mCheckResponseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CheckResponse() {
@@ -35,13 +35,13 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public kua getCheckResponseData() {
+    public nta getCheckResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mCheckResponseData;
         }
-        return (kua) invokeV.objValue;
+        return (nta) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -53,9 +53,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            kua kuaVar = new kua();
-            this.mCheckResponseData = kuaVar;
-            kuaVar.a = jSONObject.optString("tbopen_app_key");
+            nta ntaVar = new nta();
+            this.mCheckResponseData = ntaVar;
+            ntaVar.a = jSONObject.optString("tbopen_app_key");
             this.mCheckResponseData.c = jSONObject.optString("tbopen_app_name");
             this.mCheckResponseData.d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");

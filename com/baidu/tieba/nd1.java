@@ -1,24 +1,38 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nd1 extends od1 {
+public class nd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView t;
 
-    @Override // com.baidu.tieba.od1, com.baidu.tieba.md1
-    public int e() {
-        InterceptResult invokeV;
+    public abstract void a(String str);
+
+    public abstract void b(@NonNull or0 or0Var);
+
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.nad_bubble_tip_d20 : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public abstract void d();
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
     }
 
     public nd1() {
@@ -33,47 +47,5 @@ public class nd1 extends od1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void F() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (imageView = this.t) == null) {
-            return;
-        }
-        imageView.setBackground(oc1.a().getResources().getDrawable(R.drawable.nad_bubble_jump_arrow_selector));
-        this.t.setVisibility(0);
-    }
-
-    @Override // com.baidu.tieba.od1, com.baidu.tieba.md1
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (super.g()) {
-                this.t = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090503);
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.od1, com.baidu.tieba.md1
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.n();
-            this.t = null;
-        }
-    }
-
-    public void G(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) != null) || (imageView = this.t) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
     }
 }

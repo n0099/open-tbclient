@@ -58,7 +58,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091419);
+        this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f09142c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

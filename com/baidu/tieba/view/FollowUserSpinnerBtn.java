@@ -14,13 +14,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jc5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ya5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
+public class FollowUserSpinnerBtn extends LinearLayout implements ya5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static final int q;
@@ -56,14 +56,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
         void a(boolean z, boolean z2);
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -119,9 +119,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
                 return;
             }
         }
-        p = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-        q = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
-        r = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        p = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+        q = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+        r = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -201,7 +201,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
         g(context);
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
@@ -231,7 +231,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
         }
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -239,7 +239,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
         }
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -270,15 +270,15 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914b6);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ef0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092542);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c6);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914c9);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f07);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c7);
             Paint paint = new Paint(1);
             this.e = paint;
             paint.setStyle(Paint.Style.STROKE);
             this.e.setStrokeCap(Paint.Cap.ROUND);
-            this.e.setStrokeWidth(yi.g(context, R.dimen.tbds3));
+            this.e.setStrokeWidth(BdUtilHelper.getDimens(context, R.dimen.tbds3));
             this.h = new RectF();
             this.i = new Path();
             this.f = R.color.CAM_X0105;
@@ -293,7 +293,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements jc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f075e);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f075f);
                 this.f = R.color.CAM_X0101;
                 this.g = R.color.CAM_X0904;
             } else {

@@ -24,11 +24,11 @@ public final class R {
     public static final class id {
 
         /* renamed from: appIcon */
-        public static final int obfuscated = 0x7f09029f;
-        public static final int description = 0x7f09087b;
-        public static final int paused_text = 0x7f091a3f;
-        public static final int progress_bar = 0x7f091d4f;
-        public static final int progress_text = 0x7f091d58;
+        public static final int obfuscated = 0x7f0902a0;
+        public static final int description = 0x7f09088a;
+        public static final int paused_text = 0x7f091a53;
+        public static final int progress_bar = 0x7f091d65;
+        public static final int progress_text = 0x7f091d6e;
     }
 
     /* loaded from: classes3.dex */
@@ -81,23 +81,23 @@ public final class R {
         public static final int downloaded_duplicate_message = 0x7f0f05f7;
         public static final int downloaded_duplicate_title = 0x7f0f05f8;
         public static final int downloading_duplicate_cancel = 0x7f0f05fd;
-        public static final int install_permission_msg = 0x7f0f0a9d;
-        public static final int install_permission_title = 0x7f0f0a9e;
-        public static final int no = 0x7f0f0e39;
-        public static final int notification_download_complete = 0x7f0f0e95;
-        public static final int notification_download_failed = 0x7f0f0e96;
-        public static final int notification_need_wifi_for_size = 0x7f0f0e97;
-        public static final int oppo_install_permission_msg = 0x7f0f0efc;
-        public static final int picture_save_fail = 0x7f0f10ae;
-        public static final int picture_save_success = 0x7f0f10af;
-        public static final int teenager_not_download = 0x7f0f1617;
-        public static final int uninstall_more_apk_message = 0x7f0f176e;
-        public static final int uninstall_more_apk_message_button_text = 0x7f0f176f;
-        public static final int uninstall_single_apk_message = 0x7f0f1770;
-        public static final int update_failed_message = 0x7f0f178f;
-        public static final int update_sign_match_failed_hint = 0x7f0f1794;
-        public static final int vivo_install_permission_msg = 0x7f0f1834;
-        public static final int xiaomi_install_permission_msg = 0x7f0f18e7;
-        public static final int yes = 0x7f0f18eb;
+        public static final int install_permission_msg = 0x7f0f0a9e;
+        public static final int install_permission_title = 0x7f0f0a9f;
+        public static final int no = 0x7f0f0e3b;
+        public static final int notification_download_complete = 0x7f0f0e97;
+        public static final int notification_download_failed = 0x7f0f0e98;
+        public static final int notification_need_wifi_for_size = 0x7f0f0e99;
+        public static final int oppo_install_permission_msg = 0x7f0f0efe;
+        public static final int picture_save_fail = 0x7f0f10b1;
+        public static final int picture_save_success = 0x7f0f10b2;
+        public static final int teenager_not_download = 0x7f0f161b;
+        public static final int uninstall_more_apk_message = 0x7f0f1772;
+        public static final int uninstall_more_apk_message_button_text = 0x7f0f1773;
+        public static final int uninstall_single_apk_message = 0x7f0f1774;
+        public static final int update_failed_message = 0x7f0f1793;
+        public static final int update_sign_match_failed_hint = 0x7f0f1798;
+        public static final int vivo_install_permission_msg = 0x7f0f1838;
+        public static final int xiaomi_install_permission_msg = 0x7f0f18eb;
+        public static final int yes = 0x7f0f18ef;
     }
 }

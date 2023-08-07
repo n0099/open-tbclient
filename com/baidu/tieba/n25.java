@@ -4,11 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.CarrierEnter;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.LotteryRegular;
 /* loaded from: classes7.dex */
 public class n25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<Integer> a;
 
     public n25() {
         Interceptable interceptable = $ic;
@@ -24,15 +27,15 @@ public class n25 {
         }
     }
 
-    public void a(CarrierEnter carrierEnter) {
+    public void a(LotteryRegular lotteryRegular) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, carrierEnter) != null) || carrierEnter == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
+            String str = lotteryRegular.regular;
+            this.a = new ArrayList();
+            int size = lotteryRegular.chance.size();
+            for (int i = 0; i < size; i++) {
+                this.a.add(lotteryRegular.chance.get(i));
+            }
         }
-        String str = carrierEnter.title;
-        String str2 = carrierEnter.text;
-        String str3 = carrierEnter.headline_cover;
-        String str4 = carrierEnter.url;
-        String str5 = carrierEnter.obj_id;
     }
 }

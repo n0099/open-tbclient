@@ -1,111 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActHot;
 /* loaded from: classes5.dex */
 public class dba {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static int a(int i, float f) {
-        InterceptResult invokeCommon;
+    public dba() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
-    }
-
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700166, "Lcom/baidu/tieba/dba;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947700166, "Lcom/baidu/tieba/dba;");
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        ThemeElement.Builder builder = new ThemeElement.Builder();
-        builder.common_color = "#FF614EC2";
-        builder.dark_color = "#FF614EC2";
-        builder.light_color = "#FF614EC2";
-        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
-        builder.font_color = "#FFFFFFFF";
-        a = builder.build(false);
     }
 
-    @NonNull
-    public static ThemeElement b() {
-        InterceptResult invokeV;
+    public void a(ActHot actHot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
+            return;
         }
-        return (ThemeElement) invokeV.objValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            float[] fArr = new float[3];
-            Color.colorToHSV(i, fArr);
-            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
-                fArr[0] = fArr[0] + 15.0f;
-            } else {
-                fArr[0] = fArr[0] - 15.0f;
+        String str = actHot.bsize;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.a = JavaTypesHelper.toInt(split[0], 1);
+                this.b = JavaTypesHelper.toInt(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return Color.HSVToColor(fArr);
         }
-        return invokeI.intValue;
-    }
-
-    public static int d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context != null && context.getResources() != null) {
-                return context.getResources().getIdentifier(str, "color", context.getPackageName());
-            }
-            return 0;
+        if (this.a <= 0) {
+            this.a = 1;
         }
-        return invokeLL.intValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str == null) {
-                return Integer.MAX_VALUE;
-            }
-            if (str.length() != 0) {
-                try {
-                    if (!str.startsWith("#")) {
-                        str = "#" + str;
-                    }
-                } catch (Exception unused) {
-                    return Integer.MAX_VALUE;
-                }
-            }
-            return Color.parseColor(str);
+        if (this.b <= 0) {
+            this.b = 1;
         }
-        return invokeL.intValue;
+        String str2 = actHot.img_src;
+        String str3 = actHot.link;
+        String str4 = actHot.author_name;
+        String str5 = actHot.img_des;
+        actHot.img_type.intValue();
     }
 }

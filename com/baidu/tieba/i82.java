@@ -1,134 +1,147 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class i82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947807302, "Lcom/baidu/tieba/i82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947807302, "Lcom/baidu/tieba/i82;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-    }
-
-    @Nullable
-    public static <C extends k72> C a(l72 l72Var) {
-        InterceptResult invokeL;
-        C c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l72Var)) == null) {
-            if (l72Var == null) {
-                o82.a("Component-Finder", "find a null component: null model");
-                return null;
-            }
-            String d = l72Var.d();
-            String str = l72Var.c;
-            if (TextUtils.isEmpty(str)) {
-                v82.c("Component-Finder", "find a null " + d + " : slaveId is empty");
-                return null;
-            }
-            l82 d2 = d(str);
-            if (d2 == null) {
-                v82.c("Component-Finder", "find a null " + d + " : null component context");
-                return null;
-            }
-            String str2 = l72Var.b;
-            if (TextUtils.isEmpty(str2)) {
-                v82.o("Component-Finder", "find " + d + " with a empty componentId");
-                List<k72> list = d2.a().c.get(l72Var.a);
-                if (list == null) {
-                    v82.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
-                    return null;
-                } else if (list.size() <= 0) {
-                    v82.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
-                    return null;
-                } else {
-                    v82.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
-                    c = (C) list.get(0);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-            } else {
-                c = (C) d2.a().b.get(str2);
             }
-            if (c == null) {
-                v82.c("Component-Finder", "find a null " + d + " : not exist");
-                return null;
-            }
-            return c;
         }
-        return (C) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ya3 b0;
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = ya3.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.M();
+            }
+        }
     }
 
-    @Nullable
-    public static <C extends k72> C b(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                return true;
             }
-            l82 d = d(str);
-            if (d == null) {
-                v82.c("Component-Finder", "find a null " + str2 + " : null component context");
-                return null;
-            }
-            C c = (C) d.a().b.get(str2);
-            if (c == null) {
-                v82.c("Component-Finder", "find a null " + str2 + " : not exist");
-                return null;
-            }
-            return c;
+            return invokeLL.booleanValue;
         }
-        return (C) invokeLL.objValue;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    @Nullable
-    public static l82 c(l72 l72Var) {
+    /* loaded from: classes6.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ya3 b0;
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = ya3.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.v0();
+            }
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    public static View a(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, l72Var)) == null) {
-            if (l72Var == null) {
-                o82.a("Component-Finder", "find component context with a null model");
-                return null;
-            }
-            return d(l72Var.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0928, (ViewGroup) null);
+            inflate.setOnTouchListener(new b());
+            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+            viewGroup.removeView(inflate);
+            viewGroup.addView(inflate);
+            return inflate;
         }
-        return (l82) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Nullable
-    public static l82 d(String str) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                v82.c("Component-Finder", "find component context with a null slave id");
-                return null;
-            }
-            dy1 A = ix2.T().A(str);
-            if (!(A instanceof by1)) {
-                return null;
-            }
-            return ((by1) A).a0();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            so3.a0(new a());
         }
-        return (l82) invokeL.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            so3.a0(new c());
+        }
+    }
+
+    public static void d(@NonNull Activity activity, @NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, view2) == null) {
+            ((ViewGroup) activity.getWindow().getDecorView()).removeView(view2);
+        }
     }
 }

@@ -1,119 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.ColorStateList;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidubce.auth.NTLMEngineImpl;
 /* loaded from: classes7.dex */
 public class mi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973524, "Lcom/baidu/tieba/mi1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947973524, "Lcom/baidu/tieba/mi1;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
-    }
-
-    public mi1() {
+    public static ColorStateList a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            int i2 = i - (-805306368);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
         }
+        return (ColorStateList) invokeI.objValue;
     }
 
-    public static void a(Runnable runnable) {
+    public static ColorStateList b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i - (-1728053248);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
         }
-    }
-
-    public static synchronized Executor b() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (mi1.class) {
-                if (a == null) {
-                    synchronized (mi1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
-                        }
-                    }
-                }
-                executor = a;
-            }
-            return executor;
-        }
-        return (Executor) invokeV.objValue;
+        return (ColorStateList) invokeI.objValue;
     }
 }

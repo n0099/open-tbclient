@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
 import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.lw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,102 +13,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class mw2 extends v73 {
+public class mw2 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, oq3<Bundle>> h;
+    public static final boolean c;
+    public static volatile mw2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-    public String g;
+    public boolean a;
+    public int b;
 
-    /* loaded from: classes7.dex */
-    public class a implements oq3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ mw2 b;
-
-        public a(mw2 mw2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mw2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mw2Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                this.b.g = bundle.getString("key_launch_app_id");
-                this.b.f = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, this.b.g)) {
-                    mw2 mw2Var = this.b;
-                    mw2Var.d.putInt(DnsModel.MSG_OK, mw2Var.f);
-                    this.b.c();
-                }
-                mw2.h.remove(this.a);
-            }
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements oq3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ lw2.e b;
-
-        public b(String str, lw2.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = eVar;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                String string = bundle.getString("key_launch_app_id");
-                int i = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, string)) {
-                    if (i == 0) {
-                        this.b.b();
-                    } else {
-                        this.b.a();
-                    }
-                }
-                mw2.h.remove(this.a);
-            }
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
         }
     }
 
@@ -125,8 +63,7 @@ public class mw2 extends v73 {
                 return;
             }
         }
-        boolean z = fs1.a;
-        h = new cq4();
+        c = ir1.a;
     }
 
     public mw2() {
@@ -142,45 +79,106 @@ public class mw2 extends v73 {
                 return;
             }
         }
-        this.f = -1;
-        this.g = "";
+        this.a = false;
     }
 
-    public static void k(String str) {
-        oq3<Bundle> oq3Var;
+    public static mw2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (oq3Var = h.get(str)) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_launch_app_id", str);
-            bundle.putInt("key_launch_status", 1);
-            oq3Var.a(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (mw2.class) {
+                    if (d == null) {
+                        d = new mw2();
+                    }
+                }
+            }
+            return d;
+        }
+        return (mw2) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
+            }
+            fu2.c().registerActivityLifecycleCallbacks(this);
         }
     }
 
-    public static void l(String str) {
-        oq3<Bundle> oq3Var;
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && (oq3Var = h.get(str)) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_launch_app_id", str);
-            bundle.putInt("key_launch_status", 0);
-            oq3Var.a(bundle);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
+            }
+            fu2.c().unregisterActivityLifecycleCallbacks(this);
         }
     }
 
-    @Override // com.baidu.tieba.v73
-    public void b(@NonNull Bundle bundle) {
+    public void d(boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("desAppId");
-            h.put(string, new a(this, string));
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
+            if (z2) {
+                this.a = false;
+                ax2.a().e(null);
+                return;
+            }
+            this.a = true;
+            ax2.a().d(null);
         }
     }
 
-    public static void j(String str, lw2.e eVar) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) && !TextUtils.isEmpty(str) && eVar != null) {
-            h.put(str, new b(str, eVar));
+        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
+            this.a = true;
+            ax2.a().d(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            int i = this.b + 1;
+            this.b = i;
+            if (i == 1 && !this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
+                }
+                this.a = true;
+                ax2.a().d(activity);
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i == 0 && this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
+                }
+                this.a = false;
+                ax2.a().e(activity);
+            }
         }
     }
 }

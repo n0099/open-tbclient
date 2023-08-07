@@ -1,51 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class n31 extends pl1<o31> {
+public class n31 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile n31 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements o31 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final o31 b;
-
-        public a(n31 n31Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n31Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new m31();
-        }
-
-        @Override // com.baidu.tieba.o31
-        public void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
-                this.b.a(requestParameters, bVar);
-            }
-        }
-    }
+    public final ConcurrentHashMap<String, k31> a;
 
     public n31() {
         Interceptable interceptable = $ic;
@@ -57,19 +25,52 @@ public class n31 extends pl1<o31> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public o31 createService() throws ServiceNotFoundException {
+    public static n31 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (n31.class) {
+                    if (b == null) {
+                        b = new n31();
+                    }
+                }
+            }
+            return b;
         }
-        return (o31) invokeV.objValue;
+        return (n31) invokeV.objValue;
+    }
+
+    @NonNull
+    public k31 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            k31 k31Var = (k31) c31.b(this.a, str);
+            if (k31Var == null) {
+                synchronized (n31.class) {
+                    k31Var = (k31) c31.b(this.a, str);
+                    if (k31Var == null) {
+                        if (TextUtils.isEmpty(str)) {
+                            k31Var = m31.a().a();
+                        } else {
+                            k31Var = m31.a().b(str);
+                        }
+                        c31.e(this.a, str, k31Var);
+                    }
+                }
+            }
+            return k31Var;
+        }
+        return (k31) invokeL.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public interface fq5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+public interface fq5 extends eq5 {
+    String getCacheTableName();
 
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    boolean isNeedUid();
+
+    boolean w();
 }

@@ -1,154 +1,116 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ul3;
-import com.baidu.tieba.yz1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f22 extends b22 {
+public class f22 extends x12 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yz1
+    @Override // com.baidu.tieba.bz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements yz1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f22 a;
-
-        /* renamed from: com.baidu.tieba.f22$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0291a implements ul3.c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ n22 a;
-            public final /* synthetic */ a b;
-
-            public C0291a(a aVar, n22 n22Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, n22Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = n22Var;
-            }
-
-            @Override // com.baidu.tieba.ul3.c
-            public void a(float f, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
-                        jSONObject.put("accuracy", ul3.h(i));
-                        this.a.d(this.b.a, jSONObject);
-                    } catch (JSONException e) {
-                        v82.c("CompassApi", "handle compass,json error，" + e.toString());
-                        this.a.f(this.b.a, "Json error");
-                    }
-                }
-            }
-        }
-
-        public a(f22 f22Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712163, "Lcom/baidu/tieba/f22;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f22Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = f22Var;
-        }
-
-        @Override // com.baidu.tieba.yz1.a
-        public v32 a(vb3 vb3Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, vb3Var, jSONObject, str)) == null) {
-                n22 n22Var = new n22("compassChange", jSONObject, str);
-                ul3 i = ul3.i();
-                i.l(this.a.getContext());
-                i.o(new C0291a(this, n22Var));
-                v82.i("CompassApi", "start listen compass");
-                i.p();
-                n22Var.b(this.a);
-                return v32.f();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947712163, "Lcom/baidu/tieba/f22;");
+                return;
             }
-            return (v32) invokeLLL.objValue;
         }
+        f = ir1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f22(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public f22(@NonNull zy1 zy1Var) {
+        super(zy1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {zy1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
+                super((zy1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public v32 y(String str) {
+    public static String z(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (!TextUtils.isEmpty(str)) {
+                    return str;
+                }
+                return "log info is invalid";
+            } else if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.length() != 0) {
+                    return jSONObject.toString();
+                }
+                return "log info is invalid";
+            } else {
+                return "log info is invalid";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void x(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || str == null || str.length() <= 3145728) {
+            return;
+        }
+        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
+    }
+
+    public y22 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#startCompass", true);
-            return l(str, true, new a(this));
+            if (f) {
+                Log.d("LogApi", "start logToFile action, params = " + str);
+                x(str);
+            }
+            Pair<y22, JSONObject> s = s(str);
+            if (!((y22) s.first).isSuccess()) {
+                return (y22) s.first;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            y72.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
+            return y22.f();
         }
-        return (v32) invokeL.objValue;
-    }
-
-    public v32 z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#stopCompass", true);
-            ul3.i().q();
-            return v32.f();
-        }
-        return (v32) invokeV.objValue;
+        return (y22) invokeL.objValue;
     }
 }

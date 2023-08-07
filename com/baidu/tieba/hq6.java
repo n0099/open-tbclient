@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hq6 implements ra8 {
+public final class hq6 implements y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public boolean e;
+
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c12351" : (String) invokeV.objValue;
+    }
 
     public hq6() {
         Interceptable interceptable = $ic;
@@ -31,31 +36,29 @@ public class hq6 implements ra8 {
         }
     }
 
-    public boolean equals(Object obj) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", mq6.a.a(businessInfo));
+            String str = a.get("user_id");
+            String str2 = "";
+            if (str == null) {
+                str = "";
             }
-            if (!(obj instanceof i16)) {
-                return false;
+            hashMap.put("obj_id", str);
+            hashMap.put("obj_param1", "1");
+            String str3 = a.get("live_type");
+            if (str3 != null) {
+                str2 = str3;
             }
-            i16 i16Var = (i16) obj;
-            if (i16Var.d == this.d && i16Var.c.equals(this.c) && i16Var.b.equals(this.b) && i16Var.e == this.e && i16Var.a == this.a) {
-                return true;
-            }
-            return false;
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str2);
+            return hashMap;
         }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 }

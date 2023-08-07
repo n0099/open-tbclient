@@ -1,28 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class zc implements xc {
+public class zc implements fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<?> a;
+    public boolean a;
 
-    public zc(List<?> list) {
+    public zc(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,109 +27,51 @@ public class zc implements xc {
                 return;
             }
         }
-        this.a = list;
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object a(ge geVar) {
+    @Override // com.baidu.tieba.fd
+    public Object a(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
-            Object f = f(geVar);
-            if (f != null) {
-                if (f instanceof JSONObject) {
-                    return f.toString();
-                }
-                if (f instanceof JSONArray) {
-                    return f.toString();
-                }
-                return f;
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object b(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object c(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object e(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, geVar)) == null) {
-            return d(geVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object d(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, geVar)) == null) {
-            Type[] b = geVar.b();
-            ArrayList arrayList = new ArrayList();
-            for (Object obj : this.a) {
-                if (obj != null) {
-                    if (b != null && b.length >= 1) {
-                        Object f = je.a(obj).f(new ge(b[0]));
-                        if (f != null) {
-                            arrayList.add(f.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
+            Class<?> a = vdVar.a();
+            if (a != Boolean.class && a != Boolean.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        if (a == String.class) {
+                                            return String.valueOf(this.a);
+                                        }
+                                        if (a == char[].class) {
+                                            return String.valueOf(this.a).toCharArray();
+                                        }
+                                        if (a == byte[].class) {
+                                            try {
+                                                return uh.e(String.valueOf(this.a), 0);
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                                return null;
+                                            }
+                                        }
+                                        return null;
+                                    }
+                                    return Character.valueOf((char) (!this.a ? 1 : 0));
+                                }
+                                return Double.valueOf(!this.a ? 1 : 0);
+                            }
+                            return Float.valueOf(!this.a ? 1 : 0);
                         }
-                    } else {
-                        Object f2 = je.a(obj).f(new ge(geVar.a()));
-                        if (f2 != null) {
-                            arrayList.add(f2.toString());
-                        }
+                        return Long.valueOf(!this.a ? 1 : 0);
                     }
+                    return Integer.valueOf(!this.a ? 1 : 0);
                 }
+                return Short.valueOf((short) (!this.a ? 1 : 0));
             }
-            return arrayList;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object f(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, geVar)) == null) {
-            Type[] b = geVar.b();
-            JSONArray jSONArray = new JSONArray();
-            for (Object obj : this.a) {
-                if (obj != null) {
-                    if (b != null && b.length >= 1) {
-                        Object f = je.a(obj).f(new ge(b[0]));
-                        if (f != null) {
-                            jSONArray.put(f);
-                        }
-                    } else {
-                        Object f2 = je.a(obj).f(new ge(geVar.a()));
-                        if (f2 != null) {
-                            jSONArray.put(f2);
-                        }
-                    }
-                }
-            }
-            return jSONArray;
+            return Boolean.valueOf(this.a);
         }
         return invokeL.objValue;
     }

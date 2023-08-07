@@ -1,213 +1,186 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.util.cipher.Coder;
-import java.io.UnsupportedEncodingException;
-import java.security.Key;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.util.regex.Pattern;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import javax.crypto.spec.IvParameterSpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class wp {
+public class wp {
     public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public final long b;
+    public long c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public vp h;
+    public long i;
+    public Handler j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321012, "Lcom/baidu/tieba/wp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wp wpVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wpVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448321012, "Lcom/baidu/tieba/wp;");
+            this.a = wpVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                synchronized (this.a) {
+                    if (!this.a.d && !this.a.f) {
+                        long j2 = this.a.i;
+                        long elapsedRealtime = this.a.c - SystemClock.elapsedRealtime();
+                        long j3 = 0;
+                        if (elapsedRealtime <= 0) {
+                            this.a.g = true;
+                            this.a.i = this.a.a;
+                            this.a.h.a(0L, Math.max(this.a.i - j2, 0L));
+                            this.a.h.onFinish();
+                        } else {
+                            long elapsedRealtime2 = SystemClock.elapsedRealtime();
+                            this.a.i = this.a.a - elapsedRealtime;
+                            this.a.h.a(elapsedRealtime, Math.max(this.a.i - j2, 0L));
+                            long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
+                            if (elapsedRealtime < this.a.b) {
+                                j = elapsedRealtime - elapsedRealtime3;
+                                if (j < 0) {
+                                    sendMessageDelayed(obtainMessage(1), j3);
+                                }
+                            } else {
+                                j = this.a.b - elapsedRealtime3;
+                                while (j < 0) {
+                                    j += this.a.b;
+                                }
+                            }
+                            j3 = j;
+                            sendMessageDelayed(obtainMessage(1), j3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public wp(long j, long j2, vp vpVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), vpVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = f();
-        a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.i = 0L;
+        this.j = new a(this, Looper.getMainLooper());
+        this.a = j;
+        this.b = j2;
+        this.i = 0L;
+        this.h = vpVar;
     }
 
-    public static String f() {
+    public final synchronized wp b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            try {
-                byte[] bArr = new byte[20];
-                SecureRandom.getInstance("SHA1PRNG").nextBytes(bArr);
-                return k(bArr);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void a(StringBuffer stringBuffer, byte b2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{stringBuffer, Byte.valueOf(b2)}) == null) {
-            stringBuffer.append("0123456789ABCDEF".charAt((b2 >> 4) & 15));
-            stringBuffer.append("0123456789ABCDEF".charAt(b2 & 15));
-        }
-    }
-
-    public static String c(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-                cipher.init(2, g(str), new IvParameterSpec("01020304".getBytes()));
-                return new String(cipher.doFinal(bArr));
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, bArr)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-                cipher.init(1, g(str), new IvParameterSpec("01020304".getBytes()));
-                return Base64.encodeToString(cipher.doFinal(bArr), 0);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return c(b, Base64.decode(str, 0));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return e(b, str.getBytes());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Key g(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
-        }
-        return (Key) invokeL.objValue;
-    }
-
-    public static boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (!Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (!Pattern.matches("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            return a.matcher(str).matches();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            String replaceAll = str.replaceAll("[\\[\\]]", "");
-            if (!i(replaceAll) && !h(replaceAll)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
-                StringBuilder sb = new StringBuilder(digest.length * 2);
-                for (byte b2 : digest) {
-                    int i = b2 & 255;
-                    if (i < 16) {
-                        sb.append("0");
-                    }
-                    sb.append(Integer.toHexString(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                this.d = false;
+                this.g = false;
+                this.f = false;
+                this.e = false;
+                if (this.a <= 0) {
+                    this.g = true;
+                    this.h.onFinish();
+                    return this;
                 }
-                return sb.toString();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return null;
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
-                return null;
+                this.c = SystemClock.elapsedRealtime() + this.a;
+                this.j.sendMessage(this.j.obtainMessage(1));
+                this.h.onStart();
+                this.e = true;
+                return this;
             }
         }
-        return (String) invokeL.objValue;
+        return (wp) invokeV.objValue;
     }
 
-    public static String k(byte[] bArr) {
-        InterceptResult invokeL;
+    public final synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (!this.f && !this.d && !this.g && this.e) {
+                    SystemClock.elapsedRealtime();
+                    this.f = true;
+                    this.d = false;
+                    this.g = false;
+                    this.h.onPause();
+                    this.j.removeMessages(1);
+                }
             }
-            StringBuffer stringBuffer = new StringBuffer(bArr.length * 2);
-            for (byte b2 : bArr) {
-                a(stringBuffer, b2);
-            }
-            return stringBuffer.toString();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.d = true;
+                this.f = false;
+                this.g = false;
+                this.e = false;
+                this.j.removeMessages(1);
+                this.h.onCancel();
+            }
+        }
+    }
+
+    public final synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.h = new vp.a();
+                h();
+            }
+        }
     }
 }

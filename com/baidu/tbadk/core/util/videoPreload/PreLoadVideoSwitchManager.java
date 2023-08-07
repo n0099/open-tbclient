@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util.videoPreload;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(da5.p().w("video_sync_switch_json", ""));
+            parseJson(SharedPrefHelper.getInstance().getString("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -127,7 +127,7 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                da5.p().J("video_sync_switch_json", str);
+                SharedPrefHelper.getInstance().putString("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

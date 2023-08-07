@@ -25,8 +25,8 @@ public class cr {
     public synchronized cq a() {
         for (int size = this.f187a.size() - 1; size >= 0; size--) {
             cq cqVar = this.f187a.get(size);
-            if (cqVar.m335a()) {
-                cu.a().m345a(cqVar.a());
+            if (cqVar.m336a()) {
+                cu.a().m346a(cqVar.a());
                 return cqVar;
             }
         }
@@ -43,24 +43,24 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m336a() {
+    public String m337a() {
         return this.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cq> m337a() {
+    public ArrayList<cq> m338a() {
         return this.f187a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m338a() {
+    public synchronized JSONObject m339a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("host", this.a);
         JSONArray jSONArray = new JSONArray();
         Iterator<cq> it = this.f187a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m333a());
+            jSONArray.put(it.next().m334a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;

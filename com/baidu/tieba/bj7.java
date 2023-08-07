@@ -1,60 +1,71 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetHorseRaceLampList.DataRes;
-import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes5.dex */
-public class bj7 {
+public class bj7 extends gf7<rf7, ReadProgressViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveHorseRaceData> a;
 
-    public bj7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bj7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public List<LiveHorseRaceData> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: G */
+    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0395, viewGroup, false), this.c.getPageActivity());
         }
-        return (List) invokeV.objValue;
+        return (ReadProgressViewHolder) invokeL.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    public View H(int i, View view2, ViewGroup viewGroup, rf7 rf7Var, ReadProgressViewHolder readProgressViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        new LiveHorseRaceData();
-        List<LiveList> list = dataRes.live_list;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
-                liveHorseRaceData.parserProtobuf(list.get(i));
-                this.a.add(liveHorseRaceData);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rf7Var, readProgressViewHolder})) == null) {
+            if (rf7Var != null && readProgressViewHolder != null) {
+                readProgressViewHolder.c(rf7Var);
             }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (rf7) obj, (ReadProgressViewHolder) viewHolder);
+        return view2;
     }
 }

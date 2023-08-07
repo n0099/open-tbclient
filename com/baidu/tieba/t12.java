@@ -7,32 +7,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t12 extends s12 {
+public class t12 extends bz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yz1
+    @Override // com.baidu.tieba.bz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Menu" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ActionConfigApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MenuButtonBoundsApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t12(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public t12(@NonNull zy1 zy1Var) {
+        super(zy1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
+            Object[] objArr = {zy1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
+                super((zy1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,23 +46,24 @@ public class t12 extends s12 {
         }
     }
 
-    public v32 x() {
+    public y22 x() {
         InterceptResult invokeV;
+        u12 v12Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#isAllowedAdOpenAppSync", false);
-            if (vb3.b0() == null) {
-                return new v32(1001, "swan app is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean z = false;
+            q("#getMenuButtonBoundingClientRect", false);
+            ya3 b0 = ya3.b0();
+            if (b0 != null) {
+                z = b0.w0();
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isAllowed", cv2.a().d());
-                return new v32(0, "success", jSONObject);
-            } catch (Exception e) {
-                v82.d("ActionConfigApi", e.getMessage(), e);
-                return new v32(1001, e.getMessage() + "");
+            if (z) {
+                v12Var = new w12();
+            } else {
+                v12Var = new v12();
             }
+            return v12Var.a();
         }
-        return (v32) invokeV.objValue;
+        return (y22) invokeV.objValue;
     }
 }

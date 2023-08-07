@@ -1,52 +1,101 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class t90 {
     public static /* synthetic */ Interceptable $ic;
+    public static t90 d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public ThreadPoolExecutor a;
+    public ExecutorService b;
+    public Context c;
 
-    public t90(String str, String str2, String str3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135902, "Lcom/baidu/tieba/t90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135902, "Lcom/baidu/tieba/t90;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        e = availableProcessors;
+        f = Math.max(2, Math.min(availableProcessors - 1, 4));
+        g = (e * 2) + 1;
+    }
+
+    public t90(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str2;
-        this.b = str3;
+        this.a = null;
+        this.c = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f, g, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        this.b = Executors.newSingleThreadExecutor();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static t90 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (d == null) {
+                synchronized (t90.class) {
+                    if (d == null) {
+                        d = new t90(context);
+                    }
+                }
+            }
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (t90) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable th) {
+                if (v90.a) {
+                    w90.c("TaskManager", "Exception ", th);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

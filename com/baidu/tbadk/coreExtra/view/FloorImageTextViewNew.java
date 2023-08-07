@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,9 +13,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
+import com.baidu.tieba.fpa;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,8 +47,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        n = yi.g(TbadkApplication.getInst(), R.dimen.tbds348);
-        o = yi.g(TbadkApplication.getInst(), R.dimen.tbds308);
+        n = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds348);
+        o = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             int i = 0;
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.m = true;
-                bqa.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                fpa.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 TbRichText Z = TbRichTextView.Z(jSONArray, false);
                 g(d(Z.toString()));
                 this.j.setText(Z);
@@ -156,17 +156,17 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f09248e);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f0924a6);
             this.j = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.j.setTextSize(AbsFloorImageTextView.i);
             this.j.setTextColor(SkinManager.getColor(R.color.white_alpha83));
             this.j.S = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f0920c4);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f0920db);
             this.k = editorScrollView;
-            editorScrollView.setPadding(0, yi.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
+            editorScrollView.setPadding(0, BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
             this.k.setOnTouchListener(this.c);
-            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = yi.g(TbadkApplication.getInst(), R.dimen.tbds174);
+            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }
     }
@@ -175,18 +175,18 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            float i = yi.i(getContext());
-            int j = yi.j(getContext());
-            int l = yi.l(getContext());
-            double d = i;
-            int i2 = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
-            if (i2 == 0 && l >= 1920 && j >= 2049) {
+            float equipmentDensity = BdUtilHelper.getEquipmentDensity(getContext());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(getContext());
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            double d = equipmentDensity;
+            int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
+            if (i == 0 && equipmentWidth >= 1920 && equipmentHeight >= 2049) {
                 return true;
             }
-            if (i2 == 0 && l >= 1080 && j >= 2280) {
+            if (i == 0 && equipmentWidth >= 1080 && equipmentHeight >= 2280) {
                 return true;
             }
-            if (d == 3.5d && j >= 2434) {
+            if (d == 3.5d && equipmentHeight >= 2434) {
                 return true;
             }
             return false;

@@ -1,83 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import java.util.Map;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes5.dex */
-public class bhb extends ngb<TTRewardVideoAd> {
+public class bhb implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ModuleConfigGdt a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bhb(TTRewardVideoAd tTRewardVideoAd) {
-        super(tTRewardVideoAd);
+    public bhb(ModuleConfigGdt moduleConfigGdt) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTRewardVideoAd};
+            Object[] objArr = {moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = moduleConfigGdt;
     }
 
-    @Override // com.baidu.tieba.ngb
-    public double a() {
-        InterceptResult invokeV;
-        Map<String, Object> mediaExtraInfo;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                A a = this.a;
-                if (a == 0 || (mediaExtraInfo = ((TTRewardVideoAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
-                    return 0.0d;
-                }
-                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return new uhb(pid);
+                case 1:
+                    return new ihb(pid);
+                case 2:
+                    return new vhb(pid);
+                case 3:
+                    return new whb(pid, this.a);
+                case 4:
+                    return new ohb(pid);
+                case 5:
+                    return new thb(pid, this.a);
+                case 6:
+                    return new hhb(pid, this.a);
+                default:
+                    return null;
             }
         }
-        return invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.tieba.ngb
-    public void b(String str, double d, double d2, boolean z, int i) {
-        A a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
-            return;
-        }
-        TTRewardVideoAd tTRewardVideoAd = (TTRewardVideoAd) a;
-        if (z) {
-            tTRewardVideoAd.win(Double.valueOf(d2));
-        } else {
-            tTRewardVideoAd.loss(Double.valueOf(d), str, String.valueOf(i));
-        }
-    }
-
-    @Override // com.baidu.tieba.ngb
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.isEmpty() && ((TTRewardVideoAd) this.a).getMediaExtraInfo() != null) {
-                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

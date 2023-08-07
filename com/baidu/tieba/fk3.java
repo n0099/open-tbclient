@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class fk3 extends ProviderDelegation {
+public final class fk3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract Bundle c(ek3 ek3Var);
 
     static {
         InterceptResult invokeClinit;
@@ -31,33 +30,76 @@ public abstract class fk3 extends ProviderDelegation {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
-    public fk3() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File c = c();
+            if (c.exists()) {
+                cr4.j(c);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public final Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            if (bundle.isEmpty()) {
-                return Bundle.EMPTY;
-            }
-            return c(ek3.b(bundle));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return mj3.a().getLong("aiapps_cur_debug_ver_key", 0L);
         }
-        return (Bundle) invokeL.objValue;
+        return invokeV.longValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new File(qv2.d().get(0).a, "/aiapps_debug_swan_core/");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File c = c();
+            if (!c.exists()) {
+                c.mkdirs();
+            }
+            return new File(c, "debugSwanCore.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            File file = new File(c().getPath(), "pkginfo.json");
+            if (!file.exists()) {
+                return false;
+            }
+            JSONObject jSONObject = null;
+            try {
+                jSONObject = new JSONObject(cr4.E(file));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            if (!TextUtils.isEmpty(optString)) {
+                mj3.a().putLong("aiapps_cur_debug_ver_key", no3.b(optString));
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

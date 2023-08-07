@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bo5 implements zn5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bo5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
 
-    public bo5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
 
-    @Override // com.baidu.tieba.zn5
-    public void a(View view2, View view3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2;
-            if (z) {
-                linearLayout.addView(view3, 0);
-            } else {
-                linearLayout.addView(view3);
-            }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.gravity = 1;
-            view3.setLayoutParams(layoutParams);
-        }
-    }
+    bo5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+
+    void b(int i, t25 t25Var, long j);
+
+    void c(@Nullable a aVar);
 }

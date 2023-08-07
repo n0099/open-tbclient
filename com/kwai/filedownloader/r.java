@@ -115,13 +115,13 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
-            List<a.InterfaceC0697a> bU = h.CG().bU(i);
+            List<a.InterfaceC0698a> bU = h.CG().bU(i);
             if (bU.isEmpty()) {
                 com.kwai.filedownloader.e.d.f(this, "request pause but not exist %d", Integer.valueOf(i));
                 return 0;
             }
-            for (a.InterfaceC0697a interfaceC0697a : bU) {
-                interfaceC0697a.Ci().pause();
+            for (a.InterfaceC0698a interfaceC0698a : bU) {
+                interfaceC0698a.Ci().pause();
             }
             return bU.size();
         }

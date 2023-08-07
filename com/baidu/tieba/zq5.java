@@ -1,46 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class zq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
 
-    public zq5() {
+    public zq5(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = baseFragment;
     }
 
-    public void a(Intent intent, pq5 pq5Var) {
+    public BaseFragment a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, pq5Var) == null) {
-            if (pq5Var instanceof StickyEvent) {
-                intent.putExtra("value_type", DataType.ORM.ordinal());
-                intent.putExtra("value", (StickyEvent) pq5Var);
-            } else if (pq5Var instanceof ParcelableEvent) {
-                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
-                intent.putExtra("value", (ParcelableEvent) pq5Var);
-            } else if (pq5Var instanceof SerializableEvent) {
-                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
-                intent.putExtra("value", (SerializableEvent) pq5Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (BaseFragment) invokeV.objValue;
     }
 }

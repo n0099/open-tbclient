@@ -1,16 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,116 +11,41 @@ public class l71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (g(activity)) {
-                return c(activity);
-            }
-            return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947895683, "Lcom/baidu/tieba/l71;")) == null) {
+            return;
         }
-        return invokeL.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947895683, "Lcom/baidu/tieba/l71;");
+        }
     }
 
-    public static int c(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static boolean a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier("navigation_bar_height", EMABTest.TYPE_DIMEN, "android");
-            if (identifier > 0) {
-                return context.getResources().getDimensionPixelSize(identifier);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @RequiresApi(api = 17)
-    public static int d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (h(context)) {
-                return 0;
-            }
-            return a((Activity) context);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean g(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            View findViewById = activity.findViewById(16908336);
-            if (findViewById == null || findViewById.getVisibility() != 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
                 return false;
             }
-            return true;
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = n31.a().b("nad_permission_sp").getBoolean(str, true);
+            b(context, str);
+            return z;
         }
-        return invokeL.booleanValue;
+        return invokeLI.booleanValue;
     }
 
-    @RequiresApi(api = 17)
-    public static boolean h(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, context, str) != null) || context == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.BRAND;
-            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
-                return "navigationbar_is_min";
-            }
-            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
-                return "force_fsg_nav_bar";
-            }
-            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
-                return "navigationbar_is_min";
-            }
-            return "navigation_gesture_on";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i != 29 && i != 30) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String d = rk0.c().a().d();
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            if (!d.contains("MI 8") && !d.contains("MI 9")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        n31.a().b("nad_permission_sp").d(str, false);
     }
 }

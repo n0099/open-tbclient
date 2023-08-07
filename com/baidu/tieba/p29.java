@@ -1,22 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
-import com.baidu.tieba.ye;
+import com.baidu.searchbox.live.interfaces.net.INetWork;
+import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class p29 implements CustomMessageTask.CustomRunnable<Object> {
+public class p29 implements NetworkAgentService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,42 +26,13 @@ public class p29 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    public static final List<String> a(List<ye.b<String>> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.interfaces.service.NetworkAgentService
+    public INetWork buildNetworkInstance() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (ye.b<String> bVar : list) {
-                    String str = bVar.a;
-                    if (!TextUtils.isEmpty(str)) {
-                        linkedList.add(str);
-                    }
-                }
-            }
-            return linkedList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new q29();
         }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                o55.e();
-                List<String> a = a(ej.b(o55.g("tb.searchperson_history", currentAccount)));
-                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-                responseSearchPersonHistoryReadMessage.datas.addAll(a);
-                return responseSearchPersonHistoryReadMessage;
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (INetWork) invokeV.objValue;
     }
 }

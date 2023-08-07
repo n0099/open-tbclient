@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.rv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.LinkedList;
+import java.util.List;
+import kotlin.TypeCastException;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes7.dex */
-public final class qv implements rv {
+public final class qv {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
+    public static final qv a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sv a;
-    public final com.baidu.bdtask.strategy.e b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,40 +34,7 @@ public final class qv implements rv {
                 return;
             }
         }
-        c = new a(null);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final qv a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new qv(null);
-            }
-            return (qv) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
+        a = new qv();
     }
 
     public qv() {
@@ -79,54 +47,125 @@ public final class qv implements rv {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new sv();
-        this.b = new com.baidu.bdtask.strategy.e();
-    }
-
-    public /* synthetic */ qv(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.rv
-    public void a(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            rv.a.c(this, subTaskState);
-            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
-                this.a.a(subTaskState);
-            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.b.a(subTaskState);
             }
         }
     }
 
-    public void c(SubTaskState subTaskState) {
+    @JvmStatic
+    public static final int a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
-                this.a.c(subTaskState);
-            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.b.c(subTaskState);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
+            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            for (String str3 : split$default) {
+                if (str3 != null) {
+                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
+                    if (!Intrinsics.areEqual(obj, "")) {
+                        linkedList.add(obj);
+                    }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
+                }
             }
+            for (String str4 : split$default2) {
+                if (str4 != null) {
+                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
+                    if (!Intrinsics.areEqual(obj2, "")) {
+                        linkedList2.add(obj2);
+                    }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
+                }
+            }
+            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
+                qv qvVar = a;
+                Object pollFirst = linkedList.pollFirst();
+                if (pollFirst == null) {
+                    Intrinsics.throwNpe();
+                }
+                int e = qvVar.e((String) pollFirst);
+                qv qvVar2 = a;
+                Object pollFirst2 = linkedList2.pollFirst();
+                if (pollFirst2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                int e2 = qvVar2.e((String) pollFirst2);
+                if (e > e2) {
+                    return 1;
+                }
+                if (e < e2) {
+                    return -1;
+                }
+            }
+            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
+                return 0;
+            }
+            while (!linkedList.isEmpty()) {
+                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
+                    return 1;
+                }
+            }
+            while (!linkedList2.isEmpty()) {
+                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
+                    return -1;
+                }
+            }
+            return 0;
         }
+        return invokeLL.intValue;
     }
 
-    @Override // com.baidu.tieba.rv
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
-            if (taskInfo.isInitiActiveTask()) {
-                return this.a.b(taskInfo, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Intrinsics.areEqual(dr.c.h().getAppVersion(), "")) {
+                String b = bt.b();
+                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
+                return b;
             }
-            if (taskInfo.isPassiveTask()) {
-                return this.b.b(taskInfo, i);
+            return dr.c.h().getAppVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (pv.a.a() <= j) {
+                return true;
             }
             return false;
         }
-        return invokeLI.booleanValue;
+        return invokeJ.booleanValue;
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (a(b(), str) >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

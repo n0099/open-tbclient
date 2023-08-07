@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -11,10 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.db8;
+import com.baidu.tieba.eb8;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
-import com.baidu.tieba.kd8;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.ld8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes6.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<ld8> list);
+        void onSuccess(List<eb8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -64,7 +64,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -113,12 +113,12 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    kd8 kd8Var;
+                    db8 db8Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (kd8Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (db8Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
                         return;
                     }
-                    List<ld8> a = kd8Var.a();
+                    List<eb8> a = db8Var.a();
                     if (!ListUtils.isEmpty(a) && this.this$0.mCallback != null) {
                         this.this$0.mCallback.onSuccess(a);
                     }

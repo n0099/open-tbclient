@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ej2 {
+public class ej2 implements oi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String basePath;
-    @V8JavascriptField
-    public Object config;
-    @V8JavascriptField
-    public String viewMode;
 
     public ej2() {
         Interceptable interceptable = $ic;
@@ -28,5 +24,25 @@ public class ej2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.oi2
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return xm3.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oi2
+    public gi2 a(String str, dj2 dj2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, dj2Var, v8ThreadDelegatePolicy)) == null) {
+            return new ki2(str, dj2Var, v8ThreadDelegatePolicy);
+        }
+        return (gi2) invokeLLL.objValue;
     }
 }

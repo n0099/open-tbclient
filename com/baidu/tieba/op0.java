@@ -1,24 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
+import com.airbnb.lottie.LottieListener;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface op0 extends pp0 {
-    void onActivityCreated(Activity activity, Bundle bundle);
+public class op0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onActivityDestroyed(Activity activity);
+    /* loaded from: classes7.dex */
+    public class a implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LottieAnimationView a;
 
-    void onActivityPaused(Activity activity);
+        public a(LottieAnimationView lottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lottieAnimationView;
+        }
 
-    void onActivityResumed(Activity activity);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                this.a.setVisibility(8);
+            }
+        }
+    }
 
-    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
+    /* loaded from: classes7.dex */
+    public class b implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LottieAnimationView a;
 
-    void onActivityStarted(Activity activity);
+        public b(LottieAnimationView lottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lottieAnimationView;
+        }
 
-    void onActivityStopped(Activity activity);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                this.a.setComposition(lottieComposition);
+                this.a.setRepeatCount(-1);
+                this.a.playAnimation();
+                this.a.setVisibility(0);
+            }
+        }
+    }
 
-    void onBackgroundToForeground(Activity activity);
-
-    void onForegroundToBackground(Activity activity);
+    public static void a(@NonNull Context context, @NonNull LottieAnimationView lottieAnimationView, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, lottieAnimationView, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                lottieAnimationView.setVisibility(8);
+            } else {
+                LottieCompositionFactory.fromUrl(context, str, String.valueOf(str.hashCode())).addListener(new b(lottieAnimationView)).addFailureListener(new a(lottieAnimationView));
+            }
+        }
+    }
 }

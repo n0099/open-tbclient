@@ -1,24 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class od4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(dj2 dj2Var) {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, dj2Var) == null) && dj2Var != null && dj2Var.m().hasEventListener("audiointerruptionbegin") && y54.h().i()) {
-            dj2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f);
         }
+        return invokeF.intValue;
     }
 
-    public static void b(dj2 dj2Var) {
+    public static float b(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, dj2Var) == null) && dj2Var != null && dj2Var.m().hasEventListener("audiointerruptionend")) {
-            dj2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density;
         }
+        return invokeF.floatValue;
     }
 }

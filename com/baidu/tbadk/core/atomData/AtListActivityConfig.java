@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,7 +56,7 @@ public class AtListActivityConfig extends IntentConfig {
             getIntent().putExtra("keyboard", false);
         }
         if (TbadkApplication.getInst().getCurrentActivity() != null && TbadkApplication.getInst().getCurrentActivity().getWindow() != null) {
-            yi.A(TbadkApplication.getInst(), TbadkApplication.getInst().getCurrentActivity().getWindow().getDecorView());
+            BdUtilHelper.hideSoftKeyPad(TbadkApplication.getInst(), TbadkApplication.getInst().getCurrentActivity().getWindow().getDecorView());
         }
     }
 

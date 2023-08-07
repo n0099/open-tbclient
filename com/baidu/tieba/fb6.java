@@ -1,113 +1,66 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import android.text.TextUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fb6 extends ShareItem {
+public class fb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fb6() {
+    public static void a(g96 g96Var, String str, String str2) {
+        SdkLiveInfoData sdkLiveInfoData;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        int i;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.E0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.D0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.C0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public JSONArray v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.F0;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public void w(JSONObject jSONObject) throws JSONException {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            int i = 1;
-            this.w0 = true;
-            this.v = jSONObject.getString("title");
-            this.x = jSONObject.getString(GameAssistConstKt.KEY_LINKURL);
-            this.w = jSONObject.optString("content");
-            this.A = jSONObject.optString("imageUrl");
-            this.C0 = jSONObject.optString("mediaType");
-            if (StringUtils.isNull(this.A)) {
-                str = jSONObject.optString(GameAssistConstKt.KEY_ICONURL);
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, g96Var, str, str2) == null) && g96Var != null && (sdkLiveInfoData = g96Var.a) != null) {
+            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
+            String str7 = "";
+            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
+                str3 = "";
+                str4 = str3;
+                str5 = str4;
+                str6 = str5;
             } else {
-                str = this.A;
+                str4 = yYExt.sid;
+                str5 = yYExt.ssid;
+                str6 = yYExt.yyUid;
+                str3 = yYExt.templateId;
             }
-            this.A = str;
-            this.z = Uri.parse(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
-            if (optJSONObject != null) {
-                this.x0 = optJSONObject.optString("source2");
-                this.z0 = optJSONObject.optString("source3");
+            StatisticItem param = new StatisticItem(str).param("fid", g96Var.c).param("liveid", g96Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param("yyuid", str6).param("template_id", str3);
+            if (!TextUtils.isEmpty(str4)) {
+                str7 = "1";
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
-            if (optJSONObject2 != null) {
-                this.y0 = 2;
-                this.F0 = optJSONObject2.optJSONArray("cmd_pannel");
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
-                this.G0 = optJSONObject3;
-                if (optJSONObject3 != null) {
-                    this.D0 = optJSONObject3.optString("key");
-                    this.E0 = this.G0.optString("content");
-                    return;
-                }
-                return;
+            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param("vid", g96Var.a.nid);
+            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
+                i = 1;
+            } else {
+                i = 2;
             }
-            if (!"url".equals(jSONObject.optString("type"))) {
-                i = 3;
-            }
-            this.y0 = i;
+            TiebaStatic.log(param2.param("obj_source", i));
+        }
+    }
+
+    public static void b(g96 g96Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, g96Var, str) == null) {
+            a(g96Var, "c14705", str);
+        }
+    }
+
+    public static void c(g96 g96Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, g96Var, str) == null) {
+            a(g96Var, "c14704", str);
         }
     }
 }

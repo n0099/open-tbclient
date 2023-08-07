@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Base64InputStream;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.core.net.MailTo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,25 +11,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class l2b implements f3b {
+public class l2b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
+    public static volatile l2b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public s3b a;
-    public String b;
+    public m2b a;
 
-    public abstract p3b j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Map<String, JSONObject> b;
 
-    public abstract p3b k(String str, byte[] bArr, Map<String, String> map) throws IOException;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.b = new HashMap();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +62,7 @@ public abstract class l2b implements f3b {
                 return;
             }
         }
-        c = m3b.m();
+        b = p2b.m();
     }
 
     public l2b() {
@@ -59,231 +75,143 @@ public abstract class l2b implements f3b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new s3b();
-        this.b = "";
     }
 
-    public final HashMap<String, String> c() {
+    public static l2b f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (l2b.class) {
+                    if (c == null) {
+                        c = new l2b();
+                    }
+                }
+            }
+            return c;
+        }
+        return (l2b) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            u1b o = u1b.o();
+            if (o != null && !o.g("2980", 32)) {
+                return false;
+            }
+            if (o != null && o.d("2980")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>(2);
-            hashMap.put("Content-type", "application/x-www-form-urlencoded");
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.f3b
-    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return i(this.b, jSONObject, z, z2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f3b
-    public boolean b(File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return h(this.b, file, j, z, z2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = m3b.k(z);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public final String e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean isUBCDebug = this.a.isUBCDebug();
-            if (TextUtils.isEmpty(str)) {
-                str = d(isUBCDebug);
-            }
-            if (z2) {
-                c2 = m3b.h(str);
-            } else {
-                c2 = m3b.c(str);
-            }
-            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
-                c2 = s4b.a(c2, "debug", "1");
-            }
-            if (z) {
-                c2 = s4b.a(c2, "reallog", "1");
-            }
-            if (r2b.o().E()) {
-                return s4b.a(c2, "beta", "1");
-            }
-            return c2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final boolean f(p3b p3bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, p3bVar)) == null) {
-            if (p3bVar == null) {
+            u1b o = u1b.o();
+            if (o != null && !o.g("2980", 32)) {
                 return false;
             }
-            if (!p3bVar.e()) {
-                if (c) {
-                    Log.d("UploadManager", "postByteRequest, fail: " + p3bVar.d());
-                } else {
-                    o3b.a().i(p3bVar.d(), null);
-                }
-                if (r2b.o().M()) {
-                    g(p3bVar.c());
-                }
-                p3bVar.a();
+            if (o != null && o.d("2980")) {
                 return false;
             }
-            try {
-                int i = new JSONObject(p3bVar.b()).getInt("error");
-                if (i != 0) {
-                    if (c) {
-                        Log.d("UploadManager", "server error");
-                    }
-                    if (!c) {
-                        o3b.a().k(i);
-                    }
-                }
-            } catch (Exception e) {
-                if (c) {
-                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
-                } else {
-                    o3b.a().j(Log.getStackTraceString(e));
-                }
-            }
-            p3bVar.a();
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void g(int i) {
-        long j;
+    public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean z = true;
-            if (i != 403 && i != 408 && i != 499) {
-                if (i >= 500 && i < 600) {
-                    j = 300000;
-                } else {
-                    z = false;
-                    if (!z) {
-                        r2b.o().Z(currentTimeMillis);
-                        return;
-                    }
-                    return;
-                }
-            } else {
-                j = 60000;
-            }
-            currentTimeMillis += j;
-            if (!z) {
-            }
+        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
+            return;
         }
+        this.a.c(str, z);
     }
 
-    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        InputStream inputStream;
+    public boolean d(z2b z2bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (file == null || !file.exists()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, z2bVar)) == null) {
+            if (z2bVar == null || z2bVar.w() || !c()) {
                 return false;
             }
-            String e = e(str, z, z2);
-            HashMap<String, String> c2 = c();
-            if (t3b.m().p() && j > 0) {
-                c2.put("Content-Length", String.valueOf(j));
-            }
-            InputStream inputStream2 = null;
-            try {
-                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+            this.a.f();
+            Map<String, a> v = this.a.v(7);
+            if (v != null && v.size() != 0) {
                 try {
-                    try {
-                        boolean f = f(j(e, inputStream, c2));
-                        n4b.b(inputStream);
-                        return f;
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (c) {
-                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
-                        } else {
-                            o3b.a().i(null, Log.getStackTraceString(e));
+                    JSONObject jSONObject = new JSONObject();
+                    boolean z = false;
+                    for (String str : v.keySet()) {
+                        a aVar = v.get(str);
+                        if (aVar != null && !TextUtils.isEmpty(str)) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            JSONArray jSONArray = new JSONArray();
+                            for (JSONObject jSONObject3 : aVar.b.values()) {
+                                jSONArray.put(jSONObject3);
+                            }
+                            jSONObject2.put("total", aVar.a);
+                            jSONObject2.put("data", jSONArray);
+                            jSONObject.put(str.replace("-", ""), jSONObject2);
+                            z = true;
                         }
-                        n4b.b(inputStream);
-                        return false;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    inputStream2 = inputStream;
-                    n4b.b(inputStream2);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                inputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (jSONObject != null && (a = p4b.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
-                a[0] = 117;
-                a[1] = 123;
-                String e = e(str, z, z2);
-                HashMap<String, String> c2 = c();
-                if (t3b.m().p()) {
-                    c2.put("Content-Length", String.valueOf(a.length));
-                }
-                try {
-                    return f(k(e, a, c2));
-                } catch (IOException e2) {
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
-                    } else {
-                        o3b.a().i(null, Log.getStackTraceString(e2));
+                    if (z) {
+                        b2b b2bVar = new b2b("2980");
+                        b2bVar.y(jSONObject);
+                        b2bVar.B(System.currentTimeMillis());
+                        z2bVar.c(b2bVar, b2bVar.g());
+                        z2bVar.a(v.keySet());
+                        return true;
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
+            return;
+        }
+        if (map.containsKey(str)) {
+            aVar = map.get(str);
+        } else {
+            a aVar2 = new a();
+            map.put(str, aVar2);
+            aVar = aVar2;
+        }
+        Map<String, JSONObject> map2 = aVar.b;
+        if (map2.containsKey(str2) && b) {
+            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("id", str2);
+            jSONObject.put("c", i);
+            jSONObject.put(MailTo.CC, i2);
+            aVar.a += i;
+            map2.put(str2, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void g(m2b m2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, m2bVar) == null) {
+            this.a = m2bVar;
+        }
     }
 }

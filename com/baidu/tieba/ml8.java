@@ -1,33 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ml8 {
+public class ml8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ol8> a;
-    public ol8 b;
-    public long c;
-
-    @JvmOverloads
-    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            e(this, abilityItem, baseMsg, null, 4, null);
-        }
-    }
+    public String a;
+    public RoundTbImageView b;
 
     public ml8() {
         Interceptable interceptable = $ic;
@@ -39,70 +24,39 @@ public final class ml8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedHashMap();
     }
 
-    public static /* synthetic */ void e(ml8 ml8Var, AbilityItem abilityItem, BaseMsg baseMsg, Object obj, int i, Object obj2) {
-        if ((i & 4) != 0) {
-            obj = null;
-        }
-        ml8Var.d(abilityItem, baseMsg, obj);
-    }
-
-    public final void a(ol8 handler) {
+    public RoundTbImageView a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            Intrinsics.checkNotNullParameter(handler, "handler");
-            if (handler.c()) {
-                this.b = handler;
-            }
-            for (String str : handler.e()) {
-                this.a.put(str, handler);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (RoundTbImageView) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(RoundTbImageView roundTbImageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, roundTbImageView) == null) {
+            this.b = roundTbImageView;
         }
     }
 
-    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            ol8 ol8Var = this.b;
-            if (ol8Var != null) {
-                ol8Var.b(abilityItem, baseMsg, null);
-            }
-        }
-    }
-
-    @JvmOverloads
-    public final void d(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
-        Unit unit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseMsg, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            try {
-                ol8 ol8Var = this.a.get(abilityItem.getType());
-                if (ol8Var != null) {
-                    ol8Var.b(abilityItem, baseMsg, obj);
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
-                }
-                if (unit == null) {
-                    b(abilityItem, baseMsg);
-                }
-            } catch (Exception e) {
-                yk8.g("ability_handle_exception", this.c, e);
-            }
-        }
-    }
-
-    public final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.c = j;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 }

@@ -1,170 +1,127 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class qa6 extends ActivityDelegation implements hs1 {
+public class qa6 extends dm6<ha6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public ta6 b;
-    public Activity c;
-    public Map<String, String> d;
-    public CustomMessageListener e;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public View m;
+    public ha6 n;
+    public RelativeLayout o;
 
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qa6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qa6 qa6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qa6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qa6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (!(data instanceof st5)) {
-                    return;
-                }
-                st5 st5Var = (st5) data;
-                if (getTag() != st5Var.a && !st5Var.g) {
-                    return;
-                }
-                this.a.mResult.putInt("result_code", st5Var.b);
-                this.a.mResult.putString("result_msg", st5Var.c);
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.mResult);
-                }
-                this.a.finish();
-            }
-        }
+    @Override // com.baidu.tieba.dm6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d094c : invokeV.intValue;
     }
 
-    public qa6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qa6(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.e = new a(this, 2921393);
+        this.m = h();
+        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f091036);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091034);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091033);
+        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f091032);
+        this.k = headImageView;
+        headImageView.setAutoChangeStyle(true);
+        this.k.setIsRound(true);
+        this.k.setDrawBorder(true);
+        this.k.setPlaceHolder(1);
+        this.k.setBorderWidth(BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091035);
+        this.o.setOnClickListener(this);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.e);
-            super.finish();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
+            e().a(view2, this.n);
         }
     }
 
-    public void d(Activity activity) {
+    @Override // com.baidu.tieba.dm6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c = activity;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
         }
     }
 
-    public void e(ta6 ta6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dm6
+    /* renamed from: r */
+    public void i(ha6 ha6Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta6Var) == null) {
-            this.b = ta6Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.hs1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            this.mResult.putString("result_msg", "");
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-            int i = this.mParams.getInt("type");
-            String string = this.mParams.getString("orderInfo");
-            st5 st5Var = new st5();
-            st5Var.a = this.a;
-            st5Var.b = i;
-            st5Var.c = string;
-            st5Var.e = (Map) this.mParams.getSerializable("params");
-            st5Var.f = this.d;
-            if (getAgent() != null) {
-                st5Var.d = getAgent();
-            } else {
-                Activity activity = this.c;
-                if (activity != null) {
-                    st5Var.d = activity;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ha6Var) == null) && ha6Var != null) {
+            this.n = ha6Var;
+            String str2 = ha6Var.c;
+            String str3 = "";
+            if (StringUtils.isNull(str2)) {
+                if (StringUtils.isNull(ha6Var.b)) {
+                    str2 = "";
                 } else {
-                    st5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+                    str2 = ha6Var.b;
                 }
             }
-            CustomMessage customMessage = new CustomMessage(2921393, st5Var);
-            customMessage.setTag(this.a);
-            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-            Bundle bundle = this.mResult;
-            int i2 = 1;
-            if (sendMessage) {
-                i2 = 0;
+            this.i.setText(str2);
+            TextView textView = this.j;
+            if (StringUtils.isNull(ha6Var.e)) {
+                str = "";
+            } else {
+                str = ha6Var.e;
             }
-            bundle.putInt("result_code", i2);
-            Bundle bundle2 = this.mResult;
-            bundle2.putString("result_msg", "" + sendMessage);
-            return false;
+            textView.setText(str);
+            this.k.startLoad(ha6Var.d, 10, false);
+            TextView textView2 = this.l;
+            if (!StringUtils.isNull(ha6Var.f)) {
+                str3 = ha6Var.f;
+            }
+            textView2.setText(str3);
         }
-        return invokeV.booleanValue;
     }
 }

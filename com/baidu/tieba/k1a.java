@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rc7;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+@Service
 /* loaded from: classes6.dex */
-public final class k1a implements rc7 {
+public final class k1a implements yn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,84 +29,13 @@ public final class k1a implements rc7 {
         }
     }
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
+    @Override // com.baidu.tieba.yn5
+    public List<LaunchTask> asyncList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return rc7.a.b(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new l1a());
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 d87Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d87Var)) == null) {
-            return rc7.a.a(this, d87Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
-        if (r5.equals("video_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
-        if (r5.equals("live_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
-        if (r5.equals("live_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
-        if (r5.equals("common_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
-        return "enter_forum_btn_click";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
-        if (r5.equals("video_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
-        if (r5.equals("common_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
-        return "user_head_click";
-     */
-    @Override // com.baidu.tieba.rc7
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(d87 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    break;
-                case -1617812209:
-                    break;
-                case 448970189:
-                    break;
-                case 1009035070:
-                    break;
-                case 1201356814:
-                    break;
-                case 1373469789:
-                    break;
-                default:
-                    if (!s05.e()) {
-                        return "";
-                    }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
+        return (List) invokeV.objValue;
     }
 }

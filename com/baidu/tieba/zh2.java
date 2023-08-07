@@ -1,76 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class zh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final boolean d;
+    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359877, "Lcom/baidu/tieba/zh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948359877, "Lcom/baidu/tieba/zh2;");
-                return;
-            }
-        }
-        c = fs1.a;
-        cv2.g0().getSwitch("swan_sailor_init_delay", false);
-        d = false;
-    }
-
-    public zh2() {
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                y72.d("SwanLaunchBehaviorTable", "createTable", e);
             }
         }
-        this.b = false;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c) {
-                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
-            }
-            return d;
-        }
-        return invokeV.booleanValue;
     }
 
     @NonNull
-    public String toString() {
+    public static synchronized Uri b() {
         InterceptResult invokeV;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (zh2.class) {
+                if (a == null) {
+                    a = xh2.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
+            }
+            return uri;
         }
-        return (String) invokeV.objValue;
+        return (Uri) invokeV.objValue;
     }
 }

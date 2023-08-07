@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n5a implements IHostStateAbiltiy {
+public class n5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public n5a() {
         Interceptable interceptable = $ic;
@@ -29,23 +29,20 @@ public class n5a implements IHostStateAbiltiy {
         }
     }
 
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean hasAgreedPrivacyPolicy() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            if (jSONObject == null) {
+                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
+                return;
+            }
+            try {
+                this.a = jSONObject.optString("banner_pic");
+                this.b = jSONObject.optString("banner_url");
+            } catch (Exception e) {
+                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
+                BdLog.e(e.getMessage());
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean isForeground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !xx5.g().k();
-        }
-        return invokeV.booleanValue;
     }
 }

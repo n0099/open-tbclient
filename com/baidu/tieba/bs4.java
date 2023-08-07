@@ -1,112 +1,153 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
+import com.baidu.tieba.ir2;
+import com.baidu.tieba.vo2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bs4 {
+public class bs4 implements ir2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.vo2
+    public void A(@NonNull vo2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        ReadableByteChannel readableByteChannel;
+    @Override // com.baidu.tieba.ir2
+    public void W(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            ReadableByteChannel readableByteChannel2 = null;
-            try {
-                readableByteChannel = Channels.newChannel(new FileInputStream(file));
-            } catch (IOException unused) {
-                readableByteChannel = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String c = c(z, readableByteChannel);
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    zr4.d(readableByteChannel);
-                }
-                return c;
-            } catch (IOException unused2) {
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    zr4.d(readableByteChannel);
-                }
-                return null;
-            } catch (Throwable th2) {
-                th = th2;
-                readableByteChannel2 = readableByteChannel;
-                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
-                    zr4.d(readableByteChannel2);
-                }
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
         }
-        return (String) invokeLZ.objValue;
     }
 
-    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeZL;
+    @Override // com.baidu.tieba.vo2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                ByteBuffer allocate = ByteBuffer.allocate(8192);
-                while (readableByteChannel.read(allocate) != -1) {
-                    allocate.flip();
-                    messageDigest.update(allocate);
-                    allocate.clear();
-                }
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
-            }
-        }
-        return (String) invokeZL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public static String d(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.ir2
+    public int getVideoHeight() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public int getVideoWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vo2
+    @Nullable
+    public String j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public void o(@NonNull ir2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kr2
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public void onSurfaceChanged(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kr2
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public void s(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public void setSurface(Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, surface) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ir2
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        }
+    }
+
+    public bs4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.kr2
+    public RtcStatus a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return RtcStatus.UNKNOWN;
+        }
+        return (RtcStatus) invokeV.objValue;
     }
 }

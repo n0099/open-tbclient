@@ -1,18 +1,50 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rc7;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.command.ICommandIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public final class m1a implements rc7 {
+public class m1a extends ICommandIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.command.ICommandIoc
+    public boolean checkOpenable(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, intent)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.command.ICommandIoc
+    public boolean checkTargetIntentForRN(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.command.ICommandIoc
+    public void sendGMVLog(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+        }
+    }
 
     public m1a() {
         Interceptable interceptable = $ic;
@@ -26,44 +58,5 @@ public final class m1a implements rc7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return rc7.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 d87Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d87Var)) == null) {
-            return rc7.a.a(this, d87Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rc7
-    public String c(d87 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
-            }
-            int hashCode = str.hashCode();
-            if (hashCode == 448970189 ? str.equals("common_forum") : !(hashCode == 1201356814 ? !str.equals("live_forum") : !(hashCode == 1373469789 && str.equals("video_forum")))) {
-                return "forum_head_rec_forum_click";
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
     }
 }

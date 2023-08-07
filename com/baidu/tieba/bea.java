@@ -1,51 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bea {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947643467, "Lcom/baidu/tieba/bea;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947643467, "Lcom/baidu/tieba/bea;");
-        }
-    }
-
-    public static void a() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a = false;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StringBuilder sb = new StringBuilder();
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length > 4) {
+                StackTraceElement stackTraceElement = stackTrace[4];
+                String methodName = stackTraceElement.getMethodName();
+                sb.append(stackTraceElement.getClassName());
+                sb.append(":");
+                sb.append(methodName);
+                sb.append(":");
+            }
+            sb.append(str);
+            DefaultLog.getInstance().i("MainTab", sb.toString());
         }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = true;
-        }
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
     }
 }

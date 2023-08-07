@@ -1,30 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardOriginCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLiveComponent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class ma7 {
+public class ma7 extends d97<CardOriginCardView, o47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLiveComponent feedLiveComponent, List<mc7<?>> dataList, s87 feedExtraData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ma7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            i97 i97Var = new i97();
-            i97Var.a = feedLiveComponent.top_label;
-            i97Var.b = feedLiveComponent.bottom_label;
-            i97Var.c = feedLiveComponent.audience_label;
-            i97Var.d = feedLiveComponent.cover_url;
-            i97Var.f = feedLiveComponent.schema;
-            i97Var.e = t87.b(feedExtraData, "live_head_show");
-            dataList.add(new nc7(new d77(i97Var, CollectionsKt__CollectionsKt.listOf((Object[]) new u97[]{t87.b(feedExtraData, "live_click"), t87.b(feedExtraData, "live_click2"), t87.b(feedExtraData, "live_click3")}), null, 4, null), "live"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d97, com.baidu.tieba.t97
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            hb7.k(a, 0);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t97
+    /* renamed from: e */
+    public void b(@NonNull CardOriginCardView cardOriginCardView, @NonNull o47 o47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardOriginCardView, o47Var) == null) {
+            cardOriginCardView.a(o47Var);
         }
     }
 }

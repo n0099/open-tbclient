@@ -1,88 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.opengl.Matrix;
+import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.headcard.RecommendCollectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
+import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes7.dex */
-public class mra extends xx<sra> {
+public class mra extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendCollectLayout f;
-    public int g;
+    public float[] a;
+    public MultiMediaData b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mra(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public mra(int i, int i2, boolean z, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new RecommendCollectLayout(tbPageContext);
+        this.a = new float[16];
+        this.b = new MultiMediaData();
+        init(i, i2, z, handler);
+        this.mFullScreenEXT.setMirror(true);
+        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
     }
 
-    @Override // com.baidu.tieba.xx
-    public void r(BdUniqueId bdUniqueId) {
-        RecommendCollectLayout recommendCollectLayout;
+    public void a(int i, int i2, float f) {
+        float f2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) && (recommendCollectLayout = this.f) != null) {
-            recommendCollectLayout.setPageUniqueId(bdUniqueId);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+            MultiMediaData multiMediaData = this.b;
+            multiMediaData.type = 1;
+            multiMediaData.width = i;
+            multiMediaData.height = i2;
+            multiMediaData.rotation = f;
+            if (f != 90.0f && f != 270.0f) {
+                f2 = (i * 1.0f) / i2;
+            } else {
+                f2 = (i2 * 1.0f) / i;
+            }
+            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
+                this.b.scaleType = "center_crop";
+            } else {
+                this.b.scaleType = "center_inside";
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: u */
-    public void b(sra sraVar) {
-        RecommendCollectLayout recommendCollectLayout;
+    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
+    public void drawImage(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, sraVar) == null) && (recommendCollectLayout = this.f) != null) {
-            recommendCollectLayout.setData(sraVar);
-            this.f.setSourceForPb(this.g);
-        }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public View l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        RecommendCollectLayout recommendCollectLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (recommendCollectLayout = this.f) != null) {
-            recommendCollectLayout.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.drawImage(i);
+            if (this.mFullScreenEXT == null) {
+                return;
+            }
+            float[] fArr = new float[16];
+            Matrix.setIdentityM(fArr, 0);
+            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
+            this.mFullScreenEXT.setAngle(180.0f);
+            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
+            Matrix.setIdentityM(fArr, 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
         }
     }
 }

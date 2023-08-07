@@ -1,111 +1,415 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.data.protobuf.FeedHeadExtensionKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.Map;
+import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.AbstractComponent;
+import tbclient.ComponentFactory;
+import tbclient.FeedEntrybarComponent;
+import tbclient.FeedFeedback;
+import tbclient.FeedHeadComponent;
+import tbclient.FeedHeadFigureComponent;
+import tbclient.FeedItem;
+import tbclient.FeedKV;
+import tbclient.FeedLayout;
+import tbclient.FeedLinkComponent;
+import tbclient.FeedLiveComponent;
+import tbclient.FeedOriginComponent;
+import tbclient.FeedPicComponent;
+import tbclient.FeedPostExpose;
+import tbclient.FeedSocialComponent;
+import tbclient.FeedVideoAdComponent;
+import tbclient.FeedVideoComponent;
+import tbclient.LayoutFactory;
+import tbclient.ThreadRecommendInfo;
+import tbclient.TitleComponent;
+import tbclient.Voice;
 /* loaded from: classes6.dex */
-public final class j77 extends m77 {
+public abstract class j77 implements k77<LayoutFactory>, x97, y87, m67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q97 d;
-    public final String e;
-    public final String f;
-    public final List<u97> g;
-    public final List<u97> h;
-    public final List<u97> i;
+    public Map<String, ? extends y97> a;
+    public Map<String, String> b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j77(q97 replyData, String headSchema, String schema, List<u97> userHeadClickStatList, List<u97> userNameClickStatList, List<u97> cardClickStatList) {
-        super(null, null, 3, null);
+    public Object e(String key, String value) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, key, value)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(value, "value");
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
+    public abstract u97<?> h(m57<?> m57Var, a67 a67Var);
+
+    public j77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {replyData, headSchema, schema, userHeadClickStatList, userNameClickStatList, cardClickStatList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(replyData, "replyData");
-        Intrinsics.checkNotNullParameter(headSchema, "headSchema");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(userHeadClickStatList, "userHeadClickStatList");
-        Intrinsics.checkNotNullParameter(userNameClickStatList, "userNameClickStatList");
-        Intrinsics.checkNotNullParameter(cardClickStatList, "cardClickStatList");
-        this.d = replyData;
-        this.e = headSchema;
-        this.f = schema;
-        this.g = userHeadClickStatList;
-        this.h = userNameClickStatList;
-        this.i = cardClickStatList;
+        this.a = new HashMap();
+        this.b = new HashMap();
     }
 
-    public final List<u97> h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y87
+    public void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            this.b = map;
         }
-        return (List) invokeV.objValue;
     }
 
-    public final String i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m67
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final q97 j() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x97
+    public void d(Map<String, ? extends y97> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            this.a = map;
         }
-        return (q97) invokeV.objValue;
     }
 
-    public final String k() {
-        InterceptResult invokeV;
+    public final Map<String, Object> f(List<FeedKV> list) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                if (str != null && str.length() != 0) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    String str2 = feedKV.value;
+                    if (str2 != null && str2.length() != 0) {
+                        z3 = false;
+                    } else {
+                        z3 = true;
+                    }
+                    if (!z3) {
+                        String str3 = feedKV.key;
+                        Intrinsics.checkNotNullExpressionValue(str3, "info.key");
+                        String str4 = feedKV.value;
+                        Intrinsics.checkNotNullExpressionValue(str4, "info.value");
+                        Object e = e(str3, str4);
+                        if (e != null) {
+                            String str5 = feedKV.key;
+                            Intrinsics.checkNotNullExpressionValue(str5, "info.key");
+                            linkedHashMap.put(str5, e);
+                        }
+                    }
+                }
+            }
+            return linkedHashMap;
         }
-        return (String) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public final List<u97> l() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k77
+    /* renamed from: g */
+    public u97<?> b(LayoutFactory originData) {
+        InterceptResult invokeL;
+        c67 c67Var;
+        ThreadRecommendInfo threadRecommendInfo;
+        c67 c67Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, originData)) == null) {
+            Intrinsics.checkNotNullParameter(originData, "originData");
+            ArrayList arrayList = new ArrayList();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            a67 a67Var = new a67();
+            a67Var.h(this.a);
+            FeedLayout feedLayout = originData.feed;
+            Intrinsics.checkNotNullExpressionValue(feedLayout, "originData.feed");
+            b67.a(a67Var, feedLayout);
+            a67Var.g(this.b);
+            a67Var.f(this.c);
+            g77 g77Var = new g77();
+            for (ComponentFactory componentFactory : originData.feed.components) {
+                String str = componentFactory.component;
+                if (str != null) {
+                    String str2 = "";
+                    String str3 = null;
+                    switch (str.hashCode()) {
+                        case -1644137503:
+                            if (str.equals("feed_head")) {
+                                FeedHeadComponent feedHeadComponent = componentFactory.feed_head;
+                                if (feedHeadComponent == null) {
+                                    break;
+                                } else {
+                                    FeedFeedback feedFeedback = originData.feed.feedback;
+                                    if (feedFeedback != null) {
+                                        c67Var = e87.a(feedFeedback, a67Var);
+                                    } else {
+                                        c67Var = null;
+                                    }
+                                    boolean c = FeedHeadExtensionKt.c(originData.feed.business_info);
+                                    List<ComponentFactory> list = originData.feed.components;
+                                    Intrinsics.checkNotNullExpressionValue(list, "originData.feed.components");
+                                    FeedHeadExtensionKt.h(feedHeadComponent, arrayList, c67Var, c, a67Var, list);
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1644093164:
+                            if (str.equals("feed_item")) {
+                                FeedItem feedItem = componentFactory.feed_item;
+                                if (feedItem != null) {
+                                    r77.c(feedItem, arrayList, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1644014085:
+                            if (str.equals("feed_link")) {
+                                FeedLinkComponent feedLinkComponent = componentFactory.feed_link;
+                                if (feedLinkComponent != null) {
+                                    t77.a(feedLinkComponent, arrayList);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1644013843:
+                            if (str.equals("feed_live")) {
+                                FeedLiveComponent feedLiveComponent = componentFactory.feed_live;
+                                if (feedLiveComponent != null) {
+                                    u77.a(feedLiveComponent, arrayList, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1461408349:
+                            if (str.equals("feed_abstract")) {
+                                AbstractComponent abstractComponent = componentFactory.feed_abstract;
+                                if (abstractComponent != null) {
+                                    o77.b(abstractComponent, arrayList, spannableStringBuilder, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1035731907:
+                            if (str.equals("feed_videoad")) {
+                                FeedVideoComponent feedVideoComponent = componentFactory.feed_video;
+                                if (feedVideoComponent != null) {
+                                    str3 = feedVideoComponent.schema;
+                                }
+                                if (str3 != null) {
+                                    str2 = str3;
+                                }
+                                g77Var.j(c87.a(str2, a67Var));
+                                FeedVideoAdComponent feedVideoAdComponent = componentFactory.feed_videoad;
+                                if (feedVideoAdComponent != null) {
+                                    b87.b(feedVideoAdComponent, arrayList, g77Var, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -993000478:
+                            if (str.equals("feed_entrybar")) {
+                                FeedEntrybarComponent feedEntrybarComponent = componentFactory.feed_entrybar;
+                                if (feedEntrybarComponent != null) {
+                                    q77.a(feedEntrybarComponent, arrayList, b67.b(a67Var, "enter_forum_btn_click"));
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -984476251:
+                            if (str.equals("feed_postexpose")) {
+                                FeedPostExpose feedPostExpose = componentFactory.feed_postexpose;
+                                if (feedPostExpose != null) {
+                                    x77.a(feedPostExpose, arrayList, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -191576215:
+                            if (str.equals("feed_pic")) {
+                                FeedPicComponent feedPicComponent = componentFactory.feed_pic;
+                                if (feedPicComponent != null) {
+                                    w77.b(feedPicComponent, arrayList, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 301292525:
+                            if (str.equals("feed_recomtag")) {
+                                List<ThreadRecommendInfo> list2 = componentFactory.feed_recomtag;
+                                if (list2 != null && (threadRecommendInfo = (ThreadRecommendInfo) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) list2)) != null) {
+                                    f87.a(threadRecommendInfo, arrayList);
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                            break;
+                        case 582564983:
+                            if (str.equals("feed_title")) {
+                                List<ComponentFactory> list3 = originData.feed.components;
+                                Intrinsics.checkNotNullExpressionValue(list3, "originData.feed.components");
+                                boolean a = a97.a(list3);
+                                TitleComponent titleComponent = componentFactory.feed_title;
+                                if (titleComponent != null) {
+                                    a87.a(titleComponent, arrayList, spannableStringBuilder, a67Var, a);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 584396442:
+                            if (str.equals("feed_video")) {
+                                FeedVideoComponent feedVideoComponent2 = componentFactory.feed_video;
+                                if (feedVideoComponent2 != null) {
+                                    str3 = feedVideoComponent2.schema;
+                                }
+                                if (str3 != null) {
+                                    str2 = str3;
+                                }
+                                g77Var.j(c87.a(str2, a67Var));
+                                FeedVideoComponent feedVideoComponent3 = componentFactory.feed_video;
+                                if (feedVideoComponent3 != null) {
+                                    c87.c(feedVideoComponent3, arrayList, g77Var, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 584579921:
+                            if (str.equals("feed_voice")) {
+                                Voice voice = componentFactory.feed_voice;
+                                if (voice != null) {
+                                    d87.a(voice, arrayList, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 744478951:
+                            if (str.equals("feed_origin")) {
+                                FeedOriginComponent feedOriginComponent = componentFactory.feed_origin;
+                                if (feedOriginComponent != null) {
+                                    v77.a(feedOriginComponent, arrayList, a67Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 856047918:
+                            if (str.equals("feed_social")) {
+                                FeedSocialComponent feedSocialComponent = componentFactory.feed_social;
+                                if (feedSocialComponent != null) {
+                                    z77.a(feedSocialComponent, arrayList, a67Var, g77Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 1804018946:
+                            if (str.equals("feed_head_figure")) {
+                                FeedHeadFigureComponent feedHeadFigureComponent = componentFactory.feed_head_figure;
+                                if (feedHeadFigureComponent != null) {
+                                    c77 b = b67.b(a67Var, "virtual_head_show");
+                                    c77 b2 = b67.b(a67Var, "virtual_head_click");
+                                    FeedFeedback feedFeedback2 = originData.feed.feedback;
+                                    if (feedFeedback2 != null) {
+                                        c67Var2 = e87.a(feedFeedback2, a67Var);
+                                    } else {
+                                        c67Var2 = null;
+                                    }
+                                    FeedHeadExtensionKt.i(feedHeadFigureComponent, arrayList, b, b2, c67Var2, b67.c(a67Var, "head_local_stat_info"));
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                    }
+                }
+            }
+            String str4 = originData.feed.schema;
+            Intrinsics.checkNotNullExpressionValue(str4, "originData.feed.schema");
+            return h(new m57<>(arrayList, str4, Intrinsics.areEqual(a67Var.a().a().get("is_grey_mode"), "1"), a67Var.a().a().get("thread_id"), a67Var.a().a().get("user_id"), f(originData.feed.appendix), null, 64, null), a67Var);
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<u97> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return (List) invokeV.objValue;
+        return (u97) invokeL.objValue;
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.memberCenter.bubble;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -14,7 +15,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +51,7 @@ public class BubbleListModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -187,7 +187,7 @@ public class BubbleListModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -197,49 +197,49 @@ public class BubbleListModel extends BdBaseModel {
         this.f = new b(this, CmdConfigHttp.SET_BUBBLE_CMD);
     }
 
-    public void c0(CustomMessageListener customMessageListener) {
+    public void U(CustomMessageListener customMessageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, customMessageListener) == null) {
             registerListener(customMessageListener);
         }
     }
 
-    public void f0(int i) {
+    public void X(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.c = i;
         }
     }
 
-    public void g0(int i) {
+    public void Y(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.d = i;
         }
     }
 
-    public void h0(c cVar) {
+    public void Z(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
             this.a = cVar;
         }
     }
 
-    public void i0(d dVar) {
+    public void a0(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
             this.b = dVar;
         }
     }
 
-    public void j0(CustomMessageListener customMessageListener) {
+    public void b0(CustomMessageListener customMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, customMessageListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, customMessageListener) == null) {
             MessageManager.getInstance().unRegisterListener(customMessageListener);
         }
     }
 
-    public static boolean X(List<BubbleListData.BubbleData> list) {
+    public static boolean P(List<BubbleListData.BubbleData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
@@ -256,7 +256,7 @@ public class BubbleListModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public int Y() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -265,7 +265,7 @@ public class BubbleListModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public int Z() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -283,7 +283,7 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void a0() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -295,7 +295,7 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void b0() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -306,9 +306,9 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void d0(int i, int i2, int i3, int i4) {
+    public void V(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
             httpMessage.addParam("pn", String.valueOf(i));
             httpMessage.addParam("rn", String.valueOf(i2));
@@ -318,9 +318,9 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void e0(int i, int i2, int i3) {
+    public void W(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_BUBBLE_CMD);
             httpMessage.addParam("bcode", String.valueOf(i));
             httpMessage.addParam("scr_w", String.valueOf(i2));

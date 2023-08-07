@@ -7,6 +7,8 @@ import android.webkit.URLUtil;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,9 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ni;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.sh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1058,7 +1058,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(yi.l(context) * yi.j(context));
+        int sqrt = (int) Math.sqrt(BdUtilHelper.getEquipmentWidth(context) * BdUtilHelper.getEquipmentHeight(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1303,7 +1303,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return yi.g(TbadkCoreApplication.getInst().getContext(), i);
+            return BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1312,11 +1312,11 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = yi.d(context, 427.0f);
-            if (d > 640) {
-                d = 640;
+            int dip2px = BdUtilHelper.dip2px(context, 427.0f);
+            if (dip2px > 640) {
+                dip2px = 640;
             }
-            int i = (int) (d * d * 1.6f * 2.0f);
+            int i = (int) (dip2px * dip2px * 1.6f * 2.0f);
             BIG_IMAGE_SIZE = i;
             return i;
         }
@@ -1360,7 +1360,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.v().K(i);
+                TbImageMemoryCache.B().M(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1400,11 +1400,11 @@ public class TbConfig {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float d = wg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
-            if (d >= f3 && d <= f4) {
-                f2 = d;
+            float f5 = JavaTypesHelper.toFloat(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            if (f5 >= f3 && f5 <= f4) {
+                f2 = f5;
             }
-            if (!ni.a()) {
+            if (!sh.a()) {
                 return f2 * 0.5f;
             }
             return f2;

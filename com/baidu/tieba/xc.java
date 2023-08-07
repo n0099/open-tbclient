@@ -1,15 +1,12 @@
 package com.baidu.tieba;
+
+import java.lang.reflect.Type;
+import java.util.Set;
 /* loaded from: classes8.dex */
 public interface xc {
-    Object a(ge geVar);
+    Set<String> getKeys();
 
-    Object b(ge geVar);
+    Object getObjectByType(String str, Type type);
 
-    Object c(ge geVar);
-
-    Object d(ge geVar);
-
-    Object e(ge geVar);
-
-    Object f(ge geVar);
+    void set(String str, Object obj);
 }

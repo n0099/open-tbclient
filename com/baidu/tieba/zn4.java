@@ -1,97 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zn4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes8.dex */
-    public static class a extends fs4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static long a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            SharedPreferences a = ho4.a();
+            return a.getLong("latest_update_time" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_preload_package");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            SharedPreferences a = ho4.a();
+            return a.getLong("max_age" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
+                return true;
             }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void d(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            SharedPreferences.Editor edit = ho4.a().edit();
+            edit.putLong("latest_update_time" + i, j).apply();
         }
     }
 
-    public zn4() {
+    public static void e(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j <= 0 || j >= 259200) {
+                j = 0;
             }
+            ho4.a().edit().putLong("max_age" + i, j).apply();
         }
-        this.a = new a();
-    }
-
-    public static zn4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (zn4.class) {
-                    if (b == null) {
-                        b = new zn4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (zn4) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(yn4 yn4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yn4Var) == null) && yn4Var != null) {
-            this.a.edit().putString("version", yn4Var.c()).apply();
-        }
-    }
-
-    public void d(JSONObject jSONObject) {
-        yn4 a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null || (a2 = yn4.a(jSONObject)) == null) {
-            return;
-        }
-        gj4.b().H(a2);
     }
 }

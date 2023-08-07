@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
@@ -20,8 +21,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s07;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ay6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public LinearLayout a;
     public TextView b;
     public ImageView c;
-    public s07 d;
+    public ay6 d;
     public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,10 +108,10 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0511, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920d3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920e5);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0516, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920ea);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092116);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920fc);
             setDescendantFocusability(262144);
             this.a.setOnClickListener(this);
         }
@@ -120,9 +120,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s07 s07Var = this.d;
-            if (s07Var != null && s07Var.a) {
-                if (s07Var.b > 0) {
+            ay6 ay6Var = this.d;
+            if (ay6Var != null && ay6Var.a) {
+                if (ay6Var.b > 0) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
                     SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
                     SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
@@ -163,14 +163,14 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(yi.l(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(yi.g(getContext(), R.dimen.tbds114), 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(BdUtilHelper.getEquipmentWidth(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(BdUtilHelper.getDimens(getContext(), R.dimen.tbds114), 1073741824));
         }
     }
 
-    public void setAdState(s07 s07Var) {
+    public void setAdState(ay6 ay6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s07Var) == null) {
-            this.d = s07Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ay6Var) == null) {
+            this.d = ay6Var;
             b();
         }
     }

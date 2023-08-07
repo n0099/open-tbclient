@@ -1,101 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
+import android.content.Context;
+import android.os.Build;
+import android.util.Pair;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class qi6 extends wo6<gh6> {
+public abstract class qi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public String k;
+    public final WebView a;
 
-    @Override // com.baidu.tieba.wo6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010c : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: s */
-    public void i(gh6 gh6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gh6Var) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qi6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public qi6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        r(h());
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            webView.setRendererPriorityPolicy(2, false);
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (!TextUtils.isEmpty(this.k)) {
-                UtilHelper.copyToClipBoard(this.k);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
             }
-            BdToast.b(getContext(), getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0268)).q();
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.k = str;
-            TextView textView = this.i;
-            if (textView != null) {
-                textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a) + str);
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setDisplayZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            try {
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
             }
+            String userAgentString = c().getUserAgentString();
+            Pair<Boolean, String> j = xh6.j(userAgentString);
+            if (((Boolean) j.first).booleanValue()) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("WebSetting", "更新UA信息：" + ((String) j.second) + " 原UA：" + userAgentString);
+                c.setUserAgentString((String) j.second);
+            }
+            c.setJavaScriptCanOpenWindowsAutomatically(true);
+            c.setTextZoom(100);
         }
     }
 
-    public final void r(View view2) {
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09022d);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09022c);
-            this.j = textView;
-            textView.setOnClickListener(this);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
         }
+        return (File) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public WebSettings c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setViewTextColor(this.i, (int) R.color.common_color_10106);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getSettings();
         }
+        return (WebSettings) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

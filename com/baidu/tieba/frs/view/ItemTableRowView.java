@@ -8,12 +8,12 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,13 +65,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        t = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        u = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        v = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        w = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        x = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        y = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        z = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        t = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+        u = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        v = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+        w = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        x = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        z = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

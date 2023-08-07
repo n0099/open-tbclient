@@ -1,88 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hx4 {
+public class hx4 implements pk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ex4 b;
-    public fx4 c;
-    public final boolean d;
-    public final long e;
 
-    public hx4(boolean z, long j) {
+    @Override // com.baidu.tieba.pk6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        ok6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.pk6
+    public /* synthetic */ void onDestroy() {
+        ok6.b(this);
+    }
+
+    public hx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = z;
-        this.e = j;
     }
 
-    public ex4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pk6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.GET_CLIPPER_INFORMATION.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return true;
+            } else if (CommonTbJsBridge.SET_CLIPPER_INFORMATION.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(d(webView, new JSONObject(str3).optString("txt")).a());
+                    return true;
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
-        return (ex4) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public ViewGroup b() {
-        InterceptResult invokeV;
+    public jca c(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            jca jcaVar = new jca();
+            String clipBoardContent = UtilHelper.getClipBoardContent();
+            int i = !bi.isEmpty(clipBoardContent) ? 1 : 0;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i);
+                jSONObject.put("data", clipBoardContent);
+                jcaVar.o(jSONObject.toString());
+                return jcaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return jcaVar;
+            }
         }
-        return (ViewGroup) invokeV.objValue;
+        return (jca) invokeL.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public jca d(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
+            jca jcaVar = new jca();
+            AndroidUtils.copyToClipboard(str);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                jcaVar.o(jSONObject.toString());
+                return jcaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return jcaVar;
+            }
         }
-        return invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(ex4 ex4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ex4Var) == null) {
-            this.b = ex4Var;
-        }
-    }
-
-    public void f(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, viewGroup) == null) {
-            this.a = viewGroup;
-        }
+        return (jca) invokeLL.objValue;
     }
 }

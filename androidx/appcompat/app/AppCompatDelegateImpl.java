@@ -1616,7 +1616,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         context = this.mContext;
                     }
                     viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090856);
+                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090865);
                     this.mDecorContentParent = decorContentParent;
                     decorContentParent.setWindowCallback(getWindowCallback());
                     if (this.mOverlayActionBar) {
@@ -1656,7 +1656,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     });
                 }
                 if (this.mDecorContentParent == null) {
-                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092542);
+                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09255a);
                 }
                 ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                 ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09006d);

@@ -1,60 +1,80 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.inter.IFetchJob;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-@Service
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes8.dex */
-public class t0b extends IFetchJob {
+public class t0b extends d0b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public String getFetchJobType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tbFetch" : (String) invokeV.objValue;
-    }
-
-    public t0b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t0b(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final void a(String str, String str2, String str3, long j, long j2, long j3, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).fetchUpload(str, str2, str3, j, j2, j3, list);
-        }
+    @Override // com.baidu.tieba.d0b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        super.g(str);
+        return this;
     }
 
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public void dispatch(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.d0b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        super.y(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.d0b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        super.z(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.d0b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        super.B(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public ExperimentalCronetEngine b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (r() == null) {
+                C(q());
+            }
+            return new CronetUrlRequestContext(this);
         }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("*/*");
-        a(jSONObject.optString("type", "tbFetch"), jSONObject.optString("jobId", ""), jSONObject.optString("version", ""), jSONObject.optLong("maxSizeLimit", 10240L), jSONObject.optLong("startTime", 0L), jSONObject.optLong("endTime", System.currentTimeMillis()), arrayList);
+        return (ExperimentalCronetEngine) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d0b, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        super.l(z, str);
+        return this;
     }
 }

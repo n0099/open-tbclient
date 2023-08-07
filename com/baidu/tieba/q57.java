@@ -1,82 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
+import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class q57 extends ln<v57, ForumEmotionViewHolder> {
+public final class q57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public u57 b;
-    public p57 c;
+    public final r57 a;
+    public final List<v57> b;
+    public final List<v57> c;
+    public final VirtualImageCustomState d;
+    public final c77 e;
+    public final c77 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q57(TbPageContext<?> tbPageContext, u57 u57Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof q57) {
+                q57 q57Var = (q57) obj;
+                return Intrinsics.areEqual(this.a, q57Var.a) && Intrinsics.areEqual(this.b, q57Var.b) && Intrinsics.areEqual(this.c, q57Var.c) && Intrinsics.areEqual(this.d, q57Var.d) && Intrinsics.areEqual(this.e, q57Var.e) && Intrinsics.areEqual(this.f, q57Var.f);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            VirtualImageCustomState virtualImageCustomState = this.d;
+            int hashCode2 = (hashCode + (virtualImageCustomState == null ? 0 : virtualImageCustomState.hashCode())) * 31;
+            c77 c77Var = this.e;
+            int hashCode3 = (hashCode2 + (c77Var == null ? 0 : c77Var.hashCode())) * 31;
+            c77 c77Var2 = this.f;
+            return hashCode3 + (c77Var2 != null ? c77Var2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardVirtualHeadData(imageData=" + this.a + ", mainData=" + this.b + ", extraData=" + this.c + ", stateData=" + this.d + ", showStatData=" + this.e + ", clickStatData=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public q57(r57 imageData, List<? extends v57> mainData, List<? extends v57> extraData, VirtualImageCustomState virtualImageCustomState, c77 c77Var, c77 c77Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, u57Var, bdUniqueId};
+            Object[] objArr = {imageData, mainData, extraData, virtualImageCustomState, c77Var, c77Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = u57Var;
+        Intrinsics.checkNotNullParameter(imageData, "imageData");
+        Intrinsics.checkNotNullParameter(mainData, "mainData");
+        Intrinsics.checkNotNullParameter(extraData, "extraData");
+        this.a = imageData;
+        this.b = mainData;
+        this.c = extraData;
+        this.d = virtualImageCustomState;
+        this.e = c77Var;
+        this.f = c77Var2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public ForumEmotionViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final c77 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.a);
-            ForumEmotionViewHolder forumEmotionViewHolder = new ForumEmotionViewHolder(this.a, forumEmotionItemView);
-            forumEmotionItemView.b(TbadkCoreApplication.getInst().getSkinType());
-            return forumEmotionViewHolder;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (ForumEmotionViewHolder) invokeL.objValue;
+        return (c77) invokeV.objValue;
     }
 
-    public void u(p57 p57Var) {
+    public final List<v57> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, p57Var) == null) {
-            this.c = p57Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v57 v57Var, ForumEmotionViewHolder forumEmotionViewHolder) {
-        InterceptResult invokeCommon;
+    public final r57 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v57Var, forumEmotionViewHolder})) == null) {
-            forumEmotionViewHolder.m(v57Var, this.b, this.c, i);
-            return forumEmotionViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (View) invokeCommon.objValue;
+        return (r57) invokeV.objValue;
+    }
+
+    public final List<v57> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final c77 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (c77) invokeV.objValue;
+    }
+
+    public final VirtualImageCustomState f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (VirtualImageCustomState) invokeV.objValue;
     }
 }

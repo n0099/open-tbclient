@@ -1,61 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class z57 extends ContextWrapper {
+public class z57 implements u87 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z57 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<u97<?>> a;
+    public int b;
+    public boolean c;
+    public int d;
+    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311021, "Lcom/baidu/tieba/z57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948311021, "Lcom/baidu/tieba/z57;");
-                return;
-            }
-        }
-        a = new z57();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z57() {
-        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        this.c = true;
     }
 
-    public final void a(Context context) {
+    @Override // com.baidu.tieba.u87
+    public void d(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            if (getBaseContext() == null) {
-                attachBaseContext(context);
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            for (u97<?> u97Var : this.a) {
+                if (u97Var instanceof u87) {
+                    ((u87) u97Var).d(obj);
+                }
             }
         }
     }

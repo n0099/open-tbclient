@@ -1,202 +1,32 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.si6;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ui6 b;
-    public ui6 c;
-    public ui6 d;
-    public ValueAnimator e;
+    public Context a;
+    public View b;
+    public EMTextView c;
 
-    /* loaded from: classes8.dex */
-    public class a implements si6.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public a(xk7 xk7Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xk7Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.baidu.tieba.si6.i
-        public void a(si6 si6Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{si6Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xk7 a;
-
-        public b(xk7 xk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xk7Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.e.start();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xk7 a;
-
-        public c(xk7 xk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xk7Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.a != null) {
-                this.a.a.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xk7 a;
-
-        public d(xk7 xk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xk7Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.d.h();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements si6.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public e(xk7 xk7Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xk7Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.baidu.tieba.si6.i
-        @SuppressLint({"WrongConstant"})
-        public void a(si6 si6Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{si6Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.setRepeatCount(-1);
-                this.a.setRepeatMode(2);
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    public xk7(View view2, TBLottieAnimationView tBLottieAnimationView) {
+    public xk7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tBLottieAnimationView};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,57 +36,50 @@ public class xk7 {
                 return;
             }
         }
-        this.a = view2;
-        this.b = d(view2, si6.m, 170.0f, 0.5f, 1.0f);
-        this.c = d(view2, si6.n, 170.0f, 0.5f, 1.0f);
-        this.e = e(view2, 0.0f, 6.0f, 100L);
-        this.d = d(view2, si6.o, 200.0f, 0.4f, 0.0f);
-        f(tBLottieAnimationView);
+        this.a = context;
+        b(context);
     }
 
-    public final ui6 d(View view2, ti6<View> ti6Var, float f, float f2, float f3) {
-        InterceptResult invokeCommon;
+    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, ti6Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            vi6 vi6Var = new vi6(f3);
-            vi6Var.f(f);
-            vi6Var.d(f2);
-            ui6 ui6Var = new ui6(view2, ti6Var);
-            ui6Var.m(vi6Var);
-            return ui6Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
+            view2.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.b);
         }
-        return (ui6) invokeCommon.objValue;
     }
 
-    public final ValueAnimator e(View view2, float f, float f2, long j) {
-        InterceptResult invokeCommon;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)})) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
-            ofFloat.setTarget(view2);
-            ofFloat.setDuration(j);
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            EMManager.from(this.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
         }
-        return (ValueAnimator) invokeCommon.objValue;
     }
 
-    public final void f(TBLottieAnimationView tBLottieAnimationView) {
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) != null) || tBLottieAnimationView == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
+            view2.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.b);
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(str);
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
             return;
         }
-        this.b.b(new a(this, tBLottieAnimationView));
-        tBLottieAnimationView.addAnimatorListener(new b(this));
-        this.e.addUpdateListener(new c(this));
-        this.e.addListener(new d(this));
-        this.d.b(new e(this, tBLottieAnimationView));
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.h();
-            this.c.h();
-        }
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030b, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c17);
+        c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -1,24 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.Callable;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class lmb implements View.OnClickListener {
+public class lmb implements Callable<kmb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+    public final Intent a;
 
-    public lmb(InstallActivity installActivity) {
+    public lmb(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,15 +33,63 @@ public final class lmb implements View.OnClickListener {
                 return;
             }
         }
-        this.a = installActivity;
+        this.a = intent;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, com.baidu.tieba.kmb] */
+    @Override // java.util.concurrent.Callable
+    public kmb call() throws Exception {
+        InterceptResult invokeV;
+        byte[] bArr;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Intent intent = this.a;
+            if (intent == null) {
+                return null;
+            }
+            long j = 0;
+            try {
+                j = intent.getLongExtra("msg_id", 0L);
+            } catch (Exception e) {
+                omb.b("PassByMsgIntentParser", "parserMsgId", e);
+            }
+            try {
+                bArr = this.a.getByteArrayExtra("msg_content");
+            } catch (Exception e2) {
+                omb.b("PassByMsgIntentParser", "parseMsgContent", e2);
+                bArr = null;
+            }
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr);
+            byte[] bArr2 = new byte[256];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
+            while (!inflater.finished()) {
+                try {
+                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
+                } catch (DataFormatException unused) {
+                    inflater.end();
+                    str = null;
+                } catch (Throwable th) {
+                    inflater.end();
+                    throw th;
+                }
+            }
+            inflater.end();
+            str = byteArrayOutputStream.toString("utf-8");
+            if (str == null) {
+                return null;
+            }
+            String optString = new JSONObject(str).optString("data");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            kmb kmbVar = new kmb();
+            kmbVar.d(j);
+            kmbVar.c(optString);
+            return kmbVar;
         }
-        this.a.j(new UnavailableUserDeclinedInstallationException());
+        return invokeV.objValue;
     }
 }

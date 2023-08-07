@@ -1,30 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Item;
 /* loaded from: classes7.dex */
-public interface p06 {
-    void a();
+public class p06 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ItemData a;
 
-    void b(Canvas canvas);
+    public p06(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        if (item != null) {
+            ItemData itemData = new ItemData();
+            this.a = itemData;
+            itemData.parseProto(item);
+        }
+    }
 
-    void c(ListView listView, Context context, AttributeSet attributeSet);
-
-    void onDraw(Canvas canvas);
-
-    boolean onInterceptTouchEvent(MotionEvent motionEvent);
-
-    void onMeasure(int i, int i2);
-
-    void onSizeChanged(int i, int i2, int i3, int i4);
-
-    boolean onTouchEvent(MotionEvent motionEvent);
-
-    void requestLayout();
-
-    void setAdapter(ListAdapter listAdapter);
+    public ItemData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ItemData) invokeV.objValue;
+    }
 }

@@ -1,27 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class dv7 {
+public class dv7 implements fv7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<fv7> a;
+    public static final fv7 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static cv7 a(hv7 hv7Var, Intent intent) {
+    @Override // com.baidu.tieba.fv7
+    public lm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, hv7Var, intent)) == null) {
-            int intExtra = intent.getIntExtra("transition_type", 0);
-            if (intExtra == 1) {
-                return new iv7(hv7Var, intent);
-            }
-            if (intExtra == 2) {
-                return new bv7(hv7Var, intent);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
             return null;
         }
-        return (cv7) invokeLL.objValue;
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fv7
+    public lm<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fv7
+    public lm<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fv7
+    public void e(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.fv7
+    public void f(@NonNull View view2, @Nullable oba obaVar, @NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, obaVar, bdUniqueId, str, str2, str3, str4, Integer.valueOf(i), onClickListener}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.fv7
+    public lm<?, ?> g(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            return null;
+        }
+        return (lm) invokeLLL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718084, "Lcom/baidu/tieba/dv7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947718084, "Lcom/baidu/tieba/dv7;");
+                return;
+            }
+        }
+        a = new AtomicReference<>(null);
+        b = new dv7();
+    }
+
+    public dv7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static fv7 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            fv7 fv7Var = a.get();
+            if (fv7Var == null) {
+                return b;
+            }
+            return fv7Var;
+        }
+        return (fv7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fv7
+    public View b(@NonNull Context context, @NonNull BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bdUniqueId)) == null) {
+            return new View(context);
+        }
+        return (View) invokeLL.objValue;
     }
 }

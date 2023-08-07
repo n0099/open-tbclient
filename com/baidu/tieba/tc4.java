@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 /* loaded from: classes8.dex */
-public class tc4 extends wc4 {
+public final class tc4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public int c;
-    public int d;
+    public zc4 a;
+    public volatile boolean b;
 
+    @SuppressLint({"MobilebdThread"})
     public tc4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,21 +32,54 @@ public class tc4 extends wc4 {
         }
     }
 
-    @Override // com.baidu.tieba.wc4
-    public JSONObject a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
-                jSONObject.put("net", this.d);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+            return this.b;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public final void c(zc4 zc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zc4Var) == null) {
+            this.a = zc4Var;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        DatagramSocket B;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
+                    zc4 zc4Var = this.a;
+                    if (zc4Var != null && (B = zc4Var.B()) != null) {
+                        B.receive(datagramPacket);
+                    }
+                    zc4 zc4Var2 = this.a;
+                    if (zc4Var2 != null) {
+                        zc4Var2.y(datagramPacket);
+                    }
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                    zc4 zc4Var3 = this.a;
+                    if (zc4Var3 != null) {
+                        zc4Var3.C(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
+                    }
+                }
+            }
+        }
     }
 }

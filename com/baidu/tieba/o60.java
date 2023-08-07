@@ -1,38 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.r60;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class o60 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o60 {
 
-    public static void a(Context context, r60.a aVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
-                if (query != null) {
-                    query.moveToFirst();
-                    int columnIndex = query.getColumnIndex("value");
-                    str = columnIndex > 0 ? query.getString(columnIndex) : null;
-                    query.close();
-                } else {
-                    str = null;
-                }
-                aVar.a(true, str);
-            } catch (Throwable unused) {
-                aVar.a(false, null);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        Response a(Request request) throws IOException;
+
+        @Nullable
+        v60 connection();
+
+        Request request();
     }
+
+    Response a(a aVar) throws IOException;
 }

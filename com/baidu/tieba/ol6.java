@@ -1,21 +1,12 @@
 package com.baidu.tieba;
 
-import android.webkit.CookieManager;
-import android.webkit.WebView;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class ol6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ol6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrefetchManager");
 
-    public static void a(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, webView) == null) {
-            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
-            webView.getSettings().setMixedContentMode(0);
-            CompatibleUtile.getInstance().WebViewNoDataBase(webView.getSettings());
-        }
-    }
+    List<Pair<String, Long>> a(String str);
 }

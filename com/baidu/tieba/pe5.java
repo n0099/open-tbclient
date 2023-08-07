@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pe5 {
+public final class pe5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    @Inject(force = false)
+    public final gk1<ne5> a;
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ek1 b = ek1.b();
+            this.a = b;
+            b.a(new oe5());
+        }
+    }
 
     public pe5() {
         Interceptable interceptable = $ic;
@@ -25,50 +35,29 @@ public class pe5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static pe5 d(JSONObject jSONObject) {
+    public final ge5 a(String schema) {
         InterceptResult invokeL;
+        List<ne5> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            pe5 pe5Var = new pe5();
-            if (jSONObject != null) {
-                pe5Var.a = jSONObject.optString("scene_name");
-                jSONObject.optString("style");
-                pe5Var.b = jSONObject.optString("title");
-                pe5Var.c = jSONObject.optString("text");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schema)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            gk1<ne5> gk1Var = this.a;
+            if (gk1Var != null && (list = gk1Var.getList()) != null) {
+                for (ne5 ne5Var : list) {
+                    ge5 a = ne5Var.a(schema);
+                    if (a.b()) {
+                        return a;
+                    }
+                }
             }
-            return pe5Var;
+            return new ge5();
         }
-        return (pe5) invokeL.objValue;
+        return (ge5) invokeL.objValue;
     }
 }

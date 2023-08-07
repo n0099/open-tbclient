@@ -1,41 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.jp3;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class ko3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static File a() {
-        InterceptResult invokeV;
+    public static void a(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            List<jp3.a> d = nw2.d();
-            if (d != null && d.size() > 0) {
-                File file = new File(d.get(0).a, "/debug/");
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                return file;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, file) != null) || !file.exists()) {
+            return;
         }
-        return (File) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(nw2.d().get(0).a, "/debug/").getAbsolutePath();
+        Intent intent = new Intent();
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        intent.setAction("android.intent.action.SEND");
+        intent.setTypeAndNormalize(so3.s(file));
+        if (Build.VERSION.SDK_INT >= 24) {
+            intent.putExtra("android.intent.extra.STREAM", vo3.a(context, file));
+            intent.addFlags(1);
+        } else {
+            intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
         }
-        return (String) invokeV.objValue;
+        context.startActivity(intent);
     }
 }

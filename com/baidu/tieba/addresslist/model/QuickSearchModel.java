@@ -3,11 +3,11 @@ package com.baidu.tieba.addresslist.model;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
-import com.baidu.tieba.kg5;
-import com.baidu.tieba.l86;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.s56;
+import com.baidu.tieba.we5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.List;
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l86 a;
+    public s56 a;
     public byte[] b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,18 +54,18 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = new byte[0];
-        this.a = l86.d();
+        this.a = s56.d();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<kg5> V(String str) {
+    public List<we5> N(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -74,27 +74,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<kg5> c = this.a.c();
+                List<we5> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (kg5 kg5Var : c) {
-                    String e = kg5Var.e();
-                    String c2 = kg5Var.c();
+                for (we5 we5Var : c) {
+                    String e = we5Var.e();
+                    String c2 = we5Var.c();
                     if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(kg5Var);
+                        arrayList.add(we5Var);
                     } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(kg5Var);
+                        arrayList.add(we5Var);
                     }
                 }
-                for (kg5 kg5Var2 : c) {
-                    String e2 = kg5Var2.e();
-                    String c3 = kg5Var2.c();
-                    if (!arrayList.contains(kg5Var2)) {
+                for (we5 we5Var2 : c) {
+                    String e2 = we5Var2.e();
+                    String c3 = we5Var2.c();
+                    if (!arrayList.contains(we5Var2)) {
                         if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(kg5Var2);
+                            arrayList.add(we5Var2);
                         } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(kg5Var2);
+                            arrayList.add(we5Var2);
                         }
                     }
                 }

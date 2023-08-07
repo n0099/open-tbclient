@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.py8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.lw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +101,7 @@ public class LabelItemView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fa, (ViewGroup) this, false);
+            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fd, (ViewGroup) this, false);
         }
         return (TextView) invokeV.objValue;
     }
@@ -116,7 +116,7 @@ public class LabelItemView extends LinearLayout {
             paint.setStyle(Paint.Style.STROKE);
             this.d.setColor(SkinManager.getColor(R.color.CAM_X0204));
             this.d.setStrokeWidth(1.0f);
-            this.c = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070233);
+            this.c = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070233);
             for (int i = 0; i < 3; i++) {
                 addView(a());
             }
@@ -141,7 +141,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<py8> list, boolean z) {
+    public void setData(List<lw8> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -155,19 +155,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            py8 py8Var = list.get(i2);
-            if (py8Var != null && (getChildAt(i2) instanceof TextView)) {
+            lw8 lw8Var = list.get(i2);
+            if (lw8Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = py8Var.b;
-                if (!StringUtils.isNull(str) && py8Var.b.length() > 4) {
-                    str = py8Var.b.substring(0, 3) + "...";
+                String str = lw8Var.b;
+                if (!StringUtils.isNull(str) && lw8Var.b.length() > 4) {
+                    str = lw8Var.b.substring(0, 3) + "...";
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(py8Var.c);
-                textView.setTag(py8Var);
+                textView.setSelected(lw8Var.c);
+                textView.setTag(lw8Var);
             }
             i2++;
         }

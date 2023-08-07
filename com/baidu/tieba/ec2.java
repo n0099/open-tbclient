@@ -1,58 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class ec2<T> extends Handler {
+public class ec2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(@NonNull T t);
-
-    public abstract void b(@NonNull T t);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ec2(Looper looper) {
-        super(looper);
+    public static synchronized dc2 a(@NonNull String str) {
+        InterceptResult invokeL;
+        dc2 ic2Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.ec2<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            int i = message.what;
-            if (i != 1) {
-                if (i == 2) {
-                    b(message.obj);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            synchronized (ec2.class) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case 48:
+                        if (str.equals("0")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 49:
+                        if (str.equals("1")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 50:
+                        if (str.equals("2")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 51:
+                        if (str.equals("3")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 52:
+                        if (str.equals("4")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
                 }
-                return;
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c != 4) {
+                                    ic2Var = new cc2();
+                                } else {
+                                    ic2Var = new gc2();
+                                }
+                            } else {
+                                ic2Var = new fc2();
+                            }
+                        } else {
+                            ic2Var = new hc2();
+                        }
+                    } else {
+                        ic2Var = new bc2();
+                    }
+                } else {
+                    ic2Var = new ic2();
+                }
             }
-            a(message.obj);
+            return ic2Var;
         }
+        return (dc2) invokeL.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public TextView eA;
     public String eB;
@@ -77,7 +77,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         if (view2 == this.eA) {
-            com.kwad.components.core.c.a.a.a(new a.C0646a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(1).a(new a.b() { // from class: com.kwad.components.ad.fullscreen.b.kwai.b.2
+            com.kwad.components.core.c.a.a.a(new a.C0647a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(1).a(new a.b() { // from class: com.kwad.components.ad.fullscreen.b.kwai.b.2
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     b.this.notifyAdClick();
@@ -89,7 +89,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.eA = (TextView) findViewById(R.id.obfuscated_res_0x7f09128b);
+        this.eA = (TextView) findViewById(R.id.obfuscated_res_0x7f09129e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

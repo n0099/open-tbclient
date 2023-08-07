@@ -203,7 +203,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         registerListener(this.e);
     }
 
-    public void b0(int i) {
+    public void T(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i < 0) {
             return;
@@ -213,7 +213,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void a0(int i, d dVar) {
+    public void S(int i, d dVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIL(1048576, this, i, dVar) != null) || i < 0) {
             return;
@@ -224,7 +224,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         this.a = dVar;
     }
 
-    public void c0(int i, e eVar) {
+    public void U(int i, e eVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, eVar) != null) || i < 0) {
             return;

@@ -1,133 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.text.TextUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fd3 extends sd3 {
+public class fd3 extends cd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String e;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.cd3
+    public boolean j(ya3 ya3Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ya3Var, unitedSchemeEntity)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760244, "Lcom/baidu/tieba/fd3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947760244, "Lcom/baidu/tieba/fd3;");
+                return;
+            }
+        }
+        e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+        f = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fd3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/openApp4Ad");
+    public fd3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/getFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((vb3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public static ResolveInfo j(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.cd3
+    public void k(ya3 ya3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ya3Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONArray jSONArray = new JSONArray();
+            List<SwanFavorItemData> i = SwanFavorDataManager.h().i();
+            if (i.size() > 0) {
+                for (SwanFavorItemData swanFavorItemData : i) {
+                    jSONArray.put(p(swanFavorItemData));
+                }
             }
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                return null;
-            }
-            return queryIntentActivities.iterator().next();
-        }
-        return (ResolveInfo) invokeLL.objValue;
-    }
-
-    public static void k(Context context, ResolveInfo resolveInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) && context != null && resolveInfo != null) {
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            ActivityInfo activityInfo = resolveInfo.activityInfo;
-            intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            JSONObject jSONObject = new JSONObject();
             try {
-                cv2.a().b(context, intent, ub3.K().q().O(), null, resolveInfo.activityInfo.packageName);
-            } catch (Exception e) {
-                if (sd3.b) {
-                    e.printStackTrace();
-                }
+                jSONObject.put("favors", jSONArray);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public final JSONObject p(SwanFavorItemData swanFavorItemData) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            JSONObject a = sd3.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-                v82.i("OpenAdAppAction", "params parse error");
-                return false;
-            } else if (!cv2.a().d()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
-                v82.i("OpenAdAppAction", "Host denied");
-                return false;
-            } else {
-                String optString = a.optString("name");
-                String optString2 = a.optString("url");
-                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
-                    v82.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanFavorItemData)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("appid", swanFavorItemData.getAppKey());
+                jSONObject.put("type", swanFavorItemData.getAppType());
+                jSONObject.put(GameAssistConstKt.KEY_ICONURL, swanFavorItemData.getIconUrl());
+                jSONObject.put("title", swanFavorItemData.getAppName());
+                jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
+                jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
+                if (swanFavorItemData.getAppFrameType() == 1) {
+                    str = String.format(f, swanFavorItemData.getAppKey());
+                } else {
+                    str = e + swanFavorItemData.getAppKey() + "\"}";
                 }
-                if (!TextUtils.isEmpty(optString2)) {
-                    if (pp3.W(context, optString2)) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
-                    v82.i("OpenAdAppAction", "deeplink launch failed");
-                }
-                if (!TextUtils.isEmpty(optString)) {
-                    ResolveInfo j = j(context, optString);
-                    if (j != null) {
-                        k(context, j);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
-                    v82.i("OpenAdAppAction", "app not installed");
-                }
-                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
-                    v82.i("OpenAdAppAction", "launch failed");
-                }
-                return false;
+                jSONObject.put("scheme", str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
+            return jSONObject;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

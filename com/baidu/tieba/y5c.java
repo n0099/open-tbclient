@@ -1,34 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.u1c;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes8.dex */
-public abstract class y5c<T> extends u1c<T> {
+public final class y5c implements e1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SequentialSubscription a;
 
-    public abstract void P(i2c<? super b2c> i2cVar);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y5c(u1c.a<T> aVar) {
-        super(aVar);
+    public y5c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((u1c.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        this.a = new SequentialSubscription();
+    }
+
+    @Override // com.baidu.tieba.e1c
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.e1c
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
+        }
+    }
+
+    public void a(e1c e1cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, e1cVar) == null) {
+            if (e1cVar != null) {
+                this.a.replace(e1cVar);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 }

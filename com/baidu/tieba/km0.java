@@ -1,36 +1,58 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.huawei.hms.framework.network.grs.GrsBaseInfo;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class km0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public im0 k;
-    public String l;
-    public WeakReference<Context> m;
-    public Long n;
-    public String o;
-    public boolean p;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onResult(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final km0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-656797476, "Lcom/baidu/tieba/km0$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-656797476, "Lcom/baidu/tieba/km0$c;");
+                    return;
+                }
+            }
+            a = new km0(null);
+        }
+    }
 
     public km0() {
         Interceptable interceptable = $ic;
@@ -42,61 +64,130 @@ public class km0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.n = -1L;
-        this.p = false;
     }
 
-    @NonNull
-    public static km0 a(String str) {
-        InterceptResult invokeL;
+    public static km0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = y31.c(str);
-            km0 km0Var = new km0();
-            km0Var.a = c.optString("als_ext");
-            km0Var.b = c.optString("cmd");
-            km0Var.c = c.optString("defer_cmd");
-            km0Var.d = c.optString("init_text");
-            km0Var.e = c.optString("opt_icon");
-            km0Var.f = c.optString("opt_text");
-            km0Var.g = c.optString("app_icon_url");
-            km0Var.h = c.optString("app_name");
-            km0Var.i = c.optString("version_code");
-            km0Var.j = c.optString(LegoListActivityConfig.AD_ID);
-            km0Var.n = Long.valueOf(c.optLong("schedule_time"));
-            km0Var.o = c.optString("request_url");
-            km0Var.p = c.optBoolean("auto_download");
-            return km0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        return (km0) invokeL.objValue;
+        return (km0) invokeV.objValue;
     }
 
-    public static String b(@NonNull km0 km0Var) {
-        InterceptResult invokeL;
+    public /* synthetic */ km0(a aVar) {
+        this();
+    }
+
+    public final String a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, km0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return String.valueOf(j) + String.valueOf(((int) (Math.random() * 1.0E8d)) << 1);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public boolean c(Context context, HashMap<String, String> hashMap, @Nullable b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap, bVar)) == null) {
+            return d(context, hashMap, bVar);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void e(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.u(ClogBuilder.Page.SCHEDULED_DOWNLOAD);
+            clogBuilder.z(str);
+            clogBuilder.p(str2);
+            clogBuilder.j(str3);
+            q31.e(clogBuilder);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b7, code lost:
+        r14.onResult(false);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean d(Context context, HashMap<String, String> hashMap, @Nullable b bVar) {
+        InterceptResult invokeLLL;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap, bVar)) == null) {
+            String str4 = "";
             try {
-                jSONObject.put("als_ext", km0Var.a);
-                jSONObject.put("cmd", km0Var.b);
-                jSONObject.put("defer_cmd", km0Var.c);
-                jSONObject.put("init_text", km0Var.d);
-                jSONObject.put("opt_icon", km0Var.e);
-                jSONObject.put("opt_text", km0Var.f);
-                jSONObject.put("app_icon_url", km0Var.g);
-                jSONObject.put("app_name", km0Var.h);
-                jSONObject.put("version_code", km0Var.i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, km0Var.j);
-                jSONObject.put("schedule_time", km0Var.n);
-                jSONObject.put("request_url", km0Var.o);
-                jSONObject.put("auto_download", km0Var.p);
-            } catch (JSONException unused) {
+                str = (String) c31.b(hashMap, "pkgName");
+                str2 = (String) c31.b(hashMap, "channelId");
+                str3 = (String) c31.b(hashMap, "extraParams");
+            } catch (Exception unused) {
             }
-            return jSONObject.toString();
+            try {
+                String str5 = (String) c31.b(hashMap, "scheduledTime");
+                String str6 = (String) c31.b(hashMap, "requestUrl");
+                String str7 = (String) c31.b(hashMap, "business");
+                String str8 = (String) c31.b(hashMap, "source");
+                String str9 = (String) c31.b(hashMap, "convertUrl");
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
+                    lm0 lm0Var = new lm0(str, str2, Long.valueOf(Long.parseLong(str5)), str3, str6);
+                    if (!TextUtils.isEmpty(str7)) {
+                        lm0Var.g = str7;
+                    }
+                    if (!TextUtils.isEmpty(str8)) {
+                        lm0Var.h = str8;
+                    }
+                    jm0.b().a(lm0Var);
+                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str3, GrsBaseInfo.CountryCodeSource.APP);
+                    if (!TextUtils.isEmpty(str9)) {
+                        f(str9);
+                    }
+                    im0.d().e(lm0Var.b, lm0Var.c, context);
+                    if (bVar != null) {
+                        bVar.onResult(true);
+                    }
+                    return true;
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str3, "PARAMS_ERROR");
+                }
+                return false;
+            } catch (Exception unused2) {
+                str4 = str3;
+                if (bVar != null) {
+                    bVar.onResult(false);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    e(ClogBuilder.LogType.SCHEDULED_DOWNLOAD_SUCCESS.type, str4, "FORMAT_ERROR");
+                }
+                return false;
+            }
         }
-        return (String) invokeL.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public final void f(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        String replace = str.replace("__PVID__", a(currentTimeMillis)).replace("__MICRO_TIME__", String.valueOf(currentTimeMillis)).replace("__TIME_STAMP__", String.valueOf(currentTimeMillis / 1000));
+        nt0 nt0Var = new nt0();
+        nt0Var.l(replace);
+        nt0Var.a("Content-Type", "application/json");
+        nt0Var.a("Origin", "feedScheduledDownload");
+        nt0Var.j(10000);
+        nt0Var.g(10000);
+        nt0Var.c();
+        us0.b().a().a(nt0Var, null);
     }
 }

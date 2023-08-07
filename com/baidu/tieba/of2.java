@@ -1,158 +1,336 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ru2;
-import com.baidu.tieba.uu2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tieba.qf2;
+import com.baidu.tieba.tf2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
 import java.io.File;
-import java.util.List;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class of2 {
+public class of2 extends mf2 implements hf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ef2 b;
+    public bf2 c;
+    public File d;
+    public b e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948030254, "Lcom/baidu/tieba/of2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onError(String str, int i, String str2);
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements qf2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public bf2 a;
+        public String b;
+
+        /* loaded from: classes7.dex */
+        public class a implements cf2 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ File a;
+
+            public a(c cVar, File file) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, file};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = file;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948030254, "Lcom/baidu/tieba/of2;");
+
+            @Override // com.baidu.tieba.cf2
+            public void onFinished() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    cr4.L(this.a);
+                }
+            }
+        }
+
+        public c(of2 of2Var, bf2 bf2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {of2Var, bf2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bf2Var;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.qf2.a
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                try {
+                    this.a.a(this.b, file, new a(this, file));
+                } catch (Exception e) {
+                    if (hf2.a) {
+                        Log.d("HybridIntercept", Log.getStackTraceString(e));
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qf2.a
+        public void b(File file) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && hf2.a) {
+                Log.e("HybridIntercept", "writer file fail, file = " + file);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ of2 d;
+
+        public a(of2 of2Var, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {of2Var, str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = of2Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.e.onError(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public of2(@NonNull Context context, bf2 bf2Var) {
+        super(context, bf2Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bf2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (bf2) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return e(str, "swan_sub_package_zip");
+        this.b = df2.a().f();
+        this.d = new File(df2.a().b(), "image_temp");
+        this.c = bf2Var;
+        if (bf2Var == null) {
+            h(context);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
+    @Override // com.baidu.tieba.tf2
+    public WebResourceResponse a(@NonNull tf2.a aVar) {
         InterceptResult invokeL;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return e(str, "swan_sub_package_zip");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(List<vk4> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!i(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
             }
-            return list.get(0).r;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return a(ru2.e.i(str, str2).getPath());
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            File a2 = dv2.g().a(str, str2);
-            if (a2 != null) {
-                return c(a2.getPath());
+            String f = f(d);
+            InputStream inputStream = null;
+            bf2 bf2Var = this.c;
+            if (bf2Var != null && !bf2Var.isClosed()) {
+                inputStream = this.c.get(f);
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str, str2);
-                if (file.exists()) {
-                    return file.getPath();
+            if (inputStream != null) {
+                if (hf2.a) {
+                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
                 }
-                if (file.mkdirs()) {
-                    return file.getPath();
-                }
+                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean g(vk4 vk4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, vk4Var)) == null) {
-            if (vk4Var != null && !TextUtils.isEmpty(vk4Var.o)) {
-                return h(new File(vk4Var.a), new File(ru2.e.i(vk4Var.o, String.valueOf(vk4Var.i)).getPath(), vk4Var.p));
+            nf2 a2 = rf2.a(f, g(aVar));
+            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
+                d(f, i, a2.b);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(File file, File file2) {
-        InterceptResult invokeLL;
-        boolean U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
-            if (file != null && file2 != null) {
-                if (!file.exists()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
-                    }
-                    return false;
-                } else if (!file2.exists() && !file2.mkdirs()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
-                    }
-                    return false;
+            WebResourceResponse c2 = c(a2);
+            if (c2 != null && c2.getData() != null) {
+                c2.setData(new sf2(c2.getData(), new qf2(new File(this.d, df2.a().d().a(f)), new c(this, this.c, f))));
+            }
+            if (hf2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("download image, response = ");
+                if (c2 != null) {
+                    z = true;
                 } else {
-                    uu2.c j = uu2.j(file);
-                    int i = j.b;
-                    if (i != -1) {
-                        U = uu2.d(j.a, file2, i).a;
-                    } else {
-                        U = zr4.U(file.getAbsolutePath(), file2.getAbsolutePath());
-                    }
-                    if (U) {
-                        if (a) {
-                            Log.i("SubPkgDownloadUtil", "分包解压成功");
-                            return true;
-                        }
-                        return true;
-                    } else if (a) {
-                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
-                    }
+                    z = false;
                 }
+                sb.append(z);
+                sb.append(" ; url = ");
+                sb.append(f);
+                Log.e("HybridIntercept", sb.toString());
+            }
+            return c2;
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final WebResourceResponse c(nf2 nf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nf2Var)) == null) {
+            if (nf2Var == null) {
+                return null;
+            }
+            String str = nf2Var.e;
+            if (str != null && str.toLowerCase().contains(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML)) {
+                nf2Var.e = SapiWebView.DATA_MIME_TYPE;
+                nf2Var.d = "UTF-8";
+            }
+            if (fn3.f()) {
+                return new WebResourceResponse(nf2Var.e, nf2Var.d, nf2Var.a, nf2Var.b, nf2Var.c, nf2Var.f);
+            }
+            return new WebResourceResponse(nf2Var.e, "UTF-8", nf2Var.f);
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("intercept") && str.length() > 9) {
+                str = str.substring(9);
+            }
+            if (hf2.a) {
+                Log.d("HybridIntercept", "remote request url = " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Map<String, String> g(@NonNull tf2.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            Map<String, String> requestHeaders = aVar.getRequestHeaders();
+            if (requestHeaders == null) {
+                requestHeaders = new HashMap<>();
+            }
+            String f = uj3.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
+            if (!TextUtils.isEmpty(f)) {
+                requestHeaders.put("Cookie", f);
+                if (hf2.a) {
+                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
+                }
+            }
+            return requestHeaders;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            File b2 = df2.a().b();
+            String e = e();
+            if (!TextUtils.isEmpty(e)) {
+                b2 = new File(b2, e);
+            }
+            if (hf2.a) {
+                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
+            }
+            cr4.l(b2);
+            this.c = fu2.U().b(context, b2, df2.a().g());
+        }
+    }
+
+    public final void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
+            so3.q().post(new a(this, str, i, str2));
+        }
+    }
+
+    public boolean i(@NonNull tf2.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> requestHeaders;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
+            if (!aVar.c()) {
+                return true;
+            }
+            if (this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image")) {
+                return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

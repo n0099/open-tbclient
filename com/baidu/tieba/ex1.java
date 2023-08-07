@@ -1,37 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.baidu.tieba.fx1;
 /* loaded from: classes5.dex */
-public interface ex1 {
-    void a(sc3 sc3Var);
+public interface ex1<T extends fx1> extends gx1<T>, nw1 {
+    void B(int i);
 
-    /* loaded from: classes5.dex */
-    public static class a implements ex1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    boolean H();
 
-        @Override // com.baidu.tieba.ex1
-        public void a(sc3 sc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) {
-            }
-        }
+    boolean I();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void J(ph2 ph2Var);
+
+    px1 M();
+
+    void N(FrameLayout frameLayout, nb3 nb3Var);
+
+    int P();
+
+    void Q(String str);
+
+    void R();
+
+    boolean U(we3 we3Var);
+
+    boolean V(we3 we3Var);
+
+    void W(mc2 mc2Var);
+
+    void X(nc2 nc2Var);
+
+    @Nullable
+    o72 a0();
+
+    boolean c();
+
+    int e0();
+
+    PullToRefreshBaseWebView f0();
+
+    void g(y03 y03Var);
+
+    boolean g0();
+
+    @Nullable
+    String h0();
+
+    void i(ViewGroup viewGroup, View view2);
+
+    hx1 j();
+
+    String l();
+
+    boolean q(int i);
+
+    void u(String str);
+
+    boolean x(we3 we3Var);
+
+    void y(FrameLayout frameLayout, nb3 nb3Var);
 }

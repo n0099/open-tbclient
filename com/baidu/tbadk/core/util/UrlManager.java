@@ -10,21 +10,21 @@ import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.MessageTask;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.dg5;
-import com.baidu.tieba.f36;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.o06;
+import com.baidu.tieba.pe5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.uf5;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,10 +178,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (yi.F()) {
+            if (BdUtilHelper.isMainThread()) {
                 addListenerInner(urlDealListener);
             } else {
-                zg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                SafeHandler.getInst().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;
@@ -292,7 +292,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new f36(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new o06(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -549,14 +549,14 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            uf5 a = new dg5().a(str2);
+            ge5 a = new pe5().a(str2);
             if (a.b() && StringUtils.isNotNull(a.a())) {
                 str2 = a.a();
                 strArr[0] = str2;
             }
             String str3 = str2;
-            h29 activityLog = ActivityLog.getInstance();
-            activityLog.c("scheme", "dealOneLinkWithDialog:" + str3);
+            TbLog activityLog = ActivityLog.getInstance();
+            activityLog.i("scheme", "dealOneLinkWithDialog:" + str3);
             if (str3.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
                     Uri parse = Uri.parse(str3);
@@ -570,7 +570,7 @@ public class UrlManager {
                         }
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (s05.c().contains("-Flutter") && findTask == null) {
+                    if (GlobalBuildConfig.getTiebaNpsPluginMode().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }
@@ -647,8 +647,8 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            h29 activityLog = ActivityLog.getInstance();
-            activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
+            TbLog activityLog = ActivityLog.getInstance();
+            activityLog.i("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {
                 urlSchemaHandler.deal(tbPageContext, getInnerParamPair(getParamStrBehindScheme(str)));

@@ -1,37 +1,32 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.webkit.WebView;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ki6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<ln> c;
-    public AlaEnterEffectAdapter d;
-    public AlaEnterEffectCategoryAdapter e;
-    public List<yn> f;
+    public ArrayList<hca> a;
 
-    public ki6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public ki6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,91 +36,137 @@ public class ki6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
+        this.a = new ArrayList<>();
     }
 
-    public void d(String str, int i) {
-        List<yn> list;
+    public void a(hca hcaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
-            for (yn ynVar : list) {
-                if (ynVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
-                        alaEnterEffectData.downLoadStatus = i;
-                        b();
+        if (interceptable == null || interceptable.invokeL(1048576, this, hcaVar) == null) {
+            this.a.add(hcaVar);
+        }
+    }
+
+    public void g(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty()) {
+            Iterator<hca> it = this.a.iterator();
+            while (it.hasNext()) {
+                hca next = it.next();
+                next.removeObserverBridge(list);
+                next.onDestroy();
+            }
+        }
+    }
+
+    public void b(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("JsBridge", "H5通知callJsDispatchEvent params:" + str);
+            if (webView != null && !TextUtils.isEmpty(str)) {
+                webView.evaluateJavascript("javascript:var eventType = 'naNotify';var setEvent = new Event(eventType);setEvent.detail = " + str + ParamableElem.DIVIDE_PARAM + "document.dispatchEvent(setEvent);", null);
+            }
+        }
+    }
+
+    public boolean f(WebView webView, List<jca> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, list)) == null) {
+            if (webView == null || ListUtils.isEmpty(list)) {
+                return false;
+            }
+            while (true) {
+                boolean z = false;
+                for (jca jcaVar : list) {
+                    if (jcaVar != null && jcaVar.k()) {
+                        if (c(webView, jcaVar.c(), jcaVar.d()) || z) {
+                            z = true;
+                        }
                     }
                 }
+                return z;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public void e(String str, boolean z) {
-        List<yn> list;
+    public final boolean c(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
-            for (yn ynVar : list) {
-                if (ynVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                    if (str.equals(alaEnterEffectData.id)) {
-                        alaEnterEffectData.isOwn = z;
-                        b();
-                        return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("JsBridge", "端能力返回H5：callJsMethod methodName:" + str + " param:" + str2 + " " + webView);
+            if (webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public jca d(WebView webView, lca lcaVar, jca jcaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, lcaVar, jcaVar)) == null) {
+            if (jcaVar == null) {
+                jcaVar = new jca();
+            }
+            if ("notification".equals(lcaVar.c()) && "addObserver".equals(lcaVar.a())) {
+                Iterator<hca> it = this.a.iterator();
+                while (it.hasNext()) {
+                    jcaVar = it.next().addObserver(webView, lcaVar.d(), jcaVar, true);
+                    if (jcaVar.j()) {
+                        return jcaVar;
                     }
                 }
-            }
-        }
-    }
-
-    public void f(String str, boolean z) {
-        List<yn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
-            for (yn ynVar : list) {
-                if (ynVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) ynVar;
-                    if (str.equals(alaEnterEffectData.id)) {
-                        alaEnterEffectData.use_status = z ? 1 : 0;
-                    } else {
-                        alaEnterEffectData.use_status = 0;
+                if (!jcaVar.j()) {
+                    jcaVar.z(202);
+                    jcaVar.v(ek6.getContext().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                Iterator<hca> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    jcaVar = it2.next().dispatch(webView, lcaVar, jcaVar);
+                    if (jcaVar.i()) {
+                        return jcaVar;
                     }
-                    b();
+                }
+                if (!jcaVar.i()) {
+                    jcaVar.z(202);
                 }
             }
+            return jcaVar;
         }
+        return (jca) invokeLLL.objValue;
     }
 
-    public final void a() {
+    public void e(WebView webView, jca jcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new ArrayList();
-            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
-            this.d = alaEnterEffectAdapter;
-            this.c.add(alaEnterEffectAdapter);
-            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
-            this.e = alaEnterEffectCategoryAdapter;
-            this.c.add(alaEnterEffectCategoryAdapter);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (ln lnVar : this.c) {
-                lnVar.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void c(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, webView, jcaVar) != null) || webView == null || jcaVar == null || !jcaVar.k()) {
             return;
         }
-        this.b.setData(list);
-        this.f = this.b.getData();
+        c(webView, jcaVar.c(), jcaVar.d());
+    }
+
+    public List<jca> h(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, webView, str, hashMap)) == null) {
+            List<jca> list = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Iterator<hca> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

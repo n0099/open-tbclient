@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.xq7;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.fo7;
+import com.baidu.tieba.l9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -144,8 +144,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !xi.isEmpty(this.a.d) && (r9.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) r9.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !bi.isEmpty(this.a.d) && (l9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(xq7 xq7Var) {
+    public void setData(fo7 fo7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xq7Var) == null) {
-            this.a.setText(xq7Var.a);
-            this.b.setText(xq7Var.b);
-            this.d = xq7Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo7Var) == null) {
+            this.a.setText(fo7Var.a);
+            this.b.setText(fo7Var.b);
+            this.d = fo7Var.c;
         }
     }
 
@@ -244,10 +244,10 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             if (e == null) {
                 e = getContext().getString(R.string.limited_company);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d045b, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091881);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092856);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0908e6);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d045e, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091895);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092870);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0908f5);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -255,15 +255,11 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d85.d(this.a).x(R.color.CAM_X0108);
-            if (xi.isEmpty(this.d)) {
-                d85 d = d85.d(this.b);
-                d.z(R.dimen.M_T_X002);
-                d.x(R.color.CAM_X0105);
+            EMManager.from(this.a).setTextColor(R.color.CAM_X0108);
+            if (bi.isEmpty(this.d)) {
+                EMManager.from(this.b).setTextLinePadding(R.dimen.M_T_X002).setTextColor(R.color.CAM_X0105);
             } else {
-                d85 d2 = d85.d(this.b);
-                d2.z(R.dimen.M_T_X002);
-                d2.x(R.color.CAM_X0304);
+                EMManager.from(this.b).setTextLinePadding(R.dimen.M_T_X002).setTextColor(R.color.CAM_X0304);
             }
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
         }

@@ -1,47 +1,164 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.searchbox.download.model.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import okhttp3.Headers;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.WeakHashMap;
 /* loaded from: classes8.dex */
-public class ws<T> extends xs {
+public class ws<K, V> implements Iterable<Map.Entry<K, V>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public String d;
-    public ResponseCallback<T> e;
-    public int f;
+    public c<K, V> a;
+    public c<K, V> b;
+    public WeakHashMap<Object<K, V>, Boolean> c;
+    public int d;
 
-    @Override // com.baidu.tieba.xs
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public class a extends ResponseCallback<String> {
+    public static class b<K, V> extends e<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public final /* synthetic */ ws b;
 
-        public a(ws wsVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(c<K, V> cVar, c<K, V> cVar2) {
+            super(cVar, cVar2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, cVar2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((c) objArr2[0], (c) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ws.e
+        public c<K, V> a(c<K, V> cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                return cVar.c;
+            }
+            return (c) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c<K, V> implements Map.Entry<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final K a;
+        public final V b;
+        public c<K, V> c;
+
+        public c(K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k, v};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k;
+            this.b = v;
+        }
+
+        @Override // java.util.Map.Entry
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (obj == this) {
+                    return true;
+                }
+                if (!(obj instanceof c)) {
+                    return false;
+                }
+                c cVar = (c) obj;
+                if (this.a.equals(cVar.a) && this.b.equals(cVar.b)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public K getKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (K) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public V getValue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.b;
+            }
+            return (V) invokeV.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a + "=" + this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public V setValue(V v) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v)) == null) {
+                throw new UnsupportedOperationException("An entry modification is not supported");
+            }
+            return (V) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements Object<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c<K, V> a;
+        public boolean b;
+        public final /* synthetic */ ws c;
+
+        public d(ws wsVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,97 +173,123 @@ public class ws<T> extends xs {
                     return;
                 }
             }
-            this.b = wsVar;
+            this.c = wsVar;
+            this.b = true;
+        }
+
+        public /* synthetic */ d(ws wsVar, a aVar) {
+            this(wsVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        public Map.Entry<K, V> next() {
+            InterceptResult invokeV;
+            c<K, V> cVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, response, i)) == null) {
-                Headers headers = response.headers();
-                if (headers != null && TextUtils.equals(headers.get("Bdtls"), Constants.RECOVERY_DIRECTORY)) {
-                    at.b().i().b(0);
-                    return Constants.RECOVERY_DIRECTORY;
-                }
-                ws wsVar = this.b;
-                if (wsVar.a) {
-                    ResponseBody body = response.body();
-                    String g = this.b.g(body.bytes());
-                    DebugTrace debugTrace = DebugTrace.a;
-                    debugTrace.a("BdtlsPostRequest parseResponse=" + g);
-                    if (this.b.b == 1) {
-                        Buffer buffer = new Buffer();
-                        buffer.writeString(g, Charset.forName("utf-8"));
-                        Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                        if (this.b.e != null) {
-                            this.a = (T) this.b.e.parseResponse(build, i);
-                        }
-                    }
-                    return g;
-                } else if (wsVar.e != null) {
-                    this.a = (T) this.b.e.parseResponse(response, i);
-                    return "";
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b) {
+                    this.b = false;
+                    this.a = this.c.a;
                 } else {
-                    return "";
+                    c<K, V> cVar2 = this.a;
+                    if (cVar2 != null) {
+                        cVar = cVar2.c;
+                    } else {
+                        cVar = null;
+                    }
+                    this.a = cVar;
                 }
+                return this.a;
             }
-            return (String) invokeLI.objValue;
+            return (Map.Entry) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public void onSuccess(String str, int i) {
+        public boolean hasNext() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("BdtlsPostRequest onSuccess=" + str);
-                if (TextUtils.equals(str, Constants.RECOVERY_DIRECTORY)) {
-                    if (at.b().i().m()) {
-                        at.b().i().f();
-                        this.b.e(true);
-                        this.b.k();
-                        return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.b) {
+                    if (this.c.a != null) {
+                        return true;
                     }
-                    this.b.e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                    return false;
+                }
+                c<K, V> cVar = this.a;
+                if (cVar != null && cVar.c != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static abstract class e<K, V> implements Object<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c<K, V> a;
+        public c<K, V> b;
+
+        public abstract c<K, V> a(c<K, V> cVar);
+
+        public e(c<K, V> cVar, c<K, V> cVar2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, cVar2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                at.b().i().n();
-                ws wsVar = this.b;
-                if (wsVar.a) {
-                    if (wsVar.b == 1) {
-                        if (wsVar.e != null) {
-                            this.b.e.onSuccess(this.a, i);
-                        }
-                        this.b.f = 0;
-                    } else if (ws.m(wsVar) >= 3) {
-                        ResponseCallback responseCallback = this.b.e;
-                        responseCallback.onFail(new IOException("request fail : " + this.a));
-                        this.b.f = 0;
-                    } else {
-                        ws wsVar2 = this.b;
-                        wsVar2.j(wsVar2.c, this.b.d, this.b.e);
-                    }
-                } else if (wsVar.e != null) {
-                    this.b.e.onSuccess(this.a, i);
-                    this.b.f = 0;
-                }
             }
+            this.a = cVar2;
+            this.b = cVar;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* renamed from: b */
+        public Map.Entry<K, V> next() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("BdtlsPostRequest onFail=" + exc.getMessage());
-                if (this.b.e != null) {
-                    this.b.e.onFail(exc);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                c<K, V> cVar = this.b;
+                this.b = c();
+                return cVar;
             }
+            return (Map.Entry) invokeV.objValue;
+        }
+
+        public final c<K, V> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                c<K, V> cVar = this.b;
+                c<K, V> cVar2 = this.a;
+                if (cVar != cVar2 && cVar2 != null) {
+                    return a(cVar);
+                }
+                return null;
+            }
+            return (c) invokeV.objValue;
+        }
+
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.b != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -163,75 +306,135 @@ public class ws<T> extends xs {
                 return;
             }
         }
-        this.c = null;
-        this.d = null;
-        this.e = null;
+        this.c = new WeakHashMap<>();
+        this.d = 0;
     }
 
-    public final void k() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            j(this.c, this.d, this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return invokeV.intValue;
     }
 
-    public static /* synthetic */ int m(ws wsVar) {
-        int i = wsVar.f;
-        wsVar.f = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.xs
-    public void c(IOException iOException) {
-        ResponseCallback<T> responseCallback;
+    public ws<K, V>.d f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, iOException) == null) && (responseCallback = this.e) != null) {
-            responseCallback.onFail(iOException);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ws<K, V>.d dVar = new d(this, null);
+            this.c.put(dVar, Boolean.FALSE);
+            return dVar;
         }
+        return (d) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xs
-    public void b(int i) {
+    @Override // java.lang.Iterable
+    public Iterator<Map.Entry<K, V>> iterator() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("onRequestError=" + i);
-            ResponseCallback<T> responseCallback = this.e;
-            if (responseCallback != null) {
-                responseCallback.onFail(new Exception("request error  code : " + i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            b bVar = new b(this.a, this.b);
+            this.c.put(bVar, Boolean.FALSE);
+            return bVar;
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public c<K, V> c(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+            c<K, V> cVar = this.a;
+            while (cVar != null && !cVar.a.equals(k)) {
+                cVar = cVar.c;
             }
+            return cVar;
         }
+        return (c) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xs
-    public void f(byte[] bArr) {
+    public V d(K k, V v) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            String str = this.c;
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/json");
-            if (this.a) {
-                hashMap.put("Bdtls", "Bdtls");
-                hashMap.put("Bdtls-Content-Type", "json");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
+            c<K, V> c2 = c(k);
+            if (c2 != null) {
+                return c2.b;
             }
-            DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("BdtlsPostRequest url=" + str);
-            HttpManager.getDefault(es.c.h().getAppContext()).postByteRequest().mediaType("application/json").url(str).cookieManager(CookieManager.WEBKIT_COOKIES).headers(hashMap).content(bArr).build().executeAsync(new a(this));
+            e(k, v);
+            return null;
         }
+        return (V) invokeLL.objValue;
     }
 
-    public void j(String str, String str2, ResponseCallback<T> responseCallback) {
+    public c<K, V> e(K k, V v) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048580, this, str, str2, responseCallback) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
+            c<K, V> cVar = new c<>(k, v);
+            this.d++;
+            c<K, V> cVar2 = this.b;
+            if (cVar2 == null) {
+                this.a = cVar;
+                this.b = cVar;
+                return cVar;
+            }
+            cVar2.c = cVar;
+            this.b = cVar;
+            return cVar;
         }
-        this.c = str;
-        this.d = str2;
-        this.e = responseCallback;
-        DebugTrace debugTrace = DebugTrace.a;
-        debugTrace.a("requestPost url=" + str);
-        DebugTrace debugTrace2 = DebugTrace.a;
-        debugTrace2.a("requestPost body=" + str2);
-        d(this.d);
+        return (c) invokeLL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof ws)) {
+                return false;
+            }
+            ws wsVar = (ws) obj;
+            if (a() != wsVar.a()) {
+                return false;
+            }
+            Iterator<Map.Entry<K, V>> it = iterator();
+            Iterator<Map.Entry<K, V>> it2 = wsVar.iterator();
+            while (it.hasNext() && it2.hasNext()) {
+                Map.Entry<K, V> next = it.next();
+                Map.Entry<K, V> next2 = it2.next();
+                if ((next == null && next2 != null) || (next != null && !next.equals(next2))) {
+                    return false;
+                }
+            }
+            if (!it.hasNext() && !it2.hasNext()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(PreferencesUtil.LEFT_MOUNT);
+            Iterator<Map.Entry<K, V>> it = iterator();
+            while (it.hasNext()) {
+                sb.append(it.next().toString());
+                if (it.hasNext()) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+            }
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

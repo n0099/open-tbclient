@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class zj4 extends vj4<uk4> {
+public class zj4 extends wj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
 
     public zj4() {
         Interceptable interceptable = $ic;
@@ -29,56 +30,24 @@ public class zj4 extends vj4<uk4> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vj4
-    /* renamed from: f */
-    public ContentValues c(uk4 uk4Var) {
-        InterceptResult invokeL;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uk4Var)) == null) {
-            ContentValues a = super.a(uk4Var);
-            a.put("pkg_type", Integer.valueOf(uk4Var.o));
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return System.currentTimeMillis() / 1000;
         }
-        return (ContentValues) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vj4
-    /* renamed from: g */
-    public uk4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                uk4 uk4Var = new uk4();
-                if (b(cursor, uk4Var)) {
-                    return uk4Var;
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (b() - this.d > this.o) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (uk4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vj4
-    public List<uk4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    uk4 uk4Var = new uk4();
-                    if (b(cursor, uk4Var)) {
-                        arrayList.add(uk4Var);
-                    }
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

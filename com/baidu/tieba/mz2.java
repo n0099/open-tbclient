@@ -1,122 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import android.telephony.PhoneStateListener;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mz2 {
+public class mz2 extends PhoneStateListener {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<MediaModel> a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
-        }
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null) {
-                return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947989892, "Lcom/baidu/tieba/mz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return arrayList.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public static ArrayList<MediaModel> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
-                return a.get(0).getType();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947989892, "Lcom/baidu/tieba/mz2;");
+                return;
             }
-            return null;
         }
-        return (String) invokeV.objValue;
+        a = ir1.a;
     }
 
-    public static int c(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        ArrayList<MediaModel> arrayList;
+    public mz2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
-            if (mediaModel == null || (arrayList = a) == null) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                if (mediaModel.equals(a.get(i))) {
-                    return i;
+        }
+    }
+
+    @Override // android.telephony.PhoneStateListener
+    public void onCallStateChanged(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            super.onCallStateChanged(i, str);
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (a) {
+                            Log.e("PhoneStateListener", "invalid state");
+                            return;
+                        }
+                        return;
+                    }
+                    oz2.k().n();
+                    if (a) {
+                        Log.i("PhoneStateListener", "接听");
+                        return;
+                    }
+                    return;
                 }
+                oz2.k().n();
+                if (a) {
+                    Log.i("PhoneStateListener", "响铃:" + str);
+                    return;
+                }
+                return;
             }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean f(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null) {
-                return false;
+            oz2.k().o();
+            if (a) {
+                Log.i("PhoneStateListener", "挂断");
             }
-            return arrayList.contains(mediaModel);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList != null && arrayList.size() != 0) {
-                return a.contains(mediaModel);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
-            arrayList.remove(mediaModel);
-        }
-    }
-
-    public static void i(MediaModel mediaModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
-            return;
-        }
-        if (a == null) {
-            a = new ArrayList<>();
-        }
-        a.add(mediaModel);
     }
 }

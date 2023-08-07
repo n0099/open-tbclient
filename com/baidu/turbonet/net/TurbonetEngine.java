@@ -19,7 +19,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class TurbonetEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "TurbonetEngine";
@@ -55,13 +55,13 @@ public abstract class TurbonetEngine {
 
     public abstract void e(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ICronetEngineBuilder a;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static abstract class LibraryLoader {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public abstract class TurbonetEngine {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class a implements Comparator<CronetProvider> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -272,7 +272,7 @@ public abstract class TurbonetEngine {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AppState {
         public static final /* synthetic */ AppState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -338,7 +338,7 @@ public abstract class TurbonetEngine {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class QUICConnectStatus {
         public static final /* synthetic */ QUICConnectStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -406,7 +406,7 @@ public abstract class TurbonetEngine {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TCPNetworkQualityStatus {
         public static final /* synthetic */ TCPNetworkQualityStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

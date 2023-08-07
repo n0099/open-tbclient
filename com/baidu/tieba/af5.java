@@ -1,71 +1,137 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class af5 extends mu6 {
+public class af5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UpdateAttentionMessage.b a;
+    public b a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(ShareItem shareItem);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ af5 b;
+
+        public a(af5 af5Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {af5Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return (obj instanceof af5) && Intrinsics.areEqual(this.a, ((af5) obj).a);
+            this.b = af5Var;
+            this.a = shareItem;
         }
-        return invokeL.booleanValue;
-    }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AttentionEvent(attentionModel=" + this.a + ')';
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ShareItem doInBackground(ShareItem... shareItemArr) {
+            InterceptResult invokeL;
+            ShareItem shareItem;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItemArr)) == null) {
+                String str = null;
+                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem = shareItemArr[0]) == null) {
+                    return null;
+                }
+                String str2 = shareItem.tid;
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
+                if (shareItem.typeShareToSmallApp == 4) {
+                    netWork.addPostData("forum_id", this.a.fid);
+                    netWork.addPostData("type", "2");
+                } else {
+                    netWork.addPostData("thread_id", str2);
+                    netWork.addPostData("type", "3");
+                }
+                String postNetData = netWork.postNetData();
+                if (bi.isEmpty(postNetData)) {
+                    return shareItem;
+                }
+                try {
+                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                if (!TextUtils.isEmpty(str) && shareItem.typeShareToSmallApp != 4) {
+                    shareItem.smartAppShareImageUrl = str;
+                    shareItem.imageUri = Uri.parse(str);
+                }
+                return shareItem;
+            }
+            return (ShareItem) invokeL.objValue;
         }
-        return (String) invokeV.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
+                super.onPostExecute(shareItem);
+                if (this.b.a != null) {
+                    this.b.a.a(shareItem);
+                }
+            }
+        }
     }
 
-    public af5(UpdateAttentionMessage.b attentionModel) {
+    public af5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {attentionModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(attentionModel, "attentionModel");
-        this.a = attentionModel;
     }
 
-    public final UpdateAttentionMessage.b a() {
-        InterceptResult invokeV;
+    public void b(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
+            new a(this, shareItem).execute(shareItem);
         }
-        return (UpdateAttentionMessage.b) invokeV.objValue;
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.a = bVar;
+        }
     }
 }

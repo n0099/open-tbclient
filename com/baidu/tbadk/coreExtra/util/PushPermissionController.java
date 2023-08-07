@@ -14,15 +14,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah5;
-import com.baidu.tieba.bx9;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.pf5;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.iz4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.vg5;
+import com.baidu.tieba.tv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,14 +77,14 @@ public class PushPermissionController {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements e05 {
+    public class b implements iz4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
         public final /* synthetic */ boolean b;
         public final /* synthetic */ PushPermissionController c;
 
-        @Override // com.baidu.tieba.e05
+        @Override // com.baidu.tieba.iz4
         public void onCancelClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -113,17 +111,17 @@ public class PushPermissionController {
             this.b = z2;
         }
 
-        @Override // com.baidu.tieba.e05
+        @Override // com.baidu.tieba.iz4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!this.a) {
-                    new MsgRemindModel(this.c.mContext).a0(34, true, null);
+                    new MsgRemindModel(this.c.mContext).S(34, true, null);
                 }
                 if (this.b) {
-                    ah5.m(this.c.mActivity);
+                    PushOpenUtil.showPushPermissionSucToast(this.c.mActivity);
                 } else {
-                    vg5.e(this.c.mContext);
+                    DialogUtil.jumpSystemNotificationSetting(this.c.mContext);
                 }
             }
         }
@@ -164,17 +162,17 @@ public class PushPermissionController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return vg5.i(TbadkCoreApplication.getInst(), 7);
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 7);
             }
-            return bx9.e().b("user_follow");
+            return tv9.e().b("user_follow");
         }
         return invokeV.booleanValue;
     }
 
     private void onSubscribeFriendSuccess(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, this, context) == null) && !da5.p().l("subcribe_friend_msg_update_flag", false)) {
-            da5.p().A("subcribe_friend_msg_update_flag", true);
+        if ((interceptable == null || interceptable.invokeL(65541, this, context) == null) && !SharedPrefHelper.getInstance().getBoolean("subcribe_friend_msg_update_flag", false)) {
+            SharedPrefHelper.getInstance().putBoolean("subcribe_friend_msg_update_flag", true);
             BdToastData bdToastData = new BdToastData();
             ArrayList arrayList = new ArrayList(1);
             BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
@@ -193,15 +191,15 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65542, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean m = pf5.d().m();
+                boolean m = de5.d().m();
                 if (areNotificationsEnabled && m) {
                     onSubscribeFriendSuccess(this.mActivity);
                     return;
                 }
                 b bVar = new b(this, m, areNotificationsEnabled);
                 if (checkShouldShowUserFollowPush()) {
-                    ah5.l(this.mContext, this.mActivity, 10, bVar);
-                    bx9.e().h("user_follow");
+                    PushOpenUtil.showPushPermissionDialogV2(this.mContext, this.mActivity, 10, bVar);
+                    tv9.e().h("user_follow");
                 }
             }
         }

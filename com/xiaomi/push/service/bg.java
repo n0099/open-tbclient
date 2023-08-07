@@ -77,7 +77,7 @@ public class bg {
         public IBinder.DeathRecipient f928a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0787b f932a = new C0787b();
+        public final C0788b f932a = new C0788b();
 
         /* loaded from: classes10.dex */
         public interface a {
@@ -86,7 +86,7 @@ public class bg {
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C0787b extends XMPushService.j {
+        public class C0788b extends XMPushService.j {
 
             /* renamed from: a  reason: collision with other field name */
             public String f940a;
@@ -96,7 +96,7 @@ public class bg {
             public String f941b;
             public int c;
 
-            public C0787b() {
+            public C0788b() {
                 super(0);
             }
 
@@ -110,13 +110,13 @@ public class bg {
 
             @Override // com.xiaomi.push.service.XMPushService.j
             /* renamed from: a */
-            public String mo752a() {
+            public String mo753a() {
                 return "notify job";
             }
 
             @Override // com.xiaomi.push.service.XMPushService.j
             /* renamed from: a */
-            public void mo469a() {
+            public void mo470a() {
                 if (b.this.a(this.b, this.c, this.f941b)) {
                     b.this.a(this.b, this.c, this.f940a, this.f941b);
                     return;
@@ -212,14 +212,14 @@ public class bg {
 
         private boolean b(int i, int i2, String str) {
             if (i == 1) {
-                return (this.f933a == c.binded || !this.f931a.m750c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
+                return (this.f933a == c.binded || !this.f931a.m751c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
             } else if (i != 2) {
                 if (i != 3) {
                     return false;
                 }
                 return !"wait".equals(str);
             } else {
-                return this.f931a.m750c();
+                return this.f931a.m751c();
             }
         }
 
@@ -232,7 +232,7 @@ public class bg {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m796a() {
+        public void m797a() {
             try {
                 Messenger messenger = this.f929a;
                 if (messenger != null && this.f928a != null) {
@@ -244,7 +244,7 @@ public class bg {
         }
 
         public void a(Messenger messenger) {
-            m796a();
+            m797a();
             try {
                 if (messenger != null) {
                     this.f929a = messenger;
@@ -277,7 +277,7 @@ public class bg {
             c cVar2 = this.f933a;
             int i3 = 0;
             if (cVar2 != cVar) {
-                com.xiaomi.channel.commonutils.logger.b.m177a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), bk.a(i2), str, str2, this.g));
+                com.xiaomi.channel.commonutils.logger.b.m178a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), bk.a(i2), str, str2, this.g));
                 this.f933a = cVar;
             }
             if (this.f934a == null) {
@@ -329,7 +329,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m788a() {
+    public synchronized int m789a() {
         return this.f926a.size();
     }
 
@@ -342,7 +342,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<b> m789a() {
+    public synchronized ArrayList<b> m790a() {
         ArrayList<b> arrayList;
         arrayList = new ArrayList<>();
         for (HashMap<String, b> hashMap : this.f926a.values()) {
@@ -352,7 +352,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<b> m790a(String str) {
+    public synchronized Collection<b> m791a(String str) {
         if (this.f926a.containsKey(str)) {
             return ((HashMap) this.f926a.get(str).clone()).values();
         }
@@ -360,7 +360,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<String> m791a(String str) {
+    public synchronized List<String> m792a(String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (HashMap<String, b> hashMap : this.f926a.values()) {
@@ -374,10 +374,10 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m792a() {
-        Iterator<b> it = m789a().iterator();
+    public synchronized void m793a() {
+        Iterator<b> it = m790a().iterator();
         while (it.hasNext()) {
-            it.next().m796a();
+            it.next().m797a();
         }
         this.f926a.clear();
     }
@@ -409,18 +409,18 @@ public class bg {
             this.f926a.put(bVar.g, hashMap);
         }
         hashMap.put(a(bVar.f938b), bVar);
-        com.xiaomi.channel.commonutils.logger.b.m177a("add active client. " + bVar.f935a);
+        com.xiaomi.channel.commonutils.logger.b.m178a("add active client. " + bVar.f935a);
         for (a aVar : this.f925a) {
             aVar.a();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m793a(String str) {
+    public synchronized void m794a(String str) {
         HashMap<String, b> hashMap = this.f926a.get(str);
         if (hashMap != null) {
             for (b bVar : hashMap.values()) {
-                bVar.m796a();
+                bVar.m797a();
             }
             hashMap.clear();
             this.f926a.remove(str);
@@ -431,12 +431,12 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m794a(String str, String str2) {
+    public synchronized void m795a(String str, String str2) {
         HashMap<String, b> hashMap = this.f926a.get(str);
         if (hashMap != null) {
             b bVar = hashMap.get(a(str2));
             if (bVar != null) {
-                bVar.m796a();
+                bVar.m797a();
             }
             hashMap.remove(a(str2));
             if (hashMap.isEmpty()) {

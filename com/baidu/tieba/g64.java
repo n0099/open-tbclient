@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,9 +9,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public long c;
+    @V8JavascriptField
+    public long duration;
 
     public g64() {
         Interceptable interceptable = $ic;

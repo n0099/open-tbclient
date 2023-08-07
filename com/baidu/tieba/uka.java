@@ -1,384 +1,301 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
+import tbclient.ThemeColorInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes8.dex */
-public class uka {
+public final class uka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public List<String> c;
 
-    /* loaded from: classes8.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(uka ukaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ukaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                y89.a(x89.b);
-                y89.a(x89.c);
-                y89.a(x89.d);
-                y89.a(x89.f);
-                y89.a(x89.g);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uka a;
-
-        public b(uka ukaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ukaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ukaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List j = uka.j(x89.e);
-                if (j == null) {
-                    return null;
-                }
-                int size = j.size();
-                for (int i = 0; i < size; i++) {
-                    this.a.n((tka) j.get(i));
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends BdAsyncTask<String, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uka a;
-
-        public c(uka ukaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ukaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ukaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                    this.a.f(strArr[0], strArr[1]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends BdAsyncTask<tka, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uka a;
-
-        public d(uka ukaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ukaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ukaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(tka... tkaVarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tkaVarArr)) == null) {
-                if (tkaVarArr != null && tkaVarArr.length == 1 && tkaVarArr[0] != null) {
-                    this.a.g(tkaVarArr[0]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final uka a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-370893187, "Lcom/baidu/tieba/uka$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-370893187, "Lcom/baidu/tieba/uka$e;");
-                    return;
-                }
-            }
-            a = new uka(null);
-        }
-    }
-
-    public uka() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        if (ti.c()) {
-            e();
-        }
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                if (ti.c()) {
-                    this.a = String.valueOf(System.currentTimeMillis());
-                } else {
-                    return null;
-                }
-            }
-            return x89.e + this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ uka(a aVar) {
-        this();
-    }
-
-    public final void n(tka tkaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, tkaVar) != null) || tkaVar == null) {
-            return;
-        }
-        new d(this).execute(tkaVar);
-    }
-
-    public final void l(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) && !StringUtils.isNull(str) && ti.c()) {
-            new c(this).execute(str, jSONObject.toString());
-        }
-    }
-
-    public static uka h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return e.a;
-        }
-        return (uka) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new a(this).execute(new Void[0]);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !ti.c()) {
-            return;
-        }
-        new b(this).execute(new Void[0]);
-    }
-
-    public static List<tka> j(String str) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            File file = new File(str);
-            if (!file.exists() || (listFiles = file.listFiles()) == null) {
-                return null;
-            }
-            int length = listFiles.length;
-            ArrayList arrayList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                arrayList.add(new tka(m(y89.e(listFiles[i])), listFiles[i].getAbsolutePath()));
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final synchronized void g(tka tkaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tkaVar) == null) {
-            synchronized (this) {
-                try {
-                    byte[] a2 = ska.a(tkaVar.a);
-                    if (ska.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(tkaVar.b)) {
-                        FileHelper.deleteFile(new File(tkaVar.b));
-                        this.c.add(tkaVar.b);
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static List<String> m(String str) {
+    public static final ms6 a(ThemeColorInfo themeColorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String[] split = str.split("\n");
-            int length = split.length;
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                if (!StringUtils.isNull(split[i])) {
-                    arrayList.add(split[i]);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfo, "themeColorInfo");
+            return new ms6(i(themeColorInfo), h(themeColorInfo), g(themeColorInfo));
         }
-        return (List) invokeL.objValue;
+        return (ms6) invokeL.objValue;
     }
 
-    public final synchronized boolean f(String str, String str2) {
-        InterceptResult invokeLL;
+    public static final int b(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (this.c.contains(str)) {
-                    return false;
-                }
-                File file = new File(str);
-                return y89.f(file, str2 + "\n");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            String c = c(themeColorInfoInfo);
+            if (c.length() > 0) {
+                z = true;
+            } else {
+                z = false;
             }
+            if (z) {
+                return x9a.f(c);
+            }
+            return Integer.MAX_VALUE;
         }
-        return invokeLL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public synchronized void k(JSONObject jSONObject, boolean z) {
+    public static final String c(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, jSONObject, z) == null) {
-            synchronized (this) {
-                if (jSONObject == null) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
                 }
-                this.b.add(jSONObject.toString());
-                String i = i();
-                if (ti.c()) {
-                    l(jSONObject, i);
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.common_color;
                 }
-                if (this.b.size() >= ag5.a() || z) {
-                    n(new tka(this.b, i));
-                    this.b.clear();
-                    this.a = null;
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.common_color;
+                }
+                if (str == null) {
+                    return "";
                 }
             }
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String d(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.dark_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.dark_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String e(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.font_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.font_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String f(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.light_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.light_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String g(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.pattern_image;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.pattern_image;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final int h(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Long l;
+        long longValue;
+        ThemeElement themeElement;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 0) {
+                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_height) == null) {
+                    return 0;
+                }
+                longValue = l2.longValue();
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 == null || (l = themeElement2.pattern_image_height) == null) {
+                    return 0;
+                }
+                longValue = l.longValue();
+            }
+            return (int) longValue;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int i(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Long l;
+        long longValue;
+        ThemeElement themeElement;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 0) {
+                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_width) == null) {
+                    return 0;
+                }
+                longValue = l2.longValue();
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 == null || (l = themeElement2.pattern_image_width) == null) {
+                    return 0;
+                }
+                longValue = l.longValue();
+            }
+            return (int) longValue;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final ThemeColorInfo j(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
+            ThemeColorInfo.Builder builder = new ThemeColorInfo.Builder();
+            if (jSONObject != null) {
+                builder.day = k(jSONObject.optJSONObject("day"));
+                builder.dark = k(jSONObject.optJSONObject("dark"));
+            }
+            ThemeColorInfo build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "colorInfoBuilder.build(true)");
+            return build;
+        }
+        return (ThemeColorInfo) invokeL.objValue;
+    }
+
+    public static final ThemeElement k(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
+            ThemeElement.Builder builder = new ThemeElement.Builder();
+            if (jSONObject != null) {
+                builder.common_color = jSONObject.optString("common_color", "");
+                builder.dark_color = jSONObject.optString("dark_color", "");
+                builder.light_color = jSONObject.optString("light_color", "");
+                builder.pattern_image = jSONObject.optString("pattern_image", "");
+                builder.font_color = jSONObject.optString("font_color", "");
+                Long DEFAULT_PATTERN_IMAGE_HEIGHT = ThemeElement.DEFAULT_PATTERN_IMAGE_HEIGHT;
+                Intrinsics.checkNotNullExpressionValue(DEFAULT_PATTERN_IMAGE_HEIGHT, "DEFAULT_PATTERN_IMAGE_HEIGHT");
+                builder.pattern_image_height = Long.valueOf(jSONObject.optLong("pattern_image_height", DEFAULT_PATTERN_IMAGE_HEIGHT.longValue()));
+                Long DEFAULT_PATTERN_IMAGE_WIDTH = ThemeElement.DEFAULT_PATTERN_IMAGE_WIDTH;
+                Intrinsics.checkNotNullExpressionValue(DEFAULT_PATTERN_IMAGE_WIDTH, "DEFAULT_PATTERN_IMAGE_WIDTH");
+                builder.pattern_image_width = Long.valueOf(jSONObject.optLong("pattern_image_width", DEFAULT_PATTERN_IMAGE_WIDTH.longValue()));
+            }
+            ThemeElement build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "elementBuilder.build(true)");
+            return build;
+        }
+        return (ThemeElement) invokeL.objValue;
     }
 }

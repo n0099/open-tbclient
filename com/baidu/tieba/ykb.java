@@ -1,250 +1,147 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.SidSessionMeta;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import java.util.Map;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class ykb implements PidLoader {
+public class ykb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PidLoader a;
-    public final long b;
-    public long c;
-
-    public ykb(PidLoader pidLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pidLoader};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = pidLoader;
-        this.b = pidLoader.getPid().tmout * 60 * 1000;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void addListener(klb klbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, klbVar) == null) {
-            this.a.addListener(new a(this, klbVar));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void destroy(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a.destroy(z);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public int getAdCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getAdCount() : invokeV.intValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunAdType getAdType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getAdType() : (FunAdType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public double getBiddingOrBasePrices() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getBiddingOrBasePrices() : invokeV.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunNativeAd2 getNativeAd2(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, str)) == null) ? this.a.getNativeAd2(context, str) : (FunNativeAd2) invokeLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public Ssp.Pid getPid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getPid() : (Ssp.Pid) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public ilb getSubAidInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getSubAidInfo() : (ilb) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean isLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.c < this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean load(Context context, FunAdSlot funAdSlot, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, funAdSlot, sidSessionMeta)) == null) ? this.a.load(context, funAdSlot, sidSessionMeta) : invokeLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void removeListener(klb klbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, klbVar) == null) {
-            this.a.removeListener(klbVar);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void setBiddingResult(String str, double d, double d2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Integer.valueOf(i)}) == null) {
-            this.a.setBiddingResult(str, d, d2, i);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean show(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, activity, viewGroup, str, sidSessionMeta)) == null) ? this.a.show(activity, viewGroup, str, sidSessionMeta) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, activity, viewGroup, str, sidSessionMeta)) == null) ? this.a.showSplash(activity, viewGroup, str, sidSessionMeta) : (FunSplashAd) invokeLLLL.objValue;
-    }
 
     /* loaded from: classes8.dex */
-    public class a implements klb {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final klb a;
-        public final /* synthetic */ ykb b;
 
-        public a(ykb ykbVar, klb klbVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ykbVar, klbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = ykbVar;
-            this.a = klbVar;
         }
 
-        @Override // com.baidu.tieba.klb
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.a(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void a(RippedAd rippedAd, Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rippedAd, map) == null) {
-                this.a.a(rippedAd, map);
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void a(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-                this.a.a(map);
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void a(boolean z, int i, Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), map}) == null) {
-                this.a.a(z, i, map);
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.a.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-                this.a.b(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void b(RippedAd rippedAd, Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, rippedAd, map) == null) {
-                this.a.b(rippedAd, map);
-            }
-        }
-
-        @Override // com.baidu.tieba.klb
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c = System.currentTimeMillis();
-                this.a.a();
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] f = vkb.f();
+                if (f != null && f.length > 0) {
+                    synchronized (ykb.a) {
+                        for (File file : f) {
+                            if (currentTimeMillis - file.lastModified() > 172800000) {
+                                file.delete();
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334457, "Lcom/baidu/tieba/ykb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334457, "Lcom/baidu/tieba/ykb;");
+                return;
+            }
+        }
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            xkb.b().post(new a());
+        }
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = vkb.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
+                try {
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
     }
 }

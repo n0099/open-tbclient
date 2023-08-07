@@ -3,6 +3,7 @@ package com.baidu.tieba.model;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -13,7 +14,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -111,7 +111,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -121,21 +121,21 @@ public class ReportUserInfoModel extends BdBaseModel {
         this.b = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
-    public void a0(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.timeInterval = j;
         }
     }
 
-    public void b0(b bVar) {
+    public void T(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public boolean W() {
+    public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -147,7 +147,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void Z() {
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
@@ -161,7 +161,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         }
     }
 
-    public void X() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -172,7 +172,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         }
     }
 
-    public void Y(int i, float f, float f2) {
+    public void Q(int i, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REPORT_USER_INFO);

@@ -1,53 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
+import android.view.WindowManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.PayFlowModel;
 /* loaded from: classes5.dex */
 public class aac {
     public static /* synthetic */ Interceptable $ic;
+    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2, PayFlowType payFlowType, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3)}) == null) {
-            b(i, i2, payFlowType, i3, null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947609894, "Lcom/baidu/tieba/aac;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947609894, "Lcom/baidu/tieba/aac;");
+                return;
+            }
         }
+        a = new Point();
     }
 
-    public static void b(int i, int i2, PayFlowType payFlowType, int i3, Map<String, String> map) {
+    public static Point a(Context context, Point point) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3), map}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayBdLiveStatisticManager", "onPayInfo null yyPayUIKit", new Object[0]);
-                return;
-            }
-            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-            if (payFlowModel != null && payFlowModel.viewEventListener != null) {
-                String str = "{}";
-                if (map != null) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            jSONObject.put(entry.getKey(), entry.getValue());
-                        }
-                        str = jSONObject.toString();
-                    } catch (JSONException e) {
-                        RLog.error("PayBdLiveStatisticManager", "onPayInfo JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
+            Point point2 = a;
+            if (point2 != null && point2.x > 0 && point2.y > 0) {
+                if (point == null) {
+                    point = new Point();
                 }
-                RLog.info("PayBdLiveStatisticManager", "onPayInfo type:" + i3 + " json:" + str + " listener:" + payFlowModel.viewEventListener + " content:" + map);
-                payFlowModel.viewEventListener.onPayInfo(i3, str);
-                return;
+                Point point3 = a;
+                point.x = point3.x;
+                point.y = point3.y;
+                return point;
             }
-            RLog.error("PayBdLiveStatisticManager", "onPayInfo error h5PayFlowModel null", new Object[0]);
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (point == null) {
+                point = new Point();
+            }
+            if (Build.VERSION.SDK_INT >= 17) {
+                windowManager.getDefaultDisplay().getRealSize(point);
+            } else {
+                windowManager.getDefaultDisplay().getSize(point);
+            }
+            if (point.x > 0 && point.y > 0) {
+                if (a == null) {
+                    a = new Point();
+                }
+                Point point4 = a;
+                point4.x = point.x;
+                point4.y = point.y;
+            }
+            return point;
         }
+        return (Point) invokeLL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return a(context, null).x;
+        }
+        return invokeL.intValue;
     }
 }

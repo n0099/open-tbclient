@@ -6,10 +6,10 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.e2c;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.el6;
+import com.baidu.tieba.h1c;
 import com.baidu.tieba.im.db.pojo.ChatSysNotifyPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
@@ -18,10 +18,12 @@ import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.immessagecenter.im.model.MsgNotifyTabModel;
 import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
-import com.baidu.tieba.p6c;
-import com.baidu.tieba.sr8;
-import com.baidu.tieba.u1c;
-import com.baidu.tieba.xn6;
+import com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgTabNotifyModel;
+import com.baidu.tieba.mp8;
+import com.baidu.tieba.na8;
+import com.baidu.tieba.s5c;
+import com.baidu.tieba.x0c;
+import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,19 +38,20 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\n0\tH\u0002J\u000e\u0010 \u001a\b\u0012\u0004\u0012\u00020\u001b0\tH\u0002J\u0016\u0010!\u001a\u00020\"2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020%0$H\u0002J\u0010\u0010&\u001a\u00020\"2\u0006\u0010'\u001a\u00020(H\u0002J\b\u0010)\u001a\u00020\"H\u0016J\b\u0010*\u001a\u00020\"H\u0016J\u0010\u0010+\u001a\u00020\"2\u0006\u0010,\u001a\u00020-H\u0002J\u0010\u0010.\u001a\u00020\"2\u0006\u0010/\u001a\u000200H\u0002J\u0006\u00101\u001a\u00020\"J\u0006\u00102\u001a\u00020\"R\u0017\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048F¢\u0006\u0006\u001a\u0004\b\u0006\u0010\u0007R\u001d\u0010\b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\n0\t0\u00048F¢\u0006\u0006\u001a\u0004\b\u000b\u0010\u0007R\u0014\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00050\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011RJ\u0010\u0014\u001a>\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\n \u0015*\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t0\t \u0015*\u001e\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\n \u0015*\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t0\t\u0018\u00010\r0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000RJ\u0010\u001a\u001a>\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\u001b \u0015*\n\u0012\u0004\u0012\u00020\u001b\u0018\u00010\t0\t \u0015*\u001e\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\u001b \u0015*\n\u0012\u0004\u0012\u00020\u001b\u0018\u00010\t0\t\u0018\u00010\r0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u001d\u0010\u001d\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u001b0\t0\u00048F¢\u0006\u0006\u001a\u0004\b\u001e\u0010\u0007¨\u00063"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/MsgTabNotifyModel;", "Lcom/baidu/tieba/immessagecenter/arch/model/IModel;", "()V", "answerVisibleSubject", "Lrx/Observable;", "", "getAnswerVisibleSubject", "()Lrx/Observable;", "interactNotifyDataSubject", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/MsgNotifyData;", "getInteractNotifyDataSubject", "mAnswerVisibleBs", "Lrx/subjects/BehaviorSubject;", "mDataRepository", "Lcom/baidu/tieba/immessagecenter/im/model/MsgNotifyTabModel;", "getMDataRepository", "()Lcom/baidu/tieba/immessagecenter/im/model/MsgNotifyTabModel;", "mDataRepository$delegate", "Lkotlin/Lazy;", "mInteractNotifyDataBs", "kotlin.jvm.PlatformType", "mMemoryListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mMsgInvitationListener", "mNewMessageListener", "mSystemNotifyDataBs", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "memoryInitCompleted", "systemNotifyDataSubject", "getSystemNotifyDataSubject", "getDefaultNotifyData", "getSystemNotifyList", "initNotifyModel", "", "list", "", "Lcom/baidu/tieba/im/db/pojo/ImMessageCenterPojo;", "mergeAndEmitNotifyData", "msgData", "Lcom/baidu/tbadk/data/NewsNotifyMessage;", "onAttachedUi", "onDetachedUi", "processMemoryChanged", "changeMessage", "Lcom/baidu/tieba/im/message/MemoryChangedMessage;", "processMemoryInitComplete", "message", "Lcom/baidu/tieba/im/message/MemoryInitCompleteMessage;", "registerListener", "unRegisterListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010!\u001a\b\u0012\u0004\u0012\u00020\n0\tH\u0002J\u000e\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u001d0\tH\u0002J\u0016\u0010#\u001a\u00020$2\f\u0010%\u001a\b\u0012\u0004\u0012\u00020'0&H\u0002J\u0010\u0010(\u001a\u00020$2\u0006\u0010)\u001a\u00020*H\u0002J\b\u0010+\u001a\u00020$H\u0016J\b\u0010,\u001a\u00020$H\u0016J\u0010\u0010-\u001a\u00020$2\u0006\u0010.\u001a\u00020/H\u0002J\u0010\u00100\u001a\u00020$2\u0006\u00101\u001a\u000202H\u0002J\u0006\u00103\u001a\u00020$J\u0006\u00104\u001a\u00020$R\u0017\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048F¢\u0006\u0006\u001a\u0004\b\u0006\u0010\u0007R\u001d\u0010\b\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\n0\t0\u00048F¢\u0006\u0006\u001a\u0004\b\u000b\u0010\u0007R\u0014\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00050\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013RJ\u0010\u0016\u001a>\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\n \u0017*\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t0\t \u0017*\u001e\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\n \u0017*\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t0\t\u0018\u00010\r0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000RJ\u0010\u001c\u001a>\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\u001d \u0017*\n\u0012\u0004\u0012\u00020\u001d\u0018\u00010\t0\t \u0017*\u001e\u0012\u0018\u0012\u0016\u0012\u0004\u0012\u00020\u001d \u0017*\n\u0012\u0004\u0012\u00020\u001d\u0018\u00010\t0\t\u0018\u00010\r0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u001d\u0010\u001f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u001d0\t0\u00048F¢\u0006\u0006\u001a\u0004\b \u0010\u0007¨\u00065"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/MsgTabNotifyModel;", "Lcom/baidu/tieba/immessagecenter/arch/model/IModel;", "()V", "answerVisibleSubject", "Lrx/Observable;", "", "getAnswerVisibleSubject", "()Lrx/Observable;", "interactNotifyDataSubject", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/MsgNotifyData;", "getInteractNotifyDataSubject", "mAnswerVisibleBs", "Lrx/subjects/BehaviorSubject;", "mCompleteProcess", "Lcom/baidu/tieba/im/chat/notify/ICompleteProcess;", "mDataRepository", "Lcom/baidu/tieba/immessagecenter/im/model/MsgNotifyTabModel;", "getMDataRepository", "()Lcom/baidu/tieba/immessagecenter/im/model/MsgNotifyTabModel;", "mDataRepository$delegate", "Lkotlin/Lazy;", "mInteractNotifyDataBs", "kotlin.jvm.PlatformType", "mMemoryListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mMsgInvitationListener", "mNewMessageListener", "mSystemNotifyDataBs", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "memoryInitCompleted", "systemNotifyDataSubject", "getSystemNotifyDataSubject", "getDefaultNotifyData", "getSystemNotifyList", "initNotifyModel", "", "list", "", "Lcom/baidu/tieba/im/db/pojo/ImMessageCenterPojo;", "mergeAndEmitNotifyData", "msgData", "Lcom/baidu/tbadk/data/NewsNotifyMessage;", "onAttachedUi", "onDetachedUi", "processMemoryChanged", "changeMessage", "Lcom/baidu/tieba/im/message/MemoryChangedMessage;", "processMemoryInitComplete", "message", "Lcom/baidu/tieba/im/message/MemoryInitCompleteMessage;", "registerListener", "unRegisterListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgTabNotifyModel implements fi8 {
+public final class MsgTabNotifyModel implements xf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p6c<Boolean> a;
-    public final p6c<List<sr8>> b;
-    public final p6c<List<ImMessageCenterShowItemData>> c;
+    public final s5c<Boolean> a;
+    public final s5c<List<mp8>> b;
+    public final s5c<List<ImMessageCenterShowItemData>> c;
     public final Lazy d;
     public boolean e;
-    public final CustomMessageListener f;
+    public final na8 f;
     public final CustomMessageListener g;
     public final CustomMessageListener h;
+    public final CustomMessageListener i;
 
     /* loaded from: classes6.dex */
     public static final class a extends CustomMessageListener {
@@ -88,13 +91,13 @@ public final class MsgTabNotifyModel implements fi8 {
                     if (memoryInitCompleteMessage.getCmd() != 2016002) {
                         return;
                     }
-                    this.a.s(memoryInitCompleteMessage);
+                    this.a.t(memoryInitCompleteMessage);
                 } else if (customResponsedMessage instanceof MemoryChangedMessage) {
                     MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
                     if (memoryChangedMessage.getCmd() != 2016004 || !this.a.e) {
                         return;
                     }
-                    this.a.r(memoryChangedMessage);
+                    this.a.s(memoryChangedMessage);
                 } else if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
                     ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
                     if (responsedMemoryListMessage.getCmd() != 2016007 || !this.a.e || (data = responsedMemoryListMessage.getData()) == null) {
@@ -187,7 +190,7 @@ public final class MsgTabNotifyModel implements fi8 {
                     if (newsNotifyMessage.getCmd() != 2001120) {
                         return;
                     }
-                    this.a.q(newsNotifyMessage);
+                    this.a.r(newsNotifyMessage);
                 }
             }
         }
@@ -206,17 +209,29 @@ public final class MsgTabNotifyModel implements fi8 {
                 return;
             }
         }
-        p6c<Boolean> Q = p6c.Q();
+        s5c<Boolean> Q = s5c.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.a = Q;
-        this.b = p6c.Q();
-        this.c = p6c.Q();
+        this.b = s5c.Q();
+        this.c = s5c.Q();
         this.d = LazyKt__LazyJVMKt.lazy(MsgTabNotifyModel$mDataRepository$2.INSTANCE);
         this.b.onNext(k());
-        this.a.onNext(Boolean.valueOf(da5.p().l(da5.t("msg_tab_entrance_invitation_answer"), false)));
-        this.f = new c(this);
-        this.g = new b(this);
-        this.h = new a(this);
+        this.a.onNext(Boolean.valueOf(SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("msg_tab_entrance_invitation_answer"), false)));
+        this.f = new na8() { // from class: com.baidu.tieba.mq8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.na8
+            public final void onComplete() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    MsgTabNotifyModel.q(MsgTabNotifyModel.this);
+                }
+            }
+        };
+        this.g = new c(this);
+        this.h = new b(this);
+        this.i = new a(this);
     }
 
     public final List<ImMessageCenterShowItemData> o() {
@@ -224,7 +239,7 @@ public final class MsgTabNotifyModel implements fi8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!xn6.a(m().getData())) {
+            if (!el6.a(m().getData())) {
                 LinkedHashSet linkedHashSet = new LinkedHashSet();
                 List<ImMessageCenterShowItemData> data = m().getData();
                 Intrinsics.checkNotNullExpressionValue(data, "mDataRepository.data");
@@ -243,64 +258,71 @@ public final class MsgTabNotifyModel implements fi8 {
         return (List) invokeV.objValue;
     }
 
-    public final void t() {
+    public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            MessageManager.getInstance().registerListener(2016004, this.h);
-            MessageManager.getInstance().registerListener(2016001, this.h);
-            MessageManager.getInstance().registerListener(2016010, this.h);
-            MessageManager.getInstance().registerListener(2016007, this.h);
-            MessageManager.getInstance().registerListener(2016011, this.h);
-            MessageManager.getInstance().registerListener(2016002, this.h);
-            MessageManager.getInstance().registerListener(this.f);
+            MessageManager.getInstance().registerListener(2016004, this.i);
+            MessageManager.getInstance().registerListener(2016001, this.i);
+            MessageManager.getInstance().registerListener(2016010, this.i);
+            MessageManager.getInstance().registerListener(2016007, this.i);
+            MessageManager.getInstance().registerListener(2016011, this.i);
+            MessageManager.getInstance().registerListener(2016002, this.i);
             MessageManager.getInstance().registerListener(this.g);
+            MessageManager.getInstance().registerListener(this.h);
+        }
+    }
+
+    public static final void q(MsgTabNotifyModel this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c.onNext(this$0.o());
         }
     }
 
     public final void p(List<ImMessageCenterPojo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            m().setData(list, null);
-            this.c.onNext(o());
+            m().setData(list, this.f);
         }
     }
 
-    @Override // com.baidu.tieba.fi8
-    public void b() {
+    @Override // com.baidu.tieba.xf8
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t();
-        }
-    }
-
-    @Override // com.baidu.tieba.fi8
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             u();
         }
     }
 
-    public final u1c<Boolean> j() {
+    @Override // com.baidu.tieba.xf8
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            v();
+        }
+    }
+
+    public final x0c<Boolean> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            u1c<Boolean> s = this.a.a().w().s(e2c.b());
+            x0c<Boolean> s = this.a.a().w().s(h1c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mAnswerVisibleBs\n       …dSchedulers.mainThread())");
             return s;
         }
-        return (u1c) invokeV.objValue;
+        return (x0c) invokeV.objValue;
     }
 
-    public final u1c<List<sr8>> l() {
+    public final x0c<List<mp8>> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            u1c<List<sr8>> s = this.b.a().w().s(e2c.b());
+            x0c<List<mp8>> s = this.b.a().w().s(h1c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mInteractNotifyDataBs\n  …dSchedulers.mainThread())");
             return s;
         }
-        return (u1c) invokeV.objValue;
+        return (x0c) invokeV.objValue;
     }
 
     public final MsgNotifyTabModel m() {
@@ -312,47 +334,47 @@ public final class MsgTabNotifyModel implements fi8 {
         return (MsgNotifyTabModel) invokeV.objValue;
     }
 
-    public final u1c<List<ImMessageCenterShowItemData>> n() {
+    public final x0c<List<ImMessageCenterShowItemData>> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            u1c<List<ImMessageCenterShowItemData>> s = this.c.a().w().s(e2c.b());
+            x0c<List<ImMessageCenterShowItemData>> s = this.c.a().w().s(h1c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mSystemNotifyDataBs\n    …dSchedulers.mainThread())");
             return s;
         }
-        return (u1c) invokeV.objValue;
+        return (x0c) invokeV.objValue;
     }
 
-    public final void u() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.h);
             MessageManager.getInstance().unRegisterListener(this.g);
+            MessageManager.getInstance().unRegisterListener(this.i);
+            MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
 
-    public final List<sr8> k() {
+    public final List<mp8> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return CollectionsKt__CollectionsKt.listOf((Object[]) new sr8[]{new sr8(NotifyType.AGREE_ME, 1), new sr8(NotifyType.REPLY_ME, 2), new sr8(NotifyType.AT_ME, 3), new sr8(NotifyType.FANS, 4)});
+            return CollectionsKt__CollectionsKt.listOf((Object[]) new mp8[]{new mp8(NotifyType.AGREE_ME, 1), new mp8(NotifyType.REPLY_ME, 2), new mp8(NotifyType.AT_ME, 3), new mp8(NotifyType.FANS, 4)});
         }
         return (List) invokeV.objValue;
     }
 
-    public final void q(NewsNotifyMessage newsNotifyMessage) {
+    public final void r(NewsNotifyMessage newsNotifyMessage) {
         Object obj;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, newsNotifyMessage) == null) {
-            List<sr8> k = k();
+            List<mp8> k = k();
             for (ChatSysNotifyPojo chatSysNotifyPojo : newsNotifyMessage.getChatSysNotifys()) {
                 Iterator<T> it = k.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         obj = it.next();
-                        if (((sr8) obj).a() == chatSysNotifyPojo.getType()) {
+                        if (((mp8) obj).a() == chatSysNotifyPojo.getType()) {
                             z = true;
                             continue;
                         } else {
@@ -367,29 +389,28 @@ public final class MsgTabNotifyModel implements fi8 {
                         break;
                     }
                 }
-                sr8 sr8Var = (sr8) obj;
-                if (sr8Var != null) {
-                    sr8Var.e(chatSysNotifyPojo.getUnread());
-                    sr8Var.d(chatSysNotifyPojo.getContent());
+                mp8 mp8Var = (mp8) obj;
+                if (mp8Var != null) {
+                    mp8Var.e(chatSysNotifyPojo.getUnread());
+                    mp8Var.d(chatSysNotifyPojo.getContent());
                 }
             }
             this.b.onNext(k);
         }
     }
 
-    public final void r(MemoryChangedMessage memoryChangedMessage) {
+    public final void s(MemoryChangedMessage memoryChangedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, memoryChangedMessage) == null) {
             if (memoryChangedMessage.getType() == 1) {
-                m().insertOrUpdate(memoryChangedMessage.getData(), null);
+                m().insertOrUpdate(memoryChangedMessage.getData(), this.f);
             } else if (memoryChangedMessage.getType() == 2) {
-                m().remove(memoryChangedMessage.getData(), null);
+                m().remove(memoryChangedMessage.getData(), this.f);
             }
-            this.c.onNext(o());
         }
     }
 
-    public final void s(MemoryInitCompleteMessage memoryInitCompleteMessage) {
+    public final void t(MemoryInitCompleteMessage memoryInitCompleteMessage) {
         Boolean data;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, memoryInitCompleteMessage) == null) && (data = memoryInitCompleteMessage.getData()) != null) {

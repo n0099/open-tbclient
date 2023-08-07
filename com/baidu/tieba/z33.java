@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,52 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z33 implements oq3<HybridUbcFlow> {
+public class z33 implements rp3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements x33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UbcFlowEvent a;
-        public final /* synthetic */ UbcFlowEvent b;
-        public final /* synthetic */ z33 c;
-
-        public a(z33 z33Var, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z33Var, ubcFlowEvent, ubcFlowEvent2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = z33Var;
-            this.a = ubcFlowEvent;
-            this.b = ubcFlowEvent2;
-        }
-
-        @Override // com.baidu.tieba.x33
-        public boolean a(a43 a43Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a43Var)) == null) {
-                if (a43Var == null) {
-                    return false;
-                }
-                return this.c.c(a43Var, this.a, this.b);
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +31,7 @@ public class z33 implements oq3<HybridUbcFlow> {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
     public z33() {
@@ -86,60 +44,31 @@ public class z33 implements oq3<HybridUbcFlow> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        y33.f().g();
-        if (a) {
-            Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
-        }
-    }
-
-    public final boolean c(@NonNull a43 a43Var, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a43Var, ubcFlowEvent, ubcFlowEvent2)) == null) {
-            long b = a43Var.b();
-            if (b >= ubcFlowEvent.g() && b <= ubcFlowEvent2.g()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oq3
-    /* renamed from: d */
+    @Override // com.baidu.tieba.rp3
+    /* renamed from: b */
     public void a(HybridUbcFlow hybridUbcFlow) {
+        PMSAppInfo u;
+        long g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
             if (a) {
-                Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
+                Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
             }
-            if (hybridUbcFlow == null) {
-                return;
-            }
-            UbcFlowEvent g = hybridUbcFlow.g("naStart");
-            UbcFlowEvent g2 = hybridUbcFlow.g("na_first_meaningful_paint");
-            if (g != null && g2 != null) {
-                y33.f().h(new a(this, g, g2));
-                y33.f().a(hybridUbcFlow);
-                if (a) {
-                    Log.d("MaUpdateReporter", "na_start ts - " + g.g());
-                    Log.d("MaUpdateReporter", "fmp_end ts - " + g2.g());
-                    return;
-                }
-                return;
-            }
-            if (a) {
-                if (g == null) {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
+            if (hybridUbcFlow != null && (u = vi4.i().u(xa3.K().getAppId())) != null) {
+                UbcFlowEvent g2 = hybridUbcFlow.g("naStart");
+                if (g2 == null) {
+                    g = System.currentTimeMillis();
                 } else {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
+                    g = g2.g();
                 }
+                u.countLaunch(g);
+                vi4.i().y(u);
             }
-            y33.f().c();
         }
     }
 }

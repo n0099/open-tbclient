@@ -1,19 +1,19 @@
 package com.baidu.tieba;
+
+import java.io.File;
 /* loaded from: classes8.dex */
-public interface xv1 {
-    void a(String str, cz2 cz2Var);
+public interface xv1 extends p43 {
+    File a();
 
-    int getDuration();
+    void e(String str, String str2);
 
-    boolean isPlaying();
+    void e(String str, String str2, Throwable th);
 
-    void onRelease();
+    void flush(boolean z);
 
-    void pause();
+    void i(String str, String str2);
 
-    void play();
+    void w(String str, String str2);
 
-    void seek(int i);
-
-    void stop();
+    void w(String str, String str2, Throwable th);
 }

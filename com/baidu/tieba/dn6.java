@@ -1,43 +1,69 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ProgressBar;
-import androidx.constraintlayout.motion.widget.Key;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.ala.AlaVideoContainer;
+import com.baidu.tieba.et9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class dn6 {
+public class dn6 implements bt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ObjectAnimator a;
-    public ObjectAnimator b;
+    public AlaVideoContainer a;
+    public ThreadData b;
+    public AlaInfoData c;
+    public boolean d;
+    public et9 e;
+    public et9.b f;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.bt9
+    public boolean isFullScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bt9
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bt9
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends AnimatorListenerAdapter {
+    public class a implements et9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
+        public final /* synthetic */ dn6 a;
 
-        public b(ProgressBar progressBar) {
+        public a(dn6 dn6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
+                Object[] objArr = {dn6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,126 +73,144 @@ public class dn6 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(progressBar);
+            this.a = dn6Var;
         }
 
-        public /* synthetic */ b(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            ProgressBar progressBar;
+        @Override // com.baidu.tieba.et9.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (progressBar = this.a.get()) != null) {
-                progressBar.setProgress(0);
-                fo6.f(progressBar, 8);
-                progressBar.setAlpha(1.0f);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public c(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(progressBar);
-        }
-
-        public /* synthetic */ c(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (progressBar = this.a.get()) != null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                int progress = progressBar.getProgress();
-                progressBar.setProgress((int) (progress + ((100 - progress) * animatedFraction)));
-            }
-        }
-    }
-
-    public dn6() {
+    public dn6(AlaVideoContainer alaVideoContainer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {alaVideoContainer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = false;
+        this.f = new a(this);
+        this.a = alaVideoContainer;
+        if (alaVideoContainer != null) {
+            et9 et9Var = new et9();
+            this.e = et9Var;
+            et9Var.l(this.a.getVideoView());
+            this.e.i(this.f);
         }
     }
 
-    public void c() {
+    public final void c() {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-            }
-            this.a = null;
-            ObjectAnimator objectAnimator2 = this.b;
-            if (objectAnimator2 != null) {
-                objectAnimator2.cancel();
-            }
-            this.b = null;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (threadData = this.b) == null || threadData.getThreadVideoInfo() == null) {
         }
     }
 
-    public void a(ProgressBar progressBar) {
+    public void d() {
+        AlaVideoContainer alaVideoContainer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, progressBar) == null) {
-            ObjectAnimator objectAnimator = this.b;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-            }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(progressBar, Key.ALPHA, 1.0f, 0.0f);
-            this.b = ofFloat;
-            ofFloat.setDuration(150L);
-            this.b.setInterpolator(new DecelerateInterpolator());
-            this.b.addUpdateListener(new c(progressBar, null));
-            this.b.addListener(new b(progressBar, null));
-            this.b.start();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alaVideoContainer = this.a) != null) {
+            alaVideoContainer.q();
         }
     }
 
-    public void b(ProgressBar progressBar, int i) {
+    @Override // com.baidu.tieba.bt9
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, progressBar, i) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator == null) {
-                ObjectAnimator ofInt = ObjectAnimator.ofInt(progressBar, "progress", 0);
-                this.a = ofInt;
-                ofInt.setDuration(100L);
-                this.a.setInterpolator(new DecelerateInterpolator());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
+                return this.a.getVideoView().getCurrentPositionSync();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.bt9
+    public String getPlayUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ThreadData threadData = this.b;
+            if (threadData != null && threadData.getThreadVideoInfo() != null) {
+                return this.b.getThreadVideoInfo().video_url;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bt9
+    public View getVideoContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null) {
+                return alaVideoContainer.getView();
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bt9
+    public boolean isPlayStarted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bt9
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
+                this.a.getVideoView().stopPlayback();
+                this.a.p();
+                et9 et9Var = this.e;
+                if (et9Var != null) {
+                    et9Var.n();
+                }
+            }
+            this.d = false;
+        }
+    }
+
+    public void e(ThreadData threadData, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{threadData, str, str2, Boolean.valueOf(z)}) != null) || threadData == null) {
+            return;
+        }
+        this.b = threadData;
+        if (this.a != null && threadData.getThreadAlaInfo() != null) {
+            AlaInfoData threadAlaInfo = this.b.getThreadAlaInfo();
+            this.c = threadAlaInfo;
+            this.a.setVideoThumbnail(threadAlaInfo.cover);
+            if (z) {
+                this.a.setTitle(this.b.getTitle());
             } else {
-                objectAnimator.cancel();
+                this.a.setTitle("");
             }
-            this.a.setIntValues(progressBar.getProgress(), i);
-            this.a.start();
+            this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
         }
     }
 }

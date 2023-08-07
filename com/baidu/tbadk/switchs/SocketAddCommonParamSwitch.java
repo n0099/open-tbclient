@@ -15,7 +15,7 @@ public class SocketAddCommonParamSwitch extends BaseNormalSwitch {
     public static final String SOCKET_ADD_COMMON_PARAM_ENABLE = "android_lcs_common_param";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

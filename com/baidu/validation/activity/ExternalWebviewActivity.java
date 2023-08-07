@@ -23,9 +23,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xbb;
-import com.baidu.tieba.ybb;
-import com.baidu.tieba.zbb;
+import com.baidu.tieba.abb;
+import com.baidu.tieba.bbb;
+import com.baidu.tieba.cbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.validation.view.ValidationTimeoutView;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class ExternalWebviewActivity extends Activity implements xbb, View.OnClickListener {
+public class ExternalWebviewActivity extends Activity implements abb, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebView a;
@@ -92,12 +92,12 @@ public class ExternalWebviewActivity extends Activity implements xbb, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                zbb a = zbb.a(str2);
+                cbb a = cbb.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = ybb.b().a(a.b());
+                BaseInterpreter a2 = bbb.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -272,7 +272,7 @@ public class ExternalWebviewActivity extends Activity implements xbb, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.xbb
+    @Override // com.baidu.tieba.abb
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
@@ -363,7 +363,7 @@ public class ExternalWebviewActivity extends Activity implements xbb, View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09254d) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092565) {
             finish();
         }
     }
@@ -380,8 +380,8 @@ public class ExternalWebviewActivity extends Activity implements xbb, View.OnCli
             this.b = (ValidationLoadingView) findViewById(R.id.validation_loading_view);
             this.c = (ValidationTimeoutView) findViewById(R.id.validation_timeout_view);
             this.d = (TextView) findViewById(R.id.tv_title);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09254d);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092569);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092565);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092581);
             h();
             this.d.setText(com.baidu.validation.a.a.a(this.f));
             this.e.setOnClickListener(this);

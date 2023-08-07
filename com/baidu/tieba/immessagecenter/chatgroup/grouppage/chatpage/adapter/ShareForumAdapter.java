@@ -87,12 +87,12 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: Z */
-    public ViewHolder M(@NonNull ViewGroup viewGroup) {
+    /* renamed from: c0 */
+    public ViewHolder O(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return Y(viewGroup.getContext());
+            return b0(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -100,24 +100,24 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: a0 */
-    public ViewHolder O(@NonNull ViewGroup viewGroup) {
+    /* renamed from: d0 */
+    public ViewHolder Q(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return Y(viewGroup.getContext());
+            return b0(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
     }
 
-    public final ViewHolder Y(Context context) {
+    public final ViewHolder b0(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090e9b);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090ead);
             chatShareCard.setCurrentCardType((short) 33);
             return new ViewHolder(chatShareCard);
         }
@@ -126,8 +126,8 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: b0 */
-    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull ShareForumSysMsg shareForumSysMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
+    /* renamed from: e0 */
+    public void V(int i, @NonNull ViewGroup viewGroup, @NonNull ShareForumSysMsg shareForumSysMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, shareForumSysMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {

@@ -1,39 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.view.View;
 /* loaded from: classes8.dex */
-public class vr4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vr4 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250385, "Lcom/baidu/tieba/vr4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948250385, "Lcom/baidu/tieba/vr4;");
-                return;
-            }
-        }
-        a = tr4.e().getString("openstat_switch", "1");
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(b bVar);
+
+        void b(b bVar, int i, int i2);
+
+        void c(b bVar, int i, int i2, int i3);
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return TextUtils.equals(a, "1");
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(MediaPlayer mediaPlayer);
+
+        vr4 b();
     }
+
+    void a(a aVar);
+
+    void b(a aVar);
+
+    Bitmap getBitmap();
+
+    View getView();
+
+    void release();
+
+    void setAspectRatio(int i);
+
+    void setVideoSize(int i, int i2);
 }

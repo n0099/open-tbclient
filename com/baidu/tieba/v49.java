@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v49 implements NetworkAgentService {
+public class v49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,13 +25,11 @@ public class v49 implements NetworkAgentService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.NetworkAgentService
-    public INetWork buildNetworkInstance() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new w49();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            jSONObject.optString("error_code");
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
-        return (INetWork) invokeV.objValue;
     }
 }

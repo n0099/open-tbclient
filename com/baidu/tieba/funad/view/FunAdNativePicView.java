@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FunAdNativePicView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class FunAdNativePicView extends FrameLayout {
                 if (ListUtils.getCount(list) == 2) {
                     e((String) ListUtils.getItem(list, 0), this.b);
                     e((String) ListUtils.getItem(list, 1), this.c);
-                    this.d.H();
+                    this.d.reset();
                     return;
                 } else if (ListUtils.getCount(list) >= 3) {
                     this.c.setVisibility(0);
@@ -123,31 +123,31 @@ public class FunAdNativePicView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ac, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03af, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.a = findViewById(R.id.obfuscated_res_0x7f090d9d);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d9e);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090daf);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090db0);
             this.b = tbImageView;
             tbImageView.setDrawCorner(true);
             this.b.setPlaceHolder(2);
             this.b.setRadiusById(R.string.J_X12);
             this.b.setConrers(15);
             a(this.b);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090da0);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090db2);
             this.c = tbImageView2;
             tbImageView2.setDrawCorner(false);
             this.c.setPlaceHolder(2);
             this.c.setRadiusById(R.string.J_X02);
             this.c.setConrers(15);
             a(this.c);
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d9f);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090db1);
             this.d = tbImageView3;
             tbImageView3.setDrawCorner(true);
             this.d.setPlaceHolder(2);
             this.d.setRadiusById(R.string.J_X11);
             this.d.setConrers(15);
             a(this.d);
-            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d9c);
+            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090dae);
             this.e = tbImageView4;
             tbImageView4.setDrawCorner(true);
             this.e.setPlaceHolder(3);
@@ -161,9 +161,9 @@ public class FunAdNativePicView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (!StringHelper.equals(str, this.e.getUrl())) {
-                this.e.H();
+                this.e.reset();
             }
-            this.e.N(str, 10, false);
+            this.e.startLoad(str, 10, false);
         }
     }
 
@@ -194,9 +194,9 @@ public class FunAdNativePicView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, tbImageView) == null) {
             if (!StringHelper.equals(str, tbImageView.getUrl())) {
-                tbImageView.H();
+                tbImageView.reset();
             }
-            tbImageView.N(str, 10, false);
+            tbImageView.startLoad(str, 10, false);
         }
     }
 

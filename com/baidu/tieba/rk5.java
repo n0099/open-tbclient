@@ -1,54 +1,61 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class rk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public View b;
 
-    public rk5(View view2) {
+    public static List<sk5> a(zk5 zk5Var) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zk5Var)) == null) {
+            if (zk5Var.c("\u0089PNG") && zk5Var.c("\r\n\u001a\n")) {
+                ArrayList arrayList = new ArrayList();
+                while (zk5Var.available() > 0) {
+                    arrayList.add(b(zk5Var));
+                }
+                return arrayList;
             }
+            throw new IOException("APNG Format error");
         }
-        this.a = view2;
+        return (List) invokeL.objValue;
     }
 
-    public void a(boolean z) {
+    public static sk5 b(zk5 zk5Var) throws IOException {
+        InterceptResult invokeL;
+        sk5 sk5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (!z && this.a.getVisibility() == 4) {
-                this.a.setVisibility(8);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zk5Var)) == null) {
+            int position = zk5Var.position();
+            int e = zk5Var.e();
+            int d = zk5Var.d();
+            if (d == ok5.d) {
+                sk5Var = new ok5();
+            } else if (d == tk5.k) {
+                sk5Var = new tk5();
+            } else if (d == uk5.c) {
+                sk5Var = new uk5();
+            } else if (d == vk5.c) {
+                sk5Var = new vk5();
+            } else if (d == wk5.c) {
+                sk5Var = new wk5();
+            } else if (d == xk5.f) {
+                sk5Var = new xk5();
+            } else {
+                sk5Var = new sk5();
             }
-            if (!z && this.b != null) {
-                b();
-                this.b = null;
-            }
+            sk5Var.b = position;
+            sk5Var.a = e;
+            sk5Var.c(zk5Var);
+            zk5Var.e();
+            return sk5Var;
         }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setVisibility(4);
-            vk5.j(this.b);
-        }
+        return (sk5) invokeL.objValue;
     }
 }

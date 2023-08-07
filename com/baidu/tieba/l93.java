@@ -1,63 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class l93 {
+public class l93<T> implements n93 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<T> a;
 
-    public l93() {
+    public l93(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = list;
     }
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.n93
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            return c(context).getInt("softinput.height", i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            return c(context).edit().putInt("softinput.height", i).commit();
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (l93.class) {
-                    if (a == null) {
-                        a = new ik3("swan.publisher", false);
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
-            return a;
+            return "";
         }
-        return (SharedPreferences) invokeL.objValue;
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.n93
+    public int getItemsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 }

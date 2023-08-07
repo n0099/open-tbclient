@@ -1,193 +1,204 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidu.webkit.sdk.WebViewFactory;
-import com.baidu.webkit.sdk.WebViewFactoryProvider;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class tx {
+public class tx extends dx {
     public static /* synthetic */ Interceptable $ic;
+    public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
+    public ItemCardView h;
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(tx txVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {txVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318377, "Lcom/baidu/tieba/tx;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448318377, "Lcom/baidu/tieba/tx;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        MessageDigest messageDigest;
-        DataInputStream dataInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            DataInputStream dataInputStream2 = null;
-            try {
-                try {
-                    messageDigest = MessageDigest.getInstance("MD5");
-                    dataInputStream = new DataInputStream(new FileInputStream(str));
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318377, "Lcom/baidu/tieba/tx;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                byte[] bArr = new byte[131072];
-                while (true) {
-                    int read = dataInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String b = b(messageDigest.digest(), "");
-                try {
-                    dataInputStream.close();
-                } catch (Exception unused) {
-                }
-                return b;
-            } catch (Exception e2) {
-                e = e2;
-                dataInputStream2 = dataInputStream;
-                e.printStackTrace();
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused2) {
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream2 = dataInputStream;
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                throw th;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318377, "Lcom/baidu/tieba/tx;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
     }
 
-    public static String b(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean c() {
+    public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String processTypeString = WebKitFactory.getProcessTypeString();
-            if (TextUtils.isEmpty(processTypeString) || !processTypeString.equals("1")) {
-                Boolean bool = Boolean.FALSE;
-                WebViewFactoryProvider provider = WebViewFactory.getProvider();
-                if (provider != null) {
-                    bool = (Boolean) provider.getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE);
-                }
-                return bool.booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ItemCardView itemCardView = this.h;
+            if (itemCardView != null) {
+                return itemCardView.getPosition();
             }
-            return false;
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
+    public final void F() {
+        ItemCardView itemCardView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
-                int type = activeNetworkInfo.getType();
-                if (activeNetworkInfo.isAvailable() && 1 == type) {
-                    return true;
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (itemCardView = this.h) != null) {
+            itemCardView.setOnClickListenerOfRightBtn(new a(this));
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean e(View view2) {
-        InterceptResult invokeL;
-        ViewParent parent;
+    @Override // com.baidu.tieba.ww
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            if (view2 == null || (parent = view2.getParent()) == null || view2.getVisibility() != 0) {
-                return false;
-            }
-            ViewGroup viewGroup = (ViewGroup) parent;
-            int indexOfChild = viewGroup.indexOfChild(view2);
-            int childCount = viewGroup.getChildCount();
-            if (indexOfChild == childCount - 1) {
-                return true;
-            }
-            for (int i = indexOfChild + 1; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0 && childAt.getHeight() > 0 && childAt.getWidth() > 0 && view2.getHeight() > 0 && view2.getWidth() > 0 && childAt.getWidth() >= view2.getWidth() && childAt.getHeight() >= view2.getHeight()) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
         }
-        return invokeL.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return URLEncoder.encode(new String(sx.a(str.getBytes())), "UTF-8");
-            } catch (Exception e) {
-                Log.printStackTrace(e);
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            y(i);
+            x(0);
+            E(this.h, i, 0);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tx(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().l instanceof ItemCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().l.getParent() == null) {
+            this.h = (ItemCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().l;
+        } else {
+            this.h = new ItemCardView(context);
+        }
+        F();
+        y(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+    }
+
+    public int A(ItemData itemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, itemData)) == null) {
+            ItemCardView itemCardView = this.h;
+            if (itemCardView != null) {
+                return itemCardView.z(itemData);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.h.setIsShowRightBtn(z);
+        }
+    }
+
+    public void G(int i2) {
+        ItemCardView itemCardView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i2) == null) && (itemCardView = this.h) != null) {
+            itemCardView.setPosition(i2);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qx
+    /* renamed from: C */
+    public void onBindDataToView(q05 q05Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q05Var) == null) {
+            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getItem() != null) {
+                this.h.setVisibility(0);
+                this.h.setData(q05Var.getThreadData().itemData, 13, q05Var.getThreadData().tid);
+                return;
+            }
+            this.h.setVisibility(8);
+        }
+    }
+
+    public final void E(View view2, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048580, this, view2, i2, i3) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin != i2 || marginLayoutParams.bottomMargin != i3) {
+                marginLayoutParams.topMargin = i2;
+                marginLayoutParams.bottomMargin = i3;
+                view2.setLayoutParams(marginLayoutParams);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i2) == null) {
+            this.h.G();
+        }
     }
 }

@@ -1,116 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.TbLabelWidget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gz extends ey {
+public abstract class gz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbLabelWidget h;
-    public ThreadData i;
+    public int a;
+    public int b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gz(Context context) {
-        super(context);
+    public gz() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        int g = yi.g(context, R.dimen.M_H_X003);
-        int g2 = yi.g(context, R.dimen.tbds0);
-        z(g);
-        y(g2);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().s instanceof TbLabelWidget) && TbadkCoreApplication.getInst().getPersonalizeViewData().s.getParent() == null) {
-            this.h = (TbLabelWidget) TbadkCoreApplication.getInst().getPersonalizeViewData().s;
-        } else {
-            this.h = new TbLabelWidget(context);
-        }
     }
 
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int g = yi.g(this.b, R.dimen.M_H_X003);
-            int g2 = yi.g(this.b, R.dimen.tbds0);
-            z(g);
-            y(g2);
-        }
-    }
-
-    public ThreadData B() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.xx
-    public View l() {
+    public abstract com.baidu.cesium.a.b b(byte[] bArr, int i, int i2);
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: C */
-    public void b(t15 t15Var) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) {
-            if (t15Var != null) {
-                this.i = t15Var.getThreadData();
-            }
-            this.h.setData(t15Var);
-        }
-    }
-
-    public void D(TbLabelWidget.b bVar) {
-        TbLabelWidget tbLabelWidget;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && (tbLabelWidget = this.h) != null) {
-            tbLabelWidget.setEventCallback(bVar);
-        }
-    }
-
-    public void E(TbPageContext tbPageContext) {
-        TbLabelWidget tbLabelWidget;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) && (tbLabelWidget = this.h) != null) {
-            tbLabelWidget.setPageContext(tbPageContext);
-        }
-    }
-
-    @Override // com.baidu.tieba.sy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
-            this.h.l();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
     }
 }

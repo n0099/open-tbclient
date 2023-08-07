@@ -1,77 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.tieba.wy3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class vy3 implements ISchemeIoc {
+public class vy3 implements wy3.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ExecutorService a;
+    public final dz3 b;
+    public final DownloadInfo c;
+    public final a d;
+    public long e;
+    public volatile AtomicBoolean f;
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void e(DownloadInfo downloadInfo);
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void showSchemeNotSupportDialog(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-        }
-    }
-
-    public vy3() {
+    public vy3(ExecutorService executorService, dz3 dz3Var, DownloadInfo downloadInfo, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executorService, dz3Var, downloadInfo, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = System.currentTimeMillis();
+        this.f = new AtomicBoolean(false);
+        this.a = executorService;
+        this.b = dz3Var;
+        this.c = downloadInfo;
+        this.d = aVar;
+    }
+
+    @Override // com.baidu.tieba.wy3.a
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
+            this.c.setPackageName(q04.d(AppRuntime.getAppContext(), this.c.getPath()));
+            this.c.setStatus(DownloadState.DOWNLOADED.value());
+            this.b.b(this.c);
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.e(this.c);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void doStatistic(String str, String str2) {
+    @Override // com.baidu.tieba.wy3.a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            ci3.h(str, str2);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.get()) {
+            synchronized (this) {
+                if (!this.f.get()) {
+                    this.f.set(true);
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (currentTimeMillis - this.e > 1000) {
+                        this.b.b(this.c);
+                        this.e = currentTimeMillis;
+                    }
+                    this.f.set(false);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, context, confirmDialogCallback) != null) || confirmDialogCallback == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.submit(new wy3(this.b, this.c, this));
         }
-        confirmDialogCallback.onConfirm();
     }
 }

@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes5.dex */
-public interface ct {
-    Activity a();
+public class ct {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Activity activity);
-
-    boolean c();
-
-    Context getAppContext();
-
-    String getAppVersion();
-
-    dt getEnv();
-
-    String getSdkVersion();
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

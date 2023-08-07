@@ -1,454 +1,114 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.PopupWindow;
+import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class zua extends PopupWindow {
+public class zua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ValueAnimator b;
-    public ValueAnimator c;
-    public BaseFragmentActivity d;
-    public View e;
-    public ListView f;
-    public ViewGroup g;
-    public vta h;
-    public int i;
-    public f j;
-    public final AdapterView.OnItemClickListener k;
-    public final View.OnClickListener l;
 
-    /* loaded from: classes8.dex */
-    public interface f {
-        void a(int i, pw4 pw4Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zua a;
-
-        public a(zua zuaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zuaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zuaVar;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                pw4 item = this.a.h.getItem(i);
-                if (this.a.j != null) {
-                    this.a.j.a(i, item);
-                }
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zua a;
-
-        public b(zua zuaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zuaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zuaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zua a;
-
-        public c(zua zuaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zuaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zuaVar;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.a.f.getLayoutParams();
-                layoutParams.height = intValue;
-                this.a.f.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zua a;
-
-        public d(zua zuaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zuaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zuaVar;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.a.f.getLayoutParams();
-                layoutParams.height = intValue;
-                this.a.f.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zua a;
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
-        }
-
-        public e(zua zuaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zuaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zuaVar;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
-                return;
-            }
-            this.a.h();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zua(BaseFragmentActivity baseFragmentActivity) {
-        super(baseFragmentActivity.getPageContext().getPageActivity());
+    public static void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam("obj_type", i2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
+                return false;
             }
+            return true;
         }
-        this.k = new a(this);
-        this.l = new b(this);
-        this.d = baseFragmentActivity;
-        setWidth(-1);
-        setHeight(-1);
-        setContentView(g(new ArrayList(), pw4.f));
-        GreyUtil.grey(this);
-        setFocusable(true);
-        setTouchable(true);
-        setOutsideTouchable(true);
-        setAnimationStyle(0);
-        setBackgroundDrawable(new ColorDrawable(0));
+        return invokeV.booleanValue;
     }
 
-    public void l(f fVar) {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.j = fVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ListView listView = this.f;
-            if (listView != null) {
-                listView.clearAnimation();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TimeHelper.getDayDifference(System.currentTimeMillis(), SharedPrefHelper.getInstance().getLong("key_check_is_question_thread_time", 0L)) > 7) {
+                return true;
             }
-            ViewGroup viewGroup = this.g;
-            if (viewGroup != null) {
-                viewGroup.clearAnimation();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void h() {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.dismiss();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            i();
-        }
-    }
-
-    public final int e(List<pw4> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
-            if (list != null && list.size() != 0 && !TextUtils.isEmpty(str)) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    pw4 pw4Var = list.get(i);
-                    if (pw4Var != null && str.equals(pw4Var.b())) {
-                        return i;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
+                return true;
             }
-            return -1;
+            return false;
         }
-        return invokeLL.intValue;
+        return invokeV.booleanValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public final View g(List<pw4> list, String str) {
-        InterceptResult invokeLL;
+    public static void c(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, list, str)) == null) {
-            BdListView bdListView = new BdListView(this.d.getPageContext().getPageActivity());
-            this.f = bdListView;
-            bdListView.setCacheColorHint(this.d.getResources().getColor(17170445));
-            bdListView.setDivider(null);
-            bdListView.setDividerHeight(0);
-            bdListView.setFadingEdgeLength(0);
-            vta vtaVar = new vta(this.d);
-            this.h = vtaVar;
-            vtaVar.b(list, str);
-            bdListView.setAdapter((ListAdapter) this.h);
-            FrameLayout frameLayout = new FrameLayout(this.d.getPageContext().getPageActivity());
-            FrameLayout frameLayout2 = new FrameLayout(this.d.getPageContext().getPageActivity());
-            this.g = frameLayout2;
-            frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
-            frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
-            this.f.setOnItemClickListener(this.k);
-            frameLayout.setOnClickListener(this.l);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.g, R.color.black_alpha70);
-            return frameLayout;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.c == null) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(this.f.getHeight(), 0);
-                this.c = ofInt;
-                ofInt.addUpdateListener(new d(this));
-                this.c.setDuration(350L);
-            }
-            this.c.start();
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(350L);
-            alphaAnimation.setInterpolator(new LinearInterpolator());
-            alphaAnimation.setAnimationListener(new e(this));
-            this.g.startAnimation(alphaAnimation);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b == null) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(0, this.a);
-                this.b = ofInt;
-                ofInt.addUpdateListener(new c(this));
-                this.b.setDuration(350L);
-            }
-            this.b.start();
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(350L);
-            alphaAnimation.setInterpolator(new LinearInterpolator());
-            this.g.startAnimation(alphaAnimation);
-        }
-    }
-
-    public void k(List<pw4> list, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, list, str) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
             return;
         }
-        this.i = e(list, str);
-        this.a = -2;
-        if (list.size() > 5) {
-            this.a = this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070402);
+        if (activity instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) activity).closeLoadingDialog();
+        } else if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).closeLoadingDialog();
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.a);
-        } else {
-            layoutParams.height = this.a;
-        }
-        this.f.setLayoutParams(layoutParams);
-        if (this.a < 0) {
-            this.a = yi.g(this.d, R.dimen.tbds168) * list.size();
-        }
-        this.h.b(list, str);
-        this.h.notifyDataSetChanged();
     }
 
-    public void n(View view2) {
-        int i;
+    public static void h(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-            this.f.setSelection(this.i);
-            if (Build.VERSION.SDK_INT < 24) {
-                if (bh.k(this, view2)) {
-                    m();
-                    return;
-                }
-                return;
-            }
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                i = UtilHelper.getStatusBarHeight();
-            } else {
-                i = 0;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int height = (iArr[1] + view2.getHeight()) - i;
-            ((FrameLayout.LayoutParams) this.f.getLayoutParams()).topMargin = height;
-            ((FrameLayout.LayoutParams) this.g.getLayoutParams()).topMargin = height;
-            if (bh.m(this, view2, 0, 0, 0)) {
-                m();
-            }
+        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
+            return;
+        }
+        String string = activity.getString(R.string.obfuscated_res_0x7f0f042e);
+        if (activity instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) activity).showLoadingDialog(string);
+        } else if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).showLoadingDialog(string);
         }
     }
 }

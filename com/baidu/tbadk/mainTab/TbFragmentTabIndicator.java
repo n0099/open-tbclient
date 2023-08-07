@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,157 +21,174 @@ import tbclient.ThemeColorInfo;
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public int d;
-    public int e;
-    public ThemeColorInfo f;
+    public int mContentDefaultTextColor;
+    public float mContentDefaultTextSize;
+    public int mContentSelectTextColor;
+    public float mContentSelectTextSize;
+    public boolean mIsContentSelectBold;
+    public ThemeColorInfo mThemeColorInfo;
 
-    public void a(String str, a aVar) {
+    public void addTip(String str, FragmentTapTip fragmentTapTip) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, fragmentTapTip) == null) {
         }
     }
 
-    public void b(String str, a aVar) {
+    public void addTipWrapContent(String str, FragmentTapTip fragmentTapTip) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fragmentTapTip) == null) {
         }
     }
 
-    public void c() {
+    public void checkAndStartAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public a d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return null;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
     }
 
     public View getContentTv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (View) invokeV.objValue;
     }
 
+    public FragmentTapTip getTip(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return null;
+        }
+        return (FragmentTapTip) invokeL.objValue;
+    }
+
+    public void onChangeSkin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    public void onTabSelected(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        }
+    }
+
+    public void refreshIconUrl(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
+
+    public FragmentTapTip removeTip(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return null;
+        }
+        return (FragmentTapTip) invokeL.objValue;
+    }
+
     public void setAnimationResId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
-    }
-
-    public void setCheckDescriptionText(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-        }
-    }
-
-    public void setCompoundDrawablePadding(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
         }
     }
 
+    public void setCheckDescriptionText(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
+    }
+
+    public void setCompoundDrawablePadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
+    }
+
     public void setCompoundDrawablesTopResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
         }
     }
 
     public void setContentTvTopMargin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
         }
     }
 
     public void setIconResourceId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
         }
     }
 
     public void setIconViewWithText(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) {
         }
     }
 
     public void setIconViewWithoutText(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) {
         }
     }
 
     public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
         }
     }
 
     public void setTextColorResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
         }
     }
 
     public void setTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
         }
     }
 
     public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
         }
     }
 
     public void setTipPosType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public static class FragmentTapTip {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public boolean b;
-        public int c;
-        public int d;
-        public int e;
-        public TbFragmentTabIndicator f;
+        public int bgDayRes;
+        public TbFragmentTabIndicator indicator;
+        public boolean isRight;
+        public int offsetX;
+        public int textDayColor;
 
-        public a() {
+        /* renamed from: view  reason: collision with root package name */
+        public View f1082view;
+
+        public FragmentTapTip() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,51 +201,51 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.b = true;
-            this.e = R.color.common_color_10225;
+            this.isRight = true;
+            this.textDayColor = R.color.common_color_10225;
         }
 
-        public final int a(TextView textView) {
+        private int getMessageCount(TextView textView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, textView)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, textView)) == null) {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.a).getText().toString();
+                String charSequence = ((TextView) this.f1082view).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
-                return wg.e(charSequence, -1);
+                return JavaTypesHelper.toInt(charSequence, -1);
             }
             return invokeL.intValue;
         }
 
-        public void b(int i) {
+        public void onChangeSkin(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                int i2 = this.d;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                int i2 = this.bgDayRes;
                 if (i2 != 0) {
-                    SkinManager.setBackgroundResource(this.a, i2);
+                    SkinManager.setBackgroundResource(this.f1082view, i2);
                 }
-                View view2 = this.a;
+                View view2 = this.f1082view;
                 if (view2 instanceof TextView) {
-                    int i3 = this.e;
+                    int i3 = this.textDayColor;
                     if (i3 != 0) {
                         SkinManager.setViewTextColor(view2, i3, 1);
                     }
-                    int a = a((TextView) this.a);
-                    if (a > 0 && a < 10) {
-                        SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_head_prompt_one);
-                    } else if (a >= 10 && a < 100) {
-                        SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_head_prompt_two);
-                    } else if (a >= 100) {
-                        SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_head_prompt_more);
+                    int messageCount = getMessageCount((TextView) this.f1082view);
+                    if (messageCount > 0 && messageCount < 10) {
+                        SkinManager.setBackgroundResource(this.f1082view, R.drawable.icon_news_head_prompt_one);
+                    } else if (messageCount >= 10 && messageCount < 100) {
+                        SkinManager.setBackgroundResource(this.f1082view, R.drawable.icon_news_head_prompt_two);
+                    } else if (messageCount >= 100) {
+                        SkinManager.setBackgroundResource(this.f1082view, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view3 = this.a;
+                View view3 = this.f1082view;
                 if (view3 instanceof MessageRedDotView) {
-                    ((MessageRedDotView) view3).e();
+                    ((MessageRedDotView) view3).onChangeSkinType();
                 }
             }
         }
@@ -252,11 +269,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0.0f;
-        this.c = 0.0f;
-        this.d = 0;
-        this.e = 0;
+        this.mIsContentSelectBold = false;
+        this.mContentSelectTextSize = 0.0f;
+        this.mContentDefaultTextSize = 0.0f;
+        this.mContentSelectTextColor = 0;
+        this.mContentDefaultTextColor = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -278,11 +295,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0.0f;
-        this.c = 0.0f;
-        this.d = 0;
-        this.e = 0;
+        this.mIsContentSelectBold = false;
+        this.mContentSelectTextSize = 0.0f;
+        this.mContentDefaultTextSize = 0.0f;
+        this.mContentSelectTextColor = 0;
+        this.mContentDefaultTextColor = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -304,52 +321,52 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0.0f;
-        this.c = 0.0f;
-        this.d = 0;
-        this.e = 0;
+        this.mIsContentSelectBold = false;
+        this.mContentSelectTextSize = 0.0f;
+        this.mContentDefaultTextSize = 0.0f;
+        this.mContentSelectTextColor = 0;
+        this.mContentDefaultTextColor = 0;
     }
 
     public void setContentDefaultTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mContentDefaultTextColor = i;
         }
     }
 
     public void setContentDefaultTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            this.c = f;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            this.mContentDefaultTextSize = f;
         }
     }
 
     public void setContentSelectTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mContentSelectTextColor = i;
         }
     }
 
     public void setContentSelectTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
-            this.b = f;
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.mContentSelectTextSize = f;
         }
     }
 
     public void setIsContentSelectBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.mIsContentSelectBold = z;
         }
     }
 
     public void setThemeColorInfo(ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, themeColorInfo) == null) {
-            this.f = themeColorInfo;
+        if (interceptable == null || interceptable.invokeL(1048603, this, themeColorInfo) == null) {
+            this.mThemeColorInfo = themeColorInfo;
         }
     }
 }

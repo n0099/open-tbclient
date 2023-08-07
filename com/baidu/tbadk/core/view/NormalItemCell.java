@@ -13,13 +13,13 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = -1;
             this.b = 0;
             this.c = -1;
-            this.d = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+            this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         }
     }
 
@@ -87,8 +87,8 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        h = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        i = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        h = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -128,7 +128,7 @@ public class NormalItemCell extends ConstraintLayout {
                 }
                 textView.setHint(charSequence);
             }
-            e();
+            f();
         }
     }
 
@@ -172,7 +172,7 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        c(context);
+        b(context);
     }
 
     private void setupDivider(int i2) {
@@ -214,19 +214,19 @@ public class NormalItemCell extends ConstraintLayout {
         }
     }
 
-    public final void c(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.normal_item_cell_layout, this);
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b7);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c6);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922cf);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c7);
         }
     }
 
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
@@ -244,15 +244,13 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                d85 d = d85.d(this.d);
-                d.o(R.string.J_X06);
-                d.f(this.f.a);
+                EMManager.from(this.d).setCorner(R.string.J_X06).setBackGroundColor(this.f.a);
             }
-            e();
+            f();
         }
     }
 
-    public final void e() {
+    public final void f() {
         int i2;
         Drawable pureDrawable;
         Interceptable interceptable = $ic;
@@ -263,8 +261,8 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar = this.f;
             if (aVar != null && (i2 = aVar.c) != -1 && (pureDrawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null)) != null) {
-                int g = yi.g(getContext(), R.dimen.tbds32);
-                pureDrawable.setBounds(0, 0, g, g);
+                int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds32);
+                pureDrawable.setBounds(0, 0, dimens, dimens);
                 this.d.setCompoundDrawables(pureDrawable, null, null, null);
             }
         }
@@ -280,12 +278,12 @@ public class NormalItemCell extends ConstraintLayout {
                 int i4 = aVar.d;
                 setPadding(i4, 0, i4, 0);
                 if (aVar.a != -1) {
-                    i2 = yi.g(getContext(), R.dimen.M_W_X004);
+                    i2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004);
                 } else {
                     i2 = 0;
                 }
                 if (aVar.a != -1) {
-                    i3 = yi.g(getContext(), R.dimen.tbds8);
+                    i3 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds8);
                 } else {
                     i3 = 0;
                 }

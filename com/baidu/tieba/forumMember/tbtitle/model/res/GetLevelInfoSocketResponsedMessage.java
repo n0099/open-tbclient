@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
-import com.baidu.tieba.jg7;
+import com.baidu.tieba.rd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,8 +59,8 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
                 getLevelInfoRequestMessage = null;
             }
             if (getLevelInfoRequestMessage != null) {
-                jg7 jg7Var = new jg7();
-                jg7Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                rd7 rd7Var = new rd7();
+                rd7Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

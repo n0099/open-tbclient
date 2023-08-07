@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.p3a;
+import com.baidu.tieba.j2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetDislikeList.GetDislikeListResIdl;
 public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p3a pageData;
+    public j2a pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbiddenForumHttpResMsg() {
@@ -36,13 +36,13 @@ public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public p3a getPageData() {
+    public j2a getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.pageData;
         }
-        return (p3a) invokeV.objValue;
+        return (j2a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class ForbiddenForumHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getDislikeListResIdl.error.usermsg);
         }
-        p3a p3aVar = new p3a();
-        this.pageData = p3aVar;
-        p3aVar.a(getDislikeListResIdl.data);
+        j2a j2aVar = new j2a();
+        this.pageData = j2aVar;
+        j2aVar.a(getDislikeListResIdl.data);
     }
 }

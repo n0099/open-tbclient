@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 public class BadgeFactory {
     public static BadgeView createBadgeView(Context context, BadgeView.Type type) {
         BadgeView badgeView = new BadgeView(context);
-        badgeView.setId(R.id.obfuscated_res_0x7f09032d);
+        badgeView.setId(R.id.obfuscated_res_0x7f09032e);
         badgeView.setType(type);
         badgeView.setIncludeFontPadding(false);
         return badgeView;
@@ -23,7 +23,7 @@ public class BadgeFactory {
         } else {
             createBadgeView = createBadgeView(context, BadgeView.Type.SMALL_TEXT, 49, 13, 3, 0, 0);
         }
-        createBadgeView.setId(R.id.obfuscated_res_0x7f09032d);
+        createBadgeView.setId(R.id.obfuscated_res_0x7f09032e);
         return createBadgeView;
     }
 
@@ -31,14 +31,14 @@ public class BadgeFactory {
     @Deprecated
     public static BadgeView createTopMainTabBadge(Context context, int i) {
         BadgeView createBadgeView = createBadgeView(context, BadgeView.Type.SMALL_TEXT, 51, DeviceUtil.ScreenInfo.px2dp(context, i) - 12, 3, 0, 0);
-        createBadgeView.setId(R.id.obfuscated_res_0x7f09032d);
+        createBadgeView.setId(R.id.obfuscated_res_0x7f09032e);
         createBadgeView.setText("10+");
         return createBadgeView;
     }
 
     public static BadgeView createBadgeView(Context context, BadgeView.Type type, int i, int i2, int i3, int i4, int i5) {
         BadgeView badgeView = new BadgeView(context);
-        badgeView.setId(R.id.obfuscated_res_0x7f09032d);
+        badgeView.setId(R.id.obfuscated_res_0x7f09032e);
         badgeView.setType(type);
         badgeView.setIncludeFontPadding(false);
         badgeView.setBadgeMargin(i2, i3, i4, i5);
@@ -47,7 +47,7 @@ public class BadgeFactory {
 
     public static BadgeView createBadgeViewInPx(Context context, BadgeView.Type type, int i, int i2, int i3, int i4, int i5) {
         BadgeView badgeView = new BadgeView(context);
-        badgeView.setId(R.id.obfuscated_res_0x7f09032d);
+        badgeView.setId(R.id.obfuscated_res_0x7f09032e);
         badgeView.setType(type);
         badgeView.setIncludeFontPadding(false);
         badgeView.setBadgeMarginInPx(i2, i3, i4, i5);

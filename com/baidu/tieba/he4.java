@@ -1,85 +1,180 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class he4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b = null;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
 
-    public static String c(int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947820818, "Lcom/baidu/tieba/he4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947820818, "Lcom/baidu/tieba/he4;");
+        }
+    }
+
+    public final String g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "boolean";
-                case 2:
-                case 3:
-                case 5:
-                    return "number";
-                case 4:
-                case 9:
-                case 10:
-                default:
-                    return "object";
-                case 6:
-                    return "array object";
-                case 7:
-                    return EMABTest.TYPE_STRING;
-                case 8:
-                    return "function object";
-                case 11:
-                    return StringUtil.NULL_STRING;
-                case 12:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return "popview";
+                }
+                return "list";
             }
+            return "carousel";
         }
         return (String) invokeI.objValue;
     }
 
-    public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        InterceptResult invokeLL;
+    public he4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSTypeMismatchException)) == null) {
-            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(fj2 fj2Var, JSTypeMismatchException jSTypeMismatchException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fj2Var, jSTypeMismatchException) == null) {
-            fj2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType)));
-        }
-    }
-
-    public static String b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return String.format("%s: %s", str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void call(c42 c42Var, boolean z, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{c42Var, Boolean.valueOf(z), obj}) == null) {
-            d64 e = d64.e(c42Var);
-            if (z) {
-                e.d(obj);
-            } else {
-                e.b(obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+    }
+
+    public final String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            return String.format("%s_%s:%s", str, str2, str3);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public void b(int i, String str, String str2, String str3) {
+        String O;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String g = g(i);
+            if (ya3.M() == null) {
+                O = null;
+            } else {
+                O = ya3.M().O();
+            }
+            ai3 ai3Var = new ai3();
+            ai3Var.b = "click";
+            ai3Var.g = g;
+            ai3Var.e = str;
+            if (str2 != null) {
+                ai3Var.a("target_appkey", str2);
+            }
+            ai3Var.a("current_appkey", O);
+            if (!TextUtils.isEmpty(str3)) {
+                ai3Var.a("location", str3);
+            }
+            rh3.g(ai3Var);
+        }
+    }
+
+    public void c(int i, ne4 ne4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ne4Var) == null) {
+            String g = g(i);
+            JSONArray f = f(ne4Var);
+            ai3 ai3Var = new ai3();
+            ai3Var.b = "show";
+            ai3Var.g = g;
+            if (f != null) {
+                ai3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            rh3.g(ai3Var);
+        }
+    }
+
+    public void e(int i, ne4 ne4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, ne4Var) == null) {
+            String g = g(i);
+            JSONArray f = f(ne4Var);
+            ai3 ai3Var = new ai3();
+            ai3Var.b = "show";
+            ai3Var.g = g;
+            if (f != null) {
+                ai3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            rh3.g(ai3Var);
+            this.a.clear();
+        }
+    }
+
+    public void d(int i, String str, String str2) {
+        String O;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            String g = g(i);
+            String a = a(g, str, str2);
+            if (this.a.contains(a)) {
+                return;
+            }
+            if (ya3.M() == null) {
+                O = null;
+            } else {
+                O = ya3.M().O();
+            }
+            ai3 ai3Var = new ai3();
+            ai3Var.b = "click";
+            ai3Var.g = g;
+            ai3Var.e = str;
+            if (str2 != null) {
+                ai3Var.a("target_appkey", str2);
+            }
+            ai3Var.a("current_appkey", O);
+            rh3.g(ai3Var);
+            this.a.add(a);
+        }
+    }
+
+    public final JSONArray f(ne4 ne4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ne4Var)) == null) {
+            if (ne4Var != null && ne4Var.b != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (RecommendItemModel recommendItemModel : ne4Var.b) {
+                    jSONArray.put(recommendItemModel.appKey);
+                }
+                return jSONArray;
+            }
+            return null;
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

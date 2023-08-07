@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l9 a;
-    public BdTypeListView b;
-    public final List<ln> c;
-    public kf6 d;
-    public hf6 e;
-    public ff6 f;
-    public gf6 g;
+    public String a;
+    public int b;
+    public List<kf6> c;
 
-    public lf6(l9 l9Var, BdTypeListView bdTypeListView, boolean z) {
+    public lf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,50 +32,44 @@ public class lf6 {
             }
         }
         this.c = new ArrayList();
-        this.a = l9Var;
-        this.b = bdTypeListView;
-        a(z);
     }
 
-    public final void a(boolean z) {
+    public List<kf6> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                hf6 hf6Var = new hf6((TbPageContext) this.a, ag6.c);
-                this.e = hf6Var;
-                this.c.add(hf6Var);
-            } else {
-                kf6 kf6Var = new kf6((TbPageContext) this.a, ag6.c);
-                this.d = kf6Var;
-                this.c.add(kf6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new ArrayList();
             }
-            this.f = new ff6((TbPageContext) this.a, nf6.a);
-            this.g = new gf6((TbPageContext) this.a, of6.a);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.addAdapters(this.c);
+            return this.c;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void b(yb6 yb6Var) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yb6Var) == null) {
-            kf6 kf6Var = this.d;
-            if (kf6Var != null) {
-                kf6Var.u(yb6Var);
-            }
-            hf6 hf6Var = this.e;
-            if (hf6Var != null) {
-                hf6Var.u(yb6Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(List<yn> list) {
-        BdTypeListView bdTypeListView;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
-            bdTypeListView.setData(list);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.a = jSONObject.optString("mark_type_name");
+            this.b = jSONObject.optInt("mark_type_wear");
+            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    kf6 kf6Var = new kf6();
+                    kf6Var.n(optJSONArray.optJSONObject(i));
+                    kf6Var.o(this.a);
+                    kf6Var.p(this.b);
+                    this.c.add(kf6Var);
+                }
+            }
         }
     }
 }

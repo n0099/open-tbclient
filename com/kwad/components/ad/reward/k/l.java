@@ -27,18 +27,18 @@ public final class l extends d implements View.OnClickListener {
     public l(DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
         this.vf = dialogFragment;
         this.nf = aVar;
-        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04b0, viewGroup, false);
+        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04b3, viewGroup, false);
         initView();
     }
 
     private void initView() {
-        this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f0912e6);
-        this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912eb);
-        this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912ea);
-        this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912e9);
-        this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f0912e7);
-        this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f0912e8);
-        this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f0912ec);
+        this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f0912f9);
+        this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912fe);
+        this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912fd);
+        this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912fc);
+        this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f0912fa);
+        this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f0912fb);
+        this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f0912ff);
         this.vy.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.vB.setOnClickListener(this);
@@ -46,7 +46,7 @@ public final class l extends d implements View.OnClickListener {
     }
 
     public final void a(l.c cVar) {
-        KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2e));
+        KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e33));
         String title = cVar.getTitle();
         if (this.eQ != null && title != null) {
             SpannableString spannableString = new SpannableString(title);

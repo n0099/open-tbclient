@@ -1,31 +1,40 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.Charset;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class o76 extends tm0 {
+public class o76 implements cv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p76 a;
-        public final /* synthetic */ o76 b;
+        public final /* synthetic */ b32 a;
 
-        public a(o76 o76Var, p76 p76Var) {
+        public a(o76 o76Var, b32 b32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o76Var, p76Var};
+                Object[] objArr = {o76Var, b32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,60 +44,38 @@ public class o76 extends tm0 {
                     return;
                 }
             }
-            this.b = o76Var;
-            this.a = p76Var;
+            this.a = b32Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a(view2)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
             }
-            this.b.l();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    /* JADX WARN: Type inference failed for: r9v4, types: [android.view.View] */
-    public o76(@NonNull p76 p76Var, @NonNull gm0 gm0Var) {
-        super(gm0Var, p76Var);
+    public o76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p76Var, gm0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((gm0) objArr2[0], (zm0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        ?? realView = this.e.get().getRealView();
-        if (realView != 0) {
-            realView.setOnClickListener(new a(this, p76Var));
-        }
     }
 
-    @Override // com.baidu.tieba.tm0, com.baidu.tieba.qm0, com.baidu.tieba.ym0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull gm0 gm0Var) {
+    @Override // com.baidu.tieba.cv2
+    public void a(Context context, b32 b32Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, gm0Var) == null) {
-            super.a(adDownloadAction, gm0Var);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, b32Var) != null) || !(context instanceof Activity)) {
+            return;
         }
-    }
-
-    /* JADX WARN: Type inference failed for: r0v5, types: [android.view.View] */
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.get().getRealView().setVisibility(0);
-            l();
-        }
+        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, n76.class, new Bundle(), new a(this, b32Var));
     }
 }

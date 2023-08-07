@@ -1,16 +1,26 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.zn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public abstract class gx0 {
+public class gx0 implements do0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t01 a;
+
+    @Override // com.baidu.tieba.do0
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
     public gx0() {
         Interceptable interceptable = $ic;
@@ -26,26 +36,15 @@ public abstract class gx0 {
         }
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.do0
+    public void a(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            zn0.a.a().b(application);
+            ut0.g(application);
+            ut0.e(false);
+            ut0.i("CyberSysPlayer");
+            ut0.j(new az0());
         }
-    }
-
-    public void b(@NonNull t01 t01Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t01Var) == null) {
-            this.a = t01Var;
-        }
-    }
-
-    public void c(@NonNull mx0 mx0Var) {
-        t01 t01Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mx0Var) != null) || (t01Var = this.a) == null) {
-            return;
-        }
-        t01Var.d(mx0Var);
     }
 }

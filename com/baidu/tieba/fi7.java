@@ -1,86 +1,262 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.yf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fi7 extends yh7<gi7, FrsNoListItemViewHolder> {
+public class fi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> l;
-    public final int m;
+    public View a;
+    public ag6 b;
+    public ag6 c;
+    public ag6 d;
+    public ValueAnimator e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fi7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a implements yf6.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBLottieAnimationView a;
+
+        public a(fi7 fi7Var, TBLottieAnimationView tBLottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi7Var, tBLottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBLottieAnimationView;
+        }
+
+        @Override // com.baidu.tieba.yf6.i
+        public void a(yf6 yf6Var, boolean z, float f, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{yf6Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.a.playAnimation();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fi7 a;
+
+        public b(fi7 fi7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fi7Var;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.e.start();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fi7 a;
+
+        public c(fi7 fi7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fi7Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.a != null) {
+                this.a.a.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fi7 a;
+
+        public d(fi7 fi7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fi7Var;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.d.h();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements yf6.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBLottieAnimationView a;
+
+        public e(fi7 fi7Var, TBLottieAnimationView tBLottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fi7Var, tBLottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBLottieAnimationView;
+        }
+
+        @Override // com.baidu.tieba.yf6.i
+        @SuppressLint({"WrongConstant"})
+        public void a(yf6 yf6Var, boolean z, float f, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{yf6Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.a.setRepeatCount(-1);
+                this.a.setRepeatMode(2);
+                this.a.playAnimation();
+            }
+        }
+    }
+
+    public fi7(View view2, TBLottieAnimationView tBLottieAnimationView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {view2, tBLottieAnimationView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = (yi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422);
-        this.l = tbPageContext;
+        this.a = view2;
+        this.b = d(view2, yf6.m, 170.0f, 0.5f, 1.0f);
+        this.c = d(view2, yf6.n, 170.0f, 0.5f, 1.0f);
+        this.e = e(view2, 0.0f, 6.0f, 100L);
+        this.d = d(view2, yf6.o, 200.0f, 0.4f, 0.0f);
+        f(tBLottieAnimationView);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.m;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
-        }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
-    }
-
-    public View H(int i, View view2, ViewGroup viewGroup, gi7 gi7Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+    public final ag6 d(View view2, zf6<View> zf6Var, float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gi7Var, frsNoListItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) gi7Var, (gi7) frsNoListItemViewHolder);
-            if (gi7Var.a() == 6) {
-                frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.l.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f02f3)));
-            } else {
-                frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.l.getContext().getResources().getString(R.string.no_data_common_txt)));
-            }
-            frsNoListItemViewHolder.d.f(this.l, TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, zf6Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            bg6 bg6Var = new bg6(f3);
+            bg6Var.f(f);
+            bg6Var.d(f2);
+            ag6 ag6Var = new ag6(view2, zf6Var);
+            ag6Var.m(bg6Var);
+            return ag6Var;
         }
-        return (View) invokeCommon.objValue;
+        return (ag6) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (gi7) obj, (FrsNoListItemViewHolder) viewHolder);
-        return view2;
+    public final ValueAnimator e(View view2, float f, float f2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)})) == null) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
+            ofFloat.setTarget(view2);
+            ofFloat.setDuration(j);
+            return ofFloat;
+        }
+        return (ValueAnimator) invokeCommon.objValue;
+    }
+
+    public final void f(TBLottieAnimationView tBLottieAnimationView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) != null) || tBLottieAnimationView == null) {
+            return;
+        }
+        this.b.b(new a(this, tBLottieAnimationView));
+        tBLottieAnimationView.addAnimatorListener(new b(this));
+        this.e.addUpdateListener(new c(this));
+        this.e.addListener(new d(this));
+        this.d.b(new e(this, tBLottieAnimationView));
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.h();
+            this.c.h();
+        }
     }
 }

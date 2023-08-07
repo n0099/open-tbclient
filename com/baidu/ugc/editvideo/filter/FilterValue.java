@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.filter;
 
 import android.text.TextUtils;
 import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.tieba.zab;
+import com.baidu.tieba.cab;
 import com.google.gson.Gson;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -56,7 +56,7 @@ public class FilterValue implements Serializable {
     }
 
     public static FilterValue parseToBean(String str) {
-        if (zab.a(str)) {
+        if (cab.a(str)) {
             return null;
         }
         try {

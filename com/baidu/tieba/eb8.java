@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,23 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.PkModule;
-import tbclient.Hottopic.PkView;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eb8 implements yn {
+public class eb8 implements ym {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId k;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public long c;
-    public String d;
-    public long e;
-    public int f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
+    public int c;
+    public int d;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +34,7 @@ public class eb8 implements yn {
                 return;
             }
         }
-        k = BdUniqueId.gen();
+        e = BdUniqueId.gen();
     }
 
     public eb8() {
@@ -57,56 +51,34 @@ public class eb8 implements yn {
         }
     }
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return k;
+            return e;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void a(PkModule pkModule) {
-        int i;
-        long j;
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, pkModule) != null) || pkModule == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        String str = pkModule.module_name;
-        this.a = pkModule.ques_desc;
-        PkView pkView = pkModule.pk_1;
-        this.b = pkView.pk_desc;
-        this.c = pkView.pk_num.longValue();
-        pkModule.pk_1.pk_index.intValue();
-        PkView pkView2 = pkModule.pk_2;
-        this.d = pkView2.pk_desc;
-        this.e = pkView2.pk_num.longValue();
-        pkModule.pk_2.pk_index.intValue();
-        if (pkModule.pk_1.has_clicked.intValue() == 1) {
-            i = 1;
-        } else if (pkModule.pk_2.has_clicked.intValue() == 1) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.f = i;
-        pkModule.pk_type.intValue();
-        pkModule.user_pk_index.intValue();
-        this.g = pkModule.pk_id.longValue();
-        this.h = pkModule.user_pk_id.longValue();
-        int i2 = this.f;
-        long j2 = this.c;
-        if (i2 == 1) {
-            j2--;
-        }
-        this.i = j2;
-        if (this.f == 2) {
-            j = this.e - 1;
-        } else {
-            j = this.e;
-        }
-        this.j = j;
+        this.a = jSONObject.optString("pid");
+        this.b = jSONObject.optString("url");
     }
 }

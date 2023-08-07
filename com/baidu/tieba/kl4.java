@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.hk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kl4<T> {
+public class kl4 extends hl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<T> a;
 
     public kl4() {
         Interceptable interceptable = $ic;
@@ -27,84 +23,23 @@ public class kl4<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public synchronized T c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hk4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hk4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                T t = this.a.get(0);
-                this.a.remove(0);
-                return t;
-            }
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            jl4.b(str, map, map2, jSONObject, new ik4(aVar));
         }
-        return (T) invokeV.objValue;
     }
 
-    public synchronized T d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hk4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, hk4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                return this.a.get(0);
-            }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            jl4.a(str, map, map2, new ik4(aVar));
         }
-        return (T) invokeV.objValue;
-    }
-
-    @NonNull
-    public Iterator<T> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.iterator();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public T e(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null) {
-                for (int size = this.a.size() - 1; size >= 0; size--) {
-                    if (t.equals(this.a.get(size))) {
-                        return this.a.get(size);
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(",Queue Size:" + this.a.size());
-            synchronized (this) {
-                int i = 0;
-                for (T t : this.a) {
-                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
-                    i++;
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

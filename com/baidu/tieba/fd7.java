@@ -2,32 +2,35 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPicView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fd7 extends vb7<CardPicView, h77> {
+public class fd7 extends gf7<jf7, FrsEmpertyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fd7(String str) {
-        super(str);
+    public fd7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,26 +38,33 @@ public class fd7 extends vb7<CardPicView, h77> {
         }
     }
 
-    @Override // com.baidu.tieba.vb7, com.baidu.tieba.lc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: G */
+    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            zd7.j(a);
-            return a;
+            return new FrsEmpertyItemViewHolder(new View(this.mContext));
         }
-        return (View) invokeL.objValue;
+        return (FrsEmpertyItemViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: e */
-    public void b(@NonNull CardPicView cardPicView, @NonNull h77 h77Var) {
+    public View H(int i, View view2, ViewGroup viewGroup, jf7 jf7Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPicView, h77Var) == null) {
-            cardPicView.f(h77Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jf7Var, frsEmpertyItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) jf7Var, (jf7) frsEmpertyItemViewHolder);
+            frsEmpertyItemViewHolder.c(jf7Var.b());
+            frsEmpertyItemViewHolder.b(jf7Var.a());
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (jf7) obj, (FrsEmpertyItemViewHolder) viewHolder);
+        return view2;
     }
 }

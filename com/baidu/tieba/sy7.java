@@ -1,12 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
-import com.baidu.tieba.gameassist.permission.PermissionFragmentActivity;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class sy7 implements PermissionService {
+public class sy7 implements ym {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Integer, Object> a;
+    public static final BdUniqueId f;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public BdUniqueId e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +33,8 @@ public class sy7 implements PermissionService {
                 return;
             }
         }
-        a = new HashMap();
+        f = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public sy7() {
@@ -49,32 +47,19 @@ public class sy7 implements PermissionService {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.e = g;
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
-    public void requestFloatWindowPermission(@NonNull Activity activity, @Nullable PermissionService.IGrantCallback iGrantCallback) {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, iGrantCallback) == null) && iGrantCallback != null) {
-            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
-            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
-            intent.putExtra("request", "requestFloatPermission");
-            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
-            activity.startActivity(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-    }
-
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
-    public void requestPermission(@NonNull Activity activity, @NonNull String[] strArr, @Nullable PermissionService.IGrantCallback iGrantCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, iGrantCallback) == null) && iGrantCallback != null) {
-            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
-            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
-            intent.putExtra("request", "requestPermissions");
-            intent.putExtra("permissions", strArr);
-            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
-            activity.startActivity(intent);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

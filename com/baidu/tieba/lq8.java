@@ -1,61 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.mention.base.NotificationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lq8 extends uq8 implements cs5 {
+public final class lq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final NotificationView a;
+    public boolean b;
+    public final a c;
 
-    @Override // com.baidu.tieba.as5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static final class a implements NotificationView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lq8 a;
 
-    @Override // com.baidu.tieba.cs5
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        public a(lq8 lq8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lq8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lq8Var;
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.immessagecenter.mention.base.NotificationView.b
+        public void onClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                NotificationView notificationView = this.a.a;
+                if (notificationView != null) {
+                    notificationView.setVisibility(8);
+                }
+                this.a.b = false;
+            }
+        }
     }
 
-    public lq8() {
+    public lq8(NotificationView notificationView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {notificationView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.cs5
-    public boolean I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                initByJson(new JSONObject(str));
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
+        this.a = notificationView;
+        a aVar = new a(this);
+        this.c = aVar;
+        NotificationView notificationView2 = this.a;
+        if (notificationView2 != null) {
+            notificationView2.setOnCloseListener(aVar);
         }
-        return invokeL.booleanValue;
     }
 }

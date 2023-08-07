@@ -1,31 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface gc0 {
-    void D0();
+public class gc0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void Y0(List<String> list);
-
-    void g0();
-
-    void h(int i);
-
-    void h0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
-
-    void i();
-
-    void m(hc0 hc0Var);
-
-    void p(List<String> list);
-
-    void r(SearchResultBean searchResultBean);
-
-    void showToast(String str);
-
-    void w0(List<? extends LiveRoomEntity> list);
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
+    }
 }

@@ -1,53 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.UcCard;
-import tbclient.UcCardInfo;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class co9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public boolean c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(UcCardInfo ucCardInfo) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, ucCardInfo) != null) || ucCardInfo == null) {
-                return;
-            }
-            this.a = ucCardInfo.title;
-            String str = ucCardInfo.pic;
-            String str2 = ucCardInfo.jmp;
-            String str3 = ucCardInfo.tip;
-            this.b = ucCardInfo.st.intValue();
-        }
-    }
+    public int a;
+    public int b;
 
     public co9() {
         Interceptable interceptable = $ic;
@@ -59,29 +27,46 @@ public class co9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = 0;
     }
 
-    public void a(UcCard ucCard) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ucCard) != null) || ucCard == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        String str = ucCard.name;
-        String str2 = ucCard.icon;
-        String str3 = ucCard.doc;
-        String str4 = ucCard.jmp;
-        this.a = new ArrayList();
-        List<UcCardInfo> list = ucCard.uc_cards;
-        if (list != null) {
-            for (UcCardInfo ucCardInfo : list) {
-                if (ucCardInfo != null) {
-                    a aVar = new a();
-                    aVar.a(ucCardInfo);
-                    this.a.add(aVar);
-                }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optInt("error_code", -1);
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                this.b = optJSONObject.optInt("msg_count");
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

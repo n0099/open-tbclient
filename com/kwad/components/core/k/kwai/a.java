@@ -21,28 +21,28 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.k.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0651a {
+    public static class C0652a {
         public b EI;
         public com.kwad.components.core.k.b HN;
         public boolean HP;
         public boolean HQ;
 
-        public final C0651a a(@NonNull com.kwad.components.core.k.b bVar) {
+        public final C0652a a(@NonNull com.kwad.components.core.k.b bVar) {
             this.HN = bVar;
             return this;
         }
 
-        public final C0651a aw(boolean z) {
+        public final C0652a aw(boolean z) {
             this.HP = true;
             return this;
         }
 
-        public final C0651a ax(boolean z) {
+        public final C0652a ax(boolean z) {
             this.HQ = z;
             return this;
         }
 
-        public final C0651a c(b bVar) {
+        public final C0652a c(b bVar) {
             this.EI = bVar;
             return this;
         }
@@ -55,15 +55,15 @@ public final class a {
         }
     }
 
-    public a(C0651a c0651a) {
-        this.EI = c0651a.EI;
-        this.HN = c0651a.HN;
-        this.HP = c0651a.HP;
-        this.HQ = c0651a.HQ;
+    public a(C0652a c0652a) {
+        this.EI = c0652a.EI;
+        this.HN = c0652a.HN;
+        this.HP = c0652a.HP;
+        this.HQ = c0652a.HQ;
     }
 
-    public /* synthetic */ a(C0651a c0651a, byte b) {
-        this(c0651a);
+    public /* synthetic */ a(C0652a c0652a, byte b) {
+        this(c0652a);
     }
 
     public static void a(@NonNull a aVar, int i, String str, boolean z) {

@@ -1,38 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tieba.ija;
+import com.baidu.tieba.tracker.core.data.AbsEventNode;
+import com.baidu.tieba.tracker.core.data.ErrCode;
+import com.baidu.tieba.tracker.core.data.TraceEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import kotlin.Pair;
+import kotlin.TuplesKt;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class eja {
+public abstract class eja<R extends ija> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public BdUniqueId c;
-    public int d;
+    public R a;
+    public AbsEventNode b;
+    public final Handler c;
+    public final Runnable d;
 
-    public eja(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    @MainThread
+    public abstract AbsEventNode a(R r);
+
+    @MainThread
+    public abstract xia c(R r);
+
+    public eja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,92 +47,83 @@ public class eja {
                 return;
             }
         }
-        this.c = null;
-        this.d = -1;
-        this.a = tbPageContext;
-        this.c = bdUniqueId;
-    }
+        this.c = new Handler(Looper.getMainLooper());
+        this.d = new Runnable() { // from class: com.baidu.tieba.bja
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) != null) || dressItemData == null || dressItemData.getPropsId() == 0) {
-            return;
-        }
-        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
-        personalBackgroundPreviewActivityConfig.setFrom(this.d);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void d(int i, String str, DressItemData dressItemData, boolean z) {
-        int i2;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                i2 = 9;
-            } else {
-                i2 = 0;
-            }
-            if (!StringUtils.isNull(str)) {
-                int i3 = 4;
-                int i4 = 2;
-                if (i == wia.a) {
-                    int i5 = this.d;
-                    if (i5 == 1) {
-                        str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
-                    } else if (i5 == 0) {
-                        str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
-                    } else {
-                        str2 = "";
-                    }
-                    String str3 = str2;
-                    TbPageContext<?> tbPageContext = this.a;
-                    if (z) {
-                        i4 = 4;
-                    }
-                    via.d(tbPageContext, i4, str, i2, str3, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-                } else if (i == wia.b) {
-                    TbPageContext<?> tbPageContext2 = this.a;
-                    if (!z) {
-                        i3 = 2;
-                    }
-                    via.c(tbPageContext2, i3, str, i2);
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    eja.d(eja.this);
                 }
             }
+        };
+    }
+
+    public static final void d(eja this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.b(TuplesKt.to(StatConstants.KEY_EXT_ERR_CODE, ErrCode.TIME_OUT.getValue()));
         }
     }
 
-    public void e(DressItemData dressItemData, boolean z) {
+    @MainThread
+    public final void b(Pair<String, String>... params) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, dressItemData, z) != null) || dressItemData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            this.c.removeCallbacks(this.d);
+            R r = this.a;
+            if (r != null) {
+                TraceEventNode traceEventNode = new TraceEventNode(r.getFrom(), r.getScene(), null, null, 12, null);
+                traceEventNode.getTrackParams().putAll(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
+                c(r).c(traceEventNode);
+                gja.a(this, r.getTraceId());
+            }
+            this.a = null;
         }
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
-            return;
+    }
+
+    @MainThread
+    public final void f(Pair<String, String>... params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            this.c.removeCallbacks(this.d);
+            R r = this.a;
+            if (r != null) {
+                TraceEventNode traceEventNode = new TraceEventNode(r.getFrom(), r.getScene(), null, null, 12, null);
+                traceEventNode.getTrackParams().putAll(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
+                c(r).c(traceEventNode);
+                gja.a(this, r.getTraceId());
+            }
+            this.a = null;
         }
-        this.b = dressItemData.getPropsId();
-        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-        backgroundSetRequestMessage.setFromDetail(z);
-        backgroundSetRequestMessage.setRequestUniqueId(this.c);
-        backgroundSetRequestMessage.setPropId(this.b);
-        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
+    }
+
+    @MainThread
+    public final AbsEventNode e(R thisRef, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, thisRef, j)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            this.a = thisRef;
+            AbsEventNode absEventNode = this.b;
+            if (absEventNode != null) {
+                return absEventNode;
+            }
+            if (j > 0) {
+                this.c.postDelayed(this.d, j);
+            }
+            AbsEventNode a = a(thisRef);
+            c(thisRef).c(a);
+            this.b = a;
+            Intrinsics.checkNotNull(a);
+            return a;
+        }
+        return (AbsEventNode) invokeLJ.objValue;
     }
 }

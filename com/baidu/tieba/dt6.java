@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dt6 implements qc7 {
+public final class dt6 implements Comparator<h0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13571" : (String) invokeV.objValue;
-    }
 
     public dt6() {
         Interceptable interceptable = $ic;
@@ -35,14 +26,24 @@ public final class dt6 implements qc7 {
         }
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(h0 entity1, h0 entity2) {
+        InterceptResult invokeLL;
+        us6 a;
+        gt6 b;
+        us6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            return new HashMap();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            gt6 b2 = eu6.b(entity2);
+            if (b2 == null || (a = b2.a()) == null || (b = eu6.b(entity1)) == null || (a2 = b.a()) == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
-        return (Map) invokeL.objValue;
+        return invokeLL.intValue;
     }
 }

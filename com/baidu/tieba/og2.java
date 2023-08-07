@@ -1,147 +1,116 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class og2 {
+public class og2 implements pg2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final jg2 a;
+    public final int b;
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00b7  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0115  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static kg2 a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String str2;
-        String str3;
-        InputStream inputStream;
-        int i;
-        HttpURLConnection httpURLConnection;
-        String scheme;
+    @Override // com.baidu.tieba.pg2
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
-            String str4 = null;
-            if (TextUtils.isEmpty(str) || !Patterns.WEB_URL.matcher(str).matches()) {
-                return null;
-            }
-            String scheme2 = Uri.parse(str).getScheme();
-            int i2 = 200;
-            HttpURLConnection httpURLConnection2 = null;
-            while (true) {
-                try {
-                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    try {
-                        httpURLConnection.setRequestMethod("GET");
-                        if (map != null) {
-                            for (Map.Entry<String, String> entry : map.entrySet()) {
-                                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                            }
-                        }
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.setDoInput(true);
-                        httpURLConnection.setConnectTimeout(ag2.a().e());
-                        httpURLConnection.setReadTimeout(ag2.a().h());
-                        String headerField = httpURLConnection.getHeaderField("Location");
-                        if (headerField == null) {
-                            scheme = null;
-                        } else {
-                            scheme = Uri.parse(headerField).getScheme();
-                        }
-                        if (headerField == null || (scheme != null && scheme.equals(scheme2))) {
-                            break;
-                        }
-                        scheme2 = scheme;
-                        httpURLConnection2 = httpURLConnection;
-                        str = headerField;
-                    } catch (Exception e) {
-                        e = e;
-                        httpURLConnection2 = httpURLConnection;
-                        str2 = null;
-                        if (eg2.a) {
-                            Log.e("HybridIntercept", Log.getStackTraceString(e));
-                        }
-                        str3 = str2;
-                        inputStream = null;
-                        i = i2;
-                        httpURLConnection = httpURLConnection2;
-                        HashMap hashMap = new HashMap();
-                        String str5 = "UTF-8";
-                        if (httpURLConnection != null) {
-                        }
-                        String str6 = str5;
-                        String str7 = str4;
-                        if (TextUtils.isEmpty(str3)) {
-                        }
-                        return new kg2(i, str3, inputStream, hashMap, str6, str7);
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            }
-            i2 = httpURLConnection.getResponseCode();
-            str3 = httpURLConnection.getResponseMessage();
-            try {
-                inputStream = httpURLConnection.getInputStream();
-                i = i2;
-            } catch (Exception e3) {
-                httpURLConnection2 = httpURLConnection;
-                str2 = str3;
-                e = e3;
-                if (eg2.a) {
-                }
-                str3 = str2;
-                inputStream = null;
-                i = i2;
-                httpURLConnection = httpURLConnection2;
-                HashMap hashMap2 = new HashMap();
-                String str52 = "UTF-8";
-                if (httpURLConnection != null) {
-                }
-                String str62 = str52;
-                String str72 = str4;
-                if (TextUtils.isEmpty(str3)) {
-                }
-                return new kg2(i, str3, inputStream, hashMap2, str62, str72);
-            }
-            HashMap hashMap22 = new HashMap();
-            String str522 = "UTF-8";
-            if (httpURLConnection != null) {
-                if (httpURLConnection.getContentEncoding() != null) {
-                    str522 = httpURLConnection.getContentEncoding();
-                }
-                str4 = httpURLConnection.getContentType();
-                Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
-                if (headerFields != null) {
-                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
-                        List<String> value = entry2.getValue();
-                        if (!value.isEmpty()) {
-                            hashMap22.put(entry2.getKey(), value.get(0));
-                        }
-                    }
-                }
-            }
-            String str622 = str522;
-            String str722 = str4;
-            if (TextUtils.isEmpty(str3)) {
-                str3 = DnsModel.MSG_OK;
-            }
-            return new kg2(i, str3, inputStream, hashMap22, str622, str722);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return (kg2) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031215, "Lcom/baidu/tieba/og2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948031215, "Lcom/baidu/tieba/og2;");
+                return;
+            }
+        }
+        c = ir1.a;
+    }
+
+    public og2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new lg2();
+        this.b = 30;
+    }
+
+    @Override // com.baidu.tieba.pg2
+    public jg2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (jg2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pg2
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            if (c) {
+                Log.d("GlobalRecorderStrategy", "prefetchId - " + str);
+                Log.d("GlobalRecorderStrategy", "appId - " + str2);
+                Log.d("GlobalRecorderStrategy", "url - " + str3);
+            }
+            kg2 a = this.a.a(str2, str3);
+            boolean z = true;
+            if (a == null) {
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "has no record, need prelink");
+                }
+                return true;
+            } else if (!TextUtils.isEmpty(str)) {
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "in preload stage, has record, not real prelink ");
+                }
+                return false;
+            } else {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                if (!TextUtils.equals(curProcessName, a.a)) {
+                    if (c) {
+                        Log.d("GlobalRecorderStrategy", "process not match, current - " + curProcessName + ", record - " + a.a);
+                    }
+                    return true;
+                }
+                if (System.currentTimeMillis() - a.b < this.b * 1000) {
+                    z = false;
+                }
+                if (c) {
+                    Log.d("GlobalRecorderStrategy", "url in recorder, time is out - " + z);
+                }
+                return z;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ public final class UByteArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ubyteArrayOf-GBYM_sE  reason: not valid java name */
-    public static final byte[] m932ubyteArrayOfGBYM_sE(byte... elements) {
+    public static final byte[] m933ubyteArrayOfGBYM_sE(byte... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }
@@ -22,8 +22,8 @@ public final class UByteArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         byte[] bArr = new byte[i];
         for (int i2 = 0; i2 < i; i2++) {
-            bArr[i2] = init.invoke(Integer.valueOf(i2)).m913unboximpl();
+            bArr[i2] = init.invoke(Integer.valueOf(i2)).m914unboximpl();
         }
-        return UByteArray.m916constructorimpl(bArr);
+        return UByteArray.m917constructorimpl(bArr);
     }
 }

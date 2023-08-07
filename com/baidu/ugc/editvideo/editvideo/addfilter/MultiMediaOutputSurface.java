@@ -3,8 +3,8 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 import android.opengl.GLES20;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.kab;
-import com.baidu.tieba.rh0;
+import com.baidu.tieba.n9b;
+import com.baidu.tieba.pg0;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -25,7 +25,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public GLViewPortLocation mGLViewPortLocation;
     public MultiMediaPreGlRenderer mInnerRenderer;
     public List<IMediaRenderer> mMediaRenderers;
-    public rh0 mVlogEdit;
+    public pg0 mVlogEdit;
 
     public MultiMediaOutputSurface(IMultiMediaDataSource iMultiMediaDataSource) {
         this.mDataSource = iMultiMediaDataSource;
@@ -52,7 +52,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public rh0 getVlogCore() {
+    public pg0 getVlogCore() {
         return this.mVlogEdit;
     }
 
@@ -73,9 +73,9 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
     public void onDrawFrame(int i, long j) {
-        rh0 rh0Var = this.mVlogEdit;
-        if (rh0Var != null) {
-            rh0Var.h(i, j);
+        pg0 pg0Var = this.mVlogEdit;
+        if (pg0Var != null) {
+            pg0Var.h(i, j);
             this.mVlogEdit.c(this.mVideoWidth, this.mVideoHeight);
         }
         List<IEffectProcessor> list = this.mEffectProcessors;
@@ -157,7 +157,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
             }
             i2 = i4;
         }
-        if (this.mVlogEdit == null || kab.e(this.mMediaRenderers)) {
+        if (this.mVlogEdit == null || n9b.e(this.mMediaRenderers)) {
             this.mFullScreen2D.drawFrame(i, fArr);
             return;
         }
@@ -178,9 +178,9 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVlogCore(rh0 rh0Var) {
-        this.mVlogEdit = rh0Var;
-        this.mInnerRenderer.setCompat(rh0Var != null);
+    public void setVlogCore(pg0 pg0Var) {
+        this.mVlogEdit = pg0Var;
+        this.mInnerRenderer.setCompat(pg0Var != null);
     }
 
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface

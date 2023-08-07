@@ -2,7 +2,7 @@ package com.baidu.tbadk.pay;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PageDialogHelper$PayForm;
+import com.baidu.tbadk.util.PageDialogHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -174,12 +174,12 @@ public class PayConfig implements Serializable {
         this.mClickZone = str6;
     }
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper$PayForm pageDialogHelper$PayForm, String str5, String str6) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), pageDialogHelper$PayForm, str5, str6};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), payForm, str5, str6};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

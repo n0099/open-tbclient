@@ -1,11 +1,7 @@
 package com.baidu.tieba;
+
+import android.graphics.SurfaceTexture;
 /* loaded from: classes8.dex */
 public interface z8b {
-    void onCancel();
-
-    void onExceptionThrown(String str);
-
-    void onProgressChanged(int i, double d, long j);
-
-    void onTrackEnd(int i);
+    void a(t8b t8bVar, SurfaceTexture surfaceTexture);
 }

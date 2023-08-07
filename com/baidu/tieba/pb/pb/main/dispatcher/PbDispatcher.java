@@ -4,16 +4,16 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.s1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PbDispatcher implements y2a {
+public class PbDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class PbDispatcher implements y2a {
         }
     }
 
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     public void dispatch(JSONObject jSONObject, Context context) {
         int i;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class PbDispatcher implements y2a {
             }
             PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(optString, optString2, 1, "allthread");
             createNormalCfg.setSimilarFrom(i);
-            createNormalCfg.setStartFrom(wg.e(jSONObject.optString("from"), 12));
+            createNormalCfg.setStartFrom(JavaTypesHelper.toInt(jSONObject.optString("from"), 12));
             createNormalCfg.setHighLightPostId(optString2);
             createNormalCfg.setJumpToCommentArea(equals);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));

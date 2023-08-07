@@ -1,118 +1,122 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Build;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import com.facebook.drawee.backends.pipeline.Fresco;
 /* loaded from: classes6.dex */
-public class i76 implements NadAsyncRequester.b {
+public class i76 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlaceId a;
-    public String b;
-    public int c;
-    public boolean d;
-    public NadAsyncRequester e;
-    public long f;
-    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public void c(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-        }
-    }
-
-    public i76(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.f = 0L;
-        this.a = placeId;
-        this.b = str;
-        this.g = new WeakReference<>(aVar);
-        this.e = new NadAsyncRequester(this, this.a);
-    }
-
-    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.g.get();
-            if (z && !g09.e(list)) {
-                f(list);
-                c(list);
-                if (aVar != null) {
-                    aVar.b(list);
-                }
-            } else if (aVar != null) {
-                aVar.b(null);
-            }
-        }
-    }
-
-    public void d(int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * ay9.a) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947806465, "Lcom/baidu/tieba/i76;")) == null) {
             return;
         }
-        this.e.i(map, i);
-        this.f = System.currentTimeMillis();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.h();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947806465, "Lcom/baidu/tieba/i76;");
         }
     }
 
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements m20<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.j = this.b;
-                if (xx9.l(next) && this.d) {
-                    it.remove();
-                } else {
-                    int h = next.h();
-                    if (h != 0) {
-                        j0a.h(next, 0, h);
-                        it.remove();
-                    }
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.m20
+        /* renamed from: a */
+        public void onResult(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bundle) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.m20
+        public void onError(int i, Throwable th, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th, bundle) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tx3.a();
+            }
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || a) {
+            return;
+        }
+        a = true;
+        SwanAppInitHelper.initContext(TbadkCoreApplication.getInst());
+        SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
+        if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
+            q86.b();
+            if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
+                Fresco.initialize(AppRuntime.getAppContext(), ue7.a());
+            }
+            k76.l().q(TbadkCoreApplication.getInst());
+            n86.a().b(TbadkCoreApplication.getInst());
+            k20.f(TbadkCoreApplication.getInst()).o(new a());
+            so3.b0(new b(), 3000L);
         }
     }
 }

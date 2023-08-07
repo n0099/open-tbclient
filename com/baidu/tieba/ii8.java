@@ -1,89 +1,177 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Objects;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ii8 {
+public class ii8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ii8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public hi8 a;
+    public CollapseState b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854577, "Lcom/baidu/tieba/ii8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947854577, "Lcom/baidu/tieba/ii8;");
-                return;
-            }
-        }
-        a = new ii8();
-    }
-
-    public ii8() {
+    public ii8(hi8 hi8Var, ji8 ji8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hi8Var, ji8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = 0;
+        this.a = hi8Var;
+        this.b = new CollapseState();
+    }
+
+    public final void d(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            if (!TextUtils.isEmpty(str) && j != 0) {
+                CollapseState collapseState = this.b;
+                collapseState.a = CollapseState.Icon.FORUM;
+                collapseState.e = str;
+                collapseState.d = j;
+                return;
+            }
+            CollapseState collapseState2 = this.b;
+            collapseState2.a = CollapseState.Icon.DEFAULT;
+            collapseState2.e = null;
+            collapseState2.d = 0L;
+        }
+    }
+
+    public final void e(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                this.b.c = CollapseState.Tip.AT_ME;
+            } else if (z2) {
+                this.b.c = CollapseState.Tip.THREE_EXP;
+            } else {
+                this.b.c = CollapseState.Tip.DEFAULT;
             }
         }
     }
 
-    public final <T> boolean a(List<? extends T> first, List<? extends T> second) {
-        InterceptResult invokeLL;
+    public void a(List<Long> list, long j, List list2, int i) {
+        List<Long> list3;
+        ChatRoomInfo chatRoomInfo;
+        boolean z;
+        boolean a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, first, second)) == null) {
-            Intrinsics.checkNotNullParameter(first, "first");
-            Intrinsics.checkNotNullParameter(second, "second");
-            if (first == second) {
-                return true;
-            }
-            if (first.size() != second.size()) {
-                return false;
-            }
-            int i = 0;
-            for (T t : first) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) && (list3 = list) != null && list2 != null) {
+            long j2 = 0;
+            String str = null;
+            this.c = 0;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                if (list2.get(i2) instanceof ChatGroupInfo) {
+                    List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list2.get(i2)).getRoomInfoList();
+                    if (!ListUtils.isEmpty(roomInfoList)) {
+                        this.c += roomInfoList.size();
+                    }
                 }
-                if (!Objects.equals(t, second.get(i))) {
-                    return false;
-                }
-                i = i2;
             }
-            return true;
+            int i3 = -1;
+            int i4 = 0;
+            boolean z2 = false;
+            boolean z3 = false;
+            int i5 = -1;
+            while (i4 < list2.size()) {
+                if (list2.get(i4) instanceof ChatGroupInfo) {
+                    List<ChatRoomInfo> roomInfoList2 = ((ChatGroupInfo) list2.get(i4)).getRoomInfoList();
+                    if (!ListUtils.isEmpty(roomInfoList2)) {
+                        int i6 = 0;
+                        while (i6 < roomInfoList2.size() && (chatRoomInfo = roomInfoList2.get(i6)) != null) {
+                            if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            int indexOf = list3.indexOf(Long.valueOf(chatRoomInfo.getRoomId()));
+                            if (indexOf != i3) {
+                                if (z && !z2) {
+                                    j2 = chatRoomInfo.getRoomId();
+                                    str = chatRoomInfo.getAvatar();
+                                } else if (z && z2) {
+                                    if (i5 < 0 || indexOf < i5) {
+                                        j2 = chatRoomInfo.getRoomId();
+                                        str = chatRoomInfo.getAvatar();
+                                    }
+                                } else if (!z && !z2 && ((!(a = wm8.a(j)) || this.c == 1) && (i5 < 0 || indexOf < i5))) {
+                                    j2 = chatRoomInfo.getRoomId();
+                                    z3 = !a;
+                                    str = chatRoomInfo.getAvatar();
+                                    i5 = indexOf;
+                                    z2 = false;
+                                }
+                                i5 = indexOf;
+                                z2 = true;
+                                z3 = false;
+                            }
+                            i6++;
+                            list3 = list;
+                            i3 = -1;
+                        }
+                    }
+                }
+                i4++;
+                list3 = list;
+                i3 = -1;
+            }
+            CollapseState clone = this.b.clone();
+            e(z2, z3);
+            d(str, j2);
+            hi8 hi8Var = this.a;
+            if (hi8Var != null) {
+                hi8Var.update(clone, this.b);
+            }
         }
-        return invokeLL.booleanValue;
     }
 
-    public final <T> boolean b(List<? extends T> first, List<? extends T> second) {
-        InterceptResult invokeLL;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, first, second)) == null) {
-            Intrinsics.checkNotNullParameter(first, "first");
-            Intrinsics.checkNotNullParameter(second, "second");
-            return !a(first, second);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            CollapseState clone = this.b.clone();
+            if (z) {
+                this.b.b = CollapseState.State.EXPAND;
+            } else {
+                this.b.b = CollapseState.State.COLLAPSE;
+            }
+            hi8 hi8Var = this.a;
+            if (hi8Var != null) {
+                hi8Var.update(clone, this.b);
+            }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void c(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            CollapseState clone = this.b.clone();
+            e(false, false);
+            if (this.c != 1) {
+                d(null, 0L);
+            }
+            hi8 hi8Var = this.a;
+            if (hi8Var != null) {
+                hi8Var.update(clone, this.b);
+            }
+        }
     }
 }

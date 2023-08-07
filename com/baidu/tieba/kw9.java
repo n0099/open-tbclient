@@ -1,159 +1,187 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.privacy.PrivacyParamType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
 import java.util.HashMap;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Charsets;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public final class kw9 {
+public class kw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kw9 a;
-    public static final HashMap<String, String> b;
+    public static kw9 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927644, "Lcom/baidu/tieba/kw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927644, "Lcom/baidu/tieba/kw9;");
-                return;
-            }
-        }
-        a = new kw9();
-        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("mac", HttpRequest.MAC_REVERSAL));
-    }
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public ConcurrentHashMap<String, lw9> c;
 
     public kw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new ConcurrentHashMap<>();
     }
 
-    @JvmStatic
-    public static final boolean b() {
+    public static kw9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (PrivacyParamType.e()) {
-                return true;
-            }
-            if (PrivacyParamType.c() != 1 && PrivacyParamType.c() != 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (PrivacyParamType.e() || PrivacyParamType.c() != 1) {
-                return "0";
-            }
-            return "1";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return a(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return "";
-            }
-            if (PrivacyParamType.e()) {
-                return str;
-            }
-            int c = PrivacyParamType.c();
-            if (c != 1) {
-                if (c == 2) {
-                    return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (kw9.class) {
+                    if (d == null) {
+                        d = new kw9();
+                    }
                 }
-                return str;
             }
-            byte[] bytes = str.getBytes(Charsets.UTF_8);
-            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
-            byte[] B64Encode = Base64Encoder.B64Encode(bytes);
-            if (B64Encode == null) {
-                return "";
+            return d;
+        }
+        return (kw9) invokeV.objValue;
+    }
+
+    public ConcurrentHashMap<String, lw9> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public lw9 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null || this.c == null) {
+                return null;
             }
-            return new String(B64Encode, Charsets.UTF_8);
+            String str2 = hashMap.get(str);
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            return this.c.get(str2);
+        }
+        return (lw9) invokeL.objValue;
+    }
+
+    public void f(String str) {
+        ConcurrentHashMap<String, lw9> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            Iterator<String> it = concurrentHashMap.keySet().iterator();
+            while (it.hasNext()) {
+                lw9 lw9Var = this.c.get(it.next());
+                if (lw9Var != null && str.equals(lw9Var.b)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public void g(boolean z) {
+        ConcurrentHashMap<String, lw9> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
+            return;
+        }
+        for (String str : concurrentHashMap.keySet()) {
+            lw9 lw9Var = this.c.get(str);
+            if (lw9Var != null) {
+                lw9Var.e = z;
+            }
+        }
+    }
+
+    public lw9 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            ConcurrentHashMap<String, lw9> concurrentHashMap = this.c;
+            if (concurrentHashMap == null) {
+                return null;
+            }
+            return concurrentHashMap.get(str);
+        }
+        return (lw9) invokeL.objValue;
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap == null) {
+                return null;
+            }
+            return hashMap.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    @JvmStatic
-    public static final String d(String key) {
-        InterceptResult invokeL;
+    public void i(HashMap<String, lw9> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            if (PrivacyParamType.e()) {
-                return key;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
+            this.c.clear();
+            if (hashMap == null) {
+                return;
             }
-            int c = PrivacyParamType.c();
-            if (c != 1) {
-                if (c == 2) {
-                    return "";
-                }
-                return key;
-            }
-            String str = b.get(key);
-            if (str != null) {
-                return str;
-            }
-            return key;
+            this.c.putAll(hashMap);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void h(boolean z, String str) {
+        ConcurrentHashMap<String, lw9> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            for (String str2 : concurrentHashMap.keySet()) {
+                lw9 lw9Var = this.c.get(str2);
+                if (lw9Var != null && str.equals(lw9Var.b)) {
+                    lw9Var.e = z;
+                }
+            }
+        }
+    }
+
+    public void j(String str, String str2) {
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public void k(String str, String str2) {
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public void l(String str, HashMap<String, lw9> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
+            if (this.c == null) {
+                this.c = new ConcurrentHashMap<>();
+            }
+            f(str);
+            this.c.putAll(hashMap);
+        }
     }
 }

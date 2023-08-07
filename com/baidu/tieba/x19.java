@@ -1,40 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x19 {
+public final class x19 extends sk1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, Map<String, String> map) {
+    public x19() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, map) != null) || xi.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, map.get(str2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void b(Map<String, String> map) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public LiveUserSecurityBehaviorService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, map) != null) || map == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityBehaviorServiceImpl();
         }
-        HashMap hashMap = new HashMap();
-        String remove = map.remove("key");
-        for (String str : map.keySet()) {
-            hashMap.put(str, map.get(str));
-        }
-        a(remove, hashMap);
+        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

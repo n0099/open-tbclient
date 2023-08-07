@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.annotation.RestrictTo;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class cd0 {
+public class cd0 extends zc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<Matrix> a;
-    public static final ThreadLocal<RectF> b;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,53 +30,67 @@ public class cd0 {
                 return;
             }
         }
-        a = new ThreadLocal<>();
-        b = new ThreadLocal<>();
+        b = new HashMap<>();
     }
 
-    public static void a(ViewGroup viewGroup, View view2, Rect rect) {
+    public cd0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, viewGroup, view2, rect) == null) {
-            rect.set(0, 0, view2.getWidth(), view2.getHeight());
-            c(viewGroup, view2, rect);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
+        b.put("color_858585", new String[]{"#858585", "", "", ""});
+        b.put("color_525252", new String[]{"#525252", "", "", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
     }
 
-    public static void b(ViewParent viewParent, View view2, Matrix matrix) {
+    @Override // com.baidu.tieba.zc0
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, viewParent, view2, matrix) == null) {
-            ViewParent parent = view2.getParent();
-            if ((parent instanceof View) && parent != viewParent) {
-                View view3 = (View) parent;
-                b(viewParent, view3, matrix);
-                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (!b.containsKey(str2)) {
+                return -16777216;
             }
-            matrix.preTranslate(view2.getLeft(), view2.getTop());
-            if (!view2.getMatrix().isIdentity()) {
-                matrix.preConcat(view2.getMatrix());
+            String str3 = b.get(str2)[0];
+            if ("recommend".equals(str)) {
+                return dd0.c().a(context, str, str2);
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                str3 = b.get(str2)[3];
+            }
+            if (tc0.a(str3)) {
+                return -16777216;
+            }
+            try {
+                return Color.parseColor(str3);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -16777216;
             }
         }
-    }
-
-    public static void c(ViewGroup viewGroup, View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view2, rect) == null) {
-            Matrix matrix = a.get();
-            if (matrix == null) {
-                matrix = new Matrix();
-                a.set(matrix);
-            } else {
-                matrix.reset();
-            }
-            b(viewGroup, view2, matrix);
-            RectF rectF = b.get();
-            if (rectF == null) {
-                rectF = new RectF();
-                b.set(rectF);
-            }
-            rectF.set(rect);
-            matrix.mapRect(rectF);
-            rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
-        }
+        return invokeLLL.intValue;
     }
 }

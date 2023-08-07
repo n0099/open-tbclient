@@ -1,49 +1,110 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextWatcher;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class lt2 extends pp2<gu2> {
+public class lt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lt2 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextWatcher a;
+    public SwanEditText b;
 
-    @Override // com.baidu.tieba.pp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "isPlaying" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947954335, "Lcom/baidu/tieba/lt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947954335, "Lcom/baidu/tieba/lt2;");
+                return;
+            }
+        }
+        boolean z = ir1.a;
     }
 
     public lt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gu2 gu2Var) {
+    public static lt2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gu2Var) == null) {
-            command.ret = gu2Var.isPlaying() ? 1 : 0;
-            String str = command.what;
-            d(gu2Var, str, "isPlaying: " + gu2Var.isPlaying(), false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (lt2.class) {
+                    if (c == null) {
+                        c = new lt2();
+                    }
+                }
+            }
+            return c;
+        }
+        return (lt2) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+        }
+    }
+
+    public SwanEditText c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (SwanEditText) invokeV.objValue;
+    }
+
+    public TextWatcher e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (TextWatcher) invokeV.objValue;
+    }
+
+    public SwanEditText a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            SwanEditText swanEditText = new SwanEditText(context);
+            this.b = swanEditText;
+            return swanEditText;
+        }
+        return (SwanEditText) invokeL.objValue;
+    }
+
+    public void f(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.a = textWatcher;
         }
     }
 }

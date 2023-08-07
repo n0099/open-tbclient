@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface apb {
-    String a(String str);
+public abstract class apb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    xob b();
+    public abstract boolean a();
 
-    Context getContext();
-
-    String getIdentifier();
+    public abstract apb b(Runnable runnable);
 }

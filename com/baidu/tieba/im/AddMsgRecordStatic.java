@@ -1,17 +1,17 @@
 package com.baidu.tieba.im;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gca;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-import com.baidu.tieba.kb;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class AddMsgRecordStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends kb {
+    public static class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public class AddMsgRecordStatic {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x002d  */
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -112,8 +112,8 @@ public class AddMsgRecordStatic {
                 return;
             }
         }
-        gca.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, gca.a(TbConfig.ADD_MSG_RECORD, 309265));
+        zaa.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, zaa.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));

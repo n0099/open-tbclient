@@ -4,14 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tieba.kda;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.mj;
-import com.baidu.tieba.oj;
-import com.baidu.tieba.qea;
-import com.baidu.tieba.r9;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VoiceButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oj a;
+    public qi a;
     public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,7 +46,7 @@ public class VoiceButton extends ImageView {
         this.b = false;
     }
 
-    public qea getRecorderManager() {
+    public kda getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -56,7 +56,7 @@ public class VoiceButton extends ImageView {
             }
             return null;
         }
-        return (qea) invokeV.objValue;
+        return (kda) invokeV.objValue;
     }
 
     public VoiceManager getVoiceManager() {
@@ -65,11 +65,11 @@ public class VoiceButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Context context = getContext();
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).y0();
+            if (context instanceof VoiceManager.i) {
+                return ((VoiceManager.i) context).z0();
             }
-            if ((r9.a(getContext()) instanceof l9) && (tbPageContext = (TbPageContext) r9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).y0();
+            if ((l9.a(getContext()) instanceof BdPageContext) && (tbPageContext = (TbPageContext) l9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.i)) {
+                return ((VoiceManager.i) tbPageContext.getOrignalPage()).z0();
             }
             return null;
         }
@@ -81,7 +81,7 @@ public class VoiceButton extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            qea recorderManager = getRecorderManager();
+            kda recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
                 if (recorderManager == null || !recorderManager.f()) {
                     return false;
@@ -103,14 +103,14 @@ public class VoiceButton extends ImageView {
         return invokeL.booleanValue;
     }
 
-    public void setRecorderView(oj ojVar) {
+    public void setRecorderView(qi qiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ojVar) == null) {
-            this.a = ojVar;
-            qea recorderManager = getRecorderManager();
+        if (interceptable == null || interceptable.invokeL(1048579, this, qiVar) == null) {
+            this.a = qiVar;
+            kda recorderManager = getRecorderManager();
             if (recorderManager != null) {
-                recorderManager.e(ojVar);
-                recorderManager.d(mj.a);
+                recorderManager.e(qiVar);
+                recorderManager.d(oi.a);
             }
         }
     }

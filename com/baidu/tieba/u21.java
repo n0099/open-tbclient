@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes8.dex */
-public class u21 {
+public final /* synthetic */ class u21 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return new File(str).exists();
-        }
-        return invokeL.booleanValue;
+    static {
+        int[] iArr = new int[AdDownloadStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+        int[] iArr2 = new int[AdDownloadStatus.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[AdDownloadStatus.INSTALLED.ordinal()] = 1;
     }
 }

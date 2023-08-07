@@ -1,84 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryMessage;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public abstract class kg8 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+public class kg8 extends sk1<io5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sd8 a;
-    public int b;
 
-    public kg8(sd8 sd8Var, int i) {
+    /* loaded from: classes6.dex */
+    public class a implements io5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(kg8 kg8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kg8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.io5
+        public void a(@NonNull Context context, long j, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+                GroupChatActivity.u1(context, j, i, str, 0);
+            }
+        }
+
+        @Override // com.baidu.tieba.io5
+        public void d(@NonNull Context context, long j, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+                GroupChatActivity.v1(context, j, -1, str, "", i);
+            }
+        }
+
+        @Override // com.baidu.tieba.io5
+        public void e(@NonNull Context context, int i, long j, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+                GroupChatActivity.x1(context, j, i, true);
+            }
+        }
+
+        @Override // com.baidu.tieba.io5
+        public void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
+                GroupChatActivity.y1(context, str, j, i, str2, bundle, z);
+            }
+        }
+
+        @Override // com.baidu.tieba.io5
+        public void c(@NonNull Context context, long j, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) {
+                GroupChatActivity.w1(context, j, -1, str, "", i, str2);
+            }
+        }
+    }
+
+    public kg8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sd8Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = sd8Var;
-        this.b = i;
     }
 
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public io5 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.a != null) {
-                LoadHistoryMessage.a data = customMessage.getData();
-                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-                LinkedList<ChatMessage> h = this.a.h(wg.g(data.d, 0L), data.a, data.b, data.c);
-                if (h == null) {
-                    return a(this.b);
-                }
-                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.a == null) {
-                    aVar.c = true;
-                } else {
-                    aVar.c = false;
-                }
-                aVar.a = data.d;
-                aVar.b = h;
-                try {
-                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadHistoryResponsedMessage;
-            }
-            return a(this.b);
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (io5) invokeV.objValue;
     }
 }

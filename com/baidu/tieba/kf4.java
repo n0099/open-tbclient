@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kf4 {
+public abstract class kf4<T extends kx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendItemModel a;
-    public List<RecommendItemModel> b;
+
+    public abstract boolean b(Context context, T t, hx2 hx2Var, ya3 ya3Var, JSONObject jSONObject);
 
     public kf4() {
         Interceptable interceptable = $ic;
@@ -27,22 +30,22 @@ public class kf4 {
         }
     }
 
-    public kf4(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
+    public boolean c(Context context, T t, hx2 hx2Var, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recommendItemModel, list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, hx2Var, ya3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!b(context, t, hx2Var, ya3Var, jSONObject)) {
+                hx2Var.d(1001);
+                y72.c("map", "doAction fail");
+                return false;
             }
+            if (jSONObject.length() <= 0) {
+                jSONObject = null;
+            }
+            hx2Var.e(jSONObject);
+            return true;
         }
-        this.a = recommendItemModel;
-        this.b = list;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,61 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fh9 extends PbListView {
+public class fh9 extends pg9<ae9, PbLoadMoreItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> F;
+    public BdUniqueId g;
+    public View.OnClickListener h;
+    public int i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fh9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public fh9(ul9 ul9Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(ul9Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {ul9Var, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ul9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.F = tbPageContext;
-        c().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416));
-        D();
-        C();
-        z();
-        L(R.dimen.obfuscated_res_0x7f070201);
+        this.g = bdUniqueId2;
+        this.i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
-    public void V() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: u */
+    public PbLoadMoreItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.g();
-            H(this.F.getResources().getString(R.string.load_more));
-            c().setVisibility(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.g);
+        }
+        return (PbLoadMoreItemViewHolder) invokeL.objValue;
+    }
+
+    public void y(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.h = onClickListener;
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void g() {
+    @Override // com.baidu.tieba.pg9, com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (ae9) obj, (PbLoadMoreItemViewHolder) viewHolder);
+        return view2;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, ae9 ae9Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.g();
-            H(this.F.getResources().getString(R.string.list_no_more));
-            c().setVisibility(0);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ae9Var, pbLoadMoreItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ae9Var, (ae9) pbLoadMoreItemViewHolder);
+            if (ae9Var.b) {
+                pbLoadMoreItemViewHolder.e(ae9Var.a);
+            } else {
+                pbLoadMoreItemViewHolder.d(ae9Var.a, this.i);
+            }
+            pbLoadMoreItemViewHolder.c(this.h);
+            pbLoadMoreItemViewHolder.a();
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -7,13 +7,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m17;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.uy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -95,61 +95,61 @@ public class UserHeadCoverView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new ImageView(context);
-            int g = yi.g(context, R.dimen.tbds78);
-            addView(this.a, new FrameLayout.LayoutParams(g, g));
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds78);
+            addView(this.a, new FrameLayout.LayoutParams(dimens, dimens));
             this.b = new View(context);
-            int g2 = yi.g(context, R.dimen.tbds158);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
-            int g3 = yi.g(context, R.dimen.tbds26);
-            layoutParams.leftMargin = g3;
-            layoutParams.topMargin = g3;
+            int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds158);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens2, dimens2);
+            int dimens3 = BdUtilHelper.getDimens(context, R.dimen.tbds26);
+            layoutParams.leftMargin = dimens3;
+            layoutParams.topMargin = dimens3;
             addView(this.b, layoutParams);
             this.c = new ImageView(context);
-            int g4 = yi.g(context, R.dimen.tbds36);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(g4, g4);
+            int dimens4 = BdUtilHelper.getDimens(context, R.dimen.tbds36);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens4, dimens4);
             layoutParams2.gravity = 85;
             addView(this.c, layoutParams2);
         }
     }
 
-    public void setData(m17 m17Var) {
+    public void setData(uy6 uy6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m17Var) != null) || m17Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uy6Var) != null) || uy6Var == null) {
             return;
         }
-        String str = m17Var.a;
+        String str = uy6Var.a;
         if (str != null) {
-            if (!str.equals("1") && !m17Var.a.equals("2") && !m17Var.a.equals("3")) {
+            if (!str.equals("1") && !uy6Var.a.equals("2") && !uy6Var.a.equals("3")) {
                 this.a.setVisibility(8);
                 this.b.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
                 this.b.setVisibility(0);
-                if (m17Var.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0813cb, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081391));
-                } else if (m17Var.a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0813cc, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081390));
-                } else if (m17Var.a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0813cd, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08138f));
+                if (uy6Var.a.equals("1")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0813d1, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081397));
+                } else if (uy6Var.a.equals("2")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0813d2, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081396));
+                } else if (uy6Var.a.equals("3")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0813d3, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081395));
                 }
             }
         } else {
             this.a.setVisibility(8);
             this.b.setVisibility(8);
         }
-        if (m17Var.g) {
-            int g = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g, g);
+        if (uy6Var.g) {
+            int dimens = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens, dimens);
             layoutParams.gravity = 85;
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(0);
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_mask_v14_n_svg, null);
-        } else if (m17Var.h) {
-            int g2 = yi.g(TbadkApplication.getInst(), R.dimen.tbds40);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(g2, g2);
+        } else if (uy6Var.h) {
+            int dimens2 = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds40);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens2, dimens2);
             layoutParams2.gravity = 85;
             this.c.setLayoutParams(layoutParams2);
             this.c.setVisibility(0);

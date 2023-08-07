@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.u1c;
+import com.baidu.tieba.b1c;
+import com.baidu.tieba.x0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class v2c<T, R> implements u1c.a<R> {
+public final class v2c<T> implements x0c.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u1c.a<T> a;
-    public final u1c.b<? extends R, ? super T> b;
+    public final b1c.c<T> a;
 
-    public v2c(u1c.a<T> aVar, u1c.b<? extends R, ? super T> bVar) {
+    public v2c(b1c.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,26 +27,20 @@ public final class v2c<T, R> implements u1c.a<R> {
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.a = cVar;
     }
 
-    public void call(a2c<? super R> a2cVar) {
+    public void call(d1c<? super T> d1cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a2cVar) == null) {
-            try {
-                a2c a2cVar2 = (a2c) h6c.n(this.b).call(a2cVar);
-                a2cVar2.d();
-                this.a.call(a2cVar2);
-            } catch (Throwable th) {
-                g2c.e(th);
-                a2cVar.onError(th);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, d1cVar) == null) {
+            t2c t2cVar = new t2c(d1cVar);
+            d1cVar.b(t2cVar);
+            this.a.call(t2cVar);
         }
     }
 
-    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
+    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((a2c) ((a2c) obj));
+        call((d1c) ((d1c) obj));
     }
 }

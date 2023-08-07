@@ -1,14 +1,34 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AwardInfo;
 /* loaded from: classes5.dex */
 public class d25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public long c;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public long m;
+    public long n;
+    public String o;
+    public long p;
+    public int q;
+    public int r;
+    public int s;
 
     public d25() {
         Interceptable interceptable = $ic;
@@ -24,14 +44,21 @@ public class d25 {
         }
     }
 
-    public void a(AwardInfo awardInfo) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, awardInfo) != null) || awardInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
         }
-        awardInfo.award_id.longValue();
-        awardInfo.award_act_id.longValue();
-        String str = awardInfo.award_name;
-        String str2 = awardInfo.award_imgsrc;
+        return invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
     }
 }

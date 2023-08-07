@@ -12,7 +12,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.opensdk.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0778a {
+    public static class C0779a {
         public String a;
         public String action;
         public long b;
@@ -20,26 +20,26 @@ public final class a {
         public String content;
     }
 
-    public static boolean a(Context context, C0778a c0778a) {
+    public static boolean a(Context context, C0779a c0779a) {
         String str;
         if (context == null) {
             str = "send fail, invalid argument";
-        } else if (!d.b(c0778a.action)) {
+        } else if (!d.b(c0779a.action)) {
             String str2 = null;
-            if (!d.b(c0778a.a)) {
-                str2 = c0778a.a + ".permission.MM_MESSAGE";
+            if (!d.b(c0779a.a)) {
+                str2 = c0779a.a + ".permission.MM_MESSAGE";
             }
-            Intent intent = new Intent(c0778a.action);
-            Bundle bundle = c0778a.bundle;
+            Intent intent = new Intent(c0779a.action);
+            Bundle bundle = c0779a.bundle;
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra(ConstantsAPI.SDK_VERSION, Build.SDK_INT);
             intent.putExtra(ConstantsAPI.APP_PACKAGE, packageName);
-            intent.putExtra(ConstantsAPI.CONTENT, c0778a.content);
-            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0778a.b);
-            intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(c0778a.content, Build.SDK_INT, packageName));
+            intent.putExtra(ConstantsAPI.CONTENT, c0779a.content);
+            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0779a.b);
+            intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(c0779a.content, Build.SDK_INT, packageName));
             context.sendBroadcast(intent, str2);
             Log.d("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
             return true;

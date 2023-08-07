@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ForumGuide.LikeForum;
 /* loaded from: classes8.dex */
-public class x07 {
+public class x07 extends v07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<v07> a;
 
-    public x07() {
+    public x07(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,55 +25,29 @@ public class x07 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.d = z;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.v07
+    public void f() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<v07> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().B(0);
+            b17 b17Var = this.a;
+            if (b17Var.h == null) {
+                this.b.onError(b17Var.f, "cover config is null !!");
+                return;
             }
-        }
-    }
-
-    public ArrayList<v07> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void c(List<?> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
-            return;
-        }
-        d(list, null);
-    }
-
-    public void d(List<?> list, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
-            return;
-        }
-        try {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (!(list.get(i) instanceof LikeForum)) {
-                    return;
-                }
-                v07 v07Var = new v07();
-                v07Var.y((LikeForum) list.get(i));
-                if (!TextUtils.isEmpty(v07Var.i())) {
-                    this.a.add(v07Var);
-                }
+            int i2 = b17Var.a;
+            if (i2 > 0 && (i = b17Var.b) > 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
+                createBitmap.copyPixelsFromBuffer(this.a.h);
+                g(new a17(), createBitmap);
+                return;
             }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            z07 z07Var = this.b;
+            String str = this.a.f;
+            z07Var.onError(str, "cover config size illegal width=" + this.a.a + " height=" + this.a.b);
         }
     }
 }

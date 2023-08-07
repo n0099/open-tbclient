@@ -8,14 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.hb5;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.im.data.GameMatchUser;
+import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,12 +27,12 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public jd8 d;
+    public GameMatchUser d;
     public b e;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull jd8 jd8Var);
+        void a(@NonNull GameMatchUser gameMatchUser);
     }
 
     /* loaded from: classes8.dex */
@@ -132,11 +132,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         e();
     }
 
-    public void h(jd8 jd8Var) {
+    public void h(GameMatchUser gameMatchUser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jd8Var) == null) {
-            this.d = jd8Var;
-            this.b.setText(jd8Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, gameMatchUser) == null) {
+            this.d = gameMatchUser;
+            this.b.setText(gameMatchUser.getShowName());
         }
     }
 
@@ -152,13 +152,13 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new TBSpecificationBtn(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, yi.g(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.setMargins(0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X007), 0);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
-            hb5 hb5Var = new hb5();
-            hb5Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(hb5Var);
+            x95 x95Var = new x95();
+            x95Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(x95Var);
             this.c.setText(getContext().getString(R.string.game_title_btn));
             addView(this.c);
             this.c.setOnClickListener(new a(this));
@@ -171,11 +171,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(9);
             this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(yi.g(getContext(), R.dimen.M_W_X008), yi.g(getContext(), R.dimen.tbds44), 0, yi.g(getContext(), R.dimen.tbds44));
+            this.b.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X008), BdUtilHelper.getDimens(getContext(), R.dimen.tbds44), 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds44));
             addView(this.b);
-            d85 d = d85.d(this.b);
-            d.C(R.dimen.T_X13);
-            d.D(R.string.F_X01);
+            EMManager.from(this.b).setTextSize(R.dimen.T_X13).setTextStyle(R.string.F_X01);
         }
     }
 
@@ -207,9 +205,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d85.d(this).f(R.color.CAM_X0204);
-            d85.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            d85.d(this.b).x(R.color.CAM_X0105);
+            EMManager.from(this).setBackGroundColor(R.color.CAM_X0204);
+            EMManager.from(this.a).setGradientColor(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
             this.c.k();
         }
     }

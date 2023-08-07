@@ -1,187 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes5.dex */
-public class d7b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<AudioPlayData> a;
-    public List<AudioPlayData> b;
-    public l7b c;
-    public int d;
-    public b e;
+public interface d7b extends Runnable {
 
     /* loaded from: classes5.dex */
-    public class a extends a9b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ AudioPlayData b;
-        public final /* synthetic */ d7b c;
+    public interface a {
+        void a(DownloadException downloadException);
 
-        public a(d7b d7bVar, String str, AudioPlayData audioPlayData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d7bVar, str, audioPlayData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = d7bVar;
-            this.a = str;
-            this.b = audioPlayData;
-        }
+        void onDownloadCanceled();
 
-        @Override // com.baidu.tieba.a9b, com.baidu.tieba.z8b
-        public void onExceptionThrown(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
-                return;
-            }
-            this.c.e.onFailed(str);
-        }
+        void onDownloadCompleted(String str);
 
-        @Override // com.baidu.tieba.a9b
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) abb.b(this.a), this.b.volume);
-                if (this.c.b == null) {
-                    this.c.b = new ArrayList();
-                }
-                this.c.b.add(audioPlayData);
-                d7b.c(this.c);
-                this.c.f();
-            }
-        }
+        void onDownloadPaused();
 
-        @Override // com.baidu.tieba.a9b, com.baidu.tieba.z8b
-        public void onProgressChanged(int i, double d, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.a9b, com.baidu.tieba.z8b
-        public void onTrackEnd(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            }
-        }
+        void onDownloadProgress(long j, long j2);
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onFailed(String str);
+    void cancel();
 
-        void onSuccess(List<AudioPlayData> list);
-    }
+    boolean isComplete();
 
-    public d7b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean isDownloading();
 
-    public static /* synthetic */ int c(d7b d7bVar) {
-        int i = d7bVar.d;
-        d7bVar.d = i + 1;
-        return i;
-    }
-
-    public final void f() {
-        AudioPlayData audioPlayData;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (kab.c(this.a, this.d) == null) {
-                b bVar = this.e;
-                if (bVar != null) {
-                    bVar.onSuccess(this.b);
-                    return;
-                }
-                return;
-            }
-            AudioPlayData audioPlayData2 = this.a.get(this.d);
-            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
-                String str = audioPlayData2.audioPath;
-                int i = audioPlayData2.start;
-                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
-                if (this.b == null) {
-                    arrayList = new ArrayList();
-                    this.b = arrayList;
-                }
-                this.b.add(audioPlayData);
-                this.d++;
-                f();
-            } else if (audioPlayData2.mSpeed == 1.0f) {
-                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
-                if (this.b == null) {
-                    arrayList = new ArrayList();
-                    this.b = arrayList;
-                }
-                this.b.add(audioPlayData);
-                this.d++;
-                f();
-            } else {
-                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
-                try {
-                    l7b l7bVar = new l7b(audioPlayData2.audioPath, str2, null);
-                    this.c = l7bVar;
-                    l7bVar.S(new a(this, str2, audioPlayData2));
-                    this.c.D(null);
-                    this.c.G(audioPlayData2.mSpeed);
-                    this.c.B(audioPlayData2.start);
-                    this.c.R(audioPlayData2.end);
-                    this.c.I();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void h(List<AudioPlayData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f();
-        }
-    }
+    void pause();
 }

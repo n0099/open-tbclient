@@ -1,55 +1,63 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.ora;
+import com.baidu.tieba.qra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.kwad.sdk.core.imageloader.core.ImageLoader;
+import java.io.File;
 import java.util.List;
-import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
-public class sra extends t15 {
+import java.util.Vector;
+/* loaded from: classes8.dex */
+public class sra {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sra c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yn> a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
+    public qra a;
+    public List<xra> b;
 
-    @Override // com.baidu.tieba.t15
-    public s35 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
+    /* loaded from: classes8.dex */
+    public class a implements wra {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sra a;
+
+        public a(sra sraVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sraVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sraVar;
         }
-        return (s35) invokeV.objValue;
-    }
 
-    @Override // com.baidu.tieba.t15
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        @Override // com.baidu.tieba.wra
+        public void a(ora.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                ora.a().c(bVar);
+                if (!n9b.e(this.a.b)) {
+                    sra sraVar = this.a;
+                    sraVar.h((xra) n9b.c(sraVar.b, 0));
+                    n9b.g(this.a.b, 0);
+                }
+            }
         }
     }
 
@@ -66,169 +74,110 @@ public class sra extends t15 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0;
-        this.d = "";
-        this.e = "";
-        this.a = new ArrayList();
+        this.b = new Vector();
+        this.a = new qra.b().d();
     }
 
-    public static boolean c(ora oraVar, boolean z) {
-        InterceptResult invokeLZ;
+    public void i(yra yraVar, pra praVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, oraVar, z)) == null) {
-            if (oraVar != null && oraVar.b() != null) {
-                String str = "key_recommand_collect_cover_freq";
-                String str2 = "key_recommand_collect_cover_show_time";
-                if (z) {
-                    str2 = "key_recommand_collect_cover_show_time_frs";
-                    str = "key_recommand_collect_cover_freq_frs";
+        if (interceptable == null || interceptable.invokeLL(1048581, this, yraVar, praVar) == null) {
+            List<xra> c2 = ura.c(yraVar, praVar);
+            if (!n9b.e(c2)) {
+                for (xra xraVar : c2) {
+                    h(xraVar);
                 }
-                String[] split = da5.p().w(str, "0-0-0").split("-");
-                if (split.length == 3) {
-                    int parseInt = Integer.parseInt(split[0]);
-                    int parseInt2 = Integer.parseInt(split[1]);
-                    int parseInt3 = Integer.parseInt(split[2]);
-                    long j = parseInt;
-                    if (j == oraVar.b().c().longValue()) {
-                        long j2 = parseInt2;
-                        if (j2 == oraVar.b().a().longValue() && parseInt3 == oraVar.b().b().longValue()) {
-                            int q = da5.p().q(str2, 0);
-                            long currentTimeMillis = System.currentTimeMillis() / 1000;
-                            if (q < parseInt3 && currentTimeMillis >= j && currentTimeMillis <= j2) {
-                                da5.p().F(str2, q + 1);
-                                return true;
-                            }
-                        }
+            }
+        }
+    }
+
+    public void j(zra zraVar, pra praVar) {
+        xra b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, zraVar, praVar) == null) && (b = ura.b(zraVar, praVar)) != null) {
+            h(b);
+        }
+    }
+
+    public static sra f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (sra.class) {
+                    if (c == null) {
+                        c = new sra();
                     }
-                    da5.p().J(str, oraVar.b().c() + "-" + oraVar.b().a() + "-" + oraVar.b().b());
-                    da5.p().F(str2, 0);
-                    return true;
                 }
             }
-            return false;
+            return c;
         }
-        return invokeLZ.booleanValue;
+        return (sra) invokeV.objValue;
     }
 
-    public static boolean i(pra praVar, boolean z) {
-        InterceptResult invokeLZ;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, praVar, z)) == null) {
-            if (TbadkCoreApplication.isLogin() && praVar != null && (ListUtils.isNotEmpty(praVar.d()) || c(praVar.c(), z))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void d(pra praVar) {
-        String b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, praVar) != null) || praVar == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
             return;
         }
-        this.a.clear();
-        if (praVar.c() != null && praVar.c().c() != null && !TextUtils.isEmpty(praVar.c().c().a())) {
-            b = praVar.c().c().a();
-        } else {
-            b = praVar.b();
+        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
+    }
+
+    public vra g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c();
+            return this.a.b;
         }
-        if (StringUtils.isNotNull(b)) {
-            vra vraVar = new vra();
-            vraVar.b(b);
-            this.a.add(vraVar);
-        }
-        if (praVar.c() != null) {
-            if (praVar.c().a() != null) {
-                praVar.c().a();
+        return (vra) invokeV.objValue;
+    }
+
+    public Bitmap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (praVar.c().c() != null) {
-                tra traVar = new tra();
-                traVar.e(praVar.c().c());
-                traVar.h(this.c);
-                traVar.f(this.d);
-                traVar.g(this.e);
-                this.a.add(traVar);
-                if (ListUtils.isNotEmpty(praVar.c().c().l())) {
-                    ura uraVar = new ura();
-                    uraVar.b(praVar.c().c(), this.c, this.d, this.e);
-                    this.a.add(uraVar);
-                }
-                if (ListUtils.isNotEmpty(praVar.c().c().o())) {
-                    for (ThreadInfo threadInfo : praVar.c().c().o()) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.setNeedCheckNTitle(false);
-                        threadData.parserProtobuf(threadInfo);
-                        if (threadData.getTitleText() != null && StringUtils.isNotNull(praVar.c().c().b())) {
-                            ThreadCardUtils.setUniversalPrefix(threadData.getTitleText(), praVar.c().c().b(), R.color.CAM_X0302, R.color.CAM_X0101);
-                        }
-                        this.a.add(threadData);
-                    }
-                    return;
-                }
+            Bitmap a2 = g().a(str);
+            if (a2 != null && !a2.isRecycled()) {
+                return a2;
+            }
+            Bitmap a3 = e().a(str);
+            if (a3 == null || a3.isRecycled()) {
+                return null;
+            }
+            return a3;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public final void h(xra xraVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xraVar) == null) {
+            c();
+            ora.b b = ora.a().b();
+            if (b != null) {
+                b.m(this.a.a);
+                b.setDataSource(xraVar.a);
+                b.h(xraVar, new a(this));
                 return;
             }
-            return;
+            this.b.add(xraVar);
         }
-        if (ListUtils.isNotEmpty(praVar.d())) {
-            for (int i = 0; i < praVar.d().size(); i++) {
-                ThreadData threadData2 = new ThreadData();
-                threadData2.setNeedCheckNTitle(false);
-                threadData2.parserProtobuf(praVar.d().get(i));
-                this.a.add(threadData2);
+    }
+
+    public lra e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c();
+            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+            if (!TextUtils.equals(this.a.c.b(), str)) {
+                this.a.c.d(str);
             }
+            return this.a.c;
         }
-        praVar.a();
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public List<yn> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return kq6.A0;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (lra) invokeV.objValue;
     }
 }

@@ -8,16 +8,16 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.fj8;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.gk8;
+import com.baidu.tieba.gm8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.lp8;
-import com.baidu.tieba.ml8;
-import com.baidu.tieba.mo8;
-import com.baidu.tieba.nm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,9 +29,9 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final ml8 c;
+    public final fj8 c;
     @Nullable
-    public mo8 d;
+    public gm8 d;
     public final TbImageView e;
     public final TextView f;
     public final View.OnClickListener g;
@@ -65,7 +65,7 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.c != null) {
-                nm8.g(this.a.c, this.a.d.d(), this.a.d.b(), 2);
+                gk8.f(this.a.c, this.a.d.d(), this.a.d.b(), 2);
             }
         }
     }
@@ -112,13 +112,13 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmojiReplyPendantVH(@NonNull View view2, @Nullable ml8 ml8Var) {
+    public EmojiReplyPendantVH(@NonNull View view2, @Nullable fj8 fj8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, ml8Var};
+            Object[] objArr = {view2, fj8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,23 +131,23 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         }
         this.g = new a(this);
         this.h = new b(this);
-        this.c = ml8Var;
+        this.c = fj8Var;
         view2.setOnClickListener(this.g);
         view2.setOnLongClickListener(this.h);
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09098b);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09098c);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09099a);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09099b);
         i(TbadkApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void g(lp8 lp8Var, Context context, int i) {
+    public void g(fn8 fn8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, lp8Var, context, i) == null) && (lp8Var instanceof mo8)) {
-            mo8 mo8Var = (mo8) lp8Var;
-            this.d = mo8Var;
-            mo8Var.e(i);
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, fn8Var, context, i) == null) && (fn8Var instanceof gm8)) {
+            gm8 gm8Var = (gm8) fn8Var;
+            this.d = gm8Var;
+            gm8Var.e(i);
             EmojiData d = this.d.d();
-            this.e.I(d.getContent());
+            this.e.startLoad(d.getContent());
             this.f.setText(String.valueOf(d.getAllNum()));
             i(TbadkApplication.getInst().getSkinType());
         }
@@ -158,20 +158,14 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.i(i);
-            mo8 mo8Var = this.d;
-            if (mo8Var != null && mo8Var.d().hasReplied()) {
-                d85.d(this.f).x(R.color.CAM_X0304);
-                d85 d = d85.d(this.itemView);
-                d.o(R.string.J_X01);
-                d.e(R.string.A_X11);
-                d.f(R.color.CAM_X0302);
+            gm8 gm8Var = this.d;
+            if (gm8Var != null && gm8Var.d().hasReplied()) {
+                EMManager.from(this.f).setTextColor(R.color.CAM_X0304);
+                EMManager.from(this.itemView).setCorner(R.string.J_X01).setAlpha(R.string.A_X11).setBackGroundColor(R.color.CAM_X0302);
                 return;
             }
-            d85.d(this.f).x(R.color.CAM_X0105);
-            d85 d2 = d85.d(this.itemView);
-            d2.o(R.string.J_X01);
-            d2.e(R.string.A_X06);
-            d2.f(R.color.CAM_X0208);
+            EMManager.from(this.f).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.itemView).setCorner(R.string.J_X01).setAlpha(R.string.A_X06).setBackGroundColor(R.color.CAM_X0208);
         }
     }
 }

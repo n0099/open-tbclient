@@ -11,11 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.CommonStatisticUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,11 +26,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.FriendBotView;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.z15;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,11 +127,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void W(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.F != null && !TextUtils.isEmpty(str) && str.equals(this.F.getTid())) {
-            z15 z15Var = new z15();
-            z15Var.b = 4;
-            z15Var.d = 2;
-            z15Var.j = str2;
-            this.e.setStatisticData(z15Var);
+            w05 w05Var = new w05();
+            w05Var.b = 4;
+            w05Var.d = 2;
+            w05Var.j = str2;
+            this.e.setStatisticData(w05Var);
             this.e.O();
         }
     }
@@ -182,11 +182,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public void setOnClickBotListener(FriendBotView.d dVar) {
+    public void setOnClickBotListener(FriendBotView.f fVar) {
         AgreeView agreeView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, dVar) == null) && (agreeView = this.e) != null) {
-            agreeView.setFriendBotClickCallBack(dVar);
+        if ((interceptable == null || interceptable.invokeL(1048593, this, fVar) == null) && (agreeView = this.e) != null) {
+            agreeView.setFriendBotClickCallBack(fVar);
         }
     }
 
@@ -280,13 +280,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int g = yi.g(getContext(), R.dimen.tbds68);
-            int g2 = yi.g(getContext(), R.dimen.T_X09);
-            int g3 = yi.g(getContext(), R.dimen.tbds15);
-            int g4 = yi.g(getContext(), R.dimen.M_W_X003);
-            int g5 = yi.g(getContext(), R.dimen.tbds10);
-            yi.g(getContext(), R.dimen.tbds32);
-            yi.g(getContext(), R.dimen.tbds16);
+            int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds68);
+            int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.T_X09);
+            int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds15);
+            int dimens4 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X003);
+            int dimens5 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds10);
+            BdUtilHelper.getDimens(getContext(), R.dimen.tbds32);
+            BdUtilHelper.getDimens(getContext(), R.dimen.tbds16);
             this.B0 = (LinearLayout) findViewById(R.id.share_more_container);
             int i = 0;
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
@@ -303,29 +303,29 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             this.B0.setVisibility(0);
             this.B0.setOnClickListener(this.y0);
             ImageView imageView = (ImageView) findViewById(R.id.share_more_img);
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(g, g);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(dimens, dimens);
             imageView.setLayoutParams(layoutParams3);
             WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_pb_bottom_share26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             this.E0 = (TextView) findViewById(R.id.share_more_text);
             LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-2, -2);
             if (UbsABTestHelper.isPbEnterForumStyle()) {
                 this.B0.setOrientation(0);
-                layoutParams4.leftMargin = g4;
-                layoutParams3.topMargin = yi.g(getContext(), R.dimen.tbds3);
+                layoutParams4.leftMargin = dimens4;
+                layoutParams3.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds3);
             } else {
                 this.B0.setOrientation(1);
-                layoutParams4.topMargin = -yi.g(getContext(), R.dimen.tbds3);
-                layoutParams3.topMargin = g3;
+                layoutParams4.topMargin = -BdUtilHelper.getDimens(getContext(), R.dimen.tbds3);
+                layoutParams3.topMargin = dimens3;
             }
             this.E0.setLayoutParams(layoutParams4);
             TextView textView = this.E0;
             if (UbsABTestHelper.isPbEnterForumStyle()) {
-                f2 = yi.g(getContext(), R.dimen.T_X07);
+                f2 = BdUtilHelper.getDimens(getContext(), R.dimen.T_X07);
             } else {
-                f2 = g2;
+                f2 = dimens2;
             }
             textView.setTextSize(0, f2);
-            this.E0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f1376));
+            this.E0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f137a));
             if (a0()) {
                 this.M = true;
                 setNeedAddReplyIcon(true);
@@ -335,14 +335,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 linearLayout.setLayoutParams(layoutParams5);
                 linearLayout.setOrientation(1);
                 ImageView imageView2 = (ImageView) findViewById(R.id.thread_info_commont_img);
-                RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(g, g);
-                layoutParams6.topMargin = yi.g(getContext(), R.dimen.tbds25);
+                RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(dimens, dimens);
+                layoutParams6.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds25);
                 layoutParams6.addRule(13, -1);
                 imageView2.setLayoutParams(layoutParams6);
                 WebPManager.setPureDrawable(imageView2, R.drawable.icon_pure_card_comment22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
                 this.z0 = (TextView) findViewById(R.id.thread_info_commont_num);
                 this.z0.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-                this.z0.setTextSize(0, g2);
+                this.z0.setTextSize(0, dimens2);
             } else {
                 this.M = false;
                 setNeedAddReplyIcon(false);
@@ -354,21 +354,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 layoutParams7.weight = 0.2f;
                 linearLayout2.setLayoutParams(layoutParams7);
                 linearLayout2.setOrientation(1);
-                LinearLayout.LayoutParams layoutParams8 = new LinearLayout.LayoutParams(g, g);
-                layoutParams8.topMargin = g3;
+                LinearLayout.LayoutParams layoutParams8 = new LinearLayout.LayoutParams(dimens, dimens);
+                layoutParams8.topMargin = dimens3;
                 ((ImageView) findViewById(R.id.collect_num_image)).setLayoutParams(layoutParams8);
                 this.A0 = (TextView) findViewById(R.id.collect_num_text);
                 LinearLayout.LayoutParams layoutParams9 = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams9.topMargin = g5;
+                layoutParams9.topMargin = dimens5;
                 this.A0.setLayoutParams(layoutParams9);
-                this.A0.setTextSize(0, g2);
+                this.A0.setTextSize(0, dimens2);
             } else {
                 setCollectVisible(false);
             }
             AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
             LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
             if (!UbsABTestHelper.isPbEnterForumStyle()) {
-                i = yi.g(getContext(), R.dimen.tbds18);
+                i = BdUtilHelper.getDimens(getContext(), R.dimen.tbds18);
             }
             layoutParams10.topMargin = i;
             if (Y()) {
@@ -409,7 +409,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             AgreeView agreeView = this.e;
             if (agreeView != null) {
                 if (agreeView.getFriendBotView().getAshRunnable() != null) {
-                    zg.a().removeCallbacks(this.e.getFriendBotView().getAshRunnable());
+                    SafeHandler.getInst().removeCallbacks(this.e.getFriendBotView().getAshRunnable());
                 }
                 this.e.getFriendBotView().setRobotEntrance(null);
             }
@@ -433,10 +433,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_pb_operate_commen, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                d85 d = d85.d(eMTextView);
-                d.D(R.string.F_X02);
-                d.x(R.color.CAM_X0107);
-                SkinManager.setBackgroundShapeDrawable(this.h, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+                EMManager.from(eMTextView).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0107);
+                SkinManager.setBackgroundShapeDrawable(this.h, BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
             SkinManager.setViewTextColor(this.z0, (int) R.drawable.selector_comment_and_prise_item_text_color);
             SkinManager.setViewTextColor(this.A0, (int) R.drawable.selector_comment_and_prise_item_text_color);
@@ -451,6 +449,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(ThreadData threadData) {
         String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, threadData) == null) {
             if (threadData != null) {
@@ -462,17 +461,22 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             if (threadData != null && threadData.getCallRobotEntrance() != null && threadData.getCallRobotEntrance().style_conf != null && !TextUtils.isEmpty(threadData.getCallRobotEntrance().style_conf.day.icon) && !TextUtils.isEmpty(threadData.getCallRobotEntrance().style_conf.dark.icon)) {
                 this.e.b0(threadData);
                 AbilityConf abilityConf = threadData.getCallRobotEntrance().ability_conf;
-                String str2 = "";
+                String str3 = "";
                 if (abilityConf == null) {
                     str = "";
                 } else {
                     str = abilityConf.bot_uk;
                 }
-                boolean j = this.e.getFriendBotView().j();
-                if (this.e.getData() != null) {
+                boolean o = this.e.getFriendBotView().o();
+                if (this.e.getData() == null) {
+                    str2 = "";
+                } else {
                     str2 = this.e.getData().forumId;
                 }
-                CommonStatisticUtils.statisticFriendBotView(1, str, 1, j, str2);
+                if (this.e.getData() != null) {
+                    str3 = this.e.getData().threadId;
+                }
+                CommonStatisticUtils.statisticFriendBotView(1, str, 1, o, str2, str3);
             } else if (threadData != null && threadData.getCustomFigure() != null) {
                 this.e.a0(threadData.getCustomFigure(), threadData.getAuthor());
             } else {

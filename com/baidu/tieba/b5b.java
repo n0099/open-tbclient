@@ -1,80 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public final class b5b {
     public static /* synthetic */ Interceptable $ic;
-    public static b5b c;
-    public static SQLiteOpenHelper d;
+    public static List<WeakReference<ScheduledFuture<?>>> a;
+    public static ExecutorService b;
+    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicInteger a;
-    public SQLiteDatabase b;
 
-    public b5b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947597370, "Lcom/baidu/tieba/b5b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947597370, "Lcom/baidu/tieba/b5b;");
                 return;
             }
         }
-        this.a = new AtomicInteger();
+        a = new ArrayList();
+        b = Executors.newFixedThreadPool(2);
+        c = Executors.newScheduledThreadPool(2);
     }
 
-    public static synchronized b5b a() {
-        InterceptResult invokeV;
-        b5b b5bVar;
+    public static synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
             synchronized (b5b.class) {
-                if (c == null) {
-                    b(w4b.h().getContext());
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
                 }
-                b5bVar = c;
+                c.execute(runnable);
             }
-            return b5bVar;
         }
-        return (b5b) invokeV.objValue;
     }
 
-    public final synchronized SQLiteDatabase c() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
+    public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.incrementAndGet() == 1) {
-                    x5b.a("***************新建立了 一个数据库的实例****************");
-                    this.b = d.getWritableDatabase();
-                }
-                sQLiteDatabase = this.b;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            ExecutorService executorService = b;
+            if (executorService == null || executorService.isShutdown()) {
+                b = Executors.newFixedThreadPool(2);
             }
-            return sQLiteDatabase;
+            b.execute(runnable);
         }
-        return (SQLiteDatabase) invokeV.objValue;
     }
 
-    public static synchronized void b(Context context) {
+    public static synchronized void b(Runnable runnable, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             synchronized (b5b.class) {
-                if (c == null) {
-                    c = new b5b();
-                    d = new z4b(context);
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
                 }
+                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
             }
         }
     }

@@ -3,10 +3,9 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.tieba.zg2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class eh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final mh2 b;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppSlaveManager a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public y03 e;
+    public volatile boolean f;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ eh2 a;
 
-        public a(String str, boolean z, String str2) {
+        public a(eh2 eh2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
+                Object[] objArr = {eh2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,45 +48,14 @@ public class eh2 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
+            this.a = eh2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (eh2.a) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                Set<String> m = fh2.k().m(this.a, true);
-                if (m != null && m.size() > 0) {
-                    if (eh2.a) {
-                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                    }
-                    for (String str : m) {
-                        boolean b = eh2.b(this.c, this.a, str);
-                        yg2 d = yg2.d();
-                        String str2 = this.c;
-                        zg2.b a = zg2.a();
-                        a.h(RecordType.PREFETCH_PRELINK);
-                        a.f(str);
-                        a.g(b);
-                        d.f(str2, a.e());
-                        if (b) {
-                            fh2.k().s(this.a, str);
-                            eh2.d(this.a, str);
-                        }
-                    }
-                    if (eh2.a) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
-                    }
-                }
+                this.a.b();
             }
         }
     }
@@ -101,57 +73,139 @@ public class eh2 {
                 return;
             }
         }
-        a = fs1.a;
-        b = oh2.a();
+        g = ir1.a;
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sn3.c(new a(this), "delayDownloadGuideRes", 3L, TimeUnit.SECONDS);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c || this.f) {
+            return;
+        }
+        this.f = true;
+        fu2.l0().c(xa3.K().getAppId());
+    }
+
+    public void c() {
+        px1 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c) {
+            SwanAppSlaveManager swanAppSlaveManager = this.a;
+            SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
+            if (swanAppWebViewWidget == null) {
+                M = swanAppSlaveManager.H;
+            } else {
+                M = swanAppWebViewWidget.M();
             }
-            return b.c(str, str2, str3);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(String str, @NonNull String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
+            mh3.d(this.e, "realsuccess", M);
         }
     }
 
-    public static void c(String str, String str2) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
-                }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            if (!(this.a instanceof SwanAppWebViewWidget)) {
+                g();
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!(this.a instanceof SwanAppWebViewWidget)) {
+                f();
+            }
+            this.b = false;
+            if (this.c) {
+                mh3.d(this.e, "success", null);
+            }
+        }
+    }
+
+    public eh2(@NonNull SwanAppSlaveManager swanAppSlaveManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppSlaveManager};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.f = false;
+        this.a = swanAppSlaveManager;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = false;
+            boolean b = mh3.b();
+            boolean a2 = mh3.a();
+            if (b) {
+                this.c = false;
+            } else if (this.b) {
+                this.c = true;
+                if (!a2) {
+                    this.e.f = UUID.randomUUID().toString();
+                    y03 y03Var = this.e;
+                    y03Var.e = "6";
+                    mh3.h(y03Var);
+                    if (g) {
+                        Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
+                    }
                 }
             } else {
-                vb3 q = ub3.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
+                this.c = !TextUtils.isEmpty(this.a.h0());
+            }
+        }
+    }
+
+    public void g() {
+        px1 M;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (g) {
+                Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
+            }
+            if (this.c && !this.d) {
+                this.d = true;
+                SwanAppSlaveManager swanAppSlaveManager = this.a;
+                SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
+                if (swanAppWebViewWidget == null) {
+                    M = swanAppSlaveManager.H;
+                } else {
+                    M = swanAppWebViewWidget.M();
+                }
+                if (M != null && M.c > 0) {
+                    mh3.d(this.e, "arrivesuccess", M);
+                } else {
+                    mh3.d(this.e, "arrivecancel", M);
                 }
             }
         }
     }
 
-    public static void d(String str, String str2) {
+    public void h(@NonNull y03 y03Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
-            b.a().b(str, str2, true);
+        if (interceptable == null || interceptable.invokeL(1048583, this, y03Var) == null) {
+            this.e = y03Var;
         }
     }
 }

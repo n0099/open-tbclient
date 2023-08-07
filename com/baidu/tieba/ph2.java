@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
+import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class ph2 extends qh2 {
+public final class ph2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
     static {
         InterceptResult invokeClinit;
@@ -35,8 +45,7 @@ public class ph2 extends qh2 {
                 return;
             }
         }
-        b = fs1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
+        n = ir1.a;
     }
 
     public ph2() {
@@ -53,53 +62,69 @@ public class ph2 extends qh2 {
         }
     }
 
-    @Override // com.baidu.tieba.qh2
-    public String i() {
+    public static zk2 a(ph2 ph2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ph2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, ph2Var.a);
+            treeMap.put("pagePath", ph2Var.b);
+            treeMap.put("pageType", ph2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, ph2Var.e);
+            if (!TextUtils.isEmpty(ph2Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + ph2Var.f);
+                }
+                treeMap.put("initData", ph2Var.f);
+            }
+            if (!TextUtils.isEmpty(ph2Var.d)) {
+                treeMap.put("onReachBottomDistance", ph2Var.d);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(ph2Var.g));
+            if (!TextUtils.isEmpty(ph2Var.h)) {
+                treeMap.put("routeId", ph2Var.h);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(ph2Var.i));
+            if (!TextUtils.isEmpty(ph2Var.j)) {
+                treeMap.put("slavePreload", ph2Var.j);
+            }
+            treeMap.put("root", ph2Var.k);
+            w63.a(treeMap, "page ready event");
+            qe3.a(ph2Var.b, treeMap);
+            String f = qo3.f(qe3.b(ph2Var.b));
+            y72.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = ib3.c(ph2Var.a, f);
+            ph2Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", ph2Var.l);
+            }
+            uc2 W = sh2.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.a());
+            }
+            if (ph2Var.m) {
+                treeMap.put("isFirstPage", YYOption.IsLive.VALUE_TRUE);
+            }
+            if (ca2.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (wg3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (wg3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new zk2("PageReady", treeMap);
+        }
+        return (zk2) invokeL.objValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return go3.b(cv2.c(), c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qh2
-    public boolean e(rh2 rh2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rh2Var)) == null) {
-            if (rh2Var == null) {
-                return false;
-            }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + rh2Var.g + File.separator + rh2Var.q;
-            try {
-                File j = j(rh2Var.h, rh2Var.g, rh2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qh2
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = cv2.c();
-            return go3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MessageCenterActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SELECTED_TAB_ID = "selected_tab_id";
-    public static final int TAB_ID_CHAT = 2;
-    public static final int TAB_ID_MESSAGE = 1;
-    public static final int TAB_ID_NOTIFICATION = 3;
-    public static final int TAB_ID_UNKNOWN = -1;
+    public static final int TAB_ID_CHAT = -2;
+    public static final int TAB_ID_MESSAGE = -1;
+    public static final int TAB_ID_NOTIFICATION = -1;
+    public static final int TAB_ID_UNKNOWN = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MessageCenterActivityConfig(Context context) {
-        super(context);
+        this(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,7 +28,8 @@ public class MessageCenterActivityConfig extends IntentConfig {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

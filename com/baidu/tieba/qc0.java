@@ -1,33 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class qc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
+    public static <T> int a(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return list.size();
             }
-            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+            return 0;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public static boolean b(Activity activity) {
+    public static <T> boolean c(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (a(list) <= 0) {
                 return true;
             }
             return false;
@@ -35,15 +33,15 @@ public class qc0 {
         return invokeL.booleanValue;
     }
 
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
+    public static <T> T b(List<T> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & 67108864) == 0) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+                return null;
             }
-            return true;
+            return list.get(i);
         }
-        return invokeL.booleanValue;
+        return (T) invokeLI.objValue;
     }
 }

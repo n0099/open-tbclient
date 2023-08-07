@@ -1,115 +1,142 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
 /* loaded from: classes5.dex */
-public class dm4 implements tl4 {
+public class dm4 extends em4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final xo4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<tl4> a;
-    public Object b;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709342, "Lcom/baidu/tieba/dm4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947709342, "Lcom/baidu/tieba/dm4;");
-                return;
-            }
-        }
-        c = xo4.e();
-    }
-
-    public dm4(tl4 tl4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dm4(String str, int i, String str2, int i2) {
+        super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tl4Var};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = -1;
+        this.d = str;
+        this.e = str2;
+        this.f = i;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dm4(String str, String str2, String str3, int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(tl4Var);
-    }
-
-    @Override // com.baidu.tieba.tl4
-    public <T> void a(xl4<T> xl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xl4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<tl4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(xl4Var);
-                    }
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
-            }
+        this.i = -1;
+        this.d = str;
+        this.e = str3;
+        try {
+            this.f = Integer.valueOf(str2).intValue();
+        } catch (NumberFormatException unused) {
+            this.f = 0;
         }
     }
 
-    @Override // com.baidu.tieba.tl4
-    public <T> void b(xl4<T> xl4Var) {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<tl4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
-                }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((tl4) it2.next()).b(xl4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h = str;
         }
     }
 
-    public void c(tl4 tl4Var) {
+    public dm4 m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tl4Var) == null) && tl4Var != null) {
-            synchronized (this.b) {
-                this.a.add(tl4Var);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.g = str;
+            return this;
         }
-    }
-
-    public void d(tl4 tl4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, tl4Var) == null) && tl4Var != null) {
-            synchronized (this.b) {
-                if (!this.a.remove(tl4Var)) {
-                    this.a.remove(this.a.indexOf(tl4Var));
-                }
-            }
-        }
+        return (dm4) invokeL.objValue;
     }
 }

@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z95 {
+public class z95 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean v;
 
     public z95() {
         Interceptable interceptable = $ic;
@@ -36,132 +29,114 @@ public class z95 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(AgreeData agreeData, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
-            AgreeEvent agreeEvent = new AgreeEvent();
-            agreeEvent.agreeData = agreeData;
-            agreeEvent.agreeExtra = str;
-            wq5.i(agreeEvent);
-        }
-    }
-
-    public void b(Context context, z15 z15Var, AgreeData agreeData, ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z15Var, agreeData, threadData) == null) && z15Var != null && agreeData != null) {
-            int i = 0;
-            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-            if (baijiahaoData != null) {
-                i = baijiahaoData.oriUgcType;
-            }
-            StatisticItem param = new StatisticItem("c13271").param("obj_type", z15Var.g).param("obj_locate", z15Var.h).param("obj_id", z15Var.i).param("obj_name", i).param("post_id", agreeData.postId).param("nid", agreeData.nid);
-            if (threadData != null) {
-                param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
-                if (threadData.getBaijiahaoData() != null) {
-                    param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
-                    if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
-                        param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                    }
-                }
-                if (threadData.isBjhDynamicThread()) {
-                    param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
-                } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
-                    int i2 = threadData.threadType;
-                    if (i2 == 0 || i2 == 40) {
-                        param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
-                    }
-                } else {
-                    param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
-                }
-            } else {
-                param.param("tid", agreeData.threadId);
-                param.param("nid", agreeData.nid);
-                param.param("fid", agreeData.forumId);
-                param.param("card_type", agreeData.cardType);
-                param.param("ab_tag", agreeData.recomAbTag);
-                param.param("recom_source", agreeData.recomSource);
-                param.param("weight", agreeData.recomWeight);
-                param.param("extra", agreeData.recomExtra);
-                BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
-                if (baijiahaoData2 != null) {
-                    param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
-                }
-            }
-            if (context != null) {
-                ft5.b(context, param);
-            }
-            TiebaStatic.log(param);
-        }
-    }
-
-    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
-            if (agreeData == null) {
-                w85.a(3, -1);
                 return;
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-            httpMessage.addParam("thread_id", agreeData.threadId);
-            httpMessage.addParam("op_type", i);
-            if (agreeData.objType == 0) {
-                agreeData.objType = 3;
+        }
+        this.j = true;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+        this.v = false;
+        this.o = this.p;
+        this.n = this.m;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return t(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0904;
+            this.v = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
-            httpMessage.addParam("obj_type", agreeData.objType);
-            httpMessage.addParam("agree_type", agreeData.agreeType);
-            httpMessage.addParam("forum_id", agreeData.forumId);
-            httpMessage.addParam("is_long_press_agree", agreeData.agreeClickType);
-            if (!StringUtil.isEmpty(agreeData.objSource)) {
-                httpMessage.addParam("obj_source", agreeData.objSource);
-            }
-            if (!TextUtils.isEmpty(agreeData.postId)) {
-                httpMessage.addParam("post_id", agreeData.postId);
-            }
-            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-            if (baijiahaoData != null) {
-                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
-                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
-                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
-                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
-            }
-            httpMessage.setTag(bdUniqueId);
-            httpMessage.setExtra(Integer.valueOf(i));
-            httpMessage.addHeader("needSig", "1");
-            if (z) {
-                if (!TextUtils.isEmpty(uq5.b())) {
-                    httpMessage.addParam(HttpRequest.BDUSS, uq5.b());
-                }
-                if (!TextUtils.isEmpty(uq5.f())) {
-                    httpMessage.addParam("tbs", uq5.f());
-                }
-                if (!TextUtils.isEmpty(uq5.e())) {
-                    httpMessage.addParam("stoken", uq5.e());
-                }
-            }
-            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void d(AgreeData agreeData, oca ocaVar) {
+    public void s(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, ocaVar) == null) {
-            ocaVar.b = agreeData;
-            if (agreeData.isInThread) {
-                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-                if (baijiahaoData != null) {
-                    agreeData.nid = baijiahaoData.oriUgcNid;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, ocaVar));
-                a(agreeData, AgreeEvent.IS_THREAD);
-            } else if (agreeData.isInPost) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, ocaVar));
-                a(agreeData, AgreeEvent.IS_POST);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = i;
+            this.v = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
+        }
+    }
+
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            if (this.v) {
+                return u(f);
+            }
+            return v(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    @Deprecated
+    public void j(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
+            w(i, iconType);
+        }
+    }
+
+    public final Drawable u(float f) {
+        InterceptResult invokeF;
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            int color = SkinManager.getColor(this.s, this.d);
+            int[] iArr = {x9a.c(color), color};
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.t);
+                gradientDrawable.setColors(iArr);
+            } else {
+                gradientDrawable = new GradientDrawable(this.t, iArr);
+            }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void w(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
+            this.e[0] = i;
+            this.f = iconType;
         }
     }
 }

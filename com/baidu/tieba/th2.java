@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +11,69 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
 /* loaded from: classes8.dex */
-public class th2 extends qh2 {
+public class th2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
+    public static final boolean b;
+    public static Runnable c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                iv3.e(AppRuntime.getAppContext());
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                iv3.d(AppRuntime.getAppContext()).g();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,104 +88,97 @@ public class th2 extends qh2 {
                 return;
             }
         }
-        c = fs1.a;
-    }
-
-    public th2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        a = ir1.a;
+        fu2.g0().getSwitch("swan_cpu_booster", 0);
+        b = b(0);
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
+            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
         }
-        this.b = o();
+        a();
     }
 
-    @Override // com.baidu.tieba.qh2
-    public String i() {
-        InterceptResult invokeV;
+    public static void a() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
-                return null;
-            }
-            return zr4.E(file);
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
         }
-        return (File) invokeV.objValue;
+        iv3.b(a);
+        if (c == null) {
+            c = new b();
+        }
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
+        }
     }
 
-    @Override // com.baidu.tieba.qh2
-    public boolean e(rh2 rh2Var) {
-        InterceptResult invokeL;
+    public static void e() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rh2Var)) == null) {
-            if (rh2Var == null || !this.b.exists()) {
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "startBooster");
+        }
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        d(c);
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
+        }
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i <= 0) {
                 return false;
             }
-            File file = this.b;
-            File file2 = new File(file, rh2Var.g + File.separator + rh2Var.q);
-            if (!file2.exists()) {
+            if (i == 1) {
+                return true;
+            }
+            if (i != 2) {
                 return false;
             }
-            try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), rh2Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
-                    }
-                    return false;
-                }
-                File j = j(rh2Var.h, rh2Var.g, rh2Var.i);
-                if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
-            } catch (IOException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
+            return fu2.u0().a();
         }
-        return invokeL.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qh2
-    public String f(String str) {
-        InterceptResult invokeL;
+    public static void d(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return zr4.E(file2);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
+    }
+
+    public static void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
+        }
+        a aVar = new a();
+        if (z) {
+            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
+        } else {
+            aVar.run();
+        }
     }
 }

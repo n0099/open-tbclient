@@ -1,320 +1,66 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Headers;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mv3 extends lv3 {
+public class mv3 implements jv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public Callback d;
-    public JSONObject e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
+    public nv3 a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public class a extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mv3 a;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(mv3 mv3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mv3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mv3Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (ru3.a) {
-                    Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
-                }
-                if (this.a.d != null) {
-                    if (exc instanceof IOException) {
-                        this.a.d.onFailure(null, (IOException) exc);
-                    } else {
-                        this.a.d.onFailure(null, new IOException(exc));
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.a.n(null, response);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986079, "Lcom/baidu/tieba/mv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986079, "Lcom/baidu/tieba/mv3;");
-                return;
-            }
-        }
-        k = fs1.a;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.j++;
-            o(this.g);
-        }
-    }
-
-    public mv3(vb3 vb3Var, JSONObject jSONObject, String str, Callback callback) {
+    public mv3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vb3Var, jSONObject, str, callback};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = callback;
-        this.f = str;
-        m(jSONObject);
-        d(this.e.optString("method"));
+        this.b = false;
+        c(context);
     }
 
-    @Override // com.baidu.tieba.lv3
-    public void e(IOException iOException) {
-        Callback callback;
+    @Override // com.baidu.tieba.jv3
+    public void b(int i) {
+        nv3 nv3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) && (callback = this.d) != null) {
-            callback.onFailure(null, iOException);
-        }
-    }
-
-    public final void l(HttpRequest httpRequest) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, httpRequest) != null) || httpRequest == null) {
-            return;
-        }
-        httpRequest.executeAsync(new a(this));
-    }
-
-    public final void m(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            this.e = jSONObject;
-            this.h = jSONObject.optString("url");
-            JSONObject optJSONObject = this.e.optJSONObject("ext");
-            if (optJSONObject != null) {
-                this.i = optJSONObject.optString("customHost");
-            }
-        }
-    }
-
-    public void o(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.g = str;
-            JSONObject jSONObject = this.e;
-            if (jSONObject != null) {
-                str2 = jSONObject.optString("data");
-            } else {
-                str2 = "";
-            }
-            a(str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.lv3
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (ru3.a) {
-                Log.d("BdtlsRequestApi", "onRequestError=" + i);
-            }
-            Callback callback = this.d;
-            if (callback != null) {
-                callback.onFailure(null, new IOException("request error  code : " + i));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lv3
-    public void h(byte[] bArr) {
-        JSONObject jSONObject;
-        HttpRequest httpRequest;
-        Callback callback;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject = new JSONObject(this.e.toString());
-                try {
-                    Uri parse = Uri.parse(this.h);
-                    String path = parse.getPath();
-                    String query = parse.getQuery();
-                    if (TextUtils.isEmpty(this.i)) {
-                        str = su3.b;
-                    } else {
-                        str = this.i + "/bdtls";
-                    }
-                    StringBuilder sb = new StringBuilder(str + "/" + this.g);
-                    String str3 = "";
-                    if (TextUtils.isEmpty(path)) {
-                        path = "";
-                    }
-                    sb.append(path);
-                    if (!TextUtils.isEmpty(query)) {
-                        str3 = "?" + query;
-                    }
-                    sb.append(str3);
-                    if (k) {
-                        Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                    if (this.a) {
-                        if (TextUtils.equals(b(), "GET")) {
-                            str2 = Base64.encodeToString(bArr, 2);
-                        } else {
-                            jSONObject.putOpt("data", bArr);
-                            str2 = "Bdtls";
-                        }
-                        optJSONObject.put("Bdtls", str2);
-                    }
-                    jSONObject.putOpt("header", optJSONObject);
-                    jSONObject.putOpt("url", sb.toString());
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject2 = jSONObject;
-                    if (k) {
-                        Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
-                    }
-                    jSONObject = jSONObject2;
-                    httpRequest = (HttpRequest) j12.C(jSONObject, this.f).first;
-                    if (httpRequest == null) {
-                        callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
-                    }
-                    l(httpRequest);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
-            httpRequest = (HttpRequest) j12.C(jSONObject, this.f).first;
-            if (httpRequest == null && (callback = this.d) != null) {
-                callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
-            }
-            l(httpRequest);
-        }
-    }
-
-    public final void n(Call call, Response response) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, call, response) == null) {
-            Headers headers = response.headers();
-            if (headers != null && TextUtils.equals(headers.get("Bdtls"), com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
-                xu3.l().m().s(0);
-                if (xu3.l().m().b()) {
-                    xu3.l().m().a();
-                    i(true);
-                    p();
-                    return;
-                }
-                this.d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (nv3Var = this.a) != null && nv3Var.c()) {
+            nv3 nv3Var2 = this.a;
+            if (nv3Var2.d(nv3Var2.a(), "", 0) != 0) {
                 return;
             }
-            xu3.l().m().k();
-            if (this.a) {
-                ResponseBody body = response.body();
-                String g = g(body.bytes());
-                if (ru3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
-                }
-                if (this.b == 1) {
-                    Buffer buffer = new Buffer();
-                    buffer.writeString(g, Charset.forName("utf-8"));
-                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    Callback callback = this.d;
-                    if (callback != null) {
-                        callback.onResponse(call, build);
-                    }
-                    this.j = 0;
-                    return;
-                } else if (this.j < 3) {
-                    p();
-                    return;
-                } else {
-                    this.d.onFailure(call, new IOException("Url or serviceId is invalid"));
-                    this.j = 0;
-                    return;
-                }
-            }
-            Callback callback2 = this.d;
-            if (callback2 != null) {
-                callback2.onResponse(call, response);
-            }
+            this.b = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.jv3
+    public void a() {
+        nv3 nv3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (nv3Var = this.a) != null && nv3Var.c()) {
+            this.b = false;
+            nv3 nv3Var2 = this.a;
+            nv3Var2.d(nv3Var2.a(), "", -1);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = nv3.b(context);
         }
     }
 }

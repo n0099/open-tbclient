@@ -1,71 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class v42 extends s42 {
+public class v42 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v42(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/canvas/insert");
+    public v42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = false;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.e42
+    public void a(f42 f42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            s62 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                v82.c("SwanAppCanvas", "insert action parse model is null");
-                return false;
-            } else if (context == null) {
-                v82.c("SwanAppCanvas", "context is null");
-                unitedSchemeEntity.result = l(1001);
-                return false;
-            } else {
-                String str = k.b;
-                b23 b23Var = k.h;
-                if (!TextUtils.isEmpty(str) && b23Var != null && b23Var.h()) {
-                    m72 insert = new v72(context, k).insert();
-                    boolean a = insert.a();
-                    if (!a) {
-                        v82.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
-                    }
-                    j(unitedSchemeEntity, callbackHandler, a);
-                    return a;
-                }
-                v82.c("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = l(202);
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && this.e) {
+            f42Var.f.quadTo(this.a, this.b, this.c, this.d);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.e42
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
+            this.a = po3.g((float) jSONArray.optDouble(0));
+            this.b = po3.g((float) jSONArray.optDouble(1));
+            this.c = po3.g((float) jSONArray.optDouble(2));
+            this.d = po3.g((float) jSONArray.optDouble(3));
+            this.e = true;
+        }
     }
 }

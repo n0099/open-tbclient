@@ -1,19 +1,53 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fr3 {
+public class fr3 extends y63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
+
+    /* loaded from: classes5.dex */
+    public class a implements rp3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fr3 a;
+
+        public a(fr3 fr3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fr3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fr3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.a.d.putBundle("key_result_stokent", bundle);
+                this.a.c();
+            }
+        }
+    }
 
     public fr3() {
         Interceptable interceptable = $ic;
@@ -25,44 +59,20 @@ public class fr3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public final void a(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.y63
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof RelativeLayout)) {
-            return;
-        }
-        if (this.a == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-            this.a = relativeLayout;
-            relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801bb);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new ViewGroup.LayoutParams(-1, -1));
-    }
-
-    public void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        if (cv2.M().a()) {
-            a(viewGroup);
-        } else {
-            c(viewGroup);
-        }
-    }
-
-    public final void c(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (relativeLayout = this.a) != null) {
-            viewGroup.removeView(relativeLayout);
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String[] stringArray = bundle.getStringArray("key_param_tpl_list");
+            if (stringArray != null && stringArray.length >= 1) {
+                zq3.u(AppRuntime.getAppContext(), new a(this), stringArray);
+            } else {
+                c();
+            }
         }
     }
 }

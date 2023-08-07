@@ -1,20 +1,20 @@
 package com.baidu.tieba.feed.widget.uistate;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.bba;
+import com.baidu.tieba.cc7;
 import com.baidu.tieba.feed.widget.uistate.ForumAttentionUiStateKt;
-import com.baidu.tieba.gy;
-import com.baidu.tieba.ica;
-import com.baidu.tieba.k9;
+import com.baidu.tieba.fx;
+import com.baidu.tieba.h9;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.s45;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.ue7;
-import com.baidu.tieba.w55;
-import com.baidu.tieba.y55;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.w45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,23 +31,23 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class ForumAttentionUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<ue7, TbPageContext<?>, Unit> a;
+    public static final Function2<cc7, TbPageContext<?>, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static final class a extends k9 {
+    public static final class a extends h9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LikeModel a;
         public final /* synthetic */ TbPageContext<?> b;
-        public final /* synthetic */ ue7 c;
+        public final /* synthetic */ cc7 c;
 
-        public a(LikeModel likeModel, TbPageContext<?> tbPageContext, ue7 ue7Var) {
+        public a(LikeModel likeModel, TbPageContext<?> tbPageContext, cc7 cc7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {likeModel, tbPageContext, ue7Var};
+                Object[] objArr = {likeModel, tbPageContext, cc7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,19 +59,19 @@ public final class ForumAttentionUiStateKt {
             }
             this.a = likeModel;
             this.b = tbPageContext;
-            this.c = ue7Var;
+            this.c = cc7Var;
         }
 
-        @Override // com.baidu.tieba.k9
+        @Override // com.baidu.tieba.h9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.a.getErrorCode() == 22) {
-                    yi.R(this.b.getPageActivity(), this.b.getString(R.string.had_liked_forum));
+                    BdUtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.had_liked_forum));
                 } else if (obj == null) {
                 } else {
                     if (this.a.getErrorCode() != 0) {
-                        yi.R(this.b.getPageActivity(), this.a.getErrorString());
+                        BdUtilHelper.showToast(this.b.getPageActivity(), this.a.getErrorString());
                     } else {
                         this.c.f().d(true);
                     }
@@ -81,18 +81,18 @@ public final class ForumAttentionUiStateKt {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements ica.a {
+    public static final class b implements bba.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ue7 a;
+        public final /* synthetic */ cc7 a;
         public final /* synthetic */ TbPageContext<?> b;
 
-        public b(ue7 ue7Var, TbPageContext<?> tbPageContext) {
+        public b(cc7 cc7Var, TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ue7Var, tbPageContext};
+                Object[] objArr = {cc7Var, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -102,20 +102,20 @@ public final class ForumAttentionUiStateKt {
                     return;
                 }
             }
-            this.a = ue7Var;
+            this.a = cc7Var;
             this.b = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.ica.a
+        @Override // com.baidu.tieba.bba.a
         public void a(String errorString, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, errorString, j) == null) {
                 Intrinsics.checkNotNullParameter(errorString, "errorString");
-                yi.R(this.b.getPageActivity(), this.b.getString(R.string.operation_failed));
+                BdUtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.operation_failed));
             }
         }
 
-        @Override // com.baidu.tieba.ica.a
+        @Override // com.baidu.tieba.bba.a
         public void b(String forumName, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumName, j) == null) {
@@ -141,98 +141,98 @@ public final class ForumAttentionUiStateKt {
         a = ForumAttentionUiStateKt$DefaultOnAttentionClick$1.INSTANCE;
     }
 
-    public static final void h(y55 dialog, TbPageContext pageContext) {
+    public static final void h(u45 dialog, TbPageContext pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, dialog, pageContext) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             Intrinsics.checkNotNullParameter(pageContext, "$pageContext");
-            bh.a(dialog, pageContext.getPageActivity());
+            jg.a(dialog, pageContext.getPageActivity());
         }
     }
 
-    public static final void d(ue7 ue7Var, TbPageContext<?> tbPageContext) {
+    public static final void d(cc7 cc7Var, TbPageContext<?> tbPageContext) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ue7Var, tbPageContext) == null) {
-            if (ue7Var.f().b().length() == 0) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cc7Var, tbPageContext) == null) {
+            if (cc7Var.f().b().length() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z && ue7Var.f().a() > 0) {
+            if (!z && cc7Var.f().a() > 0) {
                 LikeModel likeModel = new LikeModel(tbPageContext);
-                likeModel.setLoadDataCallBack(new a(likeModel, tbPageContext, ue7Var));
-                likeModel.n0(ue7Var.f().b(), String.valueOf(ue7Var.f().a()));
+                likeModel.setLoadDataCallBack(new a(likeModel, tbPageContext, cc7Var));
+                likeModel.f0(cc7Var.f().b(), String.valueOf(cc7Var.f().a()));
             }
         }
     }
 
-    public static final void e(ue7 ue7Var, TbPageContext<?> tbPageContext) {
+    public static final void e(cc7 cc7Var, TbPageContext<?> tbPageContext) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, ue7Var, tbPageContext) == null) {
-            if (ue7Var.f().b().length() == 0) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, cc7Var, tbPageContext) == null) {
+            if (cc7Var.f().b().length() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z && ue7Var.f().a() > 0) {
-                ica icaVar = new ica();
-                icaVar.b(new b(ue7Var, tbPageContext));
-                icaVar.c(ue7Var.f().b(), ue7Var.f().a());
+            if (!z && cc7Var.f().a() > 0) {
+                bba bbaVar = new bba();
+                bbaVar.b(new b(cc7Var, tbPageContext));
+                bbaVar.c(cc7Var.f().b(), cc7Var.f().a());
             }
         }
     }
 
-    public static final void f(final ue7 ue7Var, final TbPageContext<?> tbPageContext) {
+    public static final void f(final cc7 cc7Var, final TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, ue7Var, tbPageContext) == null) {
-            a65 a65Var = new a65(tbPageContext.getPageActivity());
-            a65Var.t(tbPageContext.getString(R.string.confirm_unlike_forum));
+        if (interceptable == null || interceptable.invokeLL(65542, null, cc7Var, tbPageContext) == null) {
+            w45 w45Var = new w45(tbPageContext.getPageActivity());
+            w45Var.t(tbPageContext.getString(R.string.confirm_unlike_forum));
             ArrayList arrayList = new ArrayList();
-            final y55 y55Var = new y55(tbPageContext, a65Var);
-            w55 w55Var = new w55(tbPageContext.getString(R.string.obfuscated_res_0x7f0f04c1), a65Var);
-            w55Var.m(new a65.e() { // from class: com.baidu.tieba.te7
+            final u45 u45Var = new u45(tbPageContext, w45Var);
+            s45 s45Var = new s45(tbPageContext.getString(R.string.obfuscated_res_0x7f0f04c1), w45Var);
+            s45Var.m(new w45.e() { // from class: com.baidu.tieba.bc7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.a65.e
+                @Override // com.baidu.tieba.w45.e
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ForumAttentionUiStateKt.g(ue7.this, tbPageContext, y55Var);
+                        ForumAttentionUiStateKt.g(cc7.this, tbPageContext, u45Var);
                     }
                 }
             });
-            arrayList.add(w55Var);
-            a65Var.o(new a65.c() { // from class: com.baidu.tieba.se7
+            arrayList.add(s45Var);
+            w45Var.o(new w45.c() { // from class: com.baidu.tieba.ac7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.a65.c
+                @Override // com.baidu.tieba.w45.c
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ForumAttentionUiStateKt.h(y55.this, tbPageContext);
+                        ForumAttentionUiStateKt.h(u45.this, tbPageContext);
                     }
                 }
             });
-            a65Var.l(arrayList);
-            y55Var.k(0.7f);
-            bh.i(y55Var, tbPageContext.getPageActivity());
-            gy.x(ue7Var.h(), ue7Var.e(), false);
+            w45Var.l(arrayList);
+            u45Var.k(0.7f);
+            jg.i(u45Var, tbPageContext.getPageActivity());
+            fx.n(cc7Var.h(), cc7Var.e(), false);
         }
     }
 
-    public static final void g(ue7 state, TbPageContext pageContext, y55 dialog) {
+    public static final void g(cc7 state, TbPageContext pageContext, u45 dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, dialog) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(pageContext, "$pageContext");
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             e(state, pageContext);
-            bh.a(dialog, pageContext.getPageActivity());
-            gy.x(state.h(), state.e(), true);
+            jg.a(dialog, pageContext.getPageActivity());
+            fx.n(state.h(), state.e(), true);
         }
     }
 }

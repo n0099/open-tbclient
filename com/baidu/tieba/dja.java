@@ -1,90 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.PersonalBackdropListActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.ija;
+import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"ResourceAsColor"})
+import java.util.Arrays;
+import kotlin.Pair;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dja {
+public final class dja<R extends ija> extends PageTraceMonitor<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundGroupActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public TextView g;
-    public TextView h;
-    public int i;
-    public bja j;
+    public final Fragment e;
+    public final Function1<R, xia> f;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dja a;
-
-        public a(dja djaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {djaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = djaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log("c10283");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropListActivityConfig(this.a.a.getActivity())));
-            }
-        }
-    }
-
-    public dja(BackgroundGroupActivity backgroundGroupActivity, eja ejaVar) {
+    public dja(Fragment fragment, Function1<? super R, xia> traceHolderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundGroupActivity, ejaVar};
+            Object[] objArr = {fragment, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,170 +36,70 @@ public class dja {
                 return;
             }
         }
-        this.i = 0;
-        this.a = backgroundGroupActivity;
-        this.i = yi.g(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703bc);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0134, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090412);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f1092);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092931);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(4);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091533);
-        TextView textView = new TextView(this.a.getActivity());
-        this.g = textView;
-        textView.setHeight(yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ed, (ViewGroup) null);
-        this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0c92);
-        this.h.setOnClickListener(new a(this));
-        this.j = new bja(this.a.getPageContext(), ejaVar);
-        TextView textView3 = new TextView(this.a.getActivity());
-        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + yi.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
-        this.f.w(textView3, 0);
-        this.f.addFooterView(this.h);
-        this.f.setAdapter((ListAdapter) this.j);
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
+        this.e = fragment;
+        this.f = traceHolderFactory;
     }
 
-    public final void g(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.j.a(list);
-                this.j.notifyDataSetChanged();
-                return;
-            }
-            this.f.setVisibility(8);
-        }
-    }
-
-    public final List<Object> b(List<cja> list) {
+    @Override // com.baidu.tieba.eja
+    public xia c(R thisRef) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (cja cjaVar : list) {
-                arrayList.add(cjaVar.b());
-                List<DressItemData> a2 = cjaVar.a();
-                int size = a2.size();
-                if (size > 3) {
-                    size = 3;
-                }
-                for (int i = 0; i < size; i = i + 2 + 1) {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i2 = 0; i2 < 3; i2++) {
-                        int i3 = i + i2;
-                        if (i3 < size) {
-                            arrayList2.add(a2.get(i3));
-                        }
-                    }
-                    arrayList.add(arrayList2);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            return this.f.invoke(thisRef);
         }
-        return (List) invokeL.objValue;
+        return (xia) invokeL.objValue;
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
-        }
-    }
-
-    public View d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setVisibility(8);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(0);
-        }
-    }
-
-    public void f() {
-        bja bjaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            uu5.a(this.a.getPageContext(), this.b);
-            this.a.getLayoutMode().k(this.h);
-            d85.d(this.h).x(R.color.CAM_X0108);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (bjaVar = this.j) != null) {
-                bjaVar.notifyDataSetChanged();
-            }
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.e.d();
-        }
-    }
-
-    public final boolean h(zja zjaVar) {
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public Lifecycle g(R thisRef) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, zjaVar)) == null) {
-            if (zjaVar != null && !StringUtils.isNull(zjaVar.c())) {
-                this.e.setVisibility(0);
-                this.e.e(zjaVar);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            try {
+                Lifecycle lifecycle = this.e.getLifecycle();
+                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
+                return lifecycle;
+            } catch (IllegalStateException e) {
+                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
             }
-            this.e.setVisibility(8);
-            return false;
         }
-        return invokeL.booleanValue;
+        return (Lifecycle) invokeL.objValue;
     }
 
-    public void j() {
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public void i(Pair<String, String>... params) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.i);
-            this.a.showNetRefreshView(this.b, string, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            hja.b(this.e, (Pair[]) Arrays.copyOf(params, params.length));
         }
     }
 
-    public void k(zja zjaVar, List<cja> list, boolean z) {
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public String h(R thisRef) {
+        InterceptResult invokeL;
+        Fragment parentFragment;
+        ija ijaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, zjaVar, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                c();
-                if (h(zjaVar)) {
-                    this.f.removeHeaderView(this.g);
-                    this.f.addHeaderView(this.g);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Fragment fragment = this.e;
+            if (fragment != null && (parentFragment = fragment.getParentFragment()) != null) {
+                if (parentFragment instanceof ija) {
+                    ijaVar = (ija) parentFragment;
                 } else {
-                    this.f.removeHeaderView(this.g);
+                    ijaVar = null;
                 }
-                g(b(list));
-                return;
+                if (ijaVar != null) {
+                    return ijaVar.getScene();
+                }
             }
-            j();
+            return thisRef.getScene();
         }
+        return (String) invokeL.objValue;
     }
 }

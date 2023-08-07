@@ -1,14 +1,14 @@
 package com.baidu.tbadk.browser;
 
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.i95;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.b85;
+import com.baidu.tieba.z75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,18 +30,18 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HybridUtilsBridgeHandler(g95 g95Var) {
-        super(g95Var);
+    public HybridUtilsBridgeHandler(z75 z75Var) {
+        super(z75Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g95Var};
+            Object[] objArr = {z75Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g95) newInitContext.callArgs[0]);
+                super((z75) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,23 +49,23 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @i95(isAsync = false, value = "showDeviceInfo")
+    @b85(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String cuid = TbadkCoreApplication.getInst().getCuid();
-            String k = aj.k();
-            String g = aj.g();
-            int l = yi.l(getContext());
-            int j = yi.j(getContext());
-            String str = String.valueOf(l) + "," + String.valueOf(j);
+            String osVersion = DeviceInfoHelper.getOsVersion();
+            String model = DeviceInfoHelper.getModel();
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(getContext());
+            String str = String.valueOf(equipmentWidth) + "," + String.valueOf(equipmentHeight);
             String versionName = TbadkCoreApplication.getInst().getVersionName();
             try {
                 jSONObject.put("systemName", "android");
-                jSONObject.put("systemVersion", k);
-                jSONObject.put("model", g);
+                jSONObject.put("systemVersion", osVersion);
+                jSONObject.put("model", model);
                 jSONObject.put("cuid", cuid);
                 jSONObject.put(CommonCode.MapKey.HAS_RESOLUTION, str);
                 jSONObject.put("appVersion", versionName);
@@ -76,7 +76,7 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @i95(isAsync = false, value = "showNetStatus")
+    @b85(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -110,12 +110,12 @@ public class HybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @i95(isAsync = false, value = PopItemMethodConstant.showToast)
+    @b85(isAsync = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        BdToast.b(getContext(), jSONObject.optString("message")).q();
+        BdToast.makeText(getContext(), jSONObject.optString("message")).show();
     }
 }

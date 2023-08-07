@@ -14,25 +14,25 @@ import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tbadk.core.atomData.UserTropicGiftBagActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.MaintabAddResponedData;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.io5;
-import com.baidu.tieba.jo5;
-import com.baidu.tieba.ko5;
-import com.baidu.tieba.lo5;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.qo5;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
 import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.sm5;
+import com.baidu.tieba.tm5;
 import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,12 +41,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PersonInfoDelegateStatic extends io5 {
+public class PersonInfoDelegateStatic extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MessageRedDotView c;
-    public Boolean d;
-    public CustomMessageListener e;
+    public MessageRedDotView a;
+    public Boolean b;
+    public CustomMessageListener c;
 
     /* loaded from: classes7.dex */
     public static class a extends CustomMessageListener {
@@ -76,22 +76,22 @@ public class PersonInfoDelegateStatic extends io5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            jo5 b;
+            FragmentTabStructure fragmentTabStructure;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
-            ((ko5) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-            if (((ko5) customResponsedMessage.getData()).getContext() == null || (b = personInfoDelegateStatic.b()) == null) {
+            ((MaintabAddResponedData) customResponsedMessage.getData()).addFragment(personInfoDelegateStatic);
+            if (((MaintabAddResponedData) customResponsedMessage.getData()).getContext() == null || (fragmentTabStructure = personInfoDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            b.a.setArguments(new Bundle());
+            fragmentTabStructure.frag.setArguments(new Bundle());
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements lo5.b {
+    public class b implements tm5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -114,7 +114,7 @@ public class PersonInfoDelegateStatic extends io5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.lo5.b
+        @Override // com.baidu.tieba.tm5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -156,17 +156,17 @@ public class PersonInfoDelegateStatic extends io5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ho5)) {
-                this.a.d = Boolean.valueOf(((ho5) customResponsedMessage.getData()).a);
-                if (this.a.d.booleanValue()) {
-                    this.a.c.f(0);
-                    this.a.c.setVisibility(0);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof sm5)) {
+                this.a.b = Boolean.valueOf(((sm5) customResponsedMessage.getData()).a);
+                if (this.a.b.booleanValue()) {
+                    this.a.a.refresh(0);
+                    this.a.a.setVisibility(0);
                 } else {
-                    this.a.c.setVisibility(8);
+                    this.a.a.setVisibility(8);
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (!this.a.d.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                    da5.p().A("member_close_ad_mine_clicked", true);
+                if (!this.a.b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                    SharedPrefHelper.getInstance().putBoolean("member_close_ad_mine_clicked", true);
                 }
             }
         }
@@ -185,7 +185,7 @@ public class PersonInfoDelegateStatic extends io5 {
                 return;
             }
         }
-        j();
+        d();
         PersonRedTipManager.getInstance();
         a aVar = new a(2007002);
         aVar.setPriority(9);
@@ -207,11 +207,11 @@ public class PersonInfoDelegateStatic extends io5 {
                 return;
             }
         }
-        this.d = Boolean.FALSE;
+        this.b = Boolean.FALSE;
     }
 
-    @Override // com.baidu.tieba.io5
-    public boolean d() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -220,31 +220,31 @@ public class PersonInfoDelegateStatic extends io5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.io5
-    public void e() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             c cVar = new c(this, 2007014);
-            this.e = cVar;
+            this.c = cVar;
             cVar.setPriority(9);
-            MessageManager.getInstance().registerListener(this.e);
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    @Override // com.baidu.tieba.io5
-    public void f() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.f();
-            MessageManager.getInstance().unRegisterListener(this.e);
+            super.onRemove();
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 
-    public static void j() {
+    public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            gca.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, gca.a("c/u/user/profile", 303012));
+            zaa.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, zaa.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -254,43 +254,43 @@ public class PersonInfoDelegateStatic extends io5 {
         }
     }
 
-    @Override // com.baidu.tieba.io5
-    public jo5 a() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public FragmentTabStructure createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            jo5 jo5Var = new jo5();
-            jo5Var.a = new PersonCenterFragment();
-            jo5Var.e = 8;
-            jo5Var.b = R.string.mine;
-            jo5Var.f = R.raw.lottie_tab_my;
-            jo5Var.i = jo5.m;
-            jo5Var.h = qo5.f().d("person");
-            return jo5Var;
+            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+            fragmentTabStructure.frag = new PersonCenterFragment();
+            fragmentTabStructure.type = 8;
+            fragmentTabStructure.textResId = R.string.mine;
+            fragmentTabStructure.animationResId = R.raw.lottie_tab_my;
+            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWLOTTIE;
+            fragmentTabStructure.dynamicIconData = MainTabBottomDynamicIconManager.getInstance().getIconData("person");
+            return fragmentTabStructure;
         }
-        return (jo5) invokeV.objValue;
+        return (FragmentTabStructure) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.io5
-    public TbFragmentTabIndicator c(Context context) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) lo5.e().d(1005, new b(this, context));
-            this.c = new MessageRedDotView(context);
-            TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
-            aVar.f = tbFragmentTabIndicator;
-            aVar.a = this.c;
-            tbFragmentTabIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean l = da5.p().l("key_feedback_tip_tab_show", false);
-            if (!this.d.booleanValue() && !l) {
-                this.c.setVisibility(8);
+            this.mIndicator = (MaintabBottomIndicator) tm5.e().d(1005, new b(this, context));
+            this.a = new MessageRedDotView(context);
+            TbFragmentTabIndicator.FragmentTapTip fragmentTapTip = new TbFragmentTabIndicator.FragmentTapTip();
+            TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
+            fragmentTapTip.indicator = tbFragmentTabIndicator;
+            fragmentTapTip.f1082view = this.a;
+            tbFragmentTabIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, fragmentTapTip);
+            boolean z = SharedPrefHelper.getInstance().getBoolean("key_feedback_tip_tab_show", false);
+            if (!this.b.booleanValue() && !z) {
+                this.a.setVisibility(8);
             } else {
-                this.c.f(0);
-                this.c.setVisibility(0);
+                this.a.refresh(0);
+                this.a.setVisibility(0);
             }
-            return this.b;
+            return this.mIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }

@@ -1,44 +1,42 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.r33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l33 implements Interceptor {
+public class l33 extends j33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    @SuppressLint({"BDThrowableCheck"})
-    public final b33 b;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(long j);
-
-        void b(int i, long j, long j2);
-
-        void c(long j, long j2);
+    @Override // com.baidu.tieba.bz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements b33 {
+    public class a implements r33.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l33 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ l33 b;
 
-        public a(l33 l33Var) {
+        public a(l33 l33Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l33Var};
+                Object[] objArr = {l33Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,65 +46,70 @@ public class l33 implements Interceptor {
                     return;
                 }
             }
-            this.a = l33Var;
+            this.b = l33Var;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.b33
-        public void a(long j, long j2, boolean z) {
+        @Override // com.baidu.tieba.r33.d
+        public void a(@NonNull y22 y22Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-                if (this.a.a == null) {
-                    if (!fs1.a) {
-                        return;
-                    }
-                    throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
-                } else if (j2 == -1 && j != 0) {
-                    this.a.a.b(0, j, j2);
-                } else if (j2 > 52428800) {
-                    this.a.a.a(j2);
-                } else if (j2 > 0 && j <= j2 && j != 0) {
-                    int floor = (int) Math.floor((100 * j) / j2);
-                    if (floor <= 100) {
-                        this.a.a.b(floor, j, j2);
-                    }
-                } else {
-                    this.a.a.c(j, j2);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, y22Var) == null) {
+                this.b.d(this.a, y22Var);
             }
         }
     }
 
-    public l33() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l33(@NonNull zy1 zy1Var) {
+        super(zy1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zy1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
     }
 
-    public void b(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public y22 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new e33(proceed.body(), this.b)).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#requestThirdPayment", false);
+            ya3 b0 = ya3.b0();
+            if (b0 == null) {
+                return new y22(1001, "swan app is null");
+            }
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                return new y22(1001, "swan activity is null");
+            }
+            Pair<y22, JSONObject> s = s(str);
+            y22 y22Var = (y22) s.first;
+            if (!y22Var.isSuccess()) {
+                return y22Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new y22(202, "cb is empty");
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("orderInfo");
+            String optString2 = jSONObject.optString("invokeFrom");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "api";
+            }
+            new r33(b0, w, new a(this, optString)).n(optJSONObject, optString2);
+            return y22.f();
         }
-        return (Response) invokeL.objValue;
+        return (y22) invokeL.objValue;
     }
 }

@@ -40,11 +40,11 @@ public class fg {
             }
             return null;
         }
-        ez m474a = m474a();
-        m474a.a(ey.CHANNEL_STATS_COUNTER.a());
-        m474a.c(aVar.f145a);
-        m474a.c(aVar.f147a);
-        return m474a;
+        ez m475a = m475a();
+        m475a.a(ey.CHANNEL_STATS_COUNTER.a());
+        m475a.c(aVar.f145a);
+        m475a.c(aVar.f147a);
+        return m475a;
     }
 
     private fa a(int i) {
@@ -59,10 +59,10 @@ public class fg {
             faVar.b(a2);
         } catch (ix unused) {
         }
-        LinkedList<bk.a> m292a = this.f367a.m292a();
-        while (m292a.size() > 0) {
+        LinkedList<bk.a> m293a = this.f367a.m293a();
+        while (m293a.size() > 0) {
             try {
-                ez a3 = a(m292a.getLast());
+                ez a3 = a(m293a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -72,7 +72,7 @@ public class fg {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m292a.removeLast();
+                m293a.removeLast();
             } catch (ix | NoSuchElementException unused2) {
             }
         }
@@ -88,12 +88,12 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static fg m472a() {
+    public static fg m473a() {
         return a.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m473a() {
+    private void m474a() {
         if (!this.f370a || System.currentTimeMillis() - this.f366a <= this.a) {
             return;
         }
@@ -102,10 +102,10 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ez m474a() {
+    public synchronized ez m475a() {
         ez ezVar;
         ezVar = new ez();
-        ezVar.a(bi.m285a((Context) this.f368a.f363a));
+        ezVar.a(bi.m286a((Context) this.f368a.f363a));
         ezVar.f340a = (byte) 0;
         ezVar.f344b = 1;
         ezVar.d((int) (System.currentTimeMillis() / 1000));
@@ -113,7 +113,7 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fa m475a() {
+    public synchronized fa m476a() {
         fa faVar;
         faVar = null;
         if (b()) {
@@ -127,7 +127,7 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m476a(int i) {
+    public void m477a(int i) {
         if (i > 0) {
             int i2 = i * 1000;
             if (i2 > 604800000) {
@@ -154,12 +154,12 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m477a() {
+    public boolean m478a() {
         return this.f370a;
     }
 
     public boolean b() {
-        m473a();
-        return this.f370a && this.f367a.m291a() > 0;
+        m474a();
+        return this.f370a && this.f367a.m292a() > 0;
     }
 }

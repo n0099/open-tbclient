@@ -662,7 +662,7 @@ public interface IRemoteUBCService extends IInterface {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Default implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

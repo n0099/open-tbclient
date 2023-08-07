@@ -1,70 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
-import java.util.Map;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 /* loaded from: classes6.dex */
-public abstract class jj4<T> implements mj4<T> {
+public class jj4 implements gj4<vj4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mj4
-    public void a(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mj4
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mj4
-    public void e(T t, pk4 pk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, pk4Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mj4
-    public void f(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-        }
-    }
-
-    public int g() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 100;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mj4
-    public void i(T t) {
+    @Override // com.baidu.tieba.gj4
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mj4
-    public void j(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
         }
     }
 
@@ -82,25 +42,20 @@ public abstract class jj4<T> implements mj4<T> {
         }
     }
 
-    @Override // com.baidu.tieba.mj4
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gj4
+    public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("queue_priority", Integer.valueOf(g()));
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(b());
         }
-        return (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mj4
-    public pk4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            return new pk4(2302, "业务层默认不处理下载流");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL," + NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
         }
-        return (pk4) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 }

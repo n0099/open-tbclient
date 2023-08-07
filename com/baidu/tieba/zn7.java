@@ -1,83 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class zn7 {
+public class zn7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static final BdUniqueId d;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public int b;
-    public int c;
-    public List<yn> d;
-    public boolean e;
-    public int f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948365798, "Lcom/baidu/tieba/zn7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948365798, "Lcom/baidu/tieba/zn7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
+        e = BdUniqueId.gen();
+    }
 
     public zn7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public int a(List<yn> list) {
-        InterceptResult invokeL;
-        boolean z;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
-            }
-            if (ListUtils.isEmpty(this.d)) {
-                LinkedList linkedList = new LinkedList();
-                this.d = linkedList;
-                linkedList.addAll(list);
-                return list.size();
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                yn ynVar = list.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 < this.d.size()) {
-                        yn ynVar2 = this.d.get(i2);
-                        if (ynVar != null && (ynVar instanceof yn7) && ynVar2 != null && (ynVar2 instanceof yn7)) {
-                            ThreadData threadData = ((yn7) ynVar).getThreadData();
-                            ThreadData threadData2 = ((yn7) ynVar2).getThreadData();
-                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
-                                z = true;
-                                break;
-                            }
-                        }
-                        i2++;
-                    } else {
-                        z = false;
-                        break;
-                    }
-                }
-                if (!z) {
-                    ListUtils.add(linkedList2, ynVar);
-                }
-            }
-            if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.d, 0, linkedList2);
-            }
-            return linkedList2.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
+    }
+
+    public int getPositionInFrsItemTab() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (isSupportTop()) {
+                return c;
+            }
+            if (isSupportBottom()) {
+                return d;
+            }
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void setPositionInFrsItemTab(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
     }
 }

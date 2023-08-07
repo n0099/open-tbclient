@@ -97,7 +97,7 @@ public class ClassTypeConstructorImpl extends AbstractClassTypeConstructor imple
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.AbstractClassTypeConstructor, kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassDescriptor mo2101getDeclarationDescriptor() {
+    public ClassDescriptor mo2102getDeclarationDescriptor() {
         ClassDescriptor classDescriptor = this.classDescriptor;
         if (classDescriptor == null) {
             $$$reportNull$$$0(5);

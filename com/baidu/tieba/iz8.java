@@ -1,422 +1,340 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
-import org.json.JSONArray;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.Lego.DataRes;
 /* loaded from: classes6.dex */
 public class iz8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<oz8> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public final List<ICardInfo> b;
-    public int c;
-    public boolean d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public final BdListView h;
-    public final sz8 i;
-    public long j;
-    public String k;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(List<x09> list);
-
-        void b(long j, String str);
-
-        void c(int i, String str);
-
-        void d(String str, String str2, String str3, List<y09> list);
-
-        void onError(int i, String str);
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends wy5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ye a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public a(iz8 iz8Var, ye yeVar, long j, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947870914, "Lcom/baidu/tieba/iz8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iz8Var, yeVar, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = yeVar;
-            this.b = j;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wy5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ye yeVar = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                if (TextUtils.isEmpty(this.c)) {
-                    str = "";
-                } else {
-                    str = this.c;
-                }
-                sb.append(str);
-                byte[] bArr = (byte[]) yeVar.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException e) {
-                        BdLog.e(e);
-                    }
-                }
-                return null;
-            }
-            return (DataRes) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements ay5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz8 a;
-
-        public b(iz8 iz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iz8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ay5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
-                return;
-            }
-            this.a.h(dataRes);
-        }
-    }
-
-    public iz8(BdListView bdListView, sz8 sz8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdListView, sz8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947870914, "Lcom/baidu/tieba/iz8;");
                 return;
             }
         }
-        this.a = null;
-        this.b = new LinkedList();
-        this.c = 1;
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.h = bdListView;
-        this.i = sz8Var;
+        a = new ArrayList();
     }
 
-    public final void e(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            o55.e();
-            az5.b(new a(this, o55.c("tb.lego_update"), j, str), new b(this));
-        }
-    }
-
-    public final void f(long j, String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048580, this, j, str) == null) && (cVar = this.a) != null) {
-            cVar.b(j, str);
-        }
-    }
-
-    public void update(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
-            this.c = 1;
-            this.j = j;
-            this.k = str;
-            if (this.b.size() == 0 && !this.g) {
-                e(j, str);
-            } else {
-                f(j, str);
-            }
-        }
-    }
-
-    public List<ICardInfo> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !d() && this.a != null) {
-            this.c++;
-            k(true);
-            this.a.c(this.c, this.e);
-        }
-    }
-
-    public final void h(DataRes dataRes) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.g = true;
-            if (dataRes != null) {
-                if (j(true, dataRes) && (cVar = this.a) != null) {
-                    cVar.onSuccess();
-                }
-                f(this.j, this.k);
-                return;
-            }
-            f(this.j, this.k);
-        }
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
-    public void i(boolean z, DataRes dataRes, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), dataRes, Integer.valueOf(i), str}) == null) {
-            k(false);
-            if (z) {
-                this.h.y();
-            }
-            if (i == 0 && dataRes != null && j(z, dataRes)) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    cVar.onSuccess();
-                }
-                if (z) {
-                    m(dataRes);
-                }
-            } else if (this.b.size() > 0) {
-                c cVar2 = this.a;
-                if (cVar2 != null) {
-                    cVar2.onError(1, str);
-                }
-            } else {
-                c cVar3 = this.a;
-                if (cVar3 != null) {
-                    cVar3.onError(2, str);
-                }
-            }
-        }
-    }
-
-    public final boolean j(boolean z, DataRes dataRes) {
-        InterceptResult invokeZL;
-        boolean z2;
-        String str;
+    public static void a(Context context, String str, HashMap<String, Object> hashMap) {
         String str2;
-        String str3;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, dataRes)) == null) {
-            if (dataRes == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, hashMap) == null) {
+            if (hashMap != null) {
+                String str3 = (String) hashMap.get("enterroom_type");
+                String str4 = (String) hashMap.get("live_activity_type");
+                String str5 = (String) hashMap.get("extra");
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("live_activity_type", str4);
+                    jSONObject.put("extra", str5);
+                    str2 = jSONObject.toString();
+                } catch (JSONException unused) {
+                    str2 = "";
+                }
+                if ("1".equals(str3)) {
+                    i19.j().H(context, str2);
+                    return;
+                } else {
+                    i19.j().D(context, "");
+                    return;
+                }
             }
-            if (z) {
-                this.b.clear();
-            }
-            if (dataRes.has_more.intValue() == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.d = z2;
-            ArrayList arrayList = new ArrayList();
+            i19.j().D(context, "");
+        }
+    }
+
+    public static void d(Context context, tz8 tz8Var, oz8 oz8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, tz8Var, oz8Var) != null) || context == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        if (tz8Var != null) {
             try {
-                JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
-                JSONArray optJSONArray = jSONObject3.optJSONArray("tab");
-                JSONObject optJSONObject = jSONObject3.optJSONObject("title");
-                if (optJSONObject == null) {
-                    str = "";
-                    str2 = str;
-                    str3 = str2;
-                } else {
-                    str2 = optJSONObject.optString("name");
-                    str3 = optJSONObject.optString("url");
-                    str = optJSONObject.optString("urlNight");
-                }
-                if (optJSONArray != null) {
-                    int i = 0;
-                    while (i < optJSONArray.length()) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject2 != null) {
-                            y09 y09Var = new y09();
-                            y09Var.c = optJSONObject2.optString("title");
-                            jSONObject2 = jSONObject3;
-                            y09Var.a = optJSONObject2.optLong(LegoListActivityConfig.PAGE_ID);
-                            optJSONObject2.optInt("page_type");
-                            y09Var.d = optJSONObject2.optInt("rn");
-                            y09Var.b = optJSONObject2.optString("item_id");
-                            y09Var.e = optJSONObject2.optString("params");
-                            y09Var.b();
-                            arrayList.add(y09Var);
-                        } else {
-                            jSONObject2 = jSONObject3;
-                        }
-                        i++;
-                        jSONObject3 = jSONObject2;
+                if (!TextUtils.isEmpty(tz8Var.a)) {
+                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, tz8Var.a);
+                    if (oz8Var != null) {
+                        a.add(oz8Var);
                     }
-                    jSONObject = jSONObject3;
-                    this.a.d(str2, str3, str, arrayList);
-                } else {
-                    jSONObject = jSONObject3;
                 }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("buttons");
-                if (optJSONArray2 != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject3 != null) {
-                            x09 x09Var = new x09();
-                            x09Var.b(optJSONObject3);
-                            if (x09Var.a()) {
-                                arrayList2.add(x09Var);
-                            }
+                jSONObject.put("isTranslucent", tz8Var.b);
+                if (!TextUtils.isEmpty(tz8Var.c)) {
+                    jSONObject.put("from", tz8Var.c);
+                }
+            } catch (JSONException unused) {
+            }
+        }
+        i19.j().B(context, jSONObject.toString());
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void b(Context context, String str, Map<String, Object> map) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, map) == null) {
+            String str3 = (String) map.get("enterroom_type");
+            String str4 = (String) map.get("room_id");
+            String str5 = (String) map.get("live_id");
+            String str6 = (String) map.get("username");
+            String str7 = (String) map.get("userrec");
+            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
+            String str10 = (String) map.get("screen_direction");
+            String str11 = (String) map.get("open_giftlist");
+            String str12 = (String) map.get("tab");
+            String str13 = (String) map.get("tag");
+            String str14 = (String) map.get("source");
+            String str15 = (String) map.get("from");
+            String str16 = (String) map.get("extra");
+            String str17 = (String) map.get("audioUrl");
+            String str18 = (String) map.get("audio_bg");
+            String str19 = (String) map.get("chat_mcast_id");
+            String str20 = (String) map.get("open_msgpanel");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str12)) {
+                    jSONObject.put("tab", str12);
+                }
+                if (!TextUtils.isEmpty(str13)) {
+                    jSONObject.put("tag", str13);
+                }
+                if (!TextUtils.isEmpty(str14)) {
+                    jSONObject.put("source", str14);
+                }
+                if (!TextUtils.isEmpty(str15)) {
+                    jSONObject.put("from", str15);
+                }
+                if (!TextUtils.isEmpty(str8)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
+                }
+                if (!TextUtils.isEmpty(str9)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
+                }
+                if (!TextUtils.isEmpty(str10)) {
+                    jSONObject.put("screen_direction", str10);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    str2 = str5;
+                    try {
+                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        if (!"1".equals(str3)) {
                         }
                     }
-                    this.a.a(arrayList2);
+                } else {
+                    str2 = str5;
                 }
+                if (!TextUtils.isEmpty(str16)) {
+                    jSONObject.put("extra", str16);
+                }
+                if (!TextUtils.isEmpty(str17)) {
+                    jSONObject.put("audioUrl", str17);
+                }
+                if (!TextUtils.isEmpty(str18)) {
+                    jSONObject.put("audio_bg", str18);
+                }
+                if (!TextUtils.isEmpty(str19)) {
+                    jSONObject.put("chat_mcast_id", str19);
+                }
+                if (!TextUtils.isEmpty(str20)) {
+                    jSONObject.put("open_msgpanel", str20);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                str2 = str5;
+            }
+            if (!"1".equals(str3)) {
+                i19.j().y(context, str, jSONObject.toString(), map);
+                return;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("user_name", str6);
+                jSONObject2.put("open_giftlist", str11);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("live_id", str2);
+                jSONObject3.put("useRecommend", true);
+                jSONObject3.put("otherParams", jSONObject);
+            } catch (JSONException e4) {
+                e4.printStackTrace();
+            }
+            i19.j().x(context, jSONObject3.toString());
+        }
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            i19.j().h(context, str);
+        }
+    }
+
+    public static void i(Activity activity, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, activity, map) == null) {
+            sv7.i().o(activity, map);
+        }
+    }
+
+    public static void m(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            i19.j().A(context, str);
+        }
+    }
+
+    public static void p(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", str);
+            hashMap.put("isSubscribe", Boolean.valueOf(z));
+            i19.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
+        }
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            i19.j().q(context);
+        }
+    }
+
+    public static void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            i19.j().t(context);
+        }
+    }
+
+    public static void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            i19.j().z(context);
+        }
+    }
+
+    public static void o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
+            for (int i = 0; i < a.size(); i++) {
+                a.get(i).onCallback(jSONObject);
+            }
+            a.clear();
+        }
+    }
+
+    public static void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", Long.valueOf(j));
+            i19.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
+        }
+    }
+
+    public static void f(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            i19.j().v(context, j, i);
+        }
+    }
+
+    public static void g(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, context, str, i) == null) {
+            i19.j().s(context, str, i);
+        }
+    }
+
+    public static void j(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
+            i19.j().u(context, str, str2);
+        }
+    }
+
+    public static void n(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
+            i19.j().C(context, str, str2);
+        }
+    }
+
+    public static void r(Application application, String str, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
+            i19.j().r(application, str, uri);
+        }
+    }
+
+    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
+            long j = alaLiveInfoCoreData.liveID;
+            String str2 = alaLiveInfoCoreData.userName;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
+                jSONObject.put("user_name", str2);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
+                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
+                jSONObject.put("open_giftlist", "0");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (dataRes.cards != null) {
-                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo i4 = uz8.i(dataRes.cards.get(i3));
-                    if (i4 != null && i4.isValid()) {
-                        this.b.add(i4);
-                    }
-                }
-            }
-            if (this.b.size() == 0) {
-                return false;
-            }
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                this.e = this.b.get(this.b.size() - 1).getFlipId();
-            } catch (Exception unused) {
-                this.e = "";
+                jSONObject2.put("live_id", j);
+                jSONObject2.put("useRecommend", true);
+                jSONObject2.put("otherParams", jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            this.i.C(this.b);
-            return true;
+            i19.j().x(context, jSONObject2.toString());
         }
-        return invokeZL.booleanValue;
-    }
-
-    public final void m(DataRes dataRes) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        o55.e();
-        ye<byte[]> c2 = o55.c("tb.lego_update");
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.j);
-        sb.append("_");
-        if (TextUtils.isEmpty(this.k)) {
-            str = "";
-        } else {
-            str = this.k;
-        }
-        sb.append(str);
-        c2.a(sb.toString(), dataRes.toByteArray());
     }
 }

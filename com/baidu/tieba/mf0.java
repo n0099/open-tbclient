@@ -1,11 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface mf0 {
-    void a(boolean z);
-
-    void b(boolean z);
-
-    void c(boolean z);
-
-    void d(boolean z);
+    void a(String str, String str2, String str3, lf0 lf0Var);
 }

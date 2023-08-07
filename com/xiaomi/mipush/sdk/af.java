@@ -59,7 +59,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m198a(String str) {
+    public void m199a(String str) {
         synchronized (this.f50a) {
             x xVar = new x();
             xVar.a = 0;
@@ -72,7 +72,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m199a(String str) {
+    public boolean m200a(String str) {
         synchronized (this.f50a) {
             x xVar = new x();
             xVar.f90a = str;

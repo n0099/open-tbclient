@@ -17,7 +17,7 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends AbstractKsFeedAd implements com.kwad.components.core.internal.api.a {
     public KsFeedAd.AdInteractionListener cJ;
     public com.kwad.components.core.widget.b cK;
@@ -29,7 +29,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
     public AdTemplate mAdTemplate;
     public int mWidth;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public int cS;
         public int size;
@@ -49,7 +49,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void aZ();
     }
@@ -89,15 +89,15 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         if (bVar == null) {
             return;
         }
-        bVar.setInnerAdInteractionListener(new b.InterfaceC0670b() { // from class: com.kwad.components.ad.feed.d.2
-            @Override // com.kwad.components.core.widget.b.InterfaceC0670b
+        bVar.setInnerAdInteractionListener(new b.InterfaceC0671b() { // from class: com.kwad.components.ad.feed.d.2
+            @Override // com.kwad.components.core.widget.b.InterfaceC0671b
             public final void onAdClicked() {
                 if (d.this.cJ != null) {
                     d.this.cJ.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0670b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0671b
             public final void onAdShow() {
                 if (d.this.cJ != null) {
                     d.this.cJ.onAdShow();
@@ -115,7 +115,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0670b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0671b
             public final void onDislikeClicked() {
                 if (d.this.cJ != null) {
                     d.this.cJ.onDislikeClicked();
@@ -129,7 +129,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0670b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0671b
             public final void onDownloadTipsDialogDismiss() {
                 if (d.this.cJ != null) {
                     try {
@@ -139,7 +139,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0670b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0671b
             public final void onDownloadTipsDialogShow() {
                 if (d.this.cJ != null) {
                     try {

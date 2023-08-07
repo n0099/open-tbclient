@@ -1,27 +1,100 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Post;
 /* loaded from: classes8.dex */
-public class y35 {
+public final class y35 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<a> b;
+    public final String a;
+    public final String b;
+    public final boolean c;
+    public final String d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279246, "Lcom/baidu/tieba/y35;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948279246, "Lcom/baidu/tieba/y35;");
+                return;
+            }
+        }
+        e = new a(null);
+    }
+
+    @JvmStatic
+    public static final y35 e(Post post) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, post)) == null) ? e.a(post) : (y35) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof y35) {
+                y35 y35Var = (y35) obj;
+                return Intrinsics.areEqual(this.a, y35Var.a) && Intrinsics.areEqual(this.b, y35Var.b) && this.c == y35Var.c && Intrinsics.areEqual(this.d, y35Var.d);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return ((hashCode + i) * 31) + this.d.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "TopPostTagInfo(tag=" + this.a + ", color=" + this.b + ", shieldIcon=" + this.c + ", iconUrl=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,73 +109,88 @@ public class y35 {
                 }
             }
         }
+
+        @JvmStatic
+        public final y35 a(Post post) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, post)) == null) {
+                Intrinsics.checkNotNullParameter(post, "post");
+                if (!bi.isEmpty(post.toutiao_card_tag) && !bi.isEmpty(post.toutiao_card_tag_color)) {
+                    String str = post.toutiao_card_tag;
+                    Intrinsics.checkNotNullExpressionValue(str, "post.toutiao_card_tag");
+                    String str2 = post.toutiao_card_tag_color;
+                    Intrinsics.checkNotNullExpressionValue(str2, "post.toutiao_card_tag_color");
+                    Integer num = post.shield_icon;
+                    boolean z = true;
+                    z = (num == null || num.intValue() != 1) ? false : false;
+                    String str3 = post.icon_url;
+                    Intrinsics.checkNotNullExpressionValue(str3, "post.icon_url");
+                    return new y35(str, str2, z, str3);
+                }
+                return null;
+            }
+            return (y35) invokeL.objValue;
+        }
     }
 
-    public y35() {
+    public y35(String tag, String color, boolean z, String iconUrl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tag, color, Boolean.valueOf(z), iconUrl};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        Intrinsics.checkNotNullParameter(color, "color");
+        Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+        this.a = tag;
+        this.b = color;
+        this.c = z;
+        this.d = iconUrl;
     }
 
-    public ArrayList<a> a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
-    }
-
-    public void c(PbPresent pbPresent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) != null) || pbPresent == null) {
-            return;
-        }
-        this.a = pbPresent.total.intValue();
-        List<PbPresentList> list = pbPresent.list;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (PbPresentList pbPresentList : pbPresent.list) {
-                if (pbPresentList != null) {
-                    a aVar = new a();
-                    pbPresentList.gift_id.intValue();
-                    String str = pbPresentList.gift_name;
-                    aVar.a = pbPresentList.thumbnail_url;
-                    pbPresentList.num.intValue();
-                    this.b.add(aVar);
-                }
-            }
-        }
-    }
-
-    public void d(ArrayList<a> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b = arrayList;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
-        }
+        return (String) invokeV.objValue;
     }
 }

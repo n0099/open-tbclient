@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,8 +38,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.b = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.a = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         this.c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
     }
 

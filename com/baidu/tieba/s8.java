@@ -86,7 +86,7 @@ public class s8 {
             if (!TextUtils.isEmpty(str)) {
                 String[] split = str.split("_");
                 if (split.length == 2) {
-                    return new s8(j30.d(split[0]), j30.d(split[1]), -1L, true);
+                    return new s8(h20.d(split[0]), h20.d(split[1]), -1L, true);
                 }
                 return null;
             }

@@ -76,12 +76,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
 
     private void init() {
         int i;
-        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0564, (ViewGroup) this, true);
-        this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092029);
-        this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09202b);
-        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09202c);
-        this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092027);
-        this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092028);
+        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0569, (ViewGroup) this, true);
+        this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092040);
+        this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092042);
+        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092043);
+        this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09203e);
+        this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09203f);
         this.mCleanEtBtn.setOnClickListener(this);
         this.mEditText.setOnFocusChangeListener(this);
         this.mEditText.setLengthLimit(this.mMaxLength);
@@ -183,7 +183,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f092027) {
+        if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f09203e) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }

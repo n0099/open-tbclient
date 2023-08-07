@@ -2,20 +2,20 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.b45;
-import com.baidu.tieba.f0a;
-import com.baidu.tieba.i0a;
-import com.baidu.tieba.kx5;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.recapp.localads.LocationCacheData;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.yu5;
+import com.baidu.tieba.zy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class RecPersonalizeRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             int i = 1;
-            ky5.c(builder, true, false, true);
+            NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -80,9 +80,9 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(yi.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             }
@@ -92,11 +92,11 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = i0a.f().d("HOME");
-            builder.app_pos = f0a.e().c();
+            builder.ad_context_list = zy9.f().d("HOME");
+            builder.app_pos = LocationCacheData.getInstance().createRecReqAppPosInfo();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                b45 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(wg.g(pbToHomeUpdateData.a, 0L));
+                y25 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(JavaTypesHelper.toLong(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
                 builder.second_dir = pbToHomeUpdateData.d;
@@ -105,7 +105,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = kx5.b();
+            builder.app_transmit_data = yu5.b();
             long j = this.pushTid;
             if (j != -1) {
                 builder.push_tid = Long.valueOf(j);

@@ -1,44 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e54 {
+public final class e54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(boolean z) {
-        InterceptResult invokeZ;
+    public void a(gi2 gi2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isEnded", z);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gi2Var, context) == null) {
         }
-        return (JSONObject) invokeZ.objValue;
     }
 
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
+    public e54() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", i14.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

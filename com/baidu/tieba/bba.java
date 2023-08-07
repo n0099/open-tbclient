@@ -1,77 +1,190 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.Animatable;
-import android.os.Build;
-import android.view.View;
-import android.view.animation.Animation;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public a b;
 
-    public static boolean a(@Nullable Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (!(context instanceof Activity)) {
-                return false;
-            }
-            Activity activity = (Activity) context;
-            if ((Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) || activity.isFinishing()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
     }
 
-    public static boolean b(@Nullable View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && view2.getContext() != null) {
-                if (view2.getContext() instanceof Activity) {
-                    return a(view2.getContext());
+    /* loaded from: classes5.dex */
+    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public long c;
+        public String d;
+        public WeakReference<a> e;
+        public int f;
+        public String g;
+
+        public b(String str, long j, String str2, a aVar, bba bbaVar, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j), str2, aVar, bbaVar, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return true;
             }
-            return false;
+            this.a = null;
+            this.b = null;
+            this.c = 0L;
+            this.e = null;
+            new WeakReference(bbaVar);
+            this.b = str;
+            this.c = j;
+            this.e = new WeakReference<>(aVar);
+            this.d = str2;
+            this.g = str3;
+            setPriority(3);
         }
-        return invokeL.booleanValue;
-    }
 
-    public static final TbPageContext c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context != null && (context instanceof TbPageContextSupport)) {
-                return ((TbPageContextSupport) context).getPageContext();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Integer doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+                try {
+                    if (this.c != 0 && this.b != null) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
+                        this.a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b);
+                        this.a.addPostData("favo_type", "1");
+                        this.a.addPostData("st_type", this.d);
+                        this.a.addPostData("authsid", this.g);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        if (!bi.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            this.f = jSONObject.optInt("error_code");
+                            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                            AuthTokenData.parse(jSONObject);
+                        }
+                        if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            return 1;
+                        }
+                    }
+                    return 0;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return 0;
+                }
             }
-            return null;
+            return (Integer) invokeL.objValue;
         }
-        return (TbPageContext) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            String netException;
+            NetWork netWork;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.e != null) {
+                    AttentionBarData attentionBarData = new AttentionBarData();
+                    attentionBarData.forumId = this.c;
+                    a aVar = this.e.get();
+                    if (aVar == null) {
+                        return;
+                    }
+                    if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.b);
+                        aVar.b(this.b, this.c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.b));
+                        attentionBarData.isSuccess = true;
+                    } else {
+                        attentionBarData.isSuccess = false;
+                        NetWork netWork2 = this.a;
+                        if (netWork2 != null) {
+                            if (netWork2.isNetSuccess()) {
+                                netException = this.a.getErrorString();
+                            } else {
+                                netException = this.a.getNetException();
+                            }
+                            attentionBarData.errorMessage = netException;
+                            aVar.a(netException, this.f);
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, attentionBarData));
+                }
+            }
+        }
     }
 
-    public static final void d(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
+    public bba() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, tbPageContextSupport, animatable) == null) && tbPageContextSupport != null) {
-            tbPageContextSupport.getPageContext().startAnimatable(animatable);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public static final void e(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContextSupport, view2, animation, animationListener) == null) && tbPageContextSupport != null) {
-            tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            new b(str, j, this.a, this.b, this, null).execute(new Integer[0]);
         }
     }
 }

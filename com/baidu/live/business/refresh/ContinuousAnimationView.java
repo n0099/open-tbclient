@@ -11,16 +11,16 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     public boolean a;
     public boolean b;
 
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void c(float f, float f2) {
+    public final void animationCancel() {
     }
 
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void d() {
+    public final void animationEnd() {
     }
 
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void e() {
+    public final void animationRepeat() {
+    }
+
+    public final void animationStart() {
     }
 
     @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
@@ -34,19 +34,19 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     }
 
     @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onCompleteRefresh() {
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
     public void onFinish() {
     }
 
-    public final void u() {
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onPullPercentChange(float f, float f2) {
     }
 
-    public final void x() {
-    }
-
-    public final void y() {
-    }
-
-    public final void z() {
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onRefreshing() {
     }
 
     /* loaded from: classes3.dex */
@@ -56,12 +56,12 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            ContinuousAnimationView.this.u();
+            ContinuousAnimationView.this.animationCancel();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            ContinuousAnimationView.this.x();
+            ContinuousAnimationView.this.animationEnd();
             if (ContinuousAnimationView.this.b) {
                 ContinuousAnimationView.this.b = false;
             }
@@ -71,7 +71,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            ContinuousAnimationView.this.y();
+            ContinuousAnimationView.this.animationRepeat();
             if (ContinuousAnimationView.this.b) {
                 ContinuousAnimationView.this.cancelAnimation();
                 ContinuousAnimationView.this.b = false;
@@ -80,7 +80,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            ContinuousAnimationView.this.z();
+            ContinuousAnimationView.this.animationStart();
             ContinuousAnimationView.this.a = true;
         }
     }
@@ -100,18 +100,6 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         init();
     }
 
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void a() {
-        if (isAnimating()) {
-            cancelAnimation();
-        }
-    }
-
-    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void b() {
-        playAnimation();
-    }
-
     @Override // com.airbnb.lottie.LottieAnimationView
     public void cancelAnimation() {
         super.cancelAnimation();
@@ -126,6 +114,18 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         addAnimatorListener(new a());
         loop(true);
         setFrame(0);
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onPullToRefresh() {
+        if (isAnimating()) {
+            cancelAnimation();
+        }
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onReleaseToRefresh() {
+        playAnimation();
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView

@@ -1,39 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ol5 extends lj5 {
+public class ol5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ol5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_video), 34, i);
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "before_request");
+                jSONObject.put("value", "1");
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        this.d = R.drawable.icon_mask_post_video24_selection;
-        this.i = false;
-        this.j = true;
-        this.k = false;
-        this.p = new int[]{60};
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "0");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "1");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(boolean z, JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "request");
+                if (z) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject2.put("value", str);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
+                jSONObject2.put("ext", jSONObject3);
+                uBCManager.onEvent("4509", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

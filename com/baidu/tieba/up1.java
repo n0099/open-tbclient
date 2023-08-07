@@ -1,134 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.lang.Thread;
 /* loaded from: classes8.dex */
-public class up1 implements Thread.UncaughtExceptionHandler {
+public class up1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static final up1 d;
+    public static up1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Thread.UncaughtExceptionHandler a;
-    public boolean b;
-    public vp1 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218579, "Lcom/baidu/tieba/up1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948218579, "Lcom/baidu/tieba/up1;");
-                return;
-            }
-        }
-        d = new up1();
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public up1() {
+        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static up1 c() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            up1 up1Var = new up1();
+            a = up1Var;
+            up1Var.start();
+            b = new Handler(a.getLooper());
+        }
+    }
+
+    public static Handler b() {
         InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
-        }
-        return (up1) invokeV.objValue;
-    }
-
-    public final String a(Throwable th) {
-        PrintWriter printWriter;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
-            try {
-                StringWriter stringWriter = new StringWriter();
-                printWriter = new PrintWriter(stringWriter);
-                try {
-                    th.printStackTrace(printWriter);
-                    String obj = stringWriter.toString();
-                    printWriter.close();
-                    return obj;
-                } catch (Throwable unused) {
-                    if (printWriter != null) {
-                        printWriter.close();
-                        return "";
-                    }
-                    return "";
-                }
-            } catch (Throwable unused2) {
-                printWriter = null;
+            synchronized (up1.class) {
+                a();
+                handler = b;
             }
-        } else {
-            return (String) invokeL.objValue;
+            return handler;
         }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    public synchronized void b(vp1 vp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vp1Var) == null) {
-            synchronized (this) {
-                try {
-                    this.c = vp1Var;
-                } finally {
-                }
-                if (vp1Var == null) {
-                    return;
-                }
-                if (!vp1Var.a()) {
-                    return;
-                }
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.a = Thread.getDefaultUncaughtExceptionHandler();
-                Thread.setDefaultUncaughtExceptionHandler(this);
-            }
-        }
-    }
-
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    public void uncaughtException(Thread thread, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, thread, th) == null) {
-            try {
-                String a = a(th);
-                if (!TextUtils.isEmpty(a) && ((a.contains("com.baidu.sso") || a.contains("com.cmic.sso.sdk") || a.contains("com.sdk") || a.contains("cn.com.chinatelecom.gateway")) && this.c != null)) {
-                    this.c.a(a);
-                }
-            } catch (Throwable th2) {
-                er1.d(th2);
-            }
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
-            if (uncaughtExceptionHandler != null) {
-                uncaughtExceptionHandler.uncaughtException(thread, th);
-            }
-        }
+        return (Handler) invokeV.objValue;
     }
 }

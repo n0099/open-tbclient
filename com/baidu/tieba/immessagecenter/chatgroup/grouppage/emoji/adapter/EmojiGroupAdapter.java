@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.hk8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.EmojiGroupVH;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiGroupData;
-import com.baidu.tieba.om8;
-import com.baidu.tieba.qm8;
+import com.baidu.tieba.kk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,15 +24,15 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final qm8 a;
+    public final kk8 a;
     public final List<EmojiGroupData> b;
 
-    public EmojiGroupAdapter(@NonNull qm8 qm8Var) {
+    public EmojiGroupAdapter(@NonNull kk8 kk8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qm8Var};
+            Object[] objArr = {kk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
             }
         }
         this.b = new ArrayList();
-        this.a = qm8Var;
+        this.a = kk8Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -64,8 +64,8 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emojiGroupVH, i) == null) {
             EmojiGroupData emojiGroupData = this.b.get(i);
             emojiGroupVH.a.setText(emojiGroupData.getGroupName());
-            d85.d(emojiGroupVH.a).x(R.color.CAM_X0109);
-            ((om8) emojiGroupVH.b.getAdapter()).d(emojiGroupData.getReactions());
+            EMManager.from(emojiGroupVH.a).setTextColor(R.color.CAM_X0109);
+            ((hk8) emojiGroupVH.b.getAdapter()).d(emojiGroupData.getReactions());
         }
     }
 
@@ -77,7 +77,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new EmojiGroupVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d028a, viewGroup, false), this.a);
+            return new EmojiGroupVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d028d, viewGroup, false), this.a);
         }
         return (EmojiGroupVH) invokeLI.objValue;
     }

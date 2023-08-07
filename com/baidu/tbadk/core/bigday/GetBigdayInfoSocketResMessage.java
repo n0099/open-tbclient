@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.bigday;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m15;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.ye;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<m15> bigdayInfos;
+    public ArrayList<j05> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -50,8 +50,8 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            o55.e();
-            ye<byte[]> c = o55.c("tb.bigday_datas");
+            l45.e();
+            ne<byte[]> c = l45.c("tb.bigday_datas");
             c.remove("tb.bigday_datas");
             c.g("tb.bigday_datas", bArr);
         }
@@ -75,10 +75,10 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
                     this.bigdayInfos = new ArrayList<>();
                     for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                         if (bigdayInfo != null) {
-                            m15 m15Var = new m15();
-                            m15Var.b(bigdayInfo);
-                            if (m15Var.a()) {
-                                this.bigdayInfos.add(m15Var);
+                            j05 j05Var = new j05();
+                            j05Var.b(bigdayInfo);
+                            if (j05Var.a()) {
+                                this.bigdayInfos.add(j05Var);
                             }
                         }
                     }

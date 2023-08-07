@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,63 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.ScheduledAction;
-import rx.internal.util.RxThreadFactory;
 /* loaded from: classes5.dex */
-public class a4c extends x1c.a implements b2c {
+public abstract class a4c<E> extends b4c<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final int d;
-    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
-    public static final AtomicReference<ScheduledExecutorService> f;
-    public static volatile Object g;
-    public static final Object h;
+    public static final int c;
+    public static final long d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ScheduledExecutorService a;
-    public volatile boolean b;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a4c.f();
-            }
-        }
-    }
+    public final long a;
+    public final E[] b;
 
     static {
         InterceptResult invokeClinit;
-        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566649, "Lcom/baidu/tieba/a4c;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -78,244 +33,117 @@ public class a4c extends x1c.a implements b2c {
                 return;
             }
         }
-        h = new Object();
-        e = new ConcurrentHashMap<>();
-        f = new AtomicReference<>();
-        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
-        boolean z2 = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int a2 = i4c.a();
-        if (!z2 && (a2 == 0 || a2 >= 21)) {
-            z = true;
+        c = Integer.getInteger("sparse.shift", 0).intValue();
+        int b = a5c.a.b(Object[].class);
+        if (4 == b) {
+            e = c + 2;
+        } else if (8 == b) {
+            e = c + 3;
         } else {
-            z = false;
+            throw new IllegalStateException("Unknown pointer size");
         }
-        c = z;
+        d = a5c.a.a(Object[].class) + (32 << (e - c));
     }
 
-    public a4c(ThreadFactory threadFactory) {
+    public a4c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
-        }
-        this.a = newScheduledThreadPool;
+        int b = d4c.b(i);
+        this.a = b - 1;
+        this.b = (E[]) new Object[(b << c) + 64];
     }
 
-    public static Method e(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method[] methods;
+    public final long a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
-            for (Method method : scheduledExecutorService.getClass().getMethods()) {
-                if (method.getName().equals("setRemoveOnCancelPolicy")) {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
-                        return method;
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return b(j, this.a);
         }
-        return (Method) invokeL.objValue;
+        return invokeJ.longValue;
     }
 
-    public static void d(ScheduledExecutorService scheduledExecutorService) {
+    public final E d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
-            e.remove(scheduledExecutorService);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            return e(this.b, j);
         }
+        return (E) invokeJ.objValue;
     }
 
-    @Override // com.baidu.tieba.x1c.a
-    public b2c b(h2c h2cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h2cVar)) == null) {
-            return c(h2cVar, 0L, null);
-        }
-        return (b2c) invokeL.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
-                while (it.hasNext()) {
-                    ScheduledThreadPoolExecutor next = it.next();
-                    if (!next.isShutdown()) {
-                        next.purge();
-                    } else {
-                        it.remove();
-                    }
-                }
-            } catch (Throwable th) {
-                g2c.e(th);
-                h6c.j(th);
-            }
-        }
-    }
-
-    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
-            while (true) {
-                if (f.get() != null) {
-                    break;
-                }
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-                if (f.compareAndSet(null, newScheduledThreadPool)) {
-                    a aVar = new a();
-                    int i = d;
-                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
-                    break;
-                }
-                newScheduledThreadPool.shutdownNow();
-            }
-            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
-        }
-    }
-
-    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method e2;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
-            if (c) {
-                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                    Object obj2 = g;
-                    if (obj2 == h) {
-                        return false;
-                    }
-                    if (obj2 == null) {
-                        e2 = e(scheduledExecutorService);
-                        if (e2 != null) {
-                            obj = e2;
-                        } else {
-                            obj = h;
-                        }
-                        g = obj;
-                    } else {
-                        e2 = (Method) obj2;
-                    }
-                } else {
-                    e2 = e(scheduledExecutorService);
-                }
-                if (e2 != null) {
-                    try {
-                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
-                        return true;
-                    } catch (IllegalAccessException e3) {
-                        h6c.j(e3);
-                    } catch (IllegalArgumentException e4) {
-                        h6c.j(e4);
-                    } catch (InvocationTargetException e5) {
-                        h6c.j(e5);
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x1c.a
-    public b2c c(h2c h2cVar, long j, TimeUnit timeUnit) {
+    public final long b(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{h2cVar, Long.valueOf(j), timeUnit})) == null) {
-            if (this.b) {
-                return x6c.c();
-            }
-            return h(h2cVar, j, timeUnit);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return d + ((j & j2) << e);
         }
-        return (b2c) invokeCommon.objValue;
+        return invokeCommon.longValue;
     }
 
-    public ScheduledAction h(h2c h2cVar, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
+    public final E c(E[] eArr, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{h2cVar, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(h6c.q(h2cVar));
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
+            return (E) a5c.a.e(eArr, j);
         }
-        return (ScheduledAction) invokeCommon.objValue;
+        return (E) invokeLJ.objValue;
     }
 
-    public ScheduledAction i(h2c h2cVar, long j, TimeUnit timeUnit, l4c l4cVar) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
+    public final E e(E[] eArr, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{h2cVar, Long.valueOf(j), timeUnit, l4cVar})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(h6c.q(h2cVar), l4cVar);
-            l4cVar.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
+            return (E) a5c.a.f(eArr, j);
         }
-        return (ScheduledAction) invokeCommon.objValue;
+        return (E) invokeLJ.objValue;
     }
 
-    public ScheduledAction j(h2c h2cVar, long j, TimeUnit timeUnit, u6c u6cVar) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{h2cVar, Long.valueOf(j), timeUnit, u6cVar})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(h6c.q(h2cVar), u6cVar);
-            u6cVar.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
         }
-        return (ScheduledAction) invokeCommon.objValue;
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.b2c
-    public boolean isUnsubscribed() {
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new UnsupportedOperationException();
         }
-        return invokeV.booleanValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b2c
-    public void unsubscribe() {
+    public final void f(E[] eArr, long j, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.shutdownNow();
-            d(this.a);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
+            a5c.a.j(eArr, j, e2);
+        }
+    }
+
+    public final void g(E[] eArr, long j, E e2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
+            a5c.a.h(eArr, j, e2);
         }
     }
 }

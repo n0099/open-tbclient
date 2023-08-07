@@ -109,7 +109,7 @@ public class d extends e {
     public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         getDialog().requestWindowFeature(1);
         if (this.Om == null) {
-            this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04f8, viewGroup, false);
+            this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04fb, viewGroup, false);
         }
         return this.Om;
     }

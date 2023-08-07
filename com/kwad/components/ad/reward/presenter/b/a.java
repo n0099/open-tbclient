@@ -24,9 +24,9 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     public q sz;
 
     private void initView() {
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913c7);
-        this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913c8);
-        this.sU = findViewById(R.id.obfuscated_res_0x7f09131d);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913da);
+        this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913db);
+        this.sU = findViewById(R.id.obfuscated_res_0x7f091330);
     }
 
     @Override // com.kwad.sdk.core.webview.a.kwai.a
@@ -46,7 +46,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
             if (this.sV == null) {
                 this.sV = new t(this.bF, this.sU, this.nM.mApkDownloadHelper, this);
             }
-            this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913cb));
+            this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913de));
         }
     }
 

@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class av7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static tu7 a(int i) {
-        InterceptResult invokeI;
+    public static void a(String str, long j, String str2, vu7 vu7Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new yu7();
-                }
-                return new zu7();
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), str2, vu7Var, Integer.valueOf(i)}) == null) {
+            StatisticItem param = new StatisticItem(str).param("fid", j).param("fname", str2).param("obj_param1", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE).param(TiebaStatic.Params.OBJ_PARAM2, i);
+            if (vu7Var != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM3, vu7Var.e);
             }
-            return new yu7();
+            param.eventStat();
         }
-        return (tu7) invokeI.objValue;
     }
 }

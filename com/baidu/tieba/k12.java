@@ -1,161 +1,116 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.internal.Sets;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k12 {
+public class k12 extends e12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public rp3<Integer> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860157, "Lcom/baidu/tieba/k12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.bz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements rp3<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k12 a;
+
+        public a(k12 k12Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860157, "Lcom/baidu/tieba/k12;");
+            this.a = k12Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp3
+        /* renamed from: b */
+        public void a(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
+                if (num.intValue() != 1 && num.intValue() != 0) {
+                    return;
+                }
+                this.a.z();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k12(@NonNull zy1 zy1Var) {
+        super(zy1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((zy1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
-        b = Sets.newHashSet("localhost", "127.0.0.1");
+        this.g = new a(this);
     }
 
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return cp3.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(String str) {
+    public y22 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return str + "_" + System.currentTimeMillis();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#exitFullScreen", false);
+            Pair<y22, JSONObject> s = s(str);
+            y22 y22Var = (y22) s.first;
+            if (!y22Var.isSuccess()) {
+                return y22Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            this.f = optString;
+            if (TextUtils.isEmpty(optString)) {
+                return new y22(201);
+            }
+            p12.e().v(this.g);
+            p12.e().m();
+            return y22.f();
         }
-        return (String) invokeL.objValue;
+        return (y22) invokeL.objValue;
     }
 
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("cancelTag", str);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            p12.e().w();
+            p12.e().p();
+            d(this.f, new y22(0));
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Nullable
-    public static String e(@Nullable String str) {
-        InterceptResult invokeL;
-        HttpUrl parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (parse = HttpUrl.parse(str)) != null) {
-                return parse.host();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(@Nullable HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpUrl)) == null) {
-            boolean i = mc3.i();
-            if (!cv2.g0().D()) {
-                i = false;
-            }
-            if (httpUrl == null) {
-                return false;
-            }
-            if ((i && HttpUrl.defaultPort(httpUrl.scheme()) != httpUrl.port()) || b.contains(httpUrl.host().toLowerCase())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static HttpUrl f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            HttpUrl parse = HttpUrl.parse(str);
-            if (ub3.K().w() == null) {
-                if (!b(parse)) {
-                    return null;
-                }
-                return parse;
-            } else if (u73.o()) {
-                return parse;
-            } else {
-                if (!b(parse)) {
-                    return null;
-                }
-                return parse;
-            }
-        }
-        return (HttpUrl) invokeL.objValue;
-    }
-
-    public static JSONObject g(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str)) {
-                    List<String> values = headers.values(str);
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

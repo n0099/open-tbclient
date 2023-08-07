@@ -1,154 +1,233 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes8.dex */
-public final class u6c implements b2c {
+public class u6c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<b2c> a;
-    public volatile boolean b;
+    public Activity a;
+    public Window b;
+    public View c;
+    public View d;
+    public View e;
+    public r6c f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
+    public ViewTreeObserver.OnGlobalLayoutListener p;
 
-    public u6c() {
+    /* loaded from: classes8.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u6c a;
+
+        public a(u6c u6cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u6cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u6cVar;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            int i;
+            int i2;
+            int i3;
+            int height;
+            int i4;
+            int i5;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.o) {
+                return;
+            }
+            Rect rect = new Rect();
+            this.a.c.getWindowVisibleDisplayFrame(rect);
+            boolean z = true;
+            if (this.a.f.x) {
+                int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
+                if (this.a.f.z != null) {
+                    if (height2 <= this.a.n) {
+                        z = false;
+                    }
+                    this.a.f.z.a(z, height2);
+                }
+            } else if (this.a.e != null) {
+                if (this.a.f.s) {
+                    height = this.a.d.getHeight() + this.a.l + this.a.m;
+                    i4 = rect.bottom;
+                } else if (this.a.f.n) {
+                    height = this.a.d.getHeight() + this.a.l;
+                    i4 = rect.bottom;
+                } else {
+                    height = this.a.d.getHeight();
+                    i4 = rect.bottom;
+                }
+                int i6 = height - i4;
+                if (this.a.f.e) {
+                    i5 = i6 - this.a.n;
+                } else {
+                    i5 = i6;
+                }
+                if (this.a.f.e && i6 == this.a.n) {
+                    i6 -= this.a.n;
+                }
+                if (i5 != this.a.k) {
+                    this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i6 + this.a.j);
+                    this.a.k = i5;
+                    if (this.a.f.z != null) {
+                        if (i5 <= this.a.n) {
+                            z = false;
+                        }
+                        this.a.f.z.a(z, i5);
+                    }
+                }
+            } else {
+                int height3 = this.a.d.getHeight() - rect.bottom;
+                if (this.a.f.v && this.a.f.w) {
+                    if (Build.VERSION.SDK_INT == 19 || v6c.i()) {
+                        i2 = this.a.n;
+                    } else if (this.a.f.e) {
+                        i2 = this.a.n;
+                    } else {
+                        i3 = height3;
+                        if (this.a.f.e && height3 == this.a.n) {
+                            height3 -= this.a.n;
+                        }
+                        int i7 = height3;
+                        height3 = i3;
+                        i = i7;
+                    }
+                    i3 = height3 - i2;
+                    if (this.a.f.e) {
+                        height3 -= this.a.n;
+                    }
+                    int i72 = height3;
+                    height3 = i3;
+                    i = i72;
+                } else {
+                    i = height3;
+                }
+                if (height3 != this.a.k) {
+                    if (this.a.f.s) {
+                        this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
+                    } else if (this.a.f.n) {
+                        this.a.d.setPadding(0, this.a.l, 0, i);
+                    } else {
+                        this.a.d.setPadding(0, 0, 0, i);
+                    }
+                    this.a.k = height3;
+                    if (this.a.f.z != null) {
+                        if (height3 <= this.a.n) {
+                            z = false;
+                        }
+                        this.a.f.z.a(z, height3);
+                    }
+                }
+            }
+        }
+    }
+
+    public u6c(Activity activity, Window window) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, window};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    Set<b2c> set = this.a;
-                    this.a = null;
-                    e(set);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.b2c
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.b2c
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                Set<b2c> set = this.a;
-                this.a = null;
-                e(set);
-            }
-        }
-    }
-
-    public static void e(Collection<b2c> collection) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
+        this.p = new a(this);
+        this.a = activity;
+        this.b = window;
+        View decorView = window.getDecorView();
+        this.c = decorView;
+        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
+        if (frameLayout == null) {
             return;
         }
-        ArrayList arrayList = null;
-        for (b2c b2cVar : collection) {
-            try {
-                b2cVar.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        g2c.d(arrayList);
+        View childAt = frameLayout.getChildAt(0);
+        this.e = childAt;
+        frameLayout = childAt != null ? childAt : frameLayout;
+        this.d = frameLayout;
+        this.g = frameLayout.getPaddingLeft();
+        this.h = this.d.getPaddingTop();
+        this.i = this.d.getPaddingRight();
+        this.j = this.d.getPaddingBottom();
+        q6c q6cVar = new q6c(this.a);
+        this.l = q6cVar.i();
+        this.n = q6cVar.d();
+        this.m = q6cVar.a();
+        this.o = q6cVar.l();
     }
 
-    public void a(b2c b2cVar) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, b2cVar) != null) || b2cVar.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
-                    }
-                    this.a.add(b2cVar);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                this.b.setSoftInputMode(i);
+                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
             }
-        }
-        b2cVar.unsubscribe();
-    }
-
-    public void b(b2c... b2cVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2cVarArr) == null) {
-            int i = 0;
-            if (!this.b) {
-                synchronized (this) {
-                    if (!this.b) {
-                        if (this.a == null) {
-                            this.a = new HashSet(b2cVarArr.length);
-                        }
-                        int length = b2cVarArr.length;
-                        while (i < length) {
-                            b2c b2cVar = b2cVarArr[i];
-                            if (!b2cVar.isUnsubscribed()) {
-                                this.a.add(b2cVar);
-                            }
-                            i++;
-                        }
-                        return;
-                    }
-                }
-            }
-            int length2 = b2cVarArr.length;
-            while (i < length2) {
-                b2cVarArr[i].unsubscribe();
-                i++;
-            }
+            this.a = null;
         }
     }
 
-    public void d(b2c b2cVar) {
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, b2cVar) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    boolean remove = this.a.remove(b2cVar);
-                    if (remove) {
-                        b2cVar.unsubscribe();
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
+            this.b.setSoftInputMode(i);
+            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
         }
+    }
+
+    public void r(r6c r6cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r6cVar) == null) {
+            this.f = r6cVar;
+        }
+    }
+
+    public static u6c q(Activity activity, Window window) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) {
+            return new u6c(activity, window);
+        }
+        return (u6c) invokeLL.objValue;
     }
 }

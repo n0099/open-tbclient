@@ -1,52 +1,75 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ur2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class sr2 extends pp2<gs2> {
+public final class sr2 extends to2<ur2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ur2.f h;
 
-    @Override // com.baidu.tieba.pp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCheekThin" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public class a implements ur2.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sr2 a;
+
+        public a(sr2 sr2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sr2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sr2Var;
+        }
+
+        @Override // com.baidu.tieba.ur2.f
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onConfirmBtnClick", null);
+            }
+        }
     }
 
-    public sr2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sr2(@NonNull ur2 ur2Var) {
+        super(ur2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ur2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vo2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
-            String str = command.what;
-            d(gs2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Integer) {
-                gs2Var.J(((Integer) obj).intValue());
-            }
-        }
+        a aVar = new a(this);
+        this.h = aVar;
+        ur2Var.D0(aVar);
+        this.a.a(new yr2());
+        this.a.a(new xr2());
+        this.a.a(new zr2());
+        this.a.a(new vr2());
+        this.a.a(new wr2());
     }
 }

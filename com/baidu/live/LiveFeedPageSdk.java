@@ -10,10 +10,10 @@ import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.he0;
-import com.baidu.tieba.ld0;
-import com.baidu.tieba.xc0;
-import com.baidu.tieba.xsb;
+import com.baidu.tieba.asb;
+import com.baidu.tieba.fd0;
+import com.baidu.tieba.jc0;
+import com.baidu.tieba.vb0;
 /* loaded from: classes3.dex */
 public class LiveFeedPageSdk {
     public static final String FOLLOW_VIDEO = "follow_video";
@@ -98,7 +98,7 @@ public class LiveFeedPageSdk {
     }
 
     public String getYYHDID(Context context) {
-        return xsb.a(context);
+        return asb.a(context);
     }
 
     public void initInvoke(ILiveFeedPageInvoke iLiveFeedPageInvoke) {
@@ -106,7 +106,7 @@ public class LiveFeedPageSdk {
     }
 
     public void initNetWork(INetWork iNetWork) {
-        ld0.b(iNetWork);
+        jc0.b(iNetWork);
     }
 
     public void setContext(Context context) {
@@ -120,13 +120,13 @@ public class LiveFeedPageSdk {
     }
 
     public void startLiveSearchActivity(Context context) {
-        if (xc0.a() != null) {
-            xc0.a().a(context, "");
+        if (vb0.a() != null) {
+            vb0.a().a(context, "");
         }
     }
 
     public void updateUiMode(String str) {
-        he0.f().u(str);
+        fd0.f().u(str);
     }
 
     public static void liveLog(String str, String str2) {
@@ -137,7 +137,7 @@ public class LiveFeedPageSdk {
 
     public void initHostInfo(String str, String str2) {
         this.mHost = str;
-        he0.f().s(str, str2);
+        fd0.f().s(str, str2);
     }
 
     public void starLivePageActivity(Context context, String str, String str2, String str3, String str4, boolean z) {

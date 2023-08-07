@@ -18,6 +18,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -29,19 +30,18 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b09;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.hd5;
-import com.baidu.tieba.j0a;
-import com.baidu.tieba.vy9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.az9;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.vb5;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RightFloatLayerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public TbPageContext<?> t;
     public final Runnable u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,7 +282,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -315,7 +315,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -350,7 +350,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -383,7 +383,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -417,7 +417,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -574,14 +574,14 @@ public class RightFloatLayerView extends RelativeLayout {
         j(context);
     }
 
-    public static void a(hd5 hd5Var, int i2) {
+    public static void a(vb5 vb5Var, int i2) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65539, null, hd5Var, i2) != null) || hd5Var == null) {
+        if ((interceptable != null && interceptable.invokeLI(65539, null, vb5Var, i2) != null) || vb5Var == null) {
             return;
         }
-        int i3 = hd5Var.n;
-        int i4 = hd5Var.q;
+        int i3 = vb5Var.n;
+        int i4 = vb5Var.q;
         if (i3 == 2) {
             str = TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_CLICK;
         } else {
@@ -612,18 +612,18 @@ public class RightFloatLayerView extends RelativeLayout {
             } else {
                 valueOf = String.valueOf(i2);
             }
-            j0a.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
+            az9.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
         }
     }
 
-    public static void b(hd5 hd5Var) {
+    public static void b(vb5 vb5Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hd5Var) != null) || hd5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, vb5Var) != null) || vb5Var == null) {
             return;
         }
-        int i2 = hd5Var.n;
-        int i3 = hd5Var.q;
+        int i2 = vb5Var.n;
+        int i3 = vb5Var.q;
         if (i2 == 2) {
             str = TbadkCoreStatisticKey.KEY_AD_FLOAT_LAYER_SHOW;
         } else {
@@ -632,13 +632,13 @@ public class RightFloatLayerView extends RelativeLayout {
         TiebaStatic.log(new StatisticItem(str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i3));
     }
 
-    public final void f(hd5 hd5Var) {
+    public final void f(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hd5Var) == null) {
-            String str = hd5Var.a;
-            String str2 = hd5Var.j;
-            String str3 = hd5Var.k;
-            String str4 = hd5Var.i;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vb5Var) == null) {
+            String str = vb5Var.a;
+            String str2 = vb5Var.j;
+            String str3 = vb5Var.k;
+            String str4 = vb5Var.i;
             if (!UtilHelper.isMatchScheme(getContext(), str2, str3) && !StringUtils.isNull(str) && this.t != null) {
                 UrlManager.getInstance().dealOneLink(this.t, new String[]{str});
             }
@@ -646,17 +646,17 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void setData(hd5 hd5Var) {
+    public void setData(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, hd5Var) == null) && hd5Var != null && !this.s && !xi.isEmpty(hd5Var.b)) {
-            if (l(hd5Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048592, this, vb5Var) == null) && vb5Var != null && !this.s && !bi.isEmpty(vb5Var.b)) {
+            if (l(vb5Var)) {
                 this.b.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
             }
             this.c.setVisibility(0);
-            this.c.N(hd5Var.b, 45, false);
-            v(hd5Var);
+            this.c.startLoad(vb5Var.b, 45, false);
+            v(vb5Var);
             this.s = true;
         }
     }
@@ -668,7 +668,7 @@ public class RightFloatLayerView extends RelativeLayout {
             if (m()) {
                 return false;
             }
-            return !StringHelper.isTaday(da5.p().r("key_tab_right_float_layer_view", 0L));
+            return !StringHelper.isTaday(SharedPrefHelper.getInstance().getLong("key_tab_right_float_layer_view", 0L));
         }
         return invokeV.booleanValue;
     }
@@ -728,7 +728,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void setHomePbFloatLastCloseTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            da5.p().H("key_tab_right_float_layer_view", System.currentTimeMillis());
+            SharedPrefHelper.getInstance().putLong("key_tab_right_float_layer_view", System.currentTimeMillis());
         }
     }
 
@@ -768,40 +768,40 @@ public class RightFloatLayerView extends RelativeLayout {
         setVisibility(0);
     }
 
-    public final int e(hd5 hd5Var) {
+    public final int e(vb5 vb5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hd5Var)) == null) {
-            String str = hd5Var.l;
-            String str2 = hd5Var.o;
-            String str3 = hd5Var.m;
-            int a2 = vy9.a(getContext(), str, str2, str3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vb5Var)) == null) {
+            String str = vb5Var.l;
+            String str2 = vb5Var.o;
+            String str3 = vb5Var.m;
+            int a2 = mx9.a(getContext(), str, str2, str3, null);
             s(str3, 2);
             u(str3, a2);
-            w(hd5Var);
+            w(vb5Var);
             return a2;
         }
         return invokeL.intValue;
     }
 
-    public void g(hd5 hd5Var) {
+    public void g(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, hd5Var) != null) || hd5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, vb5Var) != null) || vb5Var == null) {
             return;
         }
-        if (hd5Var.n == 2) {
-            e(hd5Var);
+        if (vb5Var.n == 2) {
+            e(vb5Var);
         } else {
-            f(hd5Var);
+            f(vb5Var);
         }
-        a(hd5Var, 0);
+        a(vb5Var, 0);
     }
 
-    public boolean l(hd5 hd5Var) {
+    public boolean l(vb5 vb5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hd5Var)) == null) {
-            if (hd5Var.n != 2 && !hd5Var.b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vb5Var)) == null) {
+            if (vb5Var.n != 2 && !vb5Var.b()) {
                 return false;
             }
             return true;
@@ -809,10 +809,10 @@ public class RightFloatLayerView extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public void r(hd5 hd5Var) {
+    public void r(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, hd5Var) == null) {
-            b09.b(hd5Var);
+        if (interceptable == null || interceptable.invokeL(1048589, this, vb5Var) == null) {
+            xx8.b(vb5Var);
         }
     }
 
@@ -846,37 +846,37 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
-    public void t(hd5 hd5Var) {
+    public void t(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048597, this, hd5Var) != null) || hd5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048597, this, vb5Var) != null) || vb5Var == null) {
             return;
         }
-        int i2 = hd5Var.n;
-        String str = hd5Var.m;
+        int i2 = vb5Var.n;
+        String str = vb5Var.m;
         if (i2 == 2) {
             s(str, 7);
         }
-        a(hd5Var, 1);
+        a(vb5Var, 1);
     }
 
-    public void v(hd5 hd5Var) {
+    public void v(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048599, this, hd5Var) != null) || hd5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048599, this, vb5Var) != null) || vb5Var == null) {
             return;
         }
-        if (hd5Var.n == 2) {
-            s(hd5Var.m, 3);
-            r(hd5Var);
+        if (vb5Var.n == 2) {
+            s(vb5Var.m, 3);
+            r(vb5Var);
         } else {
-            ThirdStatisticHelper.sendReq(hd5Var.i);
+            ThirdStatisticHelper.sendReq(vb5Var.i);
         }
-        b(hd5Var);
+        b(vb5Var);
     }
 
-    public void w(hd5 hd5Var) {
+    public void w(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, hd5Var) == null) {
-            b09.d(hd5Var);
+        if (interceptable == null || interceptable.invokeL(1048600, this, vb5Var) == null) {
+            xx8.d(vb5Var);
         }
     }
 
@@ -959,7 +959,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void s(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
-            j0a.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            az9.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 }

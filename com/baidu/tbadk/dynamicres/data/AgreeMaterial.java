@@ -1,14 +1,14 @@
 package com.baidu.tbadk.dynamicres.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.e26;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.nz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AgreeMaterial extends OrmObject {
         public String tid;
 
         /* loaded from: classes4.dex */
-        public class a implements e26.a {
+        public class a implements nz5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -65,7 +65,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.e26.a
+            @Override // com.baidu.tieba.nz5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -79,7 +79,7 @@ public class AgreeMaterial extends OrmObject {
         }
 
         /* loaded from: classes4.dex */
-        public class b implements e26.a {
+        public class b implements nz5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -102,7 +102,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.e26.a
+            @Override // com.baidu.tieba.nz5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -129,15 +129,15 @@ public class AgreeMaterial extends OrmObject {
             }
         }
 
-        public void V() {
+        public void N() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                W(this.dayRes, new a(this));
-                W(this.nightRes, new b(this));
+                O(this.dayRes, new a(this));
+                O(this.nightRes, new b(this));
             }
         }
 
-        public static Data Y(JSONObject jSONObject) {
+        public static Data Q(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -158,31 +158,31 @@ public class AgreeMaterial extends OrmObject {
             return (Data) invokeL.objValue;
         }
 
-        public final void W(String str, e26.a aVar) {
+        public final void O(String str, nz5.a aVar) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) != null) || StringUtils.isNull(str)) {
                 return;
             }
-            new e26(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
+            new nz5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:39:0x00b9, code lost:
-            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.W(r8.nightDirName + r9) == false) goto L35;
+            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.O(r8.nightDirName + r9) == false) goto L35;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public String X(String str, String str2, String str3) {
+        public String P(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             StringBuilder sb;
             String str4;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                long g = wg.g(this.startTime, 0L);
-                long g2 = wg.g(this.endTime, 0L);
-                if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
-                    if (AgreeMaterial.W(this.dayDirName + str)) {
+                long j = JavaTypesHelper.toLong(this.startTime, 0L);
+                long j2 = JavaTypesHelper.toLong(this.endTime, 0L);
+                if (currentTimeMillis >= j && currentTimeMillis < j2 && !StringUtils.isNull(this.dayDirName)) {
+                    if (AgreeMaterial.O(this.dayDirName + str)) {
                         boolean z = false;
                         boolean z2 = true;
                         if (!this.all) {
@@ -233,14 +233,14 @@ public class AgreeMaterial extends OrmObject {
         }
     }
 
-    public static boolean W(String str) {
+    public static boolean O(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String str2 = TBLottieAnimationView.getAnimationPath() + str;
             File file = new File(str2);
             if (file.exists()) {
-                File file2 = new File(str2 + "/data.json");
+                File file2 = new File(str2 + "/" + TBLottieAnimationView.JSON_FILE);
                 if (file2.exists() && file2.length() > 0) {
                     return true;
                 }
@@ -252,7 +252,7 @@ public class AgreeMaterial extends OrmObject {
         return invokeL.booleanValue;
     }
 
-    public static AgreeMaterial X(JSONObject jSONObject) {
+    public static AgreeMaterial P(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
@@ -260,10 +260,10 @@ public class AgreeMaterial extends OrmObject {
                 return null;
             }
             AgreeMaterial agreeMaterial = new AgreeMaterial();
-            agreeMaterial.staticData = Data.Y(jSONObject.optJSONObject("static"));
-            agreeMaterial.singleTapData = Data.Y(jSONObject.optJSONObject("single_point"));
-            agreeMaterial.doubleTapData = Data.Y(jSONObject.optJSONObject("double_click"));
-            agreeMaterial.longPressData = Data.Y(jSONObject.optJSONObject(PraiseUBCHelper.UBC_TYPE_LONG_PRESS));
+            agreeMaterial.staticData = Data.Q(jSONObject.optJSONObject("static"));
+            agreeMaterial.singleTapData = Data.Q(jSONObject.optJSONObject("single_point"));
+            agreeMaterial.doubleTapData = Data.Q(jSONObject.optJSONObject("double_click"));
+            agreeMaterial.longPressData = Data.Q(jSONObject.optJSONObject(PraiseUBCHelper.UBC_TYPE_LONG_PRESS));
             return agreeMaterial;
         }
         return (AgreeMaterial) invokeL.objValue;

@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;
     public transient /* synthetic */ FieldHolder $fh;
-    public mg<String, String> mCache;
+    public zf<String, String> mCache;
 
     public PvCacheModel() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PvCacheModel {
             }
         }
         this.mCache = null;
-        this.mCache = new mg<>(256);
+        this.mCache = new zf<>(256);
     }
 
     public static synchronized PvCacheModel getInstance() {
@@ -55,8 +55,8 @@ public class PvCacheModel {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, l) == null) && str != null && str.length() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            mg<String, String> mgVar = this.mCache;
-            mgVar.h(currentAccount + str, String.valueOf(l));
+            zf<String, String> zfVar = this.mCache;
+            zfVar.h(currentAccount + str, String.valueOf(l));
         }
     }
 
@@ -68,12 +68,12 @@ public class PvCacheModel {
                 return false;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            mg<String, String> mgVar = this.mCache;
-            String f = mgVar.f(currentAccount + str);
+            zf<String, String> zfVar = this.mCache;
+            String f = zfVar.f(currentAccount + str);
             if (TextUtils.isEmpty(f)) {
                 return false;
             }
-            return UtilHelper.isSameDay(wg.g(f, 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(JavaTypesHelper.toLong(f, 0L), System.currentTimeMillis());
         }
         return invokeL.booleanValue;
     }
@@ -82,8 +82,8 @@ public class PvCacheModel {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && str != null && str.length() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            mg<String, String> mgVar = this.mCache;
-            mgVar.i(currentAccount + str);
+            zf<String, String> zfVar = this.mCache;
+            zfVar.i(currentAccount + str);
         }
     }
 }

@@ -1,185 +1,100 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wq;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class xq {
+public final class xq extends rq {
     public static /* synthetic */ Interceptable $ic;
+    public static final UniqueId b;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final long b;
-    public long c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public wq h;
-    public long i;
-    public Handler j;
 
     /* loaded from: classes8.dex */
-    public class a extends Handler {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xq a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xq xqVar, Looper looper) {
-            super(looper);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xqVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = xqVar;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            long j;
+        public final UniqueId a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                synchronized (this.a) {
-                    if (!this.a.d && !this.a.f) {
-                        long j2 = this.a.i;
-                        long elapsedRealtime = this.a.c - SystemClock.elapsedRealtime();
-                        long j3 = 0;
-                        if (elapsedRealtime <= 0) {
-                            this.a.g = true;
-                            this.a.i = this.a.a;
-                            this.a.h.a(0L, Math.max(this.a.i - j2, 0L));
-                            this.a.h.onFinish();
-                        } else {
-                            long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                            this.a.i = this.a.a - elapsedRealtime;
-                            this.a.h.a(elapsedRealtime, Math.max(this.a.i - j2, 0L));
-                            long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                            if (elapsedRealtime < this.a.b) {
-                                j = elapsedRealtime - elapsedRealtime3;
-                                if (j < 0) {
-                                    sendMessageDelayed(obtainMessage(1), j3);
-                                }
-                            } else {
-                                j = this.a.b - elapsedRealtime3;
-                                while (j < 0) {
-                                    j += this.a.b;
-                                }
-                            }
-                            j3 = j;
-                            sendMessageDelayed(obtainMessage(1), j3);
-                        }
-                    }
-                }
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (UniqueId) invokeV.objValue;
             }
+            return xq.b;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
     }
 
-    public xq(long j, long j2, wq wqVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322004, "Lcom/baidu/tieba/xq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448322004, "Lcom/baidu/tieba/xq;");
+                return;
+            }
+        }
+        c = new a(null);
+        UniqueId gen = UniqueId.gen("TaskBackFlowEvent");
+        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowEvent\")");
+        b = gen;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "" + c.a().getAlias() + ':' + a().toJson();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xq(TaskInfo taskInfo) {
+        super(taskInfo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), wqVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {taskInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TaskInfo) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            }
-        }
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.i = 0L;
-        this.j = new a(this, Looper.getMainLooper());
-        this.a = j;
-        this.b = j2;
-        this.i = 0L;
-        this.h = wqVar;
-    }
-
-    public final synchronized xq b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                this.d = false;
-                this.g = false;
-                this.f = false;
-                this.e = false;
-                if (this.a <= 0) {
-                    this.g = true;
-                    this.h.onFinish();
-                    return this;
-                }
-                this.c = SystemClock.elapsedRealtime() + this.a;
-                this.j.sendMessage(this.j.obtainMessage(1));
-                this.h.onStart();
-                this.e = true;
-                return this;
-            }
-        }
-        return (xq) invokeV.objValue;
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (!this.f && !this.d && !this.g && this.e) {
-                    SystemClock.elapsedRealtime();
-                    this.f = true;
-                    this.d = false;
-                    this.g = false;
-                    this.h.onPause();
-                    this.j.removeMessages(1);
-                }
-            }
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.d = true;
-                this.f = false;
-                this.g = false;
-                this.e = false;
-                this.j.removeMessages(1);
-                this.h.onCancel();
-            }
-        }
-    }
-
-    public final synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.h = new wq.a();
-                h();
             }
         }
     }

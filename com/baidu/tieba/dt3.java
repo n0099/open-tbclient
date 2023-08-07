@@ -1,58 +1,30 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ah3;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dt3 extends yz1 {
+public class dt3 extends y63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(String str);
-    }
-
-    @Override // com.baidu.tieba.yz1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateBusiness" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetOpenBdussApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements oq3<yg3<ah3.e>> {
+    public class a implements rp3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ dt3 c;
+        public final /* synthetic */ dt3 a;
 
-        public a(dt3 dt3Var, String str, JSONObject jSONObject) {
+        public a(dt3 dt3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dt3Var, str, jSONObject};
+                Object[] objArr = {dt3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,47 +34,36 @@ public class dt3 extends yz1 {
                     return;
                 }
             }
-            this.c = dt3Var;
-            this.a = str;
-            this.b = jSONObject;
+            this.a = dt3Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
+        @Override // com.baidu.tieba.rp3
         /* renamed from: b */
-        public void a(yg3<ah3.e> yg3Var) {
+        public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg3Var) == null) {
-                if (!tg3.h(yg3Var)) {
-                    int b = yg3Var.b();
-                    tg3.f(b);
-                    this.c.d(this.a, new v32(b, tg3.f(b)));
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                if (bundle != null) {
+                    this.a.d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
                 }
-                JSONArray optJSONArray = this.b.optJSONArray("tpls");
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(optJSONArray.optString(i));
-                }
-                this.c.z(this.b.optString("clientId"), arrayList, this.a);
+                this.a.c();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements c {
+    public class b implements et3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ rp3 a;
         public final /* synthetic */ dt3 b;
 
-        public b(dt3 dt3Var, String str) {
+        public b(dt3 dt3Var, rp3 rp3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dt3Var, str};
+                Object[] objArr = {dt3Var, rp3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -113,76 +74,49 @@ public class dt3 extends yz1 {
                 }
             }
             this.b = dt3Var;
-            this.a = str;
+            this.a = rp3Var;
         }
 
-        @Override // com.baidu.tieba.dt3.c
-        public void a(String str) {
+        @Override // com.baidu.tieba.et3
+        public void a(QuickLoginInfo quickLoginInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                try {
-                    this.b.d(this.a, new v32(0, new JSONObject(str)));
-                } catch (JSONException unused) {
-                    this.b.d(this.a, new v32(10001, "internal error"));
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                if (quickLoginInfo == null) {
+                    this.a.a(null);
+                    return;
                 }
+                this.b.d.putParcelable("quick_login_info_result", quickLoginInfo);
+                this.a.a(this.b.d);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dt3(@NonNull wz1 wz1Var) {
-        super(wz1Var);
+    public dt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @SuppressLint({"SwanBindApiNote"})
-    public v32 y(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.y63
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getOpenBduss", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return new v32(1001, "null swan runtime");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                return v32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new v32(201, "empty cb");
-            }
-            b0.e0().g(ub3.K(), "scope_get_open_bduss", new a(this, optString, jSONObject));
-            return v32.f();
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            e(new a(this));
         }
-        return (v32) invokeL.objValue;
     }
 
-    public final void z(String str, ArrayList<String> arrayList, String str2) {
+    public void e(rp3<Bundle> rp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, str2) == null) {
-            if (!wr3.F(ub3.K())) {
-                d(str2, new v32(202, "user is not logged in or the params are invalid"));
-            } else {
-                wr3.o(ub3.K(), str, arrayList, new b(this, str2));
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rp3Var) == null) {
+            ht3.a(new b(this, rp3Var));
         }
     }
 }

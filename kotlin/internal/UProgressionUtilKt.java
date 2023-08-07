@@ -10,42 +10,42 @@ import kotlin.UnsignedKt;
 /* loaded from: classes10.dex */
 public final class UProgressionUtilKt {
     /* renamed from: differenceModulo-WZ9TVnA  reason: not valid java name */
-    public static final int m2034differenceModuloWZ9TVnA(int i, int i2, int i3) {
-        int m1194uintRemainderJ1ME1BU = UnsignedKt.m1194uintRemainderJ1ME1BU(i, i3);
-        int m1194uintRemainderJ1ME1BU2 = UnsignedKt.m1194uintRemainderJ1ME1BU(i2, i3);
-        int uintCompare = UnsignedKt.uintCompare(m1194uintRemainderJ1ME1BU, m1194uintRemainderJ1ME1BU2);
-        int m940constructorimpl = UInt.m940constructorimpl(m1194uintRemainderJ1ME1BU - m1194uintRemainderJ1ME1BU2);
+    public static final int m2035differenceModuloWZ9TVnA(int i, int i2, int i3) {
+        int m1195uintRemainderJ1ME1BU = UnsignedKt.m1195uintRemainderJ1ME1BU(i, i3);
+        int m1195uintRemainderJ1ME1BU2 = UnsignedKt.m1195uintRemainderJ1ME1BU(i2, i3);
+        int uintCompare = UnsignedKt.uintCompare(m1195uintRemainderJ1ME1BU, m1195uintRemainderJ1ME1BU2);
+        int m941constructorimpl = UInt.m941constructorimpl(m1195uintRemainderJ1ME1BU - m1195uintRemainderJ1ME1BU2);
         if (uintCompare < 0) {
-            return UInt.m940constructorimpl(m940constructorimpl + i3);
+            return UInt.m941constructorimpl(m941constructorimpl + i3);
         }
-        return m940constructorimpl;
+        return m941constructorimpl;
     }
 
     /* renamed from: differenceModulo-sambcqE  reason: not valid java name */
-    public static final long m2035differenceModulosambcqE(long j, long j2, long j3) {
-        long m1196ulongRemaindereb3DHEI = UnsignedKt.m1196ulongRemaindereb3DHEI(j, j3);
-        long m1196ulongRemaindereb3DHEI2 = UnsignedKt.m1196ulongRemaindereb3DHEI(j2, j3);
-        int ulongCompare = UnsignedKt.ulongCompare(m1196ulongRemaindereb3DHEI, m1196ulongRemaindereb3DHEI2);
-        long m1018constructorimpl = ULong.m1018constructorimpl(m1196ulongRemaindereb3DHEI - m1196ulongRemaindereb3DHEI2);
+    public static final long m2036differenceModulosambcqE(long j, long j2, long j3) {
+        long m1197ulongRemaindereb3DHEI = UnsignedKt.m1197ulongRemaindereb3DHEI(j, j3);
+        long m1197ulongRemaindereb3DHEI2 = UnsignedKt.m1197ulongRemaindereb3DHEI(j2, j3);
+        int ulongCompare = UnsignedKt.ulongCompare(m1197ulongRemaindereb3DHEI, m1197ulongRemaindereb3DHEI2);
+        long m1019constructorimpl = ULong.m1019constructorimpl(m1197ulongRemaindereb3DHEI - m1197ulongRemaindereb3DHEI2);
         if (ulongCompare < 0) {
-            return ULong.m1018constructorimpl(m1018constructorimpl + j3);
+            return ULong.m1019constructorimpl(m1019constructorimpl + j3);
         }
-        return m1018constructorimpl;
+        return m1019constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
     /* renamed from: getProgressionLastElement-7ftBX0g  reason: not valid java name */
-    public static final long m2036getProgressionLastElement7ftBX0g(long j, long j2, long j3) {
+    public static final long m2037getProgressionLastElement7ftBX0g(long j, long j2, long j3) {
         int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
         if (i > 0) {
             if (UnsignedKt.ulongCompare(j, j2) < 0) {
-                return ULong.m1018constructorimpl(j2 - m2035differenceModulosambcqE(j2, j, ULong.m1018constructorimpl(j3)));
+                return ULong.m1019constructorimpl(j2 - m2036differenceModulosambcqE(j2, j, ULong.m1019constructorimpl(j3)));
             }
             return j2;
         } else if (i < 0) {
             if (UnsignedKt.ulongCompare(j, j2) > 0) {
-                return ULong.m1018constructorimpl(j2 + m2035differenceModulosambcqE(j, j2, ULong.m1018constructorimpl(-j3)));
+                return ULong.m1019constructorimpl(j2 + m2036differenceModulosambcqE(j, j2, ULong.m1019constructorimpl(-j3)));
             }
             return j2;
         } else {
@@ -56,15 +56,15 @@ public final class UProgressionUtilKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     /* renamed from: getProgressionLastElement-Nkh28Cs  reason: not valid java name */
-    public static final int m2037getProgressionLastElementNkh28Cs(int i, int i2, int i3) {
+    public static final int m2038getProgressionLastElementNkh28Cs(int i, int i2, int i3) {
         if (i3 > 0) {
             if (UnsignedKt.uintCompare(i, i2) < 0) {
-                return UInt.m940constructorimpl(i2 - m2034differenceModuloWZ9TVnA(i2, i, UInt.m940constructorimpl(i3)));
+                return UInt.m941constructorimpl(i2 - m2035differenceModuloWZ9TVnA(i2, i, UInt.m941constructorimpl(i3)));
             }
             return i2;
         } else if (i3 < 0) {
             if (UnsignedKt.uintCompare(i, i2) > 0) {
-                return UInt.m940constructorimpl(i2 + m2034differenceModuloWZ9TVnA(i, i2, UInt.m940constructorimpl(-i3)));
+                return UInt.m941constructorimpl(i2 + m2035differenceModuloWZ9TVnA(i, i2, UInt.m941constructorimpl(-i3)));
             }
             return i2;
         } else {

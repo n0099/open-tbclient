@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f0909fb;
+        public static final int enable_service_text = 0x7f090a0b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -77,12 +77,12 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int hms_apk_not_installed_hints = 0x7f0f09c8;
-        public static final int hms_bindfaildlg_message = 0x7f0f09c9;
-        public static final int hms_bindfaildlg_title = 0x7f0f09ca;
-        public static final int hms_confirm = 0x7f0f09cb;
-        public static final int hms_is_spoof = 0x7f0f09cc;
-        public static final int hms_spoof_hints = 0x7f0f09d2;
+        public static final int hms_apk_not_installed_hints = 0x7f0f09c9;
+        public static final int hms_bindfaildlg_message = 0x7f0f09ca;
+        public static final int hms_bindfaildlg_title = 0x7f0f09cb;
+        public static final int hms_confirm = 0x7f0f09cc;
+        public static final int hms_is_spoof = 0x7f0f09cd;
+        public static final int hms_spoof_hints = 0x7f0f09d3;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

@@ -7,9 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +23,9 @@ public class GamePlayServiceView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public final View.OnClickListener b;
+    public View b;
+    public TextView c;
+    public final View.OnClickListener d;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -80,6 +86,17 @@ public class GamePlayServiceView extends RelativeLayout {
         }
     }
 
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fa, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0915f8);
+            findViewById(R.id.obfuscated_res_0x7f091612).setOnClickListener(this.d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092705);
+            d();
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GamePlayServiceView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, -1);
@@ -120,24 +137,47 @@ public class GamePlayServiceView extends RelativeLayout {
                 return;
             }
         }
-        this.b = new a(this);
+        this.d = new a(this);
         b(context);
     }
 
-    public void c(b bVar) {
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public final void b(Context context) {
+    public void c(BdPageContext<MsglistActivity<?>> bdPageContext, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07f2, (ViewGroup) this, true);
-            findViewById(R.id.obfuscated_res_0x7f0915e5).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
-            findViewById(R.id.obfuscated_res_0x7f0915ff).setOnClickListener(this.b);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f0926ec)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdPageContext, i) == null) {
+            if (bdPageContext instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) bdPageContext;
+                BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
+                if (i == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                layoutMode.setNightMode(z);
+                tbPageContext.getLayoutMode().onModeChanged(this);
+            }
+            d();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View view2 = this.b;
+            if (view2 != null) {
+                view2.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
+            }
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            }
         }
     }
 }

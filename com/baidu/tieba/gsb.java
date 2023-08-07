@@ -1,55 +1,181 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
+import com.yy.open.activity.AssistActivity;
+import com.yy.open.activity.BridgeActivity;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class gsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public jsb b;
-    public Matrix c;
-    public bsb d;
-    public List<SVGAVideoShapeEntity> e;
+    public SparseArray<c> a;
+    public Handler b;
+    public Context c;
+    public String d;
+    public ksb e;
 
-    public gsb(FrameEntity frameEntity) {
-        float f;
-        float f2;
-        float f3;
-        float f4;
-        float f5;
-        float f6;
-        float f7;
-        float f8;
-        float f9;
-        float f10;
-        float f11;
+    public final void h(int i, Intent intent, dsb dsbVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, dsbVar, Long.valueOf(j)}) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ dsb b;
+        public final /* synthetic */ Intent c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ gsb e;
+
+        public a(gsb gsbVar, int i, dsb dsbVar, Intent intent, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gsbVar, Integer.valueOf(i), dsbVar, intent, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = gsbVar;
+            this.a = i;
+            this.b = dsbVar;
+            this.c = intent;
+            this.d = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a == 0) {
+                        this.b.onCancel();
+                        return;
+                    }
+                    String stringExtra = this.c.getStringExtra("resjson");
+                    this.e.e.a(stringExtra);
+                    JSONObject jSONObject = new JSONObject(stringExtra);
+                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
+                        String optString = jSONObject.optString("resMsg");
+                        int optInt = jSONObject.optInt("resCode");
+                        if (optInt != 1000006 && optInt != 1290001) {
+                            optInt = this.a;
+                            this.e.f(this.c, this.b, this.d, optInt, optString);
+                            return;
+                        }
+                        Log.e("chenqiang", "resCode:" + optInt);
+                        this.e.f(this.c, this.b, this.d, optInt, optString);
+                        return;
+                    }
+                    Log.e("chenqiang", "please update yy new version！");
+                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
+                        i = this.a;
+                        str = "success";
+                    } else {
+                        str = "handleAuthLoginResult--default error!";
+                        i = 444222199;
+                    }
+                    this.e.f(this.c, this.b, this.d, i, str);
+                } catch (Exception unused) {
+                    this.b.onError(new esb(444222105, jsb.h(444222105)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dsb a;
+        public final /* synthetic */ esb b;
+
+        public b(gsb gsbVar, dsb dsbVar, esb esbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gsbVar, dsbVar, esbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dsbVar;
+            this.b = esbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onError(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public dsb a;
+        public long b;
+
+        public c(gsb gsbVar, dsb dsbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gsbVar, dsbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dsbVar;
+            this.b = System.currentTimeMillis();
+        }
+    }
+
+    public gsb(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,225 +185,189 @@ public final class gsb {
                 return;
             }
         }
-        this.b = new jsb(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        Float f12 = frameEntity.alpha;
-        if (f12 != null) {
-            f = f12.floatValue();
-        } else {
-            f = 0.0f;
-        }
-        this.a = f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f13 = layout.x;
-            if (f13 != null) {
-                f8 = f13.floatValue();
-            } else {
-                f8 = 0.0f;
-            }
-            double d = f8;
-            Float f14 = layout.y;
-            if (f14 != null) {
-                f9 = f14.floatValue();
-            } else {
-                f9 = 0.0f;
-            }
-            double d2 = f9;
-            Float f15 = layout.width;
-            if (f15 != null) {
-                f10 = f15.floatValue();
-            } else {
-                f10 = 0.0f;
-            }
-            double d3 = f10;
-            Float f16 = layout.height;
-            if (f16 != null) {
-                f11 = f16.floatValue();
-            } else {
-                f11 = 0.0f;
-            }
-            this.b = new jsb(d, d2, d3, f11);
-        }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f17 = transform.a;
-            if (f17 != null) {
-                f2 = f17.floatValue();
-            } else {
-                f2 = 1.0f;
-            }
-            Float f18 = transform.b;
-            if (f18 != null) {
-                f3 = f18.floatValue();
-            } else {
-                f3 = 0.0f;
-            }
-            Float f19 = transform.c;
-            if (f19 != null) {
-                f4 = f19.floatValue();
-            } else {
-                f4 = 0.0f;
-            }
-            Float f20 = transform.d;
-            if (f20 != null) {
-                f5 = f20.floatValue();
-            } else {
-                f5 = 1.0f;
-            }
-            Float f21 = transform.tx;
-            if (f21 != null) {
-                f6 = f21.floatValue();
-            } else {
-                f6 = 0.0f;
-            }
-            Float f22 = transform.ty;
-            if (f22 != null) {
-                f7 = f22.floatValue();
-            } else {
-                f7 = 0.0f;
-            }
-            fArr[0] = f2;
-            fArr[1] = f4;
-            fArr[2] = f6;
-            fArr[3] = f3;
-            fArr[4] = f5;
-            fArr[5] = f7;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
-        }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new bsb(str);
-            }
-        }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
-        }
-        this.e = arrayList;
+        this.e = ksb.b();
+        this.c = context;
+        this.d = str;
+        this.a = new SparseArray<>();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public gsb(JSONObject jSONObject) {
-        boolean z;
+    public final void c(Activity activity, String str, dsb dsbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, dsbVar) == null) {
+            if (isb.d(activity, BridgeActivity.class) && isb.d(activity, AssistActivity.class)) {
+                int a2 = jsb.a(activity);
+                if (a2 != 0) {
+                    try {
+                        this.a.put(62345, new c(this, dsbVar));
+                        String c2 = jsb.c(this.c, this.d, str, true);
+                        Intent intent = new Intent(activity, AssistActivity.class);
+                        intent.putExtra("type", "type_web");
+                        intent.putExtra("url", c2);
+                        activity.startActivityForResult(intent, 62345);
+                        return;
+                    } catch (Exception unused) {
+                        g(new esb(a2), dsbVar);
+                        return;
+                    }
+                }
+                Intent e = jsb.e(activity);
+                this.a.put(62345, new c(this, dsbVar));
+                Bundle d = jsb.d(activity, this.d);
+                e.putExtra("action", "action_login");
+                e.putExtra(StateManager.KEY_STATE, d);
+                i(activity, e, 62345);
                 return;
             }
+            g(new esb(3), dsbVar);
         }
-        gsb gsbVar = this;
-        gsbVar.b = new jsb(0.0d, 0.0d, 0.0d, 0.0d);
-        gsbVar.c = new Matrix();
-        gsbVar.e = CollectionsKt__CollectionsKt.emptyList();
-        gsbVar.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            gsbVar.b = new jsb(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d);
-            double optDouble6 = optJSONObject2.optDouble("ty", 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            gsbVar = this;
-            gsbVar.c.setValues(fArr);
-        } else {
-            z = true;
-        }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                gsbVar.d = new bsb(optString);
+    }
+
+    public final boolean d(int i, int i2, Intent intent, dsb dsbVar) {
+        InterceptResult invokeCommon;
+        long currentTimeMillis;
+        dsb dsbVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, dsbVar})) == null) {
+            if (i != 62345 && i != 62347) {
+                return false;
+            }
+            c cVar = this.a.get(i);
+            if (cVar != null) {
+                currentTimeMillis = cVar.b;
+                dsbVar2 = cVar.a;
+                this.a.remove(i);
+            } else {
+                currentTimeMillis = System.currentTimeMillis();
+                dsbVar2 = dsbVar;
+            }
+            if (i == 62345) {
+                e(i2, intent, dsbVar2, currentTimeMillis);
+                return true;
+            } else if (i != 62347) {
+                return false;
+            } else {
+                h(i2, intent, dsbVar2, currentTimeMillis);
+                return true;
             }
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
-                }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void e(int i, Intent intent, dsb dsbVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, dsbVar, Long.valueOf(j)}) == null) {
+            this.b.postDelayed(new a(this, i, dsbVar, intent, j), 10L);
+        }
+    }
+
+    public final void f(Intent intent, dsb dsbVar, long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, dsbVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            switch (i) {
+                case 1000006:
+                    dsbVar.onError(new esb(1000006, str));
+                    return;
+                case 1290001:
+                    dsbVar.onError(new esb(1290001, str));
+                    return;
+                case 444111001:
+                    try {
+                        String stringExtra = intent.getStringExtra("resjson");
+                        this.e.a(stringExtra);
+                        JSONObject jSONObject = new JSONObject(stringExtra);
+                        jSONObject.optString("openid");
+                        jSONObject.optString("uid");
+                        jSONObject.optString("access_code");
+                        dsbVar.onComplete(jSONObject);
+                        return;
+                    } catch (Exception unused) {
+                        dsbVar.onError(new esb(444222105, jsb.h(444222105)));
+                        return;
+                    }
+                case 444111002:
+                    dsbVar.onCancel();
+                    return;
+                case 444111003:
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
+                        if ("1".equals(jSONObject2.optString("appType"))) {
+                            jSONObject2.optString("uid");
+                        } else {
+                            jSONObject2.optString("openid");
+                        }
+                        dsbVar.onComplete(jSONObject2);
+                        return;
+                    } catch (Exception unused2) {
+                        dsbVar.onError(new esb(444222105, jsb.h(444222105)));
+                        return;
+                    }
+                case 444222000:
+                    dsbVar.onError(new esb(444222000, str));
+                    return;
+                case 444222001:
+                    dsbVar.onError(new esb(444222001, str));
+                    return;
+                case 444222002:
+                    dsbVar.onError(new esb(444222002, str));
+                    return;
+                case 444222003:
+                    dsbVar.onError(new esb(444222003, str));
+                    return;
+                case 444222104:
+                    dsbVar.onError(new esb(444222104, str));
+                    return;
+                case 444222105:
+                    dsbVar.onError(new esb(444222105, str));
+                    return;
+                case 444222106:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        dsbVar.onError(new esb(444222106, str));
+                        return;
+                    } catch (Exception unused3) {
+                        dsbVar.onError(new esb(444222105, jsb.h(444222105)));
+                        return;
+                    }
+                case 444222108:
+                    try {
+                        dsbVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
+                        return;
+                    } catch (Exception unused4) {
+                        dsbVar.onError(new esb(444222105, jsb.h(444222105)));
+                        return;
+                    }
+                case 444222110:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        dsbVar.onError(new esb(444222110, str));
+                        return;
+                    } catch (Exception unused5) {
+                        dsbVar.onError(new esb(444222105, jsb.h(444222105)));
+                        return;
+                    }
+                default:
+                    Log.e("chenqiang", "default  error");
+                    dsbVar.onError(new esb(i, jsb.h(i)));
+                    return;
             }
-            gsbVar.e = CollectionsKt___CollectionsKt.toList(arrayList);
         }
     }
 
-    public final double a() {
-        InterceptResult invokeV;
+    public final void g(esb esbVar, dsb dsbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, esbVar, dsbVar) == null) && dsbVar != null) {
+            this.b.postDelayed(new b(this, dsbVar, esbVar), 50L);
         }
-        return invokeV.doubleValue;
     }
 
-    public final jsb b() {
-        InterceptResult invokeV;
+    public final void i(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (jsb) invokeV.objValue;
-    }
-
-    public final bsb c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (bsb) invokeV.objValue;
-    }
-
-    public final List<SVGAVideoShapeEntity> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void f(List<SVGAVideoShapeEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
+            intent.putExtra("request_code", i);
+            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
+            intent2.putExtra("intent", intent);
+            activity.startActivityForResult(intent2, i);
         }
     }
 }

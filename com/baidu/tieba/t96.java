@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 /* loaded from: classes8.dex */
-public class t96 extends BdAsyncTask<Void, Void, Boolean> {
+public class t96 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
+    public static final BdUniqueId c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdInfo a;
+    public g96 a;
+    public g96 b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,8 +32,8 @@ public class t96 extends BdAsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-        c = File.separator;
+        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public t96() {
@@ -56,83 +50,20 @@ public class t96 extends BdAsyncTask<Void, Void, Boolean> {
         }
     }
 
-    public final void b(boolean z, File file) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        SdkLiveInfoData sdkLiveInfoData;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
-            if (z && file != null) {
-                File file2 = new File(b + c + (fj.c(this.a.adVideoUrl) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION));
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                if (file.renameTo(file2)) {
-                    this.a.videoLocalPath = file2.getAbsolutePath();
-                } else {
-                    this.a.videoLocalPath = "";
-                }
-            } else {
-                this.a.videoLocalPath = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            g96 g96Var = this.a;
+            if (g96Var != null && (sdkLiveInfoData = g96Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
+                return d;
             }
-            y96.f(this.a);
+            return c;
         }
-    }
-
-    public void c(AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
-            this.a = adInfo;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        if (r12.equalsIgnoreCase(r11.a.videoMd5) == false) goto L26;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        File file;
-        boolean z;
-        boolean c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-            String str = b + c + "advideo.temp";
-            file = new File(str);
-            if (file.exists()) {
-                file.delete();
-            }
-            z = false;
-            try {
-                new File(b).mkdirs();
-                if (!file.createNewFile()) {
-                    b(false, null);
-                    return Boolean.FALSE;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            ag agVar = new ag();
-            agVar.b().s(this.a.adVideoUrl);
-            c2 = new xf(agVar).c(str, null, 3, 3000, -1, -1, true, true);
-            try {
-                if (TextUtils.isEmpty(this.a.videoMd5)) {
-                    b(c2, file);
-                    return Boolean.valueOf(c2);
-                }
-                String b2 = fj.b(new FileInputStream(str));
-                if (TextUtils.isEmpty(b2)) {
-                    c2 = false;
-                }
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
-            }
-        } else {
-            return (Boolean) invokeL.objValue;
-        }
-        z = c2;
-        b(z, file);
-        return Boolean.valueOf(z);
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,116 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y95 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static x95 a = null;
-    public static int b = 0;
-    public static int c = 0;
-    public static int d = 0;
-    public static int e = 1;
+public class y95 extends TBSpecificationButtonConfig {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean v;
+    public int w;
+    public int x;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948285012, "Lcom/baidu/tieba/y95;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public y95() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948285012, "Lcom/baidu/tieba/y95;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            x95 x95Var = a;
-            if (x95Var == null) {
-                return -1;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return x95Var.getCurrentTabType();
         }
-        return invokeV.intValue;
+        this.w = R.dimen.tbds1;
+        this.x = R.string.A_X07;
+        this.b = R.color.CAM_X0302;
+        this.v = false;
     }
 
-    public static Class<?> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            x95 x95Var = a;
-            if (x95Var == null) {
-                return null;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return v(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+            this.v = false;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
-            return x95Var.d();
         }
-        return (Class) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void s(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            x95 x95Var = a;
-            if (x95Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.v = false;
+            this.r = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
             }
-            return x95Var.f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(Context context) {
-        x95 x95Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (x95Var = a) == null) {
-            return;
-        }
-        x95Var.a(context);
-    }
-
-    public static void h(x95 x95Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, x95Var) == null) {
-            a = x95Var;
         }
     }
 
-    public static void e(Context context, int i) {
-        x95 x95Var;
+    public void t(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (x95Var = a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            this.c = R.color.CAM_X0902;
+            this.v = true;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
-        x95Var.b(context, i);
     }
 
-    public static void f(Context context, int i, boolean z) {
-        x95 x95Var;
+    public void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (x95Var = a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.v = false;
+            this.r = true;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
-        x95Var.c(context, i, z);
     }
 
-    public static void g(Context context, int i, boolean z) {
-        x95 x95Var;
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (x95Var = a) == null) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.v) {
+                gradientDrawable.setStroke(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), this.w), SkinManager.getColor(this.s, this.c));
+            } else {
+                int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), this.w);
+                if (this.r) {
+                    i = SkinManager.getColor(this.s, this.b);
+                } else {
+                    i = this.b;
+                }
+                gradientDrawable.setStroke(dimens, x9a.a(i, w65.b(this.x)));
+            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-        x95Var.e(context, i, z);
+        return (Drawable) invokeF.objValue;
     }
 }

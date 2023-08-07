@@ -953,26 +953,6 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return invokeV.booleanValue;
     }
 
-    public boolean isStarMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
-            if (!TextUtils.isEmpty(this.mExtJson)) {
-                try {
-                    if (new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 4) {
-                        return true;
-                    }
-                    return false;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public boolean isZhida() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1455,6 +1435,26 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         return false;
                     }
                     return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isStarMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
+            if (!TextUtils.isEmpty(this.mExtJson)) {
+                try {
+                    if (new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 4) {
+                        return true;
+                    }
+                    return false;
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return false;
@@ -2135,6 +2135,21 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
+    public void createMsgKey(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || context == null) {
+            return;
+        }
+        if (mRandom == null) {
+            synchronized (ChatMsg.class) {
+                if (mRandom == null) {
+                    mRandom = new Random(System.currentTimeMillis());
+                }
+            }
+        }
+        this.mMsgKey = Utility.byte2Hex(long2bytes(((System.currentTimeMillis() & 1048575) << 20) + ((Utility.getTriggerId(context) & 1023) << 10) + (mRandom.nextInt(1024) & 1023), 5));
+    }
+
     public boolean shouldAbandonMsg(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2163,21 +2178,6 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public void createMsgKey(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || context == null) {
-            return;
-        }
-        if (mRandom == null) {
-            synchronized (ChatMsg.class) {
-                if (mRandom == null) {
-                    mRandom = new Random(System.currentTimeMillis());
-                }
-            }
-        }
-        this.mMsgKey = Utility.byte2Hex(long2bytes(((System.currentTimeMillis() & 1048575) << 20) + ((Utility.getTriggerId(context) & 1023) << 10) + (mRandom.nextInt(1024) & 1023), 5));
     }
 
     public JSONObject getMsgString() {
@@ -2211,8 +2211,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00c3 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00c5 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00c6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

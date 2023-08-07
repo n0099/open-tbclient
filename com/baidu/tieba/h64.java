@@ -1,80 +1,70 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class h64 {
+public class h64 implements oi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 102400;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static String a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                if (TextUtils.isEmpty(a)) {
+                    a = ym3.b();
+                }
+                return a;
+            }
+            return (String) invokeV.objValue;
         }
-        return invokeV.intValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775651, "Lcom/baidu/tieba/h64;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947775651, "Lcom/baidu/tieba/h64;");
-                return;
+    public h64() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = fs1.a;
-        b = -1;
     }
 
-    public static int b() {
+    @Override // com.baidu.tieba.oi2
+    public String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b < 0) {
-                cv2.g0().getSwitch("minigame_code_cache_max_count", 20);
-                b = 20;
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.a();
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static long d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oi2
+    public gi2 a(String str, dj2 dj2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b() * 6 * 1048576;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, dj2Var, v8ThreadDelegatePolicy)) == null) {
+            return new i64(str, dj2Var, v8ThreadDelegatePolicy);
         }
-        return invokeV.longValue;
-    }
-
-    public static g64 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            g64 g64Var = new g64();
-            g64Var.a = b();
-            g64Var.b = c();
-            g64Var.c = d();
-            if (a) {
-                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + g64Var.a + " ,sizeLimit: " + g64Var.b);
-            }
-            return g64Var;
-        }
-        return (g64) invokeV.objValue;
+        return (gi2) invokeLLL.objValue;
     }
 }

@@ -45,7 +45,7 @@ public class CommonWhiteMenu extends BdMenu {
     public void showMenu(PopupWindow popupWindow) {
         popupWindow.showAtLocation(this.mViewToAttach, this.mGravity, this.mDelatX, this.mDelatY);
         if (popupWindow.isShowing()) {
-            popupWindow.setAnimationStyle(com.baidu.tieba.R.style.obfuscated_res_0x7f10041e);
+            popupWindow.setAnimationStyle(com.baidu.tieba.R.style.obfuscated_res_0x7f10041f);
             popupWindow.update(this.mDelatX, this.mDelatY, -1, -1, true);
         }
     }

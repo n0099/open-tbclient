@@ -3,23 +3,27 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
-public final class p10 {
+public class p10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            try {
-                return MessageDigest.getInstance("SHA-1").digest(bArr);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
             }
+            return sb.toString();
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -1,28 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import java.util.List;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface e56 extends h56<j56> {
-    void a(int i);
+public class e56 extends AbsDataRecorder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    List<Integer> d();
-
-    void e(List<d56> list, String str, String str2, String str3, String str4, boolean z, int i);
-
-    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
-
-    void i(List<d56> list, int i);
-
-    void k(List<Object> list);
-
-    View m(int i, View view2, ViewGroup viewGroup, Object obj);
-
-    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
-
-    void o(List<d56> list, List<d56> list2, boolean z, int i);
-
-    void p(String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e56() {
+        super(AbsDataRecorder.Scene.FRS_HOT);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

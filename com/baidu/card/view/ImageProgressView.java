@@ -8,16 +8,16 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.RadiusProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.r45;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.o35;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,15 +98,15 @@ public class ImageProgressView extends FrameLayout {
         b();
     }
 
-    public final ImageProgressItemView a(s45 s45Var) {
+    public final ImageProgressItemView a(p35 p35Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s45Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p35Var)) == null) {
             ImageProgressItemView imageProgressItemView = new ImageProgressItemView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.weight = 1.0f;
             this.b.addView(imageProgressItemView, layoutParams);
-            imageProgressItemView.b(s45Var);
+            imageProgressItemView.b(p35Var);
             return imageProgressItemView;
         }
         return (ImageProgressItemView) invokeL.objValue;
@@ -122,22 +122,22 @@ public class ImageProgressView extends FrameLayout {
         }
     }
 
-    public void c(r45 r45Var) {
+    public void c(o35 o35Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r45Var) != null) || r45Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o35Var) != null) || o35Var == null) {
             return;
         }
-        int count = ListUtils.getCount(r45Var.j());
+        int count = ListUtils.getCount(o35Var.j());
         if (count > 0) {
-            int e = wg.e(r45Var.m(), 0);
-            this.a.setMax(e);
-            this.a.setProgress(wg.e(r45Var.g(), 0) - (e / (count * 2)));
+            int i = JavaTypesHelper.toInt(o35Var.m(), 0);
+            this.a.setMax(i);
+            this.a.setProgress(JavaTypesHelper.toInt(o35Var.g(), 0) - (i / (count * 2)));
         }
         this.c.clear();
         this.b.removeAllViews();
-        if (!ListUtils.isEmpty(r45Var.j())) {
-            for (int i = 0; i < r45Var.j().size(); i++) {
-                this.c.add(a(r45Var.j().get(i)));
+        if (!ListUtils.isEmpty(o35Var.j())) {
+            for (int i2 = 0; i2 < o35Var.j().size(); i2++) {
+                this.c.add(a(o35Var.j().get(i2)));
             }
         }
         d(TbadkCoreApplication.getInst().getSkinType());
@@ -147,9 +147,9 @@ public class ImageProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a.setSolidColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.a.setProgressColor(dba.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorRight(dba.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorLeft(dba.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
+            this.a.setProgressColor(x9a.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorRight(x9a.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorLeft(x9a.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 this.c.get(i2).c(i);
             }

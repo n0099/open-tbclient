@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import com.baidu.tieba.v86;
+import com.baidu.tieba.c66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes5.dex */
-public final class OrderedContactsComparator implements Comparator<v86>, Serializable {
+public final class OrderedContactsComparator implements Comparator<c66>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 1284474050586872045L;
@@ -32,18 +32,18 @@ public final class OrderedContactsComparator implements Comparator<v86>, Seriali
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(v86 v86Var, v86 v86Var2) {
+    public int compare(c66 c66Var, c66 c66Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v86Var, v86Var2)) == null) {
-            if (v86Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c66Var, c66Var2)) == null) {
+            if (c66Var == null) {
                 return -1;
             }
-            if (v86Var2 == null) {
+            if (c66Var2 == null) {
                 return 1;
             }
-            String b = v86Var.b();
-            String b2 = v86Var2.b();
+            String b = c66Var.b();
+            String b2 = c66Var2.b();
             if ("#".equals(b)) {
                 return 1;
             }

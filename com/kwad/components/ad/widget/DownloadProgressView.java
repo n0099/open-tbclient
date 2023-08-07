@@ -96,19 +96,19 @@ public class DownloadProgressView extends FrameLayout {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d048b, this);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091332);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d048e, this);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091345);
         this.bZ = textProgressBar;
         textProgressBar.setTextDimen(this.Cp);
         this.bZ.setTextColor(this.Cn, this.Co);
         this.bZ.setProgressDrawable(this.Cq);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091302);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091315);
         this.Cl = textView;
         textView.setTextColor(this.Cm);
         this.Cl.setTextSize(0, this.Cp);
         this.Cl.setVisibility(0);
         this.Cl.setBackground(this.Cr);
-        findViewById(R.id.obfuscated_res_0x7f0912ae).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
+        findViewById(R.id.obfuscated_res_0x7f0912c1).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 DownloadProgressView.this.performClick();
@@ -126,12 +126,12 @@ public class DownloadProgressView extends FrameLayout {
         Drawable drawable = obtainStyledAttributes.getDrawable(6);
         this.Cq = drawable;
         if (drawable == null) {
-            this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e28);
+            this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2d);
         }
         Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
         this.Cr = drawable2;
         if (drawable2 == null) {
-            this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e27);
+            this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2c);
         }
         String string = obtainStyledAttributes.getString(5);
         this.Cs = string;

@@ -67,7 +67,7 @@ public abstract class AbstractClassTypeConstructor extends AbstractTypeConstruct
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public abstract ClassDescriptor mo2101getDeclarationDescriptor();
+    public abstract ClassDescriptor mo2102getDeclarationDescriptor();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AbstractClassTypeConstructor(StorageManager storageManager) {
@@ -116,7 +116,7 @@ public abstract class AbstractClassTypeConstructor extends AbstractTypeConstruct
 
     @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor
     public KotlinType defaultSupertypeIfEmpty() {
-        if (KotlinBuiltIns.isSpecialClassWithNoSupertypes(mo2101getDeclarationDescriptor())) {
+        if (KotlinBuiltIns.isSpecialClassWithNoSupertypes(mo2102getDeclarationDescriptor())) {
             return null;
         }
         return getBuiltIns().getAnyType();
@@ -124,7 +124,7 @@ public abstract class AbstractClassTypeConstructor extends AbstractTypeConstruct
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     public KotlinBuiltIns getBuiltIns() {
-        KotlinBuiltIns builtIns = DescriptorUtilsKt.getBuiltIns(mo2101getDeclarationDescriptor());
+        KotlinBuiltIns builtIns = DescriptorUtilsKt.getBuiltIns(mo2102getDeclarationDescriptor());
         if (builtIns == null) {
             $$$reportNull$$$0(1);
         }
@@ -137,9 +137,9 @@ public abstract class AbstractClassTypeConstructor extends AbstractTypeConstruct
         if (i != 0) {
             return i;
         }
-        ClassDescriptor mo2101getDeclarationDescriptor = mo2101getDeclarationDescriptor();
-        if (hasMeaningfulFqName(mo2101getDeclarationDescriptor)) {
-            identityHashCode = DescriptorUtils.getFqName(mo2101getDeclarationDescriptor).hashCode();
+        ClassDescriptor mo2102getDeclarationDescriptor = mo2102getDeclarationDescriptor();
+        if (hasMeaningfulFqName(mo2102getDeclarationDescriptor)) {
+            identityHashCode = DescriptorUtils.getFqName(mo2102getDeclarationDescriptor).hashCode();
         } else {
             identityHashCode = System.identityHashCode(this);
         }
@@ -158,17 +158,17 @@ public abstract class AbstractClassTypeConstructor extends AbstractTypeConstruct
         if (typeConstructor.getParameters().size() != getParameters().size()) {
             return false;
         }
-        ClassDescriptor mo2101getDeclarationDescriptor = mo2101getDeclarationDescriptor();
-        ClassifierDescriptor mo2101getDeclarationDescriptor2 = typeConstructor.mo2101getDeclarationDescriptor();
-        if (!hasMeaningfulFqName(mo2101getDeclarationDescriptor) || ((mo2101getDeclarationDescriptor2 != null && !hasMeaningfulFqName(mo2101getDeclarationDescriptor2)) || !(mo2101getDeclarationDescriptor2 instanceof ClassDescriptor))) {
+        ClassDescriptor mo2102getDeclarationDescriptor = mo2102getDeclarationDescriptor();
+        ClassifierDescriptor mo2102getDeclarationDescriptor2 = typeConstructor.mo2102getDeclarationDescriptor();
+        if (!hasMeaningfulFqName(mo2102getDeclarationDescriptor) || ((mo2102getDeclarationDescriptor2 != null && !hasMeaningfulFqName(mo2102getDeclarationDescriptor2)) || !(mo2102getDeclarationDescriptor2 instanceof ClassDescriptor))) {
             return false;
         }
-        return areFqNamesEqual(mo2101getDeclarationDescriptor, (ClassDescriptor) mo2101getDeclarationDescriptor2);
+        return areFqNamesEqual(mo2102getDeclarationDescriptor, (ClassDescriptor) mo2102getDeclarationDescriptor2);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor
     public Collection<KotlinType> getAdditionalNeighboursInSupertypeGraph(boolean z) {
-        DeclarationDescriptor containingDeclaration = mo2101getDeclarationDescriptor().getContainingDeclaration();
+        DeclarationDescriptor containingDeclaration = mo2102getDeclarationDescriptor().getContainingDeclaration();
         if (!(containingDeclaration instanceof ClassDescriptor)) {
             List emptyList = Collections.emptyList();
             if (emptyList == null) {
@@ -179,9 +179,9 @@ public abstract class AbstractClassTypeConstructor extends AbstractTypeConstruct
         SmartList smartList = new SmartList();
         ClassDescriptor classDescriptor = (ClassDescriptor) containingDeclaration;
         smartList.add(classDescriptor.getDefaultType());
-        ClassDescriptor mo2094getCompanionObjectDescriptor = classDescriptor.mo2094getCompanionObjectDescriptor();
-        if (z && mo2094getCompanionObjectDescriptor != null) {
-            smartList.add(mo2094getCompanionObjectDescriptor.getDefaultType());
+        ClassDescriptor mo2095getCompanionObjectDescriptor = classDescriptor.mo2095getCompanionObjectDescriptor();
+        if (z && mo2095getCompanionObjectDescriptor != null) {
+            smartList.add(mo2095getCompanionObjectDescriptor.getDefaultType());
         }
         return smartList;
     }

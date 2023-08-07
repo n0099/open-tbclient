@@ -1,93 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.compact.DelegateNativeAdView;
-import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeRecommand;
 /* loaded from: classes7.dex */
-public class qia implements lc7<DelegateNativeAdView, AdvertAppInfo> {
+public class qia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ICardInfo a;
-    public final String b;
-    public final int c;
-    public TbPageContext<?> d;
-    public String e;
+    public String a;
+    public String b;
+    public String c;
 
-    public qia(int i, int i2) {
+    public qia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = pia.a(i);
-        this.b = pia.c(i);
-        this.c = i2;
     }
 
-    public qia(int i, int i2, int i3) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        this.a = pia.b(i, i2);
-        this.b = pia.d(i, i2);
-        this.c = i3;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            DelegateNativeAdView delegateNativeAdView = new DelegateNativeAdView(viewGroup.getContext(), this.d, this.a, this.c, this.e);
-            zd7.i(delegateNativeAdView, Integer.valueOf(zd7.e() - nz.r));
-            return delegateNativeAdView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (View) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: d */
-    public void b(@NonNull DelegateNativeAdView delegateNativeAdView, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateNativeAdView, advertAppInfo) == null) {
-            delegateNativeAdView.a(advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.lc7
-    @NonNull
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,23 +56,14 @@ public class qia implements lc7<DelegateNativeAdView, AdvertAppInfo> {
         return (String) invokeV.objValue;
     }
 
-    public qia e(String str) {
-        InterceptResult invokeL;
+    public void d(ThemeRecommand themeRecommand) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.e = str;
-            return this;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, themeRecommand) != null) || themeRecommand == null) {
+            return;
         }
-        return (qia) invokeL.objValue;
-    }
-
-    public qia f(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tbPageContext)) == null) {
-            this.d = tbPageContext;
-            return this;
-        }
-        return (qia) invokeL.objValue;
+        this.a = themeRecommand.icon;
+        this.b = themeRecommand.tip_text;
+        this.c = themeRecommand.button_text;
+        String str = themeRecommand.button_url;
     }
 }

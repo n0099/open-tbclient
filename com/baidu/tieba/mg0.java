@@ -1,212 +1,224 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.opengl.GLES20;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.faceunity.gles.GeneratedTexture;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class mg0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static float j = 0.0f;
-    public static float k = 0.0f;
-    public static float l = 1.0f;
-    public static float m = 1.0f;
-    public static float n;
-    public static List<Point> o;
-    public static List<Point> p;
-    public static List<Point> q;
-    public static List<Point> r;
-    public static List<List<Point>> s;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public List<Point> f;
-    public List<Point> g;
-    public List<Point> h;
-    public List<Point> i;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947971571, "Lcom/baidu/tieba/mg0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947971571, "Lcom/baidu/tieba/mg0;");
-                return;
-            }
-        }
-        a();
-    }
+    public int[] a;
+    public int[] b;
+    public final FloatBuffer c;
+    public final FloatBuffer d;
+    public final FloatBuffer e;
+    public int f;
+    public int g;
+    public int h;
+    public float[] i;
 
     public mg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = j;
-        this.b = k;
-        this.c = l;
-        this.d = m;
-        this.e = n;
-        this.f = o;
-        this.g = p;
-        this.h = q;
-        this.i = r;
+        this.i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(rg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.c = asFloatBuffer;
+        asFloatBuffer.put(rg0.a).position(0);
+        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(tg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.d = asFloatBuffer2;
+        asFloatBuffer2.put(tg0.a).position(0);
+        float[] b = tg0.b(Rotation.NORMAL, false, true);
+        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.e = asFloatBuffer3;
+        asFloatBuffer3.put(b).position(0);
     }
 
-    public static void a() {
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            ArrayList arrayList = new ArrayList();
-            o = arrayList;
-            arrayList.add(new Point(0, 0));
-            o.add(new Point(255, 255));
-            ArrayList arrayList2 = new ArrayList();
-            p = arrayList2;
-            arrayList2.add(new Point(0, 0));
-            p.add(new Point(255, 255));
-            ArrayList arrayList3 = new ArrayList();
-            q = arrayList3;
-            arrayList3.add(new Point(0, 0));
-            q.add(new Point(255, 255));
-            ArrayList arrayList4 = new ArrayList();
-            r = arrayList4;
-            arrayList4.add(new Point(0, 0));
-            r.add(new Point(255, 255));
-            ArrayList arrayList5 = new ArrayList();
-            s = arrayList5;
-            arrayList5.add(o);
-            s.add(p);
-            s.add(q);
-            s.add(r);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr != null && this.h < iArr.length) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int[] iArr = this.b;
+            if (iArr != null) {
+                GLES20.glDeleteTextures(iArr.length, iArr, 0);
+                this.b = null;
+            }
+            int[] iArr2 = this.a;
+            if (iArr2 != null) {
+                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
+                this.a = null;
+            }
         }
     }
 
-    public static mg0 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = 0;
+        }
+    }
+
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i != 0 && i2 != 0) {
+            if (this.f != i || this.g != i2) {
+                if (this.a != null) {
+                    b();
+                }
+                this.f = i;
+                this.g = i2;
+                d(2);
+            }
+        }
+    }
+
+    public final void d(int i) {
         int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (jSONObject == null || jSONObject.length() == 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int[] iArr = this.a;
+            if (iArr != null) {
+                i2 = i + iArr.length;
+            } else {
+                i2 = i;
             }
-            mg0 mg0Var = new mg0();
+            int[] iArr2 = new int[i2];
+            int[] iArr3 = new int[i2];
+            for (int i3 = 0; i3 < i2; i3++) {
+                int[] iArr4 = this.a;
+                if (iArr4 != null && iArr4.length > i3) {
+                    iArr2[i3] = iArr4[i3];
+                }
+                int[] iArr5 = this.b;
+                if (iArr5 != null && iArr5.length > i3) {
+                    iArr3[i3] = iArr5[i3];
+                }
+                if (iArr3[i3] == 0) {
+                    GLES20.glGenFramebuffers(1, iArr2, i3);
+                    GLES20.glGenTextures(1, iArr3, i3);
+                    GLES20.glBindTexture(3553, iArr3[i3]);
+                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f, this.g, 0, GeneratedTexture.FORMAT, 5121, null);
+                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
+                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
+                    GLES20.glBindFramebuffer(36160, iArr2[i3]);
+                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i3], 0);
+                    GLES20.glBindTexture(3553, 0);
+                    GLES20.glBindFramebuffer(36160, 0);
+                }
+            }
+            this.a = iArr2;
+            this.b = iArr3;
+        }
+    }
+
+    public int e(int i, lg0 lg0Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, lg0Var)) == null) {
+            if (lg0Var == null) {
+                return i;
+            }
             try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
-                if (jSONObject2 != null) {
-                    jSONObject2.optDouble("intensity_smooth");
-                    jSONObject2.optDouble("intensity_white");
+                if (a()) {
+                    d(2);
                 }
-                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
-                if (jSONObject3 != null) {
-                    jSONObject3.optDouble("intensity_smooth");
-                    jSONObject3.optDouble("intensity_white");
-                }
-                mg0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
-                mg0Var.b = (float) jSONObject.optDouble("intensity_brightness");
-                mg0Var.c = (float) jSONObject.optDouble("intensity_contrast");
-                mg0Var.d = (float) jSONObject.optDouble("intensity_saturation");
-                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    mg0Var.e = (float) optJSONObject.optDouble("intensity_curves");
-                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        mg0Var.f = new CopyOnWriteArrayList();
-                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
-                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
-                            if (jSONObject4 != null && jSONObject4.length() > 0) {
-                                i8 = jSONObject4.optInt("x");
-                                i7 = jSONObject4.optInt("y");
-                            } else {
-                                i7 = 0;
-                                i8 = 0;
-                            }
-                            mg0Var.f.add(new Point(i8, i7));
-                        }
-                    }
-                    JSONArray jSONArray2 = optJSONObject.getJSONArray(DownloadStatisticConstants.UBC_VALUE_RED);
-                    if (jSONArray2 != null && jSONArray2.length() > 0) {
-                        mg0Var.g = new CopyOnWriteArrayList();
-                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
-                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
-                            if (jSONObject5 != null && jSONObject5.length() > 0) {
-                                i6 = jSONObject5.optInt("x");
-                                i5 = jSONObject5.optInt("y");
-                            } else {
-                                i5 = 0;
-                                i6 = 0;
-                            }
-                            mg0Var.g.add(new Point(i6, i5));
-                        }
-                    }
-                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
-                    if (jSONArray3 != null && jSONArray3.length() > 0) {
-                        mg0Var.h = new CopyOnWriteArrayList();
-                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
-                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
-                            if (jSONObject6 != null && jSONObject6.length() > 0) {
-                                i4 = jSONObject6.optInt("x");
-                                i3 = jSONObject6.optInt("y");
-                            } else {
-                                i3 = 0;
-                                i4 = 0;
-                            }
-                            mg0Var.h.add(new Point(i4, i3));
-                        }
-                    }
-                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
-                    if (jSONArray4 != null && jSONArray4.length() > 0) {
-                        mg0Var.i = new CopyOnWriteArrayList();
-                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
-                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
-                            if (jSONObject7 != null && jSONObject7.length() > 0) {
-                                i2 = jSONObject7.optInt("x");
-                                i = jSONObject7.optInt("y");
-                            } else {
-                                i = 0;
-                                i2 = 0;
-                            }
-                            mg0Var.i.add(new Point(i2, i));
-                        }
-                    }
-                }
-                return mg0Var;
-            } catch (JSONException unused) {
-                return null;
+                lg0Var.s();
+                GLES20.glBindFramebuffer(36160, this.a[this.h]);
+                GLES20.glViewport(0, 0, this.f, this.g);
+                GLES20.glClearColor(this.i[0], this.i[1], this.i[2], this.i[3]);
+                GLES20.glClear(16640);
+                lg0Var.p(i, this.c, this.e);
+                GLES20.glBindFramebuffer(36160, 0);
+                i = this.b[this.h];
+                this.h++;
+                return i;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
             }
         }
-        return (mg0) invokeL.objValue;
+        return invokeIL.intValue;
+    }
+
+    public int f(int i, List<lg0> list) {
+        InterceptResult invokeIL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, list)) == null) {
+            if (list != null) {
+                int size = list.size();
+                if (size == 0) {
+                    return i;
+                }
+                if (this.a.length - this.h <= size) {
+                    d(size);
+                }
+                int i3 = this.h;
+                while (true) {
+                    i2 = this.h;
+                    if (i3 >= i2 + size) {
+                        break;
+                    }
+                    lg0 lg0Var = list.get(i3 - i2);
+                    lg0Var.s();
+                    GLES20.glBindFramebuffer(36160, this.a[i3]);
+                    GLES20.glViewport(0, 0, this.f, this.g);
+                    float[] fArr = this.i;
+                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
+                    GLES20.glClear(16640);
+                    lg0Var.p(i, this.c, this.e);
+                    GLES20.glBindFramebuffer(36160, 0);
+                    i = this.b[i3];
+                    i3++;
+                }
+                this.h = i2 + size;
+            }
+            return i;
+        }
+        return invokeIL.intValue;
+    }
+
+    public void h(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            float[] fArr = this.i;
+            fArr[0] = f;
+            fArr[1] = f2;
+            fArr[2] = f3;
+            fArr[3] = f4;
+        }
     }
 }

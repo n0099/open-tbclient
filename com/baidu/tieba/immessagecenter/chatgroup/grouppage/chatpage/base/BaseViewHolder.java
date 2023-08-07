@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.oj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,9 +33,9 @@ public abstract class BaseViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void e(@NonNull vl8 vl8Var) {
+    public void e(@NonNull oj8 oj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vl8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, oj8Var) == null) {
         }
     }
 

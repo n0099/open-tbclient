@@ -13,8 +13,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -23,24 +27,20 @@ import com.baidu.sapi2.result.GetPopularPortraitsInfoResult;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
 import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.p55;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.xu5;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yu5;
+import com.baidu.tieba.e95;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.ms5;
+import com.baidu.tieba.ns5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,15 +57,15 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public View c;
     public BdGridView d;
     public LinearLayout e;
-    public xu5 f;
-    public ArrayList<yu5> g;
+    public ms5 f;
+    public ArrayList<ns5> g;
     public int h;
     public h i;
-    public jn j;
+    public BdImage j;
     public String k;
     public boolean l;
-    public ma5 m;
-    public rg<jn> n;
+    public BlueCircleProgressDialog m;
+    public BdResourceCallback<BdImage> n;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -134,7 +134,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != -1) {
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
-                changeSystemPhotoActivity.K1((yu5) changeSystemPhotoActivity.g.get(this.a.h));
+                changeSystemPhotoActivity.K1((ns5) changeSystemPhotoActivity.g.get(this.a.h));
             }
         }
     }
@@ -168,14 +168,14 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.g != null && this.a.g.size() > 0 && this.a.g.size() > i && this.a.g.get(i) != null) {
                 this.a.h = i;
-                this.a.H1(true);
+                this.a.G1(true);
                 this.a.f.b(i);
                 this.a.f.notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends GetPopularPortraitsCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,11 +231,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getPopularPortraitsInfoResult) == null) && getPopularPortraitsInfoResult != null && (list = getPopularPortraitsInfoResult.popularPortraitsInfoList) != null && list.size() > 0) {
                 for (GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo : getPopularPortraitsInfoResult.popularPortraitsInfoList) {
                     if (popularPortraitsInfo != null && popularPortraitsInfo.url != null) {
-                        yu5 yu5Var = new yu5();
-                        yu5Var.d(popularPortraitsInfo.url);
-                        yu5Var.c(popularPortraitsInfo.num);
-                        yu5Var.b(popularPortraitsInfo.myItem);
-                        this.a.g.add(yu5Var);
+                        ns5 ns5Var = new ns5();
+                        ns5Var.d(popularPortraitsInfo.url);
+                        ns5Var.c(popularPortraitsInfo.num);
+                        ns5Var.b(popularPortraitsInfo.myItem);
+                        this.a.g.add(ns5Var);
                     }
                 }
                 this.a.f.c(this.a.g);
@@ -244,8 +244,8 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements p55.e {
+    /* loaded from: classes5.dex */
+    public class e implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChangeSystemPhotoActivity a;
@@ -268,17 +268,17 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             this.a = changeSystemPhotoActivity;
         }
 
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
-                p55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+                m45Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class f implements p55.e {
+    /* loaded from: classes5.dex */
+    public class f implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChangeSystemPhotoActivity a;
@@ -301,18 +301,18 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             this.a = changeSystemPhotoActivity;
         }
 
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
                 this.a.setResult(0);
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g extends rg<jn> {
+    /* loaded from: classes5.dex */
+    public class g extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChangeSystemPhotoActivity a;
@@ -336,22 +336,22 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
-                super.onLoaded((g) jnVar, str, i);
-                if (jnVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((g) bdImage, str, i);
+                if (bdImage == null) {
                     return;
                 }
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
                 if (changeSystemPhotoActivity.m == null) {
-                    changeSystemPhotoActivity.m = new ma5(changeSystemPhotoActivity.getPageContext());
-                    this.a.m.e(null);
+                    changeSystemPhotoActivity.m = new BlueCircleProgressDialog(changeSystemPhotoActivity.getPageContext());
+                    this.a.m.setCancelListener(null);
                 }
-                this.a.m.h(true);
+                this.a.m.setDialogVisiable(true);
                 if (this.a.l) {
-                    this.a.j = jnVar;
+                    this.a.j = bdImage;
                     if (this.a.i != null) {
                         this.a.i.cancel();
                     }
@@ -359,19 +359,19 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     this.a.i.execute(new String[0]);
                     return;
                 }
-                Bitmap p = jnVar.p();
-                if (p != null) {
-                    if (!this.a.L1(TbConfig.PERSON_USER_PIC_TEMP_FILE, p)) {
-                        ma5 ma5Var = this.a.m;
-                        if (ma5Var != null) {
-                            ma5Var.h(false);
+                Bitmap rawBitmap = bdImage.getRawBitmap();
+                if (rawBitmap != null) {
+                    if (!this.a.L1(TbConfig.PERSON_USER_PIC_TEMP_FILE, rawBitmap)) {
+                        BlueCircleProgressDialog blueCircleProgressDialog = this.a.m;
+                        if (blueCircleProgressDialog != null) {
+                            blueCircleProgressDialog.setDialogVisiable(false);
                             return;
                         }
                         return;
                     }
-                    ma5 ma5Var2 = this.a.m;
-                    if (ma5Var2 != null) {
-                        ma5Var2.h(false);
+                    BlueCircleProgressDialog blueCircleProgressDialog2 = this.a.m;
+                    if (blueCircleProgressDialog2 != null) {
+                        blueCircleProgressDialog2.setDialogVisiable(false);
                     }
                     Intent intent = new Intent();
                     intent.putExtra("upload_image_type", 2);
@@ -379,15 +379,15 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     this.a.finish();
                     return;
                 }
-                ma5 ma5Var3 = this.a.m;
-                if (ma5Var3 != null) {
-                    ma5Var3.h(false);
+                BlueCircleProgressDialog blueCircleProgressDialog3 = this.a.m;
+                if (blueCircleProgressDialog3 != null) {
+                    blueCircleProgressDialog3.setDialogVisiable(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -448,7 +448,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
                 this.a = netWork;
                 try {
-                    netWork.addPostData("pic", this.b.j.n());
+                    netWork.addPostData("pic", this.b.j.getImageByte());
                     str = this.a.postMultiNetData();
                 } catch (Exception e2) {
                     e = e2;
@@ -473,15 +473,15 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a != null) {
-                ma5 ma5Var = this.b.m;
-                if (ma5Var != null) {
-                    ma5Var.h(false);
+                BlueCircleProgressDialog blueCircleProgressDialog = this.b.m;
+                if (blueCircleProgressDialog != null) {
+                    blueCircleProgressDialog.setDialogVisiable(false);
                 }
                 if (!TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SET_USER_AVATAR)) {
                     MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SET_USER_AVATAR));
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    new oa5().d(this.b.getResources().getString(R.string.reset_success));
+                    new e95().d(this.b.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, this.b.k);
                     intent.putExtra("upload_image_type", 1);
@@ -493,7 +493,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     }
                     return;
                 }
-                new oa5().c(this.a.getNetContext().getResponse().mErrorString);
+                new e95().c(this.a.getNetContext().getResponse().mErrorString);
                 this.b.finish();
             }
         }
@@ -530,11 +530,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            p55 p55Var = new p55(getPageContext().getPageActivity());
-            p55Var.setMessageId(R.string.enter_forum_cancel_change_tip);
-            p55Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new e(this));
-            p55Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c1, new f(this));
-            p55Var.create(getPageContext()).show();
+            m45 m45Var = new m45(getPageContext().getPageActivity());
+            m45Var.setMessageId(R.string.enter_forum_cancel_change_tip);
+            m45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new e(this));
+            m45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c1, new f(this));
+            m45Var.create(getPageContext()).show();
         }
     }
 
@@ -572,7 +572,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         return invokeIL.booleanValue;
     }
 
-    public void H1(boolean z) {
+    public void G1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.b.setEnabled(z);
@@ -585,7 +585,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01f3);
+            setContentView(R.layout.obfuscated_res_0x7f0d01f6);
             J1();
             initData();
         }
@@ -612,7 +612,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069a);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a7);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -622,27 +622,27 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f05a7));
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
-            layoutParams.rightMargin = yi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
-            int g2 = yi.g(getPageContext().getPageActivity(), R.dimen.tbds27);
-            this.b.setPadding(g2, 0, g2, 0);
-            H1(false);
+            int dimens = BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.tbds27);
+            this.b.setPadding(dimens, 0, dimens, 0);
+            G1(false);
             SkinManager.setBackgroundResource(this.b, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.b, R.color.navbar_btn_color, 1);
             this.b.setOnClickListener(new b(this));
-            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091e56);
-            xu5 xu5Var = new xu5(getPageContext());
-            this.f = xu5Var;
-            this.d.setAdapter((ListAdapter) xu5Var);
+            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091e6c);
+            ms5 ms5Var = new ms5(getPageContext());
+            this.f = ms5Var;
+            this.d.setAdapter((ListAdapter) ms5Var);
             this.d.setOnItemClickListener(new c(this));
         }
     }
 
-    public void K1(yu5 yu5Var) {
+    public void K1(ns5 ns5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, yu5Var) == null) && yu5Var != null && !StringUtils.isNull(yu5Var.a())) {
-            this.k = yu5Var.a();
-            sg.h().k(yu5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ns5Var) == null) && ns5Var != null && !StringUtils.isNull(ns5Var.a())) {
+            this.k = ns5Var.a();
+            BdResourceLoader.getInstance().loadResource(ns5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
         }
     }
 
@@ -652,14 +652,14 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            q05 layoutMode = getLayoutMode();
+            BDLayoutMode layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
-            getLayoutMode().k(this.e);
+            layoutMode.setNightMode(z);
+            getLayoutMode().onModeChanged(this.e);
             this.a.onChangeSkinType(getPageContext(), i);
             SkinManager.setBackgroundResource(this.b, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.b, R.color.navbar_btn_color, 1);

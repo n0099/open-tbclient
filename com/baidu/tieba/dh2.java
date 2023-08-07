@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
+import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ru2;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,40 +14,199 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
 public final class dh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static LinkedList<e> b;
+    public static Map<String, ex1> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface f {
+        void onReady();
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final dh2 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-861759587, "Lcom/baidu/tieba/dh2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-861759587, "Lcom/baidu/tieba/dh2$b;");
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (dh2.a) {
+                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
+                }
+                dh2.n(lw2.T().getActivity());
+                if (dh2.a) {
+                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends m92 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ boolean b;
+
+        public b(e eVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new dh2(null);
+            this.a = eVar;
+            this.b = z;
+        }
+
+        @Override // com.baidu.tieba.m92
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (dh2.a) {
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + this.a.a.a() + " url: " + str);
+                }
+                if (!x63.D() || !sh2.U().q0()) {
+                    dh2.l(this.a, this.b);
+                } else {
+                    dh2.m(this.a, this.b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ boolean b;
+
+        public c(e eVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (dh2.a) {
+                    Log.d("SwanAppSlavePool", "slave onReceiveValue: " + str);
+                }
+                dh2.l(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends m92 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ex1 a;
+
+        public d(ex1 ex1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ex1Var;
+        }
+
+        @Override // com.baidu.tieba.m92
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.destroy();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ex1 a;
+        public boolean b;
+        public final ArrayList<f> c;
+        public long d;
+        public long e;
+        public boolean f;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = new ArrayList<>();
+            this.f = true;
         }
     }
 
@@ -68,266 +223,241 @@ public final class dh2 {
                 return;
             }
         }
-        b = fs1.a;
+        a = ir1.a;
+        b = new LinkedList<>();
+        c = new TreeMap();
     }
 
-    public dh2() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            b.clear();
+            c.clear();
         }
-        this.a = false;
     }
 
-    public static dh2 c() {
+    public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (dh2) invokeV.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            ya3 b0 = ya3.b0();
+            if (b0 != null && b0.Q() != null) {
+                return b0.Q().u;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void m(@NonNull e eVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65549, null, eVar, z) == null) {
+            j82.k().o(eVar.a, new c(eVar, z));
         }
     }
 
-    public /* synthetic */ dh2(a aVar) {
-        this();
-    }
-
-    public final void a(@NonNull SwanAppConfigData swanAppConfigData) {
+    public static void o(@NonNull String str, ex1 ex1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, swanAppConfigData) == null) {
-            if (b) {
-                Log.d("AppLaunchMessenger", "afterLaunchEventSent: start");
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, ex1Var) == null) {
+            Map<String, ex1> map = c;
+            if (str == null) {
+                str = "";
             }
-            f12.k(swanAppConfigData);
-            fh2.k().x(ub3.K().getAppId(), false);
-            rk3.l().t();
+            map.put(str, ex1Var);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00d1 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00dd A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00ef A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x013d A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x014a  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01bf A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x01c7 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01d1  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x01e0 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x022e A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Type inference failed for: r3v15, types: [com.baidu.tieba.cy1] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void b(@NonNull rd2 rd2Var, @NonNull by1 by1Var, @NonNull sw2 sw2Var, @NonNull SwanAppConfigData swanAppConfigData, @Nullable ru2.g gVar, boolean z) {
-        boolean z2;
-        PMSAppInfo f0;
-        boolean H;
-        Bundle P;
-        boolean F;
-        mi2 mi2Var;
+    public static void q(e eVar, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rd2Var, by1Var, sw2Var, swanAppConfigData, gVar, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("AppLaunchMessenger", "dispatchLaunchEvent");
-                    Log.d("SwanPrelink", "start dispatch launch event");
+        if ((interceptable != null && interceptable.invokeLL(65553, null, eVar, fVar) != null) || fVar == null) {
+            return;
+        }
+        if (eVar.b) {
+            fVar.onReady();
+            return;
+        }
+        eVar.c.add(fVar);
+        eVar.f = false;
+    }
+
+    public static e e(Context context, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (!ih2.d()) {
+                i = 0;
+            }
+            e eVar = new e();
+            eVar.d = System.currentTimeMillis();
+            eVar.b = false;
+            eVar.a = sh2.U().K0(context, i, new b(eVar, z));
+            return eVar;
+        }
+        return (e) invokeCommon.objValue;
+    }
+
+    public static e f(@Nullable Activity activity, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, activity, i)) == null) {
+            if (a) {
+                Log.d("SwanAppSlavePool", "getPreloadSlaveManager: " + i);
+                Log.d("SwanAppSlavePool", Log.getStackTraceString(new Exception()));
+            }
+            return g(activity, i, false);
+        }
+        return (e) invokeLI.objValue;
+    }
+
+    public static e g(@Nullable Activity activity, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (a) {
+                Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
+            }
+            if (!ih2.d()) {
+                i = 0;
+            }
+            e eVar = null;
+            Iterator<e> it = b.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
                 }
-                if (this.a) {
-                    if (z) {
-                        ki2.c(14);
-                    }
+                e next = it.next();
+                if (next.a.P() == i) {
+                    eVar = next;
+                    break;
+                }
+            }
+            if (eVar == null) {
+                return e(k(activity), i, false);
+            }
+            b.remove(eVar);
+            ex1 ex1Var = eVar.a;
+            if (ex1Var != null && activity != null) {
+                ex1Var.attachActivity(activity);
+            }
+            if (a) {
+                Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
+            }
+            if (!z) {
+                int g = z43.g();
+                if (g <= 0) {
+                    g = 600;
+                }
+                so3.b0(new a(), g);
+            }
+            return eVar;
+        }
+        return (e) invokeCommon.objValue;
+    }
+
+    public static ex1 h(@NonNull String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            Map<String, ex1> map = c;
+            if (str != null) {
+                str2 = str;
+            } else {
+                str2 = "";
+            }
+            ex1 ex1Var = map.get(str2);
+            if (ex1Var != null) {
+                c.remove(str);
+            }
+            return ex1Var;
+        }
+        return (ex1) invokeL.objValue;
+    }
+
+    public static Context k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            if (context == null) {
+                return fu2.c();
+            }
+            if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
+                return fu2.c();
+            }
+            return context;
+        }
+        return (Context) invokeL.objValue;
+    }
+
+    public static boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            for (int i2 = 0; i2 < b.size(); i2++) {
+                if (b.get(i2).a.P() == i) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
+            if (!j(0)) {
+                b.add(e(k(context), 0, true));
+            }
+            if (!j(1) && ih2.d() && i()) {
+                b.add(e(k(context), 1, true));
+            }
+        }
+    }
+
+    public static void l(@NonNull e eVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65548, null, eVar, z) == null) {
+            if (z && eVar.f) {
+                jh2.j(eVar.a);
+            }
+            eVar.e = System.currentTimeMillis();
+            eVar.b = true;
+            if (eVar.c.isEmpty()) {
+                return;
+            }
+            Iterator<f> it = eVar.c.iterator();
+            while (it.hasNext()) {
+                f next = it.next();
+                if (next != null) {
+                    next.onReady();
+                }
+            }
+            eVar.c.clear();
+        }
+    }
+
+    public static void p(@NonNull ex1<?> ex1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, ex1Var) == null) {
+            if (ex1Var.P() == 1 && !i()) {
+                if (sh2.U().l0()) {
+                    ex1Var.destroy();
+                    return;
+                } else {
+                    sh2.U().K(new d(ex1Var));
                     return;
                 }
-                if (z) {
-                    ki2.c(1);
-                }
-                String d = gf3.d(ix2.T(), sw2Var, swanAppConfigData);
-                String h = swanAppConfigData.h(d);
-                ji2 ji2Var = new ji2();
-                ji2Var.a = swanAppConfigData.n;
-                if (gVar != null && !TextUtils.isEmpty(gVar.a)) {
-                    ji2Var.b = gVar.a;
-                } else {
-                    ji2Var.b = ru2.e.i(sw2Var.H(), sw2Var.v1()).getPath() + File.separator;
-                }
-                ji2Var.c = by1Var.a();
-                ji2Var.d = d;
-                ji2Var.f = String.valueOf(s82.a());
-                ji2Var.g = ji2.c(vb3.M(), d);
-                ji2Var.i = h;
-                if (!b && !ix2.T().M()) {
-                    z2 = false;
-                    ji2Var.h = z2;
-                    ji2Var.j = by1Var.I();
-                    ji2Var.l = ni2.b();
-                    f0 = sw2Var.f0();
-                    if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
-                        ji2Var.m = f0.userActionApis;
-                    }
-                    H = u73.H();
-                    if (H) {
-                        ji2Var.k = y82.b();
-                    }
-                    P = sw2Var.P();
-                    if (P != null) {
-                        String string = P.getString(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
-                        if (!TextUtils.isEmpty(string)) {
-                            ji2Var.e = string;
-                        }
-                    }
-                    if (b) {
-                        Log.d("AppLaunchMessenger", ji2Var.toString());
-                    }
-                    a53.o().F(new UbcFlowEvent("master_dispatch_start"));
-                    vh3.d().i("master_dispatch_start");
-                    rd2Var.C(ji2Var);
-                    pi2.U().U0(ji2.b(ji2Var));
-                    cv2.m0().a();
-                    pi2.U().h1(ji2Var.j);
-                    F = u73.F(sw2Var.g0());
-                    boolean p0 = sw2Var.p0();
-                    if (!F) {
-                        l92.d();
-                        l92.g().h("appready");
-                    } else if (p0) {
-                        e92.e().f("appready");
-                    }
-                    kc3 f = ix2.T().f(nf3.b(np3.f(d)));
-                    mi2Var = new mi2();
-                    if (gVar == null && !TextUtils.isEmpty(gVar.a)) {
-                        mi2Var.a = gVar.a;
-                    } else {
-                        mi2Var.a = ru2.e.i(sw2Var.H(), sw2Var.v1()).getPath() + File.separator;
-                    }
-                    mi2Var.b = d;
-                    mi2Var.d = f.g;
-                    mi2Var.c = h;
-                    mi2Var.k = ji2Var.g;
-                    mi2Var.e = String.valueOf(sw2Var.m0());
-                    mi2Var.g = z2;
-                    mi2Var.i = by1Var.I();
-                    mi2Var.m = true;
-                    if (H) {
-                        mi2Var.j = y82.d();
-                    }
-                    if (!F) {
-                        l92.g().h("pageready");
-                    } else if (p0) {
-                        e92.e().f("pageready");
-                    }
-                    if (b) {
-                        Log.d("AppLaunchMessenger", mi2Var.toString());
-                    }
-                    a53.o().F(new UbcFlowEvent("slave_dispatch_start"));
-                    vh3.d().i("slave_dispatch_start");
-                    by1Var.J(mi2Var);
-                    cp3.d();
-                    by1Var.r().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d);
-                    by1Var.Q(d);
-                    pi2.U().V0(by1Var.a(), mi2.a(mi2Var));
-                    fi3.F(by1Var.a(), mi2Var.b);
-                    if (b) {
-                        Log.d("AppLaunchMessenger", "app path: " + ji2Var.b);
-                        Log.d("AppLaunchMessenger", "webviewId: " + by1Var.a());
-                        Log.d("AppLaunchMessenger", "pageUrl: " + d);
-                        Log.d("AppLaunchMessenger", "pagePath: " + mi2Var.b);
-                        Log.d("AppLaunchMessenger", "onReachBottomDistance: " + mi2Var.d);
-                        Log.d("AppLaunchMessenger", "sConsole:" + mi2Var.e);
-                    }
-                    a(swanAppConfigData);
-                    this.a = true;
-                    e();
-                }
-                z2 = true;
-                ji2Var.h = z2;
-                ji2Var.j = by1Var.I();
-                ji2Var.l = ni2.b();
-                f0 = sw2Var.f0();
-                if (f0 != null) {
-                    ji2Var.m = f0.userActionApis;
-                }
-                H = u73.H();
-                if (H) {
-                }
-                P = sw2Var.P();
-                if (P != null) {
-                }
-                if (b) {
-                }
-                a53.o().F(new UbcFlowEvent("master_dispatch_start"));
-                vh3.d().i("master_dispatch_start");
-                rd2Var.C(ji2Var);
-                pi2.U().U0(ji2.b(ji2Var));
-                cv2.m0().a();
-                pi2.U().h1(ji2Var.j);
-                F = u73.F(sw2Var.g0());
-                boolean p02 = sw2Var.p0();
-                if (!F) {
-                }
-                kc3 f2 = ix2.T().f(nf3.b(np3.f(d)));
-                mi2Var = new mi2();
-                if (gVar == null) {
-                }
-                mi2Var.a = ru2.e.i(sw2Var.H(), sw2Var.v1()).getPath() + File.separator;
-                mi2Var.b = d;
-                mi2Var.d = f2.g;
-                mi2Var.c = h;
-                mi2Var.k = ji2Var.g;
-                mi2Var.e = String.valueOf(sw2Var.m0());
-                mi2Var.g = z2;
-                mi2Var.i = by1Var.I();
-                mi2Var.m = true;
-                if (H) {
-                }
-                if (!F) {
-                }
-                if (b) {
-                }
-                a53.o().F(new UbcFlowEvent("slave_dispatch_start"));
-                vh3.d().i("slave_dispatch_start");
-                by1Var.J(mi2Var);
-                cp3.d();
-                by1Var.r().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d);
-                by1Var.Q(d);
-                pi2.U().V0(by1Var.a(), mi2.a(mi2Var));
-                fi3.F(by1Var.a(), mi2Var.b);
-                if (b) {
-                }
-                a(swanAppConfigData);
-                this.a = true;
-                e();
             }
-        }
-    }
-
-    public final void e() {
-        int b2;
-        rd2 W;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b2 = t53.b()) != 0 && (W = pi2.U().W()) != null) {
-            if (b2 < 0) {
-                W.o(b2);
-            } else if (b2 == 1) {
-                W.o(-4);
+            e eVar = new e();
+            eVar.d = System.currentTimeMillis();
+            eVar.b = false;
+            eVar.a = ex1Var;
+            b.add(eVar);
+            if (x63.D() && sh2.U().q0()) {
+                m(eVar, true);
             } else {
-                W.o(-2);
+                l(eVar, true);
             }
         }
     }

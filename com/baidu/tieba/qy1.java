@@ -1,104 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qy1 {
+public class qy1 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948108064, "Lcom/baidu/tieba/qy1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(qy1 qy1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948108064, "Lcom/baidu/tieba/qy1;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qy1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        boolean z = fs1.a;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ma2.a3();
+            }
+        }
     }
 
-    public qy1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qy1(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/setSelectedAddressSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i;
-        this.e = i2;
-        this.f = i3;
-        this.g = z;
     }
 
-    public p03 a() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("showMuteBtn", true);
-                jSONObject.put("showCenterPlayBtn", true);
-                p03 p03Var = new p03();
-                p03Var.j = "SwanAdPlayer";
-                p03Var.b = "SwanAdPlayer";
-                p03Var.o = true;
-                p03Var.k = false;
-                if (!this.g) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                p03Var.x = z;
-                p03Var.I = false;
-                p03Var.l = this.a;
-                p03Var.y = this.b;
-                p03Var.c = this.c;
-                b23 b23Var = new b23(0, 0, this.d, this.e);
-                p03Var.h = b23Var;
-                b23Var.i(true);
-                p03Var.m = this.f;
-                if (this.g) {
-                    p03Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
-                }
-                return p03.h(jSONObject, p03Var);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.i("SetSelectedAddressSync", "framework error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                String optString = optParamsAsJo.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    y72.i("SetSelectedAddressSync", "error no" + optString);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error no" + optString);
+                    return false;
+                }
+                JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    j(optJSONObject);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                y72.i("SetSelectedAddressSync", "address data is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
+                return false;
+            }
+            y72.i("SetSelectedAddressSync", "empty params");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+            return false;
         }
-        return (p03) invokeV.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            ty1.a().c(jSONObject);
+            so3.a0(new a(this));
+        }
     }
 }

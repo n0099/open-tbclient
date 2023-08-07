@@ -20,6 +20,7 @@ import org.json.JSONObject;
 public final class ShareIMCommonCardData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
+    public static final int TYPE_ACTIVE = 3;
     public static final int TYPE_ALBUM = 2;
     public static final int TYPE_TOPIC = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,17 +57,24 @@ public final class ShareIMCommonCardData implements Serializable {
     }
 
     @JvmStatic
-    public static final boolean isValidAlbum(ShareIMCommonCardData shareIMCommonCardData) {
+    public static final boolean isValidActive(ShareIMCommonCardData shareIMCommonCardData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, shareIMCommonCardData)) == null) ? Companion.b(shareIMCommonCardData) : invokeL.booleanValue;
     }
 
     @JvmStatic
-    public static final boolean isValidTopic(ShareIMCommonCardData shareIMCommonCardData) {
+    public static final boolean isValidAlbum(ShareIMCommonCardData shareIMCommonCardData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shareIMCommonCardData)) == null) ? Companion.c(shareIMCommonCardData) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean isValidTopic(ShareIMCommonCardData shareIMCommonCardData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, shareIMCommonCardData)) == null) ? Companion.d(shareIMCommonCardData) : invokeL.booleanValue;
     }
 
     /* loaded from: classes6.dex */
@@ -117,6 +125,7 @@ public final class ShareIMCommonCardData implements Serializable {
                 Intrinsics.checkNotNullExpressionValue(optString3, "shareIMCardObject.optString(\"tagName\")");
                 shareIMCommonCardData.setTagName(optString3);
                 int optInt = optJSONObject.optInt("type");
+                int optInt2 = optJSONObject.optInt("sceneId");
                 boolean z3 = false;
                 if (1 == optInt) {
                     if (topicId != null && topicId.length() != 0) {
@@ -142,6 +151,10 @@ public final class ShareIMCommonCardData implements Serializable {
                         shareIMCommonCardData.setShareType(2);
                     }
                 }
+                if (3 == optInt && optInt2 != 0) {
+                    shareIMCommonCardData.setId(String.valueOf(optInt2));
+                    shareIMCommonCardData.setShareType(3);
+                }
                 if (shareIMCommonCardData.getId().length() == 0) {
                     z3 = true;
                 }
@@ -166,7 +179,7 @@ public final class ShareIMCommonCardData implements Serializable {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareIMCommonCardData)) == null) {
-                if (shareIMCommonCardData != null && shareIMCommonCardData.getShareType() == 2) {
+                if (shareIMCommonCardData != null && shareIMCommonCardData.getShareType() == 3) {
                     if (shareIMCommonCardData.getId().length() > 0) {
                         z = true;
                     } else {
@@ -187,6 +200,27 @@ public final class ShareIMCommonCardData implements Serializable {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareIMCommonCardData)) == null) {
+                if (shareIMCommonCardData != null && shareIMCommonCardData.getShareType() == 2) {
+                    if (shareIMCommonCardData.getId().length() > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @JvmStatic
+        public final boolean d(ShareIMCommonCardData shareIMCommonCardData) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareIMCommonCardData)) == null) {
                 if (shareIMCommonCardData == null || shareIMCommonCardData.getShareType() != 1) {
                     return false;
                 }

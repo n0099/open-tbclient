@@ -3,11 +3,11 @@ package com.baidu.tieba.homepage.topic.topictab.model;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.q98;
+import com.baidu.tieba.k78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q98 a;
-    public kb b;
-    public kb c;
+    public k78 a;
+    public NetMessageListener b;
+    public NetMessageListener c;
     public boolean d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -30,13 +30,13 @@ public class TopicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void V() {
+    public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                q98 q98Var = this.a;
-                if (q98Var != null) {
-                    q98Var.k0(-1, null);
+                k78 k78Var = this.a;
+                if (k78Var != null) {
+                    k78Var.l0(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -51,10 +51,10 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void W(q98 q98Var) {
+    public void O(k78 k78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q98Var) == null) {
-            this.a = q98Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k78Var) == null) {
+            this.a = k78Var;
         }
     }
 

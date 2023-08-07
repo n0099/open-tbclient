@@ -1,98 +1,134 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bu9 extends wo6<us9> {
+public class bu9 extends au9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TbImageView j;
-    public TextView k;
-    public ImageView l;
-    public us9 m;
-
-    @Override // com.baidu.tieba.wo6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07e5 : invokeV.intValue;
-    }
+    public int T0;
+    public int U0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bu9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public bu9(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.i = h;
-        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091cbe);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091cbd);
-        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091cbf);
-        this.i.setOnClickListener(this);
+        s0(false);
+        this.T0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
     }
 
-    @Override // com.baidu.tieba.wo6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public void F0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
-            MessageManager messageManager = MessageManager.getInstance();
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
-            us9 us9Var = this.m;
-            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(us9Var.c, us9Var.d, "person_page")));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.Y = str2;
+            T();
+            U();
+            v0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.startLoad(str, 10, false);
+            this.H.setShareData(null);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
-    /* renamed from: r */
-    public void i(us9 us9Var) {
+    @Override // com.baidu.tieba.au9
+    public void Z(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, us9Var) != null) || us9Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            Context context = this.S;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.c0);
+            }
+            super.Z(z);
+            if (this.c0) {
+                this.U.getLayoutParams().height = -1;
+                return;
+            }
+            this.U.getLayoutParams().height = this.U0;
         }
-        this.m = us9Var;
-        this.j.N(us9Var.a, 10, false);
-        this.k.setText(us9Var.b);
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tieba.au9
+    public void h0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.t.getControl().setVolume(1.0f, 1.0f);
+        }
+    }
+
+    @Override // com.baidu.tieba.au9
+    public boolean i0(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (!this.c0 && motionEvent.getX() <= this.T0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.au9
+    public void v0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.v0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.au9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
+            }
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.X = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * BdUtilHelper.getEquipmentWidth(this.S));
+            this.U0 = playerHeight;
+            if (playerHeight > BdUtilHelper.getEquipmentHeight(this.S)) {
+                this.U0 = BdUtilHelper.getEquipmentHeight(this.S);
+            }
+            this.U.getLayoutParams().height = this.U0;
+            this.U.requestLayout();
+        }
     }
 }

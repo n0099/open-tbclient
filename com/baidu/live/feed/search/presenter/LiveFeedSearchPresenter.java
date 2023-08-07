@@ -12,9 +12,9 @@ import com.baidu.live.feed.search.model.data.SearchResultBean;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.tieba.fc0;
-import com.baidu.tieba.gc0;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.db0;
+import com.baidu.tieba.eb0;
+import com.baidu.tieba.fb0;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Lazy;
@@ -27,14 +27,14 @@ import kotlin.jvm.internal.PropertyReference0Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 32\u00020\u0001:\u00013B\u0011\u0012\b\u0010,\u001a\u0004\u0018\u00010+¢\u0006\u0004\b2\u00101J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J'\u0010\u0013\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u001d\u0010\u0015\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0017\u0010\nJ\u000f\u0010\u0018\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0018\u0010\nJ\u0017\u0010\u001a\u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001c\u0010\nJ'\u0010 \u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u001f\u001a\u00020\u001eH\u0016¢\u0006\u0004\b \u0010!J\u0017\u0010\"\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\"\u0010\fR\u0018\u0010#\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R$\u0010,\u001a\u0004\u0018\u00010+8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u00067²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002"}, d2 = {"Lcom/baidu/live/feed/search/presenter/LiveFeedSearchPresenter;", "Lcom/baidu/tieba/hc0;", "Landroid/content/Context;", "context", "", "content", "", "addHistoryRecord", "(Landroid/content/Context;Ljava/lang/String;)V", "cancelSearch", "()V", "deleteAllHistoryRecord", "(Landroid/content/Context;)V", "", CriusAttrConstants.POSITION, "deleteHistoryRecord", "(Landroid/content/Context;I)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchBean", "followClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;Landroid/content/Context;I)V", "followRealization", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "loadHotRank", "loadSearchHotWordsList", "words", "matchSuggestionWords", "(Ljava/lang/String;)V", "onDetach", "pn", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "requestData", "searchWord", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/live/feed/search/model/data/RequestSearchData;)V", "showHistoryRecord", "curInputWords", "Ljava/lang/String;", "", "searchIsCancel", "Z", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "searchModel", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "searchPage", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "getSearchPage", "()Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "setSearchPage", "(Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;)V", "<init>", "Companion", "Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "kotlin.jvm.PlatformType", "manager", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 32\u00020\u0001:\u00013B\u0011\u0012\b\u0010,\u001a\u0004\u0018\u00010+¢\u0006\u0004\b2\u00101J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J'\u0010\u0013\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u001d\u0010\u0015\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0017\u0010\nJ\u000f\u0010\u0018\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0018\u0010\nJ\u0017\u0010\u001a\u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001c\u0010\nJ'\u0010 \u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u001f\u001a\u00020\u001eH\u0016¢\u0006\u0004\b \u0010!J\u0017\u0010\"\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\"\u0010\fR\u0018\u0010#\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R$\u0010,\u001a\u0004\u0018\u00010+8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u00067²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002"}, d2 = {"Lcom/baidu/live/feed/search/presenter/LiveFeedSearchPresenter;", "Lcom/baidu/tieba/fb0;", "Landroid/content/Context;", "context", "", "content", "", "addHistoryRecord", "(Landroid/content/Context;Ljava/lang/String;)V", "cancelSearch", "()V", "deleteAllHistoryRecord", "(Landroid/content/Context;)V", "", CriusAttrConstants.POSITION, "deleteHistoryRecord", "(Landroid/content/Context;I)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchBean", "followClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;Landroid/content/Context;I)V", "followRealization", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "loadHotRank", "loadSearchHotWordsList", "words", "matchSuggestionWords", "(Ljava/lang/String;)V", "onDetach", "pn", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "requestData", "searchWord", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/live/feed/search/model/data/RequestSearchData;)V", "showHistoryRecord", "curInputWords", "Ljava/lang/String;", "", "searchIsCancel", "Z", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "searchModel", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "searchPage", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "getSearchPage", "()Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "setSearchPage", "(Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;)V", "<init>", "Companion", "Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "kotlin.jvm.PlatformType", "manager", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class LiveFeedSearchPresenter implements hc0 {
+public final class LiveFeedSearchPresenter implements fb0 {
     public static final /* synthetic */ KProperty[] e = {Reflection.property0(new PropertyReference0Impl(Reflection.getOrCreateKotlinClass(LiveFeedSearchPresenter.class), "manager", "<v#0>")), Reflection.property0(new PropertyReference0Impl(Reflection.getOrCreateKotlinClass(LiveFeedSearchPresenter.class), "manager", "<v#1>"))};
-    public fc0 a;
+    public db0 a;
     public String b;
     public boolean c;
-    public gc0 d;
+    public eb0 d;
 
     /* loaded from: classes3.dex */
     public static final class a implements AccountManagerService.LoginResultListener {
@@ -55,10 +55,10 @@ public final class LiveFeedSearchPresenter implements hc0 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class b implements fc0.a<Boolean> {
+    public static final class b implements db0.a<Boolean> {
         public final /* synthetic */ int b;
 
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         public void onFail(int i, String str) {
         }
 
@@ -67,22 +67,22 @@ public final class LiveFeedSearchPresenter implements hc0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         /* renamed from: a */
         public void onSuccess(Boolean bool) {
             if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                gc0 n = LiveFeedSearchPresenter.this.n();
+                eb0 n = LiveFeedSearchPresenter.this.n();
                 if (n != null) {
                     n.showToast("关注成功");
                 }
-                gc0 n2 = LiveFeedSearchPresenter.this.n();
+                eb0 n2 = LiveFeedSearchPresenter.this.n();
                 if (n2 != null) {
                     n2.h(this.b);
                     return;
                 }
                 return;
             }
-            gc0 n3 = LiveFeedSearchPresenter.this.n();
+            eb0 n3 = LiveFeedSearchPresenter.this.n();
             if (n3 != null) {
                 n3.showToast("关注失败");
             }
@@ -90,38 +90,38 @@ public final class LiveFeedSearchPresenter implements hc0 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class c implements fc0.a<List<? extends LiveRoomEntity>> {
+    public static final class c implements db0.a<List<? extends LiveRoomEntity>> {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         /* renamed from: a */
         public void onSuccess(List<? extends LiveRoomEntity> list) {
-            gc0 n = LiveFeedSearchPresenter.this.n();
+            eb0 n = LiveFeedSearchPresenter.this.n();
             if (n != null) {
-                n.w0(list);
+                n.v0(list);
             }
         }
 
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         public void onFail(int i, String str) {
-            gc0 n = LiveFeedSearchPresenter.this.n();
+            eb0 n = LiveFeedSearchPresenter.this.n();
             if (n != null) {
-                n.w0(null);
+                n.v0(null);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class d implements fc0.a<LiveSearchHotWordListData> {
+    public static final class d implements db0.a<LiveSearchHotWordListData> {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public d() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         /* renamed from: a */
         public void onSuccess(LiveSearchHotWordListData liveSearchHotWordListData) {
             List<String> list;
@@ -138,39 +138,39 @@ public final class LiveFeedSearchPresenter implements hc0 {
                 z = true;
             }
             if (!z) {
-                gc0 n = LiveFeedSearchPresenter.this.n();
+                eb0 n = LiveFeedSearchPresenter.this.n();
                 if (n != null) {
                     if (liveSearchHotWordListData != null) {
                         list2 = liveSearchHotWordListData.getHotWordList();
                     }
-                    n.Y0(list2);
+                    n.W0(list2);
                     return;
                 }
                 return;
             }
-            gc0 n2 = LiveFeedSearchPresenter.this.n();
+            eb0 n2 = LiveFeedSearchPresenter.this.n();
             if (n2 != null) {
-                n2.Y0(CollectionsKt__CollectionsKt.mutableListOf("搜索主播和直播内容"));
+                n2.W0(CollectionsKt__CollectionsKt.mutableListOf("搜索主播和直播内容"));
             }
         }
 
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         public void onFail(int i, String str) {
-            gc0 n = LiveFeedSearchPresenter.this.n();
+            eb0 n = LiveFeedSearchPresenter.this.n();
             if (n != null) {
-                n.Y0(CollectionsKt__CollectionsKt.mutableListOf("搜索主播和直播内容"));
+                n.W0(CollectionsKt__CollectionsKt.mutableListOf("搜索主播和直播内容"));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class e implements fc0.a<LiveSearchSuggestionsBean> {
+    public static final class e implements db0.a<LiveSearchSuggestionsBean> {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public e() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         /* renamed from: a */
         public void onSuccess(LiveSearchSuggestionsBean liveSearchSuggestionsBean) {
             List<LiveSearchResultInfo> list;
@@ -185,57 +185,57 @@ public final class LiveFeedSearchPresenter implements hc0 {
                 if (!z) {
                     String str = liveSearchSuggestionsBean.question;
                     if (str != null && !str.equals(LiveFeedSearchPresenter.this.b)) {
-                        gc0 n = LiveFeedSearchPresenter.this.n();
+                        eb0 n = LiveFeedSearchPresenter.this.n();
                         if (n != null) {
-                            n.h0(liveSearchSuggestionsBean.mSearchResultList, null);
+                            n.g0(liveSearchSuggestionsBean.mSearchResultList, null);
                             return;
                         }
                         return;
                     }
-                    gc0 n2 = LiveFeedSearchPresenter.this.n();
+                    eb0 n2 = LiveFeedSearchPresenter.this.n();
                     if (n2 != null) {
-                        n2.h0(liveSearchSuggestionsBean.mSearchResultList, liveSearchSuggestionsBean.suggestionList);
+                        n2.g0(liveSearchSuggestionsBean.mSearchResultList, liveSearchSuggestionsBean.suggestionList);
                         return;
                     }
                     return;
                 }
             }
-            gc0 n3 = LiveFeedSearchPresenter.this.n();
+            eb0 n3 = LiveFeedSearchPresenter.this.n();
             if (n3 != null) {
                 if (liveSearchSuggestionsBean != null) {
                     list = liveSearchSuggestionsBean.mSearchResultList;
                 } else {
                     list = null;
                 }
-                n3.h0(list, null);
+                n3.g0(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         public void onFail(int i, String str) {
-            gc0 n = LiveFeedSearchPresenter.this.n();
+            eb0 n = LiveFeedSearchPresenter.this.n();
             if (n != null) {
-                n.h0(null, null);
+                n.g0(null, null);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class f implements fc0.a<SearchResultBean> {
+    public static final class f implements db0.a<SearchResultBean> {
         public final /* synthetic */ String b;
 
         public f(String str) {
             this.b = str;
         }
 
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         public void onFail(int i, String str) {
             if (!LiveFeedSearchPresenter.this.c && Intrinsics.areEqual(this.b, "0")) {
-                gc0 n = LiveFeedSearchPresenter.this.n();
+                eb0 n = LiveFeedSearchPresenter.this.n();
                 if (n != null) {
-                    n.g0();
+                    n.hideLoading();
                 }
-                gc0 n2 = LiveFeedSearchPresenter.this.n();
+                eb0 n2 = LiveFeedSearchPresenter.this.n();
                 if (n2 != null) {
                     n2.i();
                 }
@@ -243,23 +243,23 @@ public final class LiveFeedSearchPresenter implements hc0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fc0.a
+        @Override // com.baidu.tieba.db0.a
         /* renamed from: a */
         public void onSuccess(SearchResultBean searchResultBean) {
             if (LiveFeedSearchPresenter.this.c) {
                 return;
             }
             if (searchResultBean != null) {
-                gc0 n = LiveFeedSearchPresenter.this.n();
+                eb0 n = LiveFeedSearchPresenter.this.n();
                 if (n != null) {
-                    n.r(searchResultBean);
+                    n.q(searchResultBean);
                 }
             } else if (Intrinsics.areEqual(this.b, "0")) {
-                gc0 n2 = LiveFeedSearchPresenter.this.n();
+                eb0 n2 = LiveFeedSearchPresenter.this.n();
                 if (n2 != null) {
-                    n2.g0();
+                    n2.hideLoading();
                 }
-                gc0 n3 = LiveFeedSearchPresenter.this.n();
+                eb0 n3 = LiveFeedSearchPresenter.this.n();
                 if (n3 != null) {
                     n3.i();
                 }
@@ -267,21 +267,21 @@ public final class LiveFeedSearchPresenter implements hc0 {
         }
     }
 
-    public LiveFeedSearchPresenter(gc0 gc0Var) {
-        this.d = gc0Var;
-        if (gc0Var != null) {
-            gc0Var.m(this);
+    public LiveFeedSearchPresenter(eb0 eb0Var) {
+        this.d = eb0Var;
+        if (eb0Var != null) {
+            eb0Var.l(this);
         }
-        this.a = new fc0();
+        this.a = new db0();
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void i(String str) {
         this.b = str;
         this.a.e(str, new e());
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void a(Context context, String str) {
         int i = 0;
         SharedPreferences sharedPreferences = context.getSharedPreferences("FeedSearchHistoryRecord", 0);
@@ -320,7 +320,7 @@ public final class LiveFeedSearchPresenter implements hc0 {
         edit.commit();
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void b(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("FeedSearchHistoryRecord", 0);
         Intrinsics.checkExpressionValueIsNotNull(sharedPreferences, "context.getSharedPrefere…rd\",Context.MODE_PRIVATE)");
@@ -335,7 +335,7 @@ public final class LiveFeedSearchPresenter implements hc0 {
         edit.commit();
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void e(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("FeedSearchHistoryRecord", 0);
         Intrinsics.checkExpressionValueIsNotNull(sharedPreferences, "context.getSharedPrefere…d\", Context.MODE_PRIVATE)");
@@ -351,46 +351,46 @@ public final class LiveFeedSearchPresenter implements hc0 {
             }
         } else {
             arrayList.clear();
-            gc0 gc0Var = this.d;
-            if (gc0Var != null) {
-                gc0Var.D0();
+            eb0 eb0Var = this.d;
+            if (eb0Var != null) {
+                eb0Var.y0();
             }
         }
-        gc0 gc0Var2 = this.d;
-        if (gc0Var2 != null) {
-            gc0Var2.p(arrayList);
+        eb0 eb0Var2 = this.d;
+        if (eb0Var2 != null) {
+            eb0Var2.o(arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void c() {
         this.a.c(new d());
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void d() {
         this.c = true;
-        gc0 gc0Var = this.d;
-        if (gc0Var != null) {
-            gc0Var.g0();
+        eb0 eb0Var = this.d;
+        if (eb0Var != null) {
+            eb0Var.hideLoading();
         }
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void h() {
         this.a.b(new c());
     }
 
-    public final gc0 n() {
+    public final eb0 n() {
         return this.d;
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void onDetach() {
         this.d = null;
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void f(Context context, int i) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("FeedSearchHistoryRecord", 0);
         Intrinsics.checkExpressionValueIsNotNull(sharedPreferences, "context.getSharedPrefere…rd\",Context.MODE_PRIVATE)");
@@ -408,13 +408,13 @@ public final class LiveFeedSearchPresenter implements hc0 {
         edit.commit();
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void g(String str, String str2, RequestSearchData requestSearchData) {
         this.c = false;
         this.a.d(str, str2, new f(str2), requestSearchData);
     }
 
-    @Override // com.baidu.tieba.hc0
+    @Override // com.baidu.tieba.fb0
     public void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i) {
         Lazy lazy = LazyKt__LazyJVMKt.lazy(new Function0<AccountManagerService>() { // from class: com.baidu.live.feed.search.presenter.LiveFeedSearchPresenter$followClick$manager$2
             /* JADX DEBUG: Method merged with bridge method */
@@ -452,7 +452,7 @@ public final class LiveFeedSearchPresenter implements hc0 {
             str = null;
         }
         String str3 = str;
-        fc0 fc0Var = this.a;
+        db0 db0Var = this.a;
         String str4 = liveSearchResultInfo.thirdId;
         Intrinsics.checkExpressionValueIsNotNull(str4, "searchBean.thirdId");
         if (str3 == null) {
@@ -462,6 +462,6 @@ public final class LiveFeedSearchPresenter implements hc0 {
         Intrinsics.checkExpressionValueIsNotNull(str5, "searchBean.type");
         String str6 = liveSearchResultInfo.feedId;
         Intrinsics.checkExpressionValueIsNotNull(str6, "searchBean.feedId");
-        fc0Var.f("", str4, str3, str5, !liveSearchResultInfo.hasFollowed, str6, new b(i));
+        db0Var.f("", str4, str3, str5, !liveSearchResultInfo.hasFollowed, str6, new b(i));
     }
 }

@@ -1,155 +1,316 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wja extends BaseAdapter {
+public class wja {
     public static /* synthetic */ Interceptable $ic;
+    public static wja a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yja> a;
-    public TbPageContext<?> b;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
+        public final /* synthetic */ wja a;
 
-        public a() {
+        public a(wja wjaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wjaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = wjaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                List a = wja.a();
+                int size = a.size();
+                for (int i = 0; i < size; i++) {
+                    vja vjaVar = (vja) a.get(i);
+                    this.a.j(vjaVar.a, vjaVar.b);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
-    public wja(TbPageContext<?> tbPageContext) {
+    /* loaded from: classes8.dex */
+    public class b extends BdAsyncTask<vja, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wja a;
+
+        public b(wja wjaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wjaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wjaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(vja... vjaVarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vjaVarArr)) == null) {
+                if (vjaVarArr != null && vjaVarArr.length == 1 && vjaVarArr[0] != null) {
+                    this.a.c(vjaVarArr[0]);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948273883, "Lcom/baidu/tieba/wja;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948273883, "Lcom/baidu/tieba/wja;");
+                return;
+            }
+        }
+        a = new wja();
+    }
+
+    public wja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public yja getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<yja> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (yja) invokeI.objValue;
+    public static /* synthetic */ List a() {
+        return h();
     }
 
-    public void b(List<yja> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static wja d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<yja> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
         }
-        return invokeV.intValue;
+        return (wja) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
+    public static File[] g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            yja item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0278, viewGroup, false);
-                aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09094f);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.img_default_100);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09094e);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09253e);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0908f9);
-                view2.setTag(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            File file = new File(y69.e);
+            if (!file.exists()) {
+                return null;
             }
-            if (item != null) {
-                aVar.a.N(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                da5 p = da5.p();
-                if (item.c() - p.r("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
-                } else {
-                    aVar.c.setVisibility(4);
-                }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
-                } else {
-                    aVar.d.setVisibility(0);
-                }
-            }
-            this.b.getLayoutMode().k(view2);
-            return view2;
+            return file.listFiles();
         }
-        return (View) invokeILL.objValue;
+        return (File[]) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !xh.c()) {
+            return;
+        }
+        new a(this).execute(new Void[0]);
+    }
+
+    public void j(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            new b(this).execute(new vja(str, jSONObject));
+        }
+    }
+
+    public static JSONObject e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str) || !new File(str).exists()) {
+                return null;
+            }
+            try {
+                return new JSONObject().put("running", l(w69.d(str)));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(w69.e(file));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!m(jSONObject)) {
+                return null;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static boolean m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
+            int optInt = jSONObject.optInt("errorTimes", -1);
+            int optInt2 = jSONObject.optInt("postSuccess", -1);
+            int optInt3 = jSONObject.optInt("posted", -1);
+            if (optInt != -1 && optInt2 != -1 && optInt3 != -1 && (optInt3 == 1 || optInt > 0)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(vja vjaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vjaVar) == null) {
+            try {
+                byte[] b2 = xja.b(vjaVar.b);
+                xja.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+                w69.b(vjaVar.a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static List<vja> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            File[] g = g();
+            if (g == null) {
+                return arrayList;
+            }
+            for (File file : g) {
+                String name = file.getName();
+                JSONObject f = f(file.getAbsolutePath() + y69.a + "kpi");
+                if (f == null) {
+                    w69.b(name);
+                } else {
+                    JSONObject e = e(file.getAbsolutePath() + y69.a + "debug");
+                    if (e == null) {
+                        w69.b(name);
+                    } else {
+                        arrayList.add(new vja(name, i(VideoPlatformStatic.c(), f, e)));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
+            try {
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("kpiInfo", jSONObject2);
+                jSONObject4.put("baseInfo", jSONObject);
+                jSONObject4.put("debugInfo", jSONObject3);
+                return jSONObject4;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static JSONArray l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int optInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            int length = jSONArray.length();
+            boolean z = false;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                jSONArray.put(new fu9(502, "unknown", -4399, "").a());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

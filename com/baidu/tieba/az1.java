@@ -1,74 +1,167 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class az1 extends xy1 {
+public abstract class az1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public bz1 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az1(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/cloudRequest");
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(y22 y22Var);
+    }
+
+    @NonNull
+    public abstract y22 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
+
+    @NonNull
+    public abstract y22 e(@NonNull JSONObject jSONObject);
+
+    public abstract boolean i();
+
+    /* loaded from: classes5.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ az1 b;
+
+        public a(az1 az1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = az1Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.az1.b
+        public void a(y22 y22Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, y22Var) == null) {
+                if (az1.c) {
+                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + y22Var.toString());
+                }
+                this.b.b.d(this.a, y22Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632369, "Lcom/baidu/tieba/az1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947632369, "Lcom/baidu/tieba/az1;");
+                return;
+            }
+        }
+        c = ir1.a;
+    }
+
+    public az1(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.xy1, com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public y22 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull bz1 bz1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            return super.d(context, unitedSchemeEntity, callbackHandler, vb3Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xy1
-    public void j(Response response, CallbackHandler callbackHandler, String str) {
-        String header;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("statusCode", response.code());
-                jSONObject.put("header", x23.s(response.headers()));
-                jSONObject.put("body", response.body().string());
-                JSONObject jSONObject2 = new JSONObject(jSONObject.optString("body"));
-                String optString = jSONObject2.optString("errno", String.valueOf(0));
-                String optString2 = jSONObject2.optString("errmsg");
-                if (response.isSuccessful() && !vy1.o(optString)) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
-                    return;
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(vy1.j(optString), vy1.k(optString2)).toString());
-            } catch (Exception e) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, bz1Var)) == null) {
+            this.b = bz1Var;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
             }
+            if (i()) {
+                return h(jSONObject);
+            }
+            return g(jSONObject, str);
         }
+        return (y22) invokeLLL.objValue;
+    }
+
+    public final y22 g(@NonNull JSONObject jSONObject, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
+            }
+            y22 d = d(jSONObject, new a(this, str));
+            if (!d.h("isSync", Boolean.FALSE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+                }
+                return new y22(1001, "make result json error");
+            }
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
+            }
+            return d;
+        }
+        return (y22) invokeLL.objValue;
+    }
+
+    public final y22 h(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
+            }
+            y22 e = e(jSONObject);
+            if (!e.h("isSync", Boolean.TRUE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
+                }
+                return new y22(1001, "make result json error");
+            }
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
+            }
+            return e;
+        }
+        return (y22) invokeL.objValue;
     }
 }

@@ -1,342 +1,169 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.frame.PageInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.b19;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Lego.DataRes;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class w09 implements u09 {
+public class w09 extends lm<b19, SearchSuggestRankingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y09 a;
-    public List<ICardInfo> b;
-    public String c;
-    public String d;
-    public String e;
-    public List<x09> f;
-    public boolean g;
-    public int h;
-    public String i;
-    public int j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
+    public final Context a;
 
-    public w09(y09 y09Var) {
+    /* loaded from: classes8.dex */
+    public class a implements in {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ w09 b;
+
+        public a(w09 w09Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w09Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = w09Var;
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.in
+        public void b(View view2, ym ymVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            b19 b19Var;
+            b19.a b;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(ymVar instanceof b19) || (b = (b19Var = (b19) ymVar).b()) == null) {
+                return;
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("tab_id", b.d() + "");
+            hashMap.put("sort_type", b.c() + "");
+            hashMap.put("rank_type", b.b() + "");
+            hashMap.put("rank_code", b.a() + "");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
+            this.b.u(b19Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w09(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y09Var};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.h = 1;
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.a = y09Var;
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    @Override // com.baidu.tieba.u09
-    public int a() {
-        InterceptResult invokeV;
+    public final void t(StatisticItem statisticItem, b19 b19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, statisticItem, b19Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_name", b19Var.c());
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.u09
-    public List<ICardInfo> c() {
-        InterceptResult invokeV;
+    public final void A(b19 b19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, b19Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
+            t(statisticItem, b19Var);
+            TiebaStatic.log(statisticItem);
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u09
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void u(b19 b19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ICardInfo> list = this.b;
-            if (list != null && list.size() > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b19Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
+            t(statisticItem, b19Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: x */
+    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d088b, viewGroup, false));
+        }
+        return (SearchSuggestRankingViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b19 b19Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        y(i, view2, viewGroup, b19Var, searchSuggestRankingViewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, b19 b19Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b19Var, searchSuggestRankingViewHolder})) == null) {
+            if (b19Var == null) {
+                return view2;
             }
-            return false;
+            z(searchSuggestRankingViewHolder);
+            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080c68, null);
+            r09.a(searchSuggestRankingViewHolder.b, b19Var.d(), b19Var.a());
+            A(b19Var);
+            return view2;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public List<x09> e() {
-        InterceptResult invokeV;
+    public final void z(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public y09 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (y09) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.u09
-    public boolean hasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u09
-    public void b(boolean z, Message message, boolean z2, int i) {
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
-            if (z) {
-                this.l = true;
-            } else {
-                this.k = true;
-            }
-            DataRes dataRes = (DataRes) message;
-            if (dataRes == null) {
-                return;
-            }
-            if (dataRes.has_more.intValue() == 1) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            this.g = z3;
-            if (!TextUtils.isEmpty(dataRes.page_info)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(dataRes.page_info);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("title");
-                    if (optJSONObject != null) {
-                        this.c = optJSONObject.optString("name");
-                        this.d = optJSONObject.optString("url");
-                        this.e = optJSONObject.optString("urlNight");
-                    }
-                    JSONArray optJSONArray = jSONObject.optJSONArray("buttons");
-                    if (optJSONArray != null) {
-                        if (this.f == null) {
-                            this.f = new ArrayList();
-                        } else {
-                            this.f.clear();
-                        }
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                            if (optJSONObject2 != null) {
-                                x09 x09Var = new x09();
-                                x09Var.b(optJSONObject2);
-                                if (x09Var.a()) {
-                                    this.f.add(x09Var);
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            ArrayList arrayList = new ArrayList();
-            if (dataRes.cards != null) {
-                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo i4 = uz8.i(dataRes.cards.get(i3));
-                    if (i4 != null && i4.isValid()) {
-                        arrayList.add(i4);
-                    }
-                    if (i3 == dataRes.cards.size() - 1 && i4 != null) {
-                        o(i4.getFlipId());
-                    }
-                }
-            }
-            if (z2) {
-                this.b.addAll(arrayList);
-                this.h = i;
-                return;
-            }
-            this.h = 1;
-            this.b = arrayList;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(PageInfo.KEY);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, optString));
-                if (!TextUtils.isEmpty(optString)) {
-                    JSONObject jSONObject2 = new JSONObject(optString);
-                    JSONObject optJSONObject = jSONObject2.optJSONObject("title");
-                    if (optJSONObject != null) {
-                        this.c = optJSONObject.optString("name");
-                        this.d = optJSONObject.optString("url");
-                        this.e = optJSONObject.optString("urlNight");
-                    }
-                    JSONArray optJSONArray = jSONObject2.optJSONArray("buttons");
-                    if (optJSONArray != null) {
-                        if (this.f == null) {
-                            this.f = new ArrayList();
-                        } else {
-                            this.f.clear();
-                        }
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                            if (optJSONObject2 != null) {
-                                x09 x09Var = new x09();
-                                x09Var.b(optJSONObject2);
-                                if (x09Var.a()) {
-                                    this.f.add(x09Var);
-                                }
-                            }
-                        }
-                    }
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("cards");
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ICardInfo i3 = uz8.i(optJSONArray2.getString(i2));
-                        if (i3 != null && i3.isValid()) {
-                            arrayList.add(i3);
-                        }
-                        if (i2 == optJSONArray2.length() - 1 && i3 != null) {
-                            o(i3.getFlipId());
-                        }
-                    }
-                }
-                this.b = arrayList;
-                if (d()) {
-                    this.m = true;
-                } else {
-                    this.m = false;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestRankingViewHolder) == null) {
+            EMManager.from(searchSuggestRankingViewHolder.b).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
+            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
+            EMManager.from(searchSuggestRankingViewHolder.d).setBackGroundColor(R.color.CAM_X0203);
         }
     }
 }

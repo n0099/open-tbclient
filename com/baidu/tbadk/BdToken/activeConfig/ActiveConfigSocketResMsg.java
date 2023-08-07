@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av4;
+import com.baidu.tieba.cu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public av4 mData;
+    public cu4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigSocketResMsg() {
@@ -36,13 +36,13 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public av4 getData() {
+    public cu4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (av4) invokeV.objValue;
+        return (cu4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -59,9 +59,9 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
                     setErrorString(activeConfigResIdl.error.usermsg);
                 }
                 if (activeConfigResIdl.data != null) {
-                    av4 av4Var = new av4();
-                    this.mData = av4Var;
-                    av4Var.c(activeConfigResIdl.data);
+                    cu4 cu4Var = new cu4();
+                    this.mData = cu4Var;
+                    cu4Var.c(activeConfigResIdl.data);
                 }
             }
             return activeConfigResIdl;

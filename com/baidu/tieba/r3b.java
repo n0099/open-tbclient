@@ -1,40 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class r3b extends pl1<UBCManager> {
+public class r3b {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r3b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072104, "Lcom/baidu/tieba/r3b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948072104, "Lcom/baidu/tieba/r3b;");
+                return;
             }
         }
+        a = p2b.m();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
-    /* renamed from: a */
-    public UBCManager createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static boolean a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new s3b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
+                }
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (!a) {
+                    return true;
+                } else {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
+                }
+            } else if (!a) {
+                return true;
+            } else {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
+            }
         }
-        return (UBCManager) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

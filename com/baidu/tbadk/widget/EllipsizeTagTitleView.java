@@ -13,14 +13,14 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.sy;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.o36;
+import com.baidu.tieba.rx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class EllipsizeTagTitleView extends View implements sy {
+/* loaded from: classes5.dex */
+public class EllipsizeTagTitleView extends View implements rx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A = 2131099734;
     public static final int B;
@@ -80,13 +80,13 @@ public class EllipsizeTagTitleView extends View implements sy {
                 return;
             }
         }
-        B = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = yi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -265,7 +265,7 @@ public class EllipsizeTagTitleView extends View implements sy {
         canvas.drawText(this.u, this.y.left + this.h, (f + (this.p / 2.0f)) - this.q, this.w);
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
@@ -394,7 +394,7 @@ public class EllipsizeTagTitleView extends View implements sy {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h66.EllipsizeTagTitleView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o36.EllipsizeTagTitleView);
             this.c = obtainStyledAttributes.getInt(9, z);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -425,7 +425,7 @@ public class EllipsizeTagTitleView extends View implements sy {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;

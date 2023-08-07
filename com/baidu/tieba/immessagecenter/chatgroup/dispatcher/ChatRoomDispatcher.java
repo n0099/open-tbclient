@@ -8,12 +8,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cq5;
+import com.baidu.tieba.ho5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.s1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonSyntaxException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatRoomDispatcher implements y2a {
+public class ChatRoomDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +50,7 @@ public class ChatRoomDispatcher implements y2a {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("roomId", jSONObject.optLong("roomId"));
                 jSONObject2.put(IntentConfig.BACK_SCHEME, jSONObject.optLong(IntentConfig.BACK_SCHEME));
-                jSONObject.put("pageParams", jSONObject2);
+                jSONObject.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject2);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -60,7 +61,7 @@ public class ChatRoomDispatcher implements y2a {
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0088  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x008a  */
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -91,7 +92,7 @@ public class ChatRoomDispatcher implements y2a {
                         e.printStackTrace();
                         if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) != 1) {
                         }
-                        cq5.a().b(context, optString, optLong, -1, optString2, bundle, z);
+                        ho5.a().b(context, optString, optLong, -1, optString2, bundle, z);
                     }
                 } catch (JsonSyntaxException e3) {
                     bundle = null;
@@ -105,7 +106,7 @@ public class ChatRoomDispatcher implements y2a {
             } else {
                 z = false;
             }
-            cq5.a().b(context, optString, optLong, -1, optString2, bundle, z);
+            ho5.a().b(context, optString, optLong, -1, optString2, bundle, z);
         }
     }
 }

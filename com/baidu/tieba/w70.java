@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class w70 {
     public static /* synthetic */ Interceptable $ic;
-    public static w70 c;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<s70> b;
+    public final Map<String, String> a;
+    public final Map<String, String> b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +35,7 @@ public class w70 {
                 return;
             }
         }
-        c = new w70();
+        c = AppConfig.isDebug();
     }
 
     public w70() {
@@ -47,40 +51,15 @@ public class w70 {
                 return;
             }
         }
-        this.b = new ArrayList(2);
-    }
-
-    public static w70 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (w70) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<s70> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
+        new Handler(Looper.getMainLooper());
+        HashMap hashMap = new HashMap(2);
+        this.a = hashMap;
+        hashMap.put("click_searchbox", WarmTipsManager.WIDGET_HISSUG_EXT_VALUE);
+        this.a.put("click_feed_video", "video");
+        HashMap hashMap2 = new HashMap(2);
+        this.b = hashMap2;
+        hashMap2.put("click_searchbox", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        this.b.put("click_feed_video", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        new HashMap(2);
     }
 }

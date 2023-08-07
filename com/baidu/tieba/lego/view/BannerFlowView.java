@@ -6,19 +6,19 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h19;
-import com.baidu.tieba.i19;
-import com.baidu.tieba.mc5;
-import com.baidu.tieba.oc5;
-import com.baidu.tieba.q09;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.bb5;
+import com.baidu.tieba.cz8;
+import com.baidu.tieba.db5;
+import com.baidu.tieba.dz8;
+import com.baidu.tieba.ly8;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,17 +31,17 @@ public class BannerFlowView extends FrameLayout {
     public ListViewPager a;
     public View b;
     public IndicatorView c;
-    public i19 d;
-    public h19 e;
+    public dz8 d;
+    public cz8 e;
     public c f;
 
     /* loaded from: classes6.dex */
-    public interface c extends q09 {
+    public interface c extends ly8 {
         void onPageSelected(int i);
     }
 
     /* loaded from: classes6.dex */
-    public class a implements q09 {
+    public class a implements ly8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerFlowView a;
@@ -64,7 +64,7 @@ public class BannerFlowView extends FrameLayout {
             this.a = bannerFlowView;
         }
 
-        @Override // com.baidu.tieba.q09
+        @Override // com.baidu.tieba.ly8
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.f != null) {
@@ -72,7 +72,7 @@ public class BannerFlowView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.q09
+        @Override // com.baidu.tieba.ly8
         public void b(float f) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && this.a.f != null) {
@@ -178,7 +178,7 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setData(List<yn> list) {
+    public void setData(List<ym> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.removeAllViews();
@@ -200,11 +200,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(mc5.a<oc5, h19.a> aVar) {
-        h19 h19Var;
+    public void setOnItemClickListener(bb5.a<db5, cz8.a> aVar) {
+        cz8 cz8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && (h19Var = this.e) != null) {
-            h19Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && (cz8Var = this.e) != null) {
+            cz8Var.e(aVar);
         }
     }
 
@@ -215,11 +215,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
+    public void setSwipeControlInterface(SwipeBackLayout.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.a.setSwipeControlInterface(cVar);
-            if (cVar != null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
+            this.a.setSwipeControlInterface(bVar);
+            if (bVar != null) {
                 this.a.setDisableParentEvent(false);
             }
         }
@@ -243,18 +243,18 @@ public class BannerFlowView extends FrameLayout {
             this.c = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.d = new i19(context, this.a, this.c, null);
-            this.e = new h19(context, oc5.a);
+            this.d = new dz8(context, this.a, this.c, null);
+            this.e = new cz8(context, db5.a);
             this.d.m(5000L);
             this.d.l(context, this.e);
             this.d.q(new b(this));
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, yi.g(context, R.dimen.obfuscated_res_0x7f070275));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070275));
             layoutParams.gravity = 80;
             addView(this.b, layoutParams);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 85;
-            layoutParams2.setMargins(0, 0, yi.g(context, R.dimen.obfuscated_res_0x7f0701d5), yi.g(context, R.dimen.obfuscated_res_0x7f0701be));
+            layoutParams2.setMargins(0, 0, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d5), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701be));
             addView(this.c, layoutParams2);
         }
     }

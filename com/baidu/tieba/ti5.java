@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.uaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,139 +16,167 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ti5 {
     public static /* synthetic */ Interceptable $ic;
-    public static og0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ri5 a;
 
     /* loaded from: classes8.dex */
-    public static class a implements og0 {
+    public class a extends jw5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ri5 a;
 
-        /* renamed from: com.baidu.tieba.ti5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0489a implements ui5 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ng0 a;
-
-            @Override // com.baidu.tieba.ui5
-            public boolean onFileDownloaded(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-
-            public C0489a(a aVar, ng0 ng0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ng0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = ng0Var;
-            }
-
-            @Override // com.baidu.tieba.ui5
-            public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-                ng0 ng0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && (ng0Var = this.a) != null) {
-                    ng0Var.onFailed(new Exception(str));
-                }
-            }
-
-            @Override // com.baidu.tieba.ui5
-            public void onFileDownloadSucceed(DownloadData downloadData) {
-                ng0 ng0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && (ng0Var = this.a) != null) {
-                    ng0Var.b(downloadData.getPath());
-                }
-            }
-
-            @Override // com.baidu.tieba.ui5
-            public void onFileUpdateProgress(DownloadData downloadData) {
-                ng0 ng0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && (ng0Var = this.a) != null) {
-                    ng0Var.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
-                }
-            }
-
-            @Override // com.baidu.tieba.ui5
-            public boolean onPreDownload(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                    ng0 ng0Var = this.a;
-                    if (ng0Var != null) {
-                        ng0Var.onStarted();
-                        return true;
-                    }
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-        }
-
-        public a() {
+        public a(ti5 ti5Var, ri5 ri5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ti5Var, ri5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ri5Var;
         }
 
-        @Override // com.baidu.tieba.og0
-        public void a(String str, String str2, String str3, ng0 ng0Var) {
+        @Override // com.baidu.tieba.jw5
+        public Object doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, ng0Var) == null) {
-                DownloadData downloadData = new DownloadData();
-                downloadData.setPath(str2 + "/" + str3);
-                downloadData.setUrl(str);
-                downloadData.setCallback(new C0489a(this, ng0Var));
-                vi5.k().l(downloadData);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Long.valueOf(yb8.w().j(this.a.a().a));
             }
+            return invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948182185, "Lcom/baidu/tieba/ti5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948182185, "Lcom/baidu/tieba/ti5;");
+    public ti5(ri5 ri5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ri5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.a = ri5Var;
     }
 
-    public static void a() {
+    public void d(uaa.h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            hg0.q(a);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
+            return;
+        }
+        ri5 ri5Var = this.a;
+        if (ri5Var != null && ri5Var.a() != null) {
+            uaa.n(this.a.a().a, hVar);
+        } else {
+            hVar.a(null);
+        }
+    }
+
+    public void e(String str) {
+        ri5 ri5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (ri5Var = this.a) != null && ri5Var.a() != null) {
+            uaa.x(this.a.a().a, str);
+        }
+    }
+
+    public final ChatMessage a(String str, long j) {
+        InterceptResult invokeLJ;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            ChatMessage b = b();
+            if (b == null) {
+                return null;
+            }
+            b.setCustomGroupType(2);
+            b.setMsgType(1);
+            b.setContent(str);
+            long b2 = te8.b(j);
+            b.setMsgId(b2);
+            b.setRecordId(b2);
+            b.setTime(System.currentTimeMillis() / 1000);
+            UserData userData = new UserData();
+            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
+            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
+            userData.setName_show(TbadkCoreApplication.getCurrentAccountNameShow());
+            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
+            b.setUserInfo(userData);
+            try {
+                j2 = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+            } catch (Exception unused) {
+                j2 = 0;
+            }
+            b.setUserId(j2);
+            MsgLocalData msgLocalData = new MsgLocalData();
+            msgLocalData.setStatus((short) 1);
+            msgLocalData.setErrno(0L);
+            msgLocalData.setRetry(0L);
+            msgLocalData.setUpload_offset(null);
+            b.setLocalData(msgLocalData);
+            return b;
+        }
+        return (ChatMessage) invokeLJ.objValue;
+    }
+
+    public ChatMessage b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ri5 ri5Var = this.a;
+            if (ri5Var != null && ri5Var.a() != null) {
+                PersonalChatMessage personalChatMessage = new PersonalChatMessage();
+                personalChatMessage.setBornTime(System.currentTimeMillis());
+                personalChatMessage.setToUserId(Long.parseLong(this.a.a().a));
+                UserData userData = new UserData();
+                userData.setUserId(this.a.a().a);
+                userData.setPortrait(this.a.a().c);
+                userData.setName_show(this.a.a().b);
+                personalChatMessage.setToUserInfo(userData);
+                personalChatMessage.setIsFriend(this.a.a().j ? 1 : 0);
+                return personalChatMessage;
+            }
+            return null;
+        }
+        return (ChatMessage) invokeV.objValue;
+    }
+
+    public /* synthetic */ void c(String str, Object obj) {
+        if (obj instanceof Long) {
+            ed8.k().t(a(str, ((Long) obj).longValue()));
+            e("");
+        }
+    }
+
+    public void f(ri5 ri5Var, final String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, ri5Var, str) == null) {
+            this.a = ri5Var;
+            nw5.c(new a(this, ri5Var), new ov5() { // from class: com.baidu.tieba.si5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.ov5
+                public final void onReturnDataInUI(Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        ti5.this.c(str, obj);
+                    }
+                }
+            });
         }
     }
 }

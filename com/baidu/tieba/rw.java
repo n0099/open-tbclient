@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,17 +8,89 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-import kotlin.TypeCastException;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import org.apache.commons.codec.net.QCodec;
 /* loaded from: classes7.dex */
-public final class rw {
+public class rw {
     public static /* synthetic */ Interceptable $ic;
-    public static final rw a;
+    public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public byte[] a;
+        public int b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final byte[] j;
+        public static final /* synthetic */ boolean k;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final byte[] c;
+        public int d;
+        public int e;
+        public final boolean f;
+        public final boolean g;
+        public final boolean h;
+        public final byte[] i;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(262660554, "Lcom/baidu/tieba/rw$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(262660554, "Lcom/baidu/tieba/rw$b;");
+                    return;
+                }
+            }
+            k = !rw.class.desiredAssertionStatus();
+            j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, QCodec.UNDERSCORE};
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.f = false;
+            this.g = false;
+            this.h = false;
+            this.i = j;
+            this.c = new byte[2];
+            this.d = 0;
+            this.e = 0 != 0 ? 19 : -1;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +105,7 @@ public final class rw {
                 return;
             }
         }
-        a = new rw();
+        a = !rw.class.desiredAssertionStatus();
     }
 
     public rw() {
@@ -51,121 +122,246 @@ public final class rw {
         }
     }
 
-    @JvmStatic
-    public static final int a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            for (String str3 : split$default) {
-                if (str3 != null) {
-                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
-                    if (!Intrinsics.areEqual(obj, "")) {
-                        linkedList.add(obj);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            for (String str4 : split$default2) {
-                if (str4 != null) {
-                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
-                    if (!Intrinsics.areEqual(obj2, "")) {
-                        linkedList2.add(obj2);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
-                rw rwVar = a;
-                Object pollFirst = linkedList.pollFirst();
-                if (pollFirst == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e = rwVar.e((String) pollFirst);
-                rw rwVar2 = a;
-                Object pollFirst2 = linkedList2.pollFirst();
-                if (pollFirst2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e2 = rwVar2.e((String) pollFirst2);
-                if (e > e2) {
-                    return 1;
-                }
-                if (e < e2) {
-                    return -1;
-                }
-            }
-            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
-                return 0;
-            }
-            while (!linkedList.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
-                    return 1;
-                }
-            }
-            while (!linkedList2.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
-                    return -1;
-                }
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Intrinsics.areEqual(es.c.h().getAppVersion(), "")) {
-                String b = cu.b();
-                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
-                return b;
-            }
-            return es.c.h().getAppVersion();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (qw.a.a() <= j) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final boolean d(String str) {
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0109, code lost:
+        if (r2.h == false) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
+        r5[r11] = 13;
+        r11 = r11 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0110, code lost:
+        r5[r11] = 10;
+        r11 = r11 + 1;
+        r13 = r12;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0205 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0216 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x01f6  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x0110 -> B:41:0x00bd). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        byte b2;
+        byte b3;
+        byte b4;
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (a(b(), str) >= 0) {
-                return true;
-            }
-            return false;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+        int length = bArr.length;
+        b bVar = new b();
+        int i6 = (length / 3) * 4;
+        int i7 = 1;
+        if (!bVar.f) {
+            int i8 = length % 3;
+            if (i8 == 1) {
+                i6 += 2;
+            } else if (i8 == 2) {
+                i6 += 3;
             }
+        } else if (length % 3 > 0) {
+            i6 += 4;
         }
-        return invokeL.intValue;
+        if (bVar.g && length > 0) {
+            i6 += (((length - 1) / 57) + 1) * (bVar.h ? 2 : 1);
+        }
+        byte[] bArr2 = new byte[i6];
+        bVar.a = bArr2;
+        byte[] bArr3 = bVar.i;
+        int i9 = bVar.e;
+        int i10 = length + 0;
+        int i11 = bVar.d;
+        if (i11 != 1) {
+            if (i11 == 2 && i10 > 0) {
+                byte[] bArr4 = bVar.c;
+                i = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[0] & 255);
+                bVar.d = 0;
+                i2 = 1;
+            }
+            i = -1;
+            i2 = 0;
+        } else {
+            if (2 <= i10) {
+                i = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
+                bVar.d = 0;
+                i2 = 2;
+            }
+            i = -1;
+            i2 = 0;
+        }
+        if (i != -1) {
+            bArr2[0] = bArr3[(i >> 18) & 63];
+            bArr2[1] = bArr3[(i >> 12) & 63];
+            bArr2[2] = bArr3[(i >> 6) & 63];
+            bArr2[3] = bArr3[i & 63];
+            i9--;
+            if (i9 == 0) {
+                if (bVar.h) {
+                    i5 = 5;
+                    bArr2[4] = 13;
+                } else {
+                    i5 = 4;
+                }
+                i3 = i5 + 1;
+                bArr2[i5] = 10;
+                i9 = 19;
+            } else {
+                i3 = 4;
+            }
+        } else {
+            i3 = 0;
+        }
+        while (true) {
+            int i12 = i2 + 3;
+            if (i12 > i10) {
+                int i13 = bVar.d;
+                if (i2 - i13 == i10 - 1) {
+                    if (i13 > 0) {
+                        b4 = bVar.c[0];
+                    } else {
+                        b4 = bArr[i2];
+                        i2++;
+                        i7 = 0;
+                    }
+                    int i14 = (b4 & 255) << 4;
+                    bVar.d -= i7;
+                    int i15 = i3 + 1;
+                    bArr2[i3] = bArr3[(i14 >> 6) & 63];
+                    int i16 = i15 + 1;
+                    bArr2[i15] = bArr3[i14 & 63];
+                    if (bVar.f) {
+                        int i17 = i16 + 1;
+                        bArr2[i16] = 61;
+                        i16 = i17 + 1;
+                        bArr2[i17] = 61;
+                    }
+                    if (!bVar.g) {
+                        i3 = i16;
+                        if (b.k) {
+                        }
+                        if (b.k) {
+                        }
+                        bVar.b = i3;
+                        bVar.e = i9;
+                        if (a) {
+                        }
+                        return bVar.a;
+                    }
+                    if (bVar.h) {
+                        bArr2[i16] = 13;
+                        i16++;
+                    }
+                    i4 = i16 + 1;
+                    bArr2[i16] = 10;
+                    i3 = i4;
+                    if (!b.k || bVar.d == 0) {
+                        if (!b.k || i2 == i10) {
+                            bVar.b = i3;
+                            bVar.e = i9;
+                            if (!a || i3 == i6) {
+                                return bVar.a;
+                            }
+                            throw new AssertionError();
+                        }
+                        throw new AssertionError();
+                    }
+                    throw new AssertionError();
+                } else if (i2 - i13 != i10 - 2) {
+                    if (bVar.g && i3 > 0 && i9 != 19) {
+                        if (bVar.h) {
+                            bArr2[i3] = 13;
+                            i3++;
+                        }
+                        i4 = i3 + 1;
+                        bArr2[i3] = 10;
+                        i3 = i4;
+                    }
+                    if (b.k) {
+                    }
+                    if (b.k) {
+                    }
+                    bVar.b = i3;
+                    bVar.e = i9;
+                    if (a) {
+                    }
+                    return bVar.a;
+                } else {
+                    if (i13 > 1) {
+                        b2 = bVar.c[0];
+                    } else {
+                        byte b5 = bArr[i2];
+                        i2++;
+                        b2 = b5;
+                        i7 = 0;
+                    }
+                    int i18 = (b2 & 255) << 10;
+                    if (bVar.d > 0) {
+                        b3 = bVar.c[i7];
+                        i7++;
+                    } else {
+                        b3 = bArr[i2];
+                        i2++;
+                    }
+                    int i19 = ((b3 & 255) << 2) | i18;
+                    bVar.d -= i7;
+                    int i20 = i3 + 1;
+                    bArr2[i3] = bArr3[(i19 >> 12) & 63];
+                    int i21 = i20 + 1;
+                    bArr2[i20] = bArr3[(i19 >> 6) & 63];
+                    int i22 = i21 + 1;
+                    bArr2[i21] = bArr3[i19 & 63];
+                    if (bVar.f) {
+                        bArr2[i22] = 61;
+                        i22++;
+                    }
+                    if (!bVar.g) {
+                        i3 = i22;
+                        if (b.k) {
+                        }
+                        if (b.k) {
+                        }
+                        bVar.b = i3;
+                        bVar.e = i9;
+                        if (a) {
+                        }
+                        return bVar.a;
+                    }
+                    if (bVar.h) {
+                        bArr2[i22] = 13;
+                        i22++;
+                    }
+                    i4 = i22 + 1;
+                    bArr2[i22] = 10;
+                    i3 = i4;
+                    if (b.k) {
+                    }
+                    if (b.k) {
+                    }
+                    bVar.b = i3;
+                    bVar.e = i9;
+                    if (a) {
+                    }
+                    return bVar.a;
+                }
+            }
+            int i23 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16) | (bArr[i2 + 2] & 255);
+            bArr2[i3] = bArr3[(i23 >> 18) & 63];
+            bArr2[i3 + 1] = bArr3[(i23 >> 12) & 63];
+            bArr2[i3 + 2] = bArr3[(i23 >> 6) & 63];
+            bArr2[i3 + 3] = bArr3[i23 & 63];
+            i3 += 4;
+            i9--;
+            if (i9 == 0) {
+                break;
+            }
+            i2 = i12;
+        }
     }
 }

@@ -13,16 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
 import com.baidu.tieba.view.widget.pickcover.SlideBarView;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -502,9 +502,9 @@ public class PickCoverLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             SlideBarView slideBarView = this.e;
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f081232;
+                i2 = R.drawable.obfuscated_res_0x7f081238;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f081231;
+                i2 = R.drawable.obfuscated_res_0x7f081237;
             }
             slideBarView.setPickDrawable(i2);
         }
@@ -613,32 +613,32 @@ public class PickCoverLayout extends FrameLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            double l = yi.l(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            double equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds112);
             this.l = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-            int i2 = (int) (l / this.k);
+            int i2 = (int) (equipmentWidth / this.k);
             this.j = i2;
             if (i2 < 5) {
                 this.j = 5;
             }
-            this.k = (int) (l / this.j);
+            this.k = (int) (equipmentWidth / this.j);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = (this.k * this.j) - (UtilHelper.getDimenPixelSize(R.dimen.L_X04) * 2);
             this.a.setLayoutParams(layoutParams);
-            zg.a().postDelayed(new f(this), 50L);
+            SafeHandler.getInst().postDelayed(new f(this), 50L);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09aa, (ViewGroup) null);
-            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0927b6);
-            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f0927b4);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0927b3);
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090699);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09b4, (ViewGroup) null);
+            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0927d0);
+            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f0927ce);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0927cd);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906a6);
             this.h = eMTextView;
-            d85.d(eMTextView).B(R.array.S_O_X001);
+            EMManager.from(eMTextView).setTextShadow(R.array.S_O_X001);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.c = customLinearLayoutManager;

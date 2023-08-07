@@ -1,18 +1,13 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class vy0 implements gy0 {
+public class vy0 implements wy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,14 +25,14 @@ public class vy0 implements gy0 {
         }
     }
 
-    @Override // com.baidu.tieba.gy0
+    @Override // com.baidu.tieba.wy0
     @NonNull
-    public iy0 a(Map<String, String> map, Object obj) {
-        InterceptResult invokeLL;
+    public py0 create(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-            return new cz0(map, obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new uy0();
         }
-        return (iy0) invokeLL.objValue;
+        return (py0) invokeL.objValue;
     }
 }

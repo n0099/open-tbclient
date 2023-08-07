@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.TypedValue;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import android.view.Window;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes6.dex */
-public class hac {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hac {
+    void attachWindow(Window window);
 
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
-        }
-        return invokeF.intValue;
-    }
+    View getContentView();
+
+    void refreshView();
+
+    void refreshWindow(WindowParams windowParams);
 }

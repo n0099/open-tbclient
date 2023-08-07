@@ -1,160 +1,85 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tib;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.MediaView;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsDrawAd;
 /* loaded from: classes8.dex */
-public class wib extends BaseFunNativeAd {
+public class wib extends FunNativeAd2Bridger<rib, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bjb b;
-    public final ChannelNativeAds c;
-    public final MediaView d;
-    public final lib e;
+    public boolean b;
+    public final tib.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ tib e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wib(bjb bjbVar, MediaView mediaView, String str, Ssp.Pid pid, lib libVar) {
-        super(str, pid);
+    public wib(tib tibVar, ReporterPidLoader reporterPidLoader, rib ribVar, String str, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bjbVar, mediaView, str, pid, libVar};
+            Object[] objArr = {tibVar, reporterPidLoader, ribVar, str, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = bjbVar;
-        this.d = mediaView;
-        this.c = ChannelNativeAds.createGdt(bjbVar.a());
-        this.e = libVar;
+        this.e = tibVar;
+        this.d = context;
+        this.c = new tib.b(tibVar, ribVar, str);
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, rib ribVar, BaseNativeAd2<rib, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ChannelNativeAds) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            if (viewGroup instanceof NativeAdContainer) {
-                this.e.p(this.b, this.mSid, (NativeAdContainer) viewGroup, this.d, list, funAdInteractionListener, this.c.getGdtADStatusChangeListener());
-                return;
-            }
-            LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
-            if (FunAdSdk.isLogEnabled()) {
-                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ribVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(rib ribVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((NativeUnifiedADData) this.b.a).getDesc();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ribVar)) == null) {
+            return ((KsDrawAd) ribVar.a).getDrawView(this.d);
         }
-        return (String) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, rib ribVar, BaseNativeAd2<rib, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((NativeUnifiedADData) this.b.a).getIconUrl();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ribVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            rib ribVar2 = ribVar;
+            this.e.onShowStart(ribVar2, this.b);
+            this.b = true;
+            tib.b bVar = this.c;
+            bVar.e = funAdInteractionListener;
+            ((KsDrawAd) ribVar2.a).setAdInteractionListener(bVar);
+            expressInflater.inflate();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ((NativeUnifiedADData) this.b.a).getTitle();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        String imgUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> imgList = ((NativeUnifiedADData) this.b.a).getImgList();
-            if (imgList == null) {
-                imgList = new ArrayList<>();
-            }
-            if (imgList.isEmpty() && (imgUrl = ((NativeUnifiedADData) this.b.a).getImgUrl()) != null) {
-                imgList.add(imgUrl);
-            }
-            return imgList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!((NativeUnifiedADData) this.b.a).isAppAd()) {
-                return FunNativeAd.InteractionType.TYPE_BROWSE;
-            }
-            int appStatus = ((NativeUnifiedADData) this.b.a).getAppStatus();
-            if (appStatus != 0) {
-                if (appStatus != 1) {
-                    if (appStatus != 2 && appStatus != 4) {
-                        if (appStatus != 8) {
-                            if (appStatus != 16) {
-                                return FunNativeAd.InteractionType.TYPE_UNKNOW;
-                            }
-                        }
-                    }
-                }
-                return FunNativeAd.InteractionType.TYPE_BROWSE;
-            }
-            return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
-        }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
     }
 }

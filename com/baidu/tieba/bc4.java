@@ -1,163 +1,167 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xb4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class bc4 {
+public class bc4 extends ec4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xb4> a;
-    public String b;
-    public String c;
-    public int d;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zb4 a;
-        public final /* synthetic */ bc4 b;
-
-        public a(bc4 bc4Var, zb4 zb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bc4Var, zb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bc4Var;
-            this.a = zb4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<long[]> e = this.b.e();
-                ac4 ac4Var = new ac4();
-                ac4Var.a = this.b.b;
-                ac4Var.b = e;
-                ac4Var.c = this.b.c;
-                m84.i().b(ac4Var, this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947640150, "Lcom/baidu/tieba/bc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947640150, "Lcom/baidu/tieba/bc4;");
-                return;
-            }
-        }
-        e = fs1.a;
-    }
-
-    public bc4(ArrayList<yb4> arrayList, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bc4(ii2 ii2Var) {
+        super(ii2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ii2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ii2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (e) {
-            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
-        }
-        ArrayList<xb4> d = d(arrayList);
-        this.a = d;
-        this.b = str;
-        this.c = str2;
-        this.d = d.size();
     }
 
-    public void c(zb4 zb4Var) {
+    public final void g(JsObject jsObject, String str, String str2, ic4 ic4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zb4Var) != null) || zb4Var == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jsObject, str, str2, ic4Var) == null) {
+            f32 n = n(jsObject);
+            h54 h54Var = new h54();
+            boolean g = ic4Var.g();
+            h54Var.errMsg = ic4Var.c(str, str2);
+            kd4.call(n, g, h54Var);
+            if (!g) {
+                sb4.i(str2, h54Var.errMsg);
+            }
+        }
+    }
+
+    public void h(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            g(jsObject, "clearStorage", "", a());
+        }
+    }
+
+    public final JsSerializeValue i(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("data".equals(jsObject.getPropertyName(i))) {
+                    return jsObject.toSerializeValue(i);
+                }
+            }
+            return null;
+        }
+        return (JsSerializeValue) invokeL.objValue;
+    }
+
+    public void l(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            f32 n = n(jsObject);
+            hc4 b = b();
+            b.errMsg = fc4.b("getStorageInfo");
+            kd4.call(n, true, b);
+        }
+    }
+
+    @NonNull
+    public final f32 n(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
+            f32 F = f32.F(jsObject);
+            if (F == null) {
+                return new f32();
+            }
+            return F;
+        }
+        return (f32) invokeL.objValue;
+    }
+
+    public void o(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) != null) || (m = m(jsObject, "removeStorage")) == null) {
             return;
         }
-        po3.l(new a(this, zb4Var), "clipVideo");
+        g(jsObject, "removeStorage", m, e(m));
     }
 
-    public final ArrayList<xb4> d(ArrayList<yb4> arrayList) {
+    public void p(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, jsObject) != null) || (m = m(jsObject, "setStorage")) == null) {
+            return;
+        }
+        g(jsObject, "setStorage", m, f(m, i(jsObject)));
+    }
+
+    public final ic4 j(JsObject jsObject) {
         InterceptResult invokeL;
-        xb4 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
-            ArrayList<xb4> arrayList2 = new ArrayList<>();
-            if (arrayList != null && arrayList.size() != 0) {
-                Iterator<yb4> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    yb4 next = it.next();
-                    if (next != null && (a2 = next.a()) != null) {
-                        arrayList2.add(a2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("key".equals(jsObject.getPropertyName(i))) {
+                    int propertyType = jsObject.getPropertyType(i);
+                    if (propertyType == 7) {
+                        return ic4.i(jsObject.toString(i));
                     }
+                    return ic4.b(String.format("parameter error: the key must be string instead of %s.", ic4.f(propertyType)));
                 }
             }
-            return arrayList2;
+            return ic4.b("parameter error: the parameter key is necessary.");
         }
-        return (ArrayList) invokeL.objValue;
+        return (ic4) invokeL.objValue;
     }
 
-    public ArrayList<long[]> e() {
-        InterceptResult invokeV;
+    public void k(JsObject jsObject) {
+        String m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<long[]> arrayList = new ArrayList<>();
-            if (this.d == 0) {
-                return arrayList;
-            }
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
-            }
-            Collections.sort(this.a, new xb4.a());
-            xb4 xb4Var = this.a.get(0);
-            for (int i = 1; i < this.d; i++) {
-                xb4 xb4Var2 = this.a.get(i);
-                if (!xb4Var.b(xb4Var2)) {
-                    arrayList.add(xb4.a(xb4Var));
-                    xb4Var = xb4Var2;
-                }
-            }
-            arrayList.add(xb4.a(xb4Var));
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
-            }
-            return arrayList;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jsObject) != null) || (m = m(jsObject, "getStorage")) == null) {
+            return;
         }
-        return (ArrayList) invokeV.objValue;
+        ic4 c = c(m);
+        if (c.g()) {
+            gc4 gc4Var = new gc4();
+            gc4Var.errMsg = fc4.b("getStorage");
+            Object d = c.d();
+            gc4Var.data = d;
+            if (d instanceof JsSerializeValue) {
+                ((JsSerializeValue) d).setAutoRelease(false);
+            }
+            kd4.call(n(jsObject), true, gc4Var);
+            return;
+        }
+        g(jsObject, "getStorage", m, c);
+    }
+
+    public final String m(JsObject jsObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jsObject, str)) == null) {
+            ic4 j = j(jsObject);
+            if (!j.g()) {
+                g(jsObject, str, "", j);
+                return null;
+            }
+            return (String) j.d();
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,7 +44,7 @@ public class CommonLikeButton extends AppCompatTextView {
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
         TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8);
-        d();
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,7 +68,7 @@ public class CommonLikeButton extends AppCompatTextView {
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
         TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8);
-        d();
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,15 +92,15 @@ public class CommonLikeButton extends AppCompatTextView {
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
         TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8);
-        d();
+        e();
     }
 
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, yi.g(getContext(), R.dimen.tbds34));
+            setTextSize(0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds34));
             setGravity(17);
         }
     }

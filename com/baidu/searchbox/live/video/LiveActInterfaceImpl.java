@@ -216,8 +216,8 @@ public final class LiveActInterfaceImpl implements ILiveActInterface {
         return this.pluginInvokeService;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0067 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0069  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x006a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x006c  */
     /* JADX WARN: Type inference failed for: r5v3, types: [T, java.lang.Object, java.lang.String] */
     @Override // com.baidu.searchbox.live.host2live.video.ILiveActInterface
     /*

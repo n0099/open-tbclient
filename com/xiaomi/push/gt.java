@@ -17,7 +17,7 @@ public class gt {
     public Map<String, Object> b = new ConcurrentHashMap();
 
     public gt() {
-        m534a();
+        m535a();
     }
 
     public static synchronized gt a() {
@@ -45,7 +45,7 @@ public class gt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m532a() {
+    private ClassLoader[] m533a() {
         ClassLoader[] classLoaderArr = {gt.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 2; i++) {
@@ -58,7 +58,7 @@ public class gt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m533a(String str, String str2) {
+    public Object m534a(String str, String str2) {
         return this.f453a.get(a(str, str2));
     }
 
@@ -68,13 +68,13 @@ public class gt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m534a() {
+    public void m535a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
         Object obj2;
         try {
-            for (ClassLoader classLoader : m532a()) {
+            for (ClassLoader classLoader : m533a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();

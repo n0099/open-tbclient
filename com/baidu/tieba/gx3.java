@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.gb3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,33 +17,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gx3 implements ox1 {
+public class gx3 extends ex3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ir3 a;
 
-    @Override // com.baidu.tieba.ox1
-    public void d(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
-        }
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements gb3.a {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
+        public String a;
+        public String b;
+        public long c;
 
-        public a(gx3 gx3Var, SwanAppActivity swanAppActivity, String str) {
+        public b(String str, String str2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gx3Var, swanAppActivity, str};
+                Object[] objArr = {str, str2, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,52 +58,45 @@ public class gx3 implements ox1 {
                     return;
                 }
             }
-            this.a = swanAppActivity;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.gb3.a
-        public void a(gb3 gb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, gb3Var) == null) {
-                uz2.d(gb3Var.c(), this.a, this.b);
-            }
+            this.a = str;
+            this.b = str2;
+            this.c = j;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends so2 {
+    public static class c implements Comparator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ gx3 b;
 
-        public b(gx3 gx3Var, SwanAppActivity swanAppActivity) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gx3Var, swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = gx3Var;
-            this.a = swanAppActivity;
         }
 
-        @Override // com.baidu.tieba.so2, com.baidu.tieba.to2
-        public void b() {
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(b bVar, b bVar2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.j();
-                this.a.G0(this);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
+                return Long.compare(bVar2.c, bVar.c);
             }
+            return invokeLL.intValue;
         }
     }
 
@@ -115,7 +113,29 @@ public class gx3 implements ox1 {
                 return;
             }
         }
-        boolean z = fs1.a;
+        a = new String[]{"_id", "app_id", GameGuideConfigInfo.KEY_APP_KEY, "app_sign", "version_code", NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "app_from", "visit_time"};
+    }
+
+    public final List<b> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(null, null, null, null);
+            ArrayList arrayList = new ArrayList();
+            if (n != null && n.moveToFirst()) {
+                int columnIndex = n.getColumnIndex("app_id");
+                int columnIndex2 = n.getColumnIndex("app_from");
+                int columnIndex3 = n.getColumnIndex("visit_time");
+                do {
+                    arrayList.add(new b(n.getString(columnIndex), n.getString(columnIndex2), n.getLong(columnIndex3)));
+                } while (n.moveToNext());
+                cr4.d(n);
+                return arrayList;
+            }
+            cr4.d(n);
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public gx3() {
@@ -132,96 +152,39 @@ public class gx3 implements ox1 {
         }
     }
 
-    @Override // com.baidu.tieba.ox1
-    public void a(NgWebView ngWebView) {
+    public final void a(MatrixCursor matrixCursor, int i, b bVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
-            ngWebView.doSelectionCancel();
+        if ((interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i, bVar, pMSAppInfo) == null) && matrixCursor != null && i >= 0 && bVar != null && pMSAppInfo != null) {
+            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add(GameGuideConfigInfo.KEY_APP_KEY, pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("app_from", bVar.b).add("visit_time", Long.valueOf(bVar.c));
         }
     }
 
-    @Override // com.baidu.tieba.ox1
-    public void b(NgWebView ngWebView, String str) {
-        SwanAppActivity w;
+    @Override // com.baidu.tieba.ex3
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) && (w = ub3.K().w()) != null && !TextUtils.isEmpty(str)) {
-            this.a = new ir3(ngWebView.covertToView());
-            int[] g = g(w);
-            int[] h = h(w);
-            for (int i = 0; i < g.length; i++) {
-                this.a.e(g[i], h[i]);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
+            List<b> b2 = b();
+            if (b2.isEmpty()) {
+                return null;
             }
-            this.a.r(new a(this, w, str));
-            this.a.t();
-            w.u0(new b(this, w));
-        }
-    }
-
-    @Override // com.baidu.tieba.ox1
-    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
-            if (z) {
-                i("show", null, null);
+            HashMap<String, PMSAppInfo> a2 = ix3.a();
+            if (a2.isEmpty()) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ox1
-    public void e(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, context) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        qp3.b(context).c(str);
-        i("click", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, null);
-    }
-
-    public int[] g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            int[] iArr = {7, 6, 8};
-            if (!xo3.a(context, "android.permission.SET_WALLPAPER")) {
-                int[] iArr2 = new int[2];
-                System.arraycopy(iArr, 0, iArr2, 0, 2);
-                return iArr2;
+            Collections.sort(b2, new c(null));
+            MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
+            int i = 0;
+            for (b bVar : b2) {
+                PMSAppInfo pMSAppInfo = a2.get(bVar.a);
+                if (pMSAppInfo != null) {
+                    a(matrixCursor, i, bVar, pMSAppInfo);
+                    i++;
+                }
             }
-            return iArr;
+            return matrixCursor;
         }
-        return (int[]) invokeL.objValue;
-    }
-
-    public int[] h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f14a1, R.string.obfuscated_res_0x7f0f14a3, R.string.obfuscated_res_0x7f0f14a7};
-            if (!xo3.a(context, "android.permission.SET_WALLPAPER")) {
-                int[] iArr2 = new int[2];
-                System.arraycopy(iArr, 0, iArr2, 0, 2);
-                return iArr2;
-            }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            xi3 xi3Var = new xi3();
-            xi3Var.a = "tool";
-            xi3Var.f = ub3.K().getAppId();
-            xi3Var.c = "miniapp";
-            xi3Var.g = "text";
-            xi3Var.b = str;
-            xi3Var.e = str2;
-            if (!TextUtils.isEmpty(str3)) {
-                xi3Var.a("query", str3);
-            }
-            oi3.x("810", xi3Var);
-        }
+        return (Cursor) invokeLLLLL.objValue;
     }
 }

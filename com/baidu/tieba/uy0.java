@@ -1,125 +1,326 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.player.kernel.EmptyKernel;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public abstract class uy0 implements ey0 {
+public class uy0 extends py0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d01 a;
 
-    public abstract void f(mx0 mx0Var);
-
-    public abstract void g(mx0 mx0Var);
-
-    public abstract void h(mx0 mx0Var);
-
-    public abstract void i(mx0 mx0Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227197, "Lcom/baidu/tieba/uy0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948227197, "Lcom/baidu/tieba/uy0;");
-                return;
-            }
+    @Override // com.baidu.tieba.py0, com.baidu.tieba.f11
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
         }
-        ru0.f();
     }
 
-    public uy0(Map<String, String> map) {
+    public uy0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        j(map);
-    }
-
-    @Override // com.baidu.tieba.ey0
-    public final <T extends zz0> void d(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.a = (d01) t;
         }
     }
 
-    @Override // com.baidu.tieba.fy0
-    public final void c(mx0 mx0Var) {
+    @Override // com.baidu.tieba.py0
+    public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, mx0Var) == null) && mx0Var != null && this.a != null) {
-            int type = mx0Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            h(mx0Var);
-                            return;
-                        }
-                        return;
-                    }
-                    g(mx0Var);
-                    return;
-                }
-                f(mx0Var);
-                return;
-            }
-            i(mx0Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            y11.d("player has released, cannot call setDataSourceAndPrepare!!!");
         }
     }
 
-    public void j(Map<String, String> map) {
+    @Override // com.baidu.tieba.py0
+    public void Q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && map != null && map.size() > 0) {
-            if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
-                String str = (String) z31.b(map, WriteActivityConfig.VIDEO_INFO);
-            }
-            if (map.containsKey("channel_id")) {
-                String str2 = (String) z31.b(map, "channel_id");
-            }
-            if (map.containsKey("channel_title")) {
-                String str3 = (String) z31.b(map, "channel_title");
-            }
-            if (map.containsKey("type")) {
-                String str4 = (String) z31.b(map, "type");
-            }
-            if (map.containsKey("source")) {
-                String str5 = (String) z31.b(map, "source");
-            }
-            if (map.containsKey("from")) {
-                String str6 = (String) z31.b(map, "from");
-            }
-            if (map.containsKey("pd")) {
-                String str7 = (String) z31.b(map, "pd");
-            }
-            if (map.containsKey("tpl")) {
-                String str8 = (String) z31.b(map, "tpl");
-            }
-            if (map.containsKey("ext_request")) {
-                String str9 = (String) z31.b(map, "ext_request");
-            }
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "start()");
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    @NonNull
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getBVideoView()");
+            return new FrameLayout(ut0.b());
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getBufferingPosition()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getDuration()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getDurationMs()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getPosition()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getPositionMs()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getVideoHeight()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "getVideoWidth()");
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onComplete()");
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onError()");
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onPrepared()");
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void A(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "seekTo(" + i + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void N(String str, @NonNull HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, hashMap) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setVideoFormatOptions(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void P(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "player has released, cannot call setVideoUrl!!! isNeedChangeState = " + z);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void B(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setClarityInfo(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void E(@Nullable HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setHttpHeader(" + hashMap + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void F(xy0 xy0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xy0Var) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setKernelCallBack(" + System.identityHashCode(xy0Var) + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setLooping(" + z + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void I(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setPlayConf(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void J(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setProxy(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void L(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setSpeed(" + f + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void M(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setUserAgent(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setVideoScalingMode(" + i + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void U(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "updateFreeProxy(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void b(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "changePlayUrl(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "mute(" + z + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0, com.baidu.tieba.f11
+    public boolean verify(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
+            return EmptyKernel.KERNEL_TYPE_EMPTY.equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void D(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setExternalInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void H(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "setOption(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.tieba.py0
+    public void s(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048606, this, i, i2, obj) == null) {
+            y11.e(EmptyKernel.KERNEL_TYPE_EMPTY, "onInfo(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 }

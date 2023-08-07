@@ -1,91 +1,212 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zh3 implements yh3<JSONObject> {
+public class zh3 extends bi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
+    public boolean v;
+    public JSONObject w;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359908, "Lcom/baidu/tieba/zh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948359908, "Lcom/baidu/tieba/zh3;");
+                return;
+            }
+        }
+        x = ir1.a;
+        y = 35;
+    }
 
     public zh3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new JSONArray();
+        this.v = false;
+        this.c = "NA";
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = new JSONArray();
-        }
-    }
-
-    public JSONObject d() {
+    @Override // com.baidu.tieba.bi3, com.baidu.tieba.ai3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
             try {
-                jSONObject.put("launchLog", this.b);
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = so3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
+                    }
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
+                    }
+                }
+                ExtensionCore T2 = sh2.U().T();
+                if (T2 != null) {
+                    this.h.put("extension_ver", T2.extensionCoreVersionName);
+                }
             } catch (JSONException e) {
-                if (yh3.a) {
-                    Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
+                if (x) {
+                    e.printStackTrace();
                 }
             }
-            return jSONObject;
+            return super.f();
         }
         return (JSONObject) invokeV.objValue;
     }
 
-    public void a(String str, String str2) {
+    public zh3 l(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (yh3.a) {
-                    Log.d("LaunchTraceCollector", "event is empty");
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
                 }
-                return;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("actionId", str);
-                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("info", str2);
-                b(jSONObject);
-            } catch (JSONException e) {
-                if (yh3.a) {
-                    Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
+                    }
                 }
             }
+            return this;
         }
+        return (zh3) invokeLL.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public zh3 m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null) {
-            this.b.put(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
         }
+        return (zh3) invokeL.objValue;
+    }
+
+    public zh3 n(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
+        }
+        return (zh3) invokeZ.objValue;
+    }
+
+    public zh3 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
+        }
+        return (zh3) invokeI.objValue;
+    }
+
+    public zh3 p(@NonNull rm3 rm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rm3Var)) == null) {
+            this.b = String.valueOf(rm3Var.a());
+            String sb = rm3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (zh3) invokeL.objValue;
+    }
+
+    public zh3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (zh3) invokeL.objValue;
+    }
+
+    public zh3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (zh3) invokeL.objValue;
+    }
+
+    public zh3 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (zh3) invokeL.objValue;
+    }
+
+    public zh3 r(yv2 yv2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, yv2Var)) == null) {
+            if (yv2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(yv2Var.T())) {
+                this.c = yv2Var.T();
+            }
+            if (!TextUtils.isEmpty(yv2Var.H())) {
+                this.f = yv2Var.H();
+            }
+            if (!TextUtils.isEmpty(yv2Var.W())) {
+                this.p = yv2Var.W();
+            }
+            if (!TextUtils.isEmpty(yv2Var.e0())) {
+                this.s = yv2Var.e0();
+            }
+            return this;
+        }
+        return (zh3) invokeL.objValue;
     }
 }

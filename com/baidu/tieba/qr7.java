@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import android.os.MessageQueue;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class qr7 implements MessageQueue.IdleHandler {
+public class qr7 implements f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsModelController> a;
-    public MvcHttpResponsedMessage<nba> b;
-    public MvcHttpMessage<FrsRequestData, nba> c;
-    public MvcNetMessage<FrsRequestData, nba> d;
-    public uba e;
 
     public qr7() {
         Interceptable interceptable = $ic;
@@ -37,57 +38,72 @@ public class qr7 implements MessageQueue.IdleHandler {
         }
     }
 
-    @Override // android.os.MessageQueue.IdleHandler
-    public boolean queueIdle() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f65
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.a.get();
-            if (frsModelController == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsShield");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f65
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z4 = false;
+            if (!LooperBlockSwitch.getIsOn()) {
                 return false;
             }
-            frsModelController.Z0(this.b, this.c, this.d);
-            uba ubaVar = this.e;
-            if (ubaVar != null) {
-                ubaVar.b();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧内屏蔽弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
             }
-            return false;
+            FrsFragment u1 = ((FrsActivity) currentActivity).u1();
+            if (u1 != null && !u1.n4() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                TbLog yunDialogLog = YunDialogLog.getInstance();
+                StringBuilder sb = new StringBuilder();
+                sb.append("吧内屏蔽弹窗策略校验失败：FrsFragment为空->");
+                if (u1 == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                sb.append(z2);
+                sb.append("|");
+                sb.append("Frs是否展示过弹窗->");
+                if (u1 != null && u1.n4()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                sb.append(z3);
+                sb.append("|");
+                sb.append("是否存在FRS数据->");
+                if (TbSingleton.getInstance().getFrsResponseData() != null) {
+                    z4 = true;
+                }
+                sb.append(z4);
+                yunDialogLog.e(YunDialogManager.LOG_KEY, sb.toString());
+            }
+            return z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void a(FrsModelController frsModelController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.a = new WeakReference<>(frsModelController);
-        }
-    }
-
-    public void b(uba ubaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ubaVar) == null) {
-            this.e = ubaVar;
-        }
-    }
-
-    public void c(MvcHttpMessage<FrsRequestData, nba> mvcHttpMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
-            this.c = mvcHttpMessage;
-        }
-    }
-
-    public void d(MvcNetMessage<FrsRequestData, nba> mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.d = mvcNetMessage;
-        }
-    }
-
-    public void e(MvcHttpResponsedMessage<nba> mvcHttpResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
-            this.b = mvcHttpResponsedMessage;
-        }
+        return invokeL.booleanValue;
     }
 }

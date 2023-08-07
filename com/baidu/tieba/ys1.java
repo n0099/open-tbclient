@@ -1,20 +1,37 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.tieba.vu1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes8.dex */
-public class ys1 {
+public class ys1 implements vu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vv1 a;
+    public Boolean a;
+
+    @Override // com.baidu.tieba.vu1
+    public void c(mr1 mr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mr1Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public void j(kr1 kr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, kr1Var) == null) {
+        }
+    }
 
     public ys1() {
         Interceptable interceptable = $ic;
@@ -30,26 +47,95 @@ public class ys1 {
         }
     }
 
-    @NonNull
-    public vv1 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vu1
+    public void a(vu1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = b();
-            }
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && aVar != null) {
+            aVar.onFinish();
         }
-        return (vv1) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public vv1 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vu1
+    public String d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new qs3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return jy1.a.a();
         }
-        return (vv1) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            boolean g = SwanAppAllianceLoginHelper.d.g();
+            this.a = Boolean.TRUE;
+            return g;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return kr4.b(context).a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public void g(vu1.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) && cVar != null) {
+            cVar.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            return my1.b.a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public String i(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return kr4.b(context).a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            if (this.a == null) {
+                e(context);
+            }
+            Boolean bool = this.a;
+            if (bool == null) {
+                return false;
+            }
+            return bool.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vu1
+    public void b(Activity activity, Bundle bundle, kr1 kr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, kr1Var) == null) {
+            SwanAppAllianceLoginHelper.d.i(kr1Var);
+        }
     }
 }

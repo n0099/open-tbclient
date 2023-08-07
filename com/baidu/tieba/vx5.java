@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vx5 {
+public class vx5 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = a;
-            if (j > currentTimeMillis) {
-                a = currentTimeMillis;
-                return false;
-            } else if (currentTimeMillis - j < 500) {
-                return true;
-            } else {
-                a = currentTimeMillis;
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+        }
+    }
+
+    public vx5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+            textPaint.setUnderlineText(false);
+        }
     }
 }

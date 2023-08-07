@@ -1,24 +1,31 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes7.dex */
-public final class pnb<TResult> implements qob<TResult> {
+public abstract class pnb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rob<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final String a;
+    public final IMessageEntity b;
+    public final zmb c;
+    public RequestHeader d;
+    public xnb<TResult> e;
 
-    public pnb(Executor executor, rob<TResult> robVar) {
+    public abstract void a(ApiException apiException, Object obj);
+
+    public pnb(String str, IMessageEntity iMessageEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, robVar};
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,16 +35,20 @@ public final class pnb<TResult> implements qob<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = robVar;
-        this.b = executor;
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = zmb.b(str);
     }
 
-    @Override // com.baidu.tieba.qob
-    public final void a(cob<TResult> cobVar) {
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cobVar) == null) {
-            this.b.execute(new nnb(this, cobVar));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
+            }
+            String str = "This Task has been canceled, uri:" + this.a;
         }
     }
 }

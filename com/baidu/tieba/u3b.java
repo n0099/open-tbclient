@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
 public class u3b {
     public static /* synthetic */ Interceptable $ic;
@@ -31,68 +29,106 @@ public class u3b {
                 return;
             }
         }
-        a = m3b.m();
+        a = p2b.m();
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static boolean a(Context context) {
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException e) {
+                    if (a) {
+                        Log.e("StringUtil", e.toString());
+                    }
+                    i = 0;
+                }
+                if (i == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, i);
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e2) {
+                if (a) {
+                    Log.e("StringUtil", e2.toString());
+                }
+            }
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return false;
-            }
-            NetworkInfo networkInfo = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
             try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception e) {
+                try {
+                    byte[] a2 = a(inputStream);
+                    if (a2 != null) {
+                        String str = new String(a2);
+                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                            str = str.substring(1);
+                        }
+                        return str;
+                    } else if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return null;
+                        } catch (Exception e) {
+                            e = e;
+                            if (!a) {
+                                return null;
+                            }
+                            Log.e("StringUtil", e.toString());
+                            return null;
+                        }
+                    } else {
+                        return null;
+                    }
+                } finally {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e2) {
+                            if (a) {
+                                Log.e("StringUtil", e2.toString());
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e3) {
                 if (a) {
-                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
+                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
                 }
-            }
-            if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                        return null;
+                    } catch (Exception e4) {
+                        e = e4;
+                        if (!a) {
+                            return null;
+                        }
+                        Log.e("StringUtil", e.toString());
+                        return null;
+                    }
                 }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static String c(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+                return null;
             }
         }
-        return (String) invokeLZ.objValue;
+        return (String) invokeL.objValue;
     }
 }

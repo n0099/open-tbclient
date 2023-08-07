@@ -42,9 +42,9 @@ public final class KTypesJvm {
                 Object next = it.next();
                 KType kType = (KType) next;
                 if (kType != null) {
-                    Object mo2101getDeclarationDescriptor = ((KTypeImpl) kType).getType().getConstructor().mo2101getDeclarationDescriptor();
-                    if (mo2101getDeclarationDescriptor instanceof ClassDescriptor) {
-                        obj = mo2101getDeclarationDescriptor;
+                    Object mo2102getDeclarationDescriptor = ((KTypeImpl) kType).getType().getConstructor().mo2102getDeclarationDescriptor();
+                    if (mo2102getDeclarationDescriptor instanceof ClassDescriptor) {
+                        obj = mo2102getDeclarationDescriptor;
                     }
                     ClassDescriptor classDescriptor = (ClassDescriptor) obj;
                     if (classDescriptor != null && classDescriptor.getKind() != ClassKind.INTERFACE && classDescriptor.getKind() != ClassKind.ANNOTATION_CLASS) {

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ja9;
-import com.baidu.tieba.ka9;
+import com.baidu.tieba.g89;
+import com.baidu.tieba.h89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,8 +92,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ja9(tbPageContext));
-            arrayList.add(new ka9(tbPageContext));
+            arrayList.add(new g89(tbPageContext));
+            arrayList.add(new h89(tbPageContext));
             addAdapters(arrayList);
         }
     }

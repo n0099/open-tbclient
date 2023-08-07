@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
 public interface bd1 {
-    @Nullable
-    Drawable a(Context context);
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
 
-    @Nullable
-    Drawable b(Context context);
+    int a();
+
+    boolean b();
 }

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -20,9 +21,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu5;
-import com.baidu.tieba.ve5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.js5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,10 +115,10 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     if (this.a.h.hasFocus()) {
-                        yi.A(this.a.getPageContext().getPageActivity(), this.a.h);
+                        BdUtilHelper.hideSoftKeyPad(this.a.getPageContext().getPageActivity(), this.a.h);
                     }
                     if (this.a.i.hasFocus()) {
-                        yi.A(this.a.getPageContext().getPageActivity(), this.a.i);
+                        BdUtilHelper.hideSoftKeyPad(this.a.getPageContext().getPageActivity(), this.a.i);
                         return false;
                     }
                     return false;
@@ -274,14 +274,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        ve5 ve5Var = new ve5();
-                        ve5Var.e(postNetData);
-                        if (ve5Var.c() != null && ve5Var.c().length() > 0) {
-                            this.c.d = ve5Var.b();
+                        jd5 jd5Var = new jd5();
+                        jd5Var.e(postNetData);
+                        if (jd5Var.c() != null && jd5Var.c().length() > 0) {
+                            this.c.d = jd5Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(ve5Var.c());
+                            NetWork netWork2 = new NetWork(jd5Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -372,9 +372,9 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0233);
+            setContentView(R.layout.obfuscated_res_0x7f0d0236);
             initData();
-            H1();
+            G1();
             F1();
             TiebaStatic.log("c11223");
         }
@@ -426,32 +426,32 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         }
     }
 
-    public final void H1() {
+    public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f6a);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f81);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.setTitleText(R.string.create_bar);
             this.g = (NoNetworkView) this.e.findViewById(R.id.view_no_network);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09096a);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090979);
             this.h = editText;
             editText.setText(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09097b);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09098a);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e78);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e8f);
             this.k = textView;
             textView.setOnClickListener(this.a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091067);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107a);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092453);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09246b);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
-            findViewById(R.id.obfuscated_res_0x7f090412).setOnTouchListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f090413).setOnTouchListener(new b(this));
         }
     }
 
@@ -460,15 +460,15 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            getLayoutMode().k(this.e);
-            uu5.a(getPageContext(), this.e);
+            getLayoutMode().onModeChanged(this.e);
+            js5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);
             }
             NoNetworkView noNetworkView = this.g;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
-                this.g.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                this.g.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

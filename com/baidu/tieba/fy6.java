@@ -1,75 +1,86 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.gy6;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fy6 extends y41 implements gy6.a {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ForumGuide.LikeForum;
+/* loaded from: classes6.dex */
+public class fy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final SQLiteDatabase c;
-    @NonNull
-    public final SQLiteDatabase d;
+    public ArrayList<dy6> a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fy6(@NonNull SQLiteDatabase sQLiteDatabase) {
-        this(sQLiteDatabase, sQLiteDatabase);
+    public fy6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((SQLiteDatabase) objArr2[0], (SQLiteDatabase) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fy6(@NonNull SQLiteDatabase sQLiteDatabase, @NonNull SQLiteDatabase sQLiteDatabase2) {
-        super(sQLiteDatabase, sQLiteDatabase2);
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sQLiteDatabase, sQLiteDatabase2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((SQLiteDatabase) objArr2[0], (SQLiteDatabase) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<dy6> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().A(0);
             }
         }
-        this.c = sQLiteDatabase;
-        this.d = sQLiteDatabase2;
     }
 
-    @Override // com.baidu.tieba.gy6.a
-    @NonNull
-    public Cursor b(@NonNull String str, @NonNull String... strArr) {
-        InterceptResult invokeLL;
+    public ArrayList<dy6> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
-            return new m51(this.d.rawQuery(str, strArr));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (Cursor) invokeLL.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void c(List<?> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
+            return;
+        }
+        d(list, null);
+    }
+
+    public void d(List<?> list, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
+            return;
+        }
+        try {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
+                    return;
+                }
+                dy6 dy6Var = new dy6();
+                dy6Var.x((LikeForum) list.get(i));
+                if (!TextUtils.isEmpty(dy6Var.i())) {
+                    this.a.add(dy6Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

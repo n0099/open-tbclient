@@ -1,9 +1,27 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import com.baidu.tieba.mainentrance.HotSearchInfoData;
+import tbclient.SearchSug.DataRes;
 /* loaded from: classes5.dex */
 public interface e19 {
-    void a(long j, String str);
+    void a(String str, boolean z, int i);
 
-    void b(f19 f19Var);
+    void b();
 
-    void c(int i, long j, String str, int i2, String str2);
+    View c();
+
+    void d(HotSearchInfoData hotSearchInfoData);
+
+    View e();
+
+    void f(DataRes dataRes, String str);
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

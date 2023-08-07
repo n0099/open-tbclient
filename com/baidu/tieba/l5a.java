@@ -1,47 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.config.AppIdentityManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l5a implements IDeviceInfoAppHost {
+public class l5a implements PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IDeviceInfoAppHost.OAIDResult a;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public int m;
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    public long getForceMappingCacheInterval() {
-        InterceptResult invokeV;
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 86400000L;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
         }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    public boolean useMapping() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 
     public l5a() {
@@ -58,75 +50,212 @@ public class l5a implements IDeviceInfoAppHost {
         }
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getAppName() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return AppIdentityManager.getInstance().getAppName();
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getEnUid() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                return AppCuidRuntime.getAppCuidManager().getEnCuid();
-            }
-            return "";
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getUA() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return aj.l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @NonNull
-    public static String a(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                return new x50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(str.getBytes());
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public IDeviceInfoAppHost.OAIDResult getOAID() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            IDeviceInfoAppHost.OAIDResult oAIDResult = this.a;
-            if (oAIDResult != null) {
-                return oAIDResult;
-            }
-            if (PermissionUtil.isBrowseMode()) {
-                IDeviceInfoAppHost.OAIDResult oAIDResult2 = new IDeviceInfoAppHost.OAIDResult(true, "", "");
-                this.a = oAIDResult2;
-                return oAIDResult2;
-            }
-            String g = m30.f(AppRuntime.getAppContext()).g();
-            IDeviceInfoAppHost.OAIDResult oAIDResult3 = new IDeviceInfoAppHost.OAIDResult(true, g, a(g));
-            this.a = oAIDResult3;
-            return oAIDResult3;
+            return this.b;
         }
-        return (IDeviceInfoAppHost.OAIDResult) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.m;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.imgUrl = this.c;
+            preLoadImageInfo.procType = 10;
+            arrayList.add(preLoadImageInfo);
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n(JSONObject jSONObject) throws Exception {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("forum_id");
+        this.b = jSONObject.optString("forum_name");
+        this.c = jSONObject.optString("avatar");
+        this.d = jSONObject.optInt("is_sign_in");
+        this.e = jSONObject.optInt("cont_sign_num");
+        this.f = jSONObject.optInt(IntentConfig.USER_LEVEL);
+        this.g = jSONObject.optInt("user_exp");
+        this.h = jSONObject.optInt("need_exp");
+        if (this.d != 0) {
+            this.i = true;
+            this.k = false;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.k = z;
+            this.d = 0;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.i = z;
+            this.d = 1;
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    public void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.f = i;
+        }
     }
 }

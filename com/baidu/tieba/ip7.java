@@ -1,129 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.core.widget.SpriteBottomTipView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ip7 {
+public class ip7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PriorityOrganizer a;
+    public final PriorityOrganizer.Task b;
+    public dp7 c;
+    public ap7 d;
+    public bp7 e;
+    public ep7 f;
+    public fp7 g;
+    public cp7 h;
+    public jp7 i;
+    public kp7 j;
+    public hp7 k;
+    public gp7 l;
 
-    public static final void a(SpriteBottomTipView.a aVar, FrsSpriteNewUserGuide.BubbleText bubbleText) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        ThemeColorInfo themeColorInfo;
-        ThemeElement themeElement;
-        ThemeColorInfo themeColorInfo2;
-        ThemeElement themeElement2;
-        FrsSpriteNewUserGuide.ButtonInfo buttonInfo;
+    public ip7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, aVar, bubbleText) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            ThemeColorInfo themeColorInfo3 = null;
-            if (bubbleText != null) {
-                str = bubbleText.title;
-            } else {
-                str = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (StringUtils.isNull(str)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0872);
-            }
-            aVar.s(str);
-            if (bubbleText != null) {
-                str2 = bubbleText.text;
-            } else {
-                str2 = null;
-            }
-            aVar.g(str2);
-            if (bubbleText != null && (buttonInfo = bubbleText.buttonInfo) != null) {
-                str3 = buttonInfo.text;
-            } else {
-                str3 = null;
-            }
-            aVar.e(str3);
-            if (bubbleText != null && (themeColorInfo2 = bubbleText.bgUrlTheme) != null && (themeElement2 = themeColorInfo2.day) != null) {
-                str4 = themeElement2.pattern_image;
-            } else {
-                str4 = null;
-            }
-            aVar.c(str4);
-            if (bubbleText != null && (themeColorInfo = bubbleText.bgUrlTheme) != null && (themeElement = themeColorInfo.dark) != null) {
-                str5 = themeElement.pattern_image;
-            } else {
-                str5 = null;
-            }
-            aVar.b(str5);
-            if (bubbleText != null) {
-                themeColorInfo3 = bubbleText.textColor;
-            }
-            b(aVar, themeColorInfo3);
+        }
+        this.a = PriorityOrganizer.create();
+        this.c = new dp7(frsActivity, frsFragment);
+        this.d = new ap7(frsActivity, frsFragment);
+        this.e = new bp7(frsActivity, frsFragment);
+        this.f = new ep7(frsActivity, frsFragment);
+        this.g = new fp7(frsActivity, frsFragment);
+        this.h = new cp7(frsActivity, frsFragment);
+        this.i = new jp7(frsActivity, frsFragment);
+        this.j = new kp7(frsActivity, frsFragment);
+        this.k = new hp7(frsActivity, frsFragment);
+        gp7 gp7Var = new gp7(frsActivity, frsFragment);
+        this.l = gp7Var;
+        this.b = PriorityOrganizer.makeChain(this.c, this.d, this.e, gp7Var, this.f, this.g, this.h, this.i, this.j, this.k);
+    }
+
+    public void a(boolean z) {
+        fp7 fp7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (fp7Var = this.g) != null) {
+            fp7Var.a(z);
         }
     }
 
-    public static final void b(SpriteBottomTipView.a aVar, ThemeColorInfo themeColorInfo) {
-        String str;
+    public void b() {
+        PriorityOrganizer.Task task;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, aVar, themeColorInfo) == null) && themeColorInfo != null) {
-            ThemeElement themeElement = themeColorInfo.day;
-            String str2 = null;
-            if (themeElement != null) {
-                str = themeElement.font_color;
-            } else {
-                str = null;
-            }
-            int f = dba.f(str);
-            if (!dba.e(f)) {
-                aVar.t(Integer.valueOf(f));
-                aVar.h(Integer.valueOf(f));
-            }
-            ThemeElement themeElement2 = themeColorInfo.dark;
-            if (themeElement2 != null) {
-                str2 = themeElement2.font_color;
-            }
-            int f2 = dba.f(str2);
-            if (!dba.e(f2)) {
-                aVar.v(Integer.valueOf(f2));
-                aVar.j(Integer.valueOf(f2));
-            }
-        }
-    }
-
-    public static final void c(SpriteBottomTipView.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            hb5 hb5Var = new hb5();
-            hb5Var.s(R.color.CAM_X0601, R.color.CAM_X0920);
-            hb5Var.k(UtilHelper.getDimenPixelSize(R.dimen.tbds10), UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-            hb5Var.p(0);
-            hb5Var.n(0);
-            hb5Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            hb5Var.f(1);
-            hb5Var.j(0, R.drawable.ic_icon_mybar_pure_list_arrow16_right, TBSpecificationButtonConfig.IconType.WEBP);
-            aVar.d(hb5Var);
-            aVar.f(R.dimen.T_X07);
-        }
-    }
-
-    public static final void d(SpriteBottomTipView.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            aVar.w(R.dimen.T_X05);
-            aVar.k(R.dimen.T_X07);
-            aVar.u(R.color.CAM_X0610);
-            aVar.i(R.color.CAM_X0610);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !LooperBlockSwitch.getIsOn() && (task = this.b) != null && !task.isExecuting(true)) {
+            this.b.reset(true);
+            this.a.tryAdd(this.b);
         }
     }
 }

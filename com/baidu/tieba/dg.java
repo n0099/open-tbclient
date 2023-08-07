@@ -8,6 +8,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class dg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void cancel();
+    }
 
     public dg() {
         Interceptable interceptable = $ic;

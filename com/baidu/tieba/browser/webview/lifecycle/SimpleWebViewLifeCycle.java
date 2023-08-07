@@ -7,10 +7,10 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
-import com.baidu.tieba.kk6;
-import com.baidu.tieba.ko6;
-import com.baidu.tieba.so6;
-import com.baidu.tieba.vn6;
+import com.baidu.tieba.cl6;
+import com.baidu.tieba.qh6;
+import com.baidu.tieba.rl6;
+import com.baidu.tieba.zl6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kk6<String> a;
-    public final kk6<WebView> b;
+    public final qh6<String> a;
+    public final qh6<WebView> b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -61,12 +61,12 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
         }
     }
 
-    public SimpleWebViewLifeCycle(@NonNull kk6<WebView> kk6Var, @NonNull kk6<String> kk6Var2) {
+    public SimpleWebViewLifeCycle(@NonNull qh6<WebView> qh6Var, @NonNull qh6<String> qh6Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kk6Var, kk6Var2};
+            Object[] objArr = {qh6Var, qh6Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,30 +76,30 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
                 return;
             }
         }
-        this.b = kk6Var;
-        this.a = kk6Var2;
+        this.b = qh6Var;
+        this.a = qh6Var2;
     }
 
-    public void b(Lifecycle.Event event) {
+    public void c(Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
             WebView call = this.b.call();
-            if (call instanceof so6) {
+            if (call instanceof zl6) {
                 int i = a.a[event.ordinal()];
                 if (i != 1) {
                     if (i != 2) {
                         if (i == 3) {
-                            vn6.c("newHybrid", "WebView::onDestroy");
-                            ((ko6) ServiceManager.getService(ko6.a)).c(this.a.call(), call);
+                            cl6.c("newHybrid", "WebView::onDestroy");
+                            ((rl6) ServiceManager.getService(rl6.a)).c(this.a.call(), call);
                             return;
                         }
                         return;
                     }
-                    vn6.c("newHybrid", "WebView::onPause");
+                    cl6.c("newHybrid", "WebView::onPause");
                     call.onPause();
                     return;
                 }
-                vn6.c("newHybrid", "WebView::onResume");
+                cl6.c("newHybrid", "WebView::onResume");
                 call.onResume();
             }
         }
@@ -110,7 +110,7 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b(Lifecycle.Event.ON_DESTROY);
+            c(Lifecycle.Event.ON_DESTROY);
         }
     }
 
@@ -119,7 +119,7 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b(Lifecycle.Event.ON_PAUSE);
+            c(Lifecycle.Event.ON_PAUSE);
         }
     }
 
@@ -128,7 +128,7 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b(Lifecycle.Event.ON_RESUME);
+            c(Lifecycle.Event.ON_RESUME);
         }
     }
 }

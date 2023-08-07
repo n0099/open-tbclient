@@ -1,36 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Arrays;
-import java.util.Set;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class phb extends ogb<bhb> {
+public class phb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public phb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,8 +29,7 @@ public class phb extends ogb<bhb> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,177 +37,47 @@ public class phb extends ogb<bhb> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void t(int i) {
-        onError(e(i));
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object findField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            bhb bhbVar = (bhb) obj;
-        }
-    }
-
-    @Override // com.baidu.tieba.ogb
-    public void f(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
-            onLoadStart(funAdSlot, tid);
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            final int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                this.f.postAtTime(new Runnable() { // from class: com.baidu.tieba.vfb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            phb.this.t(checkForbidStatus);
-                        }
-                    }
-                }, 50L);
-            } else {
-                this.e.loadRewardVideoAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setUserID(FunAdSdk.getFunAdConfig().userId).setOrientation(this.mPid.isHorizontal ? 2 : 1).setMediaExtra(buildExtra).build(), new a(this, tid));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ogb, com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            f(context, funAdSlot);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements TTAdNative.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ phb c;
-
-        public a(phb phbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {phbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            try {
+                Object obj2 = ((aib) obj).a;
+                Field declaredField = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj3 = declaredField.get(obj2);
+                if (obj3 == null) {
+                    return null;
                 }
-            }
-            this.c = phbVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
-                if (this.a) {
-                    return;
+                Field declaredField2 = obj3.getClass().getDeclaredField("c");
+                declaredField2.setAccessible(true);
+                Object obj4 = declaredField2.get(obj3);
+                if (obj4 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.h", obj4)) == null) {
+                    return null;
                 }
-                this.c.onError(i, str, this.b);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
-            Set<String> set;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
-                this.a = true;
-                LogPrinter.d();
-                bhb bhbVar = new bhb(tTRewardVideoAd);
-                String c = bhbVar.c();
-                synchronized (agb.class) {
-                    set = agb.b;
-                    if (set.isEmpty()) {
-                        String string = lhb.a.getString("req_id", "");
-                        if (string.isEmpty()) {
-                            z = true;
-                        } else {
-                            set.addAll(Arrays.asList(string.split(ParamableElem.DIVIDE_PARAM)));
-                        }
-                    }
-                    z = !set.contains(c);
+                Field declaredField3 = findField.getClass().getDeclaredField("y");
+                declaredField3.setAccessible(true);
+                Object obj5 = declaredField3.get(findField);
+                if (obj5 == null) {
+                    return null;
                 }
-                if (!z) {
-                    this.c.onError("repeat", this.b);
-                    this.c.getClass();
-                    return;
+                Field declaredField4 = obj5.getClass().getSuperclass().getDeclaredField("L");
+                declaredField4.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField4.get(obj5);
+                if (jSONObject == null) {
+                    return null;
                 }
-                String c2 = bhbVar.c();
-                synchronized (agb.class) {
-                    if (set.add(c2)) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : set) {
-                            sb.append(str);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                        sb.deleteCharAt(sb.length() - 1);
-                        lhb.a.edit().putString("req_id", sb.toString()).apply();
-                    }
-                }
-                phb phbVar = this.c;
-                String str2 = this.b;
-                phbVar.getClass();
-                ((TTRewardVideoAd) bhbVar.a).setRewardPlayAgainInteractionListener(new qhb(phbVar, str2, bhbVar));
-                phb phbVar2 = this.c;
-                String str3 = this.b;
-                phbVar2.getClass();
-                ((TTRewardVideoAd) bhbVar.a).setRewardAdInteractionListener(new wfb(phbVar2, str3, bhbVar));
-                this.c.onAdLoaded(bhbVar, this.b);
+                return jhb.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            bhb bhbVar = (bhb) obj;
-            onShowStart(bhbVar);
-            ((TTRewardVideoAd) bhbVar.a).setDownloadListener(new egb(null));
-            ((TTRewardVideoAd) bhbVar.a).showRewardVideoAd(activity);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

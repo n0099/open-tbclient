@@ -1,275 +1,409 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.RandomAccessFile;
-import java.util.Random;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class p9b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int i = 500;
+    public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile boolean c;
-    public int d;
-    public int e;
-    public String f;
-    public volatile String g;
-    public Context h;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ p9b b;
+    public interface a {
+        void a(String str);
 
-        public a(p9b p9bVar, byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p9bVar, bArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = p9bVar;
-            this.a = bArr;
-        }
+        void b();
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Bitmap a = new sab(this.b.h).a(this.b.j(this.a, this.b.e, this.b.d), this.b.d, this.b.e);
-                    this.b.g = this.b.b(a);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        void c(String str);
+
+        void d();
+
+        void e(boolean z);
+
+        void f(boolean z);
+
+        void g(int i);
+
+        void h();
+
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948018288, "Lcom/baidu/tieba/p9b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948018288, "Lcom/baidu/tieba/p9b;");
-        }
-    }
-
-    public p9b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018288, "Lcom/baidu/tieba/p9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948018288, "Lcom/baidu/tieba/p9b;");
                 return;
             }
         }
-        this.a = 0;
-        this.b = -1;
-        this.h = context;
+        a = new HashMap<>();
     }
 
-    public final String b(Bitmap bitmap) {
+    public static HashMap a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
+        }
+        return (HashMap) invokeI.objValue;
+    }
+
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
+        }
+        return (HashMap) invokeCommon.objValue;
+    }
+
+    public static HashMap d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            File file = new File(new File(this.f), "samplecover.dat");
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                if (bitmap != null) {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
+            }
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c == 5) {
+                                    hashMap = i();
+                                }
+                            } else {
+                                hashMap = b();
+                            }
+                        } else {
+                            hashMap = a();
+                        }
+                    } else {
+                        hashMap = g();
+                    }
+                } else {
+                    hashMap = f();
                 }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else {
+                hashMap = h();
             }
-            g(file);
-            return file.getAbsolutePath();
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
         }
-        return (String) invokeL.objValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    public void e(int i2, int i3, int i4, String str, boolean z) {
+    public static HashMap f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            this.d = i2;
-            this.e = i3;
-            this.f = str;
-            this.c = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public final void f(Closeable closeable) {
+    public static HashMap g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, closeable) == null) || closeable == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return (HashMap) invokeV.objValue;
     }
 
-    public final void g(File file) {
-        RandomAccessFile randomAccessFile;
+    public static HashMap h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, file) == null) {
-            Closeable closeable = null;
-            try {
-                try {
-                    randomAccessFile = new RandomAccessFile(file, "rw");
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[i];
-                randomAccessFile.read(bArr, 0, i);
-                byte[] m = m(bArr);
-                randomAccessFile.seek(0L);
-                randomAccessFile.write(m, 0, i);
-                f(randomAccessFile);
-            } catch (Exception e2) {
-                e = e2;
-                closeable = randomAccessFile;
-                e.printStackTrace();
-                f(closeable);
-            } catch (Throwable th2) {
-                th = th2;
-                closeable = randomAccessFile;
-                f(closeable);
-                throw th;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public void h(byte[] bArr) {
+    public static HashMap i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            if (this.b > 0 && this.c && this.a == this.b) {
-                byte[] bArr2 = new byte[bArr.length];
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    bArr2[i2] = bArr[i2];
-                }
-                new Thread(new a(this, bArr2), "yuvtobitmap").start();
-            }
-            this.a++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public final byte[] j(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i2, i3)) == null) {
-            int i4 = i2 * i3;
-            byte[] bArr2 = new byte[(i4 * 3) / 2];
-            int i5 = i2 - 1;
-            int i6 = 0;
-            for (int i7 = i5; i7 >= 0; i7--) {
-                for (int i8 = 0; i8 < i3; i8++) {
-                    bArr2[i6] = bArr[(i8 * i2) + i7];
-                    i6++;
-                }
+        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !n9b.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
+            String str = (String) obj;
+            char c = 65535;
+            boolean z = true;
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1903331025:
+                    if (str.equals("show_text")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1768834290:
+                    if (str.equals("game_end")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -1584838740:
+                    if (str.equals("filter_adjust_enable")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -1272940549:
+                    if (str.equals("game_is_ready")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -708270859:
+                    if (str.equals("phone_shake")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -672934016:
+                    if (str.equals("case_reset")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -548493597:
+                    if (str.equals("need_volume")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 902635637:
+                    if (str.equals("child_status")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 967087977:
+                    if (str.equals("game_pause")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 969912325:
+                    if (str.equals("game_score")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1000807605:
+                    if (str.equals("game_http")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 1001154298:
+                    if (str.equals("game_time")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1076032614:
+                    if (str.equals("need_face")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
             }
-            int i9 = i4;
-            while (i5 > 0) {
-                for (int i10 = 0; i10 < i3 / 2; i10++) {
-                    int i11 = (i10 * i2) + i4;
-                    bArr2[i9] = bArr[i11 + i5];
-                    int i12 = i9 + 1;
-                    bArr2[i12] = bArr[i11 + (i5 - 1)];
-                    i9 = i12 + 1;
-                }
-                i5 -= 2;
+            switch (c) {
+                case 0:
+                    if (hashMap.get("text_content") instanceof String) {
+                        aVar.c((String) hashMap.get("text_content"));
+                        return;
+                    }
+                    return;
+                case 1:
+                    aVar.d();
+                    return;
+                case 2:
+                case 3:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                        return;
+                    }
+                    return;
+                case 4:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                    }
+                    aVar.onRecordEnd();
+                    return;
+                case 5:
+                    aVar.h();
+                    return;
+                case 6:
+                    aVar.b();
+                    return;
+                case 7:
+                    if (hashMap.get("text_content") instanceof Float) {
+                        try {
+                            i = ((Float) hashMap.get("text_content")).intValue();
+                        } catch (Exception e) {
+                            i9b.g(e);
+                        }
+                        aVar.g(i);
+                        return;
+                    }
+                    return;
+                case '\b':
+                    if (hashMap.get("isDefaultChild") != null) {
+                        String obj2 = hashMap.get("isDefaultChild").toString();
+                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                            z = false;
+                        }
+                        aVar.f(z);
+                        return;
+                    }
+                    return;
+                case '\t':
+                    if (hashMap.get("volume_ability") != null) {
+                        if (m9b.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
+                            z = false;
+                        }
+                        aVar.e(z);
+                        return;
+                    }
+                    return;
+                case '\n':
+                    aVar.i();
+                    return;
+                case 11:
+                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                        return;
+                    }
+                    return;
+                case '\f':
+                    if (hashMap.get("set_content") != null) {
+                        aVar.j(hashMap.get("set_content").toString());
+                        return;
+                    }
+                    return;
+                default:
+                    return;
             }
-            n(bArr2, i3, i2);
-            return bArr2;
         }
-        return (byte[]) invokeLII.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b >= 0) {
-            return;
-        }
-        this.b = new Random().nextInt(240);
-    }
-
-    public final byte[] m(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            int i2 = i;
-            int i3 = i2 / 2;
-            byte[] bArr2 = new byte[i2];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                bArr2[i4] = bArr[i5];
-                int i6 = i4 + 1;
-                bArr2[i6] = bArr[i3 + i5];
-                i4 = i6 + 1;
-            }
-            return bArr2;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final byte[] n(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) {
-            for (int i4 = 0; i4 < (i3 * 3) / 2; i4++) {
-                for (int i5 = 0; i5 < i2 / 2; i5++) {
-                    int i6 = (i4 * i2) + i5;
-                    byte b = bArr[i6];
-                    int i7 = (((i4 + 1) * i2) - 1) - i5;
-                    bArr[i6] = bArr[i7];
-                    bArr[i7] = b;
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLII.objValue;
     }
 }

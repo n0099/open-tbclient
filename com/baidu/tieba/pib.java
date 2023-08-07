@@ -1,156 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lib;
+import android.util.Pair;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tieba.akb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.qq.e.ads.nativ.NativeADEventListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pib extends FunNativeAd2Bridger<bjb, com.fun.module.gdt.t> {
+public class pib<A extends akb> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lib.c b;
-    public final /* synthetic */ wib c;
-    public final /* synthetic */ lib d;
+    public final boolean e;
+    public final String f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pib(lib libVar, ReporterPidLoader reporterPidLoader, bjb bjbVar, String str, wib wibVar) {
-        super(reporterPidLoader);
+    public pib(Ssp.Pid pid) {
+        super(pid.pid, pid.type, pid.ssp.type);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {libVar, reporterPidLoader, bjbVar, str, wibVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = libVar;
-        this.c = wibVar;
-        this.b = new lib.c(libVar, bjbVar, str);
+        this.e = pid.isBidding;
+        this.f = pid.pid;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, bjb bjbVar, BaseNativeAd2<bjb, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        a(expressInflater, str, bjbVar, funAdInteractionListener);
-    }
-
-    public static void b(com.fun.module.gdt.t tVar, bjb bjbVar) {
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
+        double a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, tVar, bjbVar) == null) {
-            tVar.b((NativeUnifiedADData) bjbVar.a);
-        }
-    }
-
-    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/baidu/tieba/bjb;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/baidu/tieba/bjb;Lcom/fun/module/gdt/t;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
-    public void a(ExpressInflater expressInflater, String str, final bjb bjbVar, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, bjbVar, funAdInteractionListener) == null) {
-            final com.fun.module.gdt.t tVar = (com.fun.module.gdt.t) expressInflater.getExpressView();
-            lib libVar = this.d;
-            FunNativeAdListenerHelper<bjb, NativeADEventListener> funNativeAdListenerHelper = libVar.e;
-            pid = libVar.mPid;
-            funNativeAdListenerHelper.startShow(bjbVar, str, pid, this.b, funAdInteractionListener);
-            this.b.d = new lib.e() { // from class: com.baidu.tieba.uhb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.lib.e
-                public final void onADStatusChanged() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        pib.b(com.fun.module.gdt.t.this, bjbVar);
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            akb akbVar = (akb) obj;
+            if (akbVar != null && akbVar.a != 0) {
+                ArrayList arrayList = new ArrayList();
+                if (!this.e) {
+                    a = FunAdSdk.getARPU(this.f);
+                } else {
+                    a = (akbVar.a() / 100.0d) / 1000.0d;
                 }
-            };
-            this.d.n(tVar, bjbVar, this.b);
-            expressInflater.inflate();
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.gdt.t] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.gdt.t createExpressView(bjb bjbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bjbVar)) == null) {
-            return this.d.g(FunAdSdk.getAppContext(), (NativeUnifiedADData) bjbVar.a);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, bjb bjbVar, BaseNativeAd2<bjb, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        NativeAdContainer nativeAdContainer;
-        NativeAdContainer nativeAdContainer2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, bjbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            bjb bjbVar2 = bjbVar;
-            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
-            if (gdtADStatusChangeListener != null) {
-                this.b.d = new oib(this, gdtADStatusChangeListener);
-            } else {
-                this.b.d = null;
+                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
+                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
+                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
+                return arrayList;
             }
-            ViewGroup inflate = customInflater.inflate();
-            if (inflate instanceof FunNativeView) {
-                FunNativeView funNativeView = (FunNativeView) inflate;
-                Iterator<WeakReference<NativeAdContainer>> it = whb.b.a.iterator();
-                while (it.hasNext()) {
-                    NativeAdContainer nativeAdContainer3 = it.next().get();
-                    if (nativeAdContainer3 == null) {
-                        it.remove();
-                    } else if (nativeAdContainer3 == funNativeView.getRoot()) {
-                        it.remove();
-                        nativeAdContainer2 = nativeAdContainer3;
-                        break;
-                    }
-                }
-                if (funNativeView.getRoot() instanceof NativeAdContainer) {
-                    nativeAdContainer = (NativeAdContainer) funNativeView.getRoot();
-                    nativeAdContainer2 = nativeAdContainer;
-                }
-                nativeAdContainer2 = null;
-            } else {
-                if (inflate instanceof NativeAdContainer) {
-                    nativeAdContainer = (NativeAdContainer) inflate;
-                    nativeAdContainer2 = nativeAdContainer;
-                }
-                nativeAdContainer2 = null;
-            }
-            this.d.q(bjbVar2, str, nativeAdContainer2, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
+            return null;
         }
+        return (List) invokeLL.objValue;
     }
 }

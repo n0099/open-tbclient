@@ -2,22 +2,104 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.tieba.ala.alasquare.livetab.SecondFloorFragment;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class cb6 implements lx3 {
+public class cb6 implements tk1<un5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements un5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public SecondFloorFragment b;
+
+        public a(cb6 cb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.un5
+        public void h(@Nullable un5.a aVar) {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.S1(aVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.un5
+        @NonNull
+        public Fragment j(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                if (this.b == null) {
+                    SecondFloorFragment secondFloorFragment = new SecondFloorFragment();
+                    this.b = secondFloorFragment;
+                    secondFloorFragment.T1(str);
+                }
+                return this.b;
+            }
+            return (Fragment) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.un5
+        public void g() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.N1();
+            }
+        }
+
+        @Override // com.baidu.tieba.un5
+        public void hide() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.Q1();
+            }
+        }
+
+        @Override // com.baidu.tieba.un5
+        public void i() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.M1();
+            }
+        }
+
+        @Override // com.baidu.tieba.un5
+        public void show() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.U1();
+            }
+        }
+    }
 
     public cb6() {
         Interceptable interceptable = $ic;
@@ -33,43 +115,15 @@ public class cb6 implements lx3 {
         }
     }
 
-    @Override // com.baidu.tieba.nx3
-    public void a(sc3 sc3Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tk1
+    /* renamed from: a */
+    public un5 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, sc3Var) == null) && sc3Var != null) {
-            sc3Var.b(new eb6(sc3Var));
-            sc3Var.b(new xa6(sc3Var));
-            sc3Var.b(new lt3(sc3Var));
-            sc3Var.b(new nt3(sc3Var));
-            sc3Var.b(new pt3(sc3Var));
-            sc3Var.b(new je3(sc3Var));
-            sc3Var.b(new ke3(sc3Var));
-            sc3Var.b(new kg3(sc3Var));
-            sc3Var.b(new qt3(sc3Var));
-            sc3Var.b(new ny1(sc3Var));
-            sc3Var.b(new bb6(sc3Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    @Override // com.baidu.tieba.nx3
-    @Nullable
-    public Map<String, Object> b(@NonNull wz1 wz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(wz1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nx3
-    @Nullable
-    public Map<String, Object> c(@NonNull wz1 wz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wz1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(wz1Var);
-        }
-        return (Map) invokeL.objValue;
+        return (un5) invokeV.objValue;
     }
 }

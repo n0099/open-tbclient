@@ -1,53 +1,115 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g54 extends EventTargetImpl {
+public final class g54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g54(fj2 fj2Var) {
-        super(fj2Var);
+    public g54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fj2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        i54.o().w(this);
     }
 
-    public void x(int i, String str) throws JSONException {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("state", i);
-            jSONObject.put("msg", str);
-            JSEvent jSEvent = new JSEvent("antiaddiction");
-            jSEvent.data = jSONObject;
-            if (fs1.a) {
-                Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            JsFunction jsFunction = this.b;
+            if (jsFunction != null) {
+                jsFunction.call();
             }
-            dispatchEvent(jSEvent);
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call();
+            }
+            f(this.a);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            JsFunction jsFunction = this.a;
+            if (jsFunction != null) {
+                jsFunction.call();
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call();
+            }
+            f(this.b);
+        }
+    }
+
+    public static g54 e(f32 f32Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f32Var)) == null) {
+            if (f32Var == null) {
+                return null;
+            }
+            g54 g54Var = new g54();
+            g54Var.a = f32Var.u("success");
+            g54Var.b = f32Var.u("fail");
+            g54Var.c = f32Var.u(TaskProcessData.keyComplete);
+            return g54Var;
+        }
+        return (g54) invokeL.objValue;
+    }
+
+    public void b(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            JsFunction jsFunction = this.b;
+            if (jsFunction != null) {
+                jsFunction.call(obj);
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            f(this.a);
+        }
+    }
+
+    public void d(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            JsFunction jsFunction = this.a;
+            if (jsFunction != null) {
+                jsFunction.call(obj);
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            f(this.b);
+        }
+    }
+
+    public final void f(JsFunction jsFunction) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsFunction) == null) && jsFunction != null) {
+            jsFunction.release();
         }
     }
 }

@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class fp1 {
+public class fp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public dp1 b;
-
-    public abstract void a(int i, V8ExceptionInfo v8ExceptionInfo);
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
     public fp1() {
         Interceptable interceptable = $ic;
@@ -28,20 +26,7 @@ public abstract class fp1 {
                 return;
             }
         }
-        this.a = 2000L;
-    }
-
-    public void b(dp1 dp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dp1Var) == null) {
-            this.b = dp1Var;
-        }
-    }
-
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
-        }
+        this.c = -1;
+        this.d = "";
     }
 }

@@ -1,57 +1,39 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
+@Service
 /* loaded from: classes8.dex */
-public class uw3 {
+public class uw3 implements kf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public uw3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "HUAWEI");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            String upperCase = Build.BRAND.toUpperCase();
-            if (!TextUtils.equals("HUAWEI", upperCase) && !TextUtils.equals("HONOR", upperCase)) {
-                String upperCase2 = Build.MANUFACTURER.toUpperCase();
-                if (!upperCase2.contains("HUAWEI") && !upperCase2.contains("HONOR")) {
-                    return false;
-                }
-                a = "HUAWEI";
-                return true;
-            }
-            a = "HUAWEI";
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kf2
+    public RequestListener a(lf2 lf2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "OPPO");
-            }
-            if (TextUtils.equals("OPPO", Build.BRAND.toUpperCase())) {
-                a = "OPPO";
-                return true;
-            } else if (Build.MANUFACTURER.toUpperCase().contains("OPPO")) {
-                a = "OPPO";
-                return true;
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lf2Var)) == null) {
+            return new tw3(lf2Var);
         }
-        return invokeV.booleanValue;
+        return (RequestListener) invokeL.objValue;
     }
 }

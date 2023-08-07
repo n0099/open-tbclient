@@ -1,58 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u59 implements ThirdPartAliRechargeService {
+public class u59 extends xh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
-        }
-    }
-
-    public u59() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u59(TbPageContext<?> tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 17, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            jw4 jw4Var = new jw4();
-            jw4Var.a = activity;
-            jw4Var.b = str;
-            jw4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, jw4Var);
-            if (runTask == null) {
-                return "";
-            }
-            return (String) runTask.getData();
-        }
-        return (String) invokeLLZ.objValue;
+        this.d = R.drawable.tail_edit_tool_color_selector;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.m = new TailEditColorToolHost(tbPageContext, str);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

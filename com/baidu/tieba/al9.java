@@ -1,33 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class al9 implements cs5 {
+public class al9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    @NonNull
-    public final ArrayList<String> c;
-    public long d;
+    public el9 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<lm> e;
+    public View.OnClickListener f;
+    public boolean g;
+    public boolean h;
 
-    public al9() {
+    public al9(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,171 +43,102 @@ public class al9 implements cs5 {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = new ArrayList<>();
-        this.d = System.currentTimeMillis();
+        this.e = new ArrayList();
+        this.f = null;
+        this.g = false;
+        this.h = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    public al9(@NonNull String str, @NonNull String str2, @NonNull ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, arrayList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "";
-        this.b = "";
-        this.c = new ArrayList<>();
-        this.d = System.currentTimeMillis();
-        this.a = str;
-        this.b = str2;
-        this.c.clear();
-        this.c.addAll(arrayList);
-    }
-
-    @Override // com.baidu.tieba.cs5
-    public boolean I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return e(new JSONObject(str));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
         }
-        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            el9 el9Var = new el9(this.c, qba.W0);
+            this.a = el9Var;
+            el9Var.e(this.f);
+            this.a.setFromCDN(this.h);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, hl9.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new fl9(this.c, gl9.a));
+            this.d.addAdapters(this.e);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    @NonNull
-    public long d() {
-        InterceptResult invokeV;
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
         }
-        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.as5
-    public String getCacheKey() {
-        InterceptResult invokeV;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cs5
-    public String u() {
-        InterceptResult invokeV;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return f().toString();
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g = z;
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean e(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void h(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("first_class");
-            String optString2 = jSONObject.optString("insert_thread_id");
-            String optString3 = jSONObject.optString("time_stamp");
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_id_array");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        arrayList.add(optJSONObject.optString("thread_id"));
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        el9 el9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (el9Var = this.a) != null) {
+            el9Var.I(z);
+        }
+    }
+
+    public void j(TbRichTextView.z zVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, zVar) == null) {
+            this.a.n(zVar);
+        }
+    }
+
+    public void e(ThreadData threadData, List<ym> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.K(threadData);
+            if (!bi.isEmpty(this.c.I3().E0())) {
+                this.a.J(this.c.I3().E0());
             }
-            if (!ListUtils.isEmpty(arrayList)) {
-                this.c.clear();
-                this.c.addAll(arrayList);
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.I3() != null) {
+                this.a.H(this.c.I3().b1());
             }
-            if (!TextUtils.isEmpty(optString)) {
-                this.a = optString;
-            }
-            if (!TextUtils.isEmpty(optString2)) {
-                this.b = optString2;
-            }
-            if (!TextUtils.isEmpty(optString3)) {
-                this.d = wg.g(optString3, 0L);
-                return true;
-            }
-            return true;
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
         }
-        return invokeL.booleanValue;
-    }
-
-    public JSONObject f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("first_class", this.a);
-                jSONObject.put("insert_thread_id", this.b);
-                jSONObject.put("time_stamp", this.d);
-                JSONArray jSONArray = new JSONArray();
-                Iterator<String> it = this.c.iterator();
-                while (it.hasNext()) {
-                    jSONArray.put(new JSONObject().put("thread_id", it.next()));
-                }
-                jSONObject.put("thread_id_array", jSONArray);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

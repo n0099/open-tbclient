@@ -1,27 +1,66 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKey;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class mpb implements npb {
+public final class mpb<TResult> implements bpb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
+    public epb<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public mpb(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fpb a;
+        public final /* synthetic */ mpb b;
+
+        public a(mpb mpbVar, fpb fpbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mpbVar, fpbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mpbVar;
+            this.a = fpbVar;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.epb */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onSuccess(this.a.e());
+                    }
+                }
+            }
+        }
+    }
+
+    public mpb(Executor executor, epb<TResult> epbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
+            Object[] objArr = {executor, epbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,26 +70,26 @@ public class mpb implements npb {
                 return;
             }
         }
-        if (str == null || str2 == null || str3 == null || str4 == null) {
-            return;
-        }
-        this.a = ppb.a(fpb.b(str), fpb.b(str2), fpb.b(str3), fpb.b(str4), 5000);
+        this.c = new Object();
+        this.a = epbVar;
+        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.npb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.bpb
+    public final void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.a == null) {
-                return str;
-            }
-            try {
-                return new String(ppb.b(this.a, fpb.b(str)), "UTF-8");
-            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                return str2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
             }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bpb
+    public final void onComplete(fpb<TResult> fpbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fpbVar) == null) && fpbVar.h() && !fpbVar.f()) {
+            this.b.execute(new a(this, fpbVar));
+        }
     }
 }

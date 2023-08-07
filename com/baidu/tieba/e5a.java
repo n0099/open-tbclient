@@ -1,54 +1,110 @@
 package com.baidu.tieba;
 
-import android.util.ArrayMap;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.BdNetSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBC;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e5a {
+public class e5a implements NetworkInfoRecord {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Long> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public h5a a;
+    public h5a b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686712, "Lcom/baidu/tieba/e5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686712, "Lcom/baidu/tieba/e5a;");
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public boolean shouldRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public e5a() {
+        this(new f5a(10, 100));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((h5a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayMap();
     }
 
-    public static void a(String str, boolean z) {
-        Long remove;
+    public e5a(h5a h5aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h5aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType());
-        StatisticItem addParam2 = addParam.addParam("obj_source", BdNetSwitch.getIsOn() + " false");
-        TiebaStatic.log(addParam2.addParam("obj_param1", z + "").addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
+        this.a = h5aVar;
+        this.b = new g5a();
     }
 
-    public static void b(String str) {
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public void doRecord(NetworkStatRecord networkStatRecord) {
+        JSONObject uBCJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.put(str, Long.valueOf(System.currentTimeMillis()));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
+            String jSONObject = uBCJson.toString();
+            d5a a = d5a.a();
+            if (a.g()) {
+                a.c(jSONObject);
+            }
+            if (a.f(networkStatRecord)) {
+                a.b(jSONObject);
+            }
+            h5a h5aVar = this.a;
+            if (h5aVar != null && h5aVar.a(networkStatRecord)) {
+                int i = 0;
+                if (r4a.a) {
+                    i = 64;
+                }
+                UBC.onEvent(b(), jSONObject, i);
+            }
+            if (r4a.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
+                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
+            }
+            h5a h5aVar2 = this.b;
+            if (h5aVar2 != null && h5aVar2.a(networkStatRecord)) {
+                UBC.onEvent(a(), jSONObject);
+            }
         }
     }
 }

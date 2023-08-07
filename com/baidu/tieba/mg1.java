@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.util.HttpSigner;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mg1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile mg1 a;
+public final class mg1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,102 +34,142 @@ public class mg1 {
         }
     }
 
-    public mg1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class a extends fg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih1 a;
+        public final /* synthetic */ JSONObject b;
 
-    public static synchronized mg1 f() {
-        InterceptResult invokeV;
-        mg1 mg1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (mg1.class) {
-                if (a == null) {
-                    synchronized (mg1.class) {
-                        if (a == null) {
-                            a = new mg1();
-                        }
-                    }
+        public a(ih1 ih1Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih1Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                mg1Var = a;
             }
-            return mg1Var;
+            this.a = ih1Var;
+            this.b = jSONObject;
         }
-        return (mg1) invokeV.objValue;
+
+        @Override // com.baidu.tieba.fg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                ih1 ih1Var = this.a;
+                if (ih1Var != null) {
+                    ih1Var.a(1, str);
+                }
+                qg1.d(this.b);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fg1
+        /* renamed from: d */
+        public void c(String str) {
+            ih1 ih1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (ih1Var = this.a) != null) {
+                ih1Var.a(0, "");
+            }
+        }
     }
 
-    public boolean a(Activity activity, String str, qg1 qg1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, qg1Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+    /* loaded from: classes7.dex */
+    public static final class b extends fg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih1 a;
+
+        public b(ih1 ih1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ih1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            lg1.a().c(activity, str, qg1Var);
-            return true;
+            this.a = ih1Var;
         }
-        return invokeLLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fg1
+        /* renamed from: d */
+        public void c(String str) {
+            ih1 ih1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (ih1Var = this.a) != null) {
+                ih1Var.a(0, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.fg1
+        public void a(Throwable th, int i, String str) {
+            ih1 ih1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) && (ih1Var = this.a) != null) {
+                ih1Var.a(1, str);
+            }
+        }
     }
 
-    public boolean b(Activity activity, String str, qg1 qg1Var) {
-        InterceptResult invokeLLL;
+    public static final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, qg1Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            lg1.a().e(activity, str, qg1Var);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean c(Activity activity, JSONObject jSONObject, qg1 qg1Var) {
-        InterceptResult invokeLLL;
+    public static final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, jSONObject, qg1Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            lg1.a().i(activity, jSONObject, qg1Var);
-            return true;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public boolean e(Context context, JSONObject jSONObject, qg1 qg1Var) {
-        InterceptResult invokeLLL;
+    public static final void c(JSONObject jSONObject, ih1 ih1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, jSONObject, qg1Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            lg1.a().d(context, jSONObject, qg1Var);
-            return true;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, jSONObject, ih1Var) != null) || jSONObject == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        hg1 hg1Var = new hg1();
+        og1.d(hg1Var);
+        gg1 e = og1.e(jSONObject);
+        og1.c(hg1Var, e.a("bduss"));
+        HttpSigner.b(e);
+        new lg1(false).a(pg1.f(), hg1Var, e, new a(ih1Var, jSONObject));
     }
 
-    public boolean d(Context context, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public static final void d(JSONArray jSONArray, ih1 ih1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            lg1.a().f(context, jSONObject);
-            return true;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, ih1Var) != null) || jSONArray == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        hg1 hg1Var = new hg1();
+        og1.d(hg1Var);
+        gg1 gg1Var = new gg1();
+        String jSONArray2 = jSONArray.toString();
+        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
+        gg1Var.d("batchData", jSONArray2);
+        HttpSigner.b(gg1Var);
+        new lg1(false).a(pg1.a(), hg1Var, gg1Var, new b(ih1Var));
     }
 }

@@ -1,62 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gha extends CustomMessageListener {
+public class gha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final pfa b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gha(MainTabActivity mainTabActivity, pfa pfaVar) {
-        super(2921728);
+    public static ICardInfo a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pfaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("card_type", i);
+                return qx8.h().b(jSONObject, i);
+            } catch (CardParseException | JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        this.a = mainTabActivity;
-        this.b = pfaVar;
-        setPriority(1);
+        return (ICardInfo) invokeI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        pfa pfaVar;
-        MainTabActivity mainTabActivity;
-        cia f0;
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && (pfaVar = this.b) != null && pfaVar.y() != null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && (mainTabActivity = this.a) != null && (f0 = mainTabActivity.f0()) != null) {
-                f0.b();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return d(i, 0);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static ICardInfo b(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("goods_style", i2);
+                jSONObject2.put("card_type", i);
+                jSONObject.put("ad_common", jSONObject2);
+                jSONObject.put("card_type", i);
+                return qx8.h().b(jSONObject, i);
+            } catch (CardParseException | JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (ICardInfo) invokeII.objValue;
+    }
+
+    public static String d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            return "ad_card_" + i + "_" + i2;
+        }
+        return (String) invokeII.objValue;
     }
 }

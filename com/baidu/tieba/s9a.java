@@ -1,210 +1,173 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.sa5;
-import com.baidu.tieba.square.square.SquareActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class s9a extends j9<Object> {
+public class s9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<Object> a;
-    public View b;
-    public BdListView c;
-    public NoNetworkView d;
-    public ta5 e;
-    public p9a f;
-    public NoDataView g;
+    public Map<BdUniqueId, ArrayList<StatisticItem>> a;
+    public String[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s9a(TbPageContext<Object> tbPageContext, View view2, View.OnKeyListener onKeyListener) {
-        super(tbPageContext);
+    public s9a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, onKeyListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = null;
-        this.a = tbPageContext;
-        this.b = view2;
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09226b);
-        this.c = bdListView;
-        bdListView.setOnKeyListener(onKeyListener);
-        if (this.a.getOrignalPage() instanceof SquareActivity) {
-            this.c.setOnItemClickListener((SquareActivity) this.a.getOrignalPage());
+        this.b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER, TiebaStatic.Params.IS_SPECIAL_THREAD, TiebaStatic.Params.OBJ_PARAM3};
+        if (this.a == null) {
+            this.a = new LinkedHashMap();
         }
-        p9a p9aVar = new p9a(tbPageContext);
-        this.f = p9aVar;
-        this.c.setAdapter((ListAdapter) p9aVar);
-        ta5 ta5Var = new ta5(tbPageContext);
-        this.e = ta5Var;
-        this.c.setPullRefresh(ta5Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s9a(TbPageContext<Object> tbPageContext, BdUniqueId bdUniqueId, View view2, View.OnKeyListener onKeyListener) {
-        this(tbPageContext, view2, onKeyListener);
+    public void a(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, view2, onKeyListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (View) objArr2[1], (View.OnKeyListener) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) && statisticItem != null && bdUniqueId != null) {
+            ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+                this.a.put(bdUniqueId, arrayList);
             }
+            arrayList.add(statisticItem);
         }
-        this.e.a0(bdUniqueId);
     }
 
-    public void B(boolean z, String str) {
+    public void d(BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-            y();
-            if (!z && str != null) {
-                this.a.showToast(str, true);
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, bdUniqueId, z) != null) || bdUniqueId == null) {
+            return;
+        }
+        ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+        if (ListUtils.getCount(arrayList) == 0) {
+            return;
+        }
+        e(arrayList);
+        arrayList.clear();
+    }
+
+    public final String b(List<Object> list, String str) {
+        InterceptResult invokeLL;
+        int indexOf;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
+            if (ListUtils.getCount(list) == 0 || StringUtils.isNull(str) || (indexOf = list.indexOf(str)) < 0 || list.size() <= (i = indexOf + 1)) {
+                return "";
             }
-        }
-    }
-
-    public View C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void D() {
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.g) != null) {
-            noDataView.setVisibility(8);
-            this.c.removeHeaderView(this.g);
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.setVisibility(8);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.z(0L);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d.setVisibility(0);
-        }
-    }
-
-    public void F(q9a q9aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, q9aVar) == null) && q9aVar != null) {
-            try {
-                if (!q9aVar.g()) {
-                    this.f.i(q9aVar);
-                    this.f.notifyDataSetChanged();
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            String valueOf = String.valueOf(list.get(i));
+            if (StringUtils.isNull(valueOf, true)) {
+                return "";
             }
+            return valueOf;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void G(NoNetworkView.b bVar) {
+    public boolean c(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d.e(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            return this.a.containsKey(bdUniqueId);
         }
+        return invokeL.booleanValue;
     }
 
-    public void H(sa5.g gVar) {
+    public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) {
-            this.e.f(gVar);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
         }
+        this.a.put(bdUniqueId, null);
     }
 
-    public void x(NoNetworkView.b bVar) {
+    public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.d.a(bVar);
+        if ((interceptable != null && interceptable.invokeL(1048583, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
         }
+        this.a.remove(bdUniqueId);
     }
 
-    public void I(int i) {
+    public final void e(ArrayList<StatisticItem> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            if (this.g == null) {
-                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703a1)), NoDataViewFactory.e.a(i), null);
-            }
-            this.g.setTextOption(NoDataViewFactory.e.a(i));
-            this.g.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-            this.g.setVisibility(0);
-            this.c.removeHeaderView(this.g);
-            this.c.addHeaderView(this.g);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            q05 layoutMode = this.a.getLayoutMode();
-            if (i == 4) {
-                z = true;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && ListUtils.getCount(arrayList) != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (ListUtils.getCount(arrayList) == 1) {
+                TiebaStatic.log((StatisticItem) ListUtils.getItem(arrayList, 0));
             } else {
-                z = false;
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    StatisticItem statisticItem = arrayList.get(i);
+                    if (hashMap.containsKey(statisticItem.getKey())) {
+                        ((List) hashMap.get(statisticItem.getKey())).add(statisticItem);
+                    } else {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(statisticItem);
+                        hashMap.put(statisticItem.getKey(), arrayList2);
+                    }
+                }
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    List list = (List) entry.getValue();
+                    if (ListUtils.getCount(list) != 0) {
+                        StatisticItem statisticItem2 = (StatisticItem) list.get(0);
+                        for (int i2 = 0; i2 < this.b.length; i2++) {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i3 = 0; i3 < list.size(); i3++) {
+                                sb.append(b(((StatisticItem) list.get(i3)).getParams(), this.b[i2]));
+                                sb.append("|");
+                            }
+                            if (sb.length() > 0) {
+                                sb.deleteCharAt(sb.length() - 1);
+                            }
+                            statisticItem2.delete(this.b[i2]);
+                            statisticItem2.param(this.b[i2] + "s", sb.toString());
+                        }
+                        TiebaStatic.log(statisticItem2);
+                    }
+                }
+                if (!hashMap.isEmpty()) {
+                    hashMap.clear();
+                }
             }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            this.f.h(i);
-            this.e.H(i);
-            this.d.d(this.mContext, i);
+            if (BdLog.isDebugMode()) {
+                BdLog.e("logStatisticByKey->" + (System.currentTimeMillis() - currentTimeMillis) + "|size=" + arrayList.size());
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.a.size() == 0) {
+            return;
+        }
+        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.a.entrySet()) {
+            ArrayList<StatisticItem> value = entry.getValue();
+            if (value != null) {
+                value.clear();
+            }
         }
     }
 }

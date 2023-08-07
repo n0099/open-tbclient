@@ -1,109 +1,163 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class on7 {
+public class on7 extends lm<zn7, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public RelativeLayout c;
-    public EMTextView d;
-    public EMTextView e;
-    public final int f;
 
-    public on7(Context context) {
+    /* loaded from: classes7.dex */
+    public class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public EMTextView a;
+        public ImageView b;
+        public int c;
+        public int d;
+
+        /* renamed from: com.baidu.tieba.on7$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class View$OnClickListenerC0419a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public View$OnClickListenerC0419a(a aVar, on7 on7Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, on7Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.c <= 0) {
+                    return;
+                }
+                es7 es7Var = new es7();
+                es7Var.e = 16;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, es7Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ea5(4, this.a.d, 2)));
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(on7 on7Var, View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {on7Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ce1);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ce0);
+            this.a.setOnClickListener(new View$OnClickListenerC0419a(this, on7Var));
+        }
+
+        public void e(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.c = i;
+            }
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                EMManager.from(this.a).setTextColor(R.color.CAM_X0304);
+                EMManager.from(this.itemView).setCardType(2).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+                WebPManager.setPureDrawable(this.b, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, null);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public on7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-        this.a = context;
-        b(context);
+        this.mPageId = bdUniqueId2;
     }
 
-    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        RelativeLayout relativeLayout;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
-            relativeLayout.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new a(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0378, (ViewGroup) null));
         }
+        return (a) invokeL.objValue;
     }
 
-    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        RelativeLayout relativeLayout;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zn7 zn7Var, a aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
-            relativeLayout.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zn7Var, aVar})) == null) {
+            aVar.e(zn7Var.c());
+            aVar.d = zn7Var.getPositionInFrsItemTab();
+            aVar.a();
+            return aVar.getView();
         }
-    }
-
-    public void e(String str) {
-        EMTextView eMTextView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.e) != null) {
-            eMTextView.setText(str);
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0309, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0927b7);
-        this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0927b9);
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f07d2));
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-        eMRichTextAnyIconSpan.f(yi.g(context, R.dimen.tbds0));
-        eMRichTextAnyIconSpan.j(yi.g(context, R.dimen.M_W_X002));
-        spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-        this.d.setText(spannableStringBuilder);
-        this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0927b8);
-        c(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.f).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0212, R.color.CAM_X0212).build(), DrawableSelector.make().setShape(0).radius(this.f).defaultColor("#4D000000").build()});
-            if (layerDrawable.getDrawable(1) != null) {
-                layerDrawable.getDrawable(1).setAlpha(0);
-            }
-            this.c.setBackgroundDrawable(layerDrawable);
-            d85.d(this.d).x(R.color.CAM_X0109);
-            d85.d(this.e).x(R.color.CAM_X0109);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

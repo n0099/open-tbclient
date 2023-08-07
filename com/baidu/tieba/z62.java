@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,30 +10,18 @@ public class z62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static CanvasView a(v52 v52Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return String.format("%s/ma/concern/applist", r82.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, v52Var)) == null) {
+            y62 y62Var = (y62) l72.a(v52Var);
+            if (y62Var == null) {
+                y72.c("Component-Canvas-Utils", "get canvas view fail: find a null component");
+                return null;
+            }
+            return y62Var.i;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return String.format("%s/ma/concern/receive", r82.a);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return String.format("%s/ma/concern/sort", r82.a);
-        }
-        return (String) invokeV.objValue;
+        return (CanvasView) invokeL.objValue;
     }
 }

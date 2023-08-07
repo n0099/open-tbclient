@@ -6,7 +6,7 @@ import com.kwad.components.ad.e.c;
 import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBasePvFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.sdk.mvp.a {
     @NonNull
     public KsNativeAd.VideoPlayListener jA;

@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,72 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qx2 implements mx2 {
+public class qx2 implements x03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final oq3<ta2> a;
-    public static final oq3<ta2> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements oq3<ta2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(ta2 ta2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta2Var) == null) {
-                ta2Var.suspendTimer();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements oq3<ta2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(ta2 ta2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta2Var) == null) {
-                ta2Var.continueTimer();
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public boolean c;
+    public vx2 d;
 
     static {
         InterceptResult invokeClinit;
@@ -88,8 +34,7 @@ public class qx2 implements mx2 {
                 return;
             }
         }
-        a = new a();
-        b = new b();
+        boolean z = ir1.a;
     }
 
     public qx2() {
@@ -102,32 +47,41 @@ public class qx2 implements mx2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "";
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.mx2
-    public void onPause() {
+    @Override // com.baidu.tieba.x03
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            vx2 vx2Var = this.d;
+            if (vx2Var != null && vx2Var.isValid() && !TextUtils.isEmpty(this.b)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mx2
-    public void onResume() {
+    @Override // com.baidu.tieba.x03
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(b);
-        }
-    }
-
-    public void a(oq3<ta2> oq3Var) {
-        rd2 W;
-        ta2 d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, oq3Var) == null) && (W = pi2.U().W()) != null && (d = W.d()) != null && d.isWebView()) {
-            oq3Var.a(d);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
+            String optString = jSONObject.optString("controlId");
+            this.a = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.a = jSONObject.optString("id");
+            }
+            vx2 vx2Var = new vx2();
+            this.d = vx2Var;
+            vx2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
+            this.b = jSONObject.optString("iconPath");
+            this.c = jSONObject.optBoolean("clickable");
         }
     }
 }

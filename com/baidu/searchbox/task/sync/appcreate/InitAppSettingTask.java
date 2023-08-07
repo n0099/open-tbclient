@@ -1,18 +1,18 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import android.text.TextUtils;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ey5;
-import com.baidu.tieba.gu5;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.kh5;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.xf5;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.je5;
+import com.baidu.tieba.sv5;
+import com.baidu.tieba.uf5;
+import com.baidu.tieba.vr5;
 /* loaded from: classes4.dex */
 public class InitAppSettingTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -28,8 +28,8 @@ public class InitAppSettingTask extends LaunchTask {
     private void initSettings() {
         long currentTimeMillis = System.currentTimeMillis();
         TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-        ey5.c();
-        gu5.b().r(System.currentTimeMillis() - currentTimeMillis);
+        sv5.c();
+        vr5.a().q(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -39,9 +39,9 @@ public class InitAppSettingTask extends LaunchTask {
         initSettings();
         TbadkCoreApplication.getInst().initSetting();
         long currentTimeMillis = System.currentTimeMillis();
-        pf5.d().q();
-        gu5.b().y(System.currentTimeMillis() - currentTimeMillis);
-        h9.f().r(20);
+        de5.d().q();
+        vr5.a().x(System.currentTimeMillis() - currentTimeMillis);
+        BdActivityStack.getInst().setActivityStackMaxSize(20);
         if (ProcessUtils.isMainProcess()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
         }
@@ -50,18 +50,18 @@ public class InitAppSettingTask extends LaunchTask {
     public void loadLcsSwitchStratgy() {
         String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
         if (!TextUtils.isEmpty(loadString)) {
-            xf5 xf5Var = new xf5();
-            xf5Var.e(loadString);
-            kh5 a = kh5.a();
+            je5 je5Var = new je5();
+            je5Var.e(loadString);
+            uf5 a = uf5.a();
             boolean z = true;
-            if (xf5Var.b() != 1) {
+            if (je5Var.b() != 1) {
                 z = false;
             }
             a.i(z);
-            a.j(xf5Var.c());
-            a.k(xf5Var.d() * 1000);
-            if (xf5Var.a() != null) {
-                a.l(xf5Var.a());
+            a.j(je5Var.c());
+            a.k(je5Var.d() * 1000);
+            if (je5Var.a() != null) {
+                a.l(je5Var.a());
             }
         }
     }

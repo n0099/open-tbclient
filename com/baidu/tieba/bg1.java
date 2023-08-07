@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.perf.signal.register.NativeSignalCapture;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,36 +13,45 @@ public class bg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947643901, "Lcom/baidu/tieba/bg1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager == null) {
-                    return null;
-                }
-                return connectivityManager.getActiveNetworkInfo();
-            } catch (SecurityException unused) {
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947643901, "Lcom/baidu/tieba/bg1;");
+                return;
             }
         }
-        return (NetworkInfo) invokeL.objValue;
+        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo a = a(context);
-            if (a != null && a.isAvailable() && a.getType() == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            NativeSignalCapture.clearANRListener();
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.unRegisterANR();
             }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void a(zf1 zf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, zf1Var) == null) {
+            NativeSignalCapture.addANRListener(zf1Var);
+        }
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.registerANR(i);
+            }
+        }
     }
 }

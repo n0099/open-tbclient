@@ -20,7 +20,7 @@ import com.baidu.searchbox.schemedispatch.forbid.InvokeStatisticKt;
 import com.baidu.searchbox.schemedispatch.forbid.SchemeForbidStatisticUtils;
 import com.baidu.searchbox.schemedispatch.monitor.bean.SchemeCheckInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx;
+import com.baidu.tieba.mw;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -91,7 +91,7 @@ public class OpenAppUtils {
             invokeStatistic.addExtPackage(str3);
             SchemeForbidStatisticUtils.ubcWhetherInstallApk(context, str4, str);
             if (z3) {
-                nx.b().g(checkTypeClose, str3, false, new InterceptCallback() { // from class: com.baidu.searchbox.schemedispatch.monitor.OpenAppUtils.1
+                mw.b().g(checkTypeClose, str3, false, new InterceptCallback() { // from class: com.baidu.searchbox.schemedispatch.monitor.OpenAppUtils.1
                     @Override // com.baidu.searchbox.feed.ad.util.InterceptCallback
                     public void onResult(boolean z4) {
                         Context context2;

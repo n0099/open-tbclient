@@ -42,13 +42,13 @@ public class InterestedForumStyleAForumViewHolder extends TypeAdapter.ViewHolder
                 return;
             }
         }
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09114c);
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f091148);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09114e);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091149);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091146);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09114b);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091147);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09114d);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09115f);
+        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09115b);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091161);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09115c);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091159);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09115e);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f09115a);
+        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091160);
     }
 }

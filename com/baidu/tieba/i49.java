@@ -1,41 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class i49 implements FollowStatusService {
+public class i49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public i49() {
+    public i49(VipSpecialItem vipSpecialItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        String str = vipSpecialItem.title;
+        String str2 = vipSpecialItem.desc;
+        String str3 = vipSpecialItem.img_url;
+        String str4 = vipSpecialItem.link;
+        String str5 = vipSpecialItem.update_time;
+        vipSpecialItem.id.intValue();
+        vipSpecialItem.type.intValue();
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
-    public void saveFollowStatus(boolean z, String str, String str2) {
+    public i49(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-            UpdateAttentionMessage.b bVar = new UpdateAttentionMessage.b();
-            bVar.a = true;
-            bVar.c = str;
-            bVar.d = z;
-            bVar.e = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(bVar));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 }

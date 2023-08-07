@@ -1,25 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.nadcore.exp.ADConfigError;
 /* loaded from: classes7.dex */
-public class sn0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static File a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            File externalCacheDir = context.getExternalCacheDir();
-            if (externalCacheDir == null) {
-                return context.getCacheDir();
-            }
-            return externalCacheDir;
-        }
-        return (File) invokeL.objValue;
-    }
+public interface sn0 {
+    void a(ADConfigError aDConfigError);
 }

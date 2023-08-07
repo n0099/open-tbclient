@@ -1,549 +1,111 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Window;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.ah3;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.za3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class tg3 {
+public class tg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, d> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final boolean b;
+    public final boolean c;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context e = tg3.e();
-                Toast.makeText(e, "aiapps-oauth :: " + this.a, 0).show();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vg3 a;
-
-        public b(vg3 vg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vg3Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                if (i != -2) {
-                    if (i == -1) {
-                        tg3.k("onPosBtn", Boolean.FALSE);
-                        oi3.q("click", this.a.b, true);
-                        tg3.d(this.a.b, true);
-                    }
-                } else {
-                    tg3.k("onNegBtn", Boolean.FALSE);
-                    oi3.q("click", this.a.b, false);
-                    tg3.d(this.a.b, false);
-                }
-                dv2.n().a("na_authorize_end");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vg3 a;
-
-        public c(vg3 vg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vg3Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                tg3.k(GameAssistConstKt.TYPE_CALLBACK_CANCEL, Boolean.FALSE);
-                oi3.q("click", this.a.b, false);
-                tg3.d(this.a.b, false);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Set<qg3> a;
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashSet();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948180201, "Lcom/baidu/tieba/tg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948180201, "Lcom/baidu/tieba/tg3;");
+    public tg3(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
-        b = new HashMap();
+        this.a = false;
+        this.b = true;
+        this.c = z;
     }
 
-    public static Context e() {
+    public tg3(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+        this.b = z;
+        this.c = z2;
+    }
+
+    public static tg3 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            return new tg3(z);
+        }
+        return (tg3) invokeZ.objValue;
+    }
+
+    public static tg3 d(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return new tg3(z, z2);
+        }
+        return (tg3) invokeCommon.objValue;
+    }
+
+    public static tg3 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return AppRuntime.getAppContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new tg3(true, true);
         }
-        return (Context) invokeV.objValue;
+        return (tg3) invokeV.objValue;
     }
 
-    public static void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            b.clear();
-        }
-    }
-
-    public static void k(String str, Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, bool) == null) {
-            v82.k("aiapps-oauth", str);
-            if (a && bool.booleanValue()) {
-                pp3.a0(new a(str));
-            }
-        }
-    }
-
-    public static synchronized void t(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
-            synchronized (tg3.class) {
-                s(10004, str, str2);
-            }
-        }
-    }
-
-    public static RequestBody b(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            FormBody.Builder builder = new FormBody.Builder();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                if (TextUtils.isEmpty(key)) {
-                    key = "";
-                }
-                if (TextUtils.isEmpty(value)) {
-                    value = "";
-                }
-                if (a) {
-                    k("query :: " + key + " = " + value, Boolean.FALSE);
-                }
-                builder.add(key, value);
-            }
-            return builder.build();
-        }
-        return (RequestBody) invokeL.objValue;
-    }
-
-    public static JSONObject c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            String C = cv2.o().C();
-            if (jSONObject != null && !TextUtils.isEmpty(C)) {
-                return jSONObject.optJSONObject(C);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static boolean h(yg3<ah3.e> yg3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, yg3Var)) == null) {
-            if (yg3Var != null && yg3Var.c() && yg3Var.a.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            return TextUtils.equals(jSONObject.optString("invokeFrom"), "api");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean j(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            return TextUtils.equals(jSONObject.optString("invokeFrom"), "component");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static void l(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, runnable) == null) {
-            pp3.a0(runnable);
-        }
-    }
-
-    public static void d(String str, boolean z) {
-        d remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z) == null) {
-            synchronized (b) {
-                remove = b.remove(str);
-            }
-            if (remove != null && !remove.a.isEmpty()) {
-                for (qg3 qg3Var : remove.a) {
-                    if (qg3Var != null) {
-                        qg3Var.onResult(z);
-                    }
-                }
-            }
-        }
-    }
-
-    public static String f(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            switch (i) {
-                case 10001:
-                    str = "internal error";
-                    break;
-                case 10002:
-                    str = SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR;
-                    break;
-                case 10003:
-                    str = "user deny";
-                    break;
-                case 10004:
-                    str = "user not logged in";
-                    break;
-                case 10005:
-                    str = "system deny";
-                    break;
-                case 10006:
-                    str = "no data";
-                    break;
-                default:
-                    str = "Permission denied";
-                    break;
-            }
-            if (a) {
-                Log.w("OAuthUtils", i + " " + str);
-            }
-            return str;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @SuppressLint({"PackageManagerGetSignatures"})
-    public static String g() {
+    public boolean a() {
         InterceptResult invokeV;
-        Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            try {
-                PackageInfo packageInfo = e().getPackageManager().getPackageInfo(e().getPackageName(), 64);
-                if (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length <= 0) {
-                    return "";
-                }
-                return bs4.d(signatureArr[0].toByteArray(), false);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a && this.b) {
+                return false;
             }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static synchronized void m(@NonNull JSONObject jSONObject) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, jSONObject) == null) {
-            synchronized (tg3.class) {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null && optJSONObject.has("code")) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("code", 1);
-                        jSONObject.put("data", jSONObject2);
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a) {
+                if (this.b && this.c) {
+                    return true;
                 }
+                return false;
             }
+            return this.c;
         }
-    }
-
-    public static void n(hh3 hh3Var, CallbackHandler callbackHandler, String str) {
-        on3 on3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65550, null, hh3Var, callbackHandler, str) == null) && hh3Var != null && (on3Var = hh3Var.j) != null) {
-            int i = -1;
-            try {
-                i = (int) on3Var.a();
-            } catch (ClassCastException e) {
-                if (a) {
-                    Log.e("OAuthUtils", e.toString());
-                }
-            }
-            if (i < 0) {
-                return;
-            }
-            o(i, callbackHandler, str);
-        }
-    }
-
-    public static void o(int i, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(65551, null, i, callbackHandler, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        String f = f(i);
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, f).toString());
-        v82.o("OAuthUtils", "authorize failed : " + f);
-    }
-
-    public static void p(yg3<ah3.e> yg3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, yg3Var, callbackHandler, unitedSchemeEntity) == null) {
-            if (yg3Var != null && yg3Var.a() != null) {
-                int b2 = yg3Var.b();
-                String f = f(b2);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(b2, f));
-                v82.o("OAuthUtils", "authorize failed : " + f);
-                return;
-            }
-            v82.c("OAuthUtils", "authorize failed : result is invalid");
-        }
-    }
-
-    public static void q(yg3<ah3.e> yg3Var, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, null, yg3Var, callbackHandler, str) == null) {
-            if (yg3Var != null && yg3Var.a() != null) {
-                o(yg3Var.b(), callbackHandler, str);
-            } else {
-                v82.c("OAuthUtils", "authorize failed : result is invalid");
-            }
-        }
-    }
-
-    public static void s(int i, @NonNull String str, @NonNull String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65555, null, i, str, str2) == null) {
-            try {
-                String g0 = vb3.g0();
-                if (TextUtils.isEmpty(g0)) {
-                    g0 = "NotSwanAppProcess";
-                }
-                String str4 = str + "===";
-                if (str2.length() > 1024) {
-                    str3 = (str4 + str2.substring(0, 1024)) + "...";
-                } else {
-                    str3 = str4 + str2;
-                }
-                di3.b bVar = new di3.b(i);
-                bVar.h(g0);
-                bVar.i(str3);
-                bVar.m();
-                v82.k("OAuthUtils", "error reported: " + i + " ,content: " + str3);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void u(Context context, vb3 vb3Var, vg3 vg3Var, JSONObject jSONObject, qg3 qg3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65557, null, context, vb3Var, vg3Var, jSONObject, qg3Var) == null) {
-            if (vg3Var != null && !TextUtils.isEmpty(vg3Var.b)) {
-                synchronized (b) {
-                    d dVar = b.get(vg3Var.b);
-                    if (dVar != null) {
-                        dVar.a.add(qg3Var);
-                        return;
-                    }
-                    d dVar2 = new d(vg3Var.b);
-                    dVar2.a.add(qg3Var);
-                    b.put(vg3Var.b, dVar2);
-                    b bVar = new b(vg3Var);
-                    c cVar = new c(vg3Var);
-                    oi3.q("show", vg3Var.b, false);
-                    dv2.n().a("na_authorize_start");
-                    v(context, vb3Var, vg3Var, jSONObject, bVar, cVar);
-                    return;
-                }
-            }
-            qg3Var.onResult(false);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void v(Context context, vb3 vb3Var, vg3 vg3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener, DialogInterface.OnCancelListener onCancelListener) {
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, vb3Var, vg3Var, jSONObject, onClickListener, onCancelListener}) == null) {
-            za3.a a2 = cv2.i0().a(context, vb3Var, vg3Var, jSONObject, onClickListener);
-            if (a2 == null) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("auth dialog builder is null");
-            }
-            za3 c2 = a2.c();
-            c2.a(false);
-            c2.setOnCancelListener(onCancelListener);
-            Window window = c2.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003b2);
-            }
-            if (vb3Var == null) {
-                w = null;
-            } else {
-                w = vb3Var.w();
-            }
-            if (w != null && !w.isFinishing()) {
-                c2.show();
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

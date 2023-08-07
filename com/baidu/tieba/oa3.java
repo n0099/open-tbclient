@@ -1,25 +1,215 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.ext.widget.toast.ToastCustom;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tieba.qa3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public final class oa3 extends TimerTask {
+public class oa3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public final float b;
-    public final WheelView3d c;
+    public boolean a;
+    public Context b;
+    public WindowManager c;
+    public volatile int d;
+    public View e;
+    public View f;
+    public WindowManager.LayoutParams g;
+    public Handler h;
+    public Runnable i;
+    public Runnable j;
+    public qa3.b k;
+    public boolean l;
+    public View m;
+    public View n;
 
-    public oa3(WheelView3d wheelView3d, float f) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oa3 a;
+
+        public a(oa3 oa3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oa3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oa3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e != null) {
+                    if (this.a.e.getParent() != null) {
+                        this.a.c.removeView(this.a.e);
+                        if (this.a.k != null) {
+                            this.a.k.onDismiss();
+                            this.a.k = null;
+                        }
+                    }
+                    this.a.e = null;
+                }
+                if (this.a.m != null) {
+                    if (this.a.m.getParent() != null) {
+                        this.a.c.removeView(this.a.m);
+                    }
+                    this.a.m = null;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oa3 a;
+
+        public b(oa3 oa3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oa3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oa3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.l) {
+                        if (this.a.m != null && (this.a.m.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) this.a.m.getParent()).removeView(this.a.m);
+                        }
+                        WindowManager.LayoutParams t = this.a.t();
+                        this.a.n = new FrameLayout(this.a.b);
+                        this.a.n.setClickable(true);
+                        this.a.c.addView(this.a.n, t);
+                        this.a.m = this.a.n;
+                    }
+                    if (this.a.f != null && (this.a.f.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) this.a.f.getParent()).removeView(this.a.f);
+                    }
+                    this.a.c.addView(this.a.f, this.a.g);
+                    this.a.e = this.a.f;
+                    this.a.h.postDelayed(this.a.j, this.a.d * 1000);
+                    if (this.a.a) {
+                        Log.d(ToastCustom.TAG, "add mView");
+                    }
+                } finally {
+                    if (!z) {
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oa3 a;
+
+        public c(oa3 oa3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oa3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oa3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.e != null) {
+                        if (this.a.e.getParent() != null) {
+                            this.a.c.removeViewImmediate(this.a.e);
+                        }
+                        if (this.a.k != null) {
+                            this.a.k.onDismiss();
+                            this.a.k = null;
+                        }
+                        if (this.a.a) {
+                            Log.d(ToastCustom.TAG, "remove mView");
+                        }
+                        this.a.e = null;
+                    }
+                    if (this.a.m != null) {
+                        if (this.a.m.getParent() != null) {
+                            this.a.c.removeViewImmediate(this.a.m);
+                        }
+                        if (this.a.a) {
+                            Log.d(ToastCustom.TAG, "remove mMaskView");
+                        }
+                        this.a.m = null;
+                    }
+                } finally {
+                    if (!z) {
+                    }
+                }
+            }
+        }
+    }
+
+    public oa3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Float.valueOf(f)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,59 +219,126 @@ public final class oa3 extends TimerTask {
                 return;
             }
         }
-        this.c = wheelView3d;
-        this.b = f;
-        this.a = 2.1474836E9f;
+        this.b = context;
+        this.c = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+        this.h = new Handler(Looper.getMainLooper());
+        this.j = new a(this);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        this.g = layoutParams;
+        layoutParams.height = -2;
+        layoutParams.width = -2;
+        layoutParams.format = -3;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f10043e;
+        layoutParams.type = 2005;
+        layoutParams.setTitle("Toast");
+        WindowManager.LayoutParams layoutParams2 = this.g;
+        layoutParams2.flags = 168;
+        layoutParams2.gravity = 81;
+        layoutParams2.y = -30;
+        this.d = 2;
+        this.a = false;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public void A(@StyleRes int i) {
+        WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 2.1474836E9f) {
-                float f = 2000.0f;
-                if (Math.abs(this.b) > 2000.0f) {
-                    if (this.b <= 0.0f) {
-                        f = -2000.0f;
-                    }
-                    this.a = f;
-                } else {
-                    this.a = this.b;
-                }
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (layoutParams = this.g) != null) {
+            layoutParams.windowAnimations = i;
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i <= 0) {
+                i = 2;
             }
-            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
-                this.c.b();
-                this.c.getHandler().sendEmptyMessage(2000);
-                return;
+            this.d = i;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void y(qa3.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.k = bVar;
+        }
+    }
+
+    public void z(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.f = view2;
+            view2.setClickable(true);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Runnable runnable = this.i;
+            if (runnable != null) {
+                this.h.removeCallbacks(runnable);
             }
-            WheelView3d wheelView3d = this.c;
-            float f2 = (int) (this.a / 100.0f);
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
-            if (!this.c.i()) {
-                float itemHeight = this.c.getItemHeight();
-                float f3 = (-this.c.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
-                double d = itemHeight * 0.25d;
-                if (this.c.getTotalScrollY() - d < f3) {
-                    f3 = this.c.getTotalScrollY() + f2;
-                } else if (this.c.getTotalScrollY() + d > itemsCount) {
-                    itemsCount = this.c.getTotalScrollY() + f2;
-                }
-                if (this.c.getTotalScrollY() <= f3) {
-                    this.a = 40.0f;
-                    this.c.setTotalScrollY((int) f3);
-                } else if (this.c.getTotalScrollY() >= itemsCount) {
-                    this.c.setTotalScrollY((int) itemsCount);
-                    this.a = -40.0f;
-                }
+            b bVar = new b(this);
+            this.i = bVar;
+            this.h.post(bVar);
+        }
+    }
+
+    public void s() {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (handler = this.h) != null) {
+            handler.post(new c(this));
+            this.h.removeCallbacks(this.j);
+            if (this.a) {
+                Log.d(ToastCustom.TAG, "cancel");
             }
-            float f4 = this.a;
-            if (f4 < 0.0f) {
-                this.a = f4 + 20.0f;
-            } else {
-                this.a = f4 - 20.0f;
+        }
+    }
+
+    public final WindowManager.LayoutParams t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.verticalMargin = qa3.c(this.b);
+            layoutParams.flags = 2176;
+            layoutParams.type = 2005;
+            return layoutParams;
+        }
+        return (WindowManager.LayoutParams) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            View view2 = this.e;
+            if (view2 != null && view2.getParent() != null) {
+                return true;
             }
-            this.c.getHandler().sendEmptyMessage(1000);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void w(int i, int i2, int i3) {
+        WindowManager.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) && (layoutParams = this.g) != null) {
+            layoutParams.gravity = i;
+            layoutParams.x = i2;
+            layoutParams.y = i3;
         }
     }
 }

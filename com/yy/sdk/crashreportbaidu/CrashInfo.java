@@ -1,7 +1,7 @@
 package com.yy.sdk.crashreportbaidu;
 
-import com.baidu.tieba.aub;
-import com.baidu.tieba.dub;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.gtb;
 import java.util.Collections;
 /* loaded from: classes10.dex */
 public class CrashInfo extends ReportInfo {
@@ -59,12 +59,12 @@ public class CrashInfo extends ReportInfo {
 
     public static CrashInfo generateCrashInfo(CrashType crashType, String... strArr) {
         CrashInfo crashInfo = new CrashInfo();
-        crashInfo.crashId = dub.n();
+        crashInfo.crashId = gtb.n();
         crashInfo.history = ActivityHistory.INSTANCE.getHistory();
         crashInfo.crashType = CrashType.toString(crashType);
         Collections.addAll(crashInfo.fileList, strArr);
-        crashInfo.nyyData = dub.x(crashInfo);
-        aub.d("CrashReport", "generateCrashInfo finished!");
+        crashInfo.nyyData = gtb.x(crashInfo);
+        dtb.d("CrashReport", "generateCrashInfo finished!");
         return crashInfo;
     }
 }

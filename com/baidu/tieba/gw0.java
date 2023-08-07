@@ -1,67 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes6.dex */
-public class gw0 extends zz0 {
+public class gw0 extends pw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-
-    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
-    public void q(@NonNull mx0 mx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mx0Var) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-762078932, "Lcom/baidu/tieba/gw0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-762078932, "Lcom/baidu/tieba/gw0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PlayerStatus.values().length];
-            a = iArr;
-            try {
-                iArr[PlayerStatus.PLAYING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PlayerStatus.COMPLETE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
 
     public gw0() {
         Interceptable interceptable = $ic;
@@ -77,85 +25,12 @@ public class gw0 extends zz0 {
         }
     }
 
-    public final boolean M() {
-        InterceptResult invokeV;
+    public static pw0 w(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return xx0.h().d(u().B(), u().L());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return pw0.m(str, 4);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h.setBackgroundColor(-65536);
-        }
-    }
-
-    public final void O() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (M()) {
-                i = DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK;
-            } else {
-                i = -65536;
-            }
-            this.h.setBackgroundColor(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.m01
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ny0
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new int[]{4, 2, 5, 3};
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zz0
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.D();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_layer_debug_info_layout, null);
-            this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.text_version_code);
-            this.g = (TextView) this.e.findViewById(R.id.text_status);
-            this.h = (TextView) this.e.findViewById(R.id.text_pcdn_status);
-            this.g.setText(PlayerStatus.IDLE.name());
-        }
-    }
-
-    @Override // com.baidu.tieba.zz0, com.baidu.tieba.ny0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            this.g.setText(playerStatus.name());
-            int i = a.a[playerStatus.ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    N();
-                    return;
-                }
-                return;
-            }
-            O();
-        }
+        return (pw0) invokeL.objValue;
     }
 }

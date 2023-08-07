@@ -1,227 +1,109 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.f65;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j65 extends i65 {
+public final class j65 implements f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> f;
-    public te5 g;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j65 a;
-
-        public a(j65 j65Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j65Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j65Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947835264, "Lcom/baidu/tieba/j65;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.d().dismiss();
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947835264, "Lcom/baidu/tieba/j65;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j65 a;
-
-        public b(j65 j65Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j65Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j65Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.d().dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j65 a;
-
-        public c(j65 j65Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j65Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j65Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.f, new String[]{this.a.g.c()});
-                this.a.d.d().dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j65(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public j65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f = tbPageContext;
     }
 
     @Override // com.baidu.tieba.f65
-    public void d(f65.a aVar) {
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (m65.k() && aVar != null) {
-                aVar.callback(false);
-                return;
-            }
-            if (LaunchStatsUtils.getLaunchType() == 0) {
-                te5 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
-                this.g = upgradePopWindowConfig;
-                if (upgradePopWindowConfig.i() && this.g.h().contains("app") && UpgradePopWindowHelper.isDue(this.g)) {
-                    da5.p().J(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, UpgradePopWindowHelper.date2String());
-                    if (aVar != null) {
-                        aVar.callback(true);
-                        return;
-                    }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialog_url", dialogData.getDialogUrl());
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f65
+    public boolean b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            Object obj = map.get("dialog_url");
+            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
+                Object obj2 = map.get("check_preheat");
+                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !kx5.b().e((String) obj)) {
+                    YunDialogLog.getInstance().e("HybridCheckStrategy", "H5弹窗未预热完成");
+                    return false;
                 }
+                try {
+                    Object obj3 = map.get("init_offline_module");
+                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
+                        TbLog yunDialogLog = YunDialogLog.getInstance();
+                        yunDialogLog.i("HybridCheckStrategy", "主动初始化离线包:" + obj3);
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(obj3);
+                        az4.d(hashSet);
+                        TbLog yunDialogLog2 = YunDialogLog.getInstance();
+                        yunDialogLog2.i("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
+                    }
+                } catch (Exception e) {
+                    TbLog yunDialogLog3 = YunDialogLog.getInstance();
+                    yunDialogLog3.e("HybridCheckStrategy", "离线包手动初始化异常:" + e);
+                }
+                Object obj4 = map.get("check_offline");
+                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !az4.c((String) obj)) {
+                    YunDialogLog.getInstance().e("HybridCheckStrategy", "离线包不可用");
+                    return false;
+                }
+                return true;
             }
-            if (aVar != null) {
-                aVar.callback(false);
-            }
+            YunDialogLog.getInstance().e("HybridCheckStrategy", "未下发待检测的H5弹窗url");
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.i65
-    public void h(TBAlertBuilder tBAlertBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
-            if (this.g == null) {
-                this.g = TbSingleton.getInstance().getUpgradePopWindowConfig();
-            }
-            RelativeLayout relativeLayout = new RelativeLayout(this.c);
-            View view2 = new View(this.c);
-            d85 d = d85.d(view2);
-            d.n(1);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
-            relativeLayout.addView(view2, layoutParams);
-            ImageView imageView = new ImageView(this.c);
-            WebPManager.setMaskDrawable(imageView, R.drawable.icon_mask_popshengji, null);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams2.addRule(14);
-            relativeLayout.addView(imageView, layoutParams2);
-            this.d.x(this.g.d());
-            this.d.q(this.g.g());
-            this.d.o(true);
-            this.d.l(relativeLayout);
-            if (TextUtils.isEmpty(this.g.c())) {
-                this.d.u(new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-            } else {
-                this.d.u(new TBAlertConfig.a(this.g.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this)), new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.FORCE, new c(this)));
-            }
-            this.d.d().setCanceledOnTouchOutside(false);
-            this.d.z();
-        }
-    }
-
-    @Override // com.baidu.tieba.i65
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m65.u("grayUpdate");
-        }
-    }
-
-    @Override // com.baidu.tieba.i65
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m65.n("grayUpdate");
-        }
+        return invokeL.booleanValue;
     }
 }

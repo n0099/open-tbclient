@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.tieba.iz9;
-import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface iy9 {
-    void onDestroy();
+public final class iy9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 2131099660;
+    public static int b = 2131099741;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onPause();
-
-    void onPrimary(boolean z);
-
-    void onUserVisibleHint(boolean z);
-
-    void onViewClick();
-
-    void onViewDoubleClick();
-
-    void onViewDragToRight();
-
-    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
-
-    void setPageChangeHandler(iz9.a aVar, int i);
-
-    void updateTiebaData(int i, VideoItemModel videoItemModel);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947869984, "Lcom/baidu/tieba/iy9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947869984, "Lcom/baidu/tieba/iy9;");
+        }
+    }
 }

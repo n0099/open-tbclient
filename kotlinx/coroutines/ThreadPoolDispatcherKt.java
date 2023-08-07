@@ -21,7 +21,7 @@ public final class ThreadPoolDispatcherKt {
         }
         if (z) {
             final AtomicInteger atomicInteger = new AtomicInteger();
-            return ExecutorsKt.from((ExecutorService) Executors.newScheduledThreadPool(i, new ThreadFactory() { // from class: com.baidu.tieba.wyb
+            return ExecutorsKt.from((ExecutorService) Executors.newScheduledThreadPool(i, new ThreadFactory() { // from class: com.baidu.tieba.zxb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public final class ThreadPoolDispatcherKt {
                 public final Thread newThread(Runnable runnable) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) ? ThreadPoolDispatcherKt.m2287newFixedThreadPoolContext$lambda1(i, str, atomicInteger, runnable) : (Thread) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) ? ThreadPoolDispatcherKt.m2288newFixedThreadPoolContext$lambda1(i, str, atomicInteger, runnable) : (Thread) invokeL.objValue;
                 }
             }));
         }
@@ -37,7 +37,7 @@ public final class ThreadPoolDispatcherKt {
     }
 
     /* renamed from: newFixedThreadPoolContext$lambda-1  reason: not valid java name */
-    public static final Thread m2287newFixedThreadPoolContext$lambda1(int i, String str, AtomicInteger atomicInteger, Runnable runnable) {
+    public static final Thread m2288newFixedThreadPoolContext$lambda1(int i, String str, AtomicInteger atomicInteger, Runnable runnable) {
         if (i != 1) {
             str = str + SignatureImpl.SEP + atomicInteger.incrementAndGet();
         }

@@ -1,55 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import java.util.HashMap;
+@ModifyClass
 /* loaded from: classes7.dex */
-public class qh5 extends ib {
+public class qh5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qh5() {
-        super(0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091851, "Lcom/baidu/tieba/qh5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948091851, "Lcom/baidu/tieba/qh5;");
                 return;
             }
         }
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-service/creativeToolsList";
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.fb
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+    public static FrameLayout a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004 && socketResponsedMessage.getCmd() != 1001) {
-                vn5.b(0, 0, 0, 1, 11);
-                BdSocketLinkService.startService(true, "be server kicked off");
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            FrameLayout frameLayout = new FrameLayout(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
+            frameLayout.setLayoutParams(layoutParams);
+            EMManager.from(frameLayout).setBorderWidth(R.dimen.L_X02).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0209);
+            ImageView imageView = new ImageView(context);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds138), BdUtilHelper.getDimens(context, R.dimen.tbds31));
+            layoutParams2.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002), BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002));
+            imageView.setLayoutParams(layoutParams2);
+            SkinManager.setImageResource(imageView, R.drawable.icon_ai_write_rukou);
+            frameLayout.addView(imageView);
+            b(context, frameLayout);
+            return frameLayout;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (FrameLayout) invokeL.objValue;
+    }
+
+    public static void b(Context context, FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, context, frameLayout) == null) && zo5.c("key_ai_write_button_first_show_red_dot", true)) {
+            if (zo5.g("key_ai_write_button_first_show_red_dot_time", 0L) == 0) {
+                zo5.o("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis());
+            }
+            if (System.currentTimeMillis() - zo5.g("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis()) < 1209600000) {
+                ImageView imageView = new ImageView(context);
+                imageView.setId(R.id.ai_write_button_red_dot);
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds18), BdUtilHelper.getDimens(context, R.dimen.tbds18));
+                layoutParams.setMargins((BdUtilHelper.getDimens(context, R.dimen.tbds138) + (BdUtilHelper.getDimens(context, R.dimen.M_W_X004) * 2)) - BdUtilHelper.getDimens(context, R.dimen.tbds18), 0, 0, 0);
+                SkinManager.setImageResource(imageView, R.drawable.icon_news_red_dot);
+                frameLayout.addView(imageView, layoutParams);
+            }
+        }
+    }
+
+    @Modify(description = "设置AI发帖入口url")
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return a + "?customfullscreen=1&nonavigationbar=1&type=" + str + "&fid=" + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(@Nullable String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            HashMap<String, Serializable> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str)) {
+                hashMap.put("pbReply", str);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            cz4 j = cz4.j(TbadkCoreApplication.getInst().getCurrentActivity(), c("reply", str2));
+            j.f(hashMap);
+            j.p();
+        }
+    }
+
+    public static void d(@NonNull View view2) {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (findViewById = view2.findViewById(R.id.ai_write_button_red_dot)) != null) {
+            findViewById.setVisibility(8);
+            zo5.m("key_ai_write_button_first_show_red_dot", false);
+        }
     }
 }

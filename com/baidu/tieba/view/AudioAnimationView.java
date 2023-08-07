@@ -8,12 +8,12 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,7 +97,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -130,7 +130,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -179,9 +179,9 @@ public class AudioAnimationView extends View {
             if (this.f) {
                 invalidate();
             }
-            zg.a().removeCallbacks(this.n);
+            SafeHandler.getInst().removeCallbacks(this.n);
             if (!this.g) {
-                zg.a().postDelayed(this.n, 250L);
+                SafeHandler.getInst().postDelayed(this.n, 250L);
             }
         }
     }
@@ -221,7 +221,7 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            zg.a().removeCallbacks(this.n);
+            SafeHandler.getInst().removeCallbacks(this.n);
         }
     }
 

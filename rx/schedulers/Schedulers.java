@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.b4c;
-import com.baidu.tieba.d4c;
-import com.baidu.tieba.h6c;
-import com.baidu.tieba.k6c;
-import com.baidu.tieba.l6c;
-import com.baidu.tieba.w3c;
-import com.baidu.tieba.x1c;
-import com.baidu.tieba.x3c;
-import com.baidu.tieba.y3c;
+import com.baidu.tieba.a1c;
+import com.baidu.tieba.a3c;
+import com.baidu.tieba.b3c;
+import com.baidu.tieba.e3c;
+import com.baidu.tieba.g3c;
+import com.baidu.tieba.k5c;
+import com.baidu.tieba.n5c;
+import com.baidu.tieba.o5c;
+import com.baidu.tieba.z2c;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final x1c a;
-    public final x1c b;
-    public final x1c c;
+    public final a1c a;
+    public final a1c b;
+    public final a1c c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static x1c computation() {
-        return h6c.f(a().a);
+    public static a1c computation() {
+        return k5c.f(a().a);
     }
 
-    public static x1c immediate() {
-        return y3c.a;
+    public static a1c immediate() {
+        return b3c.a;
     }
 
-    public static x1c io() {
-        return h6c.k(a().b);
+    public static a1c io() {
+        return k5c.k(a().b);
     }
 
-    public static x1c newThread() {
-        return h6c.l(a().c);
+    public static a1c newThread() {
+        return k5c.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            x3c.d.shutdown();
+            a3c.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            x3c.d.start();
+            a3c.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static x1c trampoline() {
-        return d4c.a;
+    public static a1c trampoline() {
+        return g3c.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof b4c) {
-            ((b4c) this.a).shutdown();
+        if (this.a instanceof e3c) {
+            ((e3c) this.a).shutdown();
         }
-        if (this.b instanceof b4c) {
-            ((b4c) this.b).shutdown();
+        if (this.b instanceof e3c) {
+            ((e3c) this.b).shutdown();
         }
-        if (this.c instanceof b4c) {
-            ((b4c) this.c).shutdown();
+        if (this.c instanceof e3c) {
+            ((e3c) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof b4c) {
-            ((b4c) this.a).start();
+        if (this.a instanceof e3c) {
+            ((e3c) this.a).start();
         }
-        if (this.b instanceof b4c) {
-            ((b4c) this.b).start();
+        if (this.b instanceof e3c) {
+            ((e3c) this.b).start();
         }
-        if (this.c instanceof b4c) {
-            ((b4c) this.c).start();
+        if (this.c instanceof e3c) {
+            ((e3c) this.c).start();
         }
     }
 
     public Schedulers() {
-        l6c f = k6c.c().f();
-        x1c g = f.g();
+        o5c f = n5c.c().f();
+        a1c g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = l6c.a();
+            this.a = o5c.a();
         }
-        x1c i = f.i();
+        a1c i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = l6c.c();
+            this.b = o5c.c();
         }
-        x1c j = f.j();
+        a1c j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = l6c.e();
+            this.c = o5c.e();
         }
     }
 
-    public static x1c from(Executor executor) {
-        return new w3c(executor);
+    public static a1c from(Executor executor) {
+        return new z2c(executor);
     }
 }

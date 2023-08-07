@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.personcenter.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -12,8 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.yh6;
+import com.baidu.tieba.ef6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yh6 a;
+    public ef6 a;
     public String b;
     public final HttpMessageListener c;
 
@@ -88,7 +88,7 @@ public class AlaPersonCenterModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,10 +103,10 @@ public class AlaPersonCenterModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void W(yh6 yh6Var) {
+    public void O(ef6 ef6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yh6Var) == null) {
-            this.a = yh6Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ef6Var) == null) {
+            this.a = ef6Var;
         }
     }
 

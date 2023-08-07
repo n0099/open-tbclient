@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qm;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.rl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,16 +91,16 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d002a);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092929);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092943);
             this.a = gifView;
-            gifView.setGifFile(qm.b("aiapp_guide.gif"));
+            gifView.setGifFile(rl.b("aiapp_guide.gif"));
             ImageView imageView = (ImageView) findViewById(R.id.img_close);
             this.b = imageView;
             imageView.setOnClickListener(this.c);
-            int l = yi.l(getActivity()) - (yi.g(getActivity(), R.dimen.tbds44) * 2);
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getActivity()) - (BdUtilHelper.getDimens(getActivity(), R.dimen.tbds44) * 2);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.width = l;
-            layoutParams.height = (int) (((l * 828) * 1.0f) / 760.0f);
+            layoutParams.width = equipmentWidth;
+            layoutParams.height = (int) (((equipmentWidth * 828) * 1.0f) / 760.0f);
             this.a.setLayoutParams(layoutParams);
         }
     }

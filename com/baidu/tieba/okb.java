@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class okb extends tkb {
+public class okb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ zjb b;
-    public final /* synthetic */ String c;
-    public final /* synthetic */ mkb d;
+    public final Map<String, PidLoaderCreator> a;
+    public final Map<Ssp.Pid, PidLoader> b;
 
-    public okb(mkb mkbVar, zjb zjbVar, String str) {
+    public okb(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mkbVar, zjbVar, str};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,62 +33,34 @@ public class okb extends tkb {
                 return;
             }
         }
-        this.d = mkbVar;
-        this.b = zjbVar;
-        this.c = str;
+        this.b = new HashMap();
+        this.a = map;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onAdClicked() {
+    public PidLoader a(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked((mkb) this.b, this.a, this.c);
-            this.a = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            synchronized (this.b) {
+                PidLoader pidLoader = this.b.get(pid);
+                if (pidLoader != null) {
+                    return pidLoader;
+                }
+                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
+                if (pidLoaderCreator == null) {
+                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
+                    return null;
+                }
+                PidLoader create = pidLoaderCreator.create(pid);
+                if (create == null) {
+                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
+                    return null;
+                }
+                bkb bkbVar = new bkb(create);
+                this.b.put(pid, bkbVar);
+                return bkbVar;
+            }
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onPageDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose((mkb) this.b, this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.d.onRewardedVideo((mkb) this.b, this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            LogPrinter.d();
-            this.d.onAdError(this.b, i, String.valueOf(i2), this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow((mkb) this.b, false, this.c);
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

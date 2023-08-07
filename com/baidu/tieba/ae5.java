@@ -1,89 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import kotlin.jvm.internal.Intrinsics;
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes5.dex */
-public final class ae5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("funny_sprite_support_text")
-    public final String a;
-    @SerializedName("funny_sprite_loop_time")
-    public final Integer b;
-    @SerializedName("funny_sprite_bubble_text_length")
-    public final Integer c;
-    @SerializedName("funny_sprite_bubble_text_line_number")
-    public final Integer d;
+public interface ae5 {
+    boolean a();
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ae5) {
-                ae5 ae5Var = (ae5) obj;
-                return Intrinsics.areEqual(this.a, ae5Var.a) && Intrinsics.areEqual(this.b, ae5Var.b) && Intrinsics.areEqual(this.c, ae5Var.c) && Intrinsics.areEqual(this.d, ae5Var.d);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    int b();
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            Integer num = this.b;
-            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
-            Integer num2 = this.c;
-            int hashCode3 = (hashCode2 + (num2 == null ? 0 : num2.hashCode())) * 31;
-            Integer num3 = this.d;
-            return hashCode3 + (num3 != null ? num3.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
+    void c();
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "FunnySpriteConfig(funnySpriteSupportText=" + this.a + ", funnySpriteLoopTime=" + this.b + ", funnySpriteBubbleTextLength=" + this.c + ", funnySpriteBubbleTextLineLimit=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    Dialog d(int i, TbPageContext tbPageContext, OnTimeSelectListener onTimeSelectListener, boolean z);
 
-    public final Integer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (Integer) invokeV.objValue;
-    }
+    NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
 
-    public final Integer b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (Integer) invokeV.objValue;
-    }
+    void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z);
 
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
+    int g();
+
+    void h(boolean z, long j);
+
+    void i(boolean z, int i, int i2);
 }

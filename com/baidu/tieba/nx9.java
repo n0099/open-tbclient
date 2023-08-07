@@ -1,128 +1,332 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.os.AsyncTask;
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.recapp.activity.AdVideoBrowserConfig;
+import com.baidu.tieba.recapp.activity.AdVideoWebBrowserActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nx9 extends AsyncTask<Void, Void, String> {
+public class nx9 implements ix9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Camera a;
-    public byte[] b;
-    public a c;
-    public int d;
+    public List<AdvertAppInfo> a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        String a(byte[] bArr, int i, int i2, boolean z);
+    @Override // com.baidu.tieba.ix9
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
     }
 
-    public nx9(Camera camera, byte[] bArr, a aVar, int i) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-560483235, "Lcom/baidu/tieba/nx9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-560483235, "Lcom/baidu/tieba/nx9$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
+            a = iArr;
+            try {
+                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    public nx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {camera, bArr, aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = camera;
-        this.b = bArr;
-        this.c = aVar;
-        this.d = i;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getStatus() != AsyncTask.Status.FINISHED) {
-            cancel(true);
-        }
-    }
-
-    public nx9 c() {
+    @Override // com.baidu.tieba.ix9
+    public dx9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-            } else {
-                execute(new Void[0]);
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return sw9.t();
         }
-        return (nx9) invokeV.objValue;
+        return (dx9) invokeV.objValue;
     }
 
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
+    @Override // com.baidu.tieba.ix9
+    public yw9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onCancelled();
-            this.c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return m46.l();
+        }
+        return (yw9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public List<AdvertAppInfo> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public fx9 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return sw9.t();
+        }
+        return (fx9) invokeV.objValue;
+    }
+
+    public static void m(IntentConfig intentConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, intentConfig) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, intentConfig));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Camera.Parameters parameters;
+    @Override // com.baidu.tieba.ix9
+    public void k(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            Camera camera = this.a;
-            if (camera == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, advertAppInfo) == null) {
+            AdWebVideoActivity.b bVar = new AdWebVideoActivity.b();
+            AdVideoWebBrowserActivity.P = bVar;
+            bVar.a = advertAppInfo;
+            bVar.c = "DETAIL";
+            bVar.b = 0;
+            AdWebVideoActivity.P = bVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public lm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
                 return null;
             }
-            try {
-                parameters = camera.getParameters();
-            } catch (RuntimeException e) {
-                BdLog.e(e);
-                parameters = null;
+            if (bdUniqueId == AdvertAppInfo.A) {
+                return new tx9(baseFragmentActivity, bdUniqueId);
             }
-            if (parameters == null) {
+            if (bdUniqueId != AdvertAppInfo.y) {
                 return null;
             }
-            Camera.Size previewSize = parameters.getPreviewSize();
-            int i = previewSize.width;
-            int i2 = previewSize.height;
-            byte[] bArr = this.b;
-            if (this.d == 0) {
-                bArr = new byte[bArr.length];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    for (int i4 = 0; i4 < i; i4++) {
-                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.b[(i3 * i) + i4];
-                    }
-                }
-                i = i2;
-                i2 = i;
+            return new sx9(baseFragmentActivity, bdUniqueId);
+        }
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public lm<?, ?> e(hx9 hx9Var, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, hx9Var, bdUniqueId)) == null) {
+            if (hx9Var == null || bdUniqueId == null) {
+                return null;
             }
-            try {
-                try {
-                    if (this.c == null) {
-                        return null;
-                    }
-                    return this.c.a(bArr, i, i2, false);
-                } catch (Exception unused) {
+            if (bdUniqueId == AdvertAppInfo.x) {
+                return new qx9(hx9Var, bdUniqueId);
+            }
+            return new rx9(hx9Var, bdUniqueId, null);
+        }
+        return (lm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    @Nullable
+    public IAdBaseAsyncController i(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, aVar)) == null) {
+            int i = a.a[type.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return null;
                 }
-            } catch (Exception unused2) {
-                return this.c.a(bArr, i, i2, true);
+                return new hz9(aVar);
             }
+            return new xy9(aVar);
         }
-        return (String) invokeL.objValue;
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public void c(AdvertAppInfo advertAppInfo, ky8<?> ky8Var, String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{advertAppInfo, ky8Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            ty9.e(advertAppInfo, ky8Var, str, str2, i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.ix9
+    public lm<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, tbPageContext, bdUniqueId, str)) == null) {
+            if (bdUniqueId == AdvertAppInfo.z) {
+                return new ox9(tbPageContext, bdUniqueId, str);
+            }
+            if (bdUniqueId != null) {
+                return new px9(tbPageContext, bdUniqueId, str);
+            }
+            return null;
+        }
+        return (lm) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0131  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0144  */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    @Override // com.baidu.tieba.ix9
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(@NonNull HashMap<String, String> hashMap, Context context) {
+        IntentConfig adWebVideoActivityConfig;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, hashMap, context) == null) {
+            Bundle bundle = new Bundle();
+            JSONObject jSONObject4 = null;
+            try {
+                if (hashMap.get(WriteActivityConfig.VIDEO_INFO) != null) {
+                    jSONObject = new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO));
+                } else {
+                    jSONObject = null;
+                }
+                if (jSONObject != null) {
+                    bundle.putString("video_url", jSONObject.optString("video_url", ""));
+                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject.optString("poster_image", ""));
+                    float floatValue = Float.valueOf(jSONObject.optString("video_aspect_ratio", "1")).floatValue();
+                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
+                    if (floatValue < 1.0f) {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
+                    } else {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+                    }
+                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject.optInt("duration", 0));
+                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject.optString("page_url", ""));
+                    String str = hashMap.get("url");
+                    try {
+                        if (TextUtils.isEmpty(str)) {
+                            str = jSONObject.optString("page_url", "");
+                        }
+                        if (jSONObject.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null) {
+                            jSONObject2 = new JSONObject(jSONObject.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
+                        } else {
+                            jSONObject2 = null;
+                        }
+                        if (hashMap.get("download") != null) {
+                            jSONObject3 = new JSONObject(hashMap.get("download"));
+                        } else {
+                            jSONObject3 = null;
+                        }
+                        if (jSONObject3 != null) {
+                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject3.optString("key", ""));
+                            jSONObject4 = new JSONObject();
+                            jSONObject4.put("pkgname", jSONObject3.optString("key", ""));
+                            jSONObject4.put("download_url", jSONObject3.optString("download_url", ""));
+                        }
+                        if (jSONObject2 != null) {
+                            jSONObject2.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                            jSONObject2.put("button_scheme", jSONObject2.optString("button_scheme", ""));
+                            jSONObject2.put("scheme", jSONObject.optString("page_url", ""));
+                            jSONObject2.put("ext_data", jSONObject4);
+                            if (jSONObject3 != null) {
+                                jSONObject2.put("pkgname", jSONObject3.optString("key", ""));
+                                jSONObject2.put("style", "apk_download");
+                            }
+                        }
+                        ry9 ry9Var = new ry9();
+                        ry9Var.b(jSONObject2);
+                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, ry9Var.d());
+                        jSONObject4 = str;
+                    } catch (JSONException e) {
+                        e = e;
+                        jSONObject4 = str;
+                        e.printStackTrace();
+                        ?? r13 = jSONObject4;
+                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get(MigrateStatisticUtils.EXT_INFO));
+                        if (!lk6.e("https://ad-tmp/")) {
+                        }
+                        m(adWebVideoActivityConfig);
+                    }
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+            ?? r132 = jSONObject4;
+            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get(MigrateStatisticUtils.EXT_INFO));
+            if (!lk6.e("https://ad-tmp/")) {
+                adWebVideoActivityConfig = new AdVideoBrowserConfig(context, "", r132, true, true, true, bundle);
+            } else {
+                adWebVideoActivityConfig = new AdWebVideoActivityConfig(context, "", r132, true, true, true, bundle);
+            }
+            m(adWebVideoActivityConfig);
+        }
     }
 }

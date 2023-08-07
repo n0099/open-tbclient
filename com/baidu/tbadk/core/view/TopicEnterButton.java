@@ -6,18 +6,18 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.RecommendTopicData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.my5;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,15 +46,15 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        int l = yi.l(TbadkCoreApplication.getInst()) / 2;
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
-        yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) / 2;
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
@@ -62,21 +62,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             setGravity(17);
             setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
             setOnClickListener(this);
-            e();
+            f();
         }
     }
 
-    public void e() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d85 d = d85.d(this);
-            d.D(R.string.F_X01);
-            d.C(R.dimen.T_X09);
-            d.x(R.color.CAM_X0304);
-            d.e(R.string.A_X07);
-            d.o(R.string.J_X01);
-            d.m(R.dimen.L_X02);
-            d.l(R.color.CAM_X0304);
+            EMManager.from(this).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0304).setAlpha(R.string.A_X07).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304);
             Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
@@ -105,7 +98,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        d();
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,7 +120,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        d();
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,17 +142,17 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        d();
+        e();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !xi.isEmpty(recommendTopicListData.getTopicName())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !bi.isEmpty(recommendTopicListData.getTopicName())) {
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    my5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                    zv5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                     return;
                 }
                 return;

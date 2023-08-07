@@ -15,16 +15,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.n41;
-import com.baidu.tieba.v15;
-import com.baidu.tieba.vy9;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.o36;
+import com.baidu.tieba.q31;
+import com.baidu.tieba.s05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public v15 i;
+    public s05 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    v15.b bVar = this.a.i.g;
+                    s05.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,20 +155,20 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_permission) {
-                        v15.a aVar = this.a.i.h;
+                        s05.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
                             str2 = "app_permission";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        yi.R(this.a.getContext(), this.a.i.d);
+                        BdUtilHelper.showToast(this.a.getContext(), this.a.i.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                vy9.a(this.a.getContext(), str3, null, null, str);
+                mx9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h66.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, o36.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -219,7 +219,7 @@ public class AdAppInfoView extends FrameLayout {
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09010b);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090923);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090932);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -303,7 +303,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.j != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-            n41.e(clogBuilder);
+            q31.e(clogBuilder);
         }
     }
 
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(v15 v15Var) {
+    public void setAppInfo(s05 s05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, v15Var) == null) {
-            if (v15Var != null && v15.c(v15Var)) {
-                this.i = v15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, s05Var) == null) {
+            if (s05Var != null && s05.c(s05Var)) {
+                this.i = s05Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(v15Var.c)) {
+                    if (!TextUtils.isEmpty(s05Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(v15Var.c);
+                        this.a.setText(s05Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = v15Var.e;
+                    float f = s05Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(v15Var.e);
+                        this.b.setRating(s05Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(v15Var.f)) {
+                    if (!TextUtils.isEmpty(s05Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(v15Var.f);
+                        this.c.setText(s05Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(v15Var.d)) {
+                    if (!TextUtils.isEmpty(s05Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(v15Var.d);
+                        this.d.setText(s05Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    v15.b bVar = v15Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(v15Var.g.a)) {
+                    s05.b bVar = s05Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(s05Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(v15Var.g.a);
+                        this.e.setText(s05Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    v15.a aVar = v15Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(v15Var.h.a)) {
+                    s05.a aVar = s05Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(s05Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(v15Var.h.a);
+                        this.f.setText(s05Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

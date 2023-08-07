@@ -1,272 +1,212 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.funad.view.FunAdAgreeView;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
 import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes7.dex */
-public final class pv7 {
+public class pv7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075576, "Lcom/baidu/tieba/pv7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948075576, "Lcom/baidu/tieba/pv7;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            a.c();
-        }
-    }
-
-    @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.e();
-        }
-    }
+    public final Activity a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public PopupWindow f;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a implements re9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pv7 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        @Override // com.baidu.tieba.re9
+        public /* synthetic */ void onStart() {
+            qe9.a(this);
         }
 
-        public a() {
+        public a(pv7 pv7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pv7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return da5.p().l(da5.t("forum_group_feed_card_has_show"), false);
-            }
-            return invokeV.booleanValue;
-        }
-
-        @JvmStatic
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                da5.p().A(da5.t("forum_group_feed_card_has_show"), true);
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.qv7.j();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int j;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z || j <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = qv7.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
-                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
-                    int i = 0;
-                    for (String str2 : split$default) {
-                        if (Intrinsics.areEqual(str2, str)) {
-                            i++;
-                        }
-                    }
-                    if (i >= j) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final void f(String str) {
-            boolean z;
-            String h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
                     return;
                 }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                h = qv7.h();
-                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                mutableList.add(str);
-                qv7.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
             }
+            this.a = pv7Var;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            r2 = com.baidu.tieba.qv7.i();
-         */
-        @JvmStatic
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean b(String str) {
-            InterceptResult invokeL;
-            boolean z;
-            int i;
-            String g;
+        @Override // com.baidu.tieba.re9
+        public void onStop() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.f != null && this.a.f.isShowing()) {
+                    jg.d(this.a.f, this.a.a);
+                }
+            }
+        }
+    }
+
+    public pv7(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.a = activity;
+        e();
+        f();
+    }
+
+    public void h(FunAdAgreeView funAdAgreeView) {
+        WaterRippleView waterRippleView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, funAdAgreeView) != null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
+            return;
+        }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
+        }
+    }
+
+    public void i(boolean z) {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.f) != null) {
+            popupWindow.setClippingEnabled(z);
+        }
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a);
+            this.e = new EjectionAnimationView(this.a);
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.f = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.f.setHeight(d());
+            this.f.setWidth(-1);
+            this.f.setOutsideTouchable(false);
+            this.f.setFocusable(false);
+            this.f.setTouchable(false);
+            GreyUtil.grey(this.f);
+        }
+    }
+
+    public final void g(View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && jg.m(this.f, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void j(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            g(view2, rect);
+        }
+    }
+
+    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) && linearLayout != null && funAdAgreeView != null) {
+            if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
+                WaterRippleView waterRippleView = this.d;
+                if (waterRippleView == null) {
+                    this.d = new WaterRippleView(this.a);
                 } else {
-                    z = true;
-                }
-                if (z || i <= 0) {
-                    return false;
-                }
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = qv7.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    qv7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    qv7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
-                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
-                        return false;
+                    ViewParent parent = waterRippleView.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(this.d);
                     }
-                    mutableList.add(str);
-                    qv7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
-                } else {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                    mutableList.add(str);
-                    qv7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-                    return true;
                 }
+                linearLayout.getGlobalVisibleRect(new Rect());
+                Rect rect = new Rect();
+                funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
+                int centerX = rect.centerX();
+                int centerY = rect.centerY();
+                int dimens = BdUtilHelper.getDimens(this.a, R.dimen.tbds166);
+                int i = centerX - dimens;
+                int i2 = centerY - dimens;
+                int i3 = dimens * 2;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+                layoutParams.addRule(13, -1);
+                layoutParams.setMargins(i, i2, 0, 0);
+                this.c.addView(this.d, layoutParams);
+                return;
             }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final void c() {
-            int i;
-            String g;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
-                g = qv7.g();
-                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
-                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
-                if (mutableList.isEmpty()) {
-                    mutableList.add(valueOf);
-                } else if (mutableList.size() == 1) {
-                    mutableList.clear();
-                    mutableList.add(valueOf);
-                }
-                for (i = qv7.i(); -1 < i; i--) {
-                    mutableList.add(String.valueOf(i));
-                }
-                qv7.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
-            }
+            BdLog.e("FunAdAgreeView not measured");
         }
     }
 }

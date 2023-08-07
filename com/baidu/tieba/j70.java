@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Dns;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j70 implements Interceptor {
+public class j70 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile j70 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Dns a;
+    public int a;
+    public String b;
+    public Context c;
+    public boolean d;
 
-    public j70(Dns dns) {
+    public j70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dns};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +32,72 @@ public class j70 implements Interceptor {
                 return;
             }
         }
-        this.a = dns;
+        this.b = "";
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Dns dns;
+    public static j70 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            com.baidu.searchbox.network.outback.core.Request request2 = (com.baidu.searchbox.network.outback.core.Request) request.tag(com.baidu.searchbox.network.outback.core.Request.class);
-            if (request2 == null) {
-                return chain.proceed(request);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (j70.class) {
+                    if (e == null) {
+                        e = new j70();
+                    }
+                }
             }
-            if ((request2.getNetworkStatRecord().dnsDetail == null || (request2.getNetworkStatRecord().dnsDetail != null && "{}".equalsIgnoreCase(request2.getNetworkStatRecord().dnsDetail.toString().trim()))) && (dns = this.a) != null) {
-                dns.lookup(request2.url().host());
-            }
-            return chain.proceed(request);
+            return e;
         }
-        return (Response) invokeL.objValue;
+        return (j70) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e(Context context, String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.b = str;
+            if (context != null) {
+                this.c = context.getApplicationContext();
+            }
+            this.a = i;
+            this.d = z;
+        }
+    }
+
+    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            if (!TextUtils.isEmpty(this.b) && this.c != null && jSONArray != null && jSONArray.length() != 0) {
+                p70.b(this.c, jSONArray, z, z2, z3);
+            } else {
+                t70.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
+            }
+        }
     }
 }

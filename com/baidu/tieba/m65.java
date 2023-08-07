@@ -1,30 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.TBWebViewActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.core.dialog.yun.strategy.ExcludeDialogStrategy;
-import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
-import com.baidu.tbadk.core.dialog.yun.strategy.PageDialogStrategy;
-import com.baidu.tbadk.core.dialog.yun.strategy.UniqueDialogStrategy;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,572 +14,125 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import org.json.JSONObject;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class m65 {
+public final class m65 implements f65 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Map<String, k75> a;
-    @NonNull
-    public final Set<String> b;
-    @NonNull
-    public final Set<String> c;
-    @NonNull
-    public final Set<String> d;
-    @NonNull
-    public String e;
-    public boolean f;
-    public final CustomMessageListener g;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m65 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(m65 m65Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m65Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m65Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                this.a.b.remove(str);
-                this.a.c.remove(str);
-            }
-        }
+    public static final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a() : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements Runnable {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ l65 b;
 
-        public b(Context context, l65 l65Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, l65Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = context;
-            this.b = l65Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public final String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m65.p(this.a, this.b);
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (String) invokeV.objValue;
             }
+            return m65.b;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c implements YunDialogDataManager.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ l65 b;
-
-        public c(Context context, l65 l65Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924637, "Lcom/baidu/tieba/m65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, l65Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-            this.b = l65Var;
-        }
-
-        @Override // com.baidu.tbadk.core.dialog.yun.YunDialogDataManager.d
-        public void a(List<DialogStrategiesData> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                for (DialogStrategiesData dialogStrategiesData : list) {
-                    m65.c().t(this.a, this.b.b(), dialogStrategiesData, new JSONObject());
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947924637, "Lcom/baidu/tieba/m65;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ JSONObject c;
-
-        public d(Context context, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = str;
-            this.c = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m65.q(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements YunDialogDataManager.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ JSONObject b;
-
-        public e(Context context, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = jSONObject;
-        }
-
-        @Override // com.baidu.tbadk.core.dialog.yun.YunDialogDataManager.d
-        public void a(List<DialogStrategiesData> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                for (DialogStrategiesData dialogStrategiesData : list) {
-                    m65.c().t(this.a, "", dialogStrategiesData, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public static final m65 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650183781, "Lcom/baidu/tieba/m65$f;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-650183781, "Lcom/baidu/tieba/m65$f;");
-                    return;
-                }
-            }
-            a = new m65(null);
-        }
+        a = new a(null);
+        b = "key_home_operate_dialog_" + TbConfig.getBigAppVersion();
     }
 
     public m65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        this.b = new HashSet();
-        this.c = new HashSet();
-        this.d = new HashSet();
-        this.e = "";
-        this.f = false;
-        this.g = new a(this, 2921753);
-        l75 l75Var = new l75();
-        dl1<m75> dl1Var = l75Var.a;
-        if (dl1Var != null && !ListUtils.isEmpty(dl1Var.getList())) {
-            for (m75 m75Var : l75Var.a.getList()) {
-                this.a.put(m75Var.name(), m75Var.a());
-            }
-        }
-        this.a.put("NEW_FREQUENCE_STRATEGY", new v75());
-        this.a.put("FREQUENCE_STRATEGY", new FrequenceDialogStrategy());
-        this.a.put("PAGE_STRATEGY", new PageDialogStrategy());
-        this.a.put("EXCLUDE_STRATEGY", new ExcludeDialogStrategy());
-        this.a.put("UNIQUE_STRATEGY", new UniqueDialogStrategy());
-        this.a.put("HYBRID_CHECK_STRATEGY", new o75());
-        this.a.put("NA_USER_ICON_STRATEGY", new u75());
-        this.a.put("NA_USER_GROWTH_STRATEGY", new t75());
-        this.a.put("NA_NEW_GOD_STRATEGY", new p75());
-        this.a.put("NA_OPERATION_STRATEGY", new r75());
-        this.a.put("NA_LIVE_REMIND_STRATEGY", new q75());
-        this.a.put("NA_UPDATE_STRATEGY", new s75());
-        h29 yunDialogLog = YunDialogLog.getInstance();
-        yunDialogLog.c("YunDialogManager", "strategyMap:" + this.a);
-        MessageManager.getInstance().registerListener(this.g);
-    }
-
-    public /* synthetic */ m65(a aVar) {
-        this();
-    }
-
-    public static boolean l(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, activity)) == null) {
-            if ((activity instanceof TBWebViewActivity) && activity.getIntent() != null && !TextUtils.isEmpty(activity.getIntent().getStringExtra(WebViewActivityConfig.TAG_WEB_DIALOG_NAME))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            h().f = z;
-        }
-    }
-
-    public static void n(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            h().b.add(str);
-            h().d.add(str);
-        }
-    }
-
-    public static void u(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            h().b.remove(str);
-            h().c.remove(str);
-        }
-    }
-
-    public static /* synthetic */ m65 c() {
-        return h();
-    }
-
-    public static m65 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return f.a;
-        }
-        return (m65) invokeV.objValue;
-    }
-
-    public static Set<String> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return h().c;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return !h().c.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e(@Nullable l65 l65Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, l65Var)) == null) {
-            String str = null;
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                h29 yunDialogLog = YunDialogLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("云弹窗 ");
-                if (l65Var != null) {
-                    str = l65Var.b();
-                }
-                sb.append(str);
-                sb.append(" 不可显示：当前冷启动开屏展示中");
-                yunDialogLog.c("YunDialogManager", sb.toString());
-                return false;
-            } else if (LogoActivityConfig.IS_HOT_SPLASH_SHOW) {
-                h29 yunDialogLog2 = YunDialogLog.getInstance();
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("云弹窗 ");
-                if (l65Var != null) {
-                    str = l65Var.b();
-                }
-                sb2.append(str);
-                sb2.append(" 不可显示：当前热启动开屏展示中");
-                yunDialogLog2.c("YunDialogManager", sb2.toString());
-                return false;
-            } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                h29 yunDialogLog3 = YunDialogLog.getInstance();
-                StringBuilder sb3 = new StringBuilder();
-                sb3.append("云弹窗 ");
-                if (l65Var != null) {
-                    str = l65Var.b();
-                }
-                sb3.append(str);
-                sb3.append(" 不可显示：当前网络异常");
-                yunDialogLog3.c("YunDialogManager", sb3.toString());
-                return false;
-            } else if (l65Var != null && l65Var.c() && h().f) {
-                h29 yunDialogLog4 = YunDialogLog.getInstance();
-                yunDialogLog4.c("YunDialogManager", "云弹窗 " + l65Var.b() + " 不可显示：从云弹窗返回");
-                return false;
-            } else if (TbadkCoreApplication.getInst().isInBackground()) {
-                YunDialogLog.getInstance().c("YunDialogManager", "isInBackground");
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void o(@NonNull l65 l65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, l65Var) == null) {
-            h29 yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.c("YunDialogManager", "云弹窗时机消失:" + l65Var.b());
-            if (l65Var.c()) {
-                h().e = "";
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final boolean g(List<DialogStrategiesData.StrategiesConfigData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : list) {
-                if ("UN_UNIQUE_STRATEGY".equals(strategiesConfigData.getType())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean j(@Nullable List<DialogStrategiesData.StrategiesConfigData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list == null || list.size() == 0) {
-                return false;
-            }
-            for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : list) {
-                if ("NEW_FREQUENCE_STRATEGY".equals(strategiesConfigData.getType())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void p(@NonNull Context context, @NonNull l65 l65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, l65Var) == null) {
-            if (!yi.F()) {
-                zg.a().postAtFrontOfQueue(new b(context, l65Var));
-                return;
-            }
-            h29 yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.c("YunDialogManager", "云弹窗时机触发:" + l65Var.b());
-            if (l65Var.c()) {
-                h().e = l65Var.b();
-            }
-            if (!e(l65Var)) {
-                return;
-            }
-            YunDialogDataManager.j().g(l65Var.b(), new c(context, l65Var));
-        }
-    }
-
-    public static void q(@NonNull Context context, @NonNull String str, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65551, null, context, str, jSONObject) == null) {
-            if (!yi.F()) {
-                zg.a().postAtFrontOfQueue(new d(context, str, jSONObject));
-            } else if (!e(null)) {
-            } else {
-                YunDialogDataManager.j().f(str, new e(context, jSONObject));
-            }
-        }
-    }
-
-    public final void f(@NonNull Context context, @NonNull String str, @Nullable List<DialogStrategiesData.StrategiesConfigData> list, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, list, str2) == null) {
-            this.b.add(str);
-            this.c.add(str);
-            i75.a(context, str, str2);
-            h29 yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.c("YunDialogManager", "云弹窗 " + str + " 弹出显示，展示链接：" + str2);
-            x75.a.c(str);
-            if (j(list)) {
-                w75.a.g(str, s(list));
-            }
-            this.d.add(str);
-        }
-    }
-
-    public final String r(String str, @NonNull String str2, @NonNull JSONObject jSONObject) {
+    @Override // com.baidu.tieba.f65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, jSONObject)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                Uri.Builder appendQueryParameter = Uri.parse(str).buildUpon().appendQueryParameter("time", str2);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    appendQueryParameter.appendQueryParameter(next, jSONObject.optString(next));
-                }
-                return appendQueryParameter.build().toString();
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final int s(@Nullable List<DialogStrategiesData.StrategiesConfigData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (list == null) {
-                return 0;
-            }
-            for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : list) {
-                if ("NEW_FREQUENCE_STRATEGY".equals(strategiesConfigData.getType())) {
-                    try {
-                        return ((FrequenceDialogStrategy.Data) DataExt.toEntity(strategiesConfigData.W(), FrequenceDialogStrategy.Data.class)).frequenceClearVersion;
-                    } catch (Exception e2) {
-                        h29 yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.b("YunDialogManager", "新版频次版本读取失败 " + strategiesConfigData.W());
-                        e2.printStackTrace();
-                        if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                            return 0;
-                        }
-                        throw e2;
-                    }
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void t(@NonNull Context context, @NonNull String str, @NonNull DialogStrategiesData dialogStrategiesData, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, str, dialogStrategiesData, jSONObject) == null) {
-            h29 yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.c("YunDialogManager", "准备显示云弹窗：" + dialogStrategiesData.getDialogName() + " ，参数：" + jSONObject);
-            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
             HashMap hashMap = new HashMap();
-            hashMap.put("currentShowingDialogList", this.b);
-            hashMap.put("alreadyShownDialogs", this.d);
-            hashMap.put("currentPageName", this.e);
-            if (!TextUtils.isEmpty(dialogStrategiesData.getDialogName()) && this.b.contains(dialogStrategiesData.getDialogName())) {
-                h29 yunDialogLog2 = YunDialogLog.getInstance();
-                yunDialogLog2.c("YunDialogManager", "云弹窗 " + dialogStrategiesData.getDialogName() + " 正在显示中，过滤");
-                return;
-            }
-            if (!g(dialogStrategy)) {
-                if (dialogStrategy == null) {
-                    dialogStrategy = new ArrayList<>();
-                }
-                dialogStrategy.add(DialogStrategiesData.StrategiesConfigData.V());
-            }
-            if (dialogStrategy != null) {
-                for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : dialogStrategy) {
-                    k75 k75Var = this.a.get(strategiesConfigData.getType());
-                    if (k75Var != null && !k75Var.b(k75Var.a(dialogStrategiesData, strategiesConfigData.W(), hashMap))) {
-                        return;
-                    }
-                }
-            }
-            f(context, dialogStrategiesData.getDialogName(), dialogStrategy, r(dialogStrategiesData.getDialogUrl(), str, jSONObject));
+            hashMap.put("dialogName", "operateNew");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f65
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        lg5 homeOperateData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn() || (!SharedPrefHelper.getInstance().getBoolean(b, true)) || (homeOperateData = TbSingleton.getInstance().getHomeOperateData()) == null || !homeOperateData.c()) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(homeOperateData.a())) {
+                String a2 = homeOperateData.a();
+                Intrinsics.checkNotNullExpressionValue(a2, "operateData.homeOperateImg");
+                if (StringsKt__StringsKt.contains$default((CharSequence) a2, (CharSequence) "not_show", false, 2, (Object) null)) {
+                    SharedPrefHelper.getInstance().putBoolean(b, false);
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

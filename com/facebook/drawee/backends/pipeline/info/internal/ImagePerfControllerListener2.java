@@ -128,7 +128,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageI
     @Override // com.facebook.fresco.ui.common.BaseControllerListener2, com.facebook.fresco.ui.common.ControllerListener2
     public void onFinalImageSet(String str, @Nullable ImageInfo imageInfo, @Nullable ControllerListener2.Extras extras) {
         long now = this.mClock.now();
-        extras.f1203view.size();
+        extras.f1202view.size();
         this.mImagePerfState.setExtraData(extras);
         this.mImagePerfState.setControllerFinalImageSetTimeMs(now);
         this.mImagePerfState.setImageRequestEndTimeMs(now);

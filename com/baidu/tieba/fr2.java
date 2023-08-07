@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class fr2 extends pp2<gs2> {
+public class fr2 extends so2<jr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "exitRoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBitrate" : (String) invokeV.objValue;
     }
 
     public fr2() {
@@ -36,13 +36,17 @@ public class fr2 extends pp2<gs2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jr2 jr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
-            d(gs2Var, command.what, null, true);
-            gs2Var.exitRoom();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jr2Var) == null) {
+            String str = command.what;
+            d(jr2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Integer) {
+                jr2Var.X(((Integer) obj).intValue());
+            }
         }
     }
 }

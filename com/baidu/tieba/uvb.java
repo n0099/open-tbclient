@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaSample;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.UUID;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public class uvb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> a;
+    public LinkedList<MediaSample> a;
+    public Object b;
+    public int c;
+    public int d;
+    public AtomicBoolean e;
 
     public uvb() {
         Interceptable interceptable = $ic;
@@ -32,52 +34,107 @@ public class uvb {
                 return;
             }
         }
-        this.a = new TreeMap<>();
+        this.a = new LinkedList<>();
+        this.b = new Object();
+        this.c = 0;
+        this.d = 0;
+        this.e = new AtomicBoolean(false);
     }
 
-    public void a(String str) {
+    public boolean a(MediaSample mediaSample) {
+        InterceptResult invokeL;
+        boolean add;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    this.a.put(next, (String) jSONObject.get(next));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaSample)) == null) {
+            synchronized (this.b) {
+                add = this.a.add(mediaSample);
+                if (add && this.c < Integer.MAX_VALUE) {
+                    this.c++;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
+            if (this.c > 30) {
+                int i = this.d;
+                this.d = i + 1;
+                if (i % 150 == 0) {
+                    TLog.g(this, "DecodeOutputQueue elementCount=" + this.c + " audio = " + this.e.get());
+                }
+            }
+            return add;
         }
+        return invokeL.booleanValue;
     }
 
-    public uvb b(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean b() {
+        InterceptResult invokeV;
+        boolean isEmpty;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            String replace = UUID.randomUUID().toString().replace("-", "");
-            this.a.remove("urlPropUid");
-            this.a.put("urlPropUid", replace);
-            Log.i("UrlProperty", "setRoomIDAndUserID roomID=" + str + ",userID=" + str2 + ",randUid=" + replace);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.b) {
+                isEmpty = this.a.isEmpty();
+            }
+            return isEmpty;
         }
-        return (uvb) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String c() {
+    public MediaSample c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            synchronized (this.b) {
+                if (this.e.get()) {
+                    MediaSample poll = this.a.poll();
+                    if (poll != null && this.c > 0) {
+                        this.c--;
+                    }
+                    return poll;
                 }
+                int i = 0;
+                MediaSample mediaSample = null;
+                Iterator<MediaSample> it = this.a.iterator();
+                while (it.hasNext()) {
+                    int i2 = i + 1;
+                    if (i >= 3) {
+                        break;
+                    }
+                    MediaSample next = it.next();
+                    if (mediaSample != null) {
+                        if (mediaSample.l < next.l) {
+                            break;
+                        }
+                        if (mediaSample.k < next.k && mediaSample.l > next.l && Math.abs(mediaSample.l - next.l) < 500) {
+                        }
+                        i = i2;
+                    }
+                    mediaSample = next;
+                    i = i2;
+                }
+                if (mediaSample != null) {
+                    this.a.remove(mediaSample);
+                    if (this.c > 0) {
+                        this.c--;
+                    }
+                }
+                return mediaSample;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
+        return (MediaSample) invokeV.objValue;
+    }
+
+    public void d(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, mediaSample) != null) || mediaSample == null) {
+            return;
+        }
+        synchronized (this.b) {
+            this.a.remove(mediaSample);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.e.set(z);
+        }
     }
 }

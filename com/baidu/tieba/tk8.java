@@ -1,8 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 /* loaded from: classes8.dex */
 public interface tk8 {
-    void a(@NonNull ChatRoomInfo chatRoomInfo);
+    void a(String str);
+
+    void isFailed();
 }

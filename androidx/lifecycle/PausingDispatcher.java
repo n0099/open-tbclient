@@ -15,7 +15,7 @@ public final class PausingDispatcher extends CoroutineDispatcher {
     @Override // kotlinx.coroutines.CoroutineDispatcher
     @ExperimentalCoroutinesApi
     /* renamed from: dispatch */
-    public void mo2341dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public void mo2342dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         this.dispatchQueue.runOrEnqueue(runnable);
     }
 }

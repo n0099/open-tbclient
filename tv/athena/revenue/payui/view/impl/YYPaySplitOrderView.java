@@ -13,17 +13,17 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a7c;
-import com.baidu.tieba.dac;
-import com.baidu.tieba.e8c;
-import com.baidu.tieba.gac;
-import com.baidu.tieba.jac;
-import com.baidu.tieba.jbc;
-import com.baidu.tieba.rac;
-import com.baidu.tieba.t9c;
-import com.baidu.tieba.w9c;
-import com.baidu.tieba.yac;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.bac;
+import com.baidu.tieba.cac;
+import com.baidu.tieba.d6c;
+import com.baidu.tieba.g9c;
+import com.baidu.tieba.h7c;
+import com.baidu.tieba.j9c;
+import com.baidu.tieba.m9c;
+import com.baidu.tieba.mac;
+import com.baidu.tieba.u9c;
+import com.baidu.tieba.w8c;
+import com.baidu.tieba.z8c;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -39,17 +39,17 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter;
 /* loaded from: classes2.dex */
-public class YYPaySplitOrderView extends LinearLayout implements jbc {
+public class YYPaySplitOrderView extends LinearLayout implements mac {
     public Activity a;
     public int b;
     public int c;
     public PayUIKitConfig d;
-    public jbc.b e;
-    public jbc.a f;
+    public mac.b e;
+    public mac.a f;
     public View g;
     public ImageView h;
-    public e8c i;
-    public t9c j;
+    public h7c i;
+    public w8c j;
     public RecyclerView k;
     public TextView l;
     public TextView m;
@@ -58,12 +58,12 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
     public List<SplitRecordItem> p;
     public PayFlowType q;
 
-    @Override // com.baidu.tieba.ebc
+    @Override // com.baidu.tieba.hac
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.ebc
+    @Override // com.baidu.tieba.hac
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -77,7 +77,7 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
             long j;
             String str;
             RLog.info("YYPaySplitOrderView", "onLinkItemClick mPayAmount:" + YYPaySplitOrderView.this.j + " item:" + splitRecordItem);
-            rac.a(YYPaySplitOrderView.this.a, splitRecordItem.value);
+            u9c.a(YYPaySplitOrderView.this.a, splitRecordItem.value);
             if (YYPaySplitOrderView.this.j != null) {
                 j = (long) YYPaySplitOrderView.this.j.c();
             } else {
@@ -91,7 +91,7 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            dac.b(i, i2, str2, "", "", "" + j);
+            g9c.b(i, i2, str2, "", "", "" + j);
         }
 
         @Override // tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter.c
@@ -100,7 +100,7 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
             String str;
             RLog.info("YYPaySplitOrderView", "onPayAmoyntItemClick mPayAmount:" + YYPaySplitOrderView.this.j + " item:" + splitRecordItem);
             if (YYPaySplitOrderView.this.f != null) {
-                t9c a = gac.a((int) (yac.d(splitRecordItem.value) * 100.0d), YYPaySplitOrderView.this.d);
+                w8c a = j9c.a((int) (bac.d(splitRecordItem.value) * 100.0d), YYPaySplitOrderView.this.d);
                 a.e(splitRecordItem.id);
                 YYPaySplitOrderView.this.f.a(a);
             }
@@ -117,7 +117,7 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            dac.b(i, i2, str2, "", "", "" + j);
+            g9c.b(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -146,7 +146,7 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            dac.b(i, i2, str2, "", "", "" + j);
+            g9c.b(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -183,9 +183,9 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
         }
     }
 
-    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, jbc.b bVar, e8c e8cVar) {
+    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, mac.b bVar, h7c h7cVar) {
         super(activity);
-        t9c t9cVar;
+        w8c w8cVar;
         long j;
         String str;
         this.p = new ArrayList();
@@ -194,19 +194,19 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
         this.e = bVar;
         this.b = i;
         this.c = i2;
-        this.i = e8cVar;
+        this.i = h7cVar;
         if (bVar != null) {
-            t9cVar = bVar.a;
+            w8cVar = bVar.a;
         } else {
-            t9cVar = null;
+            w8cVar = null;
         }
-        this.j = t9cVar;
-        jbc.b bVar2 = this.e;
+        this.j = w8cVar;
+        mac.b bVar2 = this.e;
         this.q = bVar2 != null ? bVar2.c : null;
         o(activity);
-        t9c t9cVar2 = this.j;
-        if (t9cVar2 != null) {
-            j = (long) t9cVar2.c();
+        w8c w8cVar2 = this.j;
+        if (w8cVar2 != null) {
+            j = (long) w8cVar2.c();
         } else {
             j = -1;
         }
@@ -217,10 +217,10 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
         }
         String str2 = str;
         RLog.debug("YYPaySplitOrderView", "mPayFlowType:" + this.q + " event:" + str2);
-        dac.b(this.b, this.c, str2, "", "", "" + j);
+        g9c.b(this.b, this.c, str2, "", "", "" + j);
     }
 
-    @Override // com.baidu.tieba.ebc
+    @Override // com.baidu.tieba.hac
     public void attachWindow(Window window) {
         w(window);
     }
@@ -228,9 +228,9 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
     public final void r(SplitOrderConfigResult splitOrderConfigResult) {
         List<SplitRecordItem> list;
         if (splitOrderConfigResult != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty()) {
-            e8c e8cVar = this.i;
-            if (e8cVar != null) {
-                e8cVar.c(new w9c(splitOrderConfigResult, this.e));
+            h7c h7cVar = this.i;
+            if (h7cVar != null) {
+                h7cVar.c(new z8c(splitOrderConfigResult, this.e));
             }
             v(splitOrderConfigResult);
             return;
@@ -238,8 +238,8 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
         q(-1, "splitRecordItemList null");
     }
 
-    @Override // com.baidu.tieba.jbc
-    public void setCallback(jbc.a aVar) {
+    @Override // com.baidu.tieba.mac
+    public void setCallback(mac.a aVar) {
         this.f = aVar;
     }
 
@@ -258,19 +258,19 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
     }
 
     public final void q(int i, String str) {
-        jbc.a aVar = this.f;
+        mac.a aVar = this.f;
         if (aVar != null) {
             aVar.onRefreshViewFail(i, str);
         }
     }
 
-    @Override // com.baidu.tieba.jbc
+    @Override // com.baidu.tieba.mac
     public void a() {
         long j;
         String str;
-        t9c t9cVar = this.j;
-        if (t9cVar != null) {
-            j = (long) t9cVar.c();
+        w8c w8cVar = this.j;
+        if (w8cVar != null) {
+            j = (long) w8cVar.c();
         } else {
             j = -1;
         }
@@ -281,30 +281,30 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
         }
         int i = this.b;
         int i2 = this.c;
-        dac.b(i, i2, str, "", "", "" + j);
+        g9c.b(i, i2, str, "", "", "" + j);
         RLog.info("YYPaySplitOrderView", "onBtnCloseClick mPayFlowType:" + this.q + " event:" + str);
     }
 
     public final void s() {
         RLog.info("YYPaySplitOrderView", "querySplitOrderConfig mPayAmount:" + this.j);
-        a7c yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+        d6c yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
         if (yYPayMiddleService == null) {
             RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error yyPayMiddleService null", new Object[0]);
             return;
         }
-        t9c t9cVar = this.j;
-        if (t9cVar == null) {
+        w8c w8cVar = this.j;
+        if (w8cVar == null) {
             RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error mPayAmount null", new Object[0]);
         } else {
-            yYPayMiddleService.e(1, "", (long) t9cVar.c(), new c());
+            yYPayMiddleService.e(1, "", (long) w8cVar.c(), new c());
         }
     }
 
     public final void n() {
-        jac.a(this.g, this.h);
+        m9c.a(this.g, this.h);
     }
 
-    @Override // com.baidu.tieba.ebc
+    @Override // com.baidu.tieba.hac
     public void refreshView() {
         RLog.info("YYPaySplitOrderView", "refreshView");
         u();
@@ -312,18 +312,18 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
     }
 
     public final void u() {
-        jac.b(this.g, this.h);
+        m9c.b(this.g, this.h);
     }
 
     public final void o(Activity activity) {
-        LayoutInflater.from(new ContextThemeWrapper(activity, zac.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, cac.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
         this.g = findViewById(R.id.root_loading);
         this.h = (ImageView) findViewById(R.id.iv_loading_circle);
         this.k = (RecyclerView) findViewById(R.id.grid_recharge_split_order);
         PaySplitOrderAdapter paySplitOrderAdapter = new PaySplitOrderAdapter(this.a, this.p, this.d);
         this.o = paySplitOrderAdapter;
         paySplitOrderAdapter.m(new a());
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09269b);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926b4);
         this.l = textView;
         textView.getPaint().setFlags(8);
         this.l.setOnClickListener(new b());
@@ -357,13 +357,13 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
     public final void p() {
         long j;
         String str;
-        jbc.a aVar = this.f;
+        mac.a aVar = this.f;
         if (aVar != null) {
             aVar.b();
         }
-        t9c t9cVar = this.j;
-        if (t9cVar != null) {
-            j = (long) t9cVar.c();
+        w8c w8cVar = this.j;
+        if (w8cVar != null) {
+            j = (long) w8cVar.c();
         } else {
             j = -1;
         }
@@ -375,16 +375,16 @@ public class YYPaySplitOrderView extends LinearLayout implements jbc {
         String str2 = str;
         int i = this.b;
         int i2 = this.c;
-        dac.b(i, i2, str2, "", "", "" + j);
+        g9c.b(i, i2, str2, "", "", "" + j);
     }
 
     public final void t() {
-        t9c t9cVar;
+        w8c w8cVar;
         boolean z;
         String format;
-        jbc.b bVar = this.e;
-        if (bVar != null && (t9cVar = bVar.a) != null) {
-            double c2 = t9cVar.c();
+        mac.b bVar = this.e;
+        if (bVar != null && (w8cVar = bVar.a) != null) {
+            double c2 = w8cVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

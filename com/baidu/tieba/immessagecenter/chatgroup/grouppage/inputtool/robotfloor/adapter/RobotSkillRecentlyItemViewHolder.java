@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.dl8;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.in8;
+import com.baidu.tieba.tg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     public TextView i;
     public ImageView j;
     public RobotSkillRecentlyItem k;
-    public final in8 l;
+    public final dl8 l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -74,13 +74,13 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, in8 in8Var) {
+    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, dl8 dl8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, in8Var};
+            Object[] objArr = {view2, dl8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,16 +91,16 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.l = in8Var;
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09043a);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090431);
+        this.l = dl8Var;
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090442);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090437);
         this.f = headImageView;
         headImageView.setIsRound(true);
         this.f.setIsBigV(false);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092200);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090435);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ff);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f49);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043b);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092217);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f60);
         this.e.setOnClickListener(new a(this));
     }
 
@@ -121,17 +121,17 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@NonNull bj8 bj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull tg8 tg8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bj8Var, tbPageContext, i) == null) && (bj8Var instanceof RobotSkillRecentlyItem)) {
-            this.k = (RobotSkillRecentlyItem) bj8Var;
-            this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0972) + this.k.getSkillName());
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tg8Var, tbPageContext, i) == null) && (tg8Var instanceof RobotSkillRecentlyItem)) {
+            this.k = (RobotSkillRecentlyItem) tg8Var;
+            this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0973) + this.k.getSkillName());
             this.i.setText(this.k.getSkillDesc());
             this.g.setText(this.k.getBotName());
             if (!TextUtils.isEmpty(this.k.getAvatar())) {
-                this.f.N(this.k.getAvatar(), 12, false);
+                this.f.startLoad(this.k.getAvatar(), 12, false);
             } else {
-                this.f.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f08118b), 24, false);
+                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f081191), 24, false);
             }
             if (this.i.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 if (this.k.isFuncJump()) {
@@ -162,15 +162,9 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d85 d = d85.d(this.h);
-            d.C(R.dimen.T_X06);
-            d.x(R.color.CAM_X0105);
-            d85 d2 = d85.d(this.g);
-            d2.C(R.dimen.T_X08);
-            d2.x(R.color.CAM_X0108);
-            d85 d3 = d85.d(this.i);
-            d3.C(R.dimen.T_X08);
-            d3.x(R.color.CAM_X0108);
+            EMManager.from(this.h).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.g).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0108);
+            EMManager.from(this.i).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0108);
             WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_mount_card_link_right_arrow, R.color.CAM_X0109, null);
         }
     }

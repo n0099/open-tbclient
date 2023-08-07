@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class yz9 {
+public abstract class yz9 implements y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public double b;
-    public double c;
+
+    public abstract String b();
+
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13696" : (String) invokeV.objValue;
+    }
 
     public yz9() {
         Interceptable interceptable = $ic;
@@ -29,30 +39,27 @@ public class yz9 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static yz9 b(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
             }
-            yz9 yz9Var = new yz9();
-            yz9Var.a = jSONObject.optString("bottom_picture", "");
-            jSONObject.optInt("cover_shadow_switch", 0);
-            yz9Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            yz9Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
-            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
-            return yz9Var;
+            hashMap.put("uid", currentAccount);
+            String str = a.get("is_video_work");
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put("obj_source", str);
+            hashMap.put(TiebaStatic.Params.IS_FOLLOW, b());
+            return hashMap;
         }
-        return (yz9) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 }

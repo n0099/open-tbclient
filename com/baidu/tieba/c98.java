@@ -1,70 +1,89 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.TopicList.MediaTopic;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class c98 {
+public class c98 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<ln> b;
-    public eo c;
-    public d98 d;
-    public b98 e;
-    public s98 f;
 
-    public c98(TbPageContext tbPageContext, eo eoVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629703, "Lcom/baidu/tieba/c98;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629703, "Lcom/baidu/tieba/c98;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    public c98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eoVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = tbPageContext;
-        this.c = eoVar;
-        a();
-        this.c.addAdapters(this.b);
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            this.d = new d98(this.a);
-            this.e = new b98(this.a);
-            this.f = new s98(this.a);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(MediaTopic mediaTopic) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mediaTopic) != null) || mediaTopic == null) {
+            return;
+        }
+        mediaTopic.topic_id.longValue();
+        String str = mediaTopic.topic_name;
+        String str2 = mediaTopic.pic_url;
+        VideoInfo videoInfo = mediaTopic.video_info;
+        if (videoInfo != null && videoInfo.video_duration.intValue() > 0) {
+            b(mediaTopic.video_info);
         }
     }
 
-    public void b() {
-        eo eoVar;
+    public void b(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (eoVar = this.c) != null) {
-            eoVar.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
+            String str = videoInfo.video_md5;
+            String str2 = videoInfo.video_url;
+            videoInfo.video_duration.intValue();
+            videoInfo.video_width.intValue();
+            videoInfo.video_height.intValue();
+            String str3 = videoInfo.thumbnail_url;
+            videoInfo.thumbnail_width.intValue();
+            videoInfo.thumbnail_height.intValue();
+            videoInfo.video_length.intValue();
+            videoInfo.play_count.intValue();
         }
     }
 }

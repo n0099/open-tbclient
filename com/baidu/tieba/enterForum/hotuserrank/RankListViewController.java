@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,17 +32,16 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.widget.level.TbLevelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dz5;
 import com.baidu.tieba.enterForum.hotuserrank.view.HotUserRankLikeButton;
 import com.baidu.tieba.enterForum.hotuserrank.view.UserHeadCoverView;
-import com.baidu.tieba.iz5;
-import com.baidu.tieba.j17;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.kz5;
-import com.baidu.tieba.l17;
-import com.baidu.tieba.m17;
+import com.baidu.tieba.qw5;
+import com.baidu.tieba.ry6;
+import com.baidu.tieba.ty6;
+import com.baidu.tieba.uy6;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.vw5;
+import com.baidu.tieba.xw5;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,8 +57,8 @@ public class RankListViewController {
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
-    public List<m17> b;
-    public j17 c;
+    public List<uy6> b;
+    public ry6 c;
     public PbListView d;
     public String e;
     public long f;
@@ -78,7 +78,7 @@ public class RankListViewController {
         public TbLevelView g;
         public TextView h;
         public HotUserRankLikeButton i;
-        public kc5 j;
+        public za5 j;
         public TbPageContext k;
         public int l;
         public String m;
@@ -90,15 +90,15 @@ public class RankListViewController {
         public class a implements DynamicUserLikeButton.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ m17 a;
+            public final /* synthetic */ uy6 a;
             public final /* synthetic */ RankListViewHolder b;
 
-            public a(RankListViewHolder rankListViewHolder, m17 m17Var) {
+            public a(RankListViewHolder rankListViewHolder, uy6 uy6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {rankListViewHolder, m17Var};
+                    Object[] objArr = {rankListViewHolder, uy6Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -109,7 +109,7 @@ public class RankListViewController {
                     }
                 }
                 this.b = rankListViewHolder;
-                this.a = m17Var;
+                this.a = uy6Var;
             }
 
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
@@ -149,16 +149,16 @@ public class RankListViewController {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
-            public final /* synthetic */ m17 b;
+            public final /* synthetic */ uy6 b;
             public final /* synthetic */ List c;
             public final /* synthetic */ RankListViewHolder d;
 
-            public b(RankListViewHolder rankListViewHolder, int i, m17 m17Var, List list) {
+            public b(RankListViewHolder rankListViewHolder, int i, uy6 uy6Var, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {rankListViewHolder, Integer.valueOf(i), m17Var, list};
+                    Object[] objArr = {rankListViewHolder, Integer.valueOf(i), uy6Var, list};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -170,7 +170,7 @@ public class RankListViewController {
                 }
                 this.d = rankListViewHolder;
                 this.a = i;
-                this.b = m17Var;
+                this.b = uy6Var;
                 this.c = list;
             }
 
@@ -178,9 +178,9 @@ public class RankListViewController {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    iz5 iz5Var = iz5.a;
-                    iz5.c(this.a, this.b.c, this.d.e, this.d.g, this.c, null);
-                    kz5.a(this.d.e, null, null, this.d.g, null, 4);
+                    vw5 vw5Var = vw5.a;
+                    vw5.c(this.a, this.b.c, this.d.e, this.d.g, this.c, null);
+                    xw5.a(this.d.e, null, null, this.d.g, null, 4);
                 }
             }
         }
@@ -208,19 +208,19 @@ public class RankListViewController {
             this.o = 0;
             this.a = view2;
             this.k = h(view2.getContext());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091df5);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e0b);
             this.b = textView;
             textView.getPaint().setFakeBoldText(true);
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee2);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ef4);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setPlaceHolder(1);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090ee1);
+            this.d = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090ef3);
             this.e = (TextView) view2.findViewById(R.id.user_name);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09280a);
-            this.g = (TbLevelView) view2.findViewById(R.id.obfuscated_res_0x7f090e5a);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092802);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092824);
+            this.g = (TbLevelView) view2.findViewById(R.id.obfuscated_res_0x7f090e6c);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09281c);
             this.i = (HotUserRankLikeButton) view2.findViewById(R.id.like_button);
         }
 
@@ -260,17 +260,17 @@ public class RankListViewController {
             }
         }
 
-        public void f(m17 m17Var) {
+        public void f(uy6 uy6Var) {
             int i;
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, m17Var) != null) || m17Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, uy6Var) != null) || uy6Var == null) {
                 return;
             }
-            if (!TextUtils.isEmpty(m17Var.a)) {
+            if (!TextUtils.isEmpty(uy6Var.a)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
                 int dimension = (int) this.k.getResources().getDimension(R.dimen.tbds44);
-                this.b.setText(m17Var.a);
+                this.b.setText(uy6Var.a);
                 if (this.o == 1) {
                     dimension = (int) this.k.getResources().getDimension(R.dimen.tbds26);
                     layoutParams.width = (int) this.k.getResources().getDimension(R.dimen.tbds129);
@@ -288,47 +288,47 @@ public class RankListViewController {
                 i = R.color.CAM_X0105;
             }
             SkinManager.setViewTextColor(this.b, i);
-            this.c.N(m17Var.b, 10, false);
-            this.d.setData(m17Var);
-            String str = m17Var.c;
-            if (dz5.e(str) > 12) {
-                str = dz5.m(str, 10) + "...";
+            this.c.startLoad(uy6Var.b, 10, false);
+            this.d.setData(uy6Var);
+            String str = uy6Var.c;
+            if (qw5.e(str) > 12) {
+                str = qw5.m(str, 10) + "...";
             }
             this.e.setText(str);
-            boolean z = m17Var.h;
+            boolean z = uy6Var.h;
             this.p = z;
             if (z) {
                 SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0301);
             } else {
                 SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
             }
-            if (TextUtils.isEmpty(m17Var.d)) {
+            if (TextUtils.isEmpty(uy6Var.d)) {
                 this.f.setVisibility(8);
             } else {
                 this.f.setVisibility(0);
-                this.f.setText(StringHelper.cutStringWithEllipsisStrict(m17Var.d, 26));
+                this.f.setText(StringHelper.cutStringWithEllipsisStrict(uy6Var.d, 26));
             }
-            if (m17Var.f.getLevel_id() == 0) {
+            if (uy6Var.f.getLevel_id() == 0) {
                 this.g.setVisibility(8);
             } else {
                 this.g.setVisibility(0);
-                g(m17Var);
+                g(uy6Var);
             }
-            if (TextUtils.isEmpty(m17Var.e)) {
+            if (TextUtils.isEmpty(uy6Var.e)) {
                 this.h.setVisibility(8);
             } else {
                 this.h.setVisibility(0);
-                this.h.setText(m17Var.e);
+                this.h.setText(uy6Var.e);
             }
             if (this.j == null && (tbPageContext = this.k) != null) {
-                kc5 kc5Var = new kc5(tbPageContext, this.i);
-                this.j = kc5Var;
-                kc5Var.j(this.k.getUniqueId());
+                za5 za5Var = new za5(tbPageContext, this.i);
+                this.j = za5Var;
+                za5Var.j(this.k.getUniqueId());
             }
-            this.j.l(m17Var.f);
-            this.i.setOnClickEvent(new a(this, m17Var));
-            MetaData metaData = m17Var.f;
-            if (metaData != null && metaData.getUserId() != null && m17Var.f.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+            this.j.l(uy6Var.f);
+            this.i.setOnClickEvent(new a(this, uy6Var));
+            MetaData metaData = uy6Var.f;
+            if (metaData != null && metaData.getUserId() != null && uy6Var.f.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.i.setVisibility(8);
             } else {
                 this.i.setVisibility(0);
@@ -336,18 +336,18 @@ public class RankListViewController {
             j(TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public final void g(m17 m17Var) {
+        public final void g(uy6 uy6Var) {
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m17Var) == null) && m17Var != null && (metaData = m17Var.f) != null) {
-                this.g.setLevel(metaData.getLevel_id(), m17Var.f.getLevelName());
-                int l = yi.l(this.k.getContext()) - RankListViewController.i;
-                if (l <= 0) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uy6Var) == null) && uy6Var != null && (metaData = uy6Var.f) != null) {
+                this.g.setLevel(metaData.getLevel_id(), uy6Var.f.getLevelName());
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.k.getContext()) - RankListViewController.i;
+                if (equipmentWidth <= 0) {
                     return;
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.g);
-                this.a.post(new b(this, l, m17Var, arrayList));
+                this.a.post(new b(this, equipmentWidth, uy6Var, arrayList));
             }
         }
 
@@ -402,20 +402,20 @@ public class RankListViewController {
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
-            m17 m17Var;
+            uy6 uy6Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && (m17Var = (m17) this.a.b.get(i)) != null && m17Var.f != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a.getContext(), m17Var.f.getUserId(), m17Var.f.getName_show())));
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uy6Var = (uy6) this.a.b.get(i)) != null && uy6Var.f != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a.getContext(), uy6Var.f.getUserId(), uy6Var.f.getName_show())));
                 if (!TextUtils.isEmpty(this.a.e)) {
                     StatisticItem statisticItem = new StatisticItem("c13660");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem.param("resource_id", this.a.e);
-                    statisticItem.param(TiebaStatic.Params.FRIEND_UID, m17Var.a);
+                    statisticItem.param(TiebaStatic.Params.FRIEND_UID, uy6Var.a);
                     TiebaStatic.log(statisticItem);
                     return;
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13668");
-                statisticItem2.param("uid", m17Var.f.getUserId());
+                statisticItem2.param("uid", uy6Var.f.getUserId());
                 statisticItem2.param("fid", this.a.f);
                 TiebaStatic.log(statisticItem2);
             }
@@ -462,7 +462,7 @@ public class RankListViewController {
         public void onBindViewHolder(RankListViewHolder rankListViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rankListViewHolder, i) == null) {
-                rankListViewHolder.f((m17) this.a.b.get(i));
+                rankListViewHolder.f((uy6) this.a.b.get(i));
             }
         }
 
@@ -473,7 +473,7 @@ public class RankListViewController {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                RankListViewHolder rankListViewHolder = new RankListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0419, (ViewGroup) null));
+                RankListViewHolder rankListViewHolder = new RankListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d041c, (ViewGroup) null));
                 rankListViewHolder.m(0);
                 rankListViewHolder.k(this.a.e);
                 rankListViewHolder.l(this.a.f);
@@ -523,8 +523,8 @@ public class RankListViewController {
         this.a = bdRecyclerView;
         bdRecyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
         this.a.setAdapter(this.h);
-        View inflate = LayoutInflater.from(view2.getContext()).inflate(R.layout.obfuscated_res_0x7f0d041a, (ViewGroup) null);
-        this.c = new j17(inflate, this.e, this.f);
+        View inflate = LayoutInflater.from(view2.getContext()).inflate(R.layout.obfuscated_res_0x7f0d041d, (ViewGroup) null);
+        this.c = new ry6(inflate, this.e, this.f);
         inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         this.a.addHeaderView(inflate);
         PbListView pbListView = new PbListView(view2.getContext());
@@ -559,7 +559,7 @@ public class RankListViewController {
         }
     }
 
-    public void i(List<m17> list) {
+    public void i(List<uy6> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list != null) {
             this.b.clear();
@@ -568,10 +568,10 @@ public class RankListViewController {
         }
     }
 
-    public void g(l17 l17Var, boolean z) {
+    public void g(ty6 ty6Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l17Var, z) == null) {
-            this.c.k(l17Var, z);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ty6Var, z) == null) {
+            this.c.k(ty6Var, z);
         }
     }
 
@@ -589,15 +589,15 @@ public class RankListViewController {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d.T(yi.g(this.a.getContext(), R.dimen.tbds96));
+            this.d.T(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds96));
             if (!TextUtils.isEmpty(str)) {
-                string = String.format(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0a26), str);
+                string = String.format(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0a27), str);
             } else {
-                string = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f079a);
+                string = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f079b);
             }
-            this.d.I(string, yi.g(this.a.getContext(), R.dimen.tbds156));
+            this.d.I(string, BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds156));
             this.d.g();
-            this.d.P(yi.g(this.a.getContext(), R.dimen.tbds44));
+            this.d.P(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds44));
         }
     }
 }

@@ -1,34 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.SmartApp;
 /* loaded from: classes7.dex */
-public class po9 {
+public class po9 implements do9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qo9 a;
-    public TbPageContext b;
-    public List<yn> c;
-    public PersonMoreData d;
+    public int a;
+    public Long b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public Integer h;
 
-    public po9(TbPageContext tbPageContext, Bundle bundle, up6<qp9> up6Var) {
+    public po9(SmartApp smartApp) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, up6Var};
+            Object[] objArr = {smartApp};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,56 +35,94 @@ public class po9 {
                 return;
             }
         }
-        this.b = tbPageContext;
-        qo9 qo9Var = new qo9(tbPageContext);
-        this.a = qo9Var;
-        qo9Var.f(up6Var);
-        a(bundle);
+        this.a = 0;
+        if (smartApp == null) {
+            return;
+        }
+        this.b = smartApp.naws_app_id;
+        this.c = smartApp.id;
+        this.d = smartApp.avatar;
+        this.e = smartApp.name;
+        String str = smartApp._abstract;
+        String str2 = smartApp.pic;
+        this.f = smartApp.h5_url;
+        this.g = smartApp.link;
+        if (smartApp.is_recom.intValue() == 1) {
+            this.a = 1;
+        }
+        this.h = smartApp.is_game;
     }
 
-    public final void a(Bundle bundle) {
+    public Long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
-            this.d = new PersonMoreData();
-            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (Long) invokeV.objValue;
     }
 
-    public final void b() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                        qp9 qp9Var = new qp9();
-                        qp9Var.e = personMoreItemData.mName;
-                        qp9Var.a = 36;
-                        qp9Var.f = personMoreItemData.mUrl;
-                        qp9Var.j = personMoreItemData.mId;
-                        this.c.add(qp9Var);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d07bc);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c02));
-            b();
-            this.a.e(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d() {
-        qo9 qo9Var;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (qo9Var = this.a) != null) {
-            qo9Var.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public Integer e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.do9
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

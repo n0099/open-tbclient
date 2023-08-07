@@ -1,205 +1,146 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
+import android.os.Build;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class x61 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948252214, "Lcom/baidu/tieba/x61;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948252214, "Lcom/baidu/tieba/x61;");
-        }
-    }
-
-    public static void e(String str, Exception exc) {
+    public static void a(@NonNull Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) {
-        }
-    }
-
-    public x61() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = a;
-            if (str == null) {
-                synchronized (x61.class) {
-                    str = a;
-                    if (str == null) {
-                        Context b = rk0.b();
-                        String c = c();
-                        if (c == null && (c = b(b)) == null) {
-                            c = b.getPackageName();
-                        }
-                        a = c;
-                        str = c;
-                    }
+        if ((interceptable == null || interceptable.invokeLI(65536, null, activity, i) == null) && i != -1 && Build.VERSION.SDK_INT == 26 && activity.getApplicationInfo().targetSdkVersion > 26 && c(activity) && !b(activity)) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                if (declaredField2.getInt(obj) == -1) {
+                    declaredField2.setInt(obj, i);
                 }
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
             }
-            return str;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String b(Context context) {
+    @SuppressLint({"SoonBlockedPrivateApi"})
+    public static boolean b(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isFixedOrientation", new Class[0]);
+                declaredMethod.setAccessible(true);
+                return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
+            } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
+                return false;
             }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return null;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    public static String c() {
-        InterceptResult invokeV;
-        ?? r2;
-        BufferedReader bufferedReader;
+    @SuppressLint({"PrivateApi"})
+    public static boolean c(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            BufferedReader bufferedReader2 = 0;
-            BufferedReader bufferedReader3 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
             try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
-                } catch (Throwable th) {
-                    th = th;
+                Class<?> cls = Class.forName("com.android.internal.R$styleable");
+                Field declaredField = cls.getDeclaredField("Window");
+                declaredField.setAccessible(true);
+                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
+                Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
+                declaredField2.setAccessible(true);
+                Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
+                declaredField3.setAccessible(true);
+                Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
+                declaredField4.setAccessible(true);
+                Object obj = declaredField2.get(null);
+                Object obj2 = declaredField3.get(null);
+                if (obj instanceof Integer) {
+                    z2 = obtainStyledAttributes.getBoolean(((Integer) obj).intValue(), false);
+                    if ((obj2 instanceof Integer) && !obtainStyledAttributes.hasValue(((Integer) obj).intValue()) && obtainStyledAttributes.getBoolean(((Integer) obj2).intValue(), false)) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                } else {
+                    z = false;
+                    z2 = false;
                 }
-            } catch (Exception e) {
-                e = e;
-                r2 = null;
+                Object obj3 = declaredField4.get(null);
+                if (obj3 instanceof Integer) {
+                    z3 = obtainStyledAttributes.getBoolean(((Integer) obj3).intValue(), false);
+                } else {
+                    z3 = false;
+                }
+                obtainStyledAttributes.recycle();
+                if (!z3 && !z2 && !z) {
+                    return false;
+                }
+                return true;
+            } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            int i = -1;
+            if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
+                return -1;
             }
             try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    readLine = readLine.trim();
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                int i2 = declaredField2.getInt(obj);
+                if (i2 != -1) {
+                    try {
+                        declaredField2.setInt(obj, -1);
+                    } catch (IllegalAccessException e) {
+                        e = e;
+                        i = i2;
+                        e.printStackTrace();
+                        return i;
+                    } catch (NoSuchFieldException e2) {
+                        e = e2;
+                        i = i2;
+                        e.printStackTrace();
+                        return i;
+                    }
                 }
-                try {
-                    bufferedReader.close();
-                    return readLine;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return readLine;
-                }
-            } catch (Exception e3) {
+                return i2;
+            } catch (IllegalAccessException e3) {
                 e = e3;
-                r2 = null;
-                bufferedReader3 = bufferedReader;
-                e("AppProcessManager", e);
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                bufferedReader2 = r2;
-                return bufferedReader2;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != 0) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
+            } catch (NoSuchFieldException e4) {
+                e = e4;
             }
+        } else {
+            return invokeL.intValue;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[Catch: Exception -> 0x003a, TryCatch #0 {Exception -> 0x003a, blocks: (B:5:0x0005, B:6:0x0015, B:8:0x001b, B:10:0x002d, B:12:0x0031), top: B:25:0x0005 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean d(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    String str2 = runningAppProcessInfo.processName;
-                    int myPid = Process.myPid();
-                    if (str2.equals(str) || runningAppProcessInfo.pid == myPid) {
-                        if (runningAppProcessInfo.importance != 100) {
-                            return false;
-                        }
-                        return true;
-                    }
-                    while (r4.hasNext()) {
-                    }
-                }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

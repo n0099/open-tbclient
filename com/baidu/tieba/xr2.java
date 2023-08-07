@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class xr2 extends pp2<gs2> {
+public class xr2 extends so2<ur2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "subscribeRemoteStream" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollBack" : (String) invokeV.objValue;
     }
 
     public xr2() {
@@ -36,20 +36,13 @@ public class xr2 extends pp2<gs2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
+    @Override // com.baidu.tieba.so2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ur2 ur2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
-            String str = command.what;
-            d(gs2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Long) {
-                long longValue = ((Long) obj).longValue();
-                if (es2.a(longValue)) {
-                    gs2Var.k0(longValue);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ur2Var) == null) {
+            d(ur2Var, command.what, null, false);
+            ur2Var.x0();
         }
     }
 }

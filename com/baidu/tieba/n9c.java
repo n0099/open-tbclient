@@ -1,93 +1,52 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
 import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.activity.PayCommonWebActivity;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes7.dex */
 public class n9c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, int i2, PayFlowType payFlowType) {
+    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
             boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                if (TextUtils.isEmpty(str)) {
+                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
+                    return;
+                }
+                if (str2 != null && !str2.isEmpty()) {
+                    str3 = str2;
+                } else {
+                    str3 = "";
+                }
+                Intent intent = new Intent(activity, PayCommonWebActivity.class);
+                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
+                intent.putExtra(H5PayConstant.EXTRA_URL, str);
+                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
+                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
+                if (str.equals(y8c.f(payUIKitConfig))) {
+                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
+                    z = true;
+                }
+                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = dac.a(str);
+                }
+                PayCommonWebActivity.B(activity, payFlowType, intent, i, i2, str2);
                 return;
             }
-            l8c viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.d(str, payFlowType);
-            }
-        }
-    }
-
-    public static void b(String str, int i, int i2, PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
-                return;
-            }
-            l8c viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.c(str, payFlowType);
-            }
-        }
-    }
-
-    public static void c(int i, int i2, PayFlowType payFlowType, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, payDialogType}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
-                return;
-            }
-            l8c viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.b(payFlowType, payDialogType);
-            }
-        }
-    }
-
-    public static void d(int i, int i2, PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65539, null, i, i2, payFlowType) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            boolean z = false;
-            if (uIKit == null) {
-                RLog.error("ViewLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
-                return;
-            }
-            l8c viewLifecycle = uIKit.getViewLifecycle();
-            if (viewLifecycle != null) {
-                z = true;
-            }
-            RLog.info("ViewLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
-            if (z) {
-                viewLifecycle.a(payFlowType);
-            }
+            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
         }
     }
 }

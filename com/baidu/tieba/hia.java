@@ -1,215 +1,213 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.i95;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class hia extends i65 {
+public class hia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity f;
-    public final pfa g;
-    public LevePopData h;
+    public BubbleListActivity a;
+    public View b;
+    public NavigationBar c;
+    public MemberRecommendView d;
+    public BdListView e;
+    public j95 f;
+    public gia g;
+    public int h;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hia a;
-
-        public a(hia hiaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hiaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hiaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LevePopData a;
-        public final /* synthetic */ hia b;
-
-        public b(hia hiaVar, LevePopData levePopData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hiaVar, levePopData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = hiaVar;
-            this.a = levePopData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                nx4.v(view2.getContext(), null, this.a.getBtn_scheme(), true);
-                this.b.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hia(@NonNull MainTabActivity mainTabActivity, @NonNull pfa pfaVar) {
-        super(mainTabActivity);
+    public hia(BubbleListActivity bubbleListActivity, cia ciaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pfaVar};
+            Object[] objArr = {bubbleListActivity, ciaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = mainTabActivity;
-        this.g = pfaVar;
+        this.f = null;
+        this.h = 0;
+        this.a = bubbleListActivity;
+        this.h = BdUtilHelper.getDimens(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070364);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d018a, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c.setTitleText(R.string.obfuscated_res_0x7f0f03a7);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f09294b);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(7);
+        this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091548);
+        j95 j95Var = new j95(this.a.getPageContext());
+        this.f = j95Var;
+        this.e.setPullRefresh(j95Var);
+        TextView textView = new TextView(this.a.getActivity());
+        textView.setHeight(BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0701d5));
+        this.e.addFooterView(textView);
+        gia giaVar = new gia(this.a.getPageContext(), ciaVar);
+        this.g = giaVar;
+        this.e.setAdapter((ListAdapter) giaVar);
     }
 
-    @Override // com.baidu.tieba.f65
-    public void d(f65.a aVar) {
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (m65.k() && aVar != null) {
-                aVar.callback(false);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 1 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 2; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
+                    }
+                }
+                arrayList.add(arrayList2);
             }
-            pfa pfaVar = this.g;
-            if ((pfaVar == null || pfaVar.y() == null || (this.g.y().getCurrentTabType() != 2 && this.g.y().getCurrentTabType() != 1 && this.g.y().getCurrentTabType() != 3)) && aVar != null) {
-                aVar.callback(false);
-                return;
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final boolean f(qia qiaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qiaVar)) == null) {
+            if (qiaVar != null && !StringUtils.isNull(qiaVar.c())) {
+                this.d.setVisibility(0);
+                this.d.e(qiaVar);
+                return true;
             }
-            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            this.h = levePopData;
-            if (!levePopData.isHadShow() && !StringUtils.isNull(this.h.getTitle()) && !StringUtils.isNull(this.h.getDesc()) && !StringUtils.isNull(this.h.getBtn_scheme()) && this.h.getLevel() > 0 && this.h.getLevel() <= 10 && this.f.L1() && this.f.B && this.h.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
-                aVar.callback(true);
-            } else if (aVar != null) {
-                aVar.callback(false);
-            }
+            this.d.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.d.setVisibility(0);
+            this.e.setVisibility(0);
+            this.b.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.i65
-    public void h(TBAlertBuilder tBAlertBuilder) {
-        String cancel_btn_text;
-        String btn_text;
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
-            if (this.h == null) {
-                this.h = TbSingleton.getInstance().getLevePopData();
-            }
-            LevePopData levePopData = this.h;
-            if (levePopData != null && levePopData.isHadShow()) {
-                c();
-                return;
-            }
-            RelativeLayout relativeLayout = new RelativeLayout(this.f);
-            View view2 = new View(this.f);
-            d85 d = d85.d(view2);
-            d.n(1);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
-            relativeLayout.addView(view2, layoutParams);
-            ImageView imageView = new ImageView(this.f);
-            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(14);
-            relativeLayout.addView(imageView, layoutParams2);
-            LevePopData levePopData2 = this.h;
-            tBAlertBuilder.x(levePopData2.getTitle());
-            tBAlertBuilder.q(this.h.getDesc());
-            tBAlertBuilder.o(true);
-            tBAlertBuilder.l(relativeLayout);
-            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[2];
-            if (StringUtils.isNull(this.h.getCancel_btn_text())) {
-                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
-            } else {
-                cancel_btn_text = this.h.getCancel_btn_text();
-            }
-            aVarArr[0] = new TBAlertConfig.a(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new a(this));
-            if (StringUtils.isNull(this.h.getBtn_text())) {
-                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
-            } else {
-                btn_text = this.h.getBtn_text();
-            }
-            aVarArr[1] = new TBAlertConfig.a(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, levePopData2));
-            tBAlertBuilder.u(aVarArr);
-            tBAlertBuilder.j(false);
-            tBAlertBuilder.i();
-            tBAlertBuilder.z();
-            PollingModel.P0(this.h, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i65
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m65.u("userGrowth");
-        }
-    }
-
-    @Override // com.baidu.tieba.i65
     public void j() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.z(0L);
+        }
+    }
+
+    public void d() {
+        gia giaVar;
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m65.n("userGrowth");
+            js5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.e;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (giaVar = this.g) != null) {
+                giaVar.notifyDataSetChanged();
+            }
+            j95 j95Var = this.f;
+            if (j95Var != null) {
+                j95Var.C(TbadkApplication.getInst().getSkinType());
+            }
+            this.d.d();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.b.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.h);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.e.setVisibility(0);
+                this.g.b(list);
+                this.g.notifyDataSetChanged();
+                return;
+            }
+            this.e.setVisibility(8);
+        }
+    }
+
+    public void g(BdListView.p pVar, i95.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.e.setOnSrollToBottomListener(pVar);
+            this.f.a(gVar);
+        }
+    }
+
+    public void i(qia qiaVar, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, qiaVar, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                f(qiaVar);
+                e(a(list));
+                return;
+            }
+            h();
         }
     }
 }

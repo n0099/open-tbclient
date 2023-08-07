@@ -1,62 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes5.dex */
-public final class bp3 {
+public class bp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<Runnable> a;
+    public Runnable b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947652612, "Lcom/baidu/tieba/bp3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public bp3() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947652612, "Lcom/baidu/tieba/bp3;");
-        }
-    }
-
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = PreferenceManager.getDefaultSharedPreferences(a());
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a;
         }
-        return (SharedPreferences) invokeV.objValue;
+        this.a = new ArrayDeque();
+        this.b = null;
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public synchronized boolean a(Runnable runnable) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            return c().getBoolean(str, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            synchronized (this) {
+                z = true;
+                if (runnable == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!z2) {
+                    this.a.offer(runnable);
+                }
+                if (this.b == null && !this.a.isEmpty()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        this.b = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.b = null;
+                    }
+                }
+                z = (z2 || !z3) ? false : false;
+            }
+            return z;
         }
-        return invokeLZ.booleanValue;
+        return invokeL.booleanValue;
     }
 }

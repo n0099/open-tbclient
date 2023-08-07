@@ -1,161 +1,247 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.player.helper.NetUtils;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.tieba.dp0;
-import com.baidu.tieba.gv0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Pair;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "VideoClarity")
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class b31 {
+public class b31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Pair<Integer, Integer> a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    public static void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
-            if (i <= 0) {
-                return new Pair<>(0, Integer.valueOf(i2));
-            }
-            if (i >= i3) {
-                return new Pair<>(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
-            }
-            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
         }
-        return (Pair) invokeIII.objValue;
     }
 
-    public static final Pair<Integer, Integer> b(int i, Pair<Integer, Integer> pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
-        InterceptResult invokeCommon;
+    public static void i(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
-            if (i < 0) {
-                return c(pair, i2, i3, d);
-            }
-            return e(clarityUrlList.size(), i, i4, i2);
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
         }
-        return (Pair) invokeCommon.objValue;
     }
 
-    public static final Pair<Integer, Integer> c(Pair<Integer, Integer> defaultClarity, int i, int i2, double d) {
-        InterceptResult invokeCommon;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
-            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
-            if (!NetUtils.c()) {
-                return a(defaultClarity.getFirst().intValue(), 2, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return d(i2, i, d, defaultClarity.getSecond().intValue());
+            return j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}");
         }
-        return (Pair) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static final Pair<Integer, Integer> d(int i, int i2, double d, int i3) {
-        InterceptResult invokeCommon;
+    public static Map<String, String> b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
-            if (!hv0.g()) {
-                return a(i3, 4, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            dp0 a = dp0.a.a();
-            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
-            float staticDeviceScore = a.getStaticDeviceScore();
-            boolean z = false;
-            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
-                z = true;
-            }
-            if (z) {
-                return a(i, 3, i2);
-            }
-            if (d > 5.6f) {
-                return a(i, 6, i2);
-            }
-            return a(i3, 4, i2);
-        }
-        return (Pair) invokeCommon.objValue;
-    }
-
-    public static final c11 g(ClarityUrlList list, int i, double d, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            Pair<Integer, Integer> a = hv0.a(list);
-            int size = list.size();
-            Pair<Integer, Integer> h = h(z, list, b(i, a, size, size - 1, d, list, 0));
-            c11 c11Var = new c11();
-            c11Var.a = h.getFirst().intValue();
-            c11Var.b = h.getSecond().intValue();
-            return c11Var;
-        }
-        return (c11) invokeCommon.objValue;
-    }
-
-    public static final Pair<Integer, Integer> e(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
-            if (i <= i2) {
-                return a(i3, 4, i4);
-            }
-            return a((i4 - i2) - 1, 1, i4);
-        }
-        return (Pair) invokeIIII.objValue;
-    }
-
-    public static final int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != -2) {
-                return i;
-            }
-            if (Intrinsics.areEqual(hv0.c(), gv0.a.a)) {
-                return c31.f();
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public static final Pair<Integer, Integer> h(boolean z, ClarityUrlList list, Pair<Integer, Integer> selectedClarity) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
-            if (!z) {
-                ClarityUrlList.c cVar = list.get(selectedClarity.getFirst().intValue());
-                Intrinsics.checkNotNullExpressionValue(cVar, "list[result.first]");
-                String selectKey = cVar.c();
-                String d = hv0.d();
-                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
-                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
-                    int i = 0;
-                    for (ClarityUrlList.c entity : list) {
-                        String d2 = hv0.d();
-                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
-                        String c = entity.c();
-                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
-                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
-                            return new Pair<>(Integer.valueOf(i), 0);
-                        }
-                        i++;
-                    }
-                    return selectedClarity;
+            HashMap hashMap = new HashMap();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    hashMap.put(next, optString);
                 }
-                return selectedClarity;
             }
-            return selectedClarity;
+            return hashMap;
         }
-        return (Pair) invokeCommon.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Exception e) {
+                h(e.getMessage());
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                StringWriter stringWriter = new StringWriter(str.length());
+                k(stringWriter, str);
+                return stringWriter.toString();
+            } catch (IOException e) {
+                h(e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(JSONObject jSONObject, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, i);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static <T> void f(JSONObject jSONObject, String str, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, t);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void g(JSONObject jSONObject, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, z);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void e(JSONObject jSONObject, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, j);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void k(Writer writer, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
+            if (writer != null) {
+                if (str != null) {
+                    int length = str.length();
+                    StringBuilder sb = new StringBuilder(4);
+                    boolean z = false;
+                    boolean z2 = false;
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
+                        if (z2) {
+                            sb.append(charAt);
+                            if (sb.length() == 4) {
+                                try {
+                                    writer.write((char) Integer.parseInt(sb.toString(), 16));
+                                    sb.setLength(0);
+                                    z = false;
+                                    z2 = false;
+                                } catch (NumberFormatException e) {
+                                    h(e.getMessage());
+                                }
+                            }
+                        } else if (z) {
+                            if (charAt != '\"') {
+                                if (charAt != '\'') {
+                                    if (charAt != '\\') {
+                                        if (charAt != 'b') {
+                                            if (charAt != 'f') {
+                                                if (charAt != 'n') {
+                                                    if (charAt != 'r') {
+                                                        if (charAt != 't') {
+                                                            if (charAt != 'u') {
+                                                                writer.write(charAt);
+                                                            } else {
+                                                                z = false;
+                                                                z2 = true;
+                                                            }
+                                                        } else {
+                                                            writer.write(9);
+                                                        }
+                                                    } else {
+                                                        writer.write(13);
+                                                    }
+                                                } else {
+                                                    writer.write(10);
+                                                }
+                                            } else {
+                                                writer.write(12);
+                                            }
+                                        } else {
+                                            writer.write(8);
+                                        }
+                                    } else {
+                                        writer.write(92);
+                                    }
+                                } else {
+                                    writer.write(39);
+                                }
+                            } else {
+                                writer.write(34);
+                            }
+                            z = false;
+                        } else if (charAt == '\\') {
+                            z = true;
+                        } else {
+                            writer.write(charAt);
+                        }
+                    }
+                    if (z) {
+                        writer.write(92);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("The Writer must not be null");
+        }
     }
 }

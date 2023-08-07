@@ -21,7 +21,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dba;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -168,7 +168,7 @@ public class SvgManager {
                 int[] iArr = new int[i3];
                 int[][] iArr2 = new int[i3];
                 if (this.canPress) {
-                    iArr[0] = dba.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
+                    iArr[0] = x9a.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
                     iArr2[0] = new int[]{16842919, 16842910};
                     i2 = 1;
                 } else {
@@ -180,7 +180,7 @@ public class SvgManager {
                     iArr3[0] = 16842910;
                     iArr2[i2] = iArr3;
                     int i4 = i2 + 1;
-                    iArr[i4] = dba.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
+                    iArr[i4] = x9a.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
                     iArr2[i4] = new int[0];
                 } else {
                     iArr[i2] = i;
@@ -486,7 +486,7 @@ public class SvgManager {
                 return null;
             }
             Drawable mutate = getDrawable(i, 1, false).mutate();
-            DrawableCompat.setTint(mutate, dba.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
+            DrawableCompat.setTint(mutate, x9a.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i2 > 0 && (drawableWithDayNightMask = getDrawableWithDayNightMask(i2)) != null) {
                 Drawable mutate2 = getDrawableWithDayNightMask(i2).mutate();
@@ -495,7 +495,7 @@ public class SvgManager {
                 stateListDrawable.addState(new int[]{16842913}, drawableWithDayNightMask);
             }
             Drawable mutate3 = getDrawable(i, 1, false).mutate();
-            DrawableCompat.setTint(mutate3, dba.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
+            DrawableCompat.setTint(mutate3, x9a.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             DrawableCompat.setTint(drawable.mutate(), SkinManager.getColor(i3, (int) R.color.CAM_X0105));
             stateListDrawable.addState(new int[0], drawable);

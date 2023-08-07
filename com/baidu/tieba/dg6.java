@@ -1,139 +1,107 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaEmptyLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Search.DataRes;
 /* loaded from: classes5.dex */
-public class dg6 extends yh7<ThreadData, FrsPageAlaEmptyLiveViewHolder> implements sp6 {
+public class dg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ng6 l;
-    public String m;
-    public up6<ThreadData> n;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
-    @Override // com.baidu.tieba.sp6
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends up6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(dg6 dg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.up6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) && view2 != null && threadData != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(threadData.getThreadType())));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public dg6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.n = new a(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public FrsPageAlaEmptyLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
+        long longValue;
+        long longValue2;
+        int intValue;
+        int intValue2;
+        int intValue3;
+        int intValue4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            TbPageContext<?> tbPageContext = this.c;
-            if (tbPageContext == null) {
-                return null;
-            }
-            ng6 ng6Var = new ng6(tbPageContext);
-            this.l = ng6Var;
-            ng6Var.u(this.mPageId);
-            this.l.a(this.m);
-            return new FrsPageAlaEmptyLiveViewHolder(this.l);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (FrsPageAlaEmptyLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaEmptyLiveViewHolder})) == null) {
-            frsPageAlaEmptyLiveViewHolder.a.i(threadData);
-            frsPageAlaEmptyLiveViewHolder.a.a(this.m);
-            frsPageAlaEmptyLiveViewHolder.a.k(this.n);
-            if (threadData != null) {
-                threadData.updateShowStatus();
-            }
-            return frsPageAlaEmptyLiveViewHolder.getView();
+        Long l = dataRes.uid;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.sp6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.m = str;
+        this.b = longValue;
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        if (l2 == null) {
+            longValue2 = 0;
+        } else {
+            longValue2 = l2.longValue();
         }
-    }
-
-    @Override // com.baidu.tieba.yh7
-    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) {
-            super.m(tbPageContext, bdUniqueId);
+        this.e = longValue2;
+        Integer num = dataRes.vote_num;
+        boolean z = false;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
         }
+        this.f = intValue;
+        Integer num2 = dataRes.agree_num;
+        if (num2 == null) {
+            intValue2 = 0;
+        } else {
+            intValue2 = num2.intValue();
+        }
+        this.g = intValue2;
+        Integer num3 = dataRes.thread_num;
+        if (num3 == null) {
+            intValue3 = 0;
+        } else {
+            intValue3 = num3.intValue();
+        }
+        this.h = intValue3;
+        Integer num4 = dataRes.post_num;
+        if (num4 == null) {
+            intValue4 = 0;
+        } else {
+            intValue4 = num4.intValue();
+        }
+        this.i = intValue4;
+        Boolean bool = dataRes.is_vote;
+        if (bool != null) {
+            z = bool.booleanValue();
+        }
+        this.k = z;
+        Long l3 = dataRes.tid;
+        if (l3 != null) {
+            j = l3.longValue();
+        }
+        this.l = j;
     }
 }

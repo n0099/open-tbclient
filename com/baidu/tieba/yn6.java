@@ -1,137 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yn6 {
+public class yn6 extends lm<zn6, CardViewHolder<ao6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335976, "Lcom/baidu/tieba/yn6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948335976, "Lcom/baidu/tieba/yn6;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yn6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), zn6.c);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        this.a = tbPageContext;
     }
 
-    public static String a(byte[] bArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b & 240) >>> 4]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder(new ao6(this.a));
         }
-        return (String) invokeL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zn6 zn6Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    bo6.a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    bo6.a(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    bo6.a(fileInputStream2);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zn6Var, cardViewHolder})) == null) {
+            if (cardViewHolder != null && cardViewHolder.b() != null) {
+                cardViewHolder.b().i(zn6Var);
+                return cardViewHolder.getView();
             }
-        } else {
-            return (String) invokeL.objValue;
+            return null;
         }
-    }
-
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            byte[] bArr = new byte[1024];
-            try {
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a2 = a(messageDigest.digest());
-                            bo6.a(inputStream);
-                            return a2;
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    bo6.a(inputStream);
-                    return null;
-                }
-            } catch (Throwable th) {
-                bo6.a(inputStream);
-                throw th;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static boolean d(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
-            try {
-                String b = b(file);
-                if (b != null) {
-                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
-                        return true;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

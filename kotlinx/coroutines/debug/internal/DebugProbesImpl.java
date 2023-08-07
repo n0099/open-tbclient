@@ -410,20 +410,20 @@ public final class DebugProbesImpl {
     }
 
     private final List<StackTraceElement> enhanceStackTraceWithThreadDumpImpl(String str, Thread thread, List<StackTraceElement> list) {
-        Object m846constructorimpl;
+        Object m847constructorimpl;
         boolean z;
         if (Intrinsics.areEqual(str, "RUNNING") && thread != null) {
             try {
                 Result.Companion companion = Result.Companion;
-                m846constructorimpl = Result.m846constructorimpl(thread.getStackTrace());
+                m847constructorimpl = Result.m847constructorimpl(thread.getStackTrace());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th));
+                m847constructorimpl = Result.m847constructorimpl(ResultKt.createFailure(th));
             }
-            if (Result.m852isFailureimpl(m846constructorimpl)) {
-                m846constructorimpl = null;
+            if (Result.m853isFailureimpl(m847constructorimpl)) {
+                m847constructorimpl = null;
             }
-            StackTraceElement[] stackTraceElementArr = (StackTraceElement[]) m846constructorimpl;
+            StackTraceElement[] stackTraceElementArr = (StackTraceElement[]) m847constructorimpl;
             if (stackTraceElementArr == null) {
                 return list;
             }
@@ -643,21 +643,21 @@ public final class DebugProbesImpl {
     }
 
     private final Function1<Boolean, Unit> getDynamicAttach() {
-        Object m846constructorimpl;
+        Object m847constructorimpl;
         Object newInstance;
         try {
             Result.Companion companion = Result.Companion;
             newInstance = Class.forName("kotlinx.coroutines.debug.internal.ByteBuddyDynamicAttach").getConstructors()[0].newInstance(new Object[0]);
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m846constructorimpl = Result.m846constructorimpl(ResultKt.createFailure(th));
+            m847constructorimpl = Result.m847constructorimpl(ResultKt.createFailure(th));
         }
         if (newInstance != null) {
-            m846constructorimpl = Result.m846constructorimpl((Function1) TypeIntrinsics.beforeCheckcastToFunctionOfArity(newInstance, 1));
-            if (Result.m852isFailureimpl(m846constructorimpl)) {
-                m846constructorimpl = null;
+            m847constructorimpl = Result.m847constructorimpl((Function1) TypeIntrinsics.beforeCheckcastToFunctionOfArity(newInstance, 1));
+            if (Result.m853isFailureimpl(m847constructorimpl)) {
+                m847constructorimpl = null;
             }
-            return (Function1) m846constructorimpl;
+            return (Function1) m847constructorimpl;
         }
         throw new NullPointerException("null cannot be cast to non-null type kotlin.Function1<kotlin.Boolean, kotlin.Unit>");
     }

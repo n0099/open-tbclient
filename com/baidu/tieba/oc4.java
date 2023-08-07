@@ -1,27 +1,42 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class oc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nc4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public int progress;
+    @V8JavascriptField
+    public long totalBytesExpectedToWrite;
+    @V8JavascriptField
+    public long totalBytesWritten;
 
-    public static synchronized nc4 a() {
-        InterceptResult invokeV;
-        nc4 nc4Var;
+    public oc4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (oc4.class) {
-                if (a == null) {
-                    a = new nc4();
-                }
-                nc4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return nc4Var;
         }
-        return (nc4) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SubPackageProgressData{progress=" + this.progress + ", totalBytesWritten=" + this.totalBytesWritten + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

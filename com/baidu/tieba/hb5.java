@@ -1,177 +1,73 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class hb5 extends TBSpecificationButtonConfig {
+public class hb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public boolean w;
 
-    public hb5() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = R.color.CAM_X0302;
-        this.v = true;
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = R.color.CAM_X0904;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return y(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void u(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-            this.v = true;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void v(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-            this.v = true;
-            this.r = false;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void w(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0903;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void x(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0211;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.r = z;
-        }
-    }
-
-    public void r(@ColorInt int i, @ColorInt int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.d = i;
-            this.b = i2;
-            this.w = true;
-            this.r = false;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void s(@ColorRes int i, @ColorRes int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.d = i;
-            this.b = i2;
-            this.v = false;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public final Drawable y(float f) {
-        InterceptResult invokeF;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            if (this.w) {
-                gradientDrawable.setColor(this.d);
-            } else if (this.v) {
-                if (this.r) {
-                    i = SkinManager.getColor(this.s, this.b);
-                } else {
-                    i = this.b;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (hb5.class) {
+                File file = new File(FileHelper.getCacheDir() + "voice");
+                if (file.exists() && file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles == null) {
+                        return;
+                    }
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
                 }
-                gradientDrawable.setColor(dba.a(i, 0.08f));
-            } else {
-                gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
             }
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
         }
-        return (Drawable) invokeF.objValue;
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static gb5 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            gb5 gb5Var = new gb5();
+            if (str == null) {
+                gb5Var.f(6);
+                gb5Var.g(gb5.a(gb5Var.b()));
+                return gb5Var;
+            }
+            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
+                gb5Var.f(7);
+                gb5Var.g(gb5.a(gb5Var.b()));
+                return gb5Var;
+            }
+            String b = hi.b(FileHelper.GetStreamFromTmpFile(str));
+            if (b == null) {
+                gb5Var.f(5);
+                gb5Var.g(gb5.a(gb5Var.b()));
+            } else {
+                String filePath = FileHelper.getFilePath(b, 1, true);
+                if (FileHelper.renameTo(str, filePath)) {
+                    gb5Var.i(filePath);
+                    gb5Var.h(b);
+                } else {
+                    gb5Var.f(1);
+                    gb5Var.g(gb5.a(gb5Var.b()));
+                }
+            }
+            return gb5Var;
+        }
+        return (gb5) invokeL.objValue;
     }
 }

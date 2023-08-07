@@ -9,30 +9,30 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.og6;
-import com.baidu.tieba.s66;
-import com.baidu.tieba.sp6;
-import com.baidu.tieba.t66;
+import com.baidu.tieba.a46;
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.ff7;
+import com.baidu.tieba.gf7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.up6;
-import com.baidu.tieba.xh7;
-import com.baidu.tieba.yh7;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.ud6;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.z36;
+import com.baidu.tieba.zm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder> implements sp6, t66 {
+public class FrsSplitAlaShareItemAdapter extends gf7<w35, FrsPageAlaShareHolder> implements zm6, a46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
-    public og6 m;
+    public ud6 m;
     public String n;
-    public up6<ThreadData> o;
+    public bn6<ThreadData> o;
 
-    @Override // com.baidu.tieba.sp6
+    @Override // com.baidu.tieba.zm6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -43,16 +43,16 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public og6 a;
+        public ud6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FrsPageAlaShareHolder(og6 og6Var) {
-            super(og6Var.h());
+        public FrsPageAlaShareHolder(ud6 ud6Var) {
+            super(ud6Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {og6Var};
+                Object[] objArr = {ud6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,12 +63,12 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
                     return;
                 }
             }
-            this.a = og6Var;
+            this.a = ud6Var;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a extends up6<ThreadData> {
+    public class a extends bn6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsSplitAlaShareItemAdapter b;
@@ -92,7 +92,7 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.up6
+        @Override // com.baidu.tieba.bn6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -139,7 +139,7 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
         this.o = new a(this);
     }
 
-    @Override // com.baidu.tieba.sp6
+    @Override // com.baidu.tieba.zm6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -147,7 +147,7 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
         }
     }
 
-    @Override // com.baidu.tieba.t66
+    @Override // com.baidu.tieba.a46
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -156,7 +156,7 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
+    @Override // com.baidu.tieba.lm
     /* renamed from: I */
     public FrsPageAlaShareHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -166,9 +166,9 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
             if (tbPageContext == null) {
                 return null;
             }
-            og6 og6Var = new og6(tbPageContext, this.mPageId);
-            this.m = og6Var;
-            og6Var.V(this.mPageId);
+            ud6 ud6Var = new ud6(tbPageContext, this.mPageId);
+            this.m = ud6Var;
+            ud6Var.V(this.mPageId);
             this.m.a(this.l);
             this.m.k(this.o);
             return new FrsPageAlaShareHolder(this.m);
@@ -177,13 +177,13 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
+    @Override // com.baidu.tieba.gf7, com.baidu.tieba.lm
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z45 z45Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w35 w35Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z45Var, frsPageAlaShareHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w35Var, frsPageAlaShareHolder})) == null) {
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.b;
             if (frsViewData != null) {
@@ -191,20 +191,20 @@ public class FrsSplitAlaShareItemAdapter extends yh7<z45, FrsPageAlaShareHolder>
             } else {
                 i2 = 0;
             }
-            ThreadData threadData = z45Var.t;
-            threadData.statFloor = (z45Var.position + 1) - i2;
+            ThreadData threadData = w35Var.t;
+            threadData.statFloor = (w35Var.position + 1) - i2;
             customMessage.setData(threadData);
             this.c.sendMessage(customMessage);
-            if (z45Var != null) {
-                og6 og6Var = frsPageAlaShareHolder.a;
-                if (og6Var instanceof s66) {
-                    og6Var.b(this.n);
+            if (w35Var != null) {
+                ud6 ud6Var = frsPageAlaShareHolder.a;
+                if (ud6Var instanceof z36) {
+                    ud6Var.b(this.n);
                 }
                 frsPageAlaShareHolder.a.a(this.l);
-                xh7.j(frsPageAlaShareHolder.a.O(), this.b);
-                xh7.j(frsPageAlaShareHolder.a.Q(), this.b);
-                frsPageAlaShareHolder.a.i(z45Var.t);
-                z45Var.t.updateShowStatus();
+                ff7.j(frsPageAlaShareHolder.a.O(), this.b);
+                ff7.j(frsPageAlaShareHolder.a.Q(), this.b);
+                frsPageAlaShareHolder.a.i(w35Var.t);
+                w35Var.t.updateShowStatus();
             }
             return frsPageAlaShareHolder.getView();
         }

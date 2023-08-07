@@ -3,12 +3,12 @@ package com.baidu.swan.games.view.webview;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import com.baidu.tieba.fs1;
-import com.baidu.tieba.tf4;
+import com.baidu.tieba.ir1;
+import com.baidu.tieba.we4;
 @Keep
 /* loaded from: classes4.dex */
 public class GameWebViewJavascriptInterface {
-    public static final boolean DEBUG = fs1.a;
+    public static final boolean DEBUG = ir1.a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swan";
     public static final String TAG = "GameJavascriptInterface";
 
@@ -17,9 +17,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        tf4 E = tf4.E();
-        if (E != null) {
-            E.close();
+        we4 D = we4.D();
+        if (D != null) {
+            D.close();
         }
     }
 
@@ -28,9 +28,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        tf4 E = tf4.E();
-        if (E != null) {
-            E.H();
+        we4 D = we4.D();
+        if (D != null) {
+            D.G();
         }
     }
 }

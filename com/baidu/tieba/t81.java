@@ -1,68 +1,375 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.webpanel.PanelScrollView;
+import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t81 {
+public class t81 extends PopupWindow implements z81, ViewTreeObserver.OnWindowFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
+    public View a;
+    public AdImageView b;
+    public ViewGroup c;
+    public q81 d;
+    public b91 e;
+    public a91 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134972, "Lcom/baidu/tieba/t81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements PanelScrollView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t81 a;
+
+        public a(t81 t81Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948134972, "Lcom/baidu/tieba/t81;");
-                return;
+            this.a = t81Var;
+        }
+
+        @Override // com.baidu.nadcore.webpanel.PanelScrollView.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
+                this.a.f.e();
             }
         }
-        b = new float[]{0.0f, 1.0E-4f, 2.0E-4f, 5.0E-4f, 9.0E-4f, 0.0014f, 0.002f, 0.0027f, 0.0036f, 0.0046f, 0.0058f, 0.0071f, 0.0085f, 0.0101f, 0.0118f, 0.0137f, 0.0158f, 0.018f, 0.0205f, 0.0231f, 0.0259f, 0.0289f, 0.0321f, 0.0355f, 0.0391f, 0.043f, 0.0471f, 0.0514f, 0.056f, 0.0608f, 0.066f, 0.0714f, 0.0771f, 0.083f, 0.0893f, 0.0959f, 0.1029f, 0.1101f, 0.1177f, 0.1257f, 0.1339f, 0.1426f, 0.1516f, 0.161f, 0.1707f, 0.1808f, 0.1913f, 0.2021f, 0.2133f, 0.2248f, 0.2366f, 0.2487f, 0.2611f, 0.2738f, 0.2867f, 0.2998f, 0.3131f, 0.3265f, 0.34f, 0.3536f, 0.3673f, 0.381f, 0.3946f, 0.4082f, 0.4217f, 0.4352f, 0.4485f, 0.4616f, 0.4746f, 0.4874f, 0.5f, 0.5124f, 0.5246f, 0.5365f, 0.5482f, 0.5597f, 0.571f, 0.582f, 0.5928f, 0.6033f, 0.6136f, 0.6237f, 0.6335f, 0.6431f, 0.6525f, 0.6616f, 0.6706f, 0.6793f, 0.6878f, 0.6961f, 0.7043f, 0.7122f, 0.7199f, 0.7275f, 0.7349f, 0.7421f, 0.7491f, 0.7559f, 0.7626f, 0.7692f, 0.7756f, 0.7818f, 0.7879f, 0.7938f, 0.7996f, 0.8053f, 0.8108f, 0.8162f, 0.8215f, 0.8266f, 0.8317f, 0.8366f, 0.8414f, 0.8461f, 0.8507f, 0.8551f, 0.8595f, 0.8638f, 0.8679f, 0.872f, 0.876f, 0.8798f, 0.8836f, 0.8873f, 0.8909f, 0.8945f, 0.8979f, 0.9013f, 0.9046f, 0.9078f, 0.9109f, 0.9139f, 0.9169f, 0.9198f, 0.9227f, 0.9254f, 0.9281f, 0.9307f, 0.9333f, 0.9358f, 0.9382f, 0.9406f, 0.9429f, 0.9452f, 0.9474f, 0.9495f, 0.9516f, 0.9536f, 0.9556f, 0.9575f, 0.9594f, 0.9612f, 0.9629f, 0.9646f, 0.9663f, 0.9679f, 0.9695f, 0.971f, 0.9725f, 0.9739f, 0.9753f, 0.9766f, 0.9779f, 0.9791f, 0.9803f, 0.9815f, 0.9826f, 0.9837f, 0.9848f, 0.9858f, 0.9867f, 0.9877f, 0.9885f, 0.9894f, 0.9902f, 0.991f, 0.9917f, 0.9924f, 0.9931f, 0.9937f, 0.9944f, 0.9949f, 0.9955f, 0.996f, 0.9964f, 0.9969f, 0.9973f, 0.9977f, 0.998f, 0.9984f, 0.9986f, 0.9989f, 0.9991f, 0.9993f, 0.9995f, 0.9997f, 0.9998f, 0.9999f, 0.9999f, 1.0f, 1.0f};
     }
 
-    public t81() {
+    /* loaded from: classes8.dex */
+    public class b implements PanelScrollView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t81 a;
+
+        public b(t81 t81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t81Var;
+        }
+
+        @Override // com.baidu.nadcore.webpanel.PanelScrollView.d
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
+                this.a.f.c();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b91 a;
+        public final /* synthetic */ t81 b;
+
+        public c(t81 t81Var, b91 b91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t81Var, b91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t81Var;
+            this.a = b91Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.f != null) {
+                if (!this.a.t()) {
+                    this.b.f.b();
+                    return;
+                }
+                this.b.g();
+                this.b.b.setVisibility(8);
+                this.b.f.a();
+            }
+        }
+    }
+
+    public t81(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003e9);
+        setClippingEnabled(true);
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(f(context, R.layout.nad_panel_pop_view));
+    }
+
+    @Override // com.baidu.tieba.z81
+    public void a(int i) {
+        ClogBuilder.Page page;
+        ClogBuilder.LogType logType;
+        a91 a91Var;
+        a91 a91Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e.n() && (a91Var2 = this.f) != null) {
+                a91Var2.d();
+                return;
+            }
+            if (this.e.s()) {
+                page = ClogBuilder.Page.WELFAREWEB;
+            } else {
+                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
+            }
+            if (this.e.s()) {
+                logType = ClogBuilder.LogType.REWARD_HALF_TAIL_SLIDE;
+            } else {
+                logType = ClogBuilder.LogType.NAVIDEO_POP_CLOSE;
+            }
+            i91.b(page, logType, String.valueOf(i), "", this.e.d());
+            g();
+            if (i == 0 && (a91Var = this.f) != null) {
+                a91Var.f();
+            }
+        }
+    }
+
+    public void h(b91 b91Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, b91Var) == null) {
+            this.e = b91Var;
+            q81 q81Var = new q81((Activity) this.a.getContext(), (ViewGroup) this.a);
+            this.d = q81Var;
+            q81Var.f(b91Var);
+            this.d.a(this);
+            PanelScrollView b2 = this.d.b();
+            if (b2 != null) {
+                b2.setOnGestureScrollListener(new a(this));
+                b2.setOnGestureSingleTapUpListener(new b(this));
+            }
+            l(b91Var);
+        }
+    }
+
+    public t81(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 1.0f / (b.length - 1);
+        this.c = null;
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003e9);
+        setClippingEnabled(true);
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(f(context, i));
     }
 
-    public float a(float f) {
-        InterceptResult invokeF;
+    public void i(@NonNull a91 a91Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            if (f >= 1.0f) {
-                return 1.0f;
-            }
-            if (f <= 0.0f) {
-                return 0.0f;
-            }
-            float[] fArr = b;
-            int min = Math.min((int) ((fArr.length - 1) * f), fArr.length - 2);
-            float f2 = this.a;
-            float f3 = (f - (min * f2)) / f2;
-            float[] fArr2 = b;
-            return fArr2[min] + (f3 * (fArr2[min + 1] - fArr2[min]));
+        if (interceptable == null || interceptable.invokeL(1048582, this, a91Var) == null) {
+            this.f = a91Var;
         }
-        return invokeF.floatValue;
+    }
+
+    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.e.q()) {
+            k91.a(this.a.getContext(), this);
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                StackTraceElement[] stackTrace = new Exception().getStackTrace();
+                if (stackTrace.length >= 2 && stackTrace[1] != null && "dispatchKeyEvent".equals(stackTrace[1].getMethodName())) {
+                    if (this.e.r()) {
+                        if (this.d != null) {
+                            this.d.d("javascript:onAndroidBack()");
+                        }
+                    } else if (!this.d.g()) {
+                        a(0);
+                    }
+                } else {
+                    a(0);
+                }
+            } catch (Exception unused) {
+                a(0);
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            bn0.a().a(new w81(5, this.e.a()));
+            this.d.e();
+            this.a.getViewTreeObserver().removeOnWindowFocusChangeListener(this);
+            if (this.e.m()) {
+                this.c = k91.b(this.a.getContext(), this.c, false);
+            }
+            p81.b.c(false);
+            p81.b.b(false);
+            super.dismiss();
+            a91 a91Var = this.f;
+            if (a91Var != null) {
+                a91Var.dismiss();
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+        }
+    }
+
+    public final View f(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
+            this.a = inflate;
+            this.b = (AdImageView) inflate.findViewById(R.id.top_right_icon);
+            return this.a;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    public void j() {
+        ClogBuilder.Page page;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.getViewTreeObserver().addOnWindowFocusChangeListener(this);
+            if (this.e.q()) {
+                k91.a(this.a.getContext(), this);
+            }
+            View.OnTouchListener c2 = this.d.c();
+            if (c2 != null && !this.e.o()) {
+                setTouchInterceptor(c2);
+            }
+            if (this.e.m()) {
+                this.c = k91.b(this.a.getContext(), this.c, true);
+            }
+            bn0.a().a(new w81(7, this.d.b()));
+            k(this.a.getContext(), ((Activity) this.a.getContext()).getWindow().getDecorView(), 80, 0, 0);
+            p81.b.c(true);
+            p81.b.b(false);
+            if (this.e.s()) {
+                page = ClogBuilder.Page.WELFAREWEB;
+            } else {
+                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
+            }
+            i91.b(page, ClogBuilder.LogType.FREE_SHOW, "", "", this.e.d());
+        }
+    }
+
+    public final void k(Context context, View view2, int i, int i2, int i3) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (context instanceof Activity) {
+                activity = (Activity) context;
+            } else {
+                activity = null;
+            }
+            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
+                try {
+                    showAtLocation(view2, i, i2, i3);
+                    bn0.a().a(new w81(0, (AdData) null));
+                } catch (Exception e) {
+                    ab1.d(e);
+                }
+            }
+        }
+    }
+
+    public final void l(b91 b91Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, b91Var) != null) || !b91Var.v()) {
+            return;
+        }
+        if (b91Var.t()) {
+            this.b.setImageResource(R.drawable.nad_reward_video_lp_down_arrow);
+        } else {
+            this.b.setImageResource(R.drawable.nad_reward_video_lp_close_btn);
+        }
+        this.b.setVisibility(0);
+        this.b.setOnClickListener(new c(this, b91Var));
     }
 }

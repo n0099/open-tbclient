@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,49 +8,54 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes7.dex */
-public class qs2 implements ZeusPluginFactory {
+public class qs2 extends so2<jt2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
+    @Override // com.baidu.tieba.so2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_textarea" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
-    public qs2(@NonNull String str) {
+    public qs2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.so2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jt2 jt2Var) {
+        Object obj;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            rs2 rs2Var = new rs2(invoker, this.a);
-            if (fs1.a) {
-                Log.i(" [[InlineTextAreaFactory]] ", "Factory 「Hash:" + hashCode() + "」 is creating inline textArea「Hash:" + rs2Var.hashCode() + "」");
-            }
-            return new ps2(rs2Var);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jt2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
-        return (ZeusPlugin) invokeL.objValue;
+        if (obj instanceof Float) {
+            f = ((Float) obj).floatValue();
+        } else if (obj instanceof Double) {
+            f = ((Double) obj).floatValue();
+        } else {
+            f = Float.MIN_VALUE;
+        }
+        if (f != Float.MIN_VALUE) {
+            jt2Var.setSpeed(f);
+            String str = command.what;
+            d(jt2Var, str, "playbackRate: " + command.obj, false);
+        }
     }
 }

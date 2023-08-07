@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,41 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jy1 implements iy1 {
+public final class jy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jy1 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public gy1 a;
-
-    /* loaded from: classes6.dex */
-    public class a implements gy1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(jy1 jy1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jy1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gy1
-        public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
-                BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +28,9 @@ public class jy1 implements iy1 {
                 return;
             }
         }
-        boolean z = fs1.a;
+        jy1 jy1Var = new jy1();
+        a = jy1Var;
+        Intrinsics.checkNotNullExpressionValue(jy1Var.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
     }
 
     public jy1() {
@@ -73,29 +43,23 @@ public class jy1 implements iy1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new a(this);
     }
 
-    @Override // com.baidu.tieba.iy1
-    public hy1 a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return wa2.k();
+            return qo3.l(new j92().getCookie(".baidu.com"), "OPENBDUSS");
         }
-        return (hy1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.iy1
-    public gy1 b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            gy1.b(fu2.c(), "");
         }
-        return (gy1) invokeV.objValue;
     }
 }

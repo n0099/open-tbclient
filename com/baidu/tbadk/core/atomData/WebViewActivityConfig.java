@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -15,8 +16,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -229,7 +229,7 @@ public class WebViewActivityConfig extends IntentConfig {
             if (!UrlUtils.isBaiduDomain(str)) {
                 return str;
             }
-            if (xi.isEmpty(str)) {
+            if (bi.isEmpty(str)) {
                 return str;
             }
             if (!str.contains("_client_version=")) {
@@ -269,7 +269,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                yi.R(getContext(), getContext().getString(R.string.web_view_corrupted));
+                BdUtilHelper.showToast(getContext(), getContext().getString(R.string.web_view_corrupted));
                 return false;
             }
             return true;

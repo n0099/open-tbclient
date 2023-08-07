@@ -12,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -20,11 +22,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b16;
-import com.baidu.tieba.f16;
-import com.baidu.tieba.g16;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ky5;
+import com.baidu.tieba.oy5;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public f16 i;
+    public oy5 i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -159,7 +159,7 @@ public class FloatWebLayout extends FrameLayout {
                 return;
             }
         }
-        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        j = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
     public boolean b() {
@@ -182,9 +182,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            f16 f16Var = this.i;
-            if (f16Var != null) {
-                f16Var.onPause();
+            oy5 oy5Var = this.i;
+            if (oy5Var != null) {
+                oy5Var.onPause();
             }
             this.a.setOnClickListener(null);
         }
@@ -209,7 +209,7 @@ public class FloatWebLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return yi.g(getContext(), R.dimen.tbds153);
+            return BdUtilHelper.getDimens(getContext(), R.dimen.tbds153);
         }
         return invokeV.intValue;
     }
@@ -247,9 +247,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            f16 f16Var = this.i;
-            if (f16Var != null) {
-                f16Var.onDestroy();
+            oy5 oy5Var = this.i;
+            if (oy5Var != null) {
+                oy5Var.onDestroy();
             }
         }
     }
@@ -333,9 +333,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            f16 f16Var = this.i;
-            if (f16Var != null) {
-                f16Var.m1(str, false);
+            oy5 oy5Var = this.i;
+            if (oy5Var != null) {
+                oy5Var.n1(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -357,7 +357,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a2);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
             h(context);
             g(context);
             f(context, str);
@@ -370,10 +370,10 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            if (nx4.b(str)) {
-                this.i = new g16(context, this.h, this);
+            if (BrowserHelper.allowedUseNewWebContainer(str)) {
+                this.i = new py5(context, this.h, this);
             } else {
-                this.i = new b16(context, this.h, this);
+                this.i = new ky5(context, this.h, this);
             }
             this.b.setContentViewTop(this.i);
         }

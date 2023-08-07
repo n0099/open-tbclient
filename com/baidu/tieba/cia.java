@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class cia implements pga {
+public class cia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jia a;
-    public j65 b;
-    public iia c;
-    public hia d;
-    public fia e;
-    public dia f;
-    public gia g;
-    public eia h;
-    public MainTabActivity i;
-    public pfa j;
-    public boolean k;
+    public TbPageContext<?> a;
+    public int b;
 
-    public cia(@NonNull MainTabActivity mainTabActivity, @NonNull pfa pfaVar) {
+    public cia(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pfaVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,67 +35,63 @@ public class cia implements pga {
                 return;
             }
         }
-        this.k = false;
-        this.i = mainTabActivity;
-        this.j = pfaVar;
-        this.a = new jia(mainTabActivity.getPageContext(), pfaVar, mainTabActivity, false);
-        this.b = new j65(mainTabActivity.getPageContext());
-        this.c = new iia(mainTabActivity, pfaVar);
-        this.d = new hia(mainTabActivity, pfaVar);
-        this.g = new gia(mainTabActivity, pfaVar);
-        this.h = new eia(mainTabActivity, pfaVar);
-        this.e = new fia(mainTabActivity, pfaVar);
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.pga
-    public void a() {
+    public final boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (LooperBlockSwitch.getIsOn()) {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(this.a);
-                g65.g(linkedList);
-            } else if (!this.k) {
-            } else {
-                ny8.m = false;
-                LinkedList linkedList2 = new LinkedList();
-                linkedList2.add(this.h);
-                linkedList2.add(this.a);
-                g65.g(linkedList2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
+            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void b() {
+    public void b(DressItemData dressItemData, boolean z) {
+        String string;
+        String str;
+        int i;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || LooperBlockSwitch.getIsOn() || !this.k) {
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
             return;
         }
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(this.h);
-        linkedList.add(this.c);
-        linkedList.add(this.d);
-        linkedList.add(this.e);
-        g65.g(linkedList);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(this.a);
-            if (!LooperBlockSwitch.getIsOn()) {
-                linkedList.add(this.c);
-                linkedList.add(this.d);
-                linkedList.add(this.h);
-                linkedList.add(this.b);
-                linkedList.add(this.g);
+        boolean a = mha.a(dressItemData);
+        if (!a) {
+            a = a(dressItemData);
+        }
+        if (a) {
+            this.b = dressItemData.getPropsId();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
+            httpMessage.setExtra(Integer.valueOf(this.b));
+            httpMessage.addParam("bcode", String.valueOf(this.b));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } else if (dressItemData.getFreeUserLevel() == 100) {
+            if (dressItemData.getActivityFinish() == 0) {
+                mha.b(this.a, 5, dressItemData.getActivityUrl());
             }
-            dia diaVar = new dia(this.i, this.j, "source_from_theme");
-            this.f = diaVar;
-            linkedList.add(diaVar);
-            g65.g(linkedList);
-            this.k = true;
+        } else {
+            if (dressItemData.getFreeUserLevel() == 101) {
+                str = this.a.getString(R.string.obfuscated_res_0x7f0f0348);
+                i = 9;
+            } else {
+                if (dressItemData.getFreeUserLevel() > 1) {
+                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f034e), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                } else {
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f034a);
+                }
+                str = string;
+                i = 0;
+            }
+            if (z) {
+                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+            } else {
+                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+            }
+            mha.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
         }
     }
 }

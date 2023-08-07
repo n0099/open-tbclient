@@ -1,222 +1,229 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.text.TextUtils;
-import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.uk7;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumInfo;
+import tbclient.ForumRule;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes8.dex */
-public class tk7 implements ok7 {
+public class tk7 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
-    public sk7 a;
-    public TbPageContext b;
-    public BdTypeListView c;
-    public List<yn> d;
-    public final List<ln> e;
-    public boolean f;
-    public int g;
+    public ForumInfo a;
+    public String b;
+    public String c;
+    public List<ForumRule> d;
+    public int e;
+    public String f;
+    public boolean g;
+    public String h;
+    public BawuRoleInfoPub i;
+    public String j;
+    public vk7 k;
+    public sk7 l;
 
-    public tk7(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184169, "Lcom/baidu/tieba/tk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948184169, "Lcom/baidu/tieba/tk7;");
+                return;
+            }
+        }
+        m = BdUniqueId.gen();
+    }
+
+    public tk7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.f = false;
-        this.g = -1;
-        this.b = tbPageContext;
-        this.c = bdTypeListView;
-        this.f = z;
-        d();
-    }
-
-    @Override // com.baidu.tieba.ok7
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.g = i;
-            if (!ListUtils.isEmpty(this.d) && this.c != null) {
-                for (yn ynVar : this.d) {
-                    if (ynVar instanceof uk7) {
-                        ((uk7) ynVar).s = false;
-                    }
-                }
-                if (BdNetTypeUtil.isWifiNet()) {
-                    if (this.g < this.d.size() - 1) {
-                        List<yn> list = this.d;
-                        int i2 = this.g + 1;
-                        this.g = i2;
-                        if (list.get(i2) instanceof uk7) {
-                            ((uk7) this.d.get(this.g)).s = true;
-                            BdTypeListView bdTypeListView = this.c;
-                            bdTypeListView.smoothScrollToPositionFromTop(i + bdTypeListView.getHeaderViewsCount() + 1, 0);
-                            g();
-                        }
-                    } else if (this.g == this.d.size() - 1 && (this.d.get(this.g) instanceof uk7)) {
-                        ((uk7) this.d.get(this.g)).s = false;
-                    }
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !ListUtils.isEmpty(this.d)) {
-            Iterator<yn> it = this.d.iterator();
-            while (it.hasNext()) {
-                ((uk7) it.next()).s = false;
-            }
-        }
-    }
-
-    public int c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ok7
-    public void cancel() {
+    public BawuRoleInfoPub c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
         }
+        return (BawuRoleInfoPub) invokeV.objValue;
     }
 
-    public final void d() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sk7 sk7Var = new sk7(this.b, this, this.f);
-            this.a = sk7Var;
-            this.e.add(sk7Var);
-            this.c.addAdapters(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
         }
+        return (String) invokeV.objValue;
     }
 
-    public boolean e() {
+    public ForumInfo e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (ForumInfo) invokeV.objValue;
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.y();
+            return this.g;
         }
         return invokeV.booleanValue;
     }
 
-    public void g() {
-        BdTypeListView bdTypeListView;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bdTypeListView = this.c) != null && bdTypeListView.getAdapter2() != null && (this.c.getAdapter2() instanceof BaseAdapter)) {
-            this.c.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void i() {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onDestroy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return m;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void k() {
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.D();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void l() {
+    public List<ForumRule> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            b();
-            this.g = 0;
-            k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void n() {
+    public String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.E();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str, boolean z) {
-        uk7 uk7Var;
-        uk7.b bVar;
+    public sk7 m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048582, this, str, z) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
         }
-        boolean z2 = false;
-        for (yn ynVar : this.d) {
-            if (ynVar != null && (ynVar instanceof uk7) && (bVar = (uk7Var = (uk7) ynVar).m) != null && str.equals(bVar.a)) {
-                uk7Var.m.e = z;
-                z2 = true;
+        return (sk7) invokeV.objValue;
+    }
+
+    public void n(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) && dataRes != null) {
+            this.a = dataRes.forum;
+            this.b = dataRes.title;
+            this.c = dataRes.preface;
+            this.d = dataRes.rules;
+            this.e = dataRes.audit_status.intValue();
+            this.f = dataRes.audit_opinion;
+            boolean z = true;
+            if (dataRes.is_manager.intValue() != 1) {
+                z = false;
             }
-        }
-        if (z2) {
-            g();
+            this.g = z;
+            Long l = dataRes.forum_rule_id;
+            this.h = dataRes.publish_time;
+            this.i = dataRes.bazhu;
+            this.j = dataRes.cur_time;
+            vk7 vk7Var = new vk7();
+            this.k = vk7Var;
+            vk7Var.a(dataRes);
+            sk7 sk7Var = new sk7();
+            this.l = sk7Var;
+            sk7Var.f(dataRes);
         }
     }
 
-    public void h(Configuration configuration) {
+    public void o(BawuRoleInfoPub bawuRoleInfoPub) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
-            this.a.z(configuration);
+        if (interceptable == null || interceptable.invokeL(1048589, this, bawuRoleInfoPub) == null) {
+            this.i = bawuRoleInfoPub;
         }
     }
 
-    public boolean j(int i) {
-        InterceptResult invokeI;
+    public void q(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return this.a.C(i);
+        if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
+            this.a = forumInfo;
         }
-        return invokeI.booleanValue;
     }
 
-    public void m(List<uk7> list, boolean z) {
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048589, this, list, z) != null) || list == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.g = z;
         }
-        if (z) {
-            this.d.clear();
-        }
-        this.d.addAll(list);
-        this.c.setData(this.d);
-        if (z && list.size() > 0 && this.f && BdNetTypeUtil.isWifiNet()) {
-            l();
-            list.get(0).s = true;
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.c = str;
         }
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,10 +51,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                da5.p().Q(generatorSpNumKey);
+                SharedPrefHelper.getInstance().remove(generatorSpNumKey);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                da5.p().Q(generatorSpTimeKey);
+                SharedPrefHelper.getInstance().remove(generatorSpTimeKey);
             }
         }
     }
@@ -64,10 +64,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             if (i == 1) {
-                return da5.t("key_daily_member_broadcast_show_num_");
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_daily_member_broadcast_show_num_");
             }
             if (i == 2) {
-                return da5.t("key_om_member_broadcast_show_num_");
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_om_member_broadcast_show_num_");
             }
             return null;
         }
@@ -79,10 +79,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             if (i == 1) {
-                return da5.t("key_daily_member_broadcast_show_time_");
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_daily_member_broadcast_show_time_");
             }
             if (i == 2) {
-                return da5.t("key_om_member_broadcast_show_time_");
+                return SharedPrefHelper.getSharedPrefKeyWithAccount("key_om_member_broadcast_show_time_");
             }
             return null;
         }
@@ -94,11 +94,11 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
             String generatorSpNumKey = generatorSpNumKey(i);
-            if (!TimeHelper.isSameDay(da5.p().r(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
+            if (!TimeHelper.isSameDay(SharedPrefHelper.getInstance().getLong(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
                 clearSaveInfo(i);
                 return 0;
             }
-            return da5.p().q(generatorSpNumKey, 0);
+            return SharedPrefHelper.getInstance().getInt(generatorSpNumKey, 0);
         }
         return invokeI.intValue;
     }
@@ -108,7 +108,7 @@ public class MemberBroadcastHelper {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            long r = da5.p().r(generatorSpTimeKey(i), 0L);
+            long j = SharedPrefHelper.getInstance().getLong(generatorSpTimeKey(i), 0L);
             if (i == 1) {
                 i2 = this.mMemberBroadcastData.getDailyMinStep();
             } else if (i == 2) {
@@ -116,7 +116,7 @@ public class MemberBroadcastHelper {
             } else {
                 i2 = 0;
             }
-            if ((System.currentTimeMillis() - r) / 1000 > i2) {
+            if ((System.currentTimeMillis() - j) / 1000 > i2) {
                 return true;
             }
             return false;
@@ -130,10 +130,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                da5.p().F(generatorSpNumKey, da5.p().q(generatorSpNumKey, 0) + 1);
+                SharedPrefHelper.getInstance().putInt(generatorSpNumKey, SharedPrefHelper.getInstance().getInt(generatorSpNumKey, 0) + 1);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                da5.p().H(generatorSpTimeKey, System.currentTimeMillis());
+                SharedPrefHelper.getInstance().putLong(generatorSpTimeKey, System.currentTimeMillis());
             }
         }
     }

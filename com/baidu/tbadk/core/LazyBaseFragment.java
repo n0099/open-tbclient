@@ -9,10 +9,10 @@ import android.view.ViewStub;
 import androidx.annotation.CallSuper;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.idlehelp.IdleHandlerManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,9 +29,9 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
-    public abstract int I1();
+    public abstract int J1();
 
-    public abstract void K1(View view2, Bundle bundle);
+    public abstract void L1(View view2, Bundle bundle);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -68,7 +68,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.J1();
+                    this.a.a.K1();
                 }
             }
         }
@@ -102,8 +102,8 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (bc.b().c()) {
-                    this.a.J1();
+                } else if (IdleHandlerManager.getInstance().hasRunImmediately()) {
+                    this.a.K1();
                 } else {
                     this.a.a.post(new RunnableC0220a(this));
                 }
@@ -141,13 +141,13 @@ public abstract class LazyBaseFragment extends BaseFragment {
         }
     }
 
-    public synchronized void J1() {
+    public synchronized void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    K1(this.d.inflate(), this.e);
+                    L1(this.d.inflate(), this.e);
                 }
             }
         }
@@ -159,7 +159,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
             if (isPrimary() && !this.b && getView() != null) {
-                J1();
+                K1();
             }
         }
     }
@@ -174,15 +174,15 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
                 ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
                 this.d = viewStub;
-                viewStub.setLayoutResource(I1());
+                viewStub.setLayoutResource(J1());
                 if (this.c) {
-                    J1();
+                    K1();
                     return inflate;
                 }
                 return inflate;
             }
-            View inflate2 = layoutInflater.inflate(I1(), viewGroup, false);
-            K1(inflate2, bundle);
+            View inflate2 = layoutInflater.inflate(J1(), viewGroup, false);
+            L1(inflate2, bundle);
             return inflate2;
         }
         return (View) invokeLLL.objValue;

@@ -19,33 +19,33 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.NestedNoScrollViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a28;
-import com.baidu.tieba.b28;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.du6;
+import com.baidu.tieba.cea;
+import com.baidu.tieba.cha;
+import com.baidu.tieba.dfa;
+import com.baidu.tieba.gg5;
 import com.baidu.tieba.homepage.HomePageStatic;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.NewScrollFragmentAdapter;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.kfa;
-import com.baidu.tieba.kia;
-import com.baidu.tieba.lga;
-import com.baidu.tieba.uh5;
-import com.baidu.tieba.y18;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yy5;
+import com.baidu.tieba.jz7;
+import com.baidu.tieba.kr6;
+import com.baidu.tieba.lw5;
+import com.baidu.tieba.lz7;
+import com.baidu.tieba.mz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,12 +57,12 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
-public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 {
+public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public TbPageContext b;
-    public yy5 c;
+    public lw5 c;
     public PagerSlidingTabStrip d;
     public AppBarLayout e;
     public FrameLayout f;
@@ -73,8 +73,8 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
     public AlphaAnimation k;
     public AlphaAnimation l;
     public NewScrollFragmentAdapter m;
-    public ScrollFragmentTabHost.s n;
-    public List<ScrollFragmentTabHost.r> o;
+    public ScrollFragmentTabHost.t n;
+    public List<ScrollFragmentTabHost.s> o;
     public boolean p;
     public final CustomMessageListener q;
     public CustomMessageListener r;
@@ -82,10 +82,10 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
     public CustomMessageListener t;
     public CustomMessageListener u;
     @Nullable
-    public du6 v;
+    public kr6 v;
     public CustomMessageListener w;
 
-    @Override // com.baidu.tieba.b28
+    @Override // com.baidu.tieba.mz7
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
@@ -124,8 +124,8 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.i != null) {
-                if ((customResponsedMessage.getData() instanceof y18) && ((y18) customResponsedMessage.getData()).a != null) {
-                    View view2 = ((y18) customResponsedMessage.getData()).a;
+                if ((customResponsedMessage.getData() instanceof jz7) && ((jz7) customResponsedMessage.getData()).a != null) {
+                    View view2 = ((jz7) customResponsedMessage.getData()).a;
                     if (view2.getParent() != null) {
                         if (view2.getParent() != this.a.i) {
                             ((ViewGroup) view2.getParent()).removeView(view2);
@@ -297,8 +297,8 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.m != null && customResponsedMessage != null && customResponsedMessage.getData() != null && this.a.d != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                this.a.m.a0();
                 this.a.m.Y();
-                this.a.m.W();
                 this.a.g.setAdapter(this.a.m);
                 this.a.d.C();
             }
@@ -410,18 +410,18 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
                 int x = this.a.m.x(this.a.g.getCurrentItem());
                 if (x == 5) {
                     this.a.setScrollShadow(false);
-                    for (ScrollFragmentTabHost.r rVar : this.a.o) {
-                        rVar.c();
+                    for (ScrollFragmentTabHost.s sVar : this.a.o) {
+                        sVar.c();
                     }
                 } else if (x == 1) {
                     this.a.setScrollShadow(false);
-                    for (ScrollFragmentTabHost.r rVar2 : this.a.o) {
-                        rVar2.b();
+                    for (ScrollFragmentTabHost.s sVar2 : this.a.o) {
+                        sVar2.b();
                     }
                 } else if (x == 0) {
                     this.a.setScrollShadow(false);
-                    for (ScrollFragmentTabHost.r rVar3 : this.a.o) {
-                        rVar3.a();
+                    for (ScrollFragmentTabHost.s sVar3 : this.a.o) {
+                        sVar3.a();
                     }
                 } else if (x == 6) {
                     this.a.setScrollShadow(true);
@@ -555,7 +555,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
             x();
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.m;
             if (newScrollFragmentAdapter != null) {
-                newScrollFragmentAdapter.J(i);
+                newScrollFragmentAdapter.K(i);
             }
             SkinManager.setBackgroundResource(this.h, R.drawable.personalize_tab_shadow);
         }
@@ -565,14 +565,14 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (newScrollFragmentAdapter = this.m) != null) {
-            newScrollFragmentAdapter.S(z);
+            newScrollFragmentAdapter.U(z);
         }
     }
 
     public final void K(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            lga c2 = kia.a().b().c();
+            dfa c2 = cha.a().b().c();
             c2.a = w(i);
             c2.c = d(i);
             c2.d = v(i);
@@ -580,18 +580,18 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         }
     }
 
-    @Override // com.baidu.tieba.b28
-    public void b(ScrollFragmentTabHost.r rVar) {
+    @Override // com.baidu.tieba.mz7
+    public void b(ScrollFragmentTabHost.s sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, sVar) == null) {
             if (this.o == null) {
                 this.o = new ArrayList();
             }
-            this.o.add(rVar);
+            this.o.add(sVar);
         }
     }
 
-    @Override // com.baidu.tieba.b28
+    @Override // com.baidu.tieba.mz7
     public int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -611,12 +611,12 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         }
     }
 
-    @Override // com.baidu.tieba.b28
-    public void e(ScrollFragmentTabHost.r rVar) {
-        List<ScrollFragmentTabHost.r> list;
+    @Override // com.baidu.tieba.mz7
+    public void e(ScrollFragmentTabHost.s sVar) {
+        List<ScrollFragmentTabHost.s> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, rVar) == null) && (list = this.o) != null && list.size() > 0) {
-            this.o.remove(rVar);
+        if ((interceptable == null || interceptable.invokeL(1048593, this, sVar) == null) && (list = this.o) != null && list.size() > 0) {
+            this.o.remove(sVar);
         }
     }
 
@@ -647,11 +647,11 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         setCurrentTab(newScrollFragmentAdapter.s(i), true);
     }
 
-    @Override // com.baidu.tieba.b28
-    public void setOnTabSelectedListener(ScrollFragmentTabHost.s sVar) {
+    @Override // com.baidu.tieba.mz7
+    public void setOnTabSelectedListener(ScrollFragmentTabHost.t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, sVar) == null) {
-            this.n = sVar;
+        if (interceptable == null || interceptable.invokeL(1048608, this, tVar) == null) {
+            this.n = tVar;
         }
     }
 
@@ -670,11 +670,11 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.m;
             if (newScrollFragmentAdapter != null) {
-                newScrollFragmentAdapter.O(z);
+                newScrollFragmentAdapter.P(z);
             }
-            yy5 yy5Var = this.c;
-            if (yy5Var != null) {
-                yy5Var.b(z);
+            lw5 lw5Var = this.c;
+            if (lw5Var != null) {
+                lw5Var.b(z);
             }
         }
     }
@@ -690,7 +690,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048612, this, str) == null) && (newScrollFragmentAdapter = this.m) != null) {
-            newScrollFragmentAdapter.R(str);
+            newScrollFragmentAdapter.T(str);
         }
     }
 
@@ -726,7 +726,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.b = tbPageContext;
-            this.c = new yy5(tbPageContext.getPageActivity());
+            this.c = new lw5(tbPageContext.getPageActivity());
             MessageManager.getInstance().registerListener(this.r);
             MessageManager.getInstance().registerListener(this.t);
             MessageManager.getInstance().registerListener(this.w);
@@ -745,24 +745,24 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.b != null && (newScrollFragmentAdapter = this.m) != null && (nestedNoScrollViewPager = this.g) != null) {
             String t = newScrollFragmentAdapter.t(nestedNoScrollViewPager.getCurrentItem());
-            y18 y18Var = new y18();
-            y18Var.b = t;
-            y18Var.c = i;
+            jz7 jz7Var = new jz7();
+            jz7Var.b = t;
+            jz7Var.c = i;
             CustomMessage customMessage = new CustomMessage(2921652);
             customMessage.setTag(this.b.getUniqueId());
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921652, y18Var);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921652, jz7Var);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 
-    public void B(FragmentManager fragmentManager, a28 a28Var, ConcernPageView.s sVar) {
+    public void B(FragmentManager fragmentManager, lz7 lz7Var, ConcernPageView.s sVar) {
         AppBarLayout appBarLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, a28Var, sVar) == null) {
-            NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.a, fragmentManager, true, a28Var, sVar);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, lz7Var, sVar) == null) {
+            NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.a, fragmentManager, true, lz7Var, sVar);
             this.m = newScrollFragmentAdapter;
-            newScrollFragmentAdapter.P(this);
+            newScrollFragmentAdapter.Q(this);
             this.g.setOffscreenPageLimit(1);
             this.g.setAdapter(this.m);
             int q = this.m.q();
@@ -775,10 +775,10 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
             this.d.setViewPager(this.g);
             this.d.setConcernTabIndex(this.m.s(0));
             K(s);
-            if (da5.p().l("key_home_page_first_dismiss_tab", false) && (appBarLayout = this.e) != null) {
+            if (SharedPrefHelper.getInstance().getBoolean("key_home_page_first_dismiss_tab", false) && (appBarLayout = this.e) != null) {
                 appBarLayout.setExpanded(false, false);
             } else {
-                da5.p().A("key_home_page_first_dismiss_tab", true);
+                SharedPrefHelper.getInstance().putBoolean("key_home_page_first_dismiss_tab", true);
             }
         }
     }
@@ -804,7 +804,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
             }
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.m;
             if (newScrollFragmentAdapter != null) {
-                newScrollFragmentAdapter.L();
+                newScrollFragmentAdapter.M();
             }
         }
     }
@@ -831,7 +831,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b28
+    @Override // com.baidu.tieba.mz7
     public int getCurrentTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -845,7 +845,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.b28
+    @Override // com.baidu.tieba.mz7
     public FrameLayout getFrameLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -874,9 +874,9 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            yy5 yy5Var = this.c;
-            if (yy5Var != null) {
-                yy5Var.a(!UtilHelper.isNightOrDarkMode());
+            lw5 lw5Var = this.c;
+            if (lw5Var != null) {
+                lw5Var.a(!UtilHelper.isNightOrDarkMode());
             }
             H();
         }
@@ -899,9 +899,9 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().unRegisterTask(2921409);
-            du6 du6Var = this.v;
-            if (du6Var != null) {
-                du6Var.h();
+            kr6 kr6Var = this.v;
+            if (kr6Var != null) {
+                kr6Var.h();
                 this.v = null;
             }
             MessageManager.getInstance().unRegisterListener(this.w);
@@ -910,7 +910,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         }
     }
 
-    @Override // com.baidu.tieba.b28
+    @Override // com.baidu.tieba.mz7
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.j || C()) {
@@ -926,7 +926,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         this.h.startAnimation(this.k);
     }
 
-    @Override // com.baidu.tieba.b28
+    @Override // com.baidu.tieba.mz7
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || !this.j || !C()) {
@@ -946,17 +946,17 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.d != null) {
-            HashMap<String, uh5> colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig();
+            HashMap<String, gg5> colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig();
             if (colourHeaderConfig != null) {
-                uh5 uh5Var = colourHeaderConfig.get(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15b6));
-                if (uh5Var != null) {
+                gg5 gg5Var = colourHeaderConfig.get(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15ba));
+                if (gg5Var != null) {
                     PagerSlidingTabStrip pagerSlidingTabStrip = this.d;
                     if (TbadkCoreApplication.getInst().getSkinType() == 0) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    pagerSlidingTabStrip.s(z, uh5Var.m());
+                    pagerSlidingTabStrip.s(z, gg5Var.p());
                     return;
                 }
                 this.d.D();
@@ -969,10 +969,10 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
     public void J(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(1048585, this, str, i, i2) == null) && this.g != null && this.m != null) {
-            if (i == -1 && yi.F()) {
-                yi.Q(this.a, R.string.obfuscated_res_0x7f0f0e1f);
+            if (i == -1 && BdUtilHelper.isMainThread()) {
+                BdUtilHelper.showToast(this.a, (int) R.string.obfuscated_res_0x7f0f0e21);
             }
-            this.m.V(str, i, i2);
+            this.m.X(str, i, i2);
         }
     }
 
@@ -980,7 +980,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && (newScrollFragmentAdapter = this.m) != null) {
-            newScrollFragmentAdapter.X(dataRes, z, z2);
+            newScrollFragmentAdapter.Z(dataRes, z, z2);
         }
     }
 
@@ -999,7 +999,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && i >= 0 && (newScrollFragmentAdapter = this.m) != null && i < newScrollFragmentAdapter.getCount()) {
             this.d.setTabItemClicked(z);
-            this.m.Q(i);
+            this.m.S(i);
             this.g.setCurrentItem(i);
         }
     }
@@ -1018,23 +1018,23 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements b28 
         if (interceptable == null || interceptable.invokeL(1048617, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4006);
             this.a = getContext();
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d086e, (ViewGroup) this, true);
-            this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0902b8);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f092110);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0878, (ViewGroup) this, true);
+            this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0902b9);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f092127);
             this.d = pagerSlidingTabStrip;
             pagerSlidingTabStrip.setIsFromSecondtab(true);
             this.d.setTextNormalColor(R.color.CAM_X0107);
             this.d.setTextPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-            this.d.A(yi.g(context, R.dimen.T_X07), yi.g(context, R.dimen.T_X07), yi.g(context, R.dimen.tbds0), false);
+            this.d.A(BdUtilHelper.getDimens(context, R.dimen.T_X07), BdUtilHelper.getDimens(context, R.dimen.T_X07), BdUtilHelper.getDimens(context, R.dimen.tbds0), false);
             this.d.setHorizontalFadingEdgeEnabled(true);
             this.d.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007));
             this.d.setBackResId(R.color.transparent);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f69);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f7c);
             this.f = frameLayout;
-            kfa.c(frameLayout, 4);
-            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f092119);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090906);
-            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090454);
+            cea.c(frameLayout, 4);
+            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f092130);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090915);
+            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090461);
             this.d.setOnPageChangeListener(new g(this));
             SpeedStatsManager.getInstance().addStatsTimeStamp(4007);
         }

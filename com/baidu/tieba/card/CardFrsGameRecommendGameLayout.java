@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ag;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGameSubNode;
-import com.baidu.tieba.ng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import java.util.List;
 public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ng<CardFrsGameRecommendGameItemView> a;
+    public ag<CardFrsGameRecommendGameItemView> a;
     public int b;
     public int c;
     public int d;
@@ -160,10 +160,10 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(ng<CardFrsGameRecommendGameItemView> ngVar) {
+    public void setViewPool(ag<CardFrsGameRecommendGameItemView> agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ngVar) == null) {
-            this.a = ngVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, agVar) == null) {
+            this.a = agVar;
         }
     }
 
@@ -225,7 +225,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardFrsGameRecommendGameItemView, featureCardGameSubNode) != null) || featureCardGameSubNode == null) {
             return;
         }
-        cardFrsGameRecommendGameItemView.getGamePicView().N(featureCardGameSubNode.image, 10, false);
+        cardFrsGameRecommendGameItemView.getGamePicView().startLoad(featureCardGameSubNode.image, 10, false);
         cardFrsGameRecommendGameItemView.getGameNameView().setText(featureCardGameSubNode.name);
         cardFrsGameRecommendGameItemView.getGameDscView().setText(featureCardGameSubNode.title);
         cardFrsGameRecommendGameItemView.setTag(featureCardGameSubNode.url);

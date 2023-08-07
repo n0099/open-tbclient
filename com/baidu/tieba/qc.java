@@ -6,21 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qc implements xc {
+public class qc implements mc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+    public Map<String, Object> a;
 
-    public qc(Object obj) {
+    public qc(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,17 +31,15 @@ public class qc implements xc {
                 return;
             }
         }
-        if (obj != null && obj.getClass().isArray()) {
-            this.a = obj;
-        }
+        this.a = map;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object a(ge geVar) {
+    @Override // com.baidu.tieba.mc
+    public Object a(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
-            Object f = f(geVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
+            Object f = f(vdVar);
             if (f != null) {
                 if (f instanceof JSONObject) {
                     return f.toString();
@@ -55,116 +54,77 @@ public class qc implements xc {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object b(ge geVar) {
+    @Override // com.baidu.tieba.mc
+    public Object b(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vdVar)) == null) {
             return this.a;
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object c(ge geVar) {
+    @Override // com.baidu.tieba.mc
+    public Object c(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, geVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vdVar)) == null) {
             return this.a;
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object e(ge geVar) {
+    @Override // com.baidu.tieba.mc
+    public Object d(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, geVar)) == null) {
-            return d(geVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc
-    public Object d(ge geVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, geVar)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                if (componentType == Boolean.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Byte.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Character.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Double.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Float.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Integer.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Long.TYPE) {
-                    return this.a;
-                }
-                if (componentType == Short.TYPE) {
-                    return this.a;
-                }
-                if (componentType == String.class) {
-                    return this.a;
-                }
-                int length = Array.getLength(this.a);
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < length; i++) {
-                    Object f = je.a(Array.get(this.a, i)).f(new ge(componentType));
-                    if (f != null) {
-                        jSONArray.put(f);
-                    }
-                }
-                return jSONArray.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vdVar)) == null) {
+            Object f = f(vdVar);
+            if (f != null && (f instanceof JSONObject)) {
+                return f.toString();
             }
             return null;
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc
-    public Object f(ge geVar) {
+    @Override // com.baidu.tieba.mc
+    public Object e(vd vdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, geVar)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                if (componentType == Character.TYPE) {
-                    return String.valueOf((char[]) this.a);
-                }
-                if (componentType == Byte.TYPE) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vdVar)) == null) {
+            return d(vdVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object f(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vdVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (this.a == null) {
+                return jSONObject;
+            }
+            Type[] b = vdVar.b();
+            for (String str : this.a.keySet()) {
+                Object obj = this.a.get(str);
+                if (b != null && b.length >= 2) {
                     try {
-                        qi.k((byte[]) this.a, 0);
-                    } catch (Exception unused) {
-                        return null;
+                        jSONObject.put(str, yd.a(obj).f(new vd(b[1])));
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 } else {
-                    int length = Array.getLength(this.a);
-                    JSONArray jSONArray = new JSONArray();
-                    for (int i = 0; i < length; i++) {
-                        Object f = je.a(Array.get(this.a, i)).f(new ge(componentType));
-                        if (f != null) {
-                            jSONArray.put(f);
-                        }
+                    try {
+                        jSONObject.put(str, yd.a(obj).f(new vd(vdVar.a())));
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
-                    return jSONArray;
                 }
             }
-            return null;
+            return jSONObject;
         }
         return invokeL.objValue;
     }

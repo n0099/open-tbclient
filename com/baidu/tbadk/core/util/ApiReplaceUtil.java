@@ -13,10 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.b95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +71,7 @@ public class ApiReplaceUtil {
         /* JADX INFO: Access modifiers changed from: private */
         public void checkPrivacyPolicyOnDebug() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && s05.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && GlobalBuildConfig.isDebug() && !PermissionUtil.isAgreePrivacyPolicy()) {
                 throw new IllegalStateException("未同意隐私协议前，禁止调用系统相关API");
             }
         }
@@ -174,7 +173,7 @@ public class ApiReplaceUtil {
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
                             String string = Settings.Secure.getString(this.val$resolver, this.val$name);
                             if (TextUtils.isEmpty(string) && TextUtils.equals(HttpRequest.ANDROID_ID, this.val$name)) {
-                                return Config.NULL_DEVICE_ID;
+                                return "000000000000000";
                             }
                             return string;
                         }
@@ -227,7 +226,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return ka5.$default$forceApi(this);
+                    return b95.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -283,7 +282,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return ka5.$default$forceApi(this);
+                    return b95.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -340,7 +339,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return ka5.$default$forceApi(this);
+                    return b95.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -396,7 +395,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return ka5.$default$forceApi(this);
+                    return b95.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -451,7 +450,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return ka5.$default$forceApi(this);
+                    return b95.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -507,7 +506,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return ka5.$default$forceApi(this);
+                    return b95.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -626,7 +625,7 @@ public class ApiReplaceUtil {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
                         String string = Settings.System.getString(this.val$resolver, this.val$name);
                         if (TextUtils.isEmpty(string) && TextUtils.equals(HttpRequest.ANDROID_ID, this.val$name)) {
-                            return Config.NULL_DEVICE_ID;
+                            return "000000000000000";
                         }
                         return string;
                     }

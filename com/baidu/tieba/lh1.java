@@ -1,112 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class lh1 {
+public class lh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public lh1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = yi1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new JSONObject();
+        this.a = str;
+        this.b = System.currentTimeMillis();
+        this.c = zh1.c();
+    }
+
+    public lh1 a(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
             try {
-                Context a2 = yi1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
+                this.e.put(str, obj);
+            } catch (JSONException unused) {
             }
+            return this;
         }
-        return (String) invokeV.objValue;
+        return (lh1) invokeLL.objValue;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Context a = yi1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = yi1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final void c(eh1 eh1Var, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, eh1Var, str) == null) && eh1Var != null) {
-            boolean z2 = false;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String a = eh1Var.a("Cookie");
-                String str2 = "BDUSS=" + str;
-                if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
-                    eh1Var.d("Cookie", str2);
-                    return;
-                }
-                eh1Var.d("Cookie", a + "; " + str2);
-            }
-        }
-    }
-
-    public static final void d(eh1 eh1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, eh1Var) == null) && eh1Var != null) {
-            eh1Var.d("channel", "cashiersdk");
-            eh1Var.d("deviceType", "ANDROID");
-            eh1Var.d("osVersion", Build.VERSION.RELEASE);
-            eh1Var.d(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            eh1Var.d("appVersion", b());
-            eh1Var.d("sdkPgName", a());
-            eh1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        }
-    }
-
-    public static final dh1 e(JSONObject jSONObject) {
+    public lh1 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            dh1 dh1Var = new dh1();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    dh1Var.d(next, jSONObject.optString(next));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.d = str;
+            return this;
+        }
+        return (lh1) invokeL.objValue;
+    }
+
+    public lh1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            this.e = jSONObject;
+            return this;
+        }
+        return (lh1) invokeL.objValue;
+    }
+
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                xh1.d("statistics action can not null");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("a", this.a);
+                jSONObject.put("t", this.b);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
+                if (this.e != null) {
+                    jSONObject.put("cn", this.e);
+                } else if (!TextUtils.isEmpty(this.d)) {
+                    try {
+                        jSONObject.put("cn", new JSONObject(this.d));
+                    } catch (JSONException unused) {
+                        jSONObject.put("cn", this.d);
+                    }
+                }
+            } catch (JSONException e) {
+                if (xh1.d) {
+                    e.printStackTrace();
                 }
             }
-            return dh1Var;
+            return jSONObject;
         }
-        return (dh1) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

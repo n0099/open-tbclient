@@ -1,7 +1,10 @@
 package com.baidu.searchbox.live.interfaces.yy;
 
+import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.live.host2live.video.ILiveActInterface;
+import com.baidu.searchbox.live.host2live.video.ILiveToListInvokeAbility;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
 import com.baidu.searchbox.live.interfaces.callback.LiveLoadStatusCallback;
@@ -41,6 +44,11 @@ public interface IYYLiveNPSPlugin {
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void dispatchYYRawLiveRouter(Context context, String str) {
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
+        public ILiveActInterface getLiveActInterface(@NonNull Activity activity, ILiveToListInvokeAbility iLiveToListInvokeAbility) {
+            return null;
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
@@ -124,6 +132,8 @@ public interface IYYLiveNPSPlugin {
     void dispatchYYLiveRouter(Context context, String str);
 
     void dispatchYYRawLiveRouter(Context context, String str);
+
+    ILiveActInterface getLiveActInterface(@NonNull Activity activity, ILiveToListInvokeAbility iLiveToListInvokeAbility);
 
     @Deprecated
     void getLiveResourceSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback);

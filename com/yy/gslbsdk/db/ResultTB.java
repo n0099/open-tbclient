@@ -25,7 +25,7 @@ public class ResultTB implements Serializable, Cloneable {
     public long updateTime = -1;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1230view = null;
+    public String f1229view = null;
     public String uip = null;
     public int source = 0;
 
@@ -74,7 +74,7 @@ public class ResultTB implements Serializable, Cloneable {
     }
 
     public String getView() {
-        return this.f1230view;
+        return this.f1229view;
     }
 
     public void setCmd(String str) {
@@ -118,6 +118,6 @@ public class ResultTB implements Serializable, Cloneable {
     }
 
     public void setView(String str) {
-        this.f1230view = str;
+        this.f1229view = str;
     }
 }

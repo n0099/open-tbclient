@@ -1,31 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class k7a {
+public class k7a implements h65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    @Override // com.baidu.tieba.h65
+    public String name() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", str2);
-            TiebaStatic.log(statisticItem);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SPRITE_RES_STRATEGY" : (String) invokeV.objValue;
+    }
+
+    public k7a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str) {
+    @Override // com.baidu.tieba.h65
+    public f65 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new j7a();
         }
+        return (f65) invokeV.objValue;
     }
 }

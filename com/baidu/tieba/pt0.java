@@ -1,104 +1,128 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes7.dex */
-public class pt0 {
+public final class pt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public fu0 d;
 
-    public pt0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(String str, int i);
+
+        void b();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements et0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ b b;
+
+        public a(File file, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            this.b = bVar;
+        }
+
+        @Override // com.baidu.tieba.et0
+        public void a(Exception exc, int i) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (bVar = this.b) != null) {
+                bVar.a(exc.getMessage(), i);
             }
         }
-        this.a = 30000;
-        this.b = 30000;
-        this.c = 30000;
-        this.d = st0.a().a(true);
-    }
 
-    public pt0 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.a = i;
-            return this;
-        }
-        return (pt0) invokeI.objValue;
-    }
-
-    public pt0 b(fu0 fu0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fu0Var)) == null) {
-            this.d = fu0Var;
-            return this;
-        }
-        return (pt0) invokeL.objValue;
-    }
-
-    public pt0 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.b = i;
-            return this;
-        }
-        return (pt0) invokeI.objValue;
-    }
-
-    public pt0 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.c = i;
-            return this;
-        }
-        return (pt0) invokeI.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        @Override // com.baidu.tieba.et0
+        public void c(Headers headers, InputStream inputStream, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                if (i == 200) {
+                    try {
+                        pt0.b(inputStream, this.a);
+                        if (this.b != null) {
+                            this.b.b();
+                            return;
+                        }
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        b bVar = this.b;
+                        if (bVar != null) {
+                            bVar.a(e.getMessage(), -1);
+                            return;
+                        }
+                        return;
+                    }
+                }
+                b bVar2 = this.b;
+                if (bVar2 != null) {
+                    bVar2.a("", i);
+                }
             }
-            if (obj == null || pt0.class != obj.getClass()) {
-                return false;
-            }
-            pt0 pt0Var = (pt0) obj;
-            if (this.a == pt0Var.a && this.b == pt0Var.b && this.c == pt0Var.c && this.d == pt0Var.d) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return super.hashCode();
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, file, str, bVar, str2) == null) {
+            ys0 a2 = us0.b().a();
+            nt0 nt0Var = new nt0();
+            nt0Var.l(str);
+            nt0Var.c();
+            if (!TextUtils.isEmpty(str2)) {
+                nt0Var.d("User-Agent", str2);
+            }
+            a2.b(nt0Var, new a(file, bVar));
         }
-        return invokeV.intValue;
+    }
+
+    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
+            FileChannel channel = fileOutputStream.getChannel();
+            long j = 4096;
+            long j2 = 0;
+            while (j > 0) {
+                try {
+                    j = channel.transferFrom(newChannel, j2, 4096L);
+                    j2 += j;
+                } finally {
+                    sj0.a(fileOutputStream);
+                }
+            }
+        }
     }
 }

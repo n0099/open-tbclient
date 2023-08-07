@@ -1,77 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.faceshop.EmotionData;
+import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class s17 {
+public class s17 extends ei5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<ln> b;
-    public b c;
-    public r17 d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public ArrayList<String> i;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(v17 v17Var);
+    @Override // com.baidu.tieba.ei5
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements io {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s17 a;
-
-        public a(s17 s17Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s17Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s17Var;
+    @Override // com.baidu.tieba.ei5
+    public BdImage n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.io
-        public void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ynVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ynVar instanceof v17)) {
-                v17 v17Var = (v17) ynVar;
-                if (this.a.c != null) {
-                    this.a.c.a(v17Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", v17Var.a()).param("obj_locate", 2));
-                }
-            }
-        }
+        return (BdImage) invokeL.objValue;
     }
 
-    public s17(Context context) {
+    public s17(EmotionGroupData emotionGroupData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {emotionGroupData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,34 +59,150 @@ public class s17 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
+        this.i = new ArrayList<>();
+        this.e = emotionGroupData.getGroupId();
+        this.f = emotionGroupData.getGroupName();
+        this.g = emotionGroupData.getWidth();
+        this.h = emotionGroupData.getHeight();
+        u();
     }
 
-    public void d(b bVar) {
+    @Override // com.baidu.tieba.ei5
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= this.i.size()) {
+                return null;
+            }
+            return this.i.get(i);
         }
+        return (String) invokeI.objValue;
     }
 
-    public List<ln> b() {
+    @Override // com.baidu.tieba.ei5
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return this.i.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ei5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i.size();
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.ei5
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            r17 r17Var = new r17(this.a, v17.e);
-            this.d = r17Var;
-            r17Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ei5
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ei5
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return EmotionGroupType.BIG_EMOTION;
+        }
+        return (EmotionGroupType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ei5
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ei5
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ei5
+    public BdImage o(String str) {
+        InterceptResult invokeL;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (v(str)) {
+                b = r17.c(str, true, false);
+            } else {
+                b = r17.b(str, false);
+            }
+            Bitmap f = r17.f(this.e, b);
+            if (f == null) {
+                return null;
+            }
+            return new BdImage(f, false, str);
+        }
+        return (BdImage) invokeL.objValue;
+    }
+
+    public boolean v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_") && !substring.contains("collect_")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            t(2);
+            q(4);
+            Bitmap f = r17.f(this.e, "panel.png");
+            Bitmap f2 = r17.f(this.e, "panel_momo.png");
+            if (f != null) {
+                r(new BdImage(f, false));
+            }
+            if (f2 != null) {
+                s(new BdImage(f2, false));
+            }
+            this.i.clear();
+            for (EmotionData emotionData : y17.o().p(this.e)) {
+                this.i.add(emotionData.getSharpText());
+            }
         }
     }
 }

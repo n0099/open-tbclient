@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,16 +14,45 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a86 extends BaseCardInfo {
+public class a86 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+
+    /* loaded from: classes5.dex */
+    public class a implements z76 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a86 a;
+
+        public a(a86 a86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a86Var;
+        }
+
+        @Override // com.baidu.tieba.z76
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.a.mResult.putString("params", bundle.getString("result_msg"));
+                this.a.finish();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,115 +67,64 @@ public class a86 extends BaseCardInfo {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        a = ir1.a;
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return g;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public a86(int i) {
+    public a86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = i;
     }
 
-    public void g(String str) {
+    public static Bundle d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("order_info", str);
+            return bundle;
         }
+        return (Bundle) invokeL.objValue;
     }
 
-    public void h(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mParams.isEmpty()) {
+                if (a) {
+                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
+                }
+                return false;
+            }
+            if (a) {
+                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            }
+            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            if (!kr5.c().d()) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
+                return false;
+            } else if (!(getAgent() instanceof Activity)) {
+                return false;
+            } else {
+                w76 w76Var = new w76();
+                w76Var.mParams.putInt("type", 1);
+                w76Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
+                w76Var.d(getAgent());
+                w76Var.e(new a(this));
+                w76Var.onExec();
+                return false;
+            }
         }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,12 +16,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz8;
+import com.baidu.tieba.js5;
+import com.baidu.tieba.kx8;
 import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.uu5;
-import com.baidu.tieba.xba;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.raa;
+import com.baidu.tieba.xw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xba.c(this.b.i, this.a.getD2Scheme());
+                raa.c(this.b.i, this.a.getD2Scheme());
             }
         }
     }
@@ -111,7 +111,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            oz8 a = oz8.a();
+            kx8 a = kx8.a();
             RankScoreCard rankScoreCard = this.a;
             a.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
         }
@@ -170,7 +170,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                 return;
             }
         }
-        this.w = yi.l(tbPageContext.getPageActivity());
+        this.w = BdUtilHelper.getEquipmentWidth(tbPageContext.getPageActivity());
         this.x = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8) * 2;
     }
 
@@ -211,7 +211,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public void u(RankScoreCard rankScoreCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rankScoreCard, i) == null) {
-            uu5.a(this.i, getRootView());
+            js5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0106);
@@ -275,7 +275,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             } else {
                 this.r.setVisibility(0);
                 this.s.setTag(rankScoreCard.getPicUrl());
-                this.s.N(rankScoreCard.getPicUrl(), 10, false);
+                this.s.startLoad(rankScoreCard.getPicUrl(), 10, false);
                 if (rankScoreCard.getRank() <= 0) {
                     this.t.setVisibility(8);
                 } else {
@@ -293,7 +293,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.t, bz8.a[i]);
+                    SkinManager.setBackgroundColor(this.t, xw8.a[i]);
                     this.t.setText(rankScoreCard.getRank() + "");
                 }
             }
@@ -306,17 +306,17 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d5, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d8, (ViewGroup) null);
             this.m = linearLayout;
             this.n = (RelativeLayout) m(linearLayout, R.id.rl_content);
-            this.o = (TextView) m(this.m, R.id.obfuscated_res_0x7f0920ac);
-            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f090872);
-            this.q = (TextView) m(this.m, R.id.obfuscated_res_0x7f090873);
-            this.r = (RelativeLayout) m(this.m, R.id.obfuscated_res_0x7f091f36);
-            this.s = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f091c54);
-            this.t = (TextView) m(this.m, R.id.obfuscated_res_0x7f0914be);
-            this.u = (TextView) m(this.m, R.id.obfuscated_res_0x7f091eed);
-            this.v = (TextView) m(this.m, R.id.obfuscated_res_0x7f0904d9);
+            this.o = (TextView) m(this.m, R.id.obfuscated_res_0x7f0920c3);
+            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f090881);
+            this.q = (TextView) m(this.m, R.id.obfuscated_res_0x7f090882);
+            this.r = (RelativeLayout) m(this.m, R.id.obfuscated_res_0x7f091f4d);
+            this.s = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f091c6a);
+            this.t = (TextView) m(this.m, R.id.obfuscated_res_0x7f0914d1);
+            this.u = (TextView) m(this.m, R.id.obfuscated_res_0x7f091f04);
+            this.v = (TextView) m(this.m, R.id.obfuscated_res_0x7f0904e6);
             return this.m;
         }
         return (View) invokeV.objValue;

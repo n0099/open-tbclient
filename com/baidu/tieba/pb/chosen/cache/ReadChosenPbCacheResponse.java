@@ -1,26 +1,26 @@
 package com.baidu.tieba.pb.chosen.cache;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.ne9;
+import com.baidu.tieba.gd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ReadChosenPbCacheResponse extends CustomResponsedMessage<ne9> {
+public class ReadChosenPbCacheResponse extends CustomResponsedMessage<gd9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ne9 chosenData;
+    public gd9 chosenData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReadChosenPbCacheResponse(ne9 ne9Var) {
+    public ReadChosenPbCacheResponse(gd9 gd9Var) {
         super(2001314);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ne9Var};
+            Object[] objArr = {gd9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,15 +31,15 @@ public class ReadChosenPbCacheResponse extends CustomResponsedMessage<ne9> {
                 return;
             }
         }
-        this.chosenData = ne9Var;
+        this.chosenData = gd9Var;
     }
 
-    public ne9 getChosenData() {
+    public gd9 getChosenData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.chosenData;
         }
-        return (ne9) invokeV.objValue;
+        return (gd9) invokeV.objValue;
     }
 }

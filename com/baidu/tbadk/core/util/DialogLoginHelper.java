@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.LoginDialogData;
-import com.baidu.tieba.r9;
+import com.baidu.tieba.l9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class DialogLoginHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, loginDialogData)) == null) {
-            if (loginDialogData != null && FullBrowseHelper.checkAndShowFullBrowseModeDialog(r9.a(loginDialogData.getContext()))) {
+            if (loginDialogData != null && FullBrowseHelper.checkAndShowFullBrowseModeDialog(l9.a(loginDialogData.getContext()))) {
                 return false;
             }
             boolean isLogin = TbadkCoreApplication.isLogin();

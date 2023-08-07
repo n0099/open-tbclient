@@ -21,11 +21,11 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
     public int compareTo(ia iaVar) {
         int a2;
         if (ia.class.equals(iaVar.getClass())) {
-            int compareTo = Boolean.valueOf(m609a()).compareTo(Boolean.valueOf(iaVar.m609a()));
+            int compareTo = Boolean.valueOf(m610a()).compareTo(Boolean.valueOf(iaVar.m610a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m609a() || (a2 = it.a(this.f605a, iaVar.f605a)) == 0) {
+            if (!m610a() || (a2 = it.a(this.f605a, iaVar.f605a)) == 0) {
                 return 0;
             }
             return a2;
@@ -47,19 +47,19 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo697a();
+        jdVar.mo698a();
         while (true) {
-            ja mo693a = jdVar.mo693a();
-            byte b = mo693a.a;
+            ja mo694a = jdVar.mo694a();
+            byte b = mo694a.a;
             if (b == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            if (mo693a.f813a == 1 && b == 15) {
-                jb mo694a = jdVar.mo694a();
-                this.f605a = new ArrayList(mo694a.f814a);
-                for (int i = 0; i < mo694a.f814a; i++) {
+            if (mo694a.f813a == 1 && b == 15) {
+                jb mo695a = jdVar.mo695a();
+                this.f605a = new ArrayList(mo695a.f814a);
+                for (int i = 0; i < mo695a.f814a; i++) {
                     hp hpVar = new hp();
                     hpVar.a(jdVar);
                     this.f605a.add(hpVar);
@@ -73,19 +73,19 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m609a() {
+    public boolean m610a() {
         return this.f605a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m610a(ia iaVar) {
+    public boolean m611a(ia iaVar) {
         if (iaVar == null) {
             return false;
         }
-        boolean m609a = m609a();
-        boolean m609a2 = iaVar.m609a();
-        if (m609a || m609a2) {
-            return m609a && m609a2 && this.f605a.equals(iaVar.f605a);
+        boolean m610a = m610a();
+        boolean m610a2 = iaVar.m610a();
+        if (m610a || m610a2) {
+            return m610a && m610a2 && this.f605a.equals(iaVar.f605a);
         }
         return true;
     }
@@ -104,12 +104,12 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo701a();
+        jdVar.mo702a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ia)) {
-            return m610a((ia) obj);
+            return m611a((ia) obj);
         }
         return false;
     }

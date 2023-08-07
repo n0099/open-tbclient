@@ -1,305 +1,261 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.re;
-import com.baidu.tieba.ye;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes8.dex */
-public class ze<T> implements ye.c<T> {
-    public static /* synthetic */ Interceptable $ic;
+public class ze {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String e = "_crashtime";
+    public static String f = "_crashtype";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final xe<T> b;
-    public final String c;
+    public int a;
+    public int b;
+    public ye c;
+    public we d;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ye.a b;
-        public final /* synthetic */ ze c;
-
-        public a(ze zeVar, String str, ye.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeVar, str, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zeVar;
-            this.a = str;
-            this.b = aVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448323554, "Lcom/baidu/tieba/ze;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.ye$a */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a(this.a, this.c.get(this.a));
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448323554, "Lcom/baidu/tieba/ze;");
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ ze d;
-
-        public b(ze zeVar, String str, Object obj, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeVar, str, obj, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = zeVar;
-            this.a = str;
-            this.b = obj;
-            this.c = j;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.ze */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.e(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ze b;
-
-        public c(ze zeVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zeVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.remove(this.a);
-            }
-        }
-    }
-
-    public ze(String str, xe<T> xeVar) {
+    public ze(ye yeVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, xeVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {yeVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = str;
-        this.b = xeVar;
+        this.a = 0;
+        this.b = 0;
+        this.c = null;
+        this.d = (we) ServiceManager.getService(we.a);
+        if (yeVar != null) {
+            this.c = yeVar;
+            if (yeVar.d() > 0 && this.c.c() != null) {
+                int e2 = e();
+                this.a = e2;
+                if (e2 == -1) {
+                    g();
+                }
+            }
+            if (!yeVar.h()) {
+                this.b = f();
+            }
+            this.c.a(this.b, true);
+            return;
+        }
+        throw new InvalidParameterException("SwitchHolder data is null");
     }
 
-    @Override // com.baidu.tieba.ye
-    public void a(String str, T t) {
+    public final void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, t) == null) {
-            i(str, t, 315532800000L);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            we weVar = this.d;
+            if (weVar == null || weVar.isTypeSp() || this.d.isTypeDoubleKv() || this.d.isTypeDoubleSp()) {
+                SharedPreferences.Editor edit = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0).edit();
+                edit.putInt(this.c.e() + e, i);
+                edit.commit();
+            }
+            we weVar2 = this.d;
+            if (weVar2 == null || weVar2.isTypeDoubleSp() || this.d.isTypeDoubleKv()) {
+                SharedPreferences.Editor edit2 = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0).edit();
+                edit2.putInt(this.c.e() + e, i);
+                edit2.commit();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ye
-    public void f(String str, ye.a<T> aVar) {
+    public final void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            ch.a().b(new a(this, str, aVar));
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            we weVar = this.d;
+            if (weVar == null || weVar.isTypeSp() || this.d.isTypeDoubleKv() || this.d.isTypeDoubleSp()) {
+                SharedPreferences.Editor edit = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0).edit();
+                edit.putInt(this.c.e() + f, i);
+                edit.commit();
+            }
+            we weVar2 = this.d;
+            if (weVar2 == null || weVar2.isTypeDoubleSp() || this.d.isTypeDoubleKv()) {
+                SharedPreferences.Editor edit2 = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0).edit();
+                edit2.putInt(this.c.e() + f, i);
+                edit2.commit();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ye
-    public void g(String str, T t) {
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        String[] g;
+        String[] c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, t) == null) {
-            e(str, t, 315532800000L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str != null && this.c.d() > 0) {
+                if (this.c.c() != null) {
+                    for (String str2 : this.c.c()) {
+                        if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
+                            int i = this.a + 1;
+                            this.a = i;
+                            j(i);
+                            if (this.a >= this.c.d()) {
+                                k(this.c.f());
+                                this.b = this.c.f();
+                                ye yeVar = this.c;
+                                yeVar.a(yeVar.f(), false);
+                            }
+                            return true;
+                        }
+                    }
+                }
+                if (this.c.g() != null) {
+                    for (String str3 : this.c.g()) {
+                        if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
+                            int i2 = this.a + 1;
+                            this.a = i2;
+                            j(i2);
+                            if (this.a >= this.c.d()) {
+                                k(this.c.f());
+                                this.b = this.c.f();
+                                ye yeVar2 = this.c;
+                                yeVar2.a(yeVar2.f(), false);
+                            }
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ye.c
-    public void b() {
+    public ye b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.g(this.c);
-            l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (ye) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ye.c
-    public xe<T> c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.c.b();
         }
-        return (xe) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ye.c
-    public String j() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.e();
         }
         return (String) invokeV.objValue;
     }
 
-    public void k() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.b.b(this.c);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0;
         }
     }
 
-    public void l() {
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            re c2 = c().c();
-            if (c2 instanceof re.b) {
-                ((re.b) c2).release();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            we weVar = this.d;
+            if (weVar != null && !weVar.isTypeSp() && !this.d.isTypeDoubleSp()) {
+                sharedPreferences = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0);
+            } else {
+                sharedPreferences = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0);
             }
+            return sharedPreferences.getInt(this.c.e() + e, -1);
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ye
-    public void d(String str) {
+    public final int f() {
+        InterceptResult invokeV;
+        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            ch.a().b(new c(this, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.ye
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b.d(this.c, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ye
-    public void e(String str, T t, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
-            if (str != null) {
-                if (j <= 315532800000L) {
-                    j += System.currentTimeMillis();
-                }
-                long j2 = j;
-                if (j2 <= System.currentTimeMillis()) {
-                    remove(str);
-                    return;
-                } else {
-                    this.b.f(this.c, str, t, j2);
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            we weVar = this.d;
+            if (weVar != null && !weVar.isTypeSp() && !this.d.isTypeDoubleSp()) {
+                sharedPreferences = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0);
+            } else {
+                sharedPreferences = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0);
             }
-            throw new NullPointerException("BdKVCache key cannot be null!");
+            return sharedPreferences.getInt(this.c.e() + f, this.c.b());
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // com.baidu.tieba.ye
-    public T get(String str) {
-        InterceptResult invokeL;
+    public boolean i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && yi.F()) {
-                if (!this.a) {
-                    BdLog.detailException("access db in main thread!", new Exception());
-                } else {
-                    throw new RuntimeException("access db in main thread!");
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (this.c.d() >= 0 && this.a >= this.c.d() + 2) {
+                i = this.c.f();
             }
-            return this.b.a(this.c, str);
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ye
-    public ye.b<T> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && yi.F()) {
-                if (!this.a) {
-                    BdLog.detailException("access db in main thread!", new Exception());
-                } else {
-                    throw new RuntimeException("access db in main thread!");
-                }
+            if (i == this.b) {
+                return false;
             }
-            return this.b.e(this.c, str);
+            this.b = i;
+            this.c.a(i, false);
+            k(i);
+            return true;
         }
-        return (ye.b) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ye
-    public void i(String str, T t, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
-            ch.a().b(new b(this, str, t, j));
-        }
+        return invokeI.booleanValue;
     }
 }

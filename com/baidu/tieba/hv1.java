@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes6.dex */
 public interface hv1 {
-    void a(Context context);
+    float a();
+
+    String processUrl(String str);
 }

@@ -1,150 +1,143 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hw6 {
+public class hw6 extends cw6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<? extends fw6> a;
-    public List<? extends Object> b;
+    public DownloadManagerNetModel b;
+    public iw6 c;
+    public jw6 d;
+    public fw6 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947838178, "Lcom/baidu/tieba/hw6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947838178, "Lcom/baidu/tieba/hw6;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
-
-        public a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-        }
-
-        public final boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public hw6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hw6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, int i) {
+        super(tbPageContext, bdUniqueId, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = CollectionsKt__CollectionsKt.emptyList();
-        this.b = CollectionsKt__CollectionsKt.emptyList();
+        iw6 iw6Var = new iw6(1, i);
+        this.c = iw6Var;
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(tbPageContext, iw6Var);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.p0(this);
+        this.b.setUniqueId(bdUniqueId);
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.fw6>, java.util.List<com.baidu.tieba.fw6> */
-    public final List<fw6> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void H(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<Object> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        jw6 jw6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            jw6Var = (jw6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
         }
-        return (List) invokeV.objValue;
+        if (jw6Var != null && f(jw6Var)) {
+            return;
+        }
+        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
     }
 
-    public final a a(ov6 item, rx6 timer, iv6 config) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void v(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            Iterator<? extends fw6> it = this.a.iterator();
-            int i = 0;
-            boolean z = false;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                fw6 next = it.next();
-                boolean b = next.b(item, timer, config);
-                if (b) {
-                    i = next.a();
-                    z = b;
-                    break;
-                }
-                z = b;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        jw6 jw6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            jw6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (jw6Var != null && f(jw6Var)) {
+            return;
+        }
+        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tieba.cw6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.c();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.cw6
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.b();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.cw6
+    public void d(fw6 fw6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fw6Var) == null) {
+            this.e = fw6Var;
+        }
+    }
+
+    public final void e(int i, String str) {
+        fw6 fw6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i != 0 && (fw6Var = this.e) != null) {
+            fw6Var.b(i, str);
+        }
+    }
+
+    public final boolean f(jw6 jw6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jw6Var)) == null) {
+            if (jw6Var == null) {
+                return false;
             }
-            return new a(z, i);
+            if (this.c.a() != 1) {
+                this.d.a(jw6Var);
+            } else {
+                this.d = jw6Var;
+            }
+            fw6 fw6Var = this.e;
+            if (fw6Var != null) {
+                jw6 jw6Var2 = this.d;
+                fw6Var.a(jw6Var2.a, jw6Var2.b, jw6Var2.c.intValue());
+            }
+            return true;
         }
-        return (a) invokeLLL.objValue;
-    }
-
-    public final void d(List<? extends fw6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.a = list;
-        }
-    }
-
-    public final void e(List<? extends Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.b = list;
-        }
+        return invokeL.booleanValue;
     }
 }

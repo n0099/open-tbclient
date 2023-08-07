@@ -1,11 +1,13 @@
 package com.baidu.searchbox.live.game.interfaces;
 
+import android.content.Context;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.Map;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\bf\u0018\u0000 \u00132\u00020\u0001:\u0003\u0013\u0014\u0015J)\u0010\u0006\u001a\u00020\u00052\u0018\b\u0002\u0010\u0004\u001a\u0012\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u0002H&¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H&¢\u0006\u0004\b\b\u0010\tJ+\u0010\f\u001a\u00020\u00052\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00030\u00022\u0006\u0010\u000b\u001a\u00020\nH&¢\u0006\u0004\b\f\u0010\rJ\u001b\u0010\u0010\u001a\u00020\u00052\n\b\u0002\u0010\u000f\u001a\u0004\u0018\u00010\u000eH&¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0005H&¢\u0006\u0004\b\u0012\u0010\t¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/live/game/interfaces/GameService;", "Lkotlin/Any;", "", "", "params", "", "callHostMsgSendAPI", "(Ljava/util/Map;)V", "clearCachedHostMsgSendAPI", "()V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;", WebChromeClient.KEY_ARG_CALLBACK, "doAuth", "(Ljava/util/Map;Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;)V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "initHostMsgSendAPI", "(Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;)V", "releaseHostMsgSendAPI", "Companion", "GameAuthCallback", "MsgSendListener", "lib-game-interface_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\bf\u0018\u0000 \u001b2\u00020\u0001:\u0003\u001b\u001c\u001dJ)\u0010\u0006\u001a\u00020\u00052\u0018\b\u0002\u0010\u0004\u001a\u0012\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u0002H&¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H&¢\u0006\u0004\b\b\u0010\tJ\u001f\u0010\r\u001a\u00020\u00052\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u0003H&¢\u0006\u0004\b\r\u0010\u000eJ+\u0010\u0011\u001a\u00020\u00052\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00030\u00022\u0006\u0010\u0010\u001a\u00020\u000fH&¢\u0006\u0004\b\u0011\u0010\u0012J\u001b\u0010\u0015\u001a\u00020\u00052\n\b\u0002\u0010\u0014\u001a\u0004\u0018\u00010\u0013H&¢\u0006\u0004\b\u0015\u0010\u0016J/\u0010\u0018\u001a\u00020\u00052\u0006\u0010\f\u001a\u00020\u00032\u0016\u0010\u0017\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u0002H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0005H&¢\u0006\u0004\b\u001a\u0010\t¨\u0006\u001e"}, d2 = {"Lcom/baidu/searchbox/live/game/interfaces/GameService;", "Lkotlin/Any;", "", "", "params", "", "callHostMsgSendAPI", "(Ljava/util/Map;)V", "clearCachedHostMsgSendAPI", "()V", "Landroid/content/Context;", "context", "url", LiveYYPluginManager.USE_FROM_DISPATCH_YY_ROUTER, "(Landroid/content/Context;Ljava/lang/String;)V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;", WebChromeClient.KEY_ARG_CALLBACK, "doAuth", "(Ljava/util/Map;Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;)V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "initHostMsgSendAPI", "(Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;)V", "data", "logTiebaStatic", "(Ljava/lang/String;Ljava/util/Map;)V", "releaseHostMsgSendAPI", "Companion", "GameAuthCallback", "MsgSendListener", "lib-game-interface_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public interface GameService {
     public static final Companion Companion = Companion.$$INSTANCE;
@@ -22,9 +24,13 @@ public interface GameService {
 
     void clearCachedHostMsgSendAPI();
 
+    void dispatchYYLiveRouter(Context context, String str);
+
     void doAuth(Map<String, String> map, GameAuthCallback gameAuthCallback);
 
     void initHostMsgSendAPI(MsgSendListener msgSendListener);
+
+    void logTiebaStatic(String str, Map<String, String> map);
 
     void releaseHostMsgSendAPI();
 
@@ -80,6 +86,9 @@ public interface GameService {
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public static final class DefaultImpls {
+        public static void logTiebaStatic(GameService gameService, String str, Map<String, String> map) {
+        }
+
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.live.game.interfaces.GameService */
         /* JADX WARN: Multi-variable type inference failed */
         public static /* synthetic */ void callHostMsgSendAPI$default(GameService gameService, Map map, int i, Object obj) {

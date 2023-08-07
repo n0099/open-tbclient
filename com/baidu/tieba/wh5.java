@@ -1,31 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ItemData;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wh5 {
+public class wh5 extends xh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ItemData b;
-    public String c;
-    public int d;
-    public int e;
 
-    public wh5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wh5(Context context) {
+        super((String) null, 23, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = R.drawable.icon_pure_post_more24_svg;
+        this.e = R.drawable.icon_mask_post_more24_selection_svg;
+        this.i = true;
+        this.p = new int[]{32};
     }
 }

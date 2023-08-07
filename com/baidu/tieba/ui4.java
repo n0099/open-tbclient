@@ -1,48 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.PostFormRequest;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.HashSet;
 /* loaded from: classes8.dex */
-public class ui4 extends PostFormRequest.PostFormRequestBuilder {
+public final class ui4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ui4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle a(@NonNull ri4 ri4Var, @Nullable Bundle bundle, String... strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, ri4Var, bundle, strArr)) == null) {
+            if (bundle == null) {
+                bundle = new Bundle();
             }
+            if (bundle.getLong("timestamp", -1L) < 0) {
+                bundle.putLong("timestamp", System.currentTimeMillis());
+            }
+            return ri4Var.m(bundle, new HashSet(Arrays.asList(strArr)));
         }
+        return (Bundle) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.PostFormRequest.PostFormRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public PostFormRequest build() {
-        InterceptResult invokeV;
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle b(@NonNull ri4 ri4Var, @NonNull String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ni4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ri4Var, strArr)) == null) {
+            return a(ri4Var, null, strArr);
         }
-        return (PostFormRequest) invokeV.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

@@ -30,11 +30,11 @@ public final class InlineClassManglingRulesKt {
     }
 
     public static final boolean isTypeParameterWithUpperBoundThatRequiresMangling(KotlinType kotlinType) {
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if (!(mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-            mo2101getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (!(mo2102getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+            mo2102getDeclarationDescriptor = null;
         }
-        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2101getDeclarationDescriptor;
+        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2102getDeclarationDescriptor;
         if (typeParameterDescriptor != null) {
             return requiresFunctionNameMangling(TypeUtilsKt.getRepresentativeUpperBound(typeParameterDescriptor));
         }
@@ -49,8 +49,8 @@ public final class InlineClassManglingRulesKt {
     }
 
     public static final boolean isInlineClassThatRequiresMangling(KotlinType kotlinType) {
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if (mo2101getDeclarationDescriptor != null && isInlineClassThatRequiresMangling(mo2101getDeclarationDescriptor)) {
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (mo2102getDeclarationDescriptor != null && isInlineClassThatRequiresMangling(mo2102getDeclarationDescriptor)) {
             return true;
         }
         return false;

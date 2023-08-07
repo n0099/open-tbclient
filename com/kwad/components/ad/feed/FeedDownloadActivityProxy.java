@@ -24,12 +24,12 @@ import com.kwad.sdk.core.view.KsAdContainer;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a implements View.OnClickListener {
     public static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template_json";
     public static final String TAG = "FeedDownloadActivity";
-    public static b.InterfaceC0670b sInnerAdInteractionListener;
+    public static b.InterfaceC0671b sInnerAdInteractionListener;
     public KsAdContainer mAdContainer;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -97,10 +97,10 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
     }
 
     private void intiView() {
-        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f091280);
+        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f091293);
         this.mAdContainer = ksAdContainer;
         ksAdContainer.setOnClickListener(this);
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f091292);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f0912a5);
         this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.c(this.mAdTemplate);
         this.mAppTailFrameView.u(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
@@ -111,21 +111,21 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, b.InterfaceC0670b interfaceC0670b) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, b.InterfaceC0671b interfaceC0671b) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
-        sInnerAdInteractionListener = interfaceC0670b;
+        sInnerAdInteractionListener = interfaceC0671b;
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyAdClick() {
         com.kwad.sdk.core.report.a.a(this.mAdTemplate, new com.kwad.sdk.core.report.f().b(this.mAdContainer.getTouchCoords()), (JSONObject) null);
-        b.InterfaceC0670b interfaceC0670b = sInnerAdInteractionListener;
-        if (interfaceC0670b != null) {
-            interfaceC0670b.onAdClicked();
+        b.InterfaceC0671b interfaceC0671b = sInnerAdInteractionListener;
+        if (interfaceC0671b != null) {
+            interfaceC0671b.onAdClicked();
         }
     }
 
@@ -149,7 +149,7 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        com.kwad.components.core.c.a.a.a(new a.C0646a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.mProgressBarTv ? 1 : 2).aj(view2 == this.mProgressBarTv).a(new a.b() { // from class: com.kwad.components.ad.feed.FeedDownloadActivityProxy.2
+        com.kwad.components.core.c.a.a.a(new a.C0647a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.mProgressBarTv ? 1 : 2).aj(view2 == this.mProgressBarTv).a(new a.b() { // from class: com.kwad.components.ad.feed.FeedDownloadActivityProxy.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 FeedDownloadActivityProxy.this.notifyAdClick();
@@ -170,7 +170,7 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
             return;
         }
         getActivity().setTheme(16973838);
-        setContentView(R.layout.obfuscated_res_0x7f0d0475);
+        setContentView(R.layout.obfuscated_res_0x7f0d0478);
         intiView();
     }
 

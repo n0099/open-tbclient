@@ -8,13 +8,13 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.p16;
-import com.baidu.tieba.u16;
-import com.baidu.tieba.y66;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.dz5;
+import com.baidu.tieba.f46;
+import com.baidu.tieba.yy5;
+import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,16 +27,16 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public static TbImageMemoryCache h;
     public transient /* synthetic */ FieldHolder $fh;
-    public mg<String, jn> a;
-    public mg<String, jn> b;
-    public y66<String, jn> c;
-    public mg<String, Bitmap> d;
-    public mg<String, jn> e;
-    public ng<p16> f;
-    public u16 g;
+    public zf<String, BdImage> a;
+    public zf<String, BdImage> b;
+    public f46<String, BdImage> c;
+    public zf<String, Bitmap> d;
+    public zf<String, BdImage> e;
+    public ag<yy5> f;
+    public dz5 g;
 
     /* loaded from: classes4.dex */
-    public class a extends mg<String, jn> {
+    public class a extends zf<String, BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,18 +61,18 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.zf
         /* renamed from: o */
-        public void b(boolean z, String str, jn jnVar, jn jnVar2) {
+        public void b(boolean z, String str, BdImage bdImage, BdImage bdImage2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, jnVar, jnVar2}) == null) && jnVar != null) {
-                jnVar.x();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, bdImage, bdImage2}) == null) && bdImage != null) {
+                bdImage.recycle();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends mg<String, jn> {
+    public class b extends zf<String, BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageMemoryCache h;
@@ -99,14 +99,14 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.zf
         /* renamed from: p */
-        public int m(String str, jn jnVar) {
+        public int m(String str, BdImage bdImage) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jnVar)) == null) {
-                if (jnVar != null) {
-                    return jnVar.B();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bdImage)) == null) {
+                if (bdImage != null) {
+                    return bdImage.size();
                 }
                 return 0;
             }
@@ -114,19 +114,19 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.zf
         /* renamed from: o */
-        public void b(boolean z, String str, jn jnVar, jn jnVar2) {
+        public void b(boolean z, String str, BdImage bdImage, BdImage bdImage2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, jnVar, jnVar2}) == null) && jnVar != null && !this.h.c.b(str)) {
-                jnVar.x();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, bdImage, bdImage2}) == null) && bdImage != null && !this.h.c.b(str)) {
+                bdImage.recycle();
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends mg<String, Bitmap> {
+    public class c extends zf<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,7 +151,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.zf
         /* renamed from: o */
         public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
             Interceptable interceptable = $ic;
@@ -177,29 +177,29 @@ public class TbImageMemoryCache implements LifecycleObserver {
         h = new TbImageMemoryCache();
     }
 
-    public static TbImageMemoryCache v() {
+    public static TbImageMemoryCache B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return h;
         }
         return (TbImageMemoryCache) invokeV.objValue;
     }
 
-    public int D() {
+    public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b.g();
         }
         return invokeV.intValue;
     }
 
-    public void I() {
-        ng<p16> ngVar;
+    public void J() {
+        ag<yy5> agVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ngVar = this.f) != null) {
-            ngVar.g(0);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (agVar = this.f) != null) {
+            agVar.g(0);
             this.f.f(0);
             this.f.c();
             this.f = null;
@@ -241,98 +241,107 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new y66<>();
+        this.c = new f46<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
-        this.e = new mg<>(Integer.MAX_VALUE);
+        this.e = new zf<>(Integer.MAX_VALUE);
     }
 
-    public jn A(String str) {
+    public BdImage C(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            jn c2 = this.c.c(str);
-            if (c2 != null && c2.w()) {
+            return this.a.f(str);
+        }
+        return (BdImage) invokeL.objValue;
+    }
+
+    public BdImage D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            BdImage c2 = this.c.c(str);
+            if (c2 != null && c2.isValidNow()) {
                 return c2;
             }
             return q(str);
         }
-        return (jn) invokeL.objValue;
+        return (BdImage) invokeL.objValue;
     }
 
-    public jn E(String str) {
+    public BdImage F(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return this.e.f(str);
         }
-        return (jn) invokeL.objValue;
+        return (BdImage) invokeL.objValue;
     }
 
-    public void J(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d.k(i);
-        }
-    }
-
-    public void K(int i) {
+    public void L(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a.k(i);
+            this.d.k(i);
         }
     }
 
     public void M(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a.k(i);
+        }
+    }
+
+    public void N(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.b.k(i);
         }
     }
 
-    public final jn q(String str) {
+    public final BdImage q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            jn f = this.b.f(str);
-            if (f != null && f.w()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            BdImage f = this.b.f(str);
+            if (f != null && f.isValidNow()) {
                 d(str, f);
             }
             return f;
         }
-        return (jn) invokeL.objValue;
+        return (BdImage) invokeL.objValue;
     }
 
     public void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.a.i(str);
         }
     }
 
     public void s(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.b.i(str);
         }
     }
 
-    public boolean t(int i) {
+    public boolean v(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
             return this.b.e(i);
         }
         return invokeI.booleanValue;
     }
 
-    public Bitmap u(String str) {
+    public Bitmap w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -341,99 +350,90 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (Bitmap) invokeL.objValue;
     }
 
-    public jn w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-            return this.a.f(str);
-        }
-        return (jn) invokeL.objValue;
-    }
-
-    public ng<p16> F(int i) {
+    public ag<yy5> H(int i) {
         InterceptResult invokeI;
-        u16 u16Var;
+        dz5 dz5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.f != null && (u16Var = this.g) != null) {
-                if (u16Var.g() == i) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.f != null && (dz5Var = this.g) != null) {
+                if (dz5Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new u16(i);
+                this.g = new dz5(i);
             }
             if (this.f == null) {
-                this.f = new ng<>(this.g, 6, 0);
+                this.f = new ag<>(this.g, 6, 0);
             }
             return this.f;
         }
-        return (ng) invokeI.objValue;
+        return (ag) invokeI.objValue;
     }
 
-    public void G(int i, int i2) {
+    public void I(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            K(i);
-            M(i2);
-            J(60);
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            M(i);
+            N(i2);
+            L(60);
         }
     }
 
-    public final void d(String str, jn jnVar) {
+    public final void d(String str, BdImage bdImage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, jnVar) == null) {
-            this.c.d(str, jnVar);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, bdImage) == null) {
+            this.c.d(str, bdImage);
         }
     }
 
     public void i(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, bitmap) == null) && !StringUtils.isNull(str) && bitmap != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, bitmap) == null) && !StringUtils.isNull(str) && bitmap != null) {
             this.d.h(str, bitmap);
         }
     }
 
-    public void j(String str, jn jnVar) {
+    public void j(String str, BdImage bdImage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, jnVar) == null) {
-            l(str, jnVar, false);
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, bdImage) == null) {
+            k(str, bdImage, false);
         }
     }
 
-    public void m(String str, jn jnVar) {
-        mg<String, jn> mgVar;
+    public void m(String str, BdImage bdImage) {
+        zf<String, BdImage> zfVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, str, jnVar) == null) && jnVar != null && (mgVar = this.b) != null) {
-            mgVar.h(str, jnVar);
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, bdImage) == null) && bdImage != null && (zfVar = this.b) != null) {
+            zfVar.h(str, bdImage);
             q(str);
         }
     }
 
-    public void o(String str, jn jnVar) {
-        mg<String, jn> mgVar;
+    public void p(String str, BdImage bdImage) {
+        zf<String, BdImage> zfVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, jnVar) == null) && jnVar != null && (mgVar = this.e) != null) {
-            mgVar.h(str, jnVar);
+        if ((interceptable == null || interceptable.invokeLL(1048594, this, str, bdImage) == null) && bdImage != null && (zfVar = this.e) != null) {
+            zfVar.h(str, bdImage);
         }
     }
 
-    public String N() {
+    public String O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.b.l() + "/" + this.b.g() + "/" + this.b.d() + "_" + this.a.l() + "/" + this.a.g() + "/" + this.a.d();
         }
         return (String) invokeV.objValue;
     }
 
-    public void l(String str, jn jnVar, boolean z) {
-        mg<String, jn> mgVar;
+    public void k(String str, BdImage bdImage, boolean z) {
+        zf<String, BdImage> zfVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048589, this, str, jnVar, z) == null) && jnVar != null && (mgVar = this.a) != null) {
-            mgVar.h(str, jnVar);
+        if ((interceptable == null || interceptable.invokeLLZ(1048590, this, str, bdImage, z) == null) && bdImage != null && (zfVar = this.a) != null) {
+            zfVar.h(str, bdImage);
         }
     }
 

@@ -1,117 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class jn3 {
+public final class jn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public View c;
-    public int d;
-    public in3 e;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ jn3 b;
-
-        public a(jn3 jn3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jn3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.b = jn3Var;
-            this.a = str;
+            try {
+                cr4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                cr4.d(null);
+                return false;
+            } catch (Throwable th) {
+                cr4.d(null);
+                throw th;
+            }
         }
+        return invokeLL.booleanValue;
+    }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.e != null) {
-                    this.b.e.c(this.a);
-                }
-                Rect rect = new Rect();
-                this.b.c.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.b.d != this.b.a) {
-                    if (this.b.d == height) {
-                        return;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                cr4.d(inputStream2);
+                throw th;
+            }
+            if (inputStream == null) {
+                cr4.d(inputStream);
+                return null;
+            }
+            try {
+                try {
+                    str2 = fr4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (ir1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
                     }
-                    if (this.b.d - height > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.b(this.a, this.b.d - height);
-                        }
-                        this.b.d = height;
-                        return;
-                    } else if (height - this.b.d > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.a(this.a, height - this.b.d);
-                        }
-                        this.b.d = height;
-                        return;
-                    } else {
-                        return;
-                    }
+                    cr4.d(inputStream);
+                    return str2;
                 }
-                this.b.d = height;
+                cr4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                cr4.d(inputStream2);
+                throw th;
             }
         }
-    }
-
-    public jn3(String str, Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 200;
-        View decorView = activity.getWindow().getDecorView();
-        this.c = decorView;
-        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
-    }
-
-    public final void h(in3 in3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, in3Var) == null) {
-            this.e = in3Var;
-        }
-    }
-
-    public static void g(String str, Activity activity, in3 in3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, in3Var) == null) {
-            new jn3(str, activity).h(in3Var);
-        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,19 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes8.dex */
-public abstract class y1a implements qc7 {
+public class y1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public y1a() {
         Interceptable interceptable = $ic;
@@ -25,36 +40,43 @@ public abstract class y1a implements qc7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
+    public y1a(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str = "";
-            if (currentAccount == null) {
-                currentAccount = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            hashMap.put("uid", currentAccount);
-            String str2 = a.get("live_type");
-            if (str2 == null) {
-                str2 = "";
-            }
-            hashMap.put("obj_param1", str2);
-            String str3 = a.get("live_app_id");
-            if (str3 != null) {
-                str = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
+    }
+
+    public static void a(y1a y1aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, y1aVar) == null) {
+            y1aVar.i = 0;
+            y1aVar.g = 4;
+            y1aVar.h = 4;
+            y1aVar.l = System.currentTimeMillis();
+            y1aVar.n = true;
+        }
     }
 }

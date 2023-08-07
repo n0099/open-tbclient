@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s46;
+import com.baidu.tieba.z16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +108,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             if (jSONObject == null) {
                 return;
             }
-            s46.a().m(jSONObject);
+            z16.a().m(jSONObject);
         }
     }
 
@@ -384,7 +384,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.yn
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,19 +1,35 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface y6c {
-    GetBannerConfigReqParams a();
+public class y6c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 2;
+    public static int c = 3;
+    public static int d = 4;
+    public static int e = 5;
+    public static int f = 6;
+    public static int g = 7;
+    public static int h = 8;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    QueryCurrencyReqParams b();
-
-    b7c c(PayFlowType payFlowType, Map<String, String> map);
-
-    QueryCurrencyReqParams d(PayFlowType payFlowType, Map<String, String> map);
-
-    GetSplitOrderConfigReqParams e(int i, String str, long j);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948283555, "Lcom/baidu/tieba/y6c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948283555, "Lcom/baidu/tieba/y6c;");
+        }
+    }
 }

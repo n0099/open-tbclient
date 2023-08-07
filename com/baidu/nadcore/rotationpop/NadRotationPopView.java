@@ -22,16 +22,17 @@ import com.airbnb.lottie.LottieOnCompositionLoadedListener;
 import com.baidu.nadcore.rotationpop.NadRotationPopView;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at0;
-import com.baidu.tieba.b81;
-import com.baidu.tieba.o51;
-import com.baidu.tieba.rp0;
-import com.baidu.tieba.s31;
-import com.baidu.tieba.sp0;
-import com.baidu.tieba.t31;
-import com.baidu.tieba.y71;
-import com.baidu.tieba.z31;
-import com.baidu.tieba.z61;
+import com.baidu.tieba.b71;
+import com.baidu.tieba.c31;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.ds0;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.po0;
+import com.baidu.tieba.qn0;
+import com.baidu.tieba.qo0;
+import com.baidu.tieba.r41;
+import com.baidu.tieba.v21;
+import com.baidu.tieba.w21;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -43,7 +44,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.math.MathKt__MathJVMKt;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u008e\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002:\u0002[\\B'\b\u0007\u0012\u0006\u0010U\u001a\u00020T\u0012\n\b\u0002\u0010W\u001a\u0004\u0018\u00010V\u0012\b\b\u0002\u0010X\u001a\u00020(¢\u0006\u0004\bY\u0010ZJ\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\b\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\b\u0010\u0007J\r\u0010\n\u001a\u00020\t¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\tH\u0002¢\u0006\u0004\b\f\u0010\u000bJ\r\u0010\r\u001a\u00020\t¢\u0006\u0004\b\r\u0010\u000bJ\u0017\u0010\u000e\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ!\u0010\u0012\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u00032\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0019\u0010\u0016\u001a\u00020\t2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\r\u0010\u0018\u001a\u00020\t¢\u0006\u0004\b\u0018\u0010\u000bJ\r\u0010\u0019\u001a\u00020\t¢\u0006\u0004\b\u0019\u0010\u000bJ\r\u0010\u001a\u001a\u00020\t¢\u0006\u0004\b\u001a\u0010\u000bJ\r\u0010\u001b\u001a\u00020\t¢\u0006\u0004\b\u001b\u0010\u000bJ\r\u0010\u001c\u001a\u00020\t¢\u0006\u0004\b\u001c\u0010\u000bJ\r\u0010\u001d\u001a\u00020\t¢\u0006\u0004\b\u001d\u0010\u000bJ\u0015\u0010 \u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020\u001e¢\u0006\u0004\b \u0010!J\u0017\u0010\"\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\"\u0010\u000fJ\u0017\u0010#\u001a\u00020\t2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b#\u0010\u000fJ\u0017\u0010$\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b$\u0010\u000fJ\u0017\u0010%\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b%\u0010\u000fJ\u0017\u0010&\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b&\u0010\u000fJ\r\u0010'\u001a\u00020\t¢\u0006\u0004\b'\u0010\u000bJ\u0015\u0010*\u001a\u00020\t2\u0006\u0010)\u001a\u00020(¢\u0006\u0004\b*\u0010+R\u0018\u0010,\u001a\u0004\u0018\u00010\u001e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R\u001d\u00103\u001a\u00020.8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u00100\u001a\u0004\b1\u00102R\u0016\u00104\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00106\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00105R\u0018\u00108\u001a\u0004\u0018\u0001078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u0018\u0010;\u001a\u0004\u0018\u00010:8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b;\u0010<R\u0016\u0010=\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u00105R\u0016\u0010?\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b?\u0010@R\u001d\u0010E\u001a\u00020A8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bB\u00100\u001a\u0004\bC\u0010DR\u001d\u0010J\u001a\u00020F8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bG\u00100\u001a\u0004\bH\u0010IR\u001d\u0010O\u001a\u00020K8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bL\u00100\u001a\u0004\bM\u0010NR\u0018\u0010Q\u001a\u0004\u0018\u00010P8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bQ\u0010RR\u0018\u0010S\u001a\u0004\u0018\u00010:8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bS\u0010<¨\u0006]"}, d2 = {"Lcom/baidu/nadcore/rotationpop/NadRotationPopView;", "android/view/View$OnClickListener", "Landroid/widget/RelativeLayout;", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "model", "", "checkCanShow", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)Z", "checkDataValid", "", "hide", "()V", "hideAnim", "hideWithoutAnim", "loadImage", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)V", "Landroid/graphics/Bitmap;", "bitmap", "loadLottie", "(Lcom/baidu/nadcore/model/NadRotationPopModel;Landroid/graphics/Bitmap;)V", "Landroid/view/View;", "v", "onClick", "(Landroid/view/View;)V", "pauseHideDelayTimer", "pauseShowDelayTimer", "release", "reset", "resumeHideDelayTimer", "resumeShowDelayTimer", "Lcom/baidu/nadcore/rotationpop/NadRotationPopView$IOnActionListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setBusinessActionListener", "(Lcom/baidu/nadcore/rotationpop/NadRotationPopView$IOnActionListener;)V", "setCountDownTimer", "setData", "setLpParams", "setRotationHelper", "showAnim", "startShowDelayTimer", "", "progress", "updatePlayerProgress", "(I)V", "actionListener", "Lcom/baidu/nadcore/rotationpop/NadRotationPopView$IOnActionListener;", "Lcom/baidu/nadcore/widget/AdImageView;", "bgView$delegate", "Lkotlin/Lazy;", "getBgView", "()Lcom/baidu/nadcore/widget/AdImageView;", "bgView", "hasStartShowCountTimer", "Z", "hasTriedToShow", "Landroid/animation/ObjectAnimator;", "hideAnimator", "Landroid/animation/ObjectAnimator;", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "hideCountDownTimer", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "loadLottieSuccess", "", "lottieShowMode", "Ljava/lang/String;", "Lcom/airbnb/lottie/LottieAnimationView;", "lottieView$delegate", "getLottieView", "()Lcom/airbnb/lottie/LottieAnimationView;", "lottieView", "Landroid/widget/FrameLayout;", "popView$delegate", "getPopView", "()Landroid/widget/FrameLayout;", "popView", "Lcom/baidu/nadcore/rotation/NadRotationHelper;", "rotationHelper$delegate", "getRotationHelper", "()Lcom/baidu/nadcore/rotation/NadRotationHelper;", "rotationHelper", "Landroid/animation/AnimatorSet;", "showAnimatorSet", "Landroid/animation/AnimatorSet;", "showCountDownTimer", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "DefaultActionListener", "IOnActionListener", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u008e\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002:\u0002]^B'\b\u0007\u0012\u0006\u0010W\u001a\u00020V\u0012\n\b\u0002\u0010Y\u001a\u0004\u0018\u00010X\u0012\b\b\u0002\u0010Z\u001a\u00020*¢\u0006\u0004\b[\u0010\\J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\b\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\b\u0010\u0007J\r\u0010\n\u001a\u00020\t¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\tH\u0002¢\u0006\u0004\b\f\u0010\u000bJ\r\u0010\r\u001a\u00020\t¢\u0006\u0004\b\r\u0010\u000bJ\u000f\u0010\u000e\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0010\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0010\u0010\u0011J!\u0010\u0014\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0019\u0010\u0018\u001a\u00020\t2\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\r\u0010\u001a\u001a\u00020\t¢\u0006\u0004\b\u001a\u0010\u000bJ\r\u0010\u001b\u001a\u00020\t¢\u0006\u0004\b\u001b\u0010\u000bJ\r\u0010\u001c\u001a\u00020\t¢\u0006\u0004\b\u001c\u0010\u000bJ\r\u0010\u001d\u001a\u00020\t¢\u0006\u0004\b\u001d\u0010\u000bJ\r\u0010\u001e\u001a\u00020\t¢\u0006\u0004\b\u001e\u0010\u000bJ\r\u0010\u001f\u001a\u00020\t¢\u0006\u0004\b\u001f\u0010\u000bJ\u0015\u0010\"\u001a\u00020\t2\u0006\u0010!\u001a\u00020 ¢\u0006\u0004\b\"\u0010#J\u0017\u0010$\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b$\u0010\u0011J\u0017\u0010%\u001a\u00020\t2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b%\u0010\u0011J\u0017\u0010&\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b&\u0010\u0011J\u0017\u0010'\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b'\u0010\u0011J\u0017\u0010(\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b(\u0010\u0011J\r\u0010)\u001a\u00020\t¢\u0006\u0004\b)\u0010\u000bJ\u0015\u0010,\u001a\u00020\t2\u0006\u0010+\u001a\u00020*¢\u0006\u0004\b,\u0010-R\u0018\u0010.\u001a\u0004\u0018\u00010 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u001d\u00105\u001a\u0002008B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b1\u00102\u001a\u0004\b3\u00104R\u0016\u00106\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00107R\u0018\u0010:\u001a\u0004\u0018\u0001098\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0018\u0010=\u001a\u0004\u0018\u00010<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0016\u0010?\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b?\u00107R\u0016\u0010A\u001a\u00020@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u001d\u0010G\u001a\u00020C8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bD\u00102\u001a\u0004\bE\u0010FR\u001d\u0010L\u001a\u00020H8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bI\u00102\u001a\u0004\bJ\u0010KR\u001d\u0010Q\u001a\u00020M8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bN\u00102\u001a\u0004\bO\u0010PR\u0018\u0010S\u001a\u0004\u0018\u00010R8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bS\u0010TR\u0018\u0010U\u001a\u0004\u0018\u00010<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bU\u0010>¨\u0006_"}, d2 = {"Lcom/baidu/nadcore/rotationpop/NadRotationPopView;", "android/view/View$OnClickListener", "Landroid/widget/RelativeLayout;", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "model", "", "checkCanShow", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)Z", "checkDataValid", "", "hide", "()V", "hideAnim", "hideWithoutAnim", "isHitUpgradeClickExp", "()Z", "loadImage", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)V", "Landroid/graphics/Bitmap;", "bitmap", "loadLottie", "(Lcom/baidu/nadcore/model/NadRotationPopModel;Landroid/graphics/Bitmap;)V", "Landroid/view/View;", "v", "onClick", "(Landroid/view/View;)V", "pauseHideDelayTimer", "pauseShowDelayTimer", "release", "reset", "resumeHideDelayTimer", "resumeShowDelayTimer", "Lcom/baidu/nadcore/rotationpop/NadRotationPopView$IOnActionListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setBusinessActionListener", "(Lcom/baidu/nadcore/rotationpop/NadRotationPopView$IOnActionListener;)V", "setCountDownTimer", "setData", "setLpParams", "setRotationHelper", "showAnim", "startShowDelayTimer", "", "progress", "updatePlayerProgress", "(I)V", "actionListener", "Lcom/baidu/nadcore/rotationpop/NadRotationPopView$IOnActionListener;", "Lcom/baidu/nadcore/widget/AdImageView;", "bgView$delegate", "Lkotlin/Lazy;", "getBgView", "()Lcom/baidu/nadcore/widget/AdImageView;", "bgView", "hasStartShowCountTimer", "Z", "hasTriedToShow", "Landroid/animation/ObjectAnimator;", "hideAnimator", "Landroid/animation/ObjectAnimator;", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "hideCountDownTimer", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "loadLottieSuccess", "", "lottieShowMode", "Ljava/lang/String;", "Lcom/airbnb/lottie/LottieAnimationView;", "lottieView$delegate", "getLottieView", "()Lcom/airbnb/lottie/LottieAnimationView;", "lottieView", "Landroid/widget/FrameLayout;", "popView$delegate", "getPopView", "()Landroid/widget/FrameLayout;", "popView", "Lcom/baidu/nadcore/rotation/NadRotationHelper;", "rotationHelper$delegate", "getRotationHelper", "()Lcom/baidu/nadcore/rotation/NadRotationHelper;", "rotationHelper", "Landroid/animation/AnimatorSet;", "showAnimatorSet", "Landroid/animation/AnimatorSet;", "showCountDownTimer", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "DefaultActionListener", "IOnActionListener", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NadRotationPopView extends RelativeLayout implements View.OnClickListener {
     public final Lazy a;
@@ -53,8 +54,8 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
     public d e;
     public final Lazy f;
     public boolean g;
-    public y71 h;
-    public y71 i;
+    public b71 h;
+    public b71 i;
     public String j;
     public AnimatorSet k;
     public ObjectAnimator l;
@@ -100,17 +101,17 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final s31 getRotationHelper() {
-        return (s31) this.f.getValue();
+    public final v21 getRotationHelper() {
+        return (v21) this.f.getValue();
     }
 
     /* loaded from: classes3.dex */
     public static final class f implements LottieOnCompositionLoadedListener {
-        public final /* synthetic */ at0 b;
+        public final /* synthetic */ ds0 b;
         public final /* synthetic */ Bitmap c;
 
-        public f(at0 at0Var, Bitmap bitmap) {
-            this.b = at0Var;
+        public f(ds0 ds0Var, Bitmap bitmap) {
+            this.b = ds0Var;
             this.c = bitmap;
         }
 
@@ -130,7 +131,7 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
                 }
                 LottieAnimationView lottieView = NadRotationPopView.this.getLottieView();
                 f fVar = f.this;
-                lottieView.updateBitmap(fVar.b.l, z61.a(fVar.c, this.b.getWidth(), this.b.getHeight(), true));
+                lottieView.updateBitmap(fVar.b.l, c61.a(fVar.c, this.b.getWidth(), this.b.getHeight(), true));
             }
         }
 
@@ -138,9 +139,9 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         public final void onCompositionLoaded(LottieComposition lottieComposition) {
             Bitmap bitmap;
             Intrinsics.checkNotNullExpressionValue(lottieComposition, "lottieComposition");
-            LottieImageAsset lottieImageAsset = (LottieImageAsset) z31.b(lottieComposition.getImages(), this.b.l);
+            LottieImageAsset lottieImageAsset = (LottieImageAsset) c31.b(lottieComposition.getImages(), this.b.l);
             if (lottieImageAsset != null && (bitmap = this.c) != null && !bitmap.isRecycled()) {
-                o51.c(new a(lottieImageAsset), "NadRotationPopView", 0);
+                r41.c(new a(lottieImageAsset), "NadRotationPopView", 0);
             }
             NadRotationPopView.this.d = true;
         }
@@ -154,7 +155,7 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animation, boolean z) {
             Intrinsics.checkNotNullParameter(animation, "animation");
-            NadRotationPopView.this.getRotationHelper().p();
+            NadRotationPopView.this.getRotationHelper().n();
             if (Intrinsics.areEqual(NadRotationPopView.this.j, "auto")) {
                 NadRotationPopView.this.getLottieView().setRepeatCount(-1);
                 NadRotationPopView.this.getLottieView().playAnimation();
@@ -181,7 +182,7 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
             if (dVar != null) {
                 dVar.onHidden();
             }
-            NadRotationPopView.this.s();
+            NadRotationPopView.this.t();
         }
     }
 
@@ -232,22 +233,22 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
     }
 
     /* loaded from: classes3.dex */
-    public static final class e implements sp0 {
-        public final /* synthetic */ at0 b;
+    public static final class e implements qo0 {
+        public final /* synthetic */ ds0 b;
 
-        public e(at0 at0Var) {
-            this.b = at0Var;
+        public e(ds0 ds0Var) {
+            this.b = ds0Var;
         }
 
-        @Override // com.baidu.tieba.sp0
+        @Override // com.baidu.tieba.qo0
         public void a() {
-            NadRotationPopView.this.r(this.b, null);
+            NadRotationPopView.this.s(this.b, null);
         }
 
-        @Override // com.baidu.tieba.sp0
+        @Override // com.baidu.tieba.qo0
         public void b(Bitmap bitmap) {
             Intrinsics.checkNotNullParameter(bitmap, "bitmap");
-            NadRotationPopView.this.r(this.b, bitmap);
+            NadRotationPopView.this.s(this.b, bitmap);
         }
     }
 
@@ -265,53 +266,53 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
     }
 
     /* loaded from: classes3.dex */
-    public static final class h extends y71.b {
-        public final /* synthetic */ at0 b;
+    public static final class h extends b71.b {
+        public final /* synthetic */ ds0 b;
 
-        public h(at0 at0Var) {
-            this.b = at0Var;
+        public h(ds0 ds0Var) {
+            this.b = ds0Var;
         }
 
-        @Override // com.baidu.tieba.y71.b
+        @Override // com.baidu.tieba.b71.b
         public void b() {
             NadRotationPopView.this.g = false;
             if (!NadRotationPopView.this.n(this.b)) {
                 return;
             }
-            NadRotationPopView.this.t(this.b);
-            y71 y71Var = NadRotationPopView.this.i;
-            if (y71Var != null) {
-                y71Var.e();
+            NadRotationPopView.this.u(this.b);
+            b71 b71Var = NadRotationPopView.this.i;
+            if (b71Var != null) {
+                b71Var.e();
             }
         }
 
-        @Override // com.baidu.tieba.y71.b
+        @Override // com.baidu.tieba.b71.b
         public void e() {
             NadRotationPopView.this.g = true;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class i extends y71.b {
+    public static final class i extends b71.b {
         public i() {
         }
 
-        @Override // com.baidu.tieba.y71.b
+        @Override // com.baidu.tieba.b71.b
         public void b() {
             NadRotationPopView.this.p();
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class j extends y71 {
-        public j(at0 at0Var, long j, long j2) {
+    public static final class j extends b71 {
+        public j(ds0 ds0Var, long j, long j2) {
             super(j, j2);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class k extends y71 {
-        public k(at0 at0Var, long j, long j2) {
+    public static final class k extends b71 {
+        public k(ds0 ds0Var, long j, long j2) {
             super(j, j2);
         }
     }
@@ -363,26 +364,26 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
                 return (LottieAnimationView) findViewById;
             }
         });
-        this.f = LazyKt__LazyJVMKt.lazy(new Function0<s31>() { // from class: com.baidu.nadcore.rotationpop.NadRotationPopView$rotationHelper$2
+        this.f = LazyKt__LazyJVMKt.lazy(new Function0<v21>() { // from class: com.baidu.nadcore.rotationpop.NadRotationPopView$rotationHelper$2
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(0);
             }
 
             /* loaded from: classes3.dex */
-            public static final class a extends t31 {
+            public static final class a extends w21 {
                 /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 public a() {
                 }
 
-                @Override // com.baidu.tieba.t31
+                @Override // com.baidu.tieba.w21
                 public void b(float f) {
                     if (Intrinsics.areEqual(NadRotationPopView.this.j, "follow")) {
                         NadRotationPopView.this.getLottieView().setProgress(f);
                     }
                 }
 
-                @Override // com.baidu.tieba.t31
+                @Override // com.baidu.tieba.w21
                 public void e(int i) {
                     NadRotationPopView.d dVar = NadRotationPopView.this.e;
                     if (dVar != null) {
@@ -394,14 +395,21 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final s31 invoke() {
-                return new s31(context, new a());
+            public final v21 invoke() {
+                return new v21(context, new a());
             }
         });
         this.j = "auto";
         LayoutInflater.from(context).inflate(R.layout.nad_rotation_pop_layout, (ViewGroup) this, true);
-        setOnClickListener(this);
-        getPopView().setOnClickListener(this);
+        if (q()) {
+            setClickable(false);
+            setFocusable(false);
+            setFocusableInTouchMode(false);
+            getPopView().setOnClickListener(this);
+        } else {
+            setOnClickListener(this);
+            getPopView().setOnClickListener(this);
+        }
         setVisibility(8);
         getViewTreeObserver().addOnGlobalLayoutListener(new c());
         AnimatorSet animatorSet = new AnimatorSet();
@@ -429,66 +437,66 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         this(context, (i3 & 2) != 0 ? null : attributeSet, (i3 & 4) != 0 ? 0 : i2);
     }
 
-    public final void r(at0 at0Var, Bitmap bitmap) {
-        getLottieView().setAnimationFromUrl(at0Var.b);
-        getLottieView().addLottieOnCompositionLoadedListener(new f(at0Var, bitmap));
+    public final void s(ds0 ds0Var, Bitmap bitmap) {
+        getLottieView().setAnimationFromUrl(ds0Var.b);
+        getLottieView().addLottieOnCompositionLoadedListener(new f(ds0Var, bitmap));
         getLottieView().setFailureListener(new g());
     }
 
-    private final void setLpParams(at0 at0Var) {
+    private final void setLpParams(ds0 ds0Var) {
         ViewGroup.LayoutParams layoutParams = getPopView().getLayoutParams();
         if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
             layoutParams = null;
         }
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
         if (layoutParams2 != null) {
-            b81.e(layoutParams2, at0Var.j);
-            b81.d(getContext(), layoutParams2, at0Var.k);
+            e71.e(layoutParams2, ds0Var.j);
+            e71.d(getContext(), layoutParams2, ds0Var.k);
             if (layoutParams2 != null) {
                 getPopView().setLayoutParams(layoutParams2);
             }
         }
     }
 
-    private final void setRotationHelper(at0 at0Var) {
-        getRotationHelper().u(0, at0Var.f, at0Var.g, at0Var.h, true);
+    private final void setRotationHelper(ds0 ds0Var) {
+        getRotationHelper().s(0, ds0Var.f, ds0Var.g, ds0Var.h, true);
     }
 
-    public final boolean n(at0 at0Var) {
+    public final boolean n(ds0 ds0Var) {
         d dVar;
-        if (o(at0Var) && this.d && (dVar = this.e) != null && dVar.c() && getRotationHelper().m()) {
+        if (o(ds0Var) && this.d && (dVar = this.e) != null && dVar.c() && getRotationHelper().k()) {
             return true;
         }
         return false;
     }
 
-    public final boolean o(at0 at0Var) {
+    public final boolean o(ds0 ds0Var) {
         boolean z;
-        String str = at0Var.b;
+        String str = ds0Var.b;
         if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
             z = false;
         } else {
             z = true;
         }
-        if (z || at0Var.d < 0) {
+        if (z || ds0Var.d < 0) {
             return false;
         }
         return true;
     }
 
-    public final void q(at0 at0Var) {
+    public final void r(ds0 ds0Var) {
         boolean z;
-        getBgView().o(at0Var.a);
-        String str = at0Var.c;
+        getBgView().b(ds0Var.a);
+        String str = ds0Var.c;
         if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
             z = false;
         } else {
             z = true;
         }
         if (z) {
-            r(at0Var, null);
+            s(ds0Var, null);
         } else {
-            rp0.a().c(at0Var.c, new e(at0Var));
+            po0.a().c(ds0Var.c, new e(ds0Var));
         }
     }
 
@@ -497,34 +505,34 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         this.e = listener;
     }
 
-    public final void setData(at0 at0Var) {
-        if (at0Var != null && o(at0Var)) {
-            setTag(at0Var);
-            this.j = at0Var.m;
-            setLpParams(at0Var);
-            q(at0Var);
-            setRotationHelper(at0Var);
-            setCountDownTimer(at0Var);
+    public final void setData(ds0 ds0Var) {
+        if (ds0Var != null && o(ds0Var)) {
+            setTag(ds0Var);
+            this.j = ds0Var.m;
+            setLpParams(ds0Var);
+            r(ds0Var);
+            setRotationHelper(ds0Var);
+            setCountDownTimer(ds0Var);
             return;
         }
         setVisibility(8);
-        s();
+        t();
     }
 
-    private final void setCountDownTimer(at0 at0Var) {
-        y71 y71Var = this.h;
-        if (y71Var != null) {
-            y71Var.a();
+    private final void setCountDownTimer(ds0 ds0Var) {
+        b71 b71Var = this.h;
+        if (b71Var != null) {
+            b71Var.a();
         }
-        j jVar = new j(at0Var, at0Var.d * 1000, 1000L);
-        jVar.d(new h(at0Var));
+        j jVar = new j(ds0Var, ds0Var.d * 1000, 1000L);
+        jVar.d(new h(ds0Var));
         Unit unit = Unit.INSTANCE;
         this.h = jVar;
-        y71 y71Var2 = this.i;
-        if (y71Var2 != null) {
-            y71Var2.a();
+        b71 b71Var2 = this.i;
+        if (b71Var2 != null) {
+            b71Var2.a();
         }
-        k kVar = new k(at0Var, at0Var.e * 1000, 1000L);
+        k kVar = new k(ds0Var, ds0Var.e * 1000, 1000L);
         kVar.d(new i());
         Unit unit2 = Unit.INSTANCE;
         this.i = kVar;
@@ -553,14 +561,14 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         }
     }
 
-    public final void t(at0 at0Var) {
+    public final void u(ds0 ds0Var) {
         float f2 = 0.0f;
         getPopView().setAlpha(0.0f);
         getPopView().setScaleX(0.5f);
         getPopView().setScaleY(0.5f);
         if (Intrinsics.areEqual(this.j, "follow")) {
-            int i2 = at0Var.f;
-            f2 = i2 / (i2 + at0Var.g);
+            int i2 = ds0Var.f;
+            f2 = i2 / (i2 + ds0Var.g);
         }
         getLottieView().setProgress(f2);
         setVisibility(0);
@@ -577,14 +585,21 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         }
     }
 
-    public final void s() {
-        y71 y71Var = this.h;
-        if (y71Var != null) {
-            y71Var.a();
+    public final boolean q() {
+        if (qn0.b().a().a("flow_video_rotation_click_upgrade", 0) != 1) {
+            return false;
         }
-        y71 y71Var2 = this.i;
-        if (y71Var2 != null) {
-            y71Var2.a();
+        return true;
+    }
+
+    public final void t() {
+        b71 b71Var = this.h;
+        if (b71Var != null) {
+            b71Var.a();
+        }
+        b71 b71Var2 = this.i;
+        if (b71Var2 != null) {
+            b71Var2.a();
         }
         getLottieView().cancelAnimation();
         AnimatorSet animatorSet = this.k;
@@ -595,6 +610,6 @@ public final class NadRotationPopView extends RelativeLayout implements View.OnC
         if (objectAnimator != null) {
             objectAnimator.cancel();
         }
-        getRotationHelper().q();
+        getRotationHelper().o();
     }
 }

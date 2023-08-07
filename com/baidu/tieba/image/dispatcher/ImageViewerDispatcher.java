@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.s1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ImageViewerDispatcher implements y2a {
+public class ImageViewerDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,12 +41,12 @@ public class ImageViewerDispatcher implements y2a {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:47:0x0143  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0192  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x019a  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x01b8  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01e1  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0198  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x01a0  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01c4  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01ed  */
     /* JADX WARN: Removed duplicated region for block: B:70:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -153,26 +153,15 @@ public class ImageViewerDispatcher implements y2a {
                         if (optJSONObject != null) {
                         }
                         ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-                        builder.A(arrayList);
-                        builder.E(optInt);
-                        builder.C(optString);
-                        builder.B(optString2);
-                        builder.R(String.valueOf(valueOf));
-                        builder.F(true);
+                        ImageViewerConfig.Builder isCDN = builder.setData(arrayList).setIndex(optInt).setForumName(optString).setForumId(optString2).setThreadId(String.valueOf(valueOf)).setIsCDN(true);
                         if (arrayList.size() <= 0) {
                         }
-                        builder.M(str3);
-                        builder.I(true);
-                        builder.y(concurrentHashMap);
-                        builder.K(true);
-                        builder.Q(threadData);
-                        builder.H(z);
-                        builder.P(rect, rectF);
-                        ImageViewerConfig x = builder.x(context);
+                        isCDN.setLastId(str3).setIsReserve(true).setAssistUrls(concurrentHashMap).setIsShowAd(true).setThreadData(threadData).setIsDynamicCard(z).setSrcRectInScreen(rect, rectF);
+                        ImageViewerConfig bulid = builder.bulid(context);
                         if (optString3 != null) {
                         }
                         BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE_FROM, "image", "tran");
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2010000, bulid));
                         if (!(context instanceof TbPageContextSupport)) {
                         }
                     }
@@ -203,12 +192,7 @@ public class ImageViewerDispatcher implements y2a {
                 threadData2.mRecomExtra = optJSONObject.optString("extra");
             }
             ImageViewerConfig.Builder builder2 = new ImageViewerConfig.Builder();
-            builder2.A(arrayList);
-            builder2.E(optInt);
-            builder2.C(optString);
-            builder2.B(optString2);
-            builder2.R(String.valueOf(valueOf));
-            builder2.F(true);
+            ImageViewerConfig.Builder isCDN2 = builder2.setData(arrayList).setIndex(optInt).setForumName(optString).setForumId(optString2).setThreadId(String.valueOf(valueOf)).setIsCDN(true);
             if (arrayList.size() <= 0) {
                 z = false;
                 str3 = arrayList.get(0);
@@ -216,19 +200,13 @@ public class ImageViewerDispatcher implements y2a {
                 z = false;
                 str3 = "";
             }
-            builder2.M(str3);
-            builder2.I(true);
-            builder2.y(concurrentHashMap);
-            builder2.K(true);
-            builder2.Q(threadData2);
-            builder2.H(z);
-            builder2.P(rect2, rectF2);
-            ImageViewerConfig x2 = builder2.x(context);
+            isCDN2.setLastId(str3).setIsReserve(true).setAssistUrls(concurrentHashMap).setIsShowAd(true).setThreadData(threadData2).setIsDynamicCard(z).setSrcRectInScreen(rect2, rectF2);
+            ImageViewerConfig bulid2 = builder2.bulid(context);
             if (optString3 != null) {
-                x2.getIntent().putExtra("from", optString3);
+                bulid2.getIntent().putExtra("from", optString3);
             }
             BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE_FROM, "image", "tran");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x2));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, bulid2));
             if (!(context instanceof TbPageContextSupport)) {
                 HistoryMessage historyMessage = new HistoryMessage();
                 historyMessage.Activity = ((TbPageContextSupport) context).getPageContext();

@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,76 +18,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.io.File;
-import java.io.InputStream;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class wy1 extends x23 {
+public class wy1 implements zy1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ wy1 c;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(wy1 wy1Var, String str, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wy1Var, str, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = wy1Var;
-            this.a = str;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
-                if (wy1.e) {
-                    Log.d("aiRequestAction", "response fail : " + UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.c.w(response, this.a, this.b);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
+    @NonNull
+    public Context a;
+    @NonNull
+    public CallbackHandler b;
+    public WeakReference<Activity> c;
+    public w92 d;
 
     static {
         InterceptResult invokeClinit;
@@ -99,122 +45,176 @@ public class wy1 extends x23 {
                 return;
             }
         }
-        e = fs1.a;
+        e = ir1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wy1(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/aiRequest");
+    @Override // com.baidu.tieba.zy1
+    @NonNull
+    public w92 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (w92) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zy1
+    @NonNull
+    public CallbackHandler e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (CallbackHandler) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zy1
+    @NonNull
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return h();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Context h() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            WeakReference<Activity> weakReference = this.c;
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                return this.a;
+            }
+            return activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public wy1(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull w92 w92Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {context, callbackHandler, w92Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = callbackHandler;
+        this.d = w92Var;
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
+    public void a(@NonNull w92 w92Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (vb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
-            }
-            JSONObject a2 = sd3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
-            }
-            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
-            if (TextUtils.isEmpty(param)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal callback");
-                return false;
-            }
-            if (e) {
-                Log.d("aiRequestAction", "schema params : " + a2.toString());
-                Log.d("aiRequestAction", "schema cb : " + param);
-            }
-            Request c = vy1.c(vb3Var, a2, unitedSchemeEntity);
-            if (c == null) {
-                return false;
-            }
-            if (e) {
-                Log.d("aiRequestAction", "build request : " + c.url().toString());
-            }
-            vy1.p(c.url().toString(), c.body(), new a(this, param, callbackHandler));
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, w92Var) == null) {
+            w92Var.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void w(Response response, String str, CallbackHandler callbackHandler) {
+    public final void b(@NonNull w92 w92Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, str, callbackHandler) == null) {
-            try {
-                String header = response.header("Content-Type", "");
-                if (header != null && header.contains("application/json")) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w92Var) == null) {
+            if (w92Var instanceof ii2) {
+                c((ii2) w92Var);
+            } else {
+                f(w92Var);
+            }
+        }
+    }
+
+    public final void c(@NonNull ii2 ii2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ii2Var) == null) {
+            g(ii2Var, SwanApi$$ModulesProvider.getV8ApiModules(this), fu2.s().b(this));
+        }
+    }
+
+    public final void f(@NonNull w92 w92Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, w92Var) == null) {
+            g(w92Var, SwanApi$$ModulesProvider.getWebviewApiModules(this), fu2.s().c(this));
+        }
+    }
+
+    public void i(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && activity != null) {
+            this.c = new WeakReference<>(activity);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void g(@NonNull w92 w92Var, Map<String, Object> map, Map<String, Object> map2) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, w92Var, map, map2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (map2 != null) {
+                if (map == null) {
+                    map = map2;
+                } else {
                     try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("statusCode", response.code());
-                        jSONObject.put("header", x23.s(response.headers()));
-                        jSONObject.put("body", response.body().string());
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                        if (e) {
-                            Log.d("aiRequestAction", "response json : " + UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                        map.putAll(map2);
+                    } catch (Exception e2) {
+                        if (!e) {
                             return;
                         }
-                        return;
-                    } catch (JSONException unused) {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response json error").toString());
-                        return;
+                        e2.printStackTrace();
+                        throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
                     }
                 }
-                String n = dj3.n(vb3.g0(), String.valueOf(System.currentTimeMillis()), "");
-                if (TextUtils.isEmpty(n)) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
-                }
-                String J = dj3.J(n, vb3.g0());
-                if (TextUtils.isEmpty(J)) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
-                }
-                InputStream byteStream = response.body().byteStream();
-                File file = new File(n);
-                if (file.exists()) {
-                    file.delete();
-                    file.createNewFile();
-                }
-                if (cs4.a(byteStream, file)) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("filePath", J);
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("statusCode", response.code());
-                    jSONObject3.put("header", x23.s(response.headers()));
-                    jSONObject3.put("body", jSONObject2.toString());
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject3, 0).toString());
-                    if (e) {
-                        Log.d("aiRequestAction", "response file : " + UnitedSchemeUtility.wrapCallbackParams(jSONObject3, 0).toString());
-                        return;
-                    }
+            }
+            if (map == null) {
+                if (!e) {
                     return;
                 }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
-            } catch (Exception e2) {
-                if (e) {
-                    e2.printStackTrace();
+                throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
+            }
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                if (TextUtils.isEmpty(key)) {
+                    if (e) {
+                        throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
+                    }
+                } else if (value == null) {
+                    if (e) {
+                        throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
+                    }
+                } else {
+                    w92Var.addJavascriptInterface(value, key);
+                    if (e) {
+                        if (w92Var instanceof ii2) {
+                            str = "V8";
+                        } else {
+                            str = "Webview";
+                        }
+                        Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
+                    }
                 }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+            }
+            if (e) {
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                if (currentTimeMillis2 > 5) {
+                    Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
+                }
             }
         }
     }

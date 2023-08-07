@@ -11,12 +11,12 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.mz3;
-import com.baidu.tieba.n04;
-import com.baidu.tieba.q04;
+import com.baidu.tieba.py3;
+import com.baidu.tieba.qz3;
+import com.baidu.tieba.tz3;
 /* loaded from: classes4.dex */
 public class RewardVideoView extends RelativeLayout {
-    public q04 a;
+    public tz3 a;
     public Context b;
     public boolean c;
     public VolumeBroadcastReceiver d;
@@ -50,15 +50,15 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void e(boolean z) {
-        q04 q04Var = this.a;
-        if (q04Var != null) {
+        tz3 tz3Var = this.a;
+        if (tz3Var != null) {
             this.c = z;
-            q04Var.mute(z);
+            tz3Var.mute(z);
         }
     }
 
     public void f(String str) {
-        mz3 b = b();
+        py3 b = b();
         b.p = str;
         this.a.h(b);
         this.a.d(false);
@@ -84,21 +84,21 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    public final mz3 b() {
-        mz3 mz3Var = new mz3();
-        mz3Var.f = true;
-        mz3Var.b = this.c;
-        mz3Var.o = false;
-        mz3Var.z = false;
-        mz3Var.v = false;
-        return mz3Var;
+    public final py3 b() {
+        py3 py3Var = new py3();
+        py3Var.f = true;
+        py3Var.b = this.c;
+        py3Var.o = false;
+        py3Var.z = false;
+        py3Var.v = false;
+        return py3Var;
     }
 
     public boolean d() {
         return this.c;
     }
 
-    public q04 getPlayer() {
+    public tz3 getPlayer() {
         return this.a;
     }
 
@@ -114,7 +114,7 @@ public class RewardVideoView extends RelativeLayout {
 
     public final void c() {
         int i;
-        q04 c = n04.c();
+        tz3 c = qz3.c();
         c.e(getContext(), b());
         this.a = c;
         AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
@@ -131,9 +131,9 @@ public class RewardVideoView extends RelativeLayout {
         this.c = z;
         FrameLayout frameLayout = new FrameLayout(this.b);
         addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-        q04 q04Var = this.a;
-        if (q04Var != null) {
-            q04Var.a(frameLayout);
+        tz3 tz3Var = this.a;
+        if (tz3Var != null) {
+            tz3Var.a(frameLayout);
         }
     }
 }

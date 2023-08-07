@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.og;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.bg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ng<TbImageView> a;
+    public ag<TbImageView> a;
     public Context b;
     public boolean c;
     public int d;
@@ -35,7 +35,7 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface c<T extends View> {
-        ng<TbImageView> I();
+        ag<TbImageView> J();
     }
 
     /* loaded from: classes4.dex */
@@ -79,7 +79,7 @@ public class UserIconBox extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements og<TbImageView> {
+    public static class b implements bg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -110,7 +110,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -119,7 +119,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -127,7 +127,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -241,9 +241,9 @@ public class UserIconBox extends LinearLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            ng<TbImageView> ngVar = this.a;
-            if (ngVar != null) {
-                tbImageView = ngVar.b();
+            ag<TbImageView> agVar = this.a;
+            if (agVar != null) {
+                tbImageView = agVar.b();
             } else {
                 tbImageView = null;
             }
@@ -263,7 +263,7 @@ public class UserIconBox extends LinearLayout {
             setGravity(16);
             Context context2 = this.b;
             if (context2 instanceof c) {
-                this.a = ((c) context2).I();
+                this.a = ((c) context2).J();
             }
             setOnHierarchyChangeListener(new a(this));
         }
@@ -289,13 +289,13 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public static ng<TbImageView> c(Context context, int i) {
+    public static ag<TbImageView> c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            return new ng<>(new b(context), i, 0);
+            return new ag<>(new b(context), i, 0);
         }
-        return (ng) invokeLI.objValue;
+        return (ag) invokeLI.objValue;
     }
 
     public final LinearLayout.LayoutParams e(int i, int i2, int i3) {
@@ -357,7 +357,7 @@ public class UserIconBox extends LinearLayout {
                             tbImageView.setClickable(false);
                             tbImageView.setAutoChangeStyle(this.c);
                             tbImageView.setImageDrawable(null);
-                            tbImageView.J(list.get(i5).getIcon(), 29, i2, i3, false);
+                            tbImageView.startLoad(list.get(i5).getIcon(), 29, i2, i3, false);
                         }
                     }
                 }

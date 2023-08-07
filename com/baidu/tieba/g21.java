@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 /* loaded from: classes6.dex */
-public final class g21 {
+public abstract class g21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public t01 a;
-    public PlayerStatus b;
-    public StringBuilder c;
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
+    public abstract boolean c(int i, @Nullable String str);
 
     public g21() {
         Interceptable interceptable = $ic;
@@ -36,152 +31,89 @@ public final class g21 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = PlayerStatus.IDLE;
-        d();
-    }
-
-    @NonNull
-    public PlayerStatus c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (PlayerStatus) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-            this.b = PlayerStatus.IDLE;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void a(mx0 mx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mx0Var) == null) {
-            if (mx0Var.getType() != 4 && mx0Var.getType() != 2) {
-                return;
-            }
-            String c = mx0Var.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -525235558:
-                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case -461848373:
-                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 1370689931:
-                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            g(PlayerStatus.ERROR);
-                            return;
-                        }
-                        return;
-                    }
-                    g(PlayerStatus.PREPARED);
-                    return;
-                }
-                g(PlayerStatus.COMPLETE);
-                return;
-            }
-            int g = mx0Var.g(1);
-            if (904 == g || 956 == g) {
-                g(PlayerStatus.PLAYING);
             }
         }
     }
 
-    public void b(@NonNull t01 t01Var) {
+    public void a(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t01Var) == null) {
-            this.a = t01Var;
-        }
-    }
-
-    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
-            for (PlayerStatus playerStatus : playerStatusArr) {
-                if (playerStatus == c()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(PlayerStatus playerStatus) {
-        PlayerStatus playerStatus2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) != null) || !c(i, str)) {
             return;
         }
-        this.b = playerStatus;
-        t01 t01Var = this.a;
-        if (t01Var != null) {
-            t01Var.d(hx0.w(playerStatus2, playerStatus));
+        if (TextUtils.isEmpty(str2)) {
+            if (th == null) {
+                return;
+            }
+            str2 = b(th);
+        } else if (th != null) {
+            str2 = str2 + "\n" + b(th);
+        }
+        if (TextUtils.isEmpty(str)) {
+            d(i, null, str2);
+        } else if (str.length() > 23 && Build.VERSION.SDK_INT < 24) {
+            d(i, str.substring(0, 23), str2);
+        } else {
+            d(i, str, str2);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final String b(@NonNull Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (ru0.f()) {
-                StringBuilder sb = this.c;
-                if (sb == null) {
-                    this.c = new StringBuilder();
-                } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.c;
-                    sb2.delete(0, sb2.length());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
+            try {
+                StringWriter stringWriter = new StringWriter(256);
+                PrintWriter printWriter = new PrintWriter((Writer) stringWriter, false);
+                th.printStackTrace(printWriter);
+                printWriter.flush();
+                printWriter.close();
+                return stringWriter.toString();
+            } catch (Exception e) {
+                String message = e.getMessage();
+                if (TextUtils.isEmpty(message)) {
+                    return "unknown throwable by VideoLog.java";
                 }
-                StringBuilder sb3 = this.c;
-                sb3.append("，Courier :");
-                sb3.append(this.a);
-                sb3.append("，status :");
-                sb3.append(this.b);
-                sb3.append("，hash :");
-                sb3.append(hashCode());
-                sb3.append("】");
-                return this.c.toString();
+                return message;
             }
-            return super.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public void d(int i, @Nullable String str, @NonNull String str2) {
+        int min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (str2.length() < 4096) {
+                if (i == 7) {
+                    Log.wtf(str, str2);
+                    return;
+                } else {
+                    Log.println(i, str, str2);
+                    return;
+                }
+            }
+            int i2 = 0;
+            int length = str2.length();
+            while (i2 < length) {
+                int indexOf = str2.indexOf(10, i2);
+                if (indexOf == -1) {
+                    indexOf = length;
+                }
+                while (true) {
+                    min = Math.min(indexOf, i2 + 4096);
+                    String substring = str2.substring(i2, min);
+                    if (i == 7) {
+                        Log.wtf(str, substring);
+                    } else {
+                        Log.println(i, str, substring);
+                    }
+                    if (min >= indexOf) {
+                        break;
+                    }
+                    i2 = min;
+                }
+                i2 = min + 1;
+            }
+        }
     }
 }

@@ -6,19 +6,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class au1 implements ew1 {
+public class au1 implements ow1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ew1
-    public float a() {
+    @Override // com.baidu.tieba.ow1
+    public String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
+            return null;
         }
-        return invokeV.floatValue;
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ow1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public au1() {
@@ -35,13 +46,19 @@ public class au1 implements ew1 {
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public String processUrl(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ow1
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return r82.w(str, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!fu2.w0().d()) {
+                if (yg2.b()) {
+                    return yg2.b + File.separator + "libcom.baidu.zeus.so";
+                }
+                return yg2.d + File.separator + "libcom.baidu.zeus.so";
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

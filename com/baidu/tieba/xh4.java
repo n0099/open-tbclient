@@ -1,36 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface xh4 {
+public class xh4 extends PostFormRequest.PostFormRequestBuilder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xh4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    boolean a();
-
-    void b(Activity activity, di4 di4Var);
-
-    void c(int i, List<di4> list);
-
-    void d(int i, List<di4> list);
-
-    void e(int i, List<di4> list);
-
-    void f(int i, List<di4> list, a aVar);
-
-    void g(Activity activity, di4 di4Var);
-
-    void h(Context context, JSONObject jSONObject);
-
-    void i(JSONObject jSONObject);
-
-    boolean j(di4 di4Var);
-
-    boolean k(boolean z, int i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.PostFormRequest.PostFormRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public PostFormRequest build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            qh4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (PostFormRequest) invokeV.objValue;
+    }
 }

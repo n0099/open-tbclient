@@ -3,6 +3,7 @@ package com.baidu.tbadk.img;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,8 +11,7 @@ import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -213,7 +213,7 @@ public class ImageFileInfo extends MediaFileInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return !xi.isEmpty(this.serverImageCode);
+            return !bi.isEmpty(this.serverImageCode);
         }
         return invokeV.booleanValue;
     }
@@ -558,7 +558,7 @@ public class ImageFileInfo extends MediaFileInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
             if (getImageType() == 1) {
-                return sg.h().g(this.filePath, 20);
+                return BdResourceLoader.getInstance().genCacheKey(this.filePath, 20);
             }
             if (z) {
                 if (this._cacheKey_all == null) {

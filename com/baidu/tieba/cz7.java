@@ -1,109 +1,85 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StrikethroughSpan;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.wallet.CurrencyHelper;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cz7 {
+public class cz7 extends ww<RecommendBarCardModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecommendBarLayout f;
+    public int g;
+    public int h;
 
-    public static SpannableString a(long j, int i, int i2) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
-            String str = "[icon]" + formatOverBaiwanNum;
-            SpannableString spannableString = new SpannableString(str);
-            if (TbadkApplication.getInst().getSkinType() == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                moneyIcon.setAlpha(179);
-            } else {
-                moneyIcon.setAlpha(255);
-            }
-            int g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, g, g);
-            g06 g06Var = new g06(moneyIcon);
-            g06Var.b(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070359));
-            g06Var.c(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070359));
-            UtilHelper.setSpan(spannableString, str, "[icon]", g06Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            return spannableString;
         }
-        return (SpannableString) invokeCommon.objValue;
+        this.g = 3;
+        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
     }
 
-    public static SpannableString b(long j, boolean z, int i) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
-        String str;
+    @Override // com.baidu.tieba.ww
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
-            }
-            if (z) {
-                str = "=[icon]" + formatOverBaiwanNum;
-            } else {
-                str = "[icon]" + formatOverBaiwanNum;
-            }
-            SpannableString spannableString = new SpannableString(str);
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
-            int g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, g, g);
-            g06 g06Var = new g06(moneyIcon);
-            g06Var.b(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070359));
-            g06Var.c(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070359));
-            UtilHelper.setSpan(spannableString, str, "[icon]", g06Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (z) {
-                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            }
-            return spannableString;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (SpannableString) invokeCommon.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public static SpannableString c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ww
+    public void q(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (StringUtils.isNull(str)) {
-                return new SpannableString("");
-            }
-            SpannableString spannableString = new SpannableString(str);
-            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
-            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (!StringUtils.isNull(str3)) {
-                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
-            }
-            return spannableString;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.f.setPageId(bdUniqueId);
         }
-        return (SpannableString) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qx
+    /* renamed from: t */
+    public void onBindDataToView(RecommendBarCardModel recommendBarCardModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, recommendBarCardModel) == null) && recommendBarCardModel != null && this.h != recommendBarCardModel.hashCode()) {
+            this.h = recommendBarCardModel.hashCode();
+            this.f.setData(recommendBarCardModel);
+        }
+    }
+
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                r(this.f, 3);
+            }
+            this.g = i;
+        }
     }
 }

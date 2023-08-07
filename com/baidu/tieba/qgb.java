@@ -1,71 +1,88 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.ngb;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.ArrayList;
-import java.util.List;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class qgb<A extends ngb> extends AdReporter<A> {
+public class qgb extends FunNativeAd2Bridger<dgb, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
+    public boolean b;
+    public final /* synthetic */ kgb c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qgb(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+    public qgb(kgb kgbVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {kgbVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
+        this.c = kgbVar;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        double a;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, dgb dgbVar, BaseNativeAd2<dgb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            ngb ngbVar = (ngb) obj;
-            if (ngbVar != null && ngbVar.a != 0) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Pair.create("csj_rq_id", ngbVar.c()));
-                if (!this.e) {
-                    a = FunAdSdk.getARPU(this.f);
-                } else {
-                    a = ngbVar.a() / 1000.0d;
-                }
-                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
-                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
-                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, dgbVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
-        return (List) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(dgb dgbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dgbVar)) == null) {
+            return ((TTNativeExpressAd) dgbVar.a).getExpressAdView();
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, dgb dgbVar, BaseNativeAd2<dgb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, dgbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            dgb dgbVar2 = dgbVar;
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.g.get(dgbVar2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
+            }
+            this.c.onShowStart(dgbVar2, this.b);
+            expressInflater.inflate();
+            View expressView = expressInflater.getExpressView();
+            kgb kgbVar = this.c;
+            kgbVar.getClass();
+            ((TTNativeExpressAd) dgbVar2.a).setDislikeCallback(activity, new pgb(kgbVar, expressView, dgbVar2, funAdInteractionListener, str));
+            this.b = true;
+        }
     }
 }

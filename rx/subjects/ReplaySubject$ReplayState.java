@@ -1,18 +1,18 @@
 package rx.subjects;
 
-import com.baidu.tieba.a2c;
-import com.baidu.tieba.g2c;
-import com.baidu.tieba.q6c;
-import com.baidu.tieba.u1c;
-import com.baidu.tieba.v1c;
+import com.baidu.tieba.d1c;
+import com.baidu.tieba.j1c;
+import com.baidu.tieba.t5c;
+import com.baidu.tieba.x0c;
+import com.baidu.tieba.y0c;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements u1c.a<T>, v1c<T> {
+public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements x0c.a<T>, y0c<T> {
     public static final ReplaySubject$ReplayProducer[] EMPTY = new ReplaySubject$ReplayProducer[0];
     public static final ReplaySubject$ReplayProducer[] TERMINATED = new ReplaySubject$ReplayProducer[0];
     public static final long serialVersionUID = 5952362471246910544L;
-    public final q6c<T> buffer;
+    public final t5c<T> buffer;
 
     public boolean isTerminated() {
         if (get() == TERMINATED) {
@@ -21,17 +21,17 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return false;
     }
 
-    @Override // com.baidu.tieba.v1c
+    @Override // com.baidu.tieba.y0c
     public void onCompleted() {
-        q6c<T> q6cVar = this.buffer;
-        q6cVar.complete();
+        t5c<T> t5cVar = this.buffer;
+        t5cVar.complete();
         for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
-            q6cVar.a(replaySubject$ReplayProducer);
+            t5cVar.a(replaySubject$ReplayProducer);
         }
     }
 
-    public ReplaySubject$ReplayState(q6c<T> q6cVar) {
-        this.buffer = q6cVar;
+    public ReplaySubject$ReplayState(t5c<T> t5cVar) {
+        this.buffer = t5cVar;
         lazySet(EMPTY);
     }
 
@@ -51,10 +51,10 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return true;
     }
 
-    public void call(a2c<? super T> a2cVar) {
-        ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(a2cVar, this);
-        a2cVar.b(replaySubject$ReplayProducer);
-        a2cVar.f(replaySubject$ReplayProducer);
+    public void call(d1c<? super T> d1cVar) {
+        ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(d1cVar, this);
+        d1cVar.b(replaySubject$ReplayProducer);
+        d1cVar.f(replaySubject$ReplayProducer);
         if (add(replaySubject$ReplayProducer) && replaySubject$ReplayProducer.isUnsubscribed()) {
             remove(replaySubject$ReplayProducer);
         } else {
@@ -62,14 +62,14 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         }
     }
 
-    @Override // com.baidu.tieba.v1c
+    @Override // com.baidu.tieba.y0c
     public void onError(Throwable th) {
-        q6c<T> q6cVar = this.buffer;
-        q6cVar.error(th);
+        t5c<T> t5cVar = this.buffer;
+        t5cVar.error(th);
         ArrayList arrayList = null;
         for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
             try {
-                q6cVar.a(replaySubject$ReplayProducer);
+                t5cVar.a(replaySubject$ReplayProducer);
             } catch (Throwable th2) {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
@@ -77,21 +77,21 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                 arrayList.add(th2);
             }
         }
-        g2c.d(arrayList);
+        j1c.d(arrayList);
     }
 
-    @Override // com.baidu.tieba.v1c
+    @Override // com.baidu.tieba.y0c
     public void onNext(T t) {
-        q6c<T> q6cVar = this.buffer;
-        q6cVar.next(t);
+        t5c<T> t5cVar = this.buffer;
+        t5cVar.next(t);
         for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : get()) {
-            q6cVar.a(replaySubject$ReplayProducer);
+            t5cVar.a(replaySubject$ReplayProducer);
         }
     }
 
-    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
+    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((a2c) ((a2c) obj));
+        call((d1c) ((d1c) obj));
     }
 
     public void remove(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer) {

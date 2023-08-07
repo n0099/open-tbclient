@@ -21,9 +21,9 @@ import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.dx6;
 import com.baidu.tieba.edgefloat.EdgeFloat;
-import com.baidu.tieba.vz6;
-import com.baidu.tieba.wz6;
+import com.baidu.tieba.ex6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u008c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b \u0018\u00002\u00020\u0001:\u0002fgB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010>\u001a\u00020?H\u0002J(\u0010@\u001a\u00020=2\u0006\u00100\u001a\u00020\u00062\u0006\u00101\u001a\u00020\u00062\u0006\u00105\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0006H\u0002J\u000e\u0010A\u001a\u00020?2\u0006\u0010B\u001a\u00020CJ&\u0010D\u001a\u00020?2\u0006\u0010E\u001a\u00020\u00192\u0006\u0010F\u001a\u00020\u00192\f\u0010G\u001a\b\u0012\u0004\u0012\u00020?0HH\u0002J\u0006\u0010I\u001a\u00020?J\b\u0010J\u001a\u00020\u0012H\u0002J\u0012\u0010K\u001a\u00020\u00122\b\u0010L\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u0010 \u001a\u00020\u0012J\u000e\u0010M\u001a\u00020\u00062\u0006\u0010N\u001a\u00020\u0006J\b\u0010O\u001a\u00020?H\u0002J\b\u0010P\u001a\u00020?H\u0002J\u000e\u0010Q\u001a\u00020?2\u0006\u0010\u0016\u001a\u00020\u0006J\u0016\u0010R\u001a\u00020?2\u0006\u0010S\u001a\u00020\u00062\u0006\u0010N\u001a\u00020\u0006J\u000e\u0010T\u001a\u00020?2\u0006\u0010N\u001a\u00020\u0006J\u0006\u0010U\u001a\u00020?J\u0010\u0010V\u001a\u00020?2\u0006\u0010W\u001a\u00020\u0006H\u0016J\u0016\u0010X\u001a\u00020?2\u0006\u0010Y\u001a\u00020\u00122\u0006\u0010\"\u001a\u00020\u0006J\u0016\u0010Z\u001a\u00020?2\u0006\u0010/\u001a\u00020\u00062\u0006\u0010.\u001a\u00020\u0006J\u000e\u0010[\u001a\u00020?2\u0006\u0010\\\u001a\u00020\u0012J\u0006\u0010]\u001a\u00020?J\b\u0010^\u001a\u00020?H\u0002J\u0016\u0010_\u001a\u00020?2\u0006\u00105\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0006J\u0006\u0010`\u001a\u00020?J\u000e\u0010a\u001a\u00020?2\u0006\u0010L\u001a\u00020\fJ \u0010b\u001a\u00020?2\u0006\u0010c\u001a\u00020\u00062\u0006\u0010d\u001a\u00020\u00062\u0006\u0010e\u001a\u00020\bH\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u001e\u001a\u00020\u00122\u0006\u0010\u001d\u001a\u00020\u0012@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010 \u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010&X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020(X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010)\u001a\u0012\u0012\u0004\u0012\u00020+0*j\b\u0012\u0004\u0012\u00020+`,X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010-\u001a\u0012\u0012\u0004\u0012\u00020+0*j\b\u0012\u0004\u0012\u00020+`,X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00103\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00104\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u00106\u001a\u0002078BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b:\u0010;\u001a\u0004\b8\u00109R\u000e\u0010<\u001a\u00020=X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006h"}, d2 = {"Lcom/baidu/tieba/edgefloat/EdgeFloat;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "builder", "Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;", "(Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;)V", "CLICK_MOTION_EVENT_DELTA", "", "FADE_IN_OUT_ANIM_TIME", "", "SLIDE_ANIM_TIME", "activityRef", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "avoidKeyboardHeight", "beforeKeyboardX", "beforeKeyboardY", "bottomLimit", "canDrag", "", "changeSkinListener", "contentView", "Landroid/view/View;", "deltaX", "deltaY", "downEventX", "", "downEventY", NotificationCompat.WearableExtender.KEY_GRAVITY, "height", "<set-?>", "isOnLeft", "()Z", "isShowing", "isTouching", "keyboardHeight", "onActivityDispatchTouchEvent", "Lcom/baidu/tieba/edgefloat/OnActivityDispatchTouchEventListener;", "onScreenSizeChangedCallback", "Lcom/baidu/tieba/edgefloat/EdgeFloat$OnScreenSizeChangedCallback;", "onTouchListener", "Landroid/view/View$OnTouchListener;", "pageNoSupport", "Ljava/util/ArrayList;", "", "Lkotlin/collections/ArrayList;", "pageSupport", "screenHeight", "screenWidth", "startX", "startY", "statusBarHeight", "topLimit", "useFadeAnimation", "width", "wm", "Landroid/view/WindowManager;", "getWm", "()Landroid/view/WindowManager;", "wm$delegate", "Lkotlin/Lazy;", "wmParams", "Landroid/view/WindowManager$LayoutParams;", "addToWindow", "", "createLayoutParams", "dispatchTouchEvent", Config.EVENT_PART, "Landroid/view/MotionEvent;", "fadeAlpha", "oldAlpha", "newAlpha", "onEnd", "Lkotlin/Function0;", "hide", "isAttachedToCurrentActivityWindow", "isPageSupport", "activity", "limitY", "y", "moveToDefaultEdge", "moveToEdge", "moveToX", "moveXY", "x", "moveY", "onBackPressed", "onChangeSkinType", "type", "onKeyboardHeightChanged", "isVisible", "onScreenSizeChanged", "onWindowFocusChanged", "hasFocus", "release", "removeFromWindow", "resetContentViewSize", "show", "switchActivity", "translateX", "oldX", "newX", "duration", "Builder", "OnScreenSizeChangedCallback", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class EdgeFloat implements vz6 {
+public final class EdgeFloat implements dx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
@@ -75,8 +75,8 @@ public final class EdgeFloat implements vz6 {
     public int r;
     public final ArrayList<String> s;
     public final ArrayList<String> t;
-    public vz6 u;
-    public wz6 v;
+    public dx6 u;
+    public ex6 v;
     public final boolean w;
     public final b x;
     public final Lazy y;
@@ -107,8 +107,8 @@ public final class EdgeFloat implements vz6 {
         public boolean n;
         public final ArrayList<String> o;
         public final ArrayList<String> p;
-        public vz6 q;
-        public wz6 r;
+        public dx6 q;
+        public ex6 r;
         public boolean s;
         public b t;
 
@@ -138,7 +138,7 @@ public final class EdgeFloat implements vz6 {
             this.s = true;
         }
 
-        public final a A(wz6 onActivityDispatchTouchEvent) {
+        public final a A(ex6 onActivityDispatchTouchEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onActivityDispatchTouchEvent)) == null) {
@@ -149,7 +149,7 @@ public final class EdgeFloat implements vz6 {
             return (a) invokeL.objValue;
         }
 
-        public final a B(vz6 onChangeSkinType) {
+        public final a B(dx6 onChangeSkinType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onChangeSkinType)) == null) {
@@ -341,7 +341,7 @@ public final class EdgeFloat implements vz6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 EdgeFloat edgeFloat = new EdgeFloat(this);
-                EdgeFloatLifecycle.b.a().i(edgeFloat);
+                EdgeFloatLifecycle.Companion.a().register(edgeFloat);
                 return edgeFloat;
             }
             return (EdgeFloat) invokeV.objValue;
@@ -383,13 +383,13 @@ public final class EdgeFloat implements vz6 {
             return invokeV.booleanValue;
         }
 
-        public final vz6 i() {
+        public final dx6 i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 return this.q;
             }
-            return (vz6) invokeV.objValue;
+            return (dx6) invokeV.objValue;
         }
 
         public final View j() {
@@ -419,13 +419,13 @@ public final class EdgeFloat implements vz6 {
             return invokeV.intValue;
         }
 
-        public final wz6 m() {
+        public final ex6 m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
                 return this.r;
             }
-            return (wz6) invokeV.objValue;
+            return (ex6) invokeV.objValue;
         }
 
         public final b n() {
@@ -673,7 +673,7 @@ public final class EdgeFloat implements vz6 {
             }
         });
         this.z = new WindowManager.LayoutParams();
-        this.J = new View.OnTouchListener() { // from class: com.baidu.tieba.tz6
+        this.J = new View.OnTouchListener() { // from class: com.baidu.tieba.bx6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -720,19 +720,19 @@ public final class EdgeFloat implements vz6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ev) == null) {
             Intrinsics.checkNotNullParameter(ev, "ev");
-            wz6 wz6Var = this.v;
-            if (wz6Var != null) {
-                wz6Var.dispatchTouchEvent(ev);
+            ex6 ex6Var = this.v;
+            if (ex6Var != null) {
+                ex6Var.dispatchTouchEvent(ev);
             }
         }
     }
 
-    @Override // com.baidu.tieba.vz6
+    @Override // com.baidu.tieba.dx6
     public void onChangeSkinType(int i) {
-        vz6 vz6Var;
+        dx6 dx6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (vz6Var = this.u) != null) {
-            vz6Var.onChangeSkinType(i);
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (dx6Var = this.u) != null) {
+            dx6Var.onChangeSkinType(i);
         }
     }
 
@@ -977,10 +977,10 @@ public final class EdgeFloat implements vz6 {
     }
 
     public final void v() {
-        wz6 wz6Var;
+        ex6 ex6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (wz6Var = this.v) != null) {
-            wz6Var.onBackPressed();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (ex6Var = this.v) != null) {
+            ex6Var.onBackPressed();
         }
     }
 
@@ -991,7 +991,7 @@ public final class EdgeFloat implements vz6 {
             try {
                 j().removeView(this.e);
             } catch (Exception e) {
-                DefaultLog.getInstance().b("EdgeFloat hide removeView crash", e.getMessage());
+                DefaultLog.getInstance().e("EdgeFloat hide removeView crash", e.getMessage());
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw e;
                 }
@@ -1045,41 +1045,6 @@ public final class EdgeFloat implements vz6 {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void e() {
-        IBinder iBinder;
-        Activity activity;
-        Window window;
-        View decorView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            WeakReference<Activity> weakReference = this.d;
-            if (weakReference != null && (activity = weakReference.get()) != null && (window = activity.getWindow()) != null && (decorView = window.getDecorView()) != null) {
-                iBinder = decorView.getWindowToken();
-            } else {
-                iBinder = null;
-            }
-            this.z.token = iBinder;
-            if (l()) {
-                return;
-            }
-            try {
-                if (this.z.token != null) {
-                    if (this.e.isAttachedToWindow()) {
-                        j().removeViewImmediate(this.e);
-                    }
-                    j().addView(this.e, this.z);
-                }
-            } catch (Exception e) {
-                if (!BdBaseApplication.getInst().isDebugMode()) {
-                    DefaultLog.getInstance().b("Sprite Window", e.getMessage());
-                    new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", e.getMessage()).eventStat();
-                    return;
-                }
-                throw e;
-            }
-        }
-    }
-
     public final void E(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
@@ -1122,7 +1087,7 @@ public final class EdgeFloat implements vz6 {
         ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
         ofInt.setDuration(j);
         ofInt.setInterpolator(new DecelerateInterpolator());
-        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.sz6
+        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ax6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1143,7 +1108,7 @@ public final class EdgeFloat implements vz6 {
             ValueAnimator alphaAnim = ValueAnimator.ofFloat(f, f2);
             alphaAnim.setDuration(this.c);
             alphaAnim.setInterpolator(new AccelerateInterpolator());
-            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.uz6
+            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.cx6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1158,6 +1123,41 @@ public final class EdgeFloat implements vz6 {
             Intrinsics.checkNotNullExpressionValue(alphaAnim, "alphaAnim");
             alphaAnim.addListener(new c(function0));
             alphaAnim.start();
+        }
+    }
+
+    public final void e() {
+        IBinder iBinder;
+        Activity activity;
+        Window window;
+        View decorView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            WeakReference<Activity> weakReference = this.d;
+            if (weakReference != null && (activity = weakReference.get()) != null && (window = activity.getWindow()) != null && (decorView = window.getDecorView()) != null) {
+                iBinder = decorView.getWindowToken();
+            } else {
+                iBinder = null;
+            }
+            this.z.token = iBinder;
+            if (l()) {
+                return;
+            }
+            try {
+                if (this.z.token != null) {
+                    if (this.e.isAttachedToWindow() || this.e.getParent() != null) {
+                        j().removeViewImmediate(this.e);
+                    }
+                    j().addView(this.e, this.z);
+                }
+            } catch (Exception e) {
+                if (!BdBaseApplication.getInst().isDebugMode()) {
+                    DefaultLog.getInstance().e("Sprite Window", e.getMessage());
+                    new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", e.getMessage()).eventStat();
+                    return;
+                }
+                throw e;
+            }
         }
     }
 
@@ -1193,7 +1193,7 @@ public final class EdgeFloat implements vz6 {
             } else {
                 iBinder = null;
             }
-            if (this.e.isAttachedToWindow() && Intrinsics.areEqual(iBinder, this.e.getApplicationWindowToken())) {
+            if (this.e.isAttachedToWindow() && Intrinsics.areEqual(iBinder, this.e.getApplicationWindowToken()) && this.e.getParent() != null) {
                 return true;
             }
             return false;

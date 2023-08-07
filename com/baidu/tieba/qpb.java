@@ -1,78 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes7.dex */
-public class qpb implements kpb {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class qpb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "PBKDF2";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
 
-    public qpb(Context context, String str) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948100934, "Lcom/baidu/tieba/qpb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = context;
-        this.b = str;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948100934, "Lcom/baidu/tieba/qpb;");
+        }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
+        SecretKeyFactory secretKeyFactory;
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             try {
-                return "agc_" + fpb.c(b(str.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return "";
+                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
+                if (z) {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+                } else {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                }
+                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                String str = a;
+                ypb.c(str, "pbkdf exception : " + e.getMessage());
+                return new byte[0];
             }
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
+    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kpb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
-                return str2;
-            }
-            try {
-                return this.a.getResources().getString(identifier);
-            } catch (Resources.NotFoundException unused) {
-                return str2;
-            }
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
+            return a(cArr, bArr, i, i2, false);
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeLLII.objValue;
+    }
+
+    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (Build.VERSION.SDK_INT < 26) {
+                ypb.c(a, "system version not high than 26");
+                return bArr2;
+            }
+            return a(cArr, bArr, i, i2, true);
+        }
+        return (byte[]) invokeLLII.objValue;
     }
 }

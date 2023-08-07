@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,17 +14,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.ay5;
-import com.baidu.tieba.az5;
-import com.baidu.tieba.dh8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.tc8;
-import com.baidu.tieba.te8;
-import com.baidu.tieba.uc8;
-import com.baidu.tieba.wy5;
-import com.baidu.tieba.xd8;
+import com.baidu.tieba.jw5;
+import com.baidu.tieba.mc8;
+import com.baidu.tieba.na8;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.ov5;
+import com.baidu.tieba.qb8;
+import com.baidu.tieba.ve8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,14 +32,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l9 mBdPageContext;
     public final List<ImMessageCenterShowItemData> mList;
 
     /* loaded from: classes6.dex */
@@ -76,25 +74,24 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public abstract void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData, @Nullable AsyncCallback asyncCallback);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImBaseMessageCenterModel(l9 l9Var) {
-        super(l9Var);
+    public ImBaseMessageCenterModel(BdPageContext bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mList = Collections.synchronizedList(new LinkedList());
-        this.mBdPageContext = l9Var;
     }
 
     public void queryMarkTopStatus(String str) {
@@ -102,7 +99,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && !ListUtils.isEmpty(this.mList) && !TextUtils.isEmpty(str)) {
             for (ImMessageCenterShowItemData imMessageCenterShowItemData : this.mList) {
                 if (str.equals(imMessageCenterShowItemData.getFriendId())) {
-                    imMessageCenterShowItemData.setMarkTopIndex(dh8.a(str));
+                    imMessageCenterShowItemData.setMarkTopIndex(ve8.a(str));
                     return;
                 }
             }
@@ -112,7 +109,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public boolean removeItemInList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             if (this.mList != null && !TextUtils.isEmpty(str)) {
                 for (ImMessageCenterShowItemData imMessageCenterShowItemData : this.mList) {
                     if (imMessageCenterShowItemData != null && str.equals(imMessageCenterShowItemData.getFriendId())) {
@@ -133,12 +130,12 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         }
     }
 
-    public void remove(ImMessageCenterPojo imMessageCenterPojo, tc8 tc8Var) {
+    public void remove(ImMessageCenterPojo imMessageCenterPojo, na8 na8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048593, this, imMessageCenterPojo, tc8Var) == null) && imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
+        if ((interceptable == null || interceptable.invokeLL(1048593, this, imMessageCenterPojo, na8Var) == null) && imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             removeItem(imMessageCenterPojo);
-            if (tc8Var != null) {
-                tc8Var.onComplete();
+            if (na8Var != null) {
+                na8Var.onComplete();
             }
         }
     }
@@ -146,7 +143,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public void removeByKeyMemoryChangedWithBroadcast(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, str, i) == null) {
-            xd8.l().p(str, i);
+            qb8.l().p(str, i);
         }
     }
 
@@ -162,12 +159,12 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onComplete(tc8 tc8Var) {
+    public void onComplete(na8 na8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, tc8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, na8Var) == null) {
             sortList();
-            if (tc8Var != null) {
-                tc8Var.onComplete();
+            if (na8Var != null) {
+                na8Var.onComplete();
             }
         }
     }
@@ -204,23 +201,23 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         return (ImMessageCenterShowItemData) invokeL.objValue;
     }
 
-    public void asyncDeleteItem(ImMessageCenterShowItemData imMessageCenterShowItemData, uc8 uc8Var) {
+    public void asyncDeleteItem(ImMessageCenterShowItemData imMessageCenterShowItemData, oa8 oa8Var) {
         List<ImMessageCenterShowItemData> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, imMessageCenterShowItemData, uc8Var) != null) || imMessageCenterShowItemData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, imMessageCenterShowItemData, oa8Var) != null) || imMessageCenterShowItemData == null) {
             return;
         }
         String friendId = imMessageCenterShowItemData.getFriendId();
         if (!TextUtils.isEmpty(friendId) && (list = this.mList) != null && list.size() != 0) {
             ResponsePullMessage.addDeleteTempItem(ResponsePullMessage.DeleteTempItem.create(imMessageCenterShowItemData.getFriendId(), getCustomGroupType(imMessageCenterShowItemData)));
-            xd8.l().a(imMessageCenterShowItemData, getCustomGroupType(imMessageCenterShowItemData), new uc8(this, uc8Var, imMessageCenterShowItemData, friendId) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.7
+            qb8.l().a(imMessageCenterShowItemData, getCustomGroupType(imMessageCenterShowItemData), new oa8(this, oa8Var, imMessageCenterShowItemData, friendId) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public int mLastProgress;
                 public final List<Pair<String, Integer>> mRemoveCache;
                 public final /* synthetic */ ImBaseMessageCenterModel this$0;
                 public final /* synthetic */ ImMessageCenterShowItemData val$data;
-                public final /* synthetic */ uc8 val$iProcess;
+                public final /* synthetic */ oa8 val$iProcess;
                 public final /* synthetic */ String val$id;
 
                 {
@@ -228,7 +225,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, uc8Var, imMessageCenterShowItemData, friendId};
+                        Object[] objArr = {this, oa8Var, imMessageCenterShowItemData, friendId};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -239,7 +236,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         }
                     }
                     this.this$0 = this;
-                    this.val$iProcess = uc8Var;
+                    this.val$iProcess = oa8Var;
                     this.val$data = imMessageCenterShowItemData;
                     this.val$id = friendId;
                     this.mRemoveCache = new ArrayList();
@@ -254,14 +251,14 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                             } else {
-                                te8.n().M();
+                                mc8.n().M();
                             }
                             return true;
                         } else if (i == -8) {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                             } else {
-                                te8.n().J();
+                                mc8.n().J();
                             }
                             return true;
                         } else {
@@ -276,36 +273,36 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     if (interceptable2 == null || interceptable2.invokeV(65538, this) == null) {
                         for (Pair<String, Integer> pair : this.mRemoveCache) {
                             if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                                xd8.l().q(pair.first, pair.second.intValue());
+                                qb8.l().q(pair.first, pair.second.intValue());
                             }
                         }
                         this.mRemoveCache.clear();
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onCanceled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         clearRemoveCache();
                         checkMergeGroupMemoryChanged(this.this$0.getCustomGroupType(this.val$data));
-                        uc8 uc8Var2 = this.val$iProcess;
-                        if (uc8Var2 != null) {
-                            uc8Var2.onCanceled();
+                        oa8 oa8Var2 = this.val$iProcess;
+                        if (oa8Var2 != null) {
+                            oa8Var2.onCanceled();
                         }
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onPreExecute() {
-                    uc8 uc8Var2;
+                    oa8 oa8Var2;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (uc8Var2 = this.val$iProcess) != null) {
-                        uc8Var2.onPreExecute();
+                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (oa8Var2 = this.val$iProcess) != null) {
+                        oa8Var2.onPreExecute();
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onPostExecute() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -317,23 +314,23 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         if (customGroupType == 9) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921762, this.val$data));
                         }
-                        uc8 uc8Var2 = this.val$iProcess;
-                        if (uc8Var2 != null) {
-                            uc8Var2.onPostExecute();
+                        oa8 oa8Var2 = this.val$iProcess;
+                        if (oa8Var2 != null) {
+                            oa8Var2.onPostExecute();
                         }
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onProgressUpdate(int i, String str, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
                         this.mRemoveCache.add(new Pair<>(str, Integer.valueOf(i2)));
                         if (this.mRemoveCache.size() >= 20 || i != this.mLastProgress) {
                             clearRemoveCache();
-                            uc8 uc8Var2 = this.val$iProcess;
-                            if (uc8Var2 != null) {
-                                uc8Var2.onProgressUpdate(i, str, i2);
+                            oa8 oa8Var2 = this.val$iProcess;
+                            if (oa8Var2 != null) {
+                                oa8Var2.onProgressUpdate(i, str, i2);
                             }
                         }
                         this.mLastProgress = i;
@@ -343,20 +340,20 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         }
     }
 
-    public void insertOrUpdate(ImMessageCenterPojo imMessageCenterPojo, tc8 tc8Var) {
+    public void insertOrUpdate(ImMessageCenterPojo imMessageCenterPojo, na8 na8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048585, this, imMessageCenterPojo, tc8Var) != null) || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid()) || !isAccept(imMessageCenterPojo)) {
+        if ((interceptable != null && interceptable.invokeLL(1048585, this, imMessageCenterPojo, na8Var) != null) || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid()) || !isAccept(imMessageCenterPojo)) {
             return;
         }
         ImMessageCenterShowItemData removeItem = removeItem(imMessageCenterPojo);
         if (!isToShow(imMessageCenterPojo)) {
-            if (tc8Var != null) {
-                tc8Var.onComplete();
+            if (na8Var != null) {
+                na8Var.onComplete();
                 return;
             }
             return;
         }
-        az5.c(new wy5<List<ImMessageCenterShowItemData>>(this, imMessageCenterPojo, removeItem) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
+        nw5.c(new jw5<List<ImMessageCenterShowItemData>>(this, imMessageCenterPojo, removeItem) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImBaseMessageCenterModel this$0;
@@ -384,7 +381,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.wy5
+            @Override // com.baidu.tieba.jw5
             public List<ImMessageCenterShowItemData> doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -427,18 +424,18 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
                 return (List) invokeV.objValue;
             }
-        }, new ay5<List<ImMessageCenterShowItemData>>(this, tc8Var) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
+        }, new ov5<List<ImMessageCenterShowItemData>>(this, na8Var) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImBaseMessageCenterModel this$0;
-            public final /* synthetic */ tc8 val$mCompleteProcess;
+            public final /* synthetic */ na8 val$mCompleteProcess;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, tc8Var};
+                    Object[] objArr = {this, na8Var};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -449,11 +446,11 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
                 this.this$0 = this;
-                this.val$mCompleteProcess = tc8Var;
+                this.val$mCompleteProcess = na8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ay5
+            @Override // com.baidu.tieba.ov5
             public void onReturnDataInUI(List<ImMessageCenterShowItemData> list) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
@@ -464,21 +461,21 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         });
     }
 
-    public void setData(List<ImMessageCenterPojo> list, tc8 tc8Var) {
+    public void setData(List<ImMessageCenterPojo> list, na8 na8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, list, tc8Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048596, this, list, na8Var) == null) {
             List<ImMessageCenterShowItemData> list2 = this.mList;
             if (list2 != null) {
                 list2.clear();
             }
             if (ListUtils.isEmpty(list)) {
-                if (tc8Var != null) {
-                    tc8Var.onComplete();
+                if (na8Var != null) {
+                    na8Var.onComplete();
                     return;
                 }
                 return;
             }
-            az5.c(new wy5<List<ImMessageCenterShowItemData>>(this, Collections.synchronizedList(new ArrayList(list))) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.5
+            nw5.c(new jw5<List<ImMessageCenterShowItemData>>(this, Collections.synchronizedList(new ArrayList(list))) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImBaseMessageCenterModel this$0;
@@ -504,7 +501,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.wy5
+                @Override // com.baidu.tieba.jw5
                 public List<ImMessageCenterShowItemData> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -551,18 +548,18 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                     return (List) invokeV.objValue;
                 }
-            }, new ay5<List<ImMessageCenterShowItemData>>(this, tc8Var) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.6
+            }, new ov5<List<ImMessageCenterShowItemData>>(this, na8Var) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImBaseMessageCenterModel this$0;
-                public final /* synthetic */ tc8 val$iCompleteProcess;
+                public final /* synthetic */ na8 val$iCompleteProcess;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, tc8Var};
+                        Object[] objArr = {this, na8Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -573,11 +570,11 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         }
                     }
                     this.this$0 = this;
-                    this.val$iCompleteProcess = tc8Var;
+                    this.val$iCompleteProcess = na8Var;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.ay5
+                @Override // com.baidu.tieba.ov5
                 public void onReturnDataInUI(List<ImMessageCenterShowItemData> list3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list3) == null) {
@@ -589,24 +586,24 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         }
     }
 
-    public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, int i, uc8 uc8Var) {
+    public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, int i, oa8 oa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i, uc8Var) == null) {
-            xd8.l().b(list, i, new uc8(this, uc8Var, i) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.8
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i, oa8Var) == null) {
+            qb8.l().b(list, i, new oa8(this, oa8Var, i) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public int mLastProgress;
                 public final List<Pair<String, Integer>> mRemoveCache;
                 public final /* synthetic */ ImBaseMessageCenterModel this$0;
                 public final /* synthetic */ int val$customGroupType;
-                public final /* synthetic */ uc8 val$iProcess;
+                public final /* synthetic */ oa8 val$iProcess;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, uc8Var, Integer.valueOf(i)};
+                        Object[] objArr = {this, oa8Var, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -617,22 +614,22 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         }
                     }
                     this.this$0 = this;
-                    this.val$iProcess = uc8Var;
+                    this.val$iProcess = oa8Var;
                     this.val$customGroupType = i;
                     this.mRemoveCache = new ArrayList();
                     this.mLastProgress = 0;
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onProgressUpdate(int i2, String str, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
                         this.mRemoveCache.add(new Pair<>(str, Integer.valueOf(i3)));
                         if (this.mRemoveCache.size() >= 20 || i2 != this.mLastProgress) {
                             clearRemoveCache();
-                            uc8 uc8Var2 = this.val$iProcess;
-                            if (uc8Var2 != null) {
-                                uc8Var2.onProgressUpdate(i2, str, i3);
+                            oa8 oa8Var2 = this.val$iProcess;
+                            if (oa8Var2 != null) {
+                                oa8Var2.onProgressUpdate(i2, str, i3);
                             }
                         }
                         this.mLastProgress = i2;
@@ -646,13 +643,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                             } else {
-                                te8.n().M();
+                                mc8.n().M();
                             }
                         } else if (i2 == 4) {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                             } else {
-                                te8.n().J();
+                                mc8.n().J();
                             }
                         }
                     }
@@ -664,45 +661,45 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         for (Pair<String, Integer> pair : this.mRemoveCache) {
                             if (pair != null && !TextUtils.isEmpty(pair.first)) {
                                 this.this$0.removeItemInList(pair.first);
-                                xd8.l().q(pair.first, pair.second.intValue());
+                                qb8.l().q(pair.first, pair.second.intValue());
                             }
                         }
                         this.mRemoveCache.clear();
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onCanceled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         clearRemoveCache();
                         checkListMemoryChanged(this.val$customGroupType);
-                        uc8 uc8Var2 = this.val$iProcess;
-                        if (uc8Var2 != null) {
-                            uc8Var2.onCanceled();
+                        oa8 oa8Var2 = this.val$iProcess;
+                        if (oa8Var2 != null) {
+                            oa8Var2.onCanceled();
                         }
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onPostExecute() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         clearRemoveCache();
                         checkListMemoryChanged(this.val$customGroupType);
-                        uc8 uc8Var2 = this.val$iProcess;
-                        if (uc8Var2 != null) {
-                            uc8Var2.onPostExecute();
+                        oa8 oa8Var2 = this.val$iProcess;
+                        if (oa8Var2 != null) {
+                            oa8Var2.onPostExecute();
                         }
                     }
                 }
 
-                @Override // com.baidu.tieba.uc8
+                @Override // com.baidu.tieba.oa8
                 public void onPreExecute() {
-                    uc8 uc8Var2;
+                    oa8 oa8Var2;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (uc8Var2 = this.val$iProcess) != null) {
-                        uc8Var2.onPreExecute();
+                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (oa8Var2 = this.val$iProcess) != null) {
+                        oa8Var2.onPreExecute();
                     }
                 }
             });
@@ -768,7 +765,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
 
     public void sortList() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             Collections.sort(this.mList, new Comparator<ImMessageCenterShowItemData>(this) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -862,44 +859,12 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         return (List) invokeV.objValue;
     }
 
-    public boolean removeItemInList(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
+    public void updateGroupchatList(List<ImMessageCenterPojo> list, na8 na8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, imMessageCenterShowItemData)) == null) {
-            if (!ListUtils.isEmpty(this.mList) && imMessageCenterShowItemData != null) {
-                String friendId = imMessageCenterShowItemData.getFriendId();
-                if (TextUtils.isEmpty(friendId)) {
-                    return false;
-                }
-                String ownerName = imMessageCenterShowItemData.getOwnerName();
-                Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    ImMessageCenterShowItemData next = it.next();
-                    if (next != null && friendId.equals(next.getFriendId())) {
-                        if (TextUtils.isEmpty(ownerName) && TextUtils.isEmpty(next.getOwnerName())) {
-                            this.mList.remove(next);
-                            return true;
-                        } else if (!TextUtils.isEmpty(ownerName) && !TextUtils.isEmpty(next.getOwnerName()) && ownerName.equals(next.getOwnerName())) {
-                            this.mList.remove(next);
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void updateGroupchatList(List<ImMessageCenterPojo> list, tc8 tc8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, list, tc8Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048598, this, list, na8Var) == null) {
             if (ListUtils.isEmpty(list)) {
-                if (tc8Var != null) {
-                    tc8Var.onComplete();
+                if (na8Var != null) {
+                    na8Var.onComplete();
                     return;
                 }
                 return;
@@ -913,7 +878,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     synchronizedList.add(imMessageCenterPojo);
                 }
             }
-            az5.c(new wy5<List<ImMessageCenterShowItemData>>(this, synchronizedList) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.3
+            nw5.c(new jw5<List<ImMessageCenterShowItemData>>(this, synchronizedList) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImBaseMessageCenterModel this$0;
@@ -939,7 +904,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.wy5
+                @Override // com.baidu.tieba.jw5
                 public List<ImMessageCenterShowItemData> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -986,18 +951,18 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                     return (List) invokeV.objValue;
                 }
-            }, new ay5<List<ImMessageCenterShowItemData>>(this, tc8Var) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.4
+            }, new ov5<List<ImMessageCenterShowItemData>>(this, na8Var) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImBaseMessageCenterModel this$0;
-                public final /* synthetic */ tc8 val$iCompleteProcess;
+                public final /* synthetic */ na8 val$iCompleteProcess;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, tc8Var};
+                        Object[] objArr = {this, na8Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -1008,11 +973,11 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         }
                     }
                     this.this$0 = this;
-                    this.val$iCompleteProcess = tc8Var;
+                    this.val$iCompleteProcess = na8Var;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.ay5
+                @Override // com.baidu.tieba.ov5
                 public void onReturnDataInUI(List<ImMessageCenterShowItemData> list2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list2) == null) {

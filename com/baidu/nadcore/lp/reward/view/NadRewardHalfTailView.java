@@ -18,22 +18,22 @@ import com.baidu.nadcore.widget.txt.CenterTextView;
 import com.baidu.nadcore.widget.txt.UnifyTextView;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a71;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.cq0;
-import com.baidu.tieba.do0;
-import com.baidu.tieba.e71;
-import com.baidu.tieba.fq0;
-import com.baidu.tieba.fs0;
-import com.baidu.tieba.ho0;
-import com.baidu.tieba.jq0;
-import com.baidu.tieba.js0;
-import com.baidu.tieba.ms0;
-import com.baidu.tieba.n41;
-import com.baidu.tieba.o41;
-import com.baidu.tieba.os0;
-import com.baidu.tieba.ri0;
-import com.baidu.tieba.ss0;
+import com.baidu.tieba.ap0;
+import com.baidu.tieba.bn0;
+import com.baidu.tieba.d61;
+import com.baidu.tieba.fn0;
+import com.baidu.tieba.fp0;
+import com.baidu.tieba.gr0;
+import com.baidu.tieba.h61;
+import com.baidu.tieba.jp0;
+import com.baidu.tieba.mr0;
+import com.baidu.tieba.ph0;
+import com.baidu.tieba.pr0;
+import com.baidu.tieba.q31;
+import com.baidu.tieba.r31;
+import com.baidu.tieba.rr0;
+import com.baidu.tieba.vr0;
+import com.baidu.tieba.yi0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.ArrayList;
@@ -61,9 +61,9 @@ public final class NadRewardHalfTailView extends RelativeLayout {
     public final Lazy i;
     public final Lazy j;
     public final Lazy k;
-    public js0 l;
+    public mr0 l;
     public Function0<Unit> m;
-    public cq0 n;
+    public ap0 n;
 
     @JvmOverloads
     public NadRewardHalfTailView(Context context) {
@@ -123,31 +123,31 @@ public final class NadRewardHalfTailView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class a extends ho0<ri0> {
+    public static final class a extends fn0<ph0> {
         public a(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ho0
-        public void onEvent(ri0 event) {
+        @Override // com.baidu.tieba.fn0
+        public void onEvent(ph0 event) {
             String str;
-            fs0 fs0Var;
+            gr0 gr0Var;
             Intrinsics.checkNotNullParameter(event, "event");
             if (!Intrinsics.areEqual(event.a, "4")) {
                 return;
             }
             if (event.h) {
-                js0 js0Var = NadRewardHalfTailView.this.l;
-                if (js0Var == null) {
+                mr0 mr0Var = NadRewardHalfTailView.this.l;
+                if (mr0Var == null) {
                     return;
                 }
-                NadRewardHalfTailView.this.setDetailButton(js0Var);
+                NadRewardHalfTailView.this.setDetailButton(mr0Var);
                 return;
             }
             String str2 = event.f;
             if (str2 != null) {
-                NadRewardHalfTailView.this.getDetailBtnIcon().o(str2);
+                NadRewardHalfTailView.this.getDetailBtnIcon().b(str2);
             }
             String str3 = event.g;
             if (str3 != null) {
@@ -158,41 +158,41 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                 if (background != null) {
                     GradientDrawable gradientDrawable = (GradientDrawable) background;
                     gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                    gradientDrawable.setColors(new int[]{a71.a(event.d, R.color.nad_reward_full_tail_btn_color), a71.a(event.e, R.color.nad_reward_full_tail_btn_color)});
+                    gradientDrawable.setColors(new int[]{d61.a(event.d, R.color.nad_reward_full_tail_btn_color), d61.a(event.e, R.color.nad_reward_full_tail_btn_color)});
                     NadRewardHalfTailView.this.getDetailBtn().setBackground(gradientDrawable);
                 } else {
                     throw new NullPointerException("null cannot be cast to non-null type android.graphics.drawable.GradientDrawable");
                 }
             }
             ClogBuilder u = new ClogBuilder().y(ClogBuilder.LogType.REWARD_SHOW_TASK).u(ClogBuilder.Page.WELFARETAIL);
-            js0 js0Var2 = NadRewardHalfTailView.this.l;
-            if (js0Var2 != null && (fs0Var = js0Var2.f) != null) {
-                str = fs0Var.d;
+            mr0 mr0Var2 = NadRewardHalfTailView.this.l;
+            if (mr0Var2 != null && (gr0Var = mr0Var2.f) != null) {
+                str = gr0Var.d;
             } else {
                 str = null;
             }
-            n41.e(u.p(str).k("4").l(event.c));
+            q31.e(u.p(str).k("4").l(event.c));
         }
     }
 
     /* loaded from: classes3.dex */
     public static final class b implements View.OnClickListener {
-        public final /* synthetic */ js0 b;
+        public final /* synthetic */ mr0 b;
 
-        public b(js0 js0Var) {
-            this.b = js0Var;
+        public b(mr0 mr0Var) {
+            this.b = mr0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            ms0 ms0Var;
-            os0 os0Var;
+            pr0 pr0Var;
+            rr0 rr0Var;
             NadRewardHalfTailView nadRewardHalfTailView = NadRewardHalfTailView.this;
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            js0 js0Var = this.b;
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str = os0Var.f;
+            mr0 mr0Var = this.b;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str = rr0Var.f;
             } else {
                 str = null;
             }
@@ -202,22 +202,22 @@ public final class NadRewardHalfTailView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public static final class c implements View.OnClickListener {
-        public final /* synthetic */ js0 b;
+        public final /* synthetic */ mr0 b;
 
-        public c(js0 js0Var) {
-            this.b = js0Var;
+        public c(mr0 mr0Var) {
+            this.b = mr0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            ms0 ms0Var;
-            os0 os0Var;
+            pr0 pr0Var;
+            rr0 rr0Var;
             NadRewardHalfTailView nadRewardHalfTailView = NadRewardHalfTailView.this;
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            js0 js0Var = this.b;
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str = os0Var.f;
+            mr0 mr0Var = this.b;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str = rr0Var.f;
             } else {
                 str = null;
             }
@@ -227,22 +227,22 @@ public final class NadRewardHalfTailView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public static final class d implements View.OnClickListener {
-        public final /* synthetic */ js0 b;
+        public final /* synthetic */ mr0 b;
 
-        public d(js0 js0Var) {
-            this.b = js0Var;
+        public d(mr0 mr0Var) {
+            this.b = mr0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            ms0 ms0Var;
-            os0 os0Var;
+            pr0 pr0Var;
+            rr0 rr0Var;
             NadRewardHalfTailView nadRewardHalfTailView = NadRewardHalfTailView.this;
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            js0 js0Var = this.b;
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str = os0Var.y;
+            mr0 mr0Var = this.b;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str = rr0Var.y;
             } else {
                 str = null;
             }
@@ -267,22 +267,22 @@ public final class NadRewardHalfTailView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public static final class f implements View.OnClickListener {
-        public final /* synthetic */ js0 b;
+        public final /* synthetic */ mr0 b;
 
-        public f(js0 js0Var) {
-            this.b = js0Var;
+        public f(mr0 mr0Var) {
+            this.b = mr0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            ms0 ms0Var;
-            os0 os0Var;
+            pr0 pr0Var;
+            rr0 rr0Var;
             NadRewardHalfTailView nadRewardHalfTailView = NadRewardHalfTailView.this;
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            js0 js0Var = this.b;
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str = os0Var.f;
+            mr0 mr0Var = this.b;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str = rr0Var.f;
             } else {
                 str = null;
             }
@@ -292,22 +292,22 @@ public final class NadRewardHalfTailView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public static final class g implements View.OnClickListener {
-        public final /* synthetic */ js0 b;
+        public final /* synthetic */ mr0 b;
 
-        public g(js0 js0Var) {
-            this.b = js0Var;
+        public g(mr0 mr0Var) {
+            this.b = mr0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            ms0 ms0Var;
-            os0 os0Var;
+            pr0 pr0Var;
+            rr0 rr0Var;
             NadRewardHalfTailView nadRewardHalfTailView = NadRewardHalfTailView.this;
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            js0 js0Var = this.b;
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str = os0Var.f;
+            mr0 mr0Var = this.b;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str = rr0Var.f;
             } else {
                 str = null;
             }
@@ -329,7 +329,7 @@ public final class NadRewardHalfTailView extends RelativeLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final AdImageView invoke() {
-                View findViewById = NadRewardHalfTailView.this.findViewById(R.id.obfuscated_res_0x7f090315);
+                View findViewById = NadRewardHalfTailView.this.findViewById(R.id.obfuscated_res_0x7f090316);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.avatar)");
                 return (AdImageView) findViewById;
             }
@@ -343,7 +343,7 @@ public final class NadRewardHalfTailView extends RelativeLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final TextView invoke() {
-                View findViewById = NadRewardHalfTailView.this.findViewById(R.id.obfuscated_res_0x7f092542);
+                View findViewById = NadRewardHalfTailView.this.findViewById(R.id.obfuscated_res_0x7f09255a);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.title)");
                 return (TextView) findViewById;
             }
@@ -357,7 +357,7 @@ public final class NadRewardHalfTailView extends RelativeLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final CenterTextView invoke() {
-                View findViewById = NadRewardHalfTailView.this.findViewById(R.id.obfuscated_res_0x7f0922b7);
+                View findViewById = NadRewardHalfTailView.this.findViewById(R.id.obfuscated_res_0x7f0922cf);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.sub_title)");
                 return (CenterTextView) findViewById;
             }
@@ -475,7 +475,7 @@ public final class NadRewardHalfTailView extends RelativeLayout {
             }
         });
         LayoutInflater from = LayoutInflater.from(context);
-        fq0 a2 = jq0.a();
+        fp0 a2 = jp0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         from.inflate(a2.k(), this);
     }
@@ -484,26 +484,26 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    private final void setAvatar(js0 js0Var) {
+    private final void setAvatar(mr0 mr0Var) {
         String str;
-        ms0 ms0Var;
-        os0 os0Var;
+        pr0 pr0Var;
+        rr0 rr0Var;
         AdImageView avatar = getAvatar();
-        if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-            str = os0Var.d;
+        if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+            str = rr0Var.d;
         } else {
             str = null;
         }
-        avatar.o(str);
-        avatar.setOnClickListener(new b(js0Var));
+        avatar.b(str);
+        avatar.setOnClickListener(new b(mr0Var));
     }
 
-    private final void setReplayButton(js0 js0Var) {
+    private final void setReplayButton(mr0 mr0Var) {
         int i;
-        ss0 c2;
+        vr0 c2;
         getReplayBtn().setOnClickListener(new e());
         ImageView replayBtnIcon = getReplayBtnIcon();
-        if (js0Var != null && (c2 = js0Var.c()) != null && c2.f()) {
+        if (mr0Var != null && (c2 = mr0Var.c()) != null && c2.f()) {
             i = 8;
         } else {
             i = 0;
@@ -511,19 +511,19 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         replayBtnIcon.setVisibility(i);
     }
 
-    public final void i(cq0 listener) {
+    public final void i(ap0 listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.n = listener;
     }
 
-    public final void setData(js0 js0Var) {
-        this.l = js0Var;
-        setAvatar(js0Var);
-        setTitle(js0Var);
-        setSubTitle(js0Var);
-        setDetailButton(js0Var);
-        setReplayButton(js0Var);
-        setMoreButton(js0Var);
+    public final void setData(mr0 mr0Var) {
+        this.l = mr0Var;
+        setAvatar(mr0Var);
+        setTitle(mr0Var);
+        setSubTitle(mr0Var);
+        setDetailButton(mr0Var);
+        setReplayButton(mr0Var);
+        setMoreButton(mr0Var);
         j();
     }
 
@@ -533,49 +533,49 @@ public final class NadRewardHalfTailView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void setDetailButton(js0 js0Var) {
+    public final void setDetailButton(mr0 mr0Var) {
         String str;
         String str2;
         String str3;
         boolean z;
         String str4;
-        ms0 ms0Var;
-        os0 os0Var;
-        ms0 ms0Var2;
-        os0 os0Var2;
+        pr0 pr0Var;
+        rr0 rr0Var;
+        pr0 pr0Var2;
+        rr0 rr0Var2;
         String str5;
         String str6;
-        ms0 ms0Var3;
-        os0 os0Var3;
-        ms0 ms0Var4;
-        os0 os0Var4;
-        ms0 ms0Var5;
-        os0 os0Var5;
-        ss0 c2;
-        ms0 ms0Var6;
-        os0 os0Var6;
-        ms0 ms0Var7;
-        os0 os0Var7;
-        ms0 ms0Var8;
-        os0 os0Var8;
+        pr0 pr0Var3;
+        rr0 rr0Var3;
+        pr0 pr0Var4;
+        rr0 rr0Var4;
+        pr0 pr0Var5;
+        rr0 rr0Var5;
+        vr0 c2;
+        pr0 pr0Var6;
+        rr0 rr0Var6;
+        pr0 pr0Var7;
+        rr0 rr0Var7;
+        pr0 pr0Var8;
+        rr0 rr0Var8;
         View detailBtn = getDetailBtn();
         Resources resources = detailBtn.getResources();
-        fq0 a2 = jq0.a();
+        fp0 a2 = jp0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         float dimension = resources.getDimension(a2.h());
         GradientDrawable gradientDrawable = new GradientDrawable();
         String str7 = null;
-        if (js0Var != null && (ms0Var8 = js0Var.j) != null && (os0Var8 = ms0Var8.i) != null) {
-            str = os0Var8.h;
+        if (mr0Var != null && (pr0Var8 = mr0Var.j) != null && (rr0Var8 = pr0Var8.i) != null) {
+            str = rr0Var8.h;
         } else {
             str = null;
         }
-        gradientDrawable.setColor(a71.a(str, R.color.nad_reward_full_tail_btn_color));
+        gradientDrawable.setColor(d61.a(str, R.color.nad_reward_full_tail_btn_color));
         gradientDrawable.setCornerRadius(dimension);
         Unit unit = Unit.INSTANCE;
         detailBtn.setBackground(gradientDrawable);
-        if (js0Var != null && (ms0Var7 = js0Var.j) != null && (os0Var7 = ms0Var7.i) != null) {
-            str2 = os0Var7.b;
+        if (mr0Var != null && (pr0Var7 = mr0Var.j) != null && (rr0Var7 = pr0Var7.i) != null) {
+            str2 = rr0Var7.b;
         } else {
             str2 = null;
         }
@@ -586,14 +586,14 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         } else {
             detailBtn.setVisibility(8);
         }
-        detailBtn.setOnClickListener(new c(js0Var));
+        detailBtn.setOnClickListener(new c(mr0Var));
         AdImageView detailBtnIcon = getDetailBtnIcon();
-        if (js0Var != null && (ms0Var6 = js0Var.j) != null && (os0Var6 = ms0Var6.i) != null && os0Var6.C) {
+        if (mr0Var != null && (pr0Var6 = mr0Var.j) != null && (rr0Var6 = pr0Var6.i) != null && rr0Var6.C) {
             detailBtnIcon.setImageResource(R.drawable.nad_reward_detail_btn_dp_icon);
-            n41.e(new ClogBuilder().j("openbtn").y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.WELFAREMAXLP).p(js0Var.f.d));
+            q31.e(new ClogBuilder().j("openbtn").y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.WELFAREMAXLP).p(mr0Var.f.d));
         } else {
-            if (js0Var != null && (ms0Var2 = js0Var.j) != null && (os0Var2 = ms0Var2.i) != null) {
-                str3 = os0Var2.i;
+            if (mr0Var != null && (pr0Var2 = mr0Var.j) != null && (rr0Var2 = pr0Var2.i) != null) {
+                str3 = rr0Var2.i;
             } else {
                 str3 = null;
             }
@@ -603,29 +603,29 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                 z = true;
             }
             if (!z) {
-                if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                    str4 = os0Var.i;
+                if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                    str4 = rr0Var.i;
                 } else {
                     str4 = null;
                 }
-                detailBtnIcon.o(str4);
+                detailBtnIcon.b(str4);
             } else {
                 detailBtnIcon.setImageResource(R.drawable.nad_reward_detail_btn_icon);
             }
         }
-        detailBtnIcon.setVisibility((js0Var == null || (c2 = js0Var.c()) == null || !c2.f()) ? 0 : 0);
+        detailBtnIcon.setVisibility((mr0Var == null || (c2 = mr0Var.c()) == null || !c2.f()) ? 0 : 0);
         TextView detailBtnText = getDetailBtnText();
-        if (js0Var != null && (ms0Var5 = js0Var.j) != null && (os0Var5 = ms0Var5.i) != null && os0Var5.C) {
+        if (mr0Var != null && (pr0Var5 = mr0Var.j) != null && (rr0Var5 = pr0Var5.i) != null && rr0Var5.C) {
             str6 = detailBtnText.getContext().getString(R.string.nad_reward_detail_btn_open_app);
         } else {
-            if (js0Var != null && (ms0Var4 = js0Var.j) != null && (os0Var4 = ms0Var4.i) != null) {
-                str5 = os0Var4.g;
+            if (mr0Var != null && (pr0Var4 = mr0Var.j) != null && (rr0Var4 = pr0Var4.i) != null) {
+                str5 = rr0Var4.g;
             } else {
                 str5 = null;
             }
             if (!((str5 == null || StringsKt__StringsJVMKt.isBlank(str5)) ? true : true)) {
-                if (js0Var != null && (ms0Var3 = js0Var.j) != null && (os0Var3 = ms0Var3.i) != null) {
-                    str7 = os0Var3.g;
+                if (mr0Var != null && (pr0Var3 = mr0Var.j) != null && (rr0Var3 = pr0Var3.i) != null) {
+                    str7 = rr0Var3.g;
                 }
             } else {
                 str7 = detailBtnText.getContext().getString(R.string.nad_reward_detail_btn_text);
@@ -635,41 +635,41 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         detailBtnText.setText(str6);
     }
 
-    private final void setSubTitle(js0 js0Var) {
+    private final void setSubTitle(mr0 mr0Var) {
         String str;
-        ms0 ms0Var;
-        os0 os0Var;
-        ms0 ms0Var2;
-        os0 os0Var2;
+        pr0 pr0Var;
+        rr0 rr0Var;
+        pr0 pr0Var2;
+        rr0 rr0Var2;
         CenterTextView subTitle = getSubTitle();
         boolean z = false;
         subTitle.setTextBold(false);
         String str2 = null;
-        if (js0Var != null && (ms0Var2 = js0Var.j) != null && (os0Var2 = ms0Var2.i) != null) {
-            str = os0Var2.m;
+        if (mr0Var != null && (pr0Var2 = mr0Var.j) != null && (rr0Var2 = pr0Var2.i) != null) {
+            str = rr0Var2.m;
         } else {
             str = null;
         }
         if (!((str == null || str.length() == 0) ? true : true)) {
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str2 = os0Var.m;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str2 = rr0Var.m;
             }
             subTitle.setText(str2);
         }
-        subTitle.setOnClickListener(new f(js0Var));
+        subTitle.setOnClickListener(new f(mr0Var));
     }
 
-    private final void setTitle(js0 js0Var) {
+    private final void setTitle(mr0 mr0Var) {
         String str;
         boolean z;
-        ms0 ms0Var;
-        os0 os0Var;
-        ms0 ms0Var2;
-        os0 os0Var2;
+        pr0 pr0Var;
+        rr0 rr0Var;
+        pr0 pr0Var2;
+        rr0 rr0Var2;
         TextView title = getTitle();
         String str2 = null;
-        if (js0Var != null && (ms0Var2 = js0Var.j) != null && (os0Var2 = ms0Var2.i) != null) {
-            str = os0Var2.c;
+        if (mr0Var != null && (pr0Var2 = mr0Var.j) != null && (rr0Var2 = pr0Var2.i) != null) {
+            str = rr0Var2.c;
         } else {
             str = null;
         }
@@ -679,37 +679,37 @@ public final class NadRewardHalfTailView extends RelativeLayout {
             z = true;
         }
         if (!z) {
-            if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                str2 = os0Var.c;
+            if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                str2 = rr0Var.c;
             }
             title.setText(str2);
         }
-        title.setOnClickListener(new g(js0Var));
+        title.setOnClickListener(new g(mr0Var));
     }
 
     public final void h(String str, ClogBuilder.LogType logType, String str2) {
         String str3;
-        js0 js0Var;
+        mr0 mr0Var;
         List<MonitorUrl> list;
         boolean z;
-        fs0 fs0Var;
-        ms0 ms0Var;
-        os0 os0Var;
-        cq0 cq0Var;
-        js0 js0Var2 = this.l;
+        gr0 gr0Var;
+        pr0 pr0Var;
+        rr0 rr0Var;
+        ap0 ap0Var;
+        mr0 mr0Var2 = this.l;
         boolean z2 = true;
-        if (js0Var2 != null && (ms0Var = js0Var2.j) != null && (os0Var = ms0Var.i) != null && !os0Var.C && (cq0Var = this.n) != null && cq0Var.a(str, logType, str2)) {
+        if (mr0Var2 != null && (pr0Var = mr0Var2.j) != null && (rr0Var = pr0Var.i) != null && !rr0Var.C && (ap0Var = this.n) != null && ap0Var.a(str, logType, str2)) {
             return;
         }
         ClogBuilder u = new ClogBuilder().j(str).y(logType).u(ClogBuilder.Page.WELFARETAIL);
-        js0 js0Var3 = this.l;
-        if (js0Var3 != null && (fs0Var = js0Var3.f) != null) {
-            str3 = fs0Var.d;
+        mr0 mr0Var3 = this.l;
+        if (mr0Var3 != null && (gr0Var = mr0Var3.f) != null) {
+            str3 = gr0Var.d;
         } else {
             str3 = null;
         }
-        n41.e(u.p(str3));
-        if (logType == ClogBuilder.LogType.CLICK && (js0Var = this.l) != null && (list = js0Var.e) != null) {
+        q31.e(u.p(str3));
+        if (logType == ClogBuilder.LogType.CLICK && (mr0Var = this.l) != null && (list = mr0Var.e) != null) {
             ArrayList<MonitorUrl> arrayList = new ArrayList();
             for (Object obj : list) {
                 String str4 = ((MonitorUrl) obj).clickUrl;
@@ -723,19 +723,19 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                 }
             }
             for (MonitorUrl monitorUrl : arrayList) {
-                o41.b(monitorUrl.clickUrl);
+                r31.b(monitorUrl.clickUrl);
             }
         }
         if (str2 != null && str2.length() != 0) {
             z2 = false;
         }
         if (!z2) {
-            ak0.c(str2, getContext());
+            yi0.c(str2, getContext());
         }
     }
 
     public final void j() {
-        do0.a().b(this, new a(ri0.class));
+        bn0.a().b(this, new a(ph0.class));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x0100  */
@@ -751,7 +751,7 @@ public final class NadRewardHalfTailView extends RelativeLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void setMoreButton(js0 js0Var) {
+    public final void setMoreButton(mr0 mr0Var) {
         String str;
         boolean z;
         boolean z2;
@@ -763,30 +763,30 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         String str3;
         String str4;
         boolean z4;
-        ms0 ms0Var;
-        os0 os0Var;
-        ms0 ms0Var2;
-        os0 os0Var2;
-        ms0 ms0Var3;
-        os0 os0Var3;
+        pr0 pr0Var;
+        rr0 rr0Var;
+        pr0 pr0Var2;
+        rr0 rr0Var2;
+        pr0 pr0Var3;
+        rr0 rr0Var3;
         String str5;
-        ms0 ms0Var4;
-        os0 os0Var4;
-        ms0 ms0Var5;
-        os0 os0Var5;
+        pr0 pr0Var4;
+        rr0 rr0Var4;
+        pr0 pr0Var5;
+        rr0 rr0Var5;
         String str6;
-        ms0 ms0Var6;
-        os0 os0Var6;
+        pr0 pr0Var6;
+        rr0 rr0Var6;
         String str7;
         boolean z5;
-        ms0 ms0Var7;
-        os0 os0Var7;
-        ms0 ms0Var8;
-        os0 os0Var8;
+        pr0 pr0Var7;
+        rr0 rr0Var7;
+        pr0 pr0Var8;
+        rr0 rr0Var8;
         LinearLayout moreBtnContainer = getMoreBtnContainer();
         String str8 = null;
-        if (js0Var != null && (ms0Var8 = js0Var.j) != null && (os0Var8 = ms0Var8.i) != null) {
-            str = os0Var8.w;
+        if (mr0Var != null && (pr0Var8 = mr0Var.j) != null && (rr0Var8 = pr0Var8.i) != null) {
+            str = rr0Var8.w;
         } else {
             str = null;
         }
@@ -796,8 +796,8 @@ public final class NadRewardHalfTailView extends RelativeLayout {
             z = true;
         }
         if (z) {
-            if (js0Var != null && (ms0Var7 = js0Var.j) != null && (os0Var7 = ms0Var7.i) != null) {
-                str7 = os0Var7.x;
+            if (mr0Var != null && (pr0Var7 = mr0Var.j) != null && (rr0Var7 = pr0Var7.i) != null) {
+                str7 = rr0Var7.x;
             } else {
                 str7 = null;
             }
@@ -817,20 +817,20 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                 }
                 if (linearLayout != null) {
                     GradientDrawable gradientDrawable = new GradientDrawable();
-                    gradientDrawable.setCornerRadius(e71.c.a(moreBtnContainer.getContext(), 17.0f));
-                    if (js0Var != null && (ms0Var6 = js0Var.j) != null && (os0Var6 = ms0Var6.i) != null) {
-                        str6 = os0Var6.z;
+                    gradientDrawable.setCornerRadius(h61.c.a(moreBtnContainer.getContext(), 17.0f));
+                    if (mr0Var != null && (pr0Var6 = mr0Var.j) != null && (rr0Var6 = pr0Var6.i) != null) {
+                        str6 = rr0Var6.z;
                     } else {
                         str6 = null;
                     }
-                    gradientDrawable.setStroke(2, a71.a(str6, R.color.nad_reward_half_tail_more_btn_border));
+                    gradientDrawable.setStroke(2, d61.a(str6, R.color.nad_reward_half_tail_more_btn_border));
                     Unit unit = Unit.INSTANCE;
                     linearLayout.setBackground(gradientDrawable);
                 }
-                moreBtnContainer.setOnClickListener(new d(js0Var));
+                moreBtnContainer.setOnClickListener(new d(mr0Var));
                 moreBtnIcon = getMoreBtnIcon();
-                if (js0Var == null && (ms0Var5 = js0Var.j) != null && (os0Var5 = ms0Var5.i) != null) {
-                    str2 = os0Var5.w;
+                if (mr0Var == null && (pr0Var5 = mr0Var.j) != null && (rr0Var5 = pr0Var5.i) != null) {
+                    str2 = rr0Var5.w;
                 } else {
                     str2 = null;
                 }
@@ -846,22 +846,22 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                     moreBtnIcon = null;
                 }
                 if (moreBtnIcon != null) {
-                    if (js0Var != null && (ms0Var4 = js0Var.j) != null && (os0Var4 = ms0Var4.i) != null) {
-                        str5 = os0Var4.w;
+                    if (mr0Var != null && (pr0Var4 = mr0Var.j) != null && (rr0Var4 = pr0Var4.i) != null) {
+                        str5 = rr0Var4.w;
                     } else {
                         str5 = null;
                     }
-                    moreBtnIcon.o(str5);
+                    moreBtnIcon.b(str5);
                 }
                 moreBtnText = getMoreBtnText();
-                if (js0Var == null && (ms0Var3 = js0Var.j) != null && (os0Var3 = ms0Var3.i) != null) {
-                    str3 = os0Var3.A;
+                if (mr0Var == null && (pr0Var3 = mr0Var.j) != null && (rr0Var3 = pr0Var3.i) != null) {
+                    str3 = rr0Var3.A;
                 } else {
                     str3 = null;
                 }
-                moreBtnText.setTextColor(a71.a(str3, R.color.nad_reward_half_tail_more_text_color));
-                if (js0Var == null && (ms0Var2 = js0Var.j) != null && (os0Var2 = ms0Var2.i) != null) {
-                    str4 = os0Var2.x;
+                moreBtnText.setTextColor(d61.a(str3, R.color.nad_reward_half_tail_more_text_color));
+                if (mr0Var == null && (pr0Var2 = mr0Var.j) != null && (rr0Var2 = pr0Var2.i) != null) {
+                    str4 = rr0Var2.x;
                 } else {
                     str4 = null;
                 }
@@ -877,8 +877,8 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                     moreBtnText = null;
                 }
                 if (moreBtnText == null) {
-                    if (js0Var != null && (ms0Var = js0Var.j) != null && (os0Var = ms0Var.i) != null) {
-                        str8 = os0Var.x;
+                    if (mr0Var != null && (pr0Var = mr0Var.j) != null && (rr0Var = pr0Var.i) != null) {
+                        str8 = rr0Var.x;
                     }
                     moreBtnText.setText(str8);
                     return;
@@ -891,9 +891,9 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         }
         if (linearLayout != null) {
         }
-        moreBtnContainer.setOnClickListener(new d(js0Var));
+        moreBtnContainer.setOnClickListener(new d(mr0Var));
         moreBtnIcon = getMoreBtnIcon();
-        if (js0Var == null) {
+        if (mr0Var == null) {
         }
         str2 = null;
         if (str2 == null) {
@@ -904,11 +904,11 @@ public final class NadRewardHalfTailView extends RelativeLayout {
         if (moreBtnIcon != null) {
         }
         moreBtnText = getMoreBtnText();
-        if (js0Var == null) {
+        if (mr0Var == null) {
         }
         str3 = null;
-        moreBtnText.setTextColor(a71.a(str3, R.color.nad_reward_half_tail_more_text_color));
-        if (js0Var == null) {
+        moreBtnText.setTextColor(d61.a(str3, R.color.nad_reward_half_tail_more_text_color));
+        if (mr0Var == null) {
         }
         str4 = null;
         if (str4 == null) {

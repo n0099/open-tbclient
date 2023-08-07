@@ -1,58 +1,61 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class jab {
+public class jab {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<Integer> a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
-            if (str == null) {
-                return f;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947877982, "Lcom/baidu/tieba/jab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947877982, "Lcom/baidu/tieba/jab;");
+                return;
             }
         }
-        return invokeLF.floatValue;
+        ArrayList<Integer> arrayList = new ArrayList<>(4);
+        a = arrayList;
+        arrayList.add(10000);
+        a.add(10001);
+        a.add(10002);
+        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
+        a.add(-1);
     }
 
-    public static int b(String str, int i) {
-        InterceptResult invokeLI;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (str == null) {
-                return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = xab.a();
             }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
+            if (TextUtils.isEmpty(b)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
             }
+            if (b.toUpperCase().contains("HUAWEI")) {
+                return 10001;
+            }
+            if (!b.toUpperCase().contains(RomUtils.ROM_XIAOMI)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            return 10002;
         }
-        return invokeLI.intValue;
-    }
-
-    public static long c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
+        return invokeV.intValue;
     }
 }

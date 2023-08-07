@@ -1,14 +1,14 @@
 package com.baidu.tieba.immessagecenter.chatgroup.message;
 
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.ci8;
+import com.baidu.tieba.di8;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.kk8;
-import com.baidu.tieba.lk8;
-import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,22 +52,22 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = wg.e(jSONObject.optString("error_code"), -1);
-            if (e == 0) {
+            int i2 = JavaTypesHelper.toInt(jSONObject.optString("error_code"), -1);
+            if (i2 == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     this.groupId = optJSONObject.optLong("mid_group_id", 0L);
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        lk8 lk8Var = new lk8();
-                        lk8Var.h(optJSONObject2);
-                        this.mList.add(lk8Var);
+                        di8 di8Var = new di8();
+                        di8Var.h(optJSONObject2);
+                        this.mList.add(di8Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
+                        for (int i3 = 0; i3 < length; i3++) {
+                            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
                             if (optJSONObject3 != null) {
                                 ChatGroupInfo chatGroupInfo = new ChatGroupInfo();
                                 chatGroupInfo.parse(optJSONObject3);
@@ -77,16 +77,16 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        kk8 kk8Var = new kk8();
-                        kk8Var.c(optJSONObject4);
-                        this.mList.add(kk8Var);
+                        ci8 ci8Var = new ci8();
+                        ci8Var.c(optJSONObject4);
+                        this.mList.add(ci8Var);
                         return;
                     }
                     return;
                 }
                 return;
             }
-            setError(e);
+            setError(i2);
             setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
         }
     }

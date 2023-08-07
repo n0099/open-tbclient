@@ -1,93 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class h69 implements yn {
+public class h69 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public i69 a;
-    public List<VipSpecialItem> b;
-    public int c;
-    public String d;
+    public View a;
+    public TextView b;
+    public TextView c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775806, "Lcom/baidu/tieba/h69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947775806, "Lcom/baidu/tieba/h69;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public List<VipSpecialItem> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public h69(VipBasicList vipBasicList) {
+    public h69() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipBasicList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = 0;
-        this.d = "";
-        if (vipBasicList != null && vipBasicList.item.size() > 0) {
-            this.d = vipBasicList.card_id;
-            this.c = vipBasicList.card_type.intValue();
-            i69 i69Var = new i69();
-            this.a = i69Var;
-            i69Var.e(5);
-            this.a.d(vipBasicList.class_name);
-            this.a.f(vipBasicList.class_url_name);
-            this.a.g(vipBasicList.class_url);
-            this.b = new ArrayList();
-            for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-                this.b.add(vipSpecialItem);
-            }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.member_privilege_button_new_selector);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
+        }
+    }
+
+    public View a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0962, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092412);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092413);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
         }
     }
 }

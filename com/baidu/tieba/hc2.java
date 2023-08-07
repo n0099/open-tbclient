@@ -1,90 +1,69 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hc2 extends HandlerThread implements gc2<fc2> {
+public class hc2 extends zb2<JSONObject, y22> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818834, "Lcom/baidu/tieba/hc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947818834, "Lcom/baidu/tieba/hc2;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hc2() {
-        super("EventDispatcherImpl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        c();
     }
 
-    public final void c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dc2
+    @NonNull
+    /* renamed from: c */
+    public y22 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            start();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new y22(202);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new y22(202, "data is required");
+            }
+            String optString = optJSONObject.optString("status");
+            if (TextUtils.isEmpty(optString)) {
+                return new y22(202, "status is required");
+            }
+            char c = 65535;
+            int hashCode = optString.hashCode();
+            if (hashCode != 48) {
+                if (hashCode == 49 && optString.equals("1")) {
+                    c = 0;
+                }
+            } else if (optString.equals("0")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return new y22(202, "status value is invalid");
+                }
+                new xb2().d();
+            }
+            return new y22(0);
         }
-    }
-
-    @Override // android.os.HandlerThread, com.baidu.tieba.gc2
-    public Looper getLooper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.getLooper();
-        }
-        return (Looper) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gc2
-    public void a(@NonNull Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            this.a = handler;
-        }
-    }
-
-    @Override // com.baidu.tieba.gc2
-    public void b(fc2 fc2Var) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc2Var) == null) && fc2Var != null && (handler = this.a) != null) {
-            this.a.sendMessageDelayed(Message.obtain(handler, fc2Var.a, fc2Var), fc2Var.c);
-        }
+        return (y22) invokeL.objValue;
     }
 }

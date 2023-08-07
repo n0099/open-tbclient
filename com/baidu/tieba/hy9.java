@@ -1,33 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hy9 {
+public final class hy9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 2131099672;
+    public static int b = 2131167563;
+    public static int c = 2131167771;
+    public static int d = 2131167881;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        int a(Context context, String[] strArr);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947840193, "Lcom/baidu/tieba/hy9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947840193, "Lcom/baidu/tieba/hy9;");
+        }
     }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        int a(Context context, Map<String, String> map);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-    }
-
-    boolean a(String str);
-
-    void b(Context context, String[] strArr, boolean z, Bundle bundle);
-
-    boolean c(Context context, String[] strArr, Bundle bundle);
 }

@@ -1,44 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService;
+import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback;
+import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j39 {
+public class j39 implements LiveYYRtcLoadService {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                try {
-                    Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
-                    declaredField.setAccessible(true);
-                    a = (Map) declaredField.get(null);
-                } catch (Exception e) {
-                    e.printStackTrace();
+    /* loaded from: classes6.dex */
+    public class a implements YYEnvResultCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack a;
+
+        public a(j39 j39Var, LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j39Var, iLiveThunderLibDownloadStatusCallBack};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return a;
+            this.a = iLiveThunderLibDownloadStatusCallBack;
         }
-        return (Map) invokeV.objValue;
-    }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            try {
-                ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
-            } catch (Exception e) {
-                e.printStackTrace();
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onFail(int i, String str) {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadFailed();
             }
         }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onSuccess() {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadSuccess();
+            }
+        }
+    }
+
+    public j39() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService
+    public boolean isLibReady(@NonNull Context context, @Nullable String str, @Nullable LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, iLiveThunderLibDownloadStatusCallBack)) == null) {
+            LiveYYPluginManager.getInstance().prepareYYEnv(context, IYYLiveNPSPlugin.YY_ENV_CREATE_LIVE, new a(this, iLiveThunderLibDownloadStatusCallBack));
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

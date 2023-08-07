@@ -1,106 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
-public final class oqb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SHA";
-    public static final String[] b;
+public class oqb {
+    public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042313, "Lcom/baidu/tieba/oqb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948042313, "Lcom/baidu/tieba/oqb;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948042313, "Lcom/baidu/tieba/oqb;")) == null) {
+            return;
         }
-        b = new String[]{"SHA-256", "SHA-384", "SHA-512"};
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948042313, "Lcom/baidu/tieba/oqb;");
+        }
     }
 
-    public static boolean a(String str) {
+    public static String a(String str, String str2, Context context) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
+            return b(context).getString(str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void c(String str, String str2, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
+            b(context).edit().putString(str, str2).apply();
+        }
+    }
+
+    public static synchronized SharedPreferences b(Context context) {
         InterceptResult invokeL;
+        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            for (String str2 : b) {
-                if (str2.equals(str)) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (oqb.class) {
+                if (a == null) {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
+                    } else {
+                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
+                    }
                 }
+                sharedPreferences = a;
             }
-            return false;
+            return sharedPreferences;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return c(str, "SHA-256");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!a(str2)) {
-                    vqb.c(a, "algorithm is not safe or legal");
-                    return "";
-                }
-                try {
-                    bArr = str.getBytes("UTF-8");
-                } catch (UnsupportedEncodingException unused) {
-                    bArr = new byte[0];
-                    vqb.c(a, "Error in generate SHA UnsupportedEncodingException");
-                }
-                return sqb.a(d(bArr, str2));
-            }
-            vqb.c(a, "content or algorithm is null.");
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
-            if (bArr != null && !TextUtils.isEmpty(str)) {
-                if (!a(str)) {
-                    vqb.c(a, "algorithm is not safe or legal");
-                    return new byte[0];
-                }
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance(str);
-                    messageDigest.update(bArr);
-                    return messageDigest.digest();
-                } catch (NoSuchAlgorithmException unused) {
-                    vqb.c(a, "Error in generate SHA NoSuchAlgorithmException");
-                    return new byte[0];
-                }
-            }
-            vqb.c(a, "content or algorithm is null.");
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
+        return (SharedPreferences) invokeL.objValue;
     }
 }

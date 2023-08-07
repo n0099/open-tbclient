@@ -1,146 +1,87 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.Intent;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsTabInfo;
+import tbclient.ActivityPage.ActivityPageReqIdl;
+import tbclient.ActivityPage.DataReq;
 /* loaded from: classes5.dex */
-public class ex7 {
+public class ex7 implements rt5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public final lt5 b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-
-        public a(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {imageView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Drawable maskDrawable;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
-                ImageView imageView = this.a;
-                if (((Boolean) view2.getTag()).booleanValue()) {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
-                } else {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
-                }
-                imageView.setImageDrawable(maskDrawable);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-        public final /* synthetic */ FrsTabInfo b;
-        public final /* synthetic */ FrsTabInfo c;
-
-        public b(ImageView imageView, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {imageView, frsTabInfo, frsTabInfo2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageView;
-            this.b = frsTabInfo;
-            this.c = frsTabInfo2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                da5.p().A("key_frs_move_area_tip", !((Boolean) this.a.getTag()).booleanValue());
-                oh7.h().m(this.b.tab_id.intValue(), this.c.tab_id.intValue());
-            }
-        }
-    }
-
-    public static void a(TbPageContext tbPageContext, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
-        String format;
+    @Override // com.baidu.tieba.rt5
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, frsTabInfo, frsTabInfo2) == null) && frsTabInfo != null && frsTabInfo2 != null && tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            Activity pageActivity = tbPageContext.getPageActivity();
-            LinearLayout linearLayout = new LinearLayout(pageActivity);
-            linearLayout.setOrientation(0);
-            linearLayout.setGravity(16);
-            linearLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
-            ImageView imageView = new ImageView(pageActivity);
-            imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null));
-            linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
-            TextView textView = new TextView(pageActivity);
-            textView.setText(R.string.no_tip_again);
-            textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
-            d85 d = d85.d(textView);
-            d.C(R.dimen.T_X07);
-            d.x(R.color.CAM_X0108);
-            d.D(R.string.F_X01);
-            linearLayout.addView(textView);
-            imageView.setTag(Boolean.FALSE);
-            imageView.setOnClickListener(new a(imageView));
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(tbPageContext.getPageActivity());
-            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f084d);
-            if (frsTabInfo.is_general_tab.intValue() != 0 && frsTabInfo.tab_type.intValue() != 100) {
-                String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f084b);
-                String str = frsTabInfo.tab_name;
-                format = String.format(string, str, frsTabInfo2.tab_name, str);
-            } else {
-                String string2 = tbPageContext.getString(R.string.obfuscated_res_0x7f0f084c);
-                String str2 = frsTabInfo.tab_name;
-                String str3 = frsTabInfo2.tab_name;
-                format = String.format(string2, str2, str3, str2, str3);
-            }
-            tBAlertBuilder.q(format);
-            tBAlertBuilder.n(3);
-            tBAlertBuilder.o(true);
-            tBAlertBuilder.k(linearLayout);
-            tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.next_time, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f084a, TBAlertConfig.OperateBtnStyle.MAIN, new b(imageView, frsTabInfo, frsTabInfo2)));
-            tBAlertBuilder.i();
-            tBAlertBuilder.z();
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
         }
+    }
+
+    public ex7(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new lt5(false);
+        this.a = str2;
+    }
+
+    @Override // com.baidu.tieba.rt5
+    public lt5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (lt5) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rt5
+    /* renamed from: d */
+    public ActivityPageReqIdl b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.activity_name = this.a;
+                builder.pn = Integer.valueOf(this.b.c);
+                builder.rn = 20;
+                builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(b05.c().e());
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
+                }
+                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

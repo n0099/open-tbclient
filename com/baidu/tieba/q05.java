@@ -1,33 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.UsbAbTestSwitch;
+import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
+import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,468 +19,242 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 /* loaded from: classes7.dex */
-public class q05 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String f;
+public abstract class q05 extends BaseCardInfo implements IThreadCardUbsABTest {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int BIG_IMG = 2;
+    public static final int CONTENT = 1;
+    public static final int HEAD_IMG = 4;
+    public static final int HEAD_VIDEO = 5;
+    public static final int USER_NAME = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Map<String, p05> b;
-    public Resources c;
-    public Resources d;
-    public boolean e;
+    public SparseArray<String> feedBackReasonMap;
+    public int floorPosition;
+    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
+    public int objType;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948038035, "Lcom/baidu/tieba/q05;")) == null) {
-            return;
+    public abstract NegativeFeedBackData getNegFeedBackData();
+
+    public String getPbInputLocate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return (String) invokeV.objValue;
+    }
+
+    public abstract ThreadData getThreadData();
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNoName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return true;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948038035, "Lcom/baidu/tieba/q05;");
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showWeakenName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public q05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = new HashMap();
-        this.e = false;
+        this.objType = 1;
+        this.floorPosition = -1;
+        this.mABTestMap = new HashMap();
+        this.feedBackReasonMap = null;
     }
 
-    public void c() {
-        Map<String, p05> map;
+    public String getRecomReason() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (map = this.b) != null) {
-            map.clear();
-            this.b = null;
-        }
-    }
-
-    public static int h(Resources resources, Resources resources2, int i) {
-        String str;
-        int i2;
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, resources, resources2, i)) == null) {
-            try {
-                str = resources.getResourceName(i);
-            } catch (Exception unused) {
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str)) {
-                String packageName = SkinManager.getPackageName();
-                f = packageName;
-                if (StringUtils.isNull(packageName)) {
-                    f = BdBaseApplication.getInst().getPackageName();
-                }
-                str = f + str.substring(str.indexOf(":"));
-                i2 = resources2.getIdentifier(str + SkinManager.darkSuffix, null, null);
-            } else {
-                i2 = i;
-            }
-            if (i2 == 0) {
-                BdLog.e(str + " 缺少深色资源,使用了日间资源");
-                return i;
-            }
-            return i2;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public final int d(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 2 && (this.e || skinType != 4)) {
-                if (!z) {
-                    return this.c.getColor(i);
-                }
-                if (i == i2) {
-                    Resources resources = this.c;
-                    this.d = resources;
-                    i2 = h(resources, resources, i);
-                }
-                Resources resources2 = this.d;
-                if (resources2 == null) {
-                    return this.c.getColor(i);
-                }
-                try {
-                    return resources2.getColor(i2);
-                } catch (Resources.NotFoundException unused) {
-                    return this.c.getColor(i);
-                }
-            }
-            return SkinManager.getColor(i);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final ColorStateList e(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 2 && (this.e || skinType != 4)) {
-                if (!z) {
-                    return this.c.getColorStateList(i);
-                }
-                if (i == i2) {
-                    Resources resources = this.c;
-                    this.d = resources;
-                    i2 = h(resources, resources, i);
-                }
-                Resources resources2 = this.d;
-                if (resources2 == null) {
-                    return this.c.getColorStateList(i);
-                }
-                try {
-                    return resources2.getColorStateList(i2);
-                } catch (Resources.NotFoundException unused) {
-                    return this.c.getColorStateList(i);
-                }
-            }
-            return SkinManager.getColorList(i);
-        }
-        return (ColorStateList) invokeCommon.objValue;
-    }
-
-    public final Drawable g(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 2 && (this.e || skinType != 4)) {
-                if (!z) {
-                    try {
-                        return this.c.getDrawable(i);
-                    } catch (Throwable unused) {
-                        return null;
-                    }
-                }
-                if (i == i2) {
-                    Resources resources = this.c;
-                    this.d = resources;
-                    i2 = h(resources, resources, i);
-                }
-                Resources resources2 = this.d;
-                if (resources2 == null) {
-                    try {
-                        return this.c.getDrawable(i);
-                    } catch (Throwable unused2) {
-                        return null;
-                    }
-                }
-                try {
-                    try {
-                        return resources2.getDrawable(i2);
-                    } catch (Throwable unused3) {
-                        return null;
-                    }
-                } catch (Resources.NotFoundException unused4) {
-                    return this.c.getDrawable(i);
-                } catch (ArrayIndexOutOfBoundsException unused5) {
-                    return null;
-                }
-            }
-            return SkinManager.getDrawable(i);
-        }
-        return (Drawable) invokeCommon.objValue;
-    }
-
-    public final void a(View view2) {
-        Drawable g;
-        Drawable g2;
-        Drawable g3;
-        int q;
-        ColorStateList f2;
-        ColorStateList f3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            String str = "@" + view2.getId();
-            Map<String, p05> map = this.b;
-            if (map != null && map.containsKey(str)) {
-                p05 p05Var = this.b.get(str);
-                if (view2 instanceof TextView) {
-                    if (p05Var.v() != 0 && (f3 = f(this.a, p05Var.u(), p05Var.v())) != null) {
-                        ((TextView) view2).setTextColor(f3);
-                    }
-                    if (p05Var.t() != 0 && (f2 = f(this.a, p05Var.s(), p05Var.t())) != null) {
-                        ((TextView) view2).setHintTextColor(f2);
-                    }
-                    if (p05Var.r() != 0) {
-                        TextView textView = (TextView) view2;
-                        Context context = view2.getContext();
-                        if (this.a) {
-                            q = p05Var.r();
-                        } else {
-                            q = p05Var.q();
-                        }
-                        textView.setTextAppearance(context, q);
-                    }
-                    if (p05Var.k() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, g(this.a, p05Var.j(), p05Var.k()), (Drawable) null, (Drawable) null);
-                    }
-                    if (p05Var.g() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(g(this.a, p05Var.f(), p05Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
-                    }
-                    if (p05Var.i() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, g(this.a, p05Var.h(), p05Var.i()), (Drawable) null);
-                    }
-                } else if (view2 instanceof ImageButton) {
-                    if (p05Var.n() != 0 && (g3 = g(this.a, p05Var.m(), p05Var.n())) != null) {
-                        ((ImageView) view2).setImageDrawable(g3);
-                    }
-                } else if (view2 instanceof ImageView) {
-                    if (p05Var.n() != 0 && (g2 = g(this.a, p05Var.m(), p05Var.n())) != null) {
-                        ((ImageView) view2).setImageDrawable(g2);
-                    }
-                } else if ((view2 instanceof ProgressBar) && p05Var.p() != 0 && (g = g(this.a, p05Var.o(), p05Var.p())) != null) {
-                    ((ProgressBar) view2).setProgressDrawable(g);
-                }
-                if (p05Var.c() != 0) {
-                    int paddingLeft = view2.getPaddingLeft();
-                    int paddingTop = view2.getPaddingTop();
-                    int paddingRight = view2.getPaddingRight();
-                    int paddingBottom = view2.getPaddingBottom();
-                    String resourceTypeName = this.c.getResourceTypeName(p05Var.b());
-                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        view2.setBackgroundColor(d(this.a, p05Var.b(), p05Var.c()));
-                    } else {
-                        view2.setBackgroundDrawable(g(this.a, p05Var.b(), p05Var.c()));
-                    }
-                    view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-                }
-            }
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            String str = "@" + viewGroup.getId();
-            Map<String, p05> map = this.b;
-            if (map != null && map.containsKey(str)) {
-                p05 p05Var = this.b.get(str);
-                if (viewGroup instanceof AdapterView) {
-                    if ((viewGroup instanceof ListView) && p05Var.e() != 0) {
-                        ListView listView = (ListView) viewGroup;
-                        int dividerHeight = listView.getDividerHeight();
-                        listView.setDivider(g(this.a, p05Var.d(), p05Var.e()));
-                        listView.setDividerHeight(dividerHeight);
-                    }
-                    Adapter adapter = ((AdapterView) viewGroup).getAdapter();
-                    if (adapter != null && (adapter instanceof BaseAdapter)) {
-                        ((BaseAdapter) adapter).notifyDataSetChanged();
-                    }
-                }
-                if (p05Var.c() != 0) {
-                    int paddingLeft = viewGroup.getPaddingLeft();
-                    int paddingTop = viewGroup.getPaddingTop();
-                    int paddingRight = viewGroup.getPaddingRight();
-                    int paddingBottom = viewGroup.getPaddingBottom();
-                    String resourceTypeName = this.c.getResourceTypeName(p05Var.b());
-                    if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        viewGroup.setBackgroundColor(d(this.a, p05Var.b(), p05Var.c()));
-                    } else {
-                        viewGroup.setBackgroundDrawable(g(this.a, p05Var.b(), p05Var.c()));
-                    }
-                    viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-                }
-            }
-        }
-    }
-
-    public final ColorStateList f(boolean z, int i, int i2) {
-        String str;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            try {
-                return e(z, i, i2);
-            } catch (Exception e) {
-                try {
-                    str = this.c.getResourceName(i);
-                } catch (Exception unused) {
-                    str = "";
-                }
-                TiebaStatic.log(new StatisticItem("getColorListCrash").param("obj_source", e.toString()).param("obj_param1", i).param(TiebaStatic.Params.OBJ_PARAM2, str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getThreadData() == null) {
                 return null;
             }
+            return getThreadData().getRecomReason();
         }
-        return (ColorStateList) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final int[] i(String str) {
+    public boolean isFromFrs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isFromFrs();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo
+    public boolean isHighLight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (getThreadData() != null && getThreadData().isHighLight()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isSelf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ThreadCardUtils.isSelf(getThreadData());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean showCardEnterFourm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isWorksInfo()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean showCardGoodsFourm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromHomPage) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNewPicCut() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNewUI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNoReadState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E);
+        }
+        return invokeV.booleanValue;
+    }
+
+    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
-        int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (!TextUtils.isDigitsOnly(str.substring(1)) || (parseInt = Integer.parseInt(str.substring(1))) == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
+            if (bdUniqueId == null) {
                 return null;
             }
-            return new int[]{parseInt, h(this.c, this.d, parseInt)};
+            return this.mABTestMap.get(bdUniqueId);
         }
-        return (int[]) invokeL.objValue;
+        return (UsbAbTestSwitch) invokeL.objValue;
     }
 
-    public void j(String str, Context context, AttributeSet attributeSet) {
-        int[] i;
-        int e;
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, context, attributeSet) == null) {
-            try {
-                Resources resources = context.getResources();
-                this.c = resources;
-                this.d = resources;
-                int attributeCount = attributeSet.getAttributeCount();
-                p05 p05Var = new p05();
-                p05Var.R(str);
-                boolean z = false;
-                for (int i2 = 0; i2 < attributeCount; i2++) {
-                    String attributeName = attributeSet.getAttributeName(i2);
-                    String attributeValue = attributeSet.getAttributeValue(i2);
-                    if (attributeName.equals("id")) {
-                        p05Var.G(attributeValue);
-                    } else if (attributeName.equals("tb_background")) {
-                        int[] i3 = i(attributeValue);
-                        if (i3 != null) {
-                            p05Var.w(i3[0]);
-                            p05Var.x(i3[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_src")) {
-                        int[] i4 = i(attributeValue);
-                        if (i4 != null) {
-                            p05Var.H(i4[0]);
-                            p05Var.I(i4[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_textColor")) {
-                        int[] i5 = i(attributeValue);
-                        if (i5 != null) {
-                            p05Var.P(i5[0]);
-                            p05Var.Q(i5[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_style")) {
-                        int[] i6 = i(attributeValue);
-                        if (i6 != null) {
-                            p05Var.L(i6[0]);
-                            p05Var.M(i6[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_divider")) {
-                        int[] i7 = i(attributeValue);
-                        if (i7 != null) {
-                            p05Var.y(i7[0]);
-                            p05Var.z(i7[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableTop")) {
-                        int[] i8 = i(attributeValue);
-                        if (i8 != null) {
-                            p05Var.E(i8[0]);
-                            p05Var.F(i8[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableLeft")) {
-                        int[] i9 = i(attributeValue);
-                        if (i9 != null) {
-                            p05Var.A(i9[0]);
-                            p05Var.B(i9[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_drawableRight")) {
-                        int[] i10 = i(attributeValue);
-                        if (i10 != null) {
-                            p05Var.C(i10[0]);
-                            p05Var.D(i10[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_progressDrawable")) {
-                        int[] i11 = i(attributeValue);
-                        if (i11 != null) {
-                            p05Var.J(i11[0]);
-                            p05Var.K(i11[1]);
-                            z = true;
-                        }
-                    } else if (attributeName.equals("tb_textColorHint") && (i = i(attributeValue)) != null) {
-                        p05Var.N(i[0]);
-                        p05Var.O(i[1]);
-                        z = true;
-                    }
-                    if (z && TbConfig.getDebugSwitch() && (e = wg.e(attributeValue.substring(1), 0)) != 0) {
-                        String resourceName = this.c.getResourceName(e);
-                        p05Var.a(attributeName + "=" + resourceName);
-                    }
-                }
-                if (z && !TextUtils.isEmpty(p05Var.l()) && this.b != null && !this.b.containsKey(p05Var.l())) {
-                    this.b.put(p05Var.l(), p05Var);
-                }
-            } catch (Resources.NotFoundException unused) {
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void k(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, view2) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, bdUniqueId, usbAbTestSwitch) != null) || bdUniqueId == null) {
             return;
         }
-        Stack stack = new Stack();
-        stack.push(view2);
-        while (!stack.isEmpty()) {
-            View view3 = (View) stack.pop();
-            if (view3 instanceof ViewGroup) {
-                try {
-                    b((ViewGroup) view3);
-                } catch (Resources.NotFoundException e) {
-                    BdLog.e(e);
-                }
-                if (!(view3 instanceof AdapterView)) {
-                    ViewGroup viewGroup = (ViewGroup) view3;
-                    int childCount = viewGroup.getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        stack.push(viewGroup.getChildAt(i));
-                    }
-                }
-            } else {
-                a(view3);
+        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
+    }
+
+    public boolean showCardBottomOpWeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
             }
+            if (!threadData.isFromHomPage && !threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromVideoTab && !threadData.isFromEnterFroumTabFeed && !threadData.isFromFeedTab) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void l(boolean z) {
+    public boolean showFollowBtn() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
+                return false;
+            }
+            if (!threadData.isBjhDynamicThread() && !threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
+                if (!threadData.isFromFeedTab) {
+                    return false;
+                }
+                if (!z && !threadData.isWorksInfo()) {
+                    return false;
+                }
+            }
+            return true;
         }
-    }
-
-    public void m(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, resources) == null) {
-            this.d = resources;
-        }
+        return invokeV.booleanValue;
     }
 }

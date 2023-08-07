@@ -24,76 +24,76 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.res.ui.pullrefresh.NeutralHeaderLoadingLayout;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.a53;
-import com.baidu.tieba.b23;
-import com.baidu.tieba.bi2;
-import com.baidu.tieba.bt2;
-import com.baidu.tieba.by1;
-import com.baidu.tieba.ct2;
-import com.baidu.tieba.cv2;
-import com.baidu.tieba.dd3;
-import com.baidu.tieba.ei2;
-import com.baidu.tieba.fq2;
-import com.baidu.tieba.fs1;
-import com.baidu.tieba.h32;
-import com.baidu.tieba.i53;
-import com.baidu.tieba.ii2;
-import com.baidu.tieba.ix2;
-import com.baidu.tieba.jd2;
-import com.baidu.tieba.jr3;
-import com.baidu.tieba.kc3;
-import com.baidu.tieba.kd2;
-import com.baidu.tieba.kq2;
-import com.baidu.tieba.l82;
-import com.baidu.tieba.lq2;
-import com.baidu.tieba.mi2;
-import com.baidu.tieba.mq2;
-import com.baidu.tieba.my1;
-import com.baidu.tieba.na2;
-import com.baidu.tieba.oa2;
-import com.baidu.tieba.pi2;
-import com.baidu.tieba.po3;
-import com.baidu.tieba.qa2;
-import com.baidu.tieba.qs2;
-import com.baidu.tieba.r13;
-import com.baidu.tieba.tf3;
-import com.baidu.tieba.up2;
-import com.baidu.tieba.uy2;
-import com.baidu.tieba.v13;
-import com.baidu.tieba.v82;
-import com.baidu.tieba.vb3;
-import com.baidu.tieba.wl2;
-import com.baidu.tieba.wo3;
+import com.baidu.tieba.d43;
+import com.baidu.tieba.e13;
+import com.baidu.tieba.eh2;
+import com.baidu.tieba.es2;
+import com.baidu.tieba.ex1;
+import com.baidu.tieba.fs2;
+import com.baidu.tieba.fu2;
+import com.baidu.tieba.gc3;
+import com.baidu.tieba.hh2;
+import com.baidu.tieba.ip2;
+import com.baidu.tieba.ir1;
+import com.baidu.tieba.k22;
+import com.baidu.tieba.l43;
+import com.baidu.tieba.lh2;
+import com.baidu.tieba.lw2;
+import com.baidu.tieba.mc2;
+import com.baidu.tieba.mq3;
+import com.baidu.tieba.nb3;
+import com.baidu.tieba.nc2;
+import com.baidu.tieba.np2;
+import com.baidu.tieba.o72;
+import com.baidu.tieba.op2;
+import com.baidu.tieba.ph2;
+import com.baidu.tieba.pp2;
+import com.baidu.tieba.px1;
+import com.baidu.tieba.q92;
+import com.baidu.tieba.r92;
+import com.baidu.tieba.sh2;
+import com.baidu.tieba.sn3;
+import com.baidu.tieba.t92;
+import com.baidu.tieba.tr2;
+import com.baidu.tieba.u03;
+import com.baidu.tieba.we3;
+import com.baidu.tieba.xo2;
+import com.baidu.tieba.xx2;
+import com.baidu.tieba.y03;
+import com.baidu.tieba.y72;
+import com.baidu.tieba.ya3;
+import com.baidu.tieba.zk2;
+import com.baidu.tieba.zn3;
 import com.baidu.webkit.sdk.JsCodeCacheResult;
 import com.baidu.webkit.sdk.WebViewClient;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<NgWebView> {
-    public static final boolean M = fs1.a;
-    public jr3 A;
+public class SwanAppSlaveManager extends SwanAppWebViewManager implements ex1<NgWebView> {
+    public static final boolean M = ir1.a;
+    public mq3 A;
     @Nullable
-    public l82 B;
-    public kd2 C;
+    public o72 B;
+    public nc2 C;
     public FrameLayout D;
-    public jd2 E;
-    public jd2 F;
+    public mc2 E;
+    public mc2 F;
     public String G;
-    public my1 H;
-    public bi2 I;
+    public px1 H;
+    public eh2 I;
     public boolean J;
     public boolean K;
-    public ii2 L;
+    public lh2 L;
     public String w;
     public String x;
     public SwanAppWebViewWidget y;
     public PullToRefreshNgWebView z;
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public int P() {
         return 0;
     }
 
-    @Override // com.baidu.tieba.kx1
+    @Override // com.baidu.tieba.nw1
     public double z() {
         return 1.0d;
     }
@@ -181,19 +181,19 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
-            v82.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstContentfulPaintExt");
+            y72.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstContentfulPaintExt");
             super.onFirstContentfulPaintExt(bdSailorWebView, str);
             long currentTimeMillis = System.currentTimeMillis();
             if (SwanAppSlaveManager.M) {
                 Log.d("SwanAppSlaveManager", "on fcp: real fcp = " + currentTimeMillis);
             }
             SwanAppSlaveManager.this.H.b = currentTimeMillis;
-            i53.h().l().a(SwanAppSlaveManager.this.H.b);
+            l43.h().l().a(SwanAppSlaveManager.this.H.b);
             long b = SwanAppSlaveManager.this.H.b();
             if (SwanAppSlaveManager.M) {
                 Log.d("SwanAppSlaveManager", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime=" + b + " , aligned search=false");
             }
-            HybridUbcFlow p = a53.p("startup");
+            HybridUbcFlow p = d43.p("startup");
             if (SwanAppSlaveManager.this.k1()) {
                 SwanAppSlaveManager.this.L.e(true);
                 p.b("fmp_data_record", SwanAppSlaveManager.this.L);
@@ -201,12 +201,12 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_paint");
             ubcFlowEvent.h(b);
             p.F(ubcFlowEvent);
-            h32.d().f();
+            k22.d().f();
             SwanAppSlaveManager.this.I.a();
             if (SwanAppSlaveManager.this.H.c == 0) {
                 SwanAppSlaveManager.this.H.c = b;
-                my1 my1Var = SwanAppSlaveManager.this.H;
-                my1Var.g = my1Var.c(b);
+                px1 px1Var = SwanAppSlaveManager.this.H;
+                px1Var.g = px1Var.c(b);
                 p.D("fmp_type", "1");
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_first_meaningful_paint");
                 ubcFlowEvent2.h(SwanAppSlaveManager.this.H.b);
@@ -215,24 +215,24 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
                 SwanAppSlaveManager.this.L.d(ubcFlowEvent2, false);
                 return;
             }
-            long F = cv2.g0().F();
+            long F = fu2.g0().F();
             if (F < 0) {
                 F = 3000;
             }
-            po3.c(new a(b, p), "fmp record", F, TimeUnit.MILLISECONDS);
+            sn3.c(new a(b, p), "fmp record", F, TimeUnit.MILLISECONDS);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
-            v82.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstScreenPaintFinishedExt");
+            y72.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstScreenPaintFinishedExt");
             super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
             SwanAppSlaveManager.this.H.c = System.currentTimeMillis();
             SwanAppSlaveManager.this.H.g = "0";
-            i53.h().l().c(SwanAppSlaveManager.this.H.c);
+            l43.h().l().c(SwanAppSlaveManager.this.H.c);
             if (SwanAppSlaveManager.M) {
                 Log.d("SwanAppSlaveManager", "on fmp: real fmp = " + SwanAppSlaveManager.this.H.c);
             }
-            HybridUbcFlow d = a53.d("startup");
+            HybridUbcFlow d = d43.d("startup");
             if (d != null) {
                 d.D("webviewComponent", "1");
                 d.D("fmp_type", "0");
@@ -244,28 +244,28 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
                 SwanAppSlaveManager.this.L.d(ubcFlowEvent, true);
                 d.F(ubcFlowEvent);
                 d.C(SwanAppSlaveManager.this);
-                my1 my1Var = SwanAppSlaveManager.this.H;
-                v82.b("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(SwanAppSlaveManager.this.H.c), " , fmpType=", my1Var.g, " , fmpTypeName=", my1Var.a());
-                a53.t();
+                px1 px1Var = SwanAppSlaveManager.this.H;
+                y72.b("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(SwanAppSlaveManager.this.H.c), " , fmpType=", px1Var.g, " , fmpTypeName=", px1Var.a());
+                d43.t();
             }
-            h32.d().g();
+            k22.d().g();
             SwanAppSlaveManager.this.I.g();
             SwanAppSlaveManager.this.I.b();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
-            v82.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstImagePaintExt");
+            y72.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstImagePaintExt");
             super.onFirstImagePaintExt(bdSailorWebView, str);
             SwanAppSlaveManager.this.H.e = System.currentTimeMillis();
-            i53.h().l().e(SwanAppSlaveManager.this.H.e);
+            l43.h().l().e(SwanAppSlaveManager.this.H.e);
             if (SwanAppSlaveManager.M) {
                 Log.d("SwanAppSlaveManager", "on fip: real fip = " + SwanAppSlaveManager.this.H.e);
             }
             if (SwanAppSlaveManager.this.H.c == 0) {
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
                 ubcFlowEvent.h(SwanAppSlaveManager.this.H.e);
-                HybridUbcFlow p = a53.p("startup");
+                HybridUbcFlow p = d43.p("startup");
                 p.D("fmp_type", "3");
                 p.F(ubcFlowEvent);
                 SwanAppSlaveManager.this.L.f("3", false);
@@ -275,17 +275,17 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
-            v82.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstTextPaintExt");
+            y72.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstTextPaintExt");
             super.onFirstTextPaintExt(bdSailorWebView, str);
             SwanAppSlaveManager.this.H.d = System.currentTimeMillis();
-            i53.h().l().d(SwanAppSlaveManager.this.H.d);
+            l43.h().l().d(SwanAppSlaveManager.this.H.d);
             if (SwanAppSlaveManager.M) {
                 Log.d("SwanAppSlaveManager", "on ftp: real ftp = " + SwanAppSlaveManager.this.H.d);
             }
             if (SwanAppSlaveManager.this.H.c == 0) {
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
                 ubcFlowEvent.h(SwanAppSlaveManager.this.H.d);
-                HybridUbcFlow p = a53.p("startup");
+                HybridUbcFlow p = d43.p("startup");
                 p.D("fmp_type", "2");
                 p.F(ubcFlowEvent);
                 SwanAppSlaveManager.this.L.f("2", false);
@@ -373,11 +373,11 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
 
         @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase.h
         public void b(PullToRefreshBase<NgWebView> pullToRefreshBase) {
-            ix2.T().m(SwanAppSlaveManager.this.a(), new wl2("PullDownRefresh"));
+            lw2.T().m(SwanAppSlaveManager.this.a(), new zk2("PullDownRefresh"));
         }
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public boolean H() {
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
         if (swanAppWebViewWidget != null && swanAppWebViewWidget.r().canGoBack()) {
@@ -387,13 +387,13 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         return false;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public boolean I() {
         return BdZeusUtil.isWebkitLoaded();
     }
 
-    @Override // com.baidu.tieba.by1
-    public my1 L() {
+    @Override // com.baidu.tieba.ex1
+    public px1 M() {
         return this.H;
     }
 
@@ -402,38 +402,38 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         super.Q0();
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public void R() {
-        SwanAppActivity activity = ix2.T().getActivity();
+        SwanAppActivity activity = lw2.T().getActivity();
         if (activity == null) {
             return;
         }
-        wo3.a(activity, activity.getWindow().getDecorView().getWindowToken());
+        zn3.a(activity, activity.getWindow().getDecorView().getWindowToken());
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
     public void T0() {
         super.T0();
         j1();
-        dd3 dd3Var = new dd3(this.h);
-        dd3Var.j(this);
-        this.h.b(dd3Var);
-        this.H = new my1();
+        gc3 gc3Var = new gc3(this.h);
+        gc3Var.j(this);
+        this.h.b(gc3Var);
+        this.H = new px1();
         X0(new SwanAppSlaveWebviewClientExt(this, null));
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public String a() {
         return this.w;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     @Nullable
-    public l82 a0() {
+    public o72 a0() {
         return this.B;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public boolean c() {
         if (r().getParent() != null) {
             return true;
@@ -441,34 +441,34 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void c0() {
-        uy2.d(this.w);
-        mq2.a().c(this.w);
+        xx2.d(this.w);
+        pp2.a().c(this.w);
     }
 
-    @Override // com.baidu.tieba.by1
-    public int d0() {
-        return na2.b(this.J, this.K);
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void destroy() {
         V(null);
         R();
         super.destroy();
-        cv2.J().i(this);
-        jr3 jr3Var = this.A;
-        if (jr3Var != null) {
-            jr3Var.f();
+        fu2.J().i(this);
+        mq3 mq3Var = this.A;
+        if (mq3Var != null) {
+            mq3Var.f();
         }
-        l82 l82Var = this.B;
-        if (l82Var != null) {
-            l82Var.b();
+        o72 o72Var = this.B;
+        if (o72Var != null) {
+            o72Var.b();
         }
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
+    public int e0() {
+        return q92.b(this.J, this.K);
+    }
+
+    @Override // com.baidu.tieba.ex1
     public PullToRefreshBaseWebView f0() {
         PullToRefreshNgWebView pullToRefreshNgWebView = this.z;
         if (pullToRefreshNgWebView == null) {
@@ -477,30 +477,30 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         return pullToRefreshNgWebView;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public boolean g0() {
-        my1 my1Var;
+        px1 px1Var;
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
         if (swanAppWebViewWidget != null) {
-            my1Var = swanAppWebViewWidget.L();
+            px1Var = swanAppWebViewWidget.M();
         } else {
-            my1Var = this.H;
+            px1Var = this.H;
         }
-        if (my1Var != null && TextUtils.equals(my1Var.g, "0") && my1Var.c > 0) {
+        if (px1Var != null && TextUtils.equals(px1Var.g, "0") && px1Var.c > 0) {
             return true;
         }
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     @Nullable
     /* renamed from: g1 */
     public SwanAppWebViewWidget j() {
         return this.y;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public String h0() {
         return this.G;
     }
@@ -510,14 +510,14 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
     }
 
     public final void j1() {
-        this.w = ei2.a();
+        this.w = hh2.a();
     }
 
     public final boolean k1() {
         return !this.I.c;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public String l() {
         return this.x;
     }
@@ -529,7 +529,7 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
 
     public final void o1() {
         NgWebView ngWebView;
-        if (r13.e() || r13.f()) {
+        if (u03.e() || u03.f()) {
             return;
         }
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
@@ -538,61 +538,61 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         } else {
             ngWebView = this.b;
         }
-        ngWebView.getSettings().setTextZoom(r13.a(r13.b()));
+        ngWebView.getSettings().setTextZoom(u03.a(u03.b()));
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void onJSLoaded() {
-        pi2.U().w0(false);
+        sh2.U().w0(false);
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void onPause() {
         super.onPause();
         this.I.d();
-        cv2.J().f(this);
+        fu2.J().f(this);
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
         if (swanAppWebViewWidget != null) {
             swanAppWebViewWidget.onPause();
         }
-        if (vb3.M() != null) {
-            vb3.M().P().y(false);
+        if (ya3.M() != null) {
+            ya3.M().P().y(false);
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void onResume() {
         super.onResume();
         this.I.e();
-        cv2.J().d(this);
+        fu2.J().d(this);
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
         if (swanAppWebViewWidget != null) {
             swanAppWebViewWidget.onResume();
         }
-        if (vb3.M() != null) {
-            vb3.M().P().y(true);
+        if (ya3.M() != null) {
+            ya3.M().P().y(true);
         }
         o1();
     }
 
     public SwanAppSlaveManager(Context context) {
         super(context);
-        this.I = new bi2(this);
-        this.L = new ii2();
+        this.I = new eh2(this);
+        this.L = new lh2();
     }
 
-    @Override // com.baidu.tieba.by1
-    public void J(mi2 mi2Var) {
-        if (mi2Var == null) {
+    @Override // com.baidu.tieba.ex1
+    public void J(ph2 ph2Var) {
+        if (ph2Var == null) {
             return;
         }
         if (M) {
-            Log.d("SwanAppSlaveManager", "pathList item: " + mi2Var.a);
+            Log.d("SwanAppSlaveManager", "pathList item: " + ph2Var.a);
         }
-        this.b.getSettings().setCodeCacheSetting(oa2.a("appjs", mi2Var.a));
+        this.b.getSettings().setCodeCacheSetting(r92.a("appjs", ph2Var.a));
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public void Q(String str) {
         this.x = str;
     }
@@ -603,17 +603,17 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         dVar.a = true;
     }
 
-    @Override // com.baidu.tieba.by1
-    public void W(jd2 jd2Var) {
-        this.E = jd2Var;
+    @Override // com.baidu.tieba.ex1
+    public void W(mc2 mc2Var) {
+        this.E = mc2Var;
     }
 
-    @Override // com.baidu.tieba.by1
-    public void X(kd2 kd2Var) {
-        this.C = kd2Var;
+    @Override // com.baidu.tieba.ex1
+    public void X(nc2 nc2Var) {
+        this.C = nc2Var;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void attachActivity(Activity activity) {
         super.attachActivity(activity);
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
@@ -622,9 +622,9 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         }
     }
 
-    @Override // com.baidu.tieba.by1
-    public void g(v13 v13Var) {
-        this.I.h(v13Var);
+    @Override // com.baidu.tieba.ex1
+    public void g(y03 y03Var) {
+        this.I.h(y03Var);
     }
 
     @Override // com.baidu.searchbox.widget.SlideInterceptor
@@ -636,11 +636,11 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         return this.b.isSlidable(motionEvent);
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.dy1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gx1
     public void loadUrl(String str) {
         super.loadUrl(str);
-        if (v82.f()) {
-            qa2.b();
+        if (y72.f()) {
+            t92.b();
         }
     }
 
@@ -651,11 +651,11 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         this.z.setOnRefreshListener(new a());
     }
 
-    public void p1(jd2 jd2Var) {
-        this.F = jd2Var;
+    public void p1(mc2 mc2Var) {
+        this.F = mc2Var;
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public boolean q(int i) {
         NeutralHeaderLoadingLayout neutralHeaderLoadingLayout;
         PullToRefreshNgWebView pullToRefreshNgWebView = this.z;
@@ -665,7 +665,7 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         return neutralHeaderLoadingLayout.p(i);
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public void u(String str) {
         this.G = str;
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
@@ -674,7 +674,7 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         }
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public void i(ViewGroup viewGroup, View view2) {
         if (viewGroup == null || view2 == null || i1(viewGroup, view2)) {
             return;
@@ -699,28 +699,28 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         viewGroup.removeView(view2);
     }
 
-    @Override // com.baidu.tieba.by1
-    public void y(FrameLayout frameLayout, kc3 kc3Var) {
+    @Override // com.baidu.tieba.ex1
+    public void y(FrameLayout frameLayout, nb3 nb3Var) {
         if (frameLayout == null) {
             return;
         }
-        frameLayout.setBackgroundColor(kc3Var.e);
+        frameLayout.setBackgroundColor(nb3Var.e);
     }
 
-    @Override // com.baidu.tieba.by1
+    @Override // com.baidu.tieba.ex1
     public void B(int i) {
         boolean z;
         r().setVisibility(i);
-        jr3 jr3Var = this.A;
-        if (jr3Var != null) {
-            jr3Var.h(i);
+        mq3 mq3Var = this.A;
+        if (mq3Var != null) {
+            mq3Var.h(i);
         }
         if (f0() != null) {
             f0().setVisibility(i);
         }
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
         if (swanAppWebViewWidget != null && swanAppWebViewWidget.r() != null) {
-            tf3 params = this.y.getParams();
+            we3 params = this.y.getParams();
             int i2 = 0;
             if (i == 0 && params != null && !params.f) {
                 z = true;
@@ -735,13 +735,13 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         }
     }
 
-    @Override // com.baidu.tieba.by1
-    public boolean V(tf3 tf3Var) {
+    @Override // com.baidu.tieba.ex1
+    public boolean V(we3 we3Var) {
         SwanAppWebViewWidget swanAppWebViewWidget = this.y;
         if (swanAppWebViewWidget != null) {
-            kd2 kd2Var = this.C;
-            if (kd2Var != null) {
-                kd2Var.b(swanAppWebViewWidget);
+            nc2 nc2Var = this.C;
+            if (nc2Var != null) {
+                nc2Var.b(swanAppWebViewWidget);
             }
             if (this.E != null) {
                 this.E = null;
@@ -750,7 +750,7 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
                 this.F = null;
             }
             m1(this.D, this.y.r());
-            this.y.Q1(tf3Var);
+            this.y.Q1(we3Var);
             this.y.destroy();
             this.y = null;
             PullToRefreshNgWebView pullToRefreshNgWebView = this.z;
@@ -765,23 +765,23 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
     public void J0() {
         String a2 = a();
-        this.b.getCurrentWebView().addZeusPluginFactory(new ct2(a2));
-        this.b.getCurrentWebView().addZeusPluginFactory(new up2(a2));
-        this.b.getCurrentWebView().addZeusPluginFactory(new qs2(a2));
-        this.b.getCurrentWebView().addZeusPluginFactory(new bt2(a2));
-        this.b.getCurrentWebView().addZeusPluginFactory(new fq2(a2));
-        this.b.getCurrentWebView().addZeusPluginFactory(new lq2(a2));
-        this.b.getCurrentWebView().addZeusPluginFactory(new kq2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new fs2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new xo2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new tr2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new es2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new ip2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new op2(a2));
+        this.b.getCurrentWebView().addZeusPluginFactory(new np2(a2));
     }
 
-    @Override // com.baidu.tieba.by1
-    public void N(FrameLayout frameLayout, kc3 kc3Var) {
+    @Override // com.baidu.tieba.ex1
+    public void N(FrameLayout frameLayout, nb3 nb3Var) {
         if (frameLayout == null) {
             return;
         }
-        if (kc3Var.f) {
+        if (nb3Var.f) {
             this.z = new PullToRefreshNgWebView(this.a.getBaseContext(), this, PullToRefreshBase.HEADERTYPE.SWAN_APP_HEADER);
-            q(SwanAppConfigData.t(kc3Var.d));
+            q(SwanAppConfigData.t(nb3Var.d));
             n1(this.z);
             i(frameLayout, this.z);
         } else {
@@ -789,51 +789,51 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
         }
         this.D = frameLayout;
         if (this.A == null) {
-            this.A = new jr3(this.a.getBaseContext(), this, frameLayout);
+            this.A = new mq3(this.a.getBaseContext(), this, frameLayout);
         }
         if (this.B == null) {
-            this.B = new l82(this.a.getBaseContext(), this.A);
+            this.B = new o72(this.a.getBaseContext(), this.A);
         }
     }
 
-    @Override // com.baidu.tieba.by1
-    public boolean U(tf3 tf3Var) {
+    @Override // com.baidu.tieba.ex1
+    public boolean U(we3 we3Var) {
         int i = 0;
         if (this.y == null) {
             return false;
         }
-        if (!TextUtils.isEmpty(tf3Var.k)) {
-            this.y.Z0(tf3Var.k);
+        if (!TextUtils.isEmpty(we3Var.k)) {
+            this.y.Z0(we3Var.k);
         }
-        this.y.O1(tf3Var.m);
-        this.y.loadUrl(tf3Var.j);
-        this.y.Q1(tf3Var);
-        if (tf3Var.h == null) {
-            tf3Var.h = b23.a();
+        this.y.O1(we3Var.m);
+        this.y.loadUrl(we3Var.j);
+        this.y.Q1(we3Var);
+        if (we3Var.h == null) {
+            we3Var.h = e13.a();
         }
         if (this.y.r() != null) {
             NgWebView r = this.y.r();
-            if (tf3Var.f) {
+            if (we3Var.f) {
                 i = 8;
             }
             r.setVisibility(i);
         }
-        jd2 jd2Var = this.E;
-        if (jd2Var != null) {
-            this.y.W(jd2Var);
+        mc2 mc2Var = this.E;
+        if (mc2Var != null) {
+            this.y.W(mc2Var);
         }
-        jd2 jd2Var2 = this.F;
-        if (jd2Var2 != null) {
-            this.y.p1(jd2Var2);
+        mc2 mc2Var2 = this.F;
+        if (mc2Var2 != null) {
+            this.y.p1(mc2Var2);
             return true;
         }
         return true;
     }
 
-    @Override // com.baidu.tieba.by1
-    public boolean x(tf3 tf3Var) {
+    @Override // com.baidu.tieba.ex1
+    public boolean x(we3 we3Var) {
         int i = 0;
-        if (tf3Var != null && this.D != null) {
+        if (we3Var != null && this.D != null) {
             PullToRefreshNgWebView pullToRefreshNgWebView = this.z;
             if (pullToRefreshNgWebView != null) {
                 pullToRefreshNgWebView.w(false);
@@ -847,35 +847,35 @@ public class SwanAppSlaveManager extends SwanAppWebViewManager implements by1<Ng
                 this.y = l1;
                 l1.u(this.G);
                 this.y.P1(this);
-                if (!TextUtils.isEmpty(tf3Var.k)) {
-                    this.y.Z0(tf3Var.k);
+                if (!TextUtils.isEmpty(we3Var.k)) {
+                    this.y.Z0(we3Var.k);
                 }
-                if (tf3Var.h == null) {
-                    tf3Var.h = b23.a();
+                if (we3Var.h == null) {
+                    we3Var.h = e13.a();
                 }
                 i(this.D, this.y.r());
                 if (this.y.r() != null) {
                     NgWebView r = this.y.r();
-                    if (tf3Var.f) {
+                    if (we3Var.f) {
                         i = 8;
                     }
                     r.setVisibility(i);
                     o1();
                 }
-                this.y.O1(tf3Var.m);
-                this.y.loadUrl(tf3Var.j);
-                this.y.Q1(tf3Var);
-                kd2 kd2Var = this.C;
-                if (kd2Var != null) {
-                    kd2Var.a(this.y);
+                this.y.O1(we3Var.m);
+                this.y.loadUrl(we3Var.j);
+                this.y.Q1(we3Var);
+                nc2 nc2Var = this.C;
+                if (nc2Var != null) {
+                    nc2Var.a(this.y);
                 }
-                jd2 jd2Var = this.E;
-                if (jd2Var != null) {
-                    this.y.W(jd2Var);
+                mc2 mc2Var = this.E;
+                if (mc2Var != null) {
+                    this.y.W(mc2Var);
                 }
-                jd2 jd2Var2 = this.F;
-                if (jd2Var2 != null) {
-                    this.y.p1(jd2Var2);
+                mc2 mc2Var2 = this.F;
+                if (mc2Var2 != null) {
+                    this.y.p1(mc2Var2);
                     return true;
                 }
                 return true;

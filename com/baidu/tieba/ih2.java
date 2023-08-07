@@ -1,63 +1,24 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.ut2;
+import com.baidu.tieba.vv2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class ih2 implements gh2 {
+public class ih2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ik3 a;
-
-    /* loaded from: classes6.dex */
-    public static class a extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public static boolean a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                if (!a && ProcessUtils.isMainProcess()) {
-                    a = true;
-                    new ik3("swan_prelink_by_preload_recorder").clear().apply();
-                    if (ih2.b) {
-                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
-                    }
-                }
-                return null;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -72,130 +33,150 @@ public class ih2 implements gh2 {
                 return;
             }
         }
-        b = fs1.a;
+        a = ir1.a;
+        fu2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    public ih2() {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!sh2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (!fu2.F0().j(1)) {
+                return false;
+            } else {
+                String c0 = sh2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && x63.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
             }
         }
-        this.a = new ik3("swan_prelink_by_preload_recorder");
-        d();
+        return invokeV.booleanValue;
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i83.c(a.class, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.gh2
-    public hh2 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
-            }
-            String string = this.a.getString(e(str, str2), "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            hh2 g = g(string, str, str2);
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
-            }
-            return g;
-        }
-        return (hh2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gh2
-    public void b(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
-            }
-            String e = e(str, str2);
-            String f = f(str, str2);
-            if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
-                this.a.putString(e, f);
-            }
-        }
-    }
-
-    public final String e(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = str + "_##_" + str2.hashCode();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String f(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final hh2 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
-            String[] split = str.split("_##_");
-            if (split != null && split.length >= 2) {
-                hh2 hh2Var = new hh2();
-                hh2Var.a = split[0];
-                hh2Var.b = h(split[1]);
-                return hh2Var;
-            }
-            return null;
-        }
-        return (hh2) invokeLLL.objValue;
-    }
-
-    public final long h(String str) {
+    public static int b(@Nullable nb3 nb3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nb3Var)) == null) {
+            if (nb3Var == null || !d()) {
+                return 0;
             }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return 0L;
-            }
+            return "na".equals(nb3Var.r) ? 1 : 0;
         }
-        return invokeL.longValue;
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(lw2.T().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(ya3 ya3Var) {
+        InterceptResult invokeL;
+        vv2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, ya3Var)) == null) {
+            if (ya3Var == null || !ya3Var.E()) {
+                return false;
+            }
+            if (x63.B(ya3Var.W())) {
+                str = ut2.b.g().getPath() + File.separator;
+            } else {
+                str = ut2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            lw2.T().K(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

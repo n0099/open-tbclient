@@ -65,7 +65,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra("class", 13);
                 intent2.putExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID, intent.getStringExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
-            } else if (stringExtra.equals(TiebaStatic.DQPay.TYPE_VALUE)) {
+            } else if (stringExtra.equals("pay")) {
                 intent2.putExtra("class", 15);
                 intent2.putExtra(MemberPayActivityConfig.PAY_TYPE, intent.getStringExtra(MemberPayActivityConfig.PAY_TYPE));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));

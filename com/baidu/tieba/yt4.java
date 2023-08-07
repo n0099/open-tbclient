@@ -1,47 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.BdToken.BdTokenController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class yt4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yt4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public gt4 a;
+    public DialogInterface.OnDismissListener b;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final yt4 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UserData a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ yt4 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-249405613, "Lcom/baidu/tieba/yt4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-249405613, "Lcom/baidu/tieba/yt4$a;");
+        public a(yt4 yt4Var, UserData userData, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yt4Var, userData, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new yt4();
+            this.c = yt4Var;
+            this.a = userData;
+            this.b = tbPageContext;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.c.a != null) {
+                    this.c.a.a();
+                }
+                if (!TextUtils.isEmpty(this.a.getName_show()) && !TextUtils.isEmpty(this.a.getUserId())) {
+                    String name_show = this.a.getName_show();
+                    String userId = this.a.getUserId();
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_CLICK);
+                    statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.addParam("obj_param1", userId);
+                    TiebaStatic.log(statisticItem);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.b.getPageActivity(), userId, name_show)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yt4 a;
+
+        public b(yt4 yt4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yt4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yt4Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                if (this.a.b != null) {
+                    this.a.b.onDismiss(dialogInterface);
+                }
+                this.a.a = null;
+                this.a.b = null;
+            }
         }
     }
 
@@ -55,232 +136,153 @@ public class yt4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public static final yt4 g() {
+    public static yt4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                synchronized (yt4.class) {
+                    if (c == null) {
+                        c = new yt4();
+                    }
+                }
+            }
+            return c;
         }
         return (yt4) invokeV.objValue;
     }
 
-    public synchronized long a(au4 au4Var) {
-        InterceptResult invokeL;
-        long h;
+    public void e() {
+        gt4 gt4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, au4Var)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                h = h(f, au4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-            return h;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized long i(au4 au4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, au4Var)) == null) {
-            synchronized (this) {
-                if (au4Var == null) {
-                    return -1L;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                long j = j(f, au4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return j;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized void b(List<au4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (au4 au4Var : list) {
-                    h(f, au4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gt4Var = this.a) != null && gt4Var.isShowing()) {
+            this.a.a();
         }
     }
 
-    public synchronized boolean e(au4 au4Var) {
-        InterceptResult invokeL;
+    public void g(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, au4Var)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (au4Var == null) {
-                    return false;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(au4Var.d()), String.valueOf(au4Var.q())});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                if (delete >= 0) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissListener) == null) {
+            this.b = onDismissListener;
+        }
+    }
+
+    public void h(@NonNull TbPageContext tbPageContext, @NonNull Context context, @NonNull UserData userData, @NonNull BdTokenController.m mVar) {
+        boolean z;
+        boolean z2;
+        String format;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, context, userData, mVar) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("obj_param1", userData.getUserId());
+            TiebaStatic.log(statisticItem);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.content_tieba_uid_info, (ViewGroup) null, false);
+            TextView textView = (TextView) viewGroup.findViewById(R.id.who_share_info);
+            boolean z3 = true;
+            textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_share_info), mVar.a()));
+            textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
+            View findViewById = viewGroup.findViewById(R.id.left_divider);
+            View findViewById2 = viewGroup.findViewById(R.id.right_divider);
+            findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
+            findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
+            HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.user_averter);
+            headImageView.setDefaultResource(R.drawable.transparent_bg);
+            headImageView.setGodIconWidth(R.dimen.tbds68);
+            headImageView.setAutoChangeStyle(false);
+            UtilHelper.showHeadImageViewBigV(headImageView, userData);
+            headImageView.setIsRound(true);
+            headImageView.startLoad(userData.getAvater(), 25, false);
+            TextView textView2 = (TextView) viewGroup.findViewById(R.id.user_name);
+            textView2.setText(userData.getName_show());
+            textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
+            TextView textView3 = (TextView) viewGroup.findViewById(R.id.user_tieba_uid);
+            textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_info), mVar.b()));
+            textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
+            LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.container_authentication);
+            if (ListUtils.isEmpty(userData.getManagerForum()) && !userData.isNewGod()) {
+                linearLayout.setVisibility(8);
+            } else {
+                linearLayout.setVisibility(0);
+                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X001);
+                if (userData.isNewGod() && !ListUtils.isEmpty(userData.getManagerForum())) {
                     z = true;
+                } else {
+                    z = false;
                 }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void k(List<au4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
+                if (userData.isNewGod()) {
+                    TextView textView4 = new TextView(context);
+                    textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
+                    textView4.setText(userData.getNewGodData().getFieldName() + ww5.a(userData.getNewGodData()));
+                    textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
+                    linearLayout.addView(textView4);
+                    textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
+                    SkinManager.setBackgroundShapeDrawable(textView4, R.dimen.tbds26, R.color.CAM_X0623, R.color.CAM_X0623, 0);
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (au4 au4Var : list) {
-                    j(f, au4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-        }
-    }
-
-    public final ContentValues c(au4 au4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, au4Var)) == null) {
-            if (au4Var == null) {
-                return null;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("activityid", Integer.valueOf(au4Var.d()));
-            contentValues.put("missionid", Integer.valueOf(au4Var.q()));
-            contentValues.put("activitysource", au4Var.e());
-            contentValues.put("calltype", Integer.valueOf(au4Var.i()));
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(au4Var.x()));
-            contentValues.put("browsetimepage", au4Var.g());
-            contentValues.put("browsetime", Long.valueOf(au4Var.f()));
-            contentValues.put("threadnum", Integer.valueOf(au4Var.A()));
-            contentValues.put("forumnum", Integer.valueOf(au4Var.p()));
-            contentValues.put("cleartype", Integer.valueOf(au4Var.k()));
-            contentValues.put("cleartime", Long.valueOf(au4Var.j()));
-            contentValues.put("specificcleartime", Long.valueOf(au4Var.t()));
-            contentValues.put("tid", Long.valueOf(au4Var.C()));
-            contentValues.put("fid", Long.valueOf(au4Var.o()));
-            contentValues.put("threadtext", au4Var.B());
-            contentValues.put("threadimg", au4Var.z());
-            contentValues.put("threadforum", Long.valueOf(au4Var.y()));
-            contentValues.put("totalLimit", Integer.valueOf(au4Var.F()));
-            contentValues.put("completedLimitCount", Integer.valueOf(au4Var.w()));
-            contentValues.put("token", au4Var.E());
-            contentValues.put("executingMissionList", au4Var.b());
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final au4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
-            if (cursor != null && !cursor.isClosed()) {
-                au4 au4Var = new au4();
-                au4Var.T(cursor.getInt(cursor.getColumnIndex("activityid")));
-                au4Var.c0(cursor.getInt(cursor.getColumnIndex("missionid")));
-                au4Var.U(cursor.getString(cursor.getColumnIndex("activitysource")));
-                au4Var.X(cursor.getInt(cursor.getColumnIndex("calltype")));
-                au4Var.g0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-                au4Var.W(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-                au4Var.V(cursor.getLong(cursor.getColumnIndex("browsetime")));
-                au4Var.j0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-                au4Var.b0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-                au4Var.Z(cursor.getInt(cursor.getColumnIndex("cleartype")));
-                au4Var.Y(cursor.getLong(cursor.getColumnIndex("cleartime")));
-                au4Var.e0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-                au4Var.l0(cursor.getLong(cursor.getColumnIndex("tid")));
-                au4Var.a0(cursor.getLong(cursor.getColumnIndex("fid")));
-                au4Var.k0(cursor.getString(cursor.getColumnIndex("threadtext")));
-                au4Var.i0(cursor.getString(cursor.getColumnIndex("threadimg")));
-                au4Var.h0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-                au4Var.n0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-                au4Var.f0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-                au4Var.Q(au4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-                au4Var.m0(cursor.getString(cursor.getColumnIndex("token")));
-                return au4Var;
-            }
-            return null;
-        }
-        return (au4) invokeL.objValue;
-    }
-
-    public synchronized List<au4> f() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
-                while (rawQuery.moveToNext()) {
-                    au4 d = d(rawQuery);
-                    if (d != null) {
-                        linkedList.add(d);
+                if (!ListUtils.isEmpty(userData.getManagerForum())) {
+                    TextView textView5 = new TextView(context);
+                    textView5.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
+                    String desc = userData.getManagerForum().get(0).getDesc();
+                    if (userData.getManagerForum().size() > 1) {
+                        if (z) {
+                            desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 6, "...");
+                        }
+                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.multi_bazhu_sign), desc, Integer.valueOf(userData.getManagerForum().size()));
+                    } else {
+                        if (z) {
+                            desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 8, "...");
+                        }
+                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.single_bazhu_sign), desc);
                     }
+                    textView5.setText(format);
+                    textView5.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X09));
+                    if (z2) {
+                        View view2 = new View(context);
+                        view2.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 1));
+                        linearLayout.addView(view2);
+                    }
+                    linearLayout.addView(textView5);
+                    textView5.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
+                    SkinManager.setBackgroundShapeDrawable(textView5, R.dimen.tbds26, R.color.CAM_X0623, R.color.CAM_X0623, 0);
                 }
-                f.setTransactionSuccessful();
-                zi.a(rawQuery);
-                f.endTransaction();
+                z3 = false;
             }
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final long h(SQLiteDatabase sQLiteDatabase, au4 au4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, au4Var)) == null) {
-            try {
-                return sQLiteDatabase.insert("activity_mission_info", null, c(au4Var));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
+            TextView textView6 = (TextView) viewGroup.findViewById(R.id.user_simple_intro);
+            String intro = userData.getIntro();
+            if (TextUtils.isEmpty(userData.getIntro()) && z3) {
+                intro = StringHelper.getBaAgeAutoYearAndMonth(userData.getTb_age());
             }
-        }
-        return invokeLL.longValue;
-    }
-
-    public final long j(SQLiteDatabase sQLiteDatabase, au4 au4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, au4Var)) == null) {
-            try {
-                return sQLiteDatabase.update("activity_mission_info", c(au4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(au4Var.d()), String.valueOf(au4Var.q())});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
+            textView6.setText(intro);
+            if (linearLayout.getVisibility() == 0) {
+                textView6.setMaxLines(1);
+            } else {
+                textView6.setMaxLines(2);
             }
+            textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
+            x95 x95Var = new x95();
+            x95Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            tBSpecificationBtn.setTextSize(R.dimen.T_X05);
+            tBSpecificationBtn.setConfig(x95Var);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));
+            tBSpecificationBtn.setOnClickListener(new a(this, userData, tbPageContext));
+            this.a = new gt4(tbPageContext);
+            this.a.b(WebPManager.getMaskDrawable((int) R.drawable.mask_popup_background, false));
+            this.a.c(viewGroup);
+            this.a.setOnDismissListener(new b(this));
+            this.a.d();
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
         }
-        return invokeLL.longValue;
     }
 }

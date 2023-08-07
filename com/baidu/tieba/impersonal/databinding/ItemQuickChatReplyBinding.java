@@ -54,11 +54,11 @@ public final class ItemQuickChatReplyBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f091dcf;
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dcf);
+            int i = R.id.obfuscated_res_0x7f091de5;
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091de5);
             if (textView != null) {
-                i = R.id.obfuscated_res_0x7f091dd8;
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dd8);
+                i = R.id.obfuscated_res_0x7f091dee;
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dee);
                 if (tbImageView != null) {
                     RelativeLayout relativeLayout = (RelativeLayout) view2;
                     return new ItemQuickChatReplyBinding(relativeLayout, textView, tbImageView, relativeLayout);
@@ -74,7 +74,7 @@ public final class ItemQuickChatReplyBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d046e, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0471, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

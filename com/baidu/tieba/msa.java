@@ -1,110 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
 public class msa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public rsa b;
-    public hsa c;
+    public Fragment a;
+    public Activity b;
+    public lsa c;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public rsa d;
-        public hsa e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = true;
-            this.c = 0;
-            this.d = null;
-            this.e = null;
-        }
-
-        public msa d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e();
-                return new msa(this, null);
-            }
-            return (msa) invokeV.objValue;
-        }
-
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.a)) {
-                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-                }
-                if (this.c <= 0) {
-                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
-                }
-                if (this.d == null) {
-                    this.d = new rsa(this.c);
-                }
-                if (this.e == null) {
-                    this.e = new hsa(this.a);
-                }
-            }
-        }
-    }
-
-    public msa(b bVar) {
+    public msa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        String unused = bVar.a;
-        this.a = bVar.b;
-        int unused2 = bVar.c;
-        this.b = bVar.d;
-        this.c = bVar.e;
     }
 
-    public /* synthetic */ msa(b bVar, a aVar) {
-        this(bVar);
+    public static msa c(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            msa msaVar = new msa();
+            msaVar.a = fragment;
+            return msaVar;
+        }
+        return (msa) invokeL.objValue;
+    }
+
+    public void a(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+            return;
+        }
+        if (i2 == -1) {
+            lsa lsaVar = this.c;
+            if (lsaVar != null) {
+                lsaVar.a();
+                return;
+            }
+            return;
+        }
+        lsa lsaVar2 = this.c;
+        if (lsaVar2 != null) {
+            lsaVar2.b();
+        }
+    }
+
+    public void b(lsa lsaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lsaVar) == null) {
+            this.c = lsaVar;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
+                }
+                lsa lsaVar2 = this.c;
+                if (lsaVar2 != null) {
+                    lsaVar2.a();
+                    return;
+                }
+                return;
+            }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                lsa lsaVar3 = this.c;
+                if (lsaVar3 != null) {
+                    lsaVar3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+        }
     }
 }

@@ -1,56 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes5.dex */
 public interface dn5 {
-    int a();
+    BroadcastReceiver a(@NonNull Context context, @NonNull fn5 fn5Var);
 
-    String b(int i);
+    void b(@NonNull Context context, long j, long j2, int i, long j3, en5 en5Var);
 
-    String c(String str);
+    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
 
-    String d(int i);
-
-    int e(String str);
-
-    int f(String str);
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.a = i;
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-    }
+    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull gn5 gn5Var);
 }

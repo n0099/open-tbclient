@@ -8,11 +8,11 @@ import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,20 +93,20 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             this.a.onChangeSkinType(getPageContext(), i);
             NoNetworkView noNetworkView = this.b;
             if (noNetworkView != null) {
-                noNetworkView.d(getPageContext(), i);
+                noNetworkView.onChangeSkinType(getPageContext(), i);
             }
             NoDataView noDataView = this.c;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            q05 layoutMode = getLayoutMode();
+            BDLayoutMode layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
-            getLayoutMode().k(this.d);
+            layoutMode.setNightMode(z);
+            getLayoutMode().onModeChanged(this.d);
         }
     }
 

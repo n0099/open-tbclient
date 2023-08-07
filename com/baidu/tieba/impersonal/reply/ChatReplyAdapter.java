@@ -13,14 +13,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.ft8;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.ItemQuickChatReplyBinding;
-import com.baidu.tieba.jv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,10 +93,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 this.b = skinType;
                 this.a.c.setBackground(this.c);
-                d85 d = d85.d(this.a.d);
-                d.n(0);
-                d.o(R.string.J_X01);
-                d.f(R.color.CAM_X0205);
+                EMManager.from(this.a.d).setCardType(0).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0205);
             }
         }
 
@@ -115,9 +112,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (!StringUtils.isNull(data.getTextColor())) {
                     this.a.b.setTextColor(Color.parseColor(data.getTextColor()));
                 } else {
-                    d85 d = d85.d(this.a.b);
-                    d.C(R.dimen.T_X07);
-                    d.D(R.string.F_X01);
+                    EMManager.from(this.a.b).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01);
                     this.a.b.setTextColor(SkinManager.getColor(0, (int) R.color.CAM_X0119));
                 }
                 ViewGroup.LayoutParams layoutParams = this.a.c.getLayoutParams();
@@ -203,7 +198,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 currentAccount = "";
             }
             Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-            jv8.a("c15229", currentAccount, questionData.getQuestion());
+            ft8.a("c15229", currentAccount, questionData.getQuestion());
             holder.c();
         }
     }

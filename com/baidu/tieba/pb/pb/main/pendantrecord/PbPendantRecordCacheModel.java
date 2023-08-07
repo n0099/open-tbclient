@@ -3,26 +3,26 @@ package com.baidu.tieba.pb.pb.main.pendantrecord;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.al9;
+import com.baidu.tieba.tj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbPendantRecordCacheModel extends CacheModel<al9, TbPageContext> {
+public class PbPendantRecordCacheModel extends CacheModel<tj9, TbPageContext> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String U() {
+    public String getCacheTableName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tb.pb_pendant" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tb.pb_pendant" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int i0() {
+    public int getReadCacheCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -32,7 +32,7 @@ public class PbPendantRecordCacheModel extends CacheModel<al9, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int j0() {
+    public int getWriteCacheCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -62,11 +62,11 @@ public class PbPendantRecordCacheModel extends CacheModel<al9, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<al9> h0() {
+    public Class<tj9> getCacheDataClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return al9.class;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return tj9.class;
         }
         return (Class) invokeV.objValue;
     }

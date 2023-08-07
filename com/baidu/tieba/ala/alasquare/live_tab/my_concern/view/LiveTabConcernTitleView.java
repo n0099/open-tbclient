@@ -10,24 +10,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.me6;
-import com.baidu.tieba.wo6;
+import com.baidu.tieba.dm6;
+import com.baidu.tieba.sb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class LiveTabConcernTitleView extends wo6<me6> {
+public class LiveTabConcernTitleView extends dm6<sb6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
 
-    @Override // com.baidu.tieba.wo6
+    @Override // com.baidu.tieba.dm6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0946 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0950 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -66,7 +66,7 @@ public class LiveTabConcernTitleView extends wo6<me6> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09233c);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092354);
         }
     }
 
@@ -94,17 +94,17 @@ public class LiveTabConcernTitleView extends wo6<me6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wo6
+    @Override // com.baidu.tieba.dm6
     /* renamed from: r */
-    public void i(me6 me6Var) {
+    public void i(sb6 sb6Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, me6Var) == null) && me6Var != null && !StringUtils.isNull(me6Var.a) && (viewHolder = this.i) != null) {
-            viewHolder.c.setText(me6Var.a);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, sb6Var) == null) && sb6Var != null && !StringUtils.isNull(sb6Var.a) && (viewHolder = this.i) != null) {
+            viewHolder.c.setText(sb6Var.a);
         }
     }
 
-    @Override // com.baidu.tieba.wo6
+    @Override // com.baidu.tieba.dm6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {

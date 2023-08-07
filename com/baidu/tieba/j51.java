@@ -1,68 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.query.JoinType;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class j51 {
     public static /* synthetic */ Interceptable $ic;
+    public static i51 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JoinType a;
-    public final String b;
-    public final String c;
-    public final f51 d;
-    public final x41 e;
-    public final x41 f;
-    public final StringBuilder g;
-    public boolean h;
-    public boolean i;
 
-    public final void a(String str, String str2, x41 x41Var, x41 x41Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, x41Var, x41Var2) == null) {
-            this.g.append(str);
-            this.g.append(".");
-            this.g.append(x41Var.b);
-            this.g.append(" = ");
-            this.g.append(str2);
-            this.g.append(".");
-            this.g.append(x41Var2.b);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947834179, "Lcom/baidu/tieba/j51;")) == null) {
             return;
         }
-        this.h = true;
-        this.g.append(" ");
-        this.g.append(this.a.toString());
-        this.g.append(" JOIN ");
-        this.g.append(this.d.g());
-        this.g.append(" AS ");
-        this.g.append(this.c);
-        this.g.append(" ON ");
-        if (this.i) {
-            this.g.append("(");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        a(this.b, this.c, this.e, this.f);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947834179, "Lcom/baidu/tieba/j51;");
+        }
     }
 
-    public String c() {
+    public j51() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static i51 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b();
-            StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.g);
-            if (this.i) {
-                sb.append(") ");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (j51.class) {
+                    if (a == null) {
+                        a = (i51) ServiceManager.getService(i51.a);
+                    }
+                    if (a == null) {
+                        a = i51.b;
+                    }
+                }
             }
-            return sb.toString();
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (i51) invokeV.objValue;
     }
 }

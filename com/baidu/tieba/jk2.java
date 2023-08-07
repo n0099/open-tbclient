@@ -1,71 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class jk2 implements ux2 {
+public class jk2 extends fk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947886104, "Lcom/baidu/tieba/jk2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947886104, "Lcom/baidu/tieba/jk2;");
-                return;
-            }
-        }
-        a = fs1.a;
-    }
-
-    public jk2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jk2(@NonNull ek2 ek2Var) {
+        super(ek2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ek2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ek2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ux2
-    public void a(boolean z, Activity activity) {
-        long j;
+    @Override // com.baidu.tieba.fk2
+    public void e() {
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && lk2.a() && !z) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            boolean B = mp3.B();
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
-            }
-            if (B) {
-                boolean n = nk2.n();
-                v82.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
-                hk2.c().d().u(null, n, 16);
-                nk2.p(false);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
+            ij2 d = kj2.c().d();
+            ArrayList<String> arrayList2 = this.d.b;
+            tk2 l = tk2.l();
+            l.i(15);
+            d.g(arrayList2, true, false, l.k());
         }
     }
 }

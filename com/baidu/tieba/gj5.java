@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.editortools.BLauncher;
-import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,15 +10,24 @@ public class gj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static hj5 a(Context context, lj5 lj5Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, lj5Var, i)) == null) {
-            if (i != 1) {
-                return new DLauncher(context, lj5Var);
-            }
-            return new BLauncher(context, lj5Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947795863, "Lcom/baidu/tieba/gj5;")) == null) {
+            return;
         }
-        return (hj5) invokeLLI.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947795863, "Lcom/baidu/tieba/gj5;");
+        }
+    }
+
+    public static boolean a(boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? z || (z2 && !z3) : invokeCommon.booleanValue;
     }
 }

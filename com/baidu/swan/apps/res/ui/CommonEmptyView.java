@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv2;
-import com.baidu.tieba.jh3;
+import com.baidu.tieba.fu2;
+import com.baidu.tieba.mg3;
 /* loaded from: classes4.dex */
 public class CommonEmptyView extends RelativeLayout {
     public ImageView a;
@@ -27,7 +27,7 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView g;
 
     /* loaded from: classes4.dex */
-    public class a implements jh3 {
+    public class a implements mg3 {
         public a() {
         }
     }
@@ -84,26 +84,26 @@ public class CommonEmptyView extends RelativeLayout {
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a0, (ViewGroup) this, true);
         setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f06041e));
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909f6);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0909fa);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f9);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f7);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f5);
-        this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909f4);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f8);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a06);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a0a);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a09);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a07);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a05);
+        this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090a04);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090a08);
         setPageResources();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        cv2.M().f(this, new a());
+        fu2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cv2.M().g(this);
+        fu2.M().g(this);
     }
 
     @Override // android.view.View

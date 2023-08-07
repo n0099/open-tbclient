@@ -3,7 +3,7 @@ package com.baidu.searchbox.retrieve.upload;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.ycb;
+import com.baidu.tieba.bcb;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -121,7 +121,7 @@ public class ContentUtils {
                 stringBuffer.append((String) entry.getValue());
             }
             stringBuffer.append(str);
-            return ycb.c(stringBuffer.toString().getBytes(), false);
+            return bcb.c(stringBuffer.toString().getBytes(), false);
         }
         return "";
     }

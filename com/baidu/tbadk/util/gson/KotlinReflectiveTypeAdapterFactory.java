@@ -3,7 +3,7 @@ package com.baidu.tbadk.util.gson;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sz5;
+import com.baidu.tieba.dx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import kotlin.reflect.full.KClasses;
 import kotlin.reflect.jvm.KCallablesJvm;
 import kotlin.reflect.jvm.ReflectJvmMapping;
 @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u000e2\u00020\u0001:\u0002\r\u000eB\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J0\u0010\u0005\u001a\n\u0012\u0004\u0012\u0002H\u0007\u0018\u00010\u0006\"\b\b\u0000\u0010\u0007*\u00020\b2\u0006\u0010\t\u001a\u00020\n2\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\u00070\fH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tbadk/util/gson/KotlinReflectiveTypeAdapterFactory;", "Lcom/google/gson/TypeAdapterFactory;", "enableDefaultValues", "", "(Z)V", "create", "Lcom/google/gson/TypeAdapter;", ExifInterface.GPS_DIRECTION_TRUE, "", "gson", "Lcom/google/gson/Gson;", "type", "Lcom/google/gson/reflect/TypeToken;", "Adapter", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
@@ -53,7 +53,7 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
     }
 
     @Metadata(d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\"\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u0000*\b\b\u0000\u0010\u0001*\u00020\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0003B\u007f\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003\u0012\u0016\u0010\u0005\u001a\u0012\u0012\u0004\u0012\u00020\u0007\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00030\u0006\u0012\f\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\t\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\u0012\u0014\u0010\f\u001a\u0010\u0012\u0004\u0012\u00020\u0007\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0006\u0012\f\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u00070\u000e\u0012\u0012\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0010\u0012\u0004\u0012\u00020\u00070\u0006¢\u0006\u0002\u0010\u0011J\u0017\u0010\u0012\u001a\u0004\u0018\u00018\u00002\u0006\u0010\u0013\u001a\u00020\u0014H\u0016¢\u0006\u0002\u0010\u0015J\u001f\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00018\u0000H\u0016¢\u0006\u0002\u0010\u001bR\u001a\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0010\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\f\u001a\u0010\u0012\u0004\u0012\u00020\u0007\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u0005\u001a\u0012\u0012\u0004\u0012\u00020\u0007\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00030\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u00070\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\n\u001a\b\u0012\u0004\u0012\u00028\u00000\u000bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001c"}, d2 = {"Lcom/baidu/tbadk/util/gson/KotlinReflectiveTypeAdapterFactory$Adapter;", ExifInterface.GPS_DIRECTION_TRUE, "", "Lcom/google/gson/TypeAdapter;", "delegateAdapter", "innerAdapters", "", "Lkotlin/reflect/KParameter;", "kClass", "Lkotlin/reflect/KClass;", "primaryConstructor", "Lkotlin/reflect/KFunction;", "constructorParameterDefaultsMap", "invalidReadParameters", "", "constructorMap", "", "(Lcom/google/gson/TypeAdapter;Ljava/util/Map;Lkotlin/reflect/KClass;Lkotlin/reflect/KFunction;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", ExceptionCode.READ, "reader", "Lcom/google/gson/stream/JsonReader;", "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;", "write", "", "writer", "Lcom/google/gson/stream/JsonWriter;", "value", "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
             if (rawType.isLocalClass() || rawType.isInterface() || rawType.isEnum() || rawType.isAnnotationPresent(JsonAdapter.class) || !rawType.isAnnotationPresent(c)) {
                 return null;
             }
-            KClass d = sz5.d(type);
+            KClass d = dx5.d(type);
             boolean z = true;
             if (!d.isInner()) {
                 KFunction primaryConstructor = KClasses.getPrimaryConstructor(d);
@@ -303,15 +303,15 @@ public final class KotlinReflectiveTypeAdapterFactory implements TypeAdapterFact
                 LinkedHashSet linkedHashSet = new LinkedHashSet();
                 LinkedHashMap linkedHashMap3 = new LinkedHashMap();
                 for (KParameter kParameter : primaryConstructor.getParameters()) {
-                    List<String> b2 = sz5.b(kParameter, declaringClass);
+                    List<String> b2 = dx5.b(kParameter, declaringClass);
                     if (b2.isEmpty() ^ z) {
-                        TypeAdapter<T> adapter = gson.getAdapter(sz5.c(type, kParameter));
+                        TypeAdapter<T> adapter = gson.getAdapter(dx5.c(type, kParameter));
                         Intrinsics.checkNotNullExpressionValue(adapter, "gson.getAdapter(type.res…ParameterType(parameter))");
                         linkedHashMap.put(kParameter, adapter);
                     }
                     if (!kParameter.isOptional()) {
                         if (this.a) {
-                            obj = sz5.a(kParameter);
+                            obj = dx5.a(kParameter);
                         } else {
                             obj = null;
                         }

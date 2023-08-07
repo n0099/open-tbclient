@@ -1,94 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.database.Cursor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.service.IPCService;
-@Singleton
-@Service
+import java.io.Closeable;
 /* loaded from: classes7.dex */
-public class q3b implements c4b {
+public class q3b {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public e4b a;
-    public IPCService b;
-    public f4b c;
 
-    public q3b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042313, "Lcom/baidu/tieba/q3b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948042313, "Lcom/baidu/tieba/q3b;");
+                return;
+            }
+        }
+        a = p2b.m();
+    }
+
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
+            try {
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.c4b
-    public z3b a() {
-        InterceptResult invokeV;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new e4b();
+        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            return this.a;
         }
-        return (z3b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c4b
-    public b4b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = new IPCService();
-            }
-            return this.b;
-        }
-        return (b4b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c4b
-    public b3b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return x3b.b();
-        }
-        return (b3b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c4b
-    public f3b d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return x3b.c();
-        }
-        return (f3b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c4b
-    public a4b e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c == null) {
-                this.c = new f4b();
-            }
-            return this.c;
-        }
-        return (a4b) invokeV.objValue;
     }
 }

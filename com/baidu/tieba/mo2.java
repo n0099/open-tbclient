@@ -1,46 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class mo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @V8JavascriptField
-    public String errMsg;
-    @V8JavascriptField
-    public String savedFilePath;
 
-    public mo2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947979321, "Lcom/baidu/tieba/mo2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947979321, "Lcom/baidu/tieba/mo2;");
                 return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
+        boolean z = ir1.a;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String[] b = ym4.a().b();
+            y72.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
+            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
+                if (str != null && str.trim().length() > 0) {
+                    str2 = String.format("(%s) AND ", str.trim());
+                } else {
+                    str2 = "";
+                }
+                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
+                y72.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
+                return format;
+            }
+            y72.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
+            return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

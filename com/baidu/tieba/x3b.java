@@ -1,43 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.z3b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class x3b {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static c3b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return f6a.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948250850, "Lcom/baidu/tieba/x3b;")) == null) {
+            return;
         }
-        return (c3b) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948250850, "Lcom/baidu/tieba/x3b;");
+        }
     }
 
-    @Inject
-    public static b3b b() {
-        InterceptResult invokeV;
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return d6a.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return z3b.a.a.f(str);
+            }
+            return SampleResult.OTHERE;
         }
-        return (b3b) invokeV.objValue;
+        return (SampleResult) invokeL.objValue;
     }
 
-    @Inject
-    public static f3b c() {
-        InterceptResult invokeV;
+    public static void b(y3b y3bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return t2b.a();
+        if ((interceptable != null && interceptable.invokeL(65538, null, y3bVar) != null) || y3bVar == null) {
+            return;
         }
-        return (f3b) invokeV.objValue;
+        t4b.b(y3bVar);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            r4b.a().b(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            r4b.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
+            return;
+        }
+        w4b.a(str, str2, str3, map);
     }
 }

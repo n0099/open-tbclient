@@ -1,39 +1,81 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class yd implements qd {
+public class yd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qd
-    public Object a(ge geVar) {
+    public static final mc a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, geVar)) == null) {
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    public yd(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {message};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
+            Class<?> cls = obj.getClass();
+            if (cls != Boolean.TYPE && cls != Boolean.class) {
+                if (cls == Bundle.class) {
+                    return new hc((Bundle) obj);
+                }
+                if (cls != Byte.TYPE && cls != Byte.class) {
+                    if (cls != Character.TYPE && cls != Character.class) {
+                        if (cls != Double.TYPE && cls != Double.class) {
+                            if (cls != Float.TYPE && cls != Float.class) {
+                                if (cls != Integer.TYPE && cls != Integer.class) {
+                                    if (cls != Long.TYPE && cls != Long.class) {
+                                        if (cls != Short.TYPE && cls != Short.class) {
+                                            if (cls == String.class) {
+                                                return new wc((String) obj);
+                                            }
+                                            if (cls.isArray()) {
+                                                return new fc(obj);
+                                            }
+                                            if (cls == SparseArray.class) {
+                                                return new vc((SparseArray) obj);
+                                            }
+                                            if (obj instanceof List) {
+                                                return new oc((List) obj);
+                                            }
+                                            if (obj instanceof Queue) {
+                                                return new sc((Queue) obj);
+                                            }
+                                            if (obj instanceof Map) {
+                                                return new qc((Map) obj);
+                                            }
+                                            if (obj instanceof Set) {
+                                                return new tc((Set) obj);
+                                            }
+                                            if (!cc.e(cls, OrmObject.class)) {
+                                                return null;
+                                            }
+                                            return new rc((OrmObject) obj);
+                                        }
+                                        return new uc(((Short) obj).shortValue());
+                                    }
+                                    return new pc(((Long) obj).longValue());
+                                }
+                                return new nc(((Integer) obj).intValue());
+                            }
+                            return new lc(((Float) obj).floatValue());
+                        }
+                        return new kc(((Double) obj).doubleValue());
+                    }
+                    return new jc(((Character) obj).charValue());
+                }
+                return new ic(((Byte) obj).byteValue());
+            }
+            return new gc(((Boolean) obj).booleanValue());
         }
+        return (mc) invokeL.objValue;
     }
 }

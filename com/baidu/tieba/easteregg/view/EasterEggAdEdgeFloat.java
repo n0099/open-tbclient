@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.g6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +108,7 @@ public final class EasterEggAdEdgeFloat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             d().k();
-            EdgeFloatLifecycle.b.a().l(d());
+            EdgeFloatLifecycle.Companion.a().unRegister(d());
         }
     }
 
@@ -231,19 +231,19 @@ public final class EasterEggAdEdgeFloat {
                 }
                 c2 = this.this$0.c();
                 c2.addView(this.$view);
-                l7a l7aVar = new l7a(this.$activity);
+                g6a g6aVar = new g6a(this.$activity);
                 c3 = this.this$0.c();
-                l7aVar.M(c3);
-                l7aVar.y(this.$gravity);
-                l7aVar.I(this.$startX);
-                l7aVar.J(this.$startY);
-                l7aVar.d(this.$canDrag);
-                l7aVar.N(yi.l(TbadkCoreApplication.getInst()));
-                l7aVar.z(EasterEggAdEdgeFloat.c.a());
-                l7aVar.D(this.$pageSupportList);
-                l7aVar.H(false);
-                l7aVar.G(this.$onScreenSizeChangedCallback);
-                return l7aVar.c();
+                g6aVar.M(c3);
+                g6aVar.y(this.$gravity);
+                g6aVar.I(this.$startX);
+                g6aVar.J(this.$startY);
+                g6aVar.d(this.$canDrag);
+                g6aVar.N(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+                g6aVar.z(EasterEggAdEdgeFloat.c.a());
+                g6aVar.D(this.$pageSupportList);
+                g6aVar.H(false);
+                g6aVar.G(this.$onScreenSizeChangedCallback);
+                return g6aVar.c();
             }
         });
     }

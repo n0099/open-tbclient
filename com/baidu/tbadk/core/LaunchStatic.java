@@ -32,28 +32,30 @@ import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.a85;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.ih8;
+import com.baidu.tieba.af8;
+import com.baidu.tieba.ep5;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.l05;
+import com.baidu.tieba.j75;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.mh7;
-import com.baidu.tieba.p85;
+import com.baidu.tieba.lk5;
+import com.baidu.tieba.oca;
+import com.baidu.tieba.p98;
+import com.baidu.tieba.pz4;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.tx4;
-import com.baidu.tieba.ur5;
-import com.baidu.tieba.vb8;
-import com.baidu.tieba.vda;
+import com.baidu.tieba.ub8;
+import com.baidu.tieba.ue7;
+import com.baidu.tieba.uw4;
+import com.baidu.tieba.v65;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.wq5;
-import com.baidu.tieba.zl5;
+import com.baidu.tieba.yp5;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -229,17 +231,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        vda.a();
-        ih8.a();
-        vb8.a();
+        oca.a();
+        af8.a();
+        p98.a();
         ImMemoryCacheRegister.i();
-        be8.i();
-        tx4.h();
+        ub8.i();
+        uw4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        a85.d();
-        p85.a();
-        l05.d();
+        v65.d();
+        j75.a();
+        pz4.d();
         a();
         e();
         f();
@@ -252,9 +254,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            zl5.d().f();
-            gca.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, gca.a(TbConfig.GET_PAY_CONFIG, 303039));
+            lk5.d().f();
+            zaa.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, zaa.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -277,7 +279,7 @@ public class LaunchStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !Fresco.hasBeenInitialized()) {
-            Fresco.initialize(TbadkCoreApplication.getInst(), mh7.a());
+            Fresco.initialize(TbadkCoreApplication.getInst(), ue7.a());
         }
     }
 
@@ -285,7 +287,9 @@ public class LaunchStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
-                wq5.f().l(SyncDataEvent.class, new ur5());
+                MutiProcessManager mutiProcessManager = MutiProcessManager.getInstance();
+                mutiProcessManager.registerForeverListener(SyncDataEvent.class, new yp5());
+                mutiProcessManager.registerForeverListener(AICapacityStatusUpdateEvent.class, new ep5());
             } catch (Exception e) {
                 e.printStackTrace();
             }

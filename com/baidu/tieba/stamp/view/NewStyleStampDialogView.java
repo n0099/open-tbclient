@@ -14,21 +14,21 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.baa;
-import com.baidu.tieba.caa;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.r35;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
-import com.baidu.tieba.u45;
-import com.baidu.tieba.w9a;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.u8a;
+import com.baidu.tieba.v8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,12 +37,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NewStyleStampDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public caa b;
+    public v8a b;
     public View c;
     public ImageView d;
     public TextView e;
@@ -58,13 +58,13 @@ public class NewStyleStampDialogView extends LinearLayout {
     public ObjectAnimator o;
     public ObjectAnimator p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewStyleStampDialogView a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a extends d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class d implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,13 +298,13 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (View) invokeV.objValue;
     }
 
-    public caa getmStampData() {
+    public v8a getmStampData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (caa) invokeV.objValue;
+        return (v8a) invokeV.objValue;
     }
 
     public final void p() {
@@ -412,42 +412,42 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (ObjectAnimator) invokeCommon.objValue;
     }
 
-    private void setStampIconsLayout(final List<u45.a> list) {
+    private void setStampIconsLayout(final List<r35.a> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65549, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.l.setVisibility(0);
             this.l.setStampIconsList(list);
-            this.l.setSignStampIconClickListener(new baa() { // from class: com.baidu.tieba.faa
+            this.l.setSignStampIconClickListener(new u8a() { // from class: com.baidu.tieba.y8a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.baa
+                @Override // com.baidu.tieba.u8a
                 public final void a(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        NewStyleStampDialogView.this.l(list, (u45.a) obj);
+                        NewStyleStampDialogView.this.l(list, (r35.a) obj);
                     }
                 }
             });
         }
     }
 
-    public void setStampData(caa caaVar) {
+    public void setStampData(v8a v8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, caaVar) == null) {
-            this.b = caaVar;
+        if (interceptable == null || interceptable.invokeL(1048590, this, v8aVar) == null) {
+            this.b = v8aVar;
             n();
         }
     }
 
-    public /* synthetic */ void l(List list, u45.a aVar) {
+    public /* synthetic */ void l(List list, r35.a aVar) {
         this.e.setText(aVar.b());
-        this.k.N(aVar.c(), 10, false);
+        this.k.startLoad(aVar.c(), 10, false);
         q();
         s(list, aVar);
     }
 
-    public u45.a i(List<u45.a> list) {
+    public r35.a i(List<r35.a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
@@ -457,7 +457,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             int size = list.size();
             int i = -1;
             for (int i2 = 0; i2 < size; i2++) {
-                u45.a aVar = list.get(i2);
+                r35.a aVar = list.get(i2);
                 if (aVar != null) {
                     if (aVar.f()) {
                         return aVar;
@@ -473,7 +473,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             list.get(i).h(true);
             return list.get(i);
         }
-        return (u45.a) invokeL.objValue;
+        return (r35.a) invokeL.objValue;
     }
 
     public final void k(Context context) {
@@ -495,31 +495,31 @@ public class NewStyleStampDialogView extends LinearLayout {
             this.l = (SignStampIconsView) findViewById(R.id.stamp_dialog_level_icons);
             o();
             p();
-            zg.a().postDelayed(new a(this), 80L);
+            SafeHandler.getInst().postDelayed(new a(this), 80L);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            caa caaVar = this.b;
-            if (caaVar instanceof w9a) {
-                w9a w9aVar = (w9a) caaVar;
-                this.e.setText(w9aVar.b());
-                this.k.N(w9aVar.a(), 10, false);
-            } else if (caaVar instanceof u45) {
-                u45 u45Var = (u45) caaVar;
-                List<u45.a> a2 = u45Var.a();
-                if (u45Var.b() == -1) {
+            v8a v8aVar = this.b;
+            if (v8aVar instanceof q8a) {
+                q8a q8aVar = (q8a) v8aVar;
+                this.e.setText(q8aVar.b());
+                this.k.startLoad(q8aVar.a(), 10, false);
+            } else if (v8aVar instanceof r35) {
+                r35 r35Var = (r35) v8aVar;
+                List<r35.a> a2 = r35Var.a();
+                if (r35Var.b() == -1) {
                     this.f.setText(getResources().getString(R.string.stamp_full_level));
                 } else {
-                    this.f.setText(String.format(getResources().getString(R.string.stamp_next_level_days), Integer.valueOf(u45Var.b())));
+                    this.f.setText(String.format(getResources().getString(R.string.stamp_next_level_days), Integer.valueOf(r35Var.b())));
                 }
                 if (!ListUtils.isEmpty(a2)) {
-                    u45.a i = i(a2);
+                    r35.a i = i(a2);
                     if (i != null) {
                         this.e.setText(i.b());
-                        this.k.N(i.c(), 10, false);
+                        this.k.startLoad(i.c(), 10, false);
                     }
                     setStampIconsLayout(a2);
                 }
@@ -530,17 +530,10 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            d85 d2 = d85.d(this.e);
-            d2.D(R.string.F_X02);
-            d2.x(R.color.CAM_X0101);
-            d85.d(this.f).x(R.color.CAM_X0103);
-            d85 d3 = d85.d(this.g);
-            d3.m(R.dimen.L_X01);
-            d3.l(R.color.CAM_X0101);
-            d3.o(R.string.J_X01);
-            d85 d4 = d85.d(this.h);
-            d4.o(R.string.J_X01);
-            d4.f(R.color.CAM_X0302);
+            EMManager.from(this.e).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0101);
+            EMManager.from(this.f).setTextColor(R.color.CAM_X0103);
+            EMManager.from(this.g).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0101).setCorner(R.string.J_X01);
+            EMManager.from(this.h).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_topbar_close44, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
@@ -557,7 +550,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 i2 = 0;
             }
             tBLottieAnimationView.setRepeatCount(i2);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.eaa
+            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.x8a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -572,10 +565,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public final void s(List<u45.a> list, u45.a aVar) {
+    public final void s(List<r35.a> list, r35.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, list, aVar) == null) {
-            for (u45.a aVar2 : list) {
+            for (r35.a aVar2 : list) {
                 if (aVar2 != null && !StringUtils.isNull(aVar2.b())) {
                     if (aVar2.b().equals(aVar.b())) {
                         aVar2.h(true);

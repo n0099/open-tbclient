@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.da5;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +40,9 @@ public class WhiteListData extends LinkedList<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             WhiteListData whiteListData = new WhiteListData();
-            String w = da5.p().w("key_white_list", null);
-            if (!TextUtils.isEmpty(w)) {
-                whiteListData.parserJson(w);
+            String string = SharedPrefHelper.getInstance().getString("key_white_list", null);
+            if (!TextUtils.isEmpty(string)) {
+                whiteListData.parserJson(string);
             }
             return whiteListData;
         }
@@ -70,7 +70,7 @@ public class WhiteListData extends LinkedList<String> {
     private void save(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            da5.p().J("key_white_list", str);
+            SharedPrefHelper.getInstance().putString("key_white_list", str);
         }
     }
 

@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes7.dex */
-public abstract class nqb {
+public class nqb {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "PBKDF2";
+    public static final String a = "h";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,48 +28,29 @@ public abstract class nqb {
         }
     }
 
-    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
-        SecretKeyFactory secretKeyFactory;
-        InterceptResult invokeCommon;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Context a2 = jqb.a();
+            if (a2 == null) {
+                return "";
+            }
             try {
-                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
-                if (z) {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-                } else {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                }
-                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
-            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                String str = a;
-                vqb.c(str, "pbkdf exception : " + e.getMessage());
-                return new byte[0];
+                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                String str2 = a;
+                mqb.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
+                return "";
+            } catch (Exception e2) {
+                String str3 = a;
+                mqb.d(str3, "getVersion: " + e2.getMessage());
+                return "";
+            } catch (Throwable unused) {
+                mqb.d(a, "throwable");
+                return "";
             }
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
-            return a(cArr, bArr, i, i2, false);
-        }
-        return (byte[]) invokeLLII.objValue;
-    }
-
-    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (Build.VERSION.SDK_INT < 26) {
-                vqb.c(a, "system version not high than 26");
-                return bArr2;
-            }
-            return a(cArr, bArr, i, i2, true);
-        }
-        return (byte[]) invokeLLII.objValue;
+        return (String) invokeL.objValue;
     }
 }

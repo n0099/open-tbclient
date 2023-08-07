@@ -1,251 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
-import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.searchbox.network.outback.statistics.RecordObserver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.Random;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ig {
+public class ig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public final e b;
-    public final c c;
-    public final d d;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ig a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(253872209, "Lcom/baidu/tieba/ig$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(253872209, "Lcom/baidu/tieba/ig$b;");
-                    return;
-                }
-            }
-            a = new ig(null);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements RecordObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        public final void a(NetworkStatRecord networkStatRecord) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && networkStatRecord.subFrom == 8927) {
-                networkStatRecord.from = jg.a(networkStatRecord.url);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ext", networkStatRecord.toUBCJson());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent("1625", jSONObject);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
-        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
-                a(networkStatRecord);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements RecordObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-
-        public final void a(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, networkStatRecord, i) == null) && networkStatRecord != null && i == DoRecordManager.FAILED_MSG && networkStatRecord.subFrom == 8927) {
-                networkStatRecord.from = jg.a(networkStatRecord.url);
-                JSONObject uBCJson = networkStatRecord.toUBCJson();
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent("850", uBCJson.toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
-        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
-                a(networkStatRecord, i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements RecordObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ e(a aVar) {
-            this();
-        }
-
-        public final boolean b(NetworkStatRecord networkStatRecord) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord)) == null) {
-                if (networkStatRecord.from == 3 || networkStatRecord.subFrom != 8927 || new Random().nextInt(100) >= 20) {
-                    return false;
-                }
+    public static boolean a(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
+            try {
+                context.sendBroadcast(intent);
                 return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
-            return invokeL.booleanValue;
         }
+        return invokeLL.booleanValue;
+    }
 
-        public final void a(NetworkStatRecord networkStatRecord) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && b(networkStatRecord)) {
-                networkStatRecord.from = jg.a(networkStatRecord.url);
-                JSONObject uBCJson = networkStatRecord.toUBCJson();
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent("94", uBCJson.toString());
+    public static boolean startActivity(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
+                context.startActivity(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
         }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
-        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) {
-                a(networkStatRecord);
-            }
-        }
+        return invokeLL.booleanValue;
     }
 
-    public ig() {
+    public static boolean startService(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+            try {
+                context.startService(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
         }
-        this.a = false;
-        this.b = new e(null);
-        this.c = new c(null);
-        this.d = new d(null);
+        return invokeLL.booleanValue;
     }
 
-    public synchronized void b() {
+    public static boolean stopService(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (!this.a) {
-                    this.a = true;
-                    DoRecordManager.getInstance().attach(this.b);
-                    DoRecordManager.getInstance().attach(this.c);
-                    DoRecordManager.getInstance().attach(this.d);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
+            try {
+                context.stopService(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public /* synthetic */ ig(a aVar) {
-        this();
-    }
-
-    public static ig a() {
-        InterceptResult invokeV;
+    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
+            try {
+                context.unbindService(serviceConnection);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
-        return (ig) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
+            try {
+                context.bindService(intent, serviceConnection, i);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLLI.booleanValue;
+    }
+
+    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
+            try {
+                activity.startActivityForResult(intent, i);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLI.booleanValue;
     }
 }

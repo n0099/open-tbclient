@@ -12,9 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RelevanceItemSearchActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -22,8 +24,6 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -269,16 +269,16 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a35, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911b0);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911b2);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092a3d);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911af);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0911b1);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911bc);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911b9);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a3f, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911c3);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911c5);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092a57);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911c2);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0911c4);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911cf);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911cc);
             this.h = rankStarView;
-            rankStarView.setStarSpacing(yi.g(getContext(), R.dimen.tbds30));
+            rankStarView.setStarSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.tbds30));
             this.h.setClickable(true);
             this.h.setStarChangListener(this);
             this.g.N();
@@ -298,9 +298,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         EMTextView eMTextView = this.b;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            d85 d = d85.d(this.b);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0206);
+            EMManager.from(this.b).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
         }
         if (this.d != null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);

@@ -1,181 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.ResponsePanelEmojiAdapter;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class gk8 implements vz6 {
+public class gk8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public LinearLayout a;
-    @NonNull
-    public final dk8 b;
-    public ImageView c;
-    @Nullable
-    public ResponsePanelEmojiAdapter d;
 
-    /* loaded from: classes6.dex */
-    public class a extends LinearLayoutManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public boolean canScrollHorizontally() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gk8 gk8Var, Context context, int i, boolean z) {
-            super(context, i, z);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947796917, "Lcom/baidu/tieba/gk8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gk8Var, context, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements qm8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gk8 a;
-
-        public b(gk8 gk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gk8Var;
-        }
-
-        @Override // com.baidu.tieba.qm8
-        public void a(@NonNull Reaction reaction) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, reaction) == null) {
-                this.a.b.L(reaction);
-                this.a.b.C();
-            }
-        }
-    }
-
-    public gk8(@NonNull dk8 dk8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dk8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947796917, "Lcom/baidu/tieba/gk8;");
                 return;
             }
         }
-        this.b = dk8Var;
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
+        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
+        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
     }
 
-    public void c(@NonNull List<Reaction> list) {
-        ResponsePanelEmojiAdapter responsePanelEmojiAdapter;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && (responsePanelEmojiAdapter = this.d) != null) {
-            responsePanelEmojiAdapter.o(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (BdUtilHelper.getEquipmentWidth(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
+        }
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            try {
+                URL url = new URL(str);
+                for (EmojiData emojiData : list) {
+                    URL url2 = new URL(emojiData.getContent());
+                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
+                        return emojiData;
+                    }
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (EmojiData) invokeLL.objValue;
+    }
+
+    public static boolean c(@NonNull GroupInputViewController groupInputViewController) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, groupInputViewController)) == null) {
+            return !groupInputViewController.k1(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
+            EmojiData b2 = b(reaction.getContent(), list);
+            if (b2 != null) {
+                return b2.hasReplied();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void e(@NonNull fj8 fj8Var, int i, @NonNull BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65541, null, fj8Var, i, baseMsg) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", Integer.valueOf(i));
+            fj8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseMsg, null);
         }
     }
 
-    public void d(boolean z) {
-        LinearLayout linearLayout;
-        int i;
+    public static void f(@NonNull fj8 fj8Var, @NonNull EmojiData emojiData, @NonNull BaseMsg baseMsg, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (linearLayout = this.a) == null) {
-            return;
-        }
-        if (z) {
-            i = 0;
-        } else {
-            i = 8;
-        }
-        linearLayout.setVisibility(i);
-    }
-
-    @Override // com.baidu.tieba.vz6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0800e2, R.color.CAM_X0107, null);
+        if (interceptable == null || interceptable.invokeLLLI(65542, null, fj8Var, emojiData, baseMsg, i) == null) {
+            g(fj8Var, new Reaction("", emojiData.getContent()), baseMsg, i);
         }
     }
 
-    public void b(@NonNull View view2) {
+    public static void g(@NonNull fj8 fj8Var, @NonNull Reaction reaction, @NonNull BaseMsg baseMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e76);
-            this.a = linearLayout;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
-            int i = nm8.a;
-            layoutParams.leftMargin = i;
-            layoutParams.rightMargin = i;
-            this.a.setLayoutParams(layoutParams);
-            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091e20);
-            this.d = new ResponsePanelEmojiAdapter(this.b.getPageContext().getOrignalPage().getPageContext());
-            a aVar = new a(this, this.b.getPageContext().getPageActivity(), 0, false);
-            this.d.p(new b(this));
-            recyclerView.setLayoutManager(aVar);
-            recyclerView.setAdapter(this.d);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091776);
-            this.c = imageView;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            int i2 = nm8.b;
-            layoutParams2.leftMargin = i2;
-            layoutParams2.rightMargin = i2;
-            this.c.setLayoutParams(layoutParams2);
-            this.c.setOnClickListener(this.b);
-            onChangeSkinType(TbadkApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeLLLI(65543, null, fj8Var, reaction, baseMsg, i) == null) {
+            List<EmojiData> emojiList = baseMsg.getCommonMsgField().getEmojiList();
+            boolean z = true;
+            if (emojiList != null) {
+                boolean d = d(reaction, emojiList);
+                if (i != 1) {
+                    int i2 = 2;
+                    if (i == 2) {
+                        z = true ^ d;
+                        if (!z) {
+                            i2 = 3;
+                        }
+                        ym8.h(i2);
+                    }
+                } else if (d) {
+                    return;
+                } else {
+                    ym8.h(1);
+                }
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("content", reaction.getContent());
+            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
+            fj8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseMsg, null);
         }
     }
 }

@@ -5,8 +5,8 @@ import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.live.net.LiveNetwork;
 import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.ke0;
-import com.baidu.tieba.wd0;
+import com.baidu.tieba.id0;
+import com.baidu.tieba.uc0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public final class LiveNpsGetSwitchManager {
     private final String addLiveCommonToUrl(String str, Map<String, String> map) {
         String fullUrl = CommonUrlParamManager.getInstance().processUrl(str);
         if (map != null) {
-            String a = ke0.a(fullUrl, map);
+            String a = id0.a(fullUrl, map);
             Intrinsics.checkExpressionValueIsNotNull(a, "UrlUtil.addParam(fullUrl, params)");
             return a;
         }
@@ -110,7 +110,7 @@ public final class LiveNpsGetSwitchManager {
     }
 
     private final Map<String, String> getUrlParamsFromUrl(String str) {
-        return ke0.d(ke0.b(str));
+        return id0.d(id0.b(str));
     }
 
     private final Map<String, Object> transformMap(Map<String, String> map) {
@@ -140,9 +140,9 @@ public final class LiveNpsGetSwitchManager {
         Map<String, String> addLiveCommonParameters = addLiveCommonParameters(linkedHashMap, getUrlParamsFromUrl(addLiveCommonToUrl));
         liveNetwork.c(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, 17), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, 136)));
         liveNetwork.e(addLiveCommonToUrl);
-        liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new wd0<LiveMasterSwitchBean>() { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
+        liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new uc0<LiveMasterSwitchBean>() { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.wd0
+            @Override // com.baidu.tieba.uc0
             public void onNetResponse(NetResponse netResponse, LiveMasterSwitchBean liveMasterSwitchBean) {
                 String str2;
                 if (netResponse != null && !netResponse.isSuccessful()) {
@@ -162,7 +162,7 @@ public final class LiveNpsGetSwitchManager {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.wd0
+            @Override // com.baidu.tieba.uc0
             public LiveMasterSwitchBean onParseResponseInBackground(NetResponse netResponse) {
                 if (netResponse != null && netResponse.isSuccessful()) {
                     String str2 = netResponse.decodedResponseStr;

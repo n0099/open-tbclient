@@ -3,16 +3,18 @@ package com.baidu.tbadk.dispatcher;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.y2a;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.s1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +25,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OpenWebViewDispatcher implements y2a {
+public class OpenWebViewDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,10 +44,11 @@ public class OpenWebViewDispatcher implements y2a {
         }
     }
 
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;
+        Bundle bundle;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, context) != null) || jSONObject == null || context == null || (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(context)) == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(currentPageContext) || StringUtils.isNull(jSONObject.optString("url"))) {
             return;
@@ -64,23 +67,29 @@ public class OpenWebViewDispatcher implements y2a {
             z = false;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("initData");
+        String optString3 = jSONObject.optString("dialogName");
         try {
             Uri parse = Uri.parse(optString);
-            Bundle bundle = null;
             if (parse != null) {
                 str = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
             } else {
                 str = null;
             }
-            String optString3 = jSONObject.optString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
-            if (!StringUtils.isNull(optString3)) {
-                str = optString3;
+            String optString4 = jSONObject.optString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
+            if (!StringUtils.isNull(optString4)) {
+                str = optString4;
             }
             if (!StringUtils.isNull(str)) {
                 bundle = new Bundle();
                 bundle.putString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE, str);
+                if (!TextUtils.isEmpty(optString3) && "1".equals(str)) {
+                    bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, optString3);
+                    YunDialogManager.markShowingDialogName(optString3);
+                }
+            } else {
+                bundle = null;
             }
-            yz4 j = yz4.j(context, optString);
+            cz4 j = cz4.j(context, optString);
             j.r(optString2);
             j.m(optBoolean);
             j.k(optBoolean2);

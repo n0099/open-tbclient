@@ -1,111 +1,91 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
+import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg2;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public final class mg2 implements qg2.a {
+public class mg2 implements jg2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<jg2> a;
-    public String b;
-    public Map<String, String> c;
-    public int d;
-    public boolean e;
-    public String f;
+    public final LruCache<String, Long> a;
 
-    public mg2(CopyOnWriteArrayList<jg2> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947971633, "Lcom/baidu/tieba/mg2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947971633, "Lcom/baidu/tieba/mg2;");
+                return;
+            }
+        }
+        b = ir1.a;
+    }
+
+    public mg2(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = copyOnWriteArrayList;
-        this.b = str;
-        this.c = map;
-        this.d = i;
-        this.e = z;
-    }
-
-    @Override // com.baidu.tieba.qg2.a
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f = str;
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
         }
     }
 
-    @Override // com.baidu.tieba.qg2.a
-    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.jg2
+    public kg2 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
-            if (this.d >= this.a.size()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (b) {
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+            }
+            Long l = this.a.get(str2);
+            if (l == null) {
                 return null;
             }
-            return this.a.get(this.d).a(new mg2(this.a, this.b, this.c, this.d + 1, z));
+            kg2 kg2Var = new kg2();
+            kg2Var.a = ProcessUtils.getCurProcessName();
+            kg2Var.b = l.longValue();
+            return kg2Var;
         }
-        return (WebResourceResponse) invokeLLZ.objValue;
+        return (kg2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qg2.a
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jg2
+    public void b(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qg2.a
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qg2.a
-    public String getMimeType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.f)) {
-                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qg2.a
-    public Map<String, String> getRequestHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (Map) invokeV.objValue;
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

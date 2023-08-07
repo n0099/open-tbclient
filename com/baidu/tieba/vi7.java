@@ -1,79 +1,80 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.entelechy.adapter.FrsGroupCardLayoutHolder;
+import com.baidu.tieba.frs.view.FrsGroupCardLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vi7 {
+public final class vi7 extends lm<zj7, FrsGroupCardLayoutHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static vi7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
+    public final TbPageContext<?> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948241829, "Lcom/baidu/tieba/vi7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948241829, "Lcom/baidu/tieba/vi7;");
-                return;
-            }
-        }
-        b = new vi7();
-    }
-
-    public vi7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vi7(TbPageContext<?> pageContext) {
+        super(pageContext.getPageActivity(), zj7.c.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        this.a = pageContext;
     }
 
-    public static vi7 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public FrsGroupCardLayoutHolder onCreateViewHolder(ViewGroup parent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Activity pageActivity = this.a.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
+            return new FrsGroupCardLayoutHolder(new FrsGroupCardLayout(pageActivity, null, 2, null));
         }
-        return (vi7) invokeV.objValue;
+        return (FrsGroupCardLayoutHolder) invokeL.objValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View convertView, ViewGroup parent, zj7 data, FrsGroupCardLayoutHolder holder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return !TextUtils.isEmpty(this.a.get(i));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, holder})) == null) {
+            Intrinsics.checkNotNullParameter(convertView, "convertView");
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            holder.b().setData(data);
+            View view2 = holder.getView();
+            Intrinsics.checkNotNullExpressionValue(view2, "holder.view");
+            return view2;
         }
-        return invokeI.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
-        }
+        return (View) invokeCommon.objValue;
     }
 }

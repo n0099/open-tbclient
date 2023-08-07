@@ -1,159 +1,133 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.BuildParams;
+import com.baidu.searchbox.live.interfaces.player.IDuMediaInstallListener;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class e39 implements yn {
+public class e39 implements ILivePlayerService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public String c;
-    public Integer d;
-    public Integer e;
-    public String f;
-    public int g;
-    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683550, "Lcom/baidu/tieba/e39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public boolean isAuthError(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -2403 || i == -33403 : invokeI.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IDuMediaInstallListener a;
+
+        public a(e39 e39Var, IDuMediaInstallListener iDuMediaInstallListener) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e39Var, iDuMediaInstallListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947683550, "Lcom/baidu/tieba/e39;");
-                return;
+            this.a = iDuMediaInstallListener;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            IDuMediaInstallListener iDuMediaInstallListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) && (iDuMediaInstallListener = this.a) != null) {
+                iDuMediaInstallListener.onInstallError(i, i2, str);
             }
         }
-        i = BdUniqueId.gen();
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            IDuMediaInstallListener iDuMediaInstallListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && (iDuMediaInstallListener = this.a) != null) {
+                iDuMediaInstallListener.onInstallProgress(i, i2);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            IDuMediaInstallListener iDuMediaInstallListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) && (iDuMediaInstallListener = this.a) != null) {
+                iDuMediaInstallListener.onInstallSuccess(i, str);
+            }
+        }
     }
 
     public e39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createBackPlayer(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new a39(str);
         }
-        return (String) invokeV.objValue;
+        return (LivePlayer) invokeL.objValue;
     }
 
-    public Long b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(BuildParams buildParams) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buildParams)) == null) {
+            if (buildParams.getPlayerType() != 1) {
+                return createPlayer(buildParams.getRoomId());
+            }
+            return createBackPlayer(buildParams.getRoomId());
         }
-        return (Long) invokeV.objValue;
+        return (LivePlayer) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new b39(str);
         }
-        return (String) invokeV.objValue;
+        return (LivePlayer) invokeL.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public void initPlayerEvn(@Nullable IDuMediaInstallListener iDuMediaInstallListener, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Integer f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return i;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public Integer h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public void i(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, recommendForumInfo) == null) {
-            this.c = recommendForumInfo.avatar;
-            this.a = recommendForumInfo.forum_id;
-            this.b = recommendForumInfo.forum_name;
-            this.d = recommendForumInfo.thread_count;
-            this.e = recommendForumInfo.member_count;
-            this.f = recommendForumInfo.slogan;
-            this.g = recommendForumInfo.is_like.intValue();
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, iDuMediaInstallListener, i) == null) {
+            c39.e().h(new a(this, iDuMediaInstallListener), i);
         }
     }
 }

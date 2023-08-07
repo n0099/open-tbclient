@@ -99,12 +99,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d8f);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8d);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d90);
-        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d91);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d93);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d95);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091da5);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da3);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091da6);
+        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091da7);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091da9);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091dab);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.k = rotateAnimation;
         rotateAnimation.setDuration(120L);

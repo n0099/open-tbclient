@@ -1,9 +1,19 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface kb1 {
-    void onHideLoading();
+public abstract class kb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onLoadFailure();
-
-    void onLoadSuccess();
+    public final Object a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw null;
+        }
+        return invokeV.objValue;
+    }
 }

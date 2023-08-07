@@ -30,7 +30,7 @@ public final class s extends d implements View.OnClickListener {
     public TextView vg;
 
     /* renamed from: vi  reason: collision with root package name */
-    public View f1217vi;
+    public View f1216vi;
     public View vj;
     public LayoutInflater wi;
     public ViewGroup wj;
@@ -42,7 +42,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04d8, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04db, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -61,15 +61,15 @@ public final class s extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913c4);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913c6);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913c2);
-        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913c5);
-        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913c3);
-        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b6);
-        this.f1217vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0913c1);
-        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0913c0);
-        this.f1217vi.setOnClickListener(this);
+        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913d7);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913d9);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913d8);
+        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913d6);
+        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913c9);
+        this.f1216vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0913d4);
+        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0913d3);
+        this.f1216vi.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.it.setOnClickListener(this);
         this.eQ.setOnClickListener(this);
@@ -93,7 +93,7 @@ public final class s extends d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         l.a aVar;
-        if (view2.equals(this.f1217vi)) {
+        if (view2.equals(this.f1216vi)) {
             this.vf.dismiss();
             l.a aVar2 = this.nf;
             if (aVar2 != null) {

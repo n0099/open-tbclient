@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.bi;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yca;
+import com.baidu.tieba.qba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,108 +42,188 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ShareItem {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String Q0;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEFAULT = 0;
+    public static final int FROM_DEFAULT = 0;
+    public static final int FROM_MY_THREAD = 2;
+    public static final int FROM_PB = 1;
+    public static final int FRS_SMALL_APP_SHARE = 2;
+    public static final int FRS_SMALL_APP_SHARE_RELOAD = 4;
+    public static final String IMAGE_DATA_FILE;
+    public static final String KEY_DISK_PIC_OP_FORMATDATA = "formatData";
+    public static final String KEY_DISK_PIC_OP_NAME = "name";
+    public static final String KEY_DISK_PIC_OP_PAHT = "path";
+    public static final String KEY_DISK_PIC_OP_SAVEDCACHE = "isSavedCache";
+    public static final String KEY_DISK_PIC_OP_SDCARD = "isSdcard";
+    public static final String KEY_DISK_PIC_OP_SUBDIR = "isSubDir";
+    public static final int OBJ_LOACTION_CONCERN = 2;
+    public static final int OBJ_LOCATION_CHANNEL = 25;
+    public static final int OBJ_LOCATION_CRAD_MIDDLE_VIDEO_LANDSCAPE = 12;
+    public static final int OBJ_LOCATION_CRAD_MIDDLE_VIDEO_VERTICAL = 19;
+    public static final int OBJ_LOCATION_ENTER_FORUM_SQUARE = 20;
+    public static final int OBJ_LOCATION_FRS = 4;
+    public static final int OBJ_LOCATION_FRS_FORUM = 11;
+    public static final int OBJ_LOCATION_FRS_HOT_TAB = 13;
+    public static final int OBJ_LOCATION_FRS_VIDEO_TAB = 30;
+    public static final int OBJ_LOCATION_GAME_ITEM_DETAIL = 24;
+    public static final int OBJ_LOCATION_GAME_VIDEO = 10;
+    public static final int OBJ_LOCATION_HOME_DAILY = 9;
+    public static final int OBJ_LOCATION_HOT_TOPIC = 27;
+    public static final int OBJ_LOCATION_NEW_VIDEO_TAB = 17;
+    public static final int OBJ_LOCATION_PB = 5;
+    public static final int OBJ_LOCATION_PB_BOTTOM_REC = 26;
+    public static final int OBJ_LOCATION_PB_COMMENT = 21;
+    public static final int OBJ_LOCATION_PB_EXTRA = 6;
+    public static final int OBJ_LOCATION_PB_MORE = 1;
+    public static final int OBJ_LOCATION_PB_VIDEO_SHARE = 18;
+    public static final int OBJ_LOCATION_PERSON_CENTER = 8;
+    public static final int OBJ_LOCATION_RECOMMEND = 3;
+    public static final int OBJ_LOCATION_STAMP_DIALOG_SHARE_BTN = 31;
+    public static final int OBJ_LOCATION_WRITE_SHARE = 7;
+    public static final int OBJ_PARAM_BA_SHARE = 2;
+    public static final int OBJ_PARAM_FRS_VIDEO_TAB = 7;
+    public static final int OBJ_PARAM_HOT_TOPIC_SHARE = 4;
+    public static final int OBJ_PARAM_SCREENSHOT_SHARE = 1;
+    public static final int OBJ_PARAM_TIE_SHARE = 3;
+    public static final int OBJ_SOURCE_AFTER_PUBLISHER = 15;
+    public static final int OBJ_SOURCE_ATTENTION_FEED = 4;
+    public static final int OBJ_SOURCE_CHANNEL = 20;
+    public static final int OBJ_SOURCE_CRAD_MIDDLE_VIDEO_LANDSCAPE = 11;
+    public static final int OBJ_SOURCE_CRAD_MIDDLE_VIDEO_VERTICAL = 12;
+    public static final int OBJ_SOURCE_FRS_FEED = 5;
+    public static final int OBJ_SOURCE_FRS_HOT = 33;
+    public static final int OBJ_SOURCE_FRS_SHARE_BAR = 10;
+    public static final int OBJ_SOURCE_GAME_ITEM_DETAIL = 19;
+    public static final int OBJ_SOURCE_H5_SHARE = 17;
+    public static final int OBJ_SOURCE_HOME_VIDEO_TAB = 16;
+    public static final int OBJ_SOURCE_HOT_TOPIC = 30;
+    public static final int OBJ_SOURCE_IMAGE_VIEWER = 14;
+    public static final int OBJ_SOURCE_LONG_CLICK_MENU = 23;
+    public static final int OBJ_SOURCE_PB_BOTTOM_REC = 24;
+    public static final int OBJ_SOURCE_PB_BOTTOM_SHARE = 2;
+    public static final int OBJ_SOURCE_PB_FIRST_FLOOR = 1;
+    public static final int OBJ_SOURCE_PB_SHARE = 6;
+    public static final int OBJ_SOURCE_PERSON_CENTER = 8;
+    public static final int OBJ_SOURCE_RECOMMEND_FEED = 3;
+    public static final int OBJ_SOURCE_STAMP_DIALOG_SHARE = 31;
+    public static final int OBJ_SOURCE_STATISTIC_FRS_LIKE_SHARE = 32;
+    public static final int OBJ_SOURCE_VIDEO_CHANNEL_PAGE = 25;
+    public static final int OBJ_SOURCE_VIDEO_CHANNEL_PAGE_CONCERN = 29;
+    public static final int OBJ_SOURCE_WEBVIEW_ACTIVITY_RIGHT_TOP = 13;
+    public static final int OBJ_SOURCE_WRITE_SHARE = 7;
+    public static final int OBJ_TYPE_BJH_ARTICAL = 5;
+    public static final int OBJ_TYPE_BJH_VIDEO = 6;
+    public static final int OBJ_TYPE_GAME_ITEM_DETAIL = 10;
+    public static final int OBJ_TYPE_GOD = 4;
+    public static final int OBJ_TYPE_GROUP_INFO = 11;
+    public static final int OBJ_TYPE_LIVE = 3;
+    public static final int OBJ_TYPE_NORMAL = 1;
+    public static final int OBJ_TYPE_TRANSMIT = 9;
+    public static final int OBJ_TYPE_UGC_PIC = 7;
+    public static final int OBJ_TYPE_UGC_VIDEO = 8;
+    public static final int OBJ_TYPE_VIDEO = 2;
+    public static final int PB_SMALL_APP_SHARE = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String A0;
-    public String B;
-    public String B0;
-    public int C;
-    public String C0;
-    public String D;
-    public String D0;
-    public Bundle E;
-    public String E0;
-    public Location F;
-    public JSONArray F0;
-    public String G;
-    public JSONObject G0;
-    public String H;
-    public List<Integer> H0;
-    public int I;
-    public String I0;
-    public int J;
-    public String J0;
-    public int K;
-    public Uri K0;
-    public int L;
-    public GroupInfoData L0;
-    public int M;
-    public boolean M0;
-    public String N;
-    public int N0;
-    public String O;
-    public String O0;
-    public String P;
-    public ShareIMCommonCardData P0;
-    public String Q;
-    public int R;
-    public String S;
-
-    /* renamed from: T  reason: collision with root package name */
-    public String f1081T;
-    public String U;
-    public String V;
-    public long W;
-    public String X;
-    public String Y;
-    public String Z;
-    public boolean a;
-    public OriginalThreadInfo.ShareInfo a0;
-    public boolean b;
-    public long b0;
-    public boolean c;
-    public String c0;
-    public boolean d;
-    public ForwardInfo d0;
-    public boolean e;
-    public transient ThreadData e0;
-    public boolean f;
-    public String f0;
-    public boolean g;
+    public String aiAppId;
+    public String aiAppSource;
+    public int aiAppType;
+    public boolean canShareBySmartApp;
+    public String cmdContent;
+    public String cmdKey;
+    public JSONArray cmdPannel;
+    public JSONObject commandInfo;
+    public String content;
+    public Bundle diskPicOperate;
+    public String experienceTip;
+    public String extData;
+    public String extLiveInfo;
+    public String fName;
+    public String festivalTaskTid;
+    public String festivalTaskType;
+    public String fid;
+    public String floorAuthorUid;
+    public ForumData forumData;
+    public ForwardInfo forwardInfo;
+    public String ftid;
+    public GroupInfoData groupData;
+    public WeakReference<Bitmap> imageData;
+    public Uri imageUri;
+    public String imageUrl;
+    public boolean isAiApps;
+    public boolean isDirectFromWeb;
+    public boolean isFromAcrossForum;
+    public boolean isFromChosenPb;
+    public boolean isFromCommentShare;
+    public boolean isFromDuXiaoMan;
+    public boolean isFromEmotionPackage;
+    public boolean isFromFeed;
+    public boolean isFromFeedVideoFinish;
+    public boolean isFromGameDetial;
+    public boolean isFromImageViewer;
+    public boolean isFromPhotoLive;
+    public boolean isFromShareFrs;
+    public boolean isFromSharePb;
+    public boolean isFromTopicDetail;
+    public boolean isFromWebActivity;
+    public boolean isFromYuanSheng;
+    public boolean isShowAddExperienceTip;
+    public boolean isShowMoreForumIcon;
+    public boolean isShowShare;
+    public boolean isShowShareOuerItem;
+    public boolean isStampShare;
+    public boolean isVideoAdShare;
+    public String linkUrl;
+    public String localFile;
+    public Location location;
+    public List<Integer> mCommandChannelArray;
+    public boolean mFilterPerson;
+    public boolean mFilterRooms;
+    public ShareIMCommonCardData mShareCommonInfoData;
+    public String mYyAnchorBdUid;
+    public String mediaType;
+    public String nid;
+    public int objLocate;
+    public int objParam1;
+    public int objParam2;
+    public int objParam3;
+    public int objSource;
+    public int obj_type;
+    public OriginalThreadInfo.ShareInfo originalThreadInfo;
+    public String pid;
     @Nullable
-    public String g0;
-    public boolean h;
+    public String portrait;
+    public String prefferContent;
+    public long readCount;
+    public String shareAbstract;
+    public String shareH5CardOptimizeContent;
+    public Uri shareH5CardOptimizeImageUri;
+    public String shareH5CardOptimizeTitle;
+    public int shareMediaType;
+    public String sharePanelTitle;
+    public int shareReportFrom;
+    public int shareType;
+    public boolean showLink;
+    public boolean showTail;
+    public String smartAppShareImageUrl;
+    public String spareLinkUrl;
+    public Bundle stats;
+    public String taskCompleteId;
+    public transient ThreadData threadData;
+    public String tid;
+    public String title;
+    public String topic;
+    public String topicId;
+    public int typeShareToSmallApp;
+    public String uid;
     @Nullable
-    public String h0;
-    public boolean i;
+    public String userName;
     @Nullable
-    public String i0;
-    public boolean j;
-    public ForumData j0;
-    public boolean k;
-    public int k0;
-    public boolean l;
-    public WeakReference<Bitmap> l0;
-    public boolean m;
-    public Bundle m0;
-    public boolean n;
-    public boolean n0;
-    public boolean o;
-    public boolean o0;
-    public boolean p;
-    public boolean p0;
-    public boolean q;
-    public boolean q0;
-    public String r;
-    public boolean r0;
-    public int s;
-    public int s0;
-    public String t;
-    public String t0;
-    public String u;
-    public boolean u0;
-    public String v;
-    public boolean v0;
-    public String w;
-    public boolean w0;
-    public String x;
-    public String x0;
-    public String y;
-    public int y0;
-    public Uri z;
-    public String z0;
+    public String userShowName;
+    public long voiceRoomId;
+    public String voiceRoomShareType;
+    public String wbcontent;
+    public String wbtitle;
+    public int weixinDisable;
 
     /* loaded from: classes4.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
@@ -218,10 +298,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, yca ycaVar) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, qba qbaVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, ycaVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, qbaVar)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -243,8 +323,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (ycaVar != null && ycaVar.e0() != null) {
-                            str = ycaVar.e0().toString();
+                        if (qbaVar != null && qbaVar.e0() != null) {
+                            str = qbaVar.e0().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -257,10 +337,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && ycaVar != null && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && ycaVar.q() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = ycaVar.q().getName_show();
+                    if (i == 1 && qbaVar != null && bi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && qbaVar.r() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = qbaVar.r().getName_show();
                     }
-                    if (i == 2 && xi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && bi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
@@ -336,7 +416,7 @@ public class ShareItem {
                 return;
             }
         }
-        Q0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        IMAGE_DATA_FILE = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -352,67 +432,278 @@ public class ShareItem {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = "";
-        this.C = 0;
-        this.I = 0;
-        this.J = 3;
-        this.K = 0;
-        this.L = 0;
-        this.M = 0;
-        this.W = -1L;
-        this.b0 = 0L;
-        this.k0 = 0;
-        this.n0 = false;
-        this.o0 = true;
-        this.p0 = false;
-        this.q0 = true;
-        this.r0 = true;
-        this.s0 = 0;
-        this.v0 = true;
-        this.w0 = false;
-        this.M0 = false;
-        this.v = null;
-        this.w = null;
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.F = null;
-        this.l0 = null;
-        this.G = null;
-        this.u = null;
-        this.B = null;
-        this.D = null;
-        this.C = 0;
-        this.L0 = null;
-        this.P0 = null;
-        this.M0 = false;
+        this.isFromChosenPb = false;
+        this.isFromShareFrs = false;
+        this.isFromSharePb = false;
+        this.isFromPhotoLive = false;
+        this.isFromAcrossForum = false;
+        this.isFromFeed = false;
+        this.isFromWebActivity = false;
+        this.isFromFeedVideoFinish = false;
+        this.isFromTopicDetail = false;
+        this.isFromImageViewer = false;
+        this.isFromCommentShare = false;
+        this.isFromGameDetial = false;
+        this.isFromDuXiaoMan = false;
+        this.isFromYuanSheng = false;
+        this.isFromEmotionPackage = false;
+        this.isDirectFromWeb = false;
+        this.isShowAddExperienceTip = false;
+        this.isShowMoreForumIcon = false;
+        this.experienceTip = "";
+        this.typeShareToSmallApp = 0;
+        this.objSource = 0;
+        this.objParam1 = 3;
+        this.objParam2 = 0;
+        this.objParam3 = 0;
+        this.objLocate = 0;
+        this.readCount = -1L;
+        this.voiceRoomId = 0L;
+        this.shareType = 0;
+        this.isShowShare = false;
+        this.isShowShareOuerItem = true;
+        this.isVideoAdShare = false;
+        this.showTail = true;
+        this.showLink = true;
+        this.weixinDisable = 0;
+        this.canShareBySmartApp = true;
+        this.isAiApps = false;
+        this.mFilterRooms = false;
+        this.mFilterPerson = false;
+        this.title = null;
+        this.content = null;
+        this.linkUrl = null;
+        this.spareLinkUrl = null;
+        this.imageUri = null;
+        this.location = null;
+        this.imageData = null;
+        this.ftid = null;
+        this.extData = null;
+        this.localFile = null;
+        this.mYyAnchorBdUid = null;
+        this.typeShareToSmallApp = 0;
+        this.groupData = null;
+        this.mShareCommonInfoData = null;
+        this.mFilterRooms = false;
     }
 
-    public void m() {
+    public static ShareItem buildShareItem(@NonNull JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.l0 != null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, jSONObject, z)) == null) {
+            ShareItem shareItem = new ShareItem();
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString("desc");
+            String optString3 = jSONObject.optString("img");
+            String optString4 = jSONObject.optString("url");
+            String optString5 = jSONObject.optString("topic");
+            String optString6 = jSONObject.optString("wbtitle");
+            String optString7 = jSONObject.optString("wbcontent");
+            shareItem.title = optString;
+            shareItem.linkUrl = optString4;
+            shareItem.content = optString2;
+            if (!TextUtils.isEmpty(optString3)) {
+                shareItem.imageUri = Uri.parse(optString3);
+            }
+            shareItem.topic = optString5;
+            shareItem.wbtitle = optString6;
+            shareItem.wbcontent = optString7;
+            shareItem.shareType = jSONObject.optInt("shareimg");
+            shareItem.weixinDisable = jSONObject.optInt("weixin_disable");
+            String optString8 = jSONObject.optString("extdata");
+            if (!StringUtils.isNull(optString8)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(optString8);
+                    String optString9 = jSONObject2.optString("activityid");
+                    String optString10 = jSONObject2.optString("missionid");
+                    if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put(optString9, optString10);
+                        shareItem.taskCompleteId = jSONObject3.toString();
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+            shareItem.groupData = GroupInfoData.fromJsonH5(jSONObject);
+            shareItem.mShareCommonInfoData = ShareIMCommonCardData.fromJsonH5(jSONObject);
+            return shareItem;
+        }
+        return (ShareItem) invokeLZ.objValue;
+    }
+
+    private boolean isNoShowForumByIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if ((isShareGroup() || isShareAlbum() || isShareTopic() || isShareActive()) && !this.isShowMoreForumIcon) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<Integer> getCommandChannelArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCommandChannelArray;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Bitmap getImageData() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            WeakReference<Bitmap> weakReference = this.imageData;
+            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
+                return bitmap;
+            }
+            return null;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public boolean getIsShowShare() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isShowShare;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public String getSharePanelTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sharePanelTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Bundle getStats() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.stats;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public boolean isFilterPerson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mFilterPerson;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isFilterRooms() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mFilterRooms;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShareActive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ShareIMCommonCardData.isValidActive(this.mShareCommonInfoData);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShareAlbum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return ShareIMCommonCardData.isValidAlbum(this.mShareCommonInfoData);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShareGroup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            GroupInfoData groupInfoData = this.groupData;
+            if (groupInfoData != null && groupInfoData.getGroupId() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShareTopic() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return ShareIMCommonCardData.isValidTopic(this.mShareCommonInfoData);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShowForumShareItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.obj_type;
+            if (i != 7 && i != 8 && i != 5 && i != 6 && i != 11 && !isNoShowForumByIcon()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShowMoreForumIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.isShowMoreForumIcon;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public byte[] getCompressedImageData() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<Bitmap> weakReference = this.imageData;
+            byte[] bArr = null;
+            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                if (bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream)) {
+                    bArr = byteArrayOutputStream.toByteArray();
+                }
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+            }
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public void saveImageDataIfNecessary() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.imageData != null) {
             FileOutputStream fileOutputStream = null;
             try {
                 try {
                     if (FileHelper.checkSD()) {
-                        File file = new File(Q0);
+                        File file = new File(IMAGE_DATA_FILE);
                         if (file.exists()) {
                             file.delete();
                         }
@@ -420,14 +711,14 @@ public class ShareItem {
                         if (parentFile != null && !parentFile.exists()) {
                             parentFile.mkdirs();
                         }
-                        byte[] c = c();
-                        if (c != null) {
+                        byte[] compressedImageData = getCompressedImageData();
+                        if (compressedImageData != null) {
                             FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                             try {
-                                fileOutputStream2.write(c);
+                                fileOutputStream2.write(compressedImageData);
                                 fileOutputStream2.close();
-                                this.z = Uri.fromFile(file);
-                                this.l0 = null;
+                                this.imageUri = Uri.fromFile(file);
+                                this.imageData = null;
                                 try {
                                     fileOutputStream2.close();
                                 } catch (IOException e) {
@@ -467,211 +758,66 @@ public class ShareItem {
         }
     }
 
-    public static ShareItem a(@NonNull JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
+    public void setCommandChannelArray(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, jSONObject, z)) == null) {
-            ShareItem shareItem = new ShareItem();
-            String optString = jSONObject.optString("title");
-            String optString2 = jSONObject.optString("desc");
-            String optString3 = jSONObject.optString("img");
-            String optString4 = jSONObject.optString("url");
-            String optString5 = jSONObject.optString("topic");
-            String optString6 = jSONObject.optString("wbtitle");
-            String optString7 = jSONObject.optString("wbcontent");
-            shareItem.v = optString;
-            shareItem.x = optString4;
-            shareItem.w = optString2;
-            if (!TextUtils.isEmpty(optString3)) {
-                shareItem.z = Uri.parse(optString3);
-            }
-            shareItem.f1081T = optString5;
-            shareItem.U = optString6;
-            shareItem.V = optString7;
-            shareItem.k0 = jSONObject.optInt("shareimg");
-            shareItem.s0 = jSONObject.optInt("weixin_disable");
-            String optString8 = jSONObject.optString("extdata");
-            if (!StringUtils.isNull(optString8)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(optString8);
-                    String optString9 = jSONObject2.optString("activityid");
-                    String optString10 = jSONObject2.optString("missionid");
-                    if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put(optString9, optString10);
-                        shareItem.X = jSONObject3.toString();
-                    }
-                } catch (JSONException unused) {
-                }
-            }
-            shareItem.L0 = GroupInfoData.fromJsonH5(jSONObject);
-            shareItem.P0 = ShareIMCommonCardData.fromJsonH5(jSONObject);
-            return shareItem;
-        }
-        return (ShareItem) invokeLZ.objValue;
-    }
-
-    public List<Integer> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.H0;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Bitmap> weakReference = this.l0;
-            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
-                return bitmap;
-            }
-            return null;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Nullable
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.O0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Bundle g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m0;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if ((j() || i() || k()) && !this.q) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return ShareIMCommonCardData.isValidAlbum(this.P0);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            GroupInfoData groupInfoData = this.L0;
-            if (groupInfoData != null && groupInfoData.getGroupId() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return ShareIMCommonCardData.isValidTopic(this.P0);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = this.R;
-            if (i != 7 && i != 8 && i != 5 && i != 6 && i != 11 && !h()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public byte[] c() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Bitmap> weakReference = this.l0;
-            byte[] bArr = null;
-            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                if (bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream)) {
-                    bArr = byteArrayOutputStream.toByteArray();
-                }
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException unused) {
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void n(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.H0 = list;
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+            this.mCommandChannelArray = list;
         }
     }
 
-    public void o(Bitmap bitmap) {
+    public void setFilterPerson(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
-            this.l0 = new WeakReference<>(bitmap);
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.mFilterPerson = z;
         }
     }
 
-    public void p(@NonNull String str) {
+    public void setFilterRooms(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.O0 = str;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.mFilterRooms = z;
         }
     }
 
-    public void q(boolean z) {
+    public void setImageData(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.n0 = z;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bitmap) == null) {
+            this.imageData = new WeakReference<>(bitmap);
         }
     }
 
-    public void r(Bundle bundle) {
+    public void setShareCommonInfoData(ShareIMCommonCardData shareIMCommonCardData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
-            this.m0 = bundle;
+        if (interceptable == null || interceptable.invokeL(1048595, this, shareIMCommonCardData) == null) {
+            this.mShareCommonInfoData = shareIMCommonCardData;
+        }
+    }
+
+    public void setSharePanelTitle(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.sharePanelTitle = str;
+        }
+    }
+
+    public void setShowMoreForumIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.isShowMoreForumIcon = z;
+        }
+    }
+
+    public void setShowShare(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.isShowShare = z;
+        }
+    }
+
+    public void setStats(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, bundle) == null) {
+            this.stats = bundle;
         }
     }
 }

@@ -1,77 +1,93 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ba6 {
+public class ba6 extends lm<y96, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public oa6 b;
+    public ta6 c;
+    public String d;
 
-    public static String a(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), y96.d);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("tiebaclient://");
-            if (num.intValue() > 0) {
-                sb.append("swangame/");
-            } else {
-                sb.append("swan/");
-            }
-            sb.append(str);
-            if (!TextUtils.isEmpty(str2)) {
-                if (!str2.startsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append(str2);
-            } else {
-                sb.append("/");
-            }
-            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
-                sb.append("&");
-            } else {
-                if (!sb.toString().endsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append("?");
-            }
-            sb.append("_baiduboxapp=");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sb.append(URLEncoder.encode(jSONObject.toString()));
-            sb.append("&callback=_bdbox_js_275&upgrade=0");
-            return sb.toString();
         }
-        return (String) invokeLLLL.objValue;
+        this.d = "";
+        this.a = tbPageContext;
+        this.d = str;
     }
 
-    public static final boolean b(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
-        String a;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
-            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            oa6 oa6Var = new oa6(this.a, viewGroup, this.d);
+            this.b = oa6Var;
+            ta6 ta6Var = this.c;
+            if (ta6Var != null) {
+                oa6Var.s(ta6Var);
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
-            return true;
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        return invokeLLLL.booleanValue;
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void u(ta6 ta6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ta6Var) == null) {
+            this.c = ta6Var;
+            oa6 oa6Var = this.b;
+            if (oa6Var != null) {
+                oa6Var.s(ta6Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y96 y96Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
+        InterceptResult invokeCommon;
+        oa6 oa6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y96Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (oa6Var = liveTabConcernItemViewLineHolder.a) != null) {
+                oa6Var.i(y96Var);
+                return liveTabConcernItemViewLineHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

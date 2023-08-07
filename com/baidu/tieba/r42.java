@@ -1,49 +1,86 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class r42 extends l72 {
+public class r42 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
+    public String a;
+    public int b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r42(String str) {
-        super("camera", "cameraId");
+    public r42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            v82.d("Camera", "parsing CameraTakePhotoModel occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.l72, com.baidu.tieba.u13
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.e42
+    public void a(f42 f42Var, Canvas canvas) {
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
-            this.j = jSONObject.optString("quality");
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
+            TextPaint textPaint = f42Var.e;
+            int i = f42Var.k;
+            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+            float f2 = fontMetrics.top;
+            int i2 = this.c;
+            float f3 = i2 + f2;
+            float f4 = fontMetrics.ascent + i2;
+            float f5 = fontMetrics.bottom;
+            float f6 = i2 + f5;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        f = i2;
+                    } else {
+                        f = i2 - (f4 - f3);
+                    }
+                } else {
+                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
+                }
+            } else {
+                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
+            }
+            int alpha = textPaint.getAlpha();
+            f42Var.c(textPaint);
+            canvas.drawText(this.a, this.b, f, textPaint);
+            textPaint.setAlpha(alpha);
+        }
+    }
+
+    @Override // com.baidu.tieba.e42
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = po3.g((float) jSONArray.optDouble(1));
+                    this.c = po3.g((float) jSONArray.optDouble(2));
+                }
+            } catch (Exception e) {
+                if (ir1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

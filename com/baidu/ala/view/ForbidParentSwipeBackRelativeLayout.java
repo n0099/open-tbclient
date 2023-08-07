@@ -24,7 +24,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     public int mActivePointerId;
     public float mInitialMotionX;
     public float mInitialMotionY;
-    public SwipeBackLayout.c mSwipeControlInterface;
+    public SwipeBackLayout.b mSwipeControlInterface;
     public int mTouchSlop;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -152,14 +152,14 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
             if (action != 3 && action != 1) {
                 if (action != 0) {
                     if (action != 2) {
-                        SwipeBackLayout.c cVar = this.mSwipeControlInterface;
-                        if (cVar != null) {
-                            cVar.m0();
+                        SwipeBackLayout.b bVar = this.mSwipeControlInterface;
+                        if (bVar != null) {
+                            bVar.k0();
                         }
                     } else {
-                        SwipeBackLayout.c cVar2 = this.mSwipeControlInterface;
-                        if (cVar2 != null) {
-                            cVar2.K0();
+                        SwipeBackLayout.b bVar2 = this.mSwipeControlInterface;
+                        if (bVar2 != null) {
+                            bVar2.H0();
                         }
                         determinIntercept(motionEvent);
                         if (this.isIntercept) {
@@ -173,18 +173,18 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                     if (pointerId != -1) {
                         this.mInitialMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                         this.mInitialMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
-                        SwipeBackLayout.c cVar3 = this.mSwipeControlInterface;
-                        if (cVar3 != null) {
-                            cVar3.K0();
+                        SwipeBackLayout.b bVar3 = this.mSwipeControlInterface;
+                        if (bVar3 != null) {
+                            bVar3.H0();
                         }
                     }
                 }
                 return super.onFilterTouchEventForSecurity(motionEvent);
             }
             this.isIntercept = false;
-            SwipeBackLayout.c cVar4 = this.mSwipeControlInterface;
-            if (cVar4 != null) {
-                cVar4.m0();
+            SwipeBackLayout.b bVar4 = this.mSwipeControlInterface;
+            if (bVar4 != null) {
+                bVar4.k0();
             }
             return super.onFilterTouchEventForSecurity(motionEvent);
         }
@@ -200,14 +200,14 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
             if (action != 0) {
                 if (action != 1) {
                     if (action != 2) {
-                        SwipeBackLayout.c cVar = this.mSwipeControlInterface;
-                        if (cVar != null) {
-                            cVar.m0();
+                        SwipeBackLayout.b bVar = this.mSwipeControlInterface;
+                        if (bVar != null) {
+                            bVar.k0();
                         }
                     } else {
-                        SwipeBackLayout.c cVar2 = this.mSwipeControlInterface;
-                        if (cVar2 != null) {
-                            cVar2.K0();
+                        SwipeBackLayout.b bVar2 = this.mSwipeControlInterface;
+                        if (bVar2 != null) {
+                            bVar2.H0();
                         }
                         if (!this.isIntercept) {
                             determinIntercept(motionEvent);
@@ -218,16 +218,16 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                     }
                 } else {
                     this.isIntercept = false;
-                    SwipeBackLayout.c cVar3 = this.mSwipeControlInterface;
-                    if (cVar3 != null) {
-                        cVar3.m0();
+                    SwipeBackLayout.b bVar3 = this.mSwipeControlInterface;
+                    if (bVar3 != null) {
+                        bVar3.k0();
                     }
                 }
             } else {
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-                SwipeBackLayout.c cVar4 = this.mSwipeControlInterface;
-                if (cVar4 != null) {
-                    cVar4.K0();
+                SwipeBackLayout.b bVar4 = this.mSwipeControlInterface;
+                if (bVar4 != null) {
+                    bVar4.H0();
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -235,10 +235,10 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
+    public void setSwipeControlInterface(SwipeBackLayout.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.mSwipeControlInterface = cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.mSwipeControlInterface = bVar;
         }
     }
 }

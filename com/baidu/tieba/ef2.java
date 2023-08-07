@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.tf2;
 /* loaded from: classes5.dex */
 public interface ef2 {
-    void a(on3 on3Var, boolean z);
-
-    void b(PMSAppInfo pMSAppInfo);
+    boolean a(@NonNull tf2.a aVar);
 }

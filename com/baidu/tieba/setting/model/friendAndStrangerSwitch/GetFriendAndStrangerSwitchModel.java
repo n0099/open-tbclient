@@ -1,6 +1,7 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -8,8 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.l9;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,14 +86,14 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
             int i = getFriendAndStrangerSwitchResMsg.mMaskType;
             if (i > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
-                da5 p = da5.p();
-                p.F(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                sharedPrefHelper.putInt(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
             }
             int i2 = getFriendAndStrangerSwitchResMsg.mPushType;
             if (i2 > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = i2;
-                da5 p2 = da5.p();
-                p2.F(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
+                SharedPrefHelper sharedPrefHelper2 = SharedPrefHelper.getInstance();
+                sharedPrefHelper2.putInt(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
             }
         }
     }
@@ -110,7 +110,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

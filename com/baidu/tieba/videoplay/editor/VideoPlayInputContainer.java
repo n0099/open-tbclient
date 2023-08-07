@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,13 +25,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d47;
-import com.baidu.tieba.e47;
-import com.baidu.tieba.mj5;
-import com.baidu.tieba.rta;
-import com.baidu.tieba.yd5;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zi5;
+import com.baidu.tieba.l17;
+import com.baidu.tieba.lh5;
+import com.baidu.tieba.m17;
+import com.baidu.tieba.nc5;
+import com.baidu.tieba.write.WriteVideoUtil;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 /* loaded from: classes8.dex */
-public class VideoPlayInputContainer extends LinearLayout implements mj5 {
+public class VideoPlayInputContainer extends LinearLayout implements yh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -55,7 +55,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
     public int l;
     public int m;
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -93,7 +93,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
                 return;
             }
             this.a.f = true;
-            this.a.G(new zi5(1, 5, null));
+            this.a.F(new lh5(1, 5, null));
         }
     }
 
@@ -135,7 +135,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable != null && editable.toString().trim() != null) {
                     VideoPlayInputContainer videoPlayInputContainer = this.a;
-                    videoPlayInputContainer.G(new zi5(4, -1, videoPlayInputContainer.b.getText().toString()));
+                    videoPlayInputContainer.F(new lh5(4, -1, videoPlayInputContainer.b.getText().toString()));
                 }
                 TextView textView = this.a.c;
                 if (editable != null && !StringUtils.isNull(editable.toString().trim())) {
@@ -192,7 +192,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.G(new zi5(5, -1, null));
+                    this.a.F(new lh5(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -229,13 +229,13 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.G(new zi5(8, -1, null));
+                this.a.F(new lh5(8, -1, null));
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class e implements e47.i {
+    public class e implements m17.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayInputContainer a;
@@ -258,13 +258,13 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             this.a = videoPlayInputContainer;
         }
 
-        @Override // com.baidu.tieba.e47.i
+        @Override // com.baidu.tieba.m17.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.G(new zi5(5, -1, null));
+                this.a.F(new lh5(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -344,27 +344,27 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.g = linearLayout;
         linearLayout.setOrientation(0);
-        this.g.setMinimumHeight(yi.g(context, R.dimen.obfuscated_res_0x7f070422));
+        this.g.setMinimumHeight(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070422));
         addView(this.g, new LinearLayout.LayoutParams(-1, -2));
         j(context);
         k(context);
         l(context);
         this.h = new View(getContext());
-        this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, yi.g(getContext(), R.dimen.obfuscated_res_0x7f070198)));
+        this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070198)));
         addView(this.h);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.mj5
-    public void G(zi5 zi5Var) {
+    @Override // com.baidu.tieba.yh5
+    public void F(lh5 lh5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zi5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.D(zi5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lh5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.D(lh5Var);
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
@@ -379,7 +379,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -387,49 +387,49 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.aj5
-    public void B(zi5 zi5Var) {
+    @Override // com.baidu.tieba.mh5
+    public void B(lh5 lh5Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zi5Var) != null) || zi5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lh5Var) != null) || lh5Var == null) {
             return;
         }
-        int i = zi5Var.a;
+        int i = lh5Var.a;
         if (i != 3) {
             if (i != 6) {
                 if (i != 9) {
-                    if (i == 24 && (obj = zi5Var.c) != null && (obj instanceof yd5)) {
-                        yd5 yd5Var = (yd5) obj;
-                        if (yd5Var.getType() == EmotionGroupType.NET_SUG) {
-                            o(yd5Var);
+                    if (i == 24 && (obj = lh5Var.c) != null && (obj instanceof nc5)) {
+                        nc5 nc5Var = (nc5) obj;
+                        if (nc5Var.getType() == EmotionGroupType.NET_SUG) {
+                            o(nc5Var);
                             return;
                         } else {
-                            n(yd5Var);
+                            n(nc5Var);
                             return;
                         }
                     }
                     return;
                 }
-                if (((Boolean) zi5Var.c).booleanValue()) {
+                if (((Boolean) lh5Var.c).booleanValue()) {
                     this.b.setText((CharSequence) null);
                 }
                 this.c.setEnabled(false);
                 i();
                 return;
             }
-            Object obj2 = zi5Var.c;
+            Object obj2 = lh5Var.c;
             if (obj2 == null) {
                 this.b.setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     this.b.setText((CharSequence) null);
                 } else {
-                    e47.h(getContext(), (String) zi5Var.c, new e(this));
+                    m17.h(getContext(), (String) lh5Var.c, new e(this));
                 }
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = d47.b.matcher(substring);
+            Matcher matcher = l17.b.matcher(substring);
             if (matcher.find()) {
                 this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
             } else {
@@ -438,7 +438,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -447,7 +447,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
                 editText.setFocusable(true);
                 this.b.setFocusableInTouchMode(true);
                 this.b.requestFocus();
-                yi.P(getContext(), this.b);
+                BdUtilHelper.showSoftKeyPad(getContext(), this.b);
             }
             setVisibility(0);
         }
@@ -462,7 +462,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         return (EditText) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -472,7 +472,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -506,7 +506,7 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             ImageView imageView = new ImageView(context);
             this.d = imageView;
             imageView.setEnabled(true);
-            this.d.setPadding(0, 0, yi.g(context, R.dimen.tbds30), yi.g(context, R.dimen.tbds24));
+            this.d.setPadding(0, 0, BdUtilHelper.getDimens(context, R.dimen.tbds30), BdUtilHelper.getDimens(context, R.dimen.tbds24));
             this.d.setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 80;
@@ -514,34 +514,34 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
         }
     }
 
-    public final void n(yd5 yd5Var) {
+    public final void n(nc5 nc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, yd5Var) == null) {
-            if (this.e && yd5Var.getType() != EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, nc5Var) == null) {
+            if (this.e && nc5Var.getType() != EmotionGroupType.LOCAL) {
                 return;
             }
             String obj = this.b.getText().toString();
-            if (this.j && d47.a(obj) >= 10 && getContext() != null) {
+            if (this.j && l17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                e47.c(getContext(), yd5Var, this.b);
+                m17.c(getContext(), nc5Var, this.b);
             }
         }
     }
 
-    public final void o(yd5 yd5Var) {
+    public final void o(nc5 nc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, yd5Var) == null) && yd5Var != null && !TextUtils.isEmpty(yd5Var.d()) && !TextUtils.isEmpty(yd5Var.g())) {
+        if ((interceptable == null || interceptable.invokeL(1048589, this, nc5Var) == null) && nc5Var != null && !TextUtils.isEmpty(nc5Var.d()) && !TextUtils.isEmpty(nc5Var.g())) {
             String obj = this.b.getText().toString();
-            if (this.j && d47.a(obj) >= 10 && getContext() != null) {
+            if (this.j && l17.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                e47.d(getContext(), yd5Var, this.b);
+                m17.d(getContext(), nc5Var, this.b);
             }
         }
     }
 
-    @Override // com.baidu.tieba.mj5
+    @Override // com.baidu.tieba.yh5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -550,10 +550,10 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
             if (i == 0) {
-                rta.l(this.b, R.drawable.edittext_cursor);
+                WriteVideoUtil.setCursorColor(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             } else {
-                rta.l(this.b, R.drawable.edittext_cursor_2);
+                WriteVideoUtil.setCursorColor(this.b, R.drawable.edittext_cursor_2);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             }
             i();
@@ -571,11 +571,11 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             this.b.setGravity(16);
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            rta.l(this.b, R.drawable.edittext_cursor);
-            this.b.setPadding(0, yi.g(context, R.dimen.obfuscated_res_0x7f0701e8), yi.g(context, R.dimen.obfuscated_res_0x7f0703f4), yi.g(context, R.dimen.obfuscated_res_0x7f0701e8));
+            WriteVideoUtil.setCursorColor(this.b, R.drawable.edittext_cursor);
+            this.b.setPadding(0, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703f4), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f122c));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f122f));
             this.b.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -592,10 +592,10 @@ public class VideoPlayInputContainer extends LinearLayout implements mj5 {
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f1359);
+            this.c.setText(R.string.obfuscated_res_0x7f0f135d);
             this.c.setOnClickListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, 0, yi.g(context, R.dimen.tbds18));
+            layoutParams.setMargins(0, 0, 0, BdUtilHelper.getDimens(context, R.dimen.tbds18));
             layoutParams.gravity = 80;
             this.g.addView(this.c, layoutParams);
         }

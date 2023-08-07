@@ -87,13 +87,13 @@ public final class VipUserInfo implements Comparable<VipUserInfo> {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0049, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004a, code lost:
         if (r6 != false) goto L21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0077, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0079, code lost:
         if (r6 != false) goto L21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x00b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00b7, code lost:
         if (r6 != false) goto L21;
      */
     /*

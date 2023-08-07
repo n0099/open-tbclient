@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class r52 extends b52 {
+public class r52 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public m42 a;
 
     public r52() {
         Interceptable interceptable = $ic;
@@ -24,29 +23,30 @@ public class r52 extends b52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = Integer.MAX_VALUE;
-        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.baidu.tieba.b52
-    public void a(c52 c52Var, Canvas canvas) {
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.e42
+    public void a(f42 f42Var, Canvas canvas) {
+        m42 m42Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) && (i = this.a) != Integer.MAX_VALUE && (i2 = this.b) != Integer.MAX_VALUE) {
-            c52Var.f.moveTo(i, i2);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && (m42Var = this.a) != null && m42Var.d()) {
+            if (this.a.c()) {
+                f42Var.c.setShader(this.a.b());
+                return;
+            }
+            f42Var.m = this.a.a();
+            f42Var.c.setColor(this.a.a());
+            f42Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.b52
+    @Override // com.baidu.tieba.e42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = mp3.g((float) jSONArray.optDouble(0));
-            this.b = mp3.g((float) jSONArray.optDouble(1));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new m42(jSONArray);
         }
     }
 }

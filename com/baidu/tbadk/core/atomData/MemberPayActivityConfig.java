@@ -159,7 +159,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra(MEMBER_TYPE, i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
-        getIntent().putExtra(SCENE_ID, str2);
+        getIntent().putExtra("scene_id", str2);
         getIntent().putExtra(PAY_TYPE, i3);
         init();
     }
@@ -336,7 +336,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public void setSceneId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            getIntent().putExtra(SCENE_ID, str);
+            getIntent().putExtra("scene_id", str);
         }
     }
 

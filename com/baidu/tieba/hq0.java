@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
+import android.widget.FrameLayout;
 /* loaded from: classes6.dex */
-public interface hq0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "rewardRequest");
+public interface hq0 extends oj0 {
+    int getVideoHeight();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
+    FrameLayout getVideoHolder();
 
-    void a(JSONObject jSONObject, a aVar);
+    boolean j();
+
+    int k();
 }

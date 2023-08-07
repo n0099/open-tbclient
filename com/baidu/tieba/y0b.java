@@ -1,88 +1,90 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetBidirectionalStream;
-import java.nio.ByteBuffer;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.TurbonetEngine;
+import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
+import org.json.JSONException;
 /* loaded from: classes8.dex */
-public final class y0b implements CronetBidirectionalStream.f {
+public final class y0b {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetBidirectionalStream.f a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TurbonetEngine a;
+    public Context b;
+    public String c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948277758, "Lcom/baidu/tieba/y0b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948277758, "Lcom/baidu/tieba/y0b;");
-        }
-    }
-
-    public y0b() {
+    public y0b(Context context, String str, String str2, x0b x0bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, x0bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = context;
+        this.c = str;
+        this.d = str2;
+        a(x0bVar);
+    }
+
+    public final void a(x0b x0bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, x0bVar) == null) {
+            ExperimentalCronetEngine.Builder builder = new ExperimentalCronetEngine.Builder(this.b);
+            if (x0bVar == null) {
+                builder.g(this.c);
+                builder.f(this.d);
+                this.a = builder.b();
+            } else {
+                if (x0bVar.h()) {
+                    builder.h(x0bVar.l());
+                }
+                try {
+                    if (x0bVar.g().has("nq") && x0bVar.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                        builder.k(true, "");
+                    }
+                } catch (JSONException e) {
+                    Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
+                }
+                builder.g(this.c);
+                builder.f(this.d);
+                builder.a(x0bVar.g().toString());
+                this.a = builder.b();
+            }
+            Log.v("cr_TurbonetContext", "Turbonet init context success.");
         }
     }
 
-    public static CronetBidirectionalStream.f c() {
+    public TurbonetEngine b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetBidirectionalStream.f fVar = a;
-                if (fVar != null) {
-                    return fVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetBidirectionalStream.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
-            }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new y0b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (CronetBidirectionalStream.f) invokeV.objValue;
+        return (TurbonetEngine) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public void a(long j, CronetBidirectionalStream cronetBidirectionalStream, boolean z) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_destroy(j, cronetBidirectionalStream, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new VersionSafeCallbacks.f(this.a).a();
         }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public boolean b(long j, CronetBidirectionalStream cronetBidirectionalStream, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, byteBufferArr, iArr, iArr2, Boolean.valueOf(z)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_writevData(j, cronetBidirectionalStream, byteBufferArr, iArr, iArr2, z);
-        }
-        return invokeCommon.booleanValue;
+        return invokeV.longValue;
     }
 }

@@ -20,29 +20,29 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int pass_base_ui_common_dialog_bg = 0x7f0810f8;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f0810f9;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f0810fe;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f0810ff;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int negative_btn = 0x7f0918da;
-        public static final int pass_base_ui_dialog_content = 0x7f091a1e;
-        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f091a1f;
-        public static final int pass_base_ui_dialog_root_view = 0x7f091a20;
-        public static final int pass_base_ui_dialog_title = 0x7f091a21;
-        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f091a22;
-        public static final int pass_base_ui_first_btn_layout = 0x7f091a23;
-        public static final int positive_btn = 0x7f091cd1;
+        public static final int negative_btn = 0x7f0918ee;
+        public static final int pass_base_ui_dialog_content = 0x7f091a32;
+        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f091a33;
+        public static final int pass_base_ui_dialog_root_view = 0x7f091a34;
+        public static final int pass_base_ui_dialog_title = 0x7f091a35;
+        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f091a36;
+        public static final int pass_base_ui_first_btn_layout = 0x7f091a37;
+        public static final int positive_btn = 0x7f091ce7;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d075d;
+        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d0764;
     }
 
     /* loaded from: classes3.dex */
     public static final class style {
-        public static final int pass_base_ui_common_dialog_style = 0x7f1003f1;
+        public static final int pass_base_ui_common_dialog_style = 0x7f1003f2;
     }
 }

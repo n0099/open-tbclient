@@ -1,79 +1,145 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s69 implements yn {
+public class s69 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public i69 a;
-    public List<t69> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948103507, "Lcom/baidu/tieba/s69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948103507, "Lcom/baidu/tieba/s69;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
+    public static String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
+                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public s69(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+            }
+            return UtilHelper.getGprsIpAddress();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            HashMap hashMap = new HashMap();
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                arrayList2.add(arrayList.get(i).getName());
+                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+            }
+            Collections.sort(arrayList2);
+            StringBuffer stringBuffer = new StringBuffer();
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String str2 = (String) it.next();
+                stringBuffer.append(str2);
+                stringBuffer.append("=");
+                try {
+                    String str3 = (String) hashMap.get(str2);
+                    if (!TextUtils.isEmpty(str3)) {
+                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
+                    }
+                } catch (UnsupportedEncodingException e) {
+                    BdLog.e(e.getMessage());
+                }
+                stringBuffer.append("&");
+            }
+            stringBuffer.append("sign_key=" + str);
+            return hi.c(stringBuffer.toString());
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static AccountLoginCoreHelper.a d(AccountLoginCoreHelper.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            try {
+                String[] a = a();
+                if (a == null) {
+                    return null;
+                }
+                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
+                arrayList.add(new BasicNameValuePair("crypttype", "1"));
+                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
+                arrayList.add(new BasicNameValuePair("appid", "1"));
+                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
+                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", aVar.a);
+                jSONObject.put("ptoken", aVar.b);
+                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
+                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new f05().a(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
+                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                netWork.setPostData(arrayList);
+                netWork.getNetContext().getRequest().mRequestGzip = true;
+                netWork.getNetContext().getRequest().mIsBaiduServer = false;
+                String postNetData = netWork.postNetData();
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || bi.isEmpty(postNetData)) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject(postNetData);
+                if (!"0".equals(jSONObject2.optString("errno"))) {
+                    return null;
+                }
+                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
+                aVar2.a = jSONObject2.optString("bduss");
+                aVar2.b = jSONObject2.optString("ptoken");
+                jSONObject2.optString("uname");
+                return aVar2;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str = vipSpecialList.card_id;
-            i69 i69Var = new i69();
-            this.a = i69Var;
-            i69Var.e(1);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            this.b = new ArrayList();
-            for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-                this.b.add(new t69(vipSpecialItem));
-            }
-        }
+        return (AccountLoginCoreHelper.a) invokeL.objValue;
     }
 }

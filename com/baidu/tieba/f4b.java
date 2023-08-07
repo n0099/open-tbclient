@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class f4b implements a4b {
+public final class f4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
     public f4b() {
         Interceptable interceptable = $ic;
@@ -20,21 +26,38 @@ public class f4b implements a4b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = e4b.a().c();
     }
 
-    @Override // com.baidu.tieba.a4b
-    public boolean isAgreePrivacy() {
+    public final List<com.baidu.ubs.analytics.a.i> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c3b a = x3b.a();
-            if (a != null) {
-                return a.isAgreePrivacy();
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
+                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
+                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
+                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
+                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(iVar);
             }
-            return true;
+            rawQuery.close();
+            return arrayList;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        }
     }
 }

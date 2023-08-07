@@ -2,17 +2,17 @@ package com.baidu.tieba.immessagecenter.mention;
 
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class ReplyMeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public b b;
-    public kb c;
+    public NetMessageListener c;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -54,7 +54,7 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyMeModel a;
@@ -83,7 +83,7 @@ public class ReplyMeModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:37:0x00cf  */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00e1  */
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -101,12 +101,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e1f);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
                 }
             } else {
                 if (z) {
@@ -143,10 +143,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1636);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f163a);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1641);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1645);
                             return;
                         } else {
                             return;
@@ -177,11 +177,11 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        gca.f(303010, CheckPostResponseMessage.class, false);
-        gca.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        zaa.f(303010, CheckPostResponseMessage.class, false);
+        zaa.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
-    public void X() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = new a(this, CmdConfigHttp.CMD_CHECK_POST, 303010);
@@ -205,31 +205,31 @@ public class ReplyMeModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = tbPageContext;
-        X();
+        P();
     }
 
-    public void Z(b bVar) {
+    public void R(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void Y(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
+    public void Q(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, str2, baijiahaoData}) == null) {
             CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
             checkPostRequestMessage.setPid(j);
             checkPostRequestMessage.setPostType(i);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(wg.g(str2, 0L));
+            checkPostRequestMessage.setTid(JavaTypesHelper.toLong(str2, 0L));
             checkPostRequestMessage.setTag(this.a.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;

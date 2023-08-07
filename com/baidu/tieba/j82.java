@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ScrollView;
+import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ut2;
+import com.baidu.tieba.vv2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,59 +14,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class j82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
+    public static volatile j82 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public tc2 a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public volatile boolean e;
 
     /* loaded from: classes6.dex */
-    public static class a implements View.OnTouchListener {
+    public class a implements qi2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vv2 a;
+        public final /* synthetic */ uc2 b;
+        public final /* synthetic */ ex1 c;
+        public final /* synthetic */ ut2.g d;
+        public final /* synthetic */ j82 e;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (view2.getParent() != null) {
-                    view2.getParent().requestDisallowInterceptTouchEvent(true);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ScrollView a;
-        public final /* synthetic */ d82 b;
-
-        public b(ScrollView scrollView, d82 d82Var) {
+        public a(j82 j82Var, vv2 vv2Var, uc2 uc2Var, ex1 ex1Var, ut2.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scrollView, d82Var};
+                Object[] objArr = {j82Var, vv2Var, uc2Var, ex1Var, gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,15 +55,267 @@ public class j82 {
                     return;
                 }
             }
-            this.a = scrollView;
-            this.b = d82Var;
+            this.e = j82Var;
+            this.a = vv2Var;
+            this.b = uc2Var;
+            this.c = ex1Var;
+            this.d = gVar;
+        }
+
+        @Override // com.baidu.tieba.qi2
+        public void a(gi2 gi2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, gi2Var) == null) {
+                this.e.d = true;
+                h82.e().f("loaddebug");
+                y72.k("LocalDebugger", "prepareDaemon finish.");
+                zk2 j = this.e.j(this.a);
+                this.e.t(j);
+                if (j82.f) {
+                    Log.d("LocalDebugger", "debugInitMsg - " + j.s().toString());
+                }
+                this.e.n(this.b, this.c, this.a, this.d);
+                this.e.p(this.b, this.c, this.a, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uc2 a;
+        public final /* synthetic */ ex1 b;
+        public final /* synthetic */ vv2 c;
+        public final /* synthetic */ ut2.g d;
+        public final /* synthetic */ j82 e;
+
+        public b(j82 j82Var, uc2 uc2Var, ex1 ex1Var, vv2 vv2Var, ut2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j82Var, uc2Var, ex1Var, vv2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = j82Var;
+            this.a = uc2Var;
+            this.b = ex1Var;
+            this.c = vv2Var;
+            this.d = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (j82.f) {
+                    Log.d("LocalDebugger", "master onReceiveValue: " + str);
+                }
+                this.e.b = true;
+                this.e.u(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uc2 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ValueCallback c;
+
+        public c(j82 j82Var, uc2 uc2Var, String str, ValueCallback valueCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j82Var, uc2Var, str, valueCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uc2Var;
+            this.b = str;
+            this.c = valueCallback;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.smoothScrollTo(0, this.b.D);
+                this.a.d().evaluateJavascript(this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(j82 j82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && j82.f) {
+                Log.d("LocalDebugger", "slave onReceiveValue: " + str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ex1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ValueCallback c;
+
+        public e(j82 j82Var, ex1 ex1Var, String str, ValueCallback valueCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j82Var, ex1Var, str, valueCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ex1Var;
+            this.b = str;
+            this.c = valueCallback;
+        }
+
+        /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.fx1] */
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.r().evaluateJavascript(this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uc2 a;
+        public final /* synthetic */ ex1 b;
+        public final /* synthetic */ vv2 c;
+        public final /* synthetic */ ut2.g d;
+        public final /* synthetic */ j82 e;
+
+        public f(j82 j82Var, uc2 uc2Var, ex1 ex1Var, vv2 vv2Var, ut2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j82Var, uc2Var, ex1Var, vv2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = j82Var;
+            this.a = uc2Var;
+            this.b = ex1Var;
+            this.c = vv2Var;
+            this.d = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (j82.f) {
+                    Log.d("LocalDebugger", "slave onReceiveValue: " + str);
+                }
+                this.e.c = true;
+                this.e.u(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uc2 a;
+        public final /* synthetic */ ex1 b;
+        public final /* synthetic */ vv2 c;
+        public final /* synthetic */ ut2.g d;
+
+        public g(j82 j82Var, uc2 uc2Var, ex1 ex1Var, vv2 vv2Var, ut2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j82Var, uc2Var, ex1Var, vv2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uc2Var;
+            this.b = ex1Var;
+            this.c = vv2Var;
+            this.d = gVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                je3.a(this.a, this.b, this.c, this.d);
             }
         }
     }
@@ -106,200 +333,174 @@ public class j82 {
                 return;
             }
         }
-        a = fs1.a;
+        f = ir1.a;
     }
 
-    public static FrameLayout.LayoutParams a() {
+    public j82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+    }
+
+    public static j82 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams.leftMargin = 0;
-            layoutParams.topMargin = 0;
-            return layoutParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (g == null) {
+                synchronized (j82.class) {
+                    if (g == null) {
+                        g = new j82();
+                    }
+                }
+            }
+            return g;
         }
-        return (FrameLayout.LayoutParams) invokeV.objValue;
+        return (j82) invokeV.objValue;
     }
 
-    public static boolean b(@NonNull k82 k82Var, @NonNull l72 l72Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        InterceptResult invokeLLL;
+    public gi2 l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, k82Var, l72Var, swanAppComponentContainerView)) == null) {
-            v82.c("Component-Container-Scroll", "insert component（scroll）");
-            if (l72Var.h == null) {
-                o82.a("Component-Container-Scroll", "insert component（scroll） with a null position");
-                return false;
-            } else if (TextUtils.isEmpty(l72Var.d)) {
-                ScrollView h = h(swanAppComponentContainerView, l72Var);
-                if (h == null || !k82Var.a.c(h, l72Var.h)) {
-                    return false;
-                }
-                return true;
-            } else {
-                SwanAppComponentContainerView a2 = k82Var.a(l72Var.d);
-                if (a2 == null) {
-                    v82.c("Component-Container-Scroll", "insert component（scroll） to parent with a null parent container view");
-                    return false;
-                }
-                ScrollView h2 = h(swanAppComponentContainerView, l72Var);
-                if (h2 == null) {
-                    v82.c("Component-Container-Scroll", "insert component（scroll） to parent with a null scroll view");
-                    return false;
-                }
-                a2.addView(h2, l72Var.b());
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            tc2 tc2Var = this.a;
+            if (tc2Var != null) {
+                return tc2Var.a();
             }
+            return null;
         }
-        return invokeLLL.booleanValue;
+        return (gi2) invokeV.objValue;
     }
 
-    public static boolean g(@NonNull k82 k82Var, @NonNull l72 l72Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        InterceptResult invokeLLL;
+    public boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, k82Var, l72Var, swanAppComponentContainerView)) == null) {
-            if (TextUtils.isEmpty(l72Var.d)) {
-                return k82Var.a.removeView(swanAppComponentContainerView.getScrollView());
-            }
-            SwanAppComponentContainerView a2 = k82Var.a(l72Var.d);
-            if (a2 == null) {
-                v82.c("Component-Container-Scroll", "remove component（scroll） to parent with a null parent container view");
-                return false;
-            }
-            ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-            boolean z = true;
-            if (scrollView != null && scrollView.getParent() == a2) {
-                a2.removeView(scrollView);
-                return true;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("remove component（scroll）to parent with a illegal parent view");
-            if (scrollView != null) {
-                z = false;
-            }
-            sb.append(z);
-            o82.a("Component-Container-Scroll", sb.toString());
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean c(@NonNull l72 l72Var) {
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            y72.k("LocalDebugger", "releaseLocalDebugger");
+            tc2 tc2Var = this.a;
+            if (tc2Var != null) {
+                tc2Var.b();
+                this.a = null;
+            }
+            g = null;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            y72.k("LocalDebugger", "resetMasterAndSlaveStatus");
+            this.e = true;
+            this.b = false;
+            this.c = false;
+        }
+    }
+
+    public final zk2 j(@NonNull vv2<vv2.a> vv2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, l72Var)) == null) {
-            if ((l72Var instanceof d82) && TextUtils.equals(((d82) l72Var).E, "scroll")) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vv2Var)) == null) {
+            HashMap hashMap = new HashMap();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "debugInit");
+                jSONObject.put("host", vv2Var.X());
+                jSONObject.put("wsServerPort", vv2Var.Y());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            return false;
+            hashMap.put("message", jSONObject.toString());
+            return new zk2("message", hashMap);
         }
-        return invokeL.booleanValue;
+        return (zk2) invokeL.objValue;
     }
 
-    public static boolean d(@NonNull k82 k82Var, @NonNull k72 k72Var, @NonNull l72 l72Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull n82 n82Var) {
-        InterceptResult invokeLLLLL;
+    public final void n(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k82Var, k72Var, l72Var, swanAppComponentContainerView, n82Var)) == null) {
-            if (!(l72Var instanceof d82)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, uc2Var, ex1Var, vv2Var, gVar) == null) {
+            if (uc2Var != null && uc2Var.d() != null) {
+                so3.a0(new c(this, uc2Var, cr4.E(new File(f82.e())), new b(this, uc2Var, ex1Var, vv2Var, gVar)));
+            } else {
+                y72.k("LocalDebugger", "loadMasterDebugJs - master or js container is null");
             }
-            ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-            if (n82Var.a(7)) {
-                if (a) {
-                    Log.d("Component-Container-Scroll", "update component（scroll）overflow_y");
-                }
-                if (scrollView != null) {
-                    if (scrollView.getParent() == null) {
-                        return false;
-                    }
-                    ((ViewGroup) swanAppComponentContainerView.getParent()).removeView(swanAppComponentContainerView);
-                    ((ViewGroup) scrollView.getParent()).removeView(scrollView);
-                    swanAppComponentContainerView.setScrollView(null);
-                } else {
-                    ((ViewGroup) swanAppComponentContainerView.getParent()).removeView(swanAppComponentContainerView);
-                }
-                if (k82Var.b(k72Var)) {
-                    return true;
-                }
-                o82.a("Component-Container-Scroll", "update component（scroll） overflow_y fail");
-            }
-            return false;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public static boolean e(@NonNull k82 k82Var, @NonNull l72 l72Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        InterceptResult invokeLLL;
+    public void o(ex1<?> ex1Var, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, k82Var, l72Var, swanAppComponentContainerView)) == null) {
-            if (a) {
-                Log.d("Component-Container-Scroll", "update component（scroll）position");
-            }
-            String str = l72Var.d;
-            if (TextUtils.isEmpty(str)) {
-                ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-                ScrollView scrollView2 = swanAppComponentContainerView;
-                if (scrollView != null) {
-                    scrollView2 = swanAppComponentContainerView.getScrollView();
+        if (interceptable == null || interceptable.invokeLL(1048580, this, ex1Var, valueCallback) == null) {
+            if (ex1Var != null && ex1Var.r() != null) {
+                String E = cr4.E(new File(f82.f()));
+                if (valueCallback == null) {
+                    valueCallback = new d(this);
                 }
-                return k82Var.a.a(scrollView2, l72Var.h);
+                so3.a0(new e(this, ex1Var, E, valueCallback));
+                return;
             }
-            SwanAppComponentContainerView a2 = k82Var.a(str);
-            if (a2 == null) {
-                v82.c("Component-Container-Scroll", "update component（scroll）to parent with a null parent container view");
-                return false;
-            }
-            ScrollView scrollView3 = swanAppComponentContainerView.getScrollView();
-            boolean z = true;
-            if (scrollView3 != null && scrollView3.getParent() == a2) {
-                a2.updateViewLayout(scrollView3, l72Var.b());
-                return true;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("update component（scroll）to parent with a illegal parent view (Scroll) ");
-            if (scrollView3 != null) {
-                z = false;
-            }
-            sb.append(z);
-            o82.a("Component-Container-Scroll", sb.toString());
-            return false;
+            y72.k("LocalDebugger", "loadSlaveDebugJs - slave or WebView is null");
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static void f(@NonNull k82 k82Var, @NonNull k72 k72Var, @NonNull l72 l72Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull n82 n82Var) {
+    public final void p(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65542, null, k82Var, k72Var, l72Var, swanAppComponentContainerView, n82Var) != null) || !(l72Var instanceof d82)) {
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, uc2Var, ex1Var, vv2Var, gVar) == null) {
+            o(ex1Var, new f(this, uc2Var, ex1Var, vv2Var, gVar));
+        }
+    }
+
+    public final synchronized void u(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048586, this, uc2Var, ex1Var, vv2Var, gVar) == null) {
+            synchronized (this) {
+                if (this.b && this.c) {
+                    y72.k("LocalDebugger", "startFirstPage");
+                    so3.a0(new g(this, uc2Var, ex1Var, vv2Var, gVar));
+                }
+            }
+        }
+    }
+
+    public void q(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(1048582, this, uc2Var, ex1Var, vv2Var, gVar) != null) || !sh2.U().q0()) {
             return;
         }
-        ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-        if (n82Var.a(8)) {
-            if (a) {
-                Log.d("Component-Container-Scroll", "update component（scroll） scroll_top");
-            }
-            if (scrollView != null) {
-                scrollView.smoothScrollTo(0, ((d82) l72Var).D);
-            }
+        y72.k("LocalDebugger", "prepareDaemon start.");
+        if (this.e && this.d && this.a != null) {
+            n(uc2Var, ex1Var, vv2Var, gVar);
+            p(uc2Var, ex1Var, vv2Var, gVar);
+            return;
         }
+        tc2 d2 = sh2.U().f0().d();
+        this.a = d2;
+        d2.c(new a(this, vv2Var, uc2Var, ex1Var, gVar));
     }
 
-    @Nullable
-    public static ScrollView h(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull l72 l72Var) {
-        InterceptResult invokeLL;
+    public final void t(yk2 yk2Var) {
+        tc2 tc2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, swanAppComponentContainerView, l72Var)) == null) {
-            if (!(l72Var instanceof d82)) {
-                return null;
-            }
-            ScrollView scrollView = new ScrollView(swanAppComponentContainerView.getContext());
-            scrollView.setFillViewport(true);
-            scrollView.setOnTouchListener(new a());
-            FrameLayout frameLayout = new FrameLayout(swanAppComponentContainerView.getContext());
-            frameLayout.addView(swanAppComponentContainerView, a());
-            scrollView.addView(frameLayout);
-            swanAppComponentContainerView.postDelayed(new b(scrollView, (d82) l72Var), 100L);
-            swanAppComponentContainerView.setScrollView(scrollView);
-            return scrollView;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, yk2Var) == null) && (tc2Var = this.a) != null) {
+            uk2.a(tc2Var.a(), yk2Var);
         }
-        return (ScrollView) invokeLL.objValue;
     }
 }

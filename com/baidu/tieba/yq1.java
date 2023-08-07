@@ -1,59 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.r.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yq1 extends HandlerThread {
+public class yq1 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
-    public static yq1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public wq1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yq1() {
-        super("SSOHandlerThread", 10);
+    public yq1(wq1 wq1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = wq1Var;
     }
 
-    public static void a() {
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
-            yq1 yq1Var = new yq1();
-            a = yq1Var;
-            yq1Var.start();
-            b = new Handler(a.getLooper());
-        }
-    }
-
-    public static Handler b() {
-        InterceptResult invokeV;
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (yq1.class) {
-                a();
-                handler = b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.a.a = a.AbstractBinderC0204a.a(iBinder);
+            tq1 tq1Var = this.a.e;
+            if (tq1Var != null) {
+                tq1Var.a();
             }
-            return handler;
         }
-        return (Handler) invokeV.objValue;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            wq1 wq1Var = this.a;
+            wq1Var.a = null;
+            tq1 tq1Var = wq1Var.e;
+            if (tq1Var != null) {
+                tq1Var.a();
+            }
+        }
     }
 }

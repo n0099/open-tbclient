@@ -1,118 +1,91 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class lr extends mr {
+public final class lr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskInfo d;
-    public final hq e;
-    public final nr f;
-    public final String g;
+    public String a;
+    public wr b;
 
-    @Override // com.baidu.tieba.as
-    public String e() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskRegisterAction" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof lr) {
+                    lr lrVar = (lr) obj;
+                    return Intrinsics.areEqual(this.a, lrVar.a) && Intrinsics.areEqual(this.b, lrVar.b);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public int g() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            wr wrVar = this.b;
+            return hashCode + (wrVar != null ? wrVar.hashCode() : 0);
         }
         return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lr(TaskInfo taskInfo, hq hqVar, nr nrVar, String str, Integer num, String str2) {
-        super(str, num, str2);
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public lr(String str, wr wrVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, hqVar, nrVar, str, num, str2};
+            Object[] objArr = {str, wrVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = taskInfo;
-        this.e = hqVar;
-        this.f = nrVar;
-        this.g = str;
+        this.a = str;
+        this.b = wrVar;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ lr(TaskInfo taskInfo, hq hqVar, nr nrVar, String str, Integer num, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, hqVar, nrVar, r4, r5, r6);
-        Integer num2;
-        String str3;
-        String singleKey = (i & 8) != 0 ? taskInfo.getSingleKey() : str;
-        if ((i & 16) != 0) {
-            num2 = null;
-        } else {
-            num2 = num;
-        }
-        if ((i & 32) != 0) {
-            str3 = null;
-        } else {
-            str3 = str2;
-        }
-    }
-
-    @Override // com.baidu.tieba.mr
-    public String f() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final TaskInfo h() {
+    public final wr b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (TaskInfo) invokeV.objValue;
-    }
-
-    public final hq i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (hq) invokeV.objValue;
-    }
-
-    public final nr j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (nr) invokeV.objValue;
+        return (wr) invokeV.objValue;
     }
 }

@@ -6,18 +6,18 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jc5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ya5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class CommonUserLikeButton extends TextView implements jc5 {
+public class CommonUserLikeButton extends TextView implements ya5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -126,7 +126,7 @@ public class CommonUserLikeButton extends TextView implements jc5 {
         f();
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class CommonUserLikeButton extends TextView implements jc5 {
         }
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void c(int i) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class CommonUserLikeButton extends TextView implements jc5 {
         }
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -174,7 +174,7 @@ public class CommonUserLikeButton extends TextView implements jc5 {
         }
     }
 
-    @Override // com.baidu.tieba.jc5
+    @Override // com.baidu.tieba.ya5
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -194,7 +194,7 @@ public class CommonUserLikeButton extends TextView implements jc5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f9));
+            setTextSize(0, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701f9));
             setGravity(17);
         }
     }

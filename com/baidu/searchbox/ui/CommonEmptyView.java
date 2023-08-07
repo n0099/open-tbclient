@@ -104,18 +104,18 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0210, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) this, true);
         setBackground(context.getResources().getDrawable(com.baidu.tieba.R.color.obfuscated_res_0x7f060735));
-        this.mIcon = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0909f6);
-        this.mTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0909fa);
-        this.mSubTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0909f9);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0909f7);
+        this.mIcon = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a06);
+        this.mTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a0a);
+        this.mSubTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a09);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a07);
         this.mLinkText = textView;
         textView.setOnTouchListener(new TouchStateListener(textView));
-        TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0909f5);
+        TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a05);
         this.mRefreshTextBtn = textView2;
         textView2.setOnTouchListener(new TouchStateListener(textView2));
-        this.mBottomLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0909f4);
+        this.mBottomLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a04);
         setResourceTextSize();
         setPageResources();
     }

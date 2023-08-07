@@ -1,27 +1,44 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.net.Uri;
+import androidx.core.app.NotificationManagerCompat;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class ja6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ia6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ia6 a() {
-        InterceptResult invokeV;
-        ia6 ia6Var;
+    public static boolean a(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ja6.class) {
-                if (a == null) {
-                    a = new ia6();
-                }
-                ia6Var = a;
-            }
-            return ia6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            return NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
         }
-        return (ia6) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static void b(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, tbPageContext) == null) {
+            try {
+                Intent intent = new Intent();
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                intent.putExtra("android.provider.extra.APP_PACKAGE", tbPageContext.getPageActivity().getPackageName());
+                intent.putExtra("android.provider.extra.CHANNEL_ID", tbPageContext.getPageActivity().getApplicationInfo().uid);
+                intent.putExtra("app_package", tbPageContext.getPageActivity().getPackageName());
+                intent.putExtra("app_uid", tbPageContext.getPageActivity().getApplicationInfo().uid);
+                tbPageContext.getPageActivity().startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Intent intent2 = new Intent();
+                intent2.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                intent2.setData(Uri.fromParts("package", tbPageContext.getPageActivity().getPackageName(), null));
+                tbPageContext.getPageActivity().startActivity(intent2);
+            }
+        }
     }
 }

@@ -1,162 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.IntRange;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class m82 {
+/* loaded from: classes7.dex */
+public class m82 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926466, "Lcom/baidu/tieba/m82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947926466, "Lcom/baidu/tieba/m82;");
-                return;
-            }
-        }
-        b = fs1.a;
-        c = 5;
-    }
-
-    public m82(@IntRange(from = 1) int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m82(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/remoteDebug");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(i, false);
     }
 
-    public m82(@IntRange(from = 1) int i, boolean z) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            y72.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
+            return false;
         }
-        c(i, z);
+        return invokeLLLL.booleanValue;
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.vc3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, ya3 ya3Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return i >> c;
-        }
-        return invokeI.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean b(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                v82.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                v82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException(str);
-            } else if (((1 << i) & iArr[a(i)]) == 0) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, ya3Var)) == null) {
+            y72.i("RemoteDebugAction", "handleSubAction subAction: " + str);
+            if (!p82.d()) {
+                y72.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
-            } else {
+            }
+            SwanAppActivity w = xa3.K().w();
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -279631955) {
+                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
+                    c = 0;
+                }
+            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, ya3Var);
+                }
+                if (w != null) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        w.finishAndRemoveTask();
+                    } else {
+                        w.finish();
+                    }
+                    System.exit(0);
+                }
                 return true;
             }
+            y72.i("RemoteDebugAction", "Remote Debug reload");
+            if (w != null) {
+                Intent intent = w.getIntent();
+                p82.f();
+                xa3.K().n(new String[0]);
+                xa3.K().l(intent.getExtras(), "update_tag_by_remote_debug");
+            }
+            return true;
         }
-        return invokeI.booleanValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void d(@IntRange(from = 0) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                v82.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                v82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException(str);
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void c(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                v82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    i = 500;
-                } else {
-                    throw new NegativeArraySizeException(str);
-                }
-            }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
-                }
-            }
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

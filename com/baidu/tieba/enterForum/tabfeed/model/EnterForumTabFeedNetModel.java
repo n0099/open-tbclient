@@ -4,10 +4,14 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,27 +20,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tieba.a27;
-import com.baidu.tieba.da5;
+import com.baidu.tieba.d35;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListSocketResponsedMessage;
-import com.baidu.tieba.g45;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.o27;
-import com.baidu.tieba.p27;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yn;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.iz6;
+import com.baidu.tieba.n35;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.wz6;
+import com.baidu.tieba.xz6;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,30 +60,30 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public String d;
     public int e;
     public boolean f;
-    public a27 g;
+    public iz6 g;
     public int h;
     public HashMap<String, Integer> i;
-    public p27 j;
-    public o27 k;
+    public xz6 j;
+    public wz6 k;
     public ThreadData l;
-    public kb m;
+    public NetMessageListener m;
     public CustomMessageListener n;
     public CustomMessageListener o;
     public CustomMessageListener p;
-    public final kb q;
+    public final NetMessageListener q;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterForumTabFeedNetModel a;
@@ -110,35 +110,35 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             this.a = enterForumTabFeedNetModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            o27 o27Var;
+            wz6 wz6Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.a = false;
                 if (responsedMessage != null && this.a.j != null && this.a.j.b != null) {
                     if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                        o27Var = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
+                        wz6Var = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
                     } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
-                        o27Var = ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData;
+                        wz6Var = ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData;
                     } else {
-                        o27Var = null;
+                        wz6Var = null;
                     }
-                    this.a.k = o27Var;
+                    this.a.k = wz6Var;
                     this.a.mErrorCode = responsedMessage.getError();
                     this.a.mErrorString = responsedMessage.getErrorString();
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(this.a.mErrorCode);
                     errorData.setError_msg(this.a.mErrorString);
-                    if (this.a.mErrorCode == 0 && o27Var != null) {
-                        if (o27Var != null && this.a.l != null) {
-                            o27Var.e().add(0, this.a.l);
+                    if (this.a.mErrorCode == 0 && wz6Var != null) {
+                        if (wz6Var != null && this.a.l != null) {
+                            wz6Var.e().add(0, this.a.l);
                             if (this.a.i != null && this.a.i.containsKey(this.a.l.getTid())) {
                                 this.a.i.remove(this.a.l.getTid());
                             }
                             this.a.l = null;
                         }
-                        this.a.q0(o27Var, true);
+                        this.a.i0(wz6Var, true);
                         return;
                     }
                     this.a.g.f(errorData);
@@ -179,7 +179,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.m0(customResponsedMessage);
+                this.a.e0(customResponsedMessage);
             }
         }
     }
@@ -216,13 +216,13 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.m0(customResponsedMessage);
+                this.a.e0(customResponsedMessage);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements Comparator<q45> {
+    public class d implements Comparator<n35> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -245,12 +245,12 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(q45 q45Var, q45 q45Var2) {
+        public int compare(n35 n35Var, n35 n35Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, q45Var, q45Var2)) == null) {
-                int i = q45Var.c;
-                int i2 = q45Var2.c;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, n35Var, n35Var2)) == null) {
+                int i = n35Var.c;
+                int i2 = n35Var2.c;
                 if (i == i2) {
                     return 0;
                 }
@@ -296,11 +296,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             String str;
             int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g45)) {
-                g45 g45Var = (g45) customResponsedMessage.getData();
-                if (g45Var.a == 2 && (str = g45Var.b) != null && str.equals(this.a.c)) {
-                    int l = yi.l(TbadkCoreApplication.getInst());
-                    int j = yi.j(TbadkCoreApplication.getInst());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d35)) {
+                d35 d35Var = (d35) customResponsedMessage.getData();
+                if (d35Var.a == 2 && (str = d35Var.b) != null && str.equals(this.a.c)) {
+                    int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+                    int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     if (TbImageHelper.getInstance().isShowBigImage()) {
                         i = 2;
@@ -309,7 +309,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     }
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                     requestGetMyPostNetMessage.setTag(this.a.getUniqueId());
-                    requestGetMyPostNetMessage.setParams(wg.g(g45Var.c, 0L), 0L, 0L, l, j, f, i);
+                    requestGetMyPostNetMessage.setParams(JavaTypesHelper.toLong(d35Var.c, 0L), 0L, 0L, equipmentWidth, equipmentHeight, f, i);
                     requestGetMyPostNetMessage.setBFrom("push");
                     MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
                 }
@@ -318,7 +318,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class f extends kb {
+    public class f extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterForumTabFeedNetModel a;
@@ -345,7 +345,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             this.a = enterForumTabFeedNetModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             GetMyPostResIdl getMyPostResIdl;
             DataRes dataRes;
@@ -371,18 +371,18 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, a27 a27Var, BdUniqueId bdUniqueId) {
+    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, iz6 iz6Var, BdUniqueId bdUniqueId) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, a27Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, iz6Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -401,9 +401,9 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         this.m.getSocketMessageListener().setSelfListener(true);
         registerListener(this.m);
         this.i = new HashMap<>();
-        this.j = new p27();
-        this.g = a27Var;
-        this.e = da5.p().q("home_page_max_thread_count", 300);
+        this.j = new xz6();
+        this.g = iz6Var;
+        this.e = SharedPrefHelper.getInstance().getInt("home_page_max_thread_count", 300);
         registerListener(this.n);
         registerListener(this.o);
         this.q.setTag(getUniqueId());
@@ -416,17 +416,17 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         registerListener(this.q);
     }
 
-    public void t0(String str, String str2) {
+    public void l0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
             this.d = str;
             this.c = str2;
         }
     }
 
-    public final void p0(int i) {
+    public final void h0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
             tabFeedListRequestMessage.loadType = i;
             tabFeedListRequestMessage.tabCode = this.d;
@@ -443,13 +443,13 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    public void b() {
+    public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a) {
             return;
         }
         this.f = false;
-        p0(2);
+        h0(2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -476,46 +476,46 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            p27 p27Var = this.j;
-            if (p27Var == null) {
+            xz6 xz6Var = this.j;
+            if (xz6Var == null) {
                 return false;
             }
-            return !ListUtils.isEmpty(p27Var.b);
+            return !ListUtils.isEmpty(xz6Var.b);
         }
         return invokeV.booleanValue;
     }
 
     public void destory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.m);
         }
     }
 
-    public void r0() {
+    public void j0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             registerListener(this.p);
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.a) {
+        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || this.a) {
             return;
         }
         this.f = true;
-        p0(1);
+        h0(1);
     }
 
-    public final int l0() {
+    public final int d0() {
         InterceptResult invokeV;
         int i;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            p27 p27Var = this.j;
-            if (p27Var != null && p27Var.b != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            xz6 xz6Var = this.j;
+            if (xz6Var != null && xz6Var.b != null) {
                 int i2 = 30;
                 if (this.f) {
                     i2 = this.h - 60;
@@ -529,24 +529,24 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                         if (i5 >= this.j.b.size()) {
                             break;
                         }
-                        yn ynVar = this.j.b.get(i5);
-                        if (ynVar instanceof z45) {
-                            if (i6 == -1 && ((z45) ynVar).position > i2) {
+                        ym ymVar = this.j.b.get(i5);
+                        if (ymVar instanceof w35) {
+                            if (i6 == -1 && ((w35) ymVar).position > i2) {
                                 i6 = i5;
-                            } else if (((z45) ynVar).position > i3) {
+                            } else if (((w35) ymVar).position > i3) {
                                 i4 = i5;
                                 break;
                             }
-                            if (i6 > 0 && (threadData = ((z45) ynVar).t) != null) {
+                            if (i6 > 0 && (threadData = ((w35) ymVar).t) != null) {
                                 this.i.remove(threadData.getTid());
                             }
                         }
                         i5++;
                     }
                     if (i6 < i4 && i4 >= 0 && i6 >= 0) {
-                        ArrayList<yn> arrayList = new ArrayList<>();
+                        ArrayList<ym> arrayList = new ArrayList<>();
                         arrayList.addAll(this.j.b.subList(0, i6));
-                        ArrayList<yn> arrayList2 = this.j.b;
+                        ArrayList<ym> arrayList2 = this.j.b;
                         arrayList.addAll(arrayList2.subList(i4, arrayList2.size()));
                         this.j.b = arrayList;
                         return i4 - i6;
@@ -558,30 +558,30 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public final void m0(CustomResponsedMessage<?> customResponsedMessage) {
-        p27 p27Var;
-        z45 z45Var;
+    public final void e0(CustomResponsedMessage<?> customResponsedMessage) {
+        xz6 xz6Var;
+        w35 w35Var;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.h > 0 && (p27Var = this.j) != null && !ListUtils.isEmpty(p27Var.b)) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.h > 0 && (xz6Var = this.j) != null && !ListUtils.isEmpty(xz6Var.b)) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
             if (!StringUtils.isNull(optString) && this.i.containsKey(optString)) {
-                Iterator<yn> it = this.j.b.iterator();
+                Iterator<ym> it = this.j.b.iterator();
                 int i = 0;
                 int i2 = -1;
                 int i3 = -1;
                 int i4 = -1;
                 while (it.hasNext()) {
-                    yn next = it.next();
-                    if ((next instanceof z45) && (threadData = (z45Var = (z45) next).t) != null) {
+                    ym next = it.next();
+                    if ((next instanceof w35) && (threadData = (w35Var = (w35) next).t) != null) {
                         if (i2 >= 0) {
-                            if (z45Var.position != i2) {
+                            if (w35Var.position != i2) {
                                 break;
                             }
                             it.remove();
                             i4 = i;
                         } else if (StringHelper.equals(optString, threadData.getTid())) {
-                            i2 = z45Var.position;
+                            i2 = w35Var.position;
                             it.remove();
                             i3 = i;
                         }
@@ -589,21 +589,21 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     i++;
                 }
                 if (i3 < i4) {
-                    this.g.H0(i3, i4);
+                    this.g.I0(i3, i4);
                 }
             }
         }
     }
 
-    public final ArrayList<yn> n0(ArrayList<yn> arrayList) {
+    public final ArrayList<ym> f0(ArrayList<ym> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, arrayList)) == null) {
             if (arrayList != null && arrayList.size() != 0) {
                 boolean z = true;
-                Iterator<yn> it = arrayList.iterator();
+                Iterator<ym> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    if (!(it.next() instanceof q45)) {
+                    if (!(it.next() instanceof n35)) {
                         z = false;
                     }
                 }
@@ -616,16 +616,16 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         return (ArrayList) invokeL.objValue;
     }
 
-    public final void o0(ArrayList<yn> arrayList, ArrayList<q45> arrayList2) {
+    public final void g0(ArrayList<ym> arrayList, ArrayList<n35> arrayList2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, arrayList, arrayList2) == null) {
-            s0();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, arrayList2) == null) {
+            k0();
             if (!ListUtils.isEmpty(arrayList) && !ListUtils.isEmpty(arrayList2)) {
                 Collections.sort(arrayList2, new d(this));
                 int i = 0;
-                Iterator<q45> it = arrayList2.iterator();
+                Iterator<n35> it = arrayList2.iterator();
                 while (it.hasNext()) {
-                    q45 next = it.next();
+                    n35 next = it.next();
                     int i2 = next.c + i;
                     if (!TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.b) && next.c != 0 && i2 <= arrayList.size()) {
                         arrayList.add(i2, next);
@@ -638,14 +638,14 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    public final void q0(o27 o27Var, boolean z) {
+    public final void i0(wz6 wz6Var, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048587, this, o27Var, z) == null) && o27Var != null && this.j != null) {
-            ArrayList<yn> e2 = o27Var.e();
-            p27 p27Var = this.j;
+        if ((interceptable == null || interceptable.invokeLZ(1048586, this, wz6Var, z) == null) && wz6Var != null && this.j != null) {
+            ArrayList<ym> e2 = wz6Var.e();
+            xz6 xz6Var = this.j;
             boolean z2 = this.f;
-            p27Var.h = z2;
+            xz6Var.h = z2;
             if (!z2) {
                 this.b++;
             } else {
@@ -654,38 +654,38 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 } else {
                     i = -1;
                 }
-                p27Var.f = i;
-                o0(e2, o27Var.d());
+                xz6Var.f = i;
+                g0(e2, wz6Var.d());
             }
             if (this.h + ListUtils.getCount(e2) > this.e) {
-                this.j.e = l0();
+                this.j.e = d0();
             }
-            ArrayList<yn> u0 = u0(e2);
-            n0(u0);
+            ArrayList<ym> m0 = m0(e2);
+            f0(m0);
             if (this.f) {
-                this.j.b.addAll(0, u0);
+                this.j.b.addAll(0, m0);
                 this.j.e = 0;
             } else {
-                this.j.b.addAll(u0);
+                this.j.b.addAll(m0);
                 this.j.c = !ListUtils.isEmpty(e2);
             }
-            this.j.d = o27Var.f();
-            this.j.g = o27Var.b();
-            this.j.a = o27Var.c();
-            a27 a27Var = this.g;
-            if (a27Var != null) {
-                a27Var.q1(this.j);
+            this.j.d = wz6Var.f();
+            this.j.g = wz6Var.b();
+            this.j.a = wz6Var.c();
+            iz6 iz6Var = this.g;
+            if (iz6Var != null) {
+                iz6Var.r1(this.j);
             }
         }
     }
 
-    public final void s0() {
+    public final void k0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !ListUtils.isEmpty(this.j.b)) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !ListUtils.isEmpty(this.j.b)) {
             int i = 0;
-            Iterator<yn> it = this.j.b.iterator();
+            Iterator<ym> it = this.j.b.iterator();
             while (it.hasNext()) {
-                if (it.next() instanceof q45) {
+                if (it.next() instanceof n35) {
                     it.remove();
                 }
                 i++;
@@ -696,16 +696,16 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    public final ArrayList<yn> u0(ArrayList<yn> arrayList) {
+    public final ArrayList<ym> m0(ArrayList<ym> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, arrayList)) == null) {
             int i = this.h;
-            ArrayList<yn> arrayList2 = new ArrayList<>();
-            Iterator<yn> it = arrayList.iterator();
+            ArrayList<ym> arrayList2 = new ArrayList<>();
+            Iterator<ym> it = arrayList.iterator();
             while (it.hasNext()) {
-                yn next = it.next();
-                if (next instanceof q45) {
+                ym next = it.next();
+                if (next instanceof n35) {
                     arrayList2.add(next);
                 } else if (next instanceof ThreadData) {
                     ThreadData threadData = (ThreadData) next;
@@ -714,101 +714,101 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                         threadData.isFromEnterFroumTabFeed = true;
                         int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
                         if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                            z45 z45Var = new z45();
-                            z45Var.t = threadData;
-                            z45Var.position = i;
-                            z45Var.a = true;
-                            arrayList2.add(z45Var);
-                            z45 z45Var2 = new z45();
-                            z45Var2.t = threadData;
-                            z45Var2.position = i;
+                            w35 w35Var = new w35();
+                            w35Var.t = threadData;
+                            w35Var.position = i;
+                            w35Var.a = true;
+                            arrayList2.add(w35Var);
+                            w35 w35Var2 = new w35();
+                            w35Var2.t = threadData;
+                            w35Var2.position = i;
                             if (threadData.isBJHNormalThreadType()) {
-                                z45Var2.f = true;
+                                w35Var2.f = true;
                             } else if (threadData.picCount() == 1) {
-                                z45Var2.d = true;
-                                z45Var2.u = imageWidthAndHeight[0];
-                                z45Var2.v = imageWidthAndHeight[1];
+                                w35Var2.d = true;
+                                w35Var2.u = imageWidthAndHeight[0];
+                                w35Var2.v = imageWidthAndHeight[1];
                             } else if (threadData.picCount() >= 2) {
-                                z45Var2.e = true;
+                                w35Var2.e = true;
                             } else {
-                                z45Var2.b = true;
+                                w35Var2.b = true;
                             }
-                            arrayList2.add(z45Var2);
+                            arrayList2.add(w35Var2);
                             if (threadData.getItem() != null) {
-                                z45 z45Var3 = new z45();
-                                z45Var3.n = true;
-                                z45Var3.t = threadData;
-                                z45Var3.position = i;
-                                arrayList2.add(z45Var3);
+                                w35 w35Var3 = new w35();
+                                w35Var3.n = true;
+                                w35Var3.t = threadData;
+                                w35Var3.position = i;
+                                arrayList2.add(w35Var3);
                             }
                             if (!ListUtils.isEmpty(threadData.getLinkDataList()) || !ListUtils.isEmpty(threadData.getGoodsDataList())) {
-                                z45 z45Var4 = new z45();
-                                z45Var4.t = threadData;
-                                z45Var4.position = i;
+                                w35 w35Var4 = new w35();
+                                w35Var4.t = threadData;
+                                w35Var4.position = i;
                                 if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) == 1) {
-                                    z45Var4.p = true;
+                                    w35Var4.p = true;
                                 } else if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) > 1) {
-                                    z45Var4.q = true;
+                                    w35Var4.q = true;
                                 }
-                                arrayList2.add(z45Var4);
+                                arrayList2.add(w35Var4);
                             }
-                            z45 z45Var5 = new z45();
-                            z45Var5.m = true;
-                            z45Var5.t = threadData;
-                            z45Var5.position = i;
-                            arrayList2.add(z45Var5);
-                            z45 z45Var6 = new z45();
-                            z45Var6.g = true;
-                            z45Var6.t = threadData;
-                            z45Var6.position = i;
-                            arrayList2.add(z45Var6);
+                            w35 w35Var5 = new w35();
+                            w35Var5.m = true;
+                            w35Var5.t = threadData;
+                            w35Var5.position = i;
+                            arrayList2.add(w35Var5);
+                            w35 w35Var6 = new w35();
+                            w35Var6.g = true;
+                            w35Var6.t = threadData;
+                            w35Var6.position = i;
+                            arrayList2.add(w35Var6);
                         } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                            z45 z45Var7 = new z45();
-                            z45Var7.t = threadData;
-                            z45Var7.position = i;
-                            z45Var7.a = true;
-                            arrayList2.add(z45Var7);
-                            z45 z45Var8 = new z45();
-                            z45Var8.t = threadData;
-                            z45Var8.position = i;
-                            z45Var8.i = true;
-                            arrayList2.add(z45Var8);
+                            w35 w35Var7 = new w35();
+                            w35Var7.t = threadData;
+                            w35Var7.position = i;
+                            w35Var7.a = true;
+                            arrayList2.add(w35Var7);
+                            w35 w35Var8 = new w35();
+                            w35Var8.t = threadData;
+                            w35Var8.position = i;
+                            w35Var8.i = true;
+                            arrayList2.add(w35Var8);
                             if (threadData.getItem() != null) {
-                                z45 z45Var9 = new z45();
-                                z45Var9.n = true;
-                                z45Var9.t = threadData;
-                                z45Var9.position = i;
-                                arrayList2.add(z45Var9);
+                                w35 w35Var9 = new w35();
+                                w35Var9.n = true;
+                                w35Var9.t = threadData;
+                                w35Var9.position = i;
+                                arrayList2.add(w35Var9);
                             }
                             if (!ListUtils.isEmpty(threadData.getLinkDataList()) || !ListUtils.isEmpty(threadData.getGoodsDataList())) {
-                                z45 z45Var10 = new z45();
-                                z45Var10.t = threadData;
-                                z45Var10.position = i;
+                                w35 w35Var10 = new w35();
+                                w35Var10.t = threadData;
+                                w35Var10.position = i;
                                 if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) == 1) {
-                                    z45Var10.p = true;
+                                    w35Var10.p = true;
                                 } else if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) > 1) {
-                                    z45Var10.q = true;
+                                    w35Var10.q = true;
                                 }
-                                arrayList2.add(z45Var10);
+                                arrayList2.add(w35Var10);
                             }
-                            z45 z45Var11 = new z45();
-                            z45Var11.m = true;
-                            z45Var11.t = threadData;
-                            z45Var11.position = i;
-                            arrayList2.add(z45Var11);
-                            z45 z45Var12 = new z45();
-                            z45Var12.g = true;
-                            z45Var12.t = threadData;
-                            z45Var12.position = i;
-                            arrayList2.add(z45Var12);
+                            w35 w35Var11 = new w35();
+                            w35Var11.m = true;
+                            w35Var11.t = threadData;
+                            w35Var11.position = i;
+                            arrayList2.add(w35Var11);
+                            w35 w35Var12 = new w35();
+                            w35Var12.g = true;
+                            w35Var12.t = threadData;
+                            w35Var12.position = i;
+                            arrayList2.add(w35Var12);
                         } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
                             threadData.position = i;
                             arrayList2.add(threadData);
                         } else {
-                            z45 z45Var13 = new z45();
-                            z45Var13.t = threadData;
-                            z45Var13.position = i;
-                            arrayList2.add(z45Var13);
+                            w35 w35Var13 = new w35();
+                            w35Var13.t = threadData;
+                            w35Var13.position = i;
+                            arrayList2.add(w35Var13);
                         }
                         i++;
                     }

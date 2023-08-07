@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.SystemClock;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s1c;
-import com.baidu.tieba.u1c;
-import com.baidu.tieba.y1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,40 +12,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.concurrent.ScheduledExecutorService;
+import com.yy.gslbsdk.DnsResultInfo;
+import com.yy.gslbsdk.GslbEvent;
+import com.yy.gslbsdk.HttpDnsService;
+import com.yy.gslbsdk.thread.ThreadPoolMgr;
+import com.yy.mobile.framework.revenuesdk.baseapi.Env;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatisticsApi;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import okhttp3.Dns;
 /* loaded from: classes6.dex */
-public final class h6c {
+public class h6c implements Dns {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i2c<Throwable> a;
-    public static volatile m2c<u1c.a, u1c.a> b;
-    public static volatile m2c<y1c.c, y1c.c> c;
-    public static volatile m2c<s1c.f, s1c.f> d;
-    public static volatile n2c<u1c, u1c.a, u1c.a> e;
-    public static volatile n2c<y1c, y1c.c, y1c.c> f;
-    public static volatile n2c<s1c, s1c.f, s1c.f> g;
-    public static volatile m2c<x1c, x1c> h;
-    public static volatile m2c<x1c, x1c> i;
-    public static volatile m2c<x1c, x1c> j;
-    public static volatile m2c<h2c, h2c> k;
-    public static volatile m2c<b2c, b2c> l;
-    public static volatile m2c<b2c, b2c> m;
-    public static volatile l2c<? extends ScheduledExecutorService> n;
-    public static volatile m2c<Throwable, Throwable> o;
-    public static volatile m2c<Throwable, Throwable> p;
-    public static volatile m2c<Throwable, Throwable> q;
-    public static volatile m2c<u1c.b, u1c.b> r;
+    public static CopyOnWriteArrayList<IPayNetStateStatisticsApi> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpDnsService a;
+    public volatile boolean b;
 
     /* loaded from: classes6.dex */
-    public static class a implements m2c<Throwable, Throwable> {
+    public class a implements GslbEvent.GslbEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        @Override // com.yy.gslbsdk.GslbEvent.GslbEventListener
+        public void onMessage(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        public a(h6c h6cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h6cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,437 +62,30 @@ public final class h6c {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public Throwable call(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-                k6c.c().g().b(th);
-                return th;
-            }
-            return (Throwable) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements m2c<Throwable, Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public Throwable call(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-                k6c.c().a().b(th);
-                return th;
-            }
-            return (Throwable) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements m2c<u1c.a, u1c.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public u1c.a call(u1c.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                k6c.c().d().a(aVar);
-                return aVar;
-            }
-            return (u1c.a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements m2c<y1c.c, y1c.c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public y1c.c call(y1c.c cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                k6c.c().g().a(cVar);
-                return cVar;
-            }
-            return (y1c.c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements m2c<s1c.f, s1c.f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public s1c.f call(s1c.f fVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-                k6c.c().a().a(fVar);
-                return fVar;
-            }
-            return (s1c.f) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f implements i2c<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i2c
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                k6c.c().b().a(th);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class g implements n2c<u1c, u1c.a, u1c.a> {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final h6c a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-791959274, "Lcom/baidu/tieba/h6c$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-791959274, "Lcom/baidu/tieba/h6c$b;");
+                    return;
                 }
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n2c
-        public u1c.a call(u1c u1cVar, u1c.a aVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, u1cVar, aVar)) == null) {
-                k6c.c().d().e(u1cVar, aVar);
-                return aVar;
-            }
-            return (u1c.a) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class h implements m2c<b2c, b2c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public b2c call(b2c b2cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b2cVar)) == null) {
-                k6c.c().d().d(b2cVar);
-                return b2cVar;
-            }
-            return (b2c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class i implements n2c<y1c, y1c.c, y1c.c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n2c
-        public y1c.c call(y1c y1cVar, y1c.c cVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, y1cVar, cVar)) == null) {
-                m6c g = k6c.c().g();
-                if (g == n6c.e()) {
-                    return cVar;
-                }
-                s3c s3cVar = new s3c(cVar);
-                g.d(y1cVar, s3cVar);
-                return new p3c(s3cVar);
-            }
-            return (y1c.c) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class j implements m2c<b2c, b2c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public j() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public b2c call(b2c b2cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b2cVar)) == null) {
-                k6c.c().g().c(b2cVar);
-                return b2cVar;
-            }
-            return (b2c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class k implements n2c<s1c, s1c.f, s1c.f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public k() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n2c
-        public s1c.f call(s1c s1cVar, s1c.f fVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, s1cVar, fVar)) == null) {
-                k6c.c().a().c(s1cVar, fVar);
-                return fVar;
-            }
-            return (s1c.f) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class l implements m2c<h2c, h2c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public l() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public h2c call(h2c h2cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h2cVar)) == null) {
-                k6c.c().f().k(h2cVar);
-                return h2cVar;
-            }
-            return (h2c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class m implements m2c<Throwable, Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public m() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public Throwable call(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-                k6c.c().d().c(th);
-                return th;
-            }
-            return (Throwable) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class n implements m2c<u1c.b, u1c.b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public n() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m2c
-        public u1c.b call(u1c.b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                k6c.c().d().b(bVar);
-                return bVar;
-            }
-            return (u1c.b) invokeL.objValue;
+            a = new h6c(null);
         }
     }
 
@@ -500,277 +102,235 @@ public final class h6c {
                 return;
             }
         }
-        b();
+        c = new CopyOnWriteArrayList<>();
     }
 
-    public static l2c<? extends ScheduledExecutorService> a() {
+    public static h6c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return n;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
         }
-        return (l2c) invokeV.objValue;
+        return (h6c) invokeV.objValue;
     }
 
-    public static void c() {
+    public h6c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            b = new c();
-            c = new d();
-            d = new e();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = null;
+        this.b = true;
+        RLog.info("YYPayHttpDns", "new OkHttpDns:" + toString());
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = new f();
-            e = new g();
-            l = new h();
-            f = new i();
-            m = new j();
-            g = new k();
-            k = new l();
-            o = new m();
-            r = new n();
-            p = new a();
-            q = new b();
-            c();
-        }
+    public /* synthetic */ h6c(a aVar) {
+        this();
     }
 
-    public static Throwable d(Throwable th) {
+    public List<String> d(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
-            m2c<Throwable, Throwable> m2cVar = q;
-            if (m2cVar != null) {
-                return m2cVar.call(th);
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static x1c f(x1c x1cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x1cVar)) == null) {
-            m2c<x1c, x1c> m2cVar = h;
-            if (m2cVar != null) {
-                return m2cVar.call(x1cVar);
-            }
-            return x1cVar;
-        }
-        return (x1c) invokeL.objValue;
-    }
-
-    public static s1c.f g(s1c.f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, fVar)) == null) {
-            m2c<s1c.f, s1c.f> m2cVar = d;
-            if (m2cVar != null) {
-                return m2cVar.call(fVar);
-            }
-            return fVar;
-        }
-        return (s1c.f) invokeL.objValue;
-    }
-
-    public static <T> u1c.a<T> h(u1c.a<T> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aVar)) == null) {
-            m2c<u1c.a, u1c.a> m2cVar = b;
-            if (m2cVar != null) {
-                return m2cVar.call(aVar);
-            }
-            return aVar;
-        }
-        return (u1c.a) invokeL.objValue;
-    }
-
-    public static <T> y1c.c<T> i(y1c.c<T> cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cVar)) == null) {
-            m2c<y1c.c, y1c.c> m2cVar = c;
-            if (m2cVar != null) {
-                return m2cVar.call(cVar);
-            }
-            return cVar;
-        }
-        return (y1c.c) invokeL.objValue;
-    }
-
-    public static x1c k(x1c x1cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, x1cVar)) == null) {
-            m2c<x1c, x1c> m2cVar = i;
-            if (m2cVar != null) {
-                return m2cVar.call(x1cVar);
-            }
-            return x1cVar;
-        }
-        return (x1c) invokeL.objValue;
-    }
-
-    public static x1c l(x1c x1cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, x1cVar)) == null) {
-            m2c<x1c, x1c> m2cVar = j;
-            if (m2cVar != null) {
-                return m2cVar.call(x1cVar);
-            }
-            return x1cVar;
-        }
-        return (x1c) invokeL.objValue;
-    }
-
-    public static Throwable m(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, th)) == null) {
-            m2c<Throwable, Throwable> m2cVar = o;
-            if (m2cVar != null) {
-                return m2cVar.call(th);
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static <T, R> u1c.b<R, T> n(u1c.b<R, T> bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bVar)) == null) {
-            m2c<u1c.b, u1c.b> m2cVar = r;
-            if (m2cVar != null) {
-                return m2cVar.call(bVar);
-            }
-            return bVar;
-        }
-        return (u1c.b) invokeL.objValue;
-    }
-
-    public static b2c o(b2c b2cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, b2cVar)) == null) {
-            m2c<b2c, b2c> m2cVar = l;
-            if (m2cVar != null) {
-                return m2cVar.call(b2cVar);
-            }
-            return b2cVar;
-        }
-        return (b2c) invokeL.objValue;
-    }
-
-    public static h2c q(h2c h2cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, h2cVar)) == null) {
-            m2c<h2c, h2c> m2cVar = k;
-            if (m2cVar != null) {
-                return m2cVar.call(h2cVar);
-            }
-            return h2cVar;
-        }
-        return (h2c) invokeL.objValue;
-    }
-
-    public static Throwable r(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, th)) == null) {
-            m2c<Throwable, Throwable> m2cVar = p;
-            if (m2cVar != null) {
-                return m2cVar.call(th);
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static b2c s(b2c b2cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, b2cVar)) == null) {
-            m2c<b2c, b2c> m2cVar = m;
-            if (m2cVar != null) {
-                return m2cVar.call(b2cVar);
-            }
-            return b2cVar;
-        }
-        return (b2c) invokeL.objValue;
-    }
-
-    public static void u(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, th) == null) {
-            Thread currentThread = Thread.currentThread();
-            currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
-        }
-    }
-
-    public static <T> s1c.f e(s1c s1cVar, s1c.f fVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, s1cVar, fVar)) == null) {
-            n2c<s1c, s1c.f, s1c.f> n2cVar = g;
-            if (n2cVar != null) {
-                return n2cVar.call(s1cVar, fVar);
-            }
-            return fVar;
-        }
-        return (s1c.f) invokeLL.objValue;
-    }
-
-    public static <T> u1c.a<T> p(u1c<T> u1cVar, u1c.a<T> aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, u1cVar, aVar)) == null) {
-            n2c<u1c, u1c.a, u1c.a> n2cVar = e;
-            if (n2cVar != null) {
-                return n2cVar.call(u1cVar, aVar);
-            }
-            return aVar;
-        }
-        return (u1c.a) invokeLL.objValue;
-    }
-
-    public static <T> y1c.c<T> t(y1c<T> y1cVar, y1c.c<T> cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, y1cVar, cVar)) == null) {
-            n2c<y1c, y1c.c, y1c.c> n2cVar = f;
-            if (n2cVar != null) {
-                return n2cVar.call(y1cVar, cVar);
-            }
-            return cVar;
-        }
-        return (y1c.c) invokeLL.objValue;
-    }
-
-    public static void j(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, th) == null) {
-            i2c<Throwable> i2cVar = a;
-            if (i2cVar != null) {
-                try {
-                    i2cVar.call(th);
-                    return;
-                } catch (Throwable th2) {
-                    PrintStream printStream = System.err;
-                    printStream.println("The onError handler threw an Exception. It shouldn't. => " + th2.getMessage());
-                    th2.printStackTrace();
-                    u(th2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+            ArrayList arrayList = new ArrayList(strArr.length);
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str)) {
+                    arrayList.add(str);
                 }
             }
-            u(th);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void a(IPayNetStateStatisticsApi iPayNetStateStatisticsApi) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, iPayNetStateStatisticsApi) == null) {
+            if (!c.contains(iPayNetStateStatisticsApi)) {
+                c.add(iPayNetStateStatisticsApi);
+                z = true;
+            } else {
+                z = false;
+            }
+            RLog.info("YYPayHttpDns", "addPayNetStatisticsApi add " + z + " payNetReporter:" + iPayNetStateStatisticsApi);
+        }
+    }
+
+    public static void g(IPayNetStateStatisticsApi iPayNetStateStatisticsApi) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, iPayNetStateStatisticsApi) == null) {
+            if (c.contains(iPayNetStateStatisticsApi)) {
+                c.remove(iPayNetStateStatisticsApi);
+                z = true;
+            } else {
+                z = false;
+            }
+            RLog.info("YYPayHttpDns", "removePayNetStatisticsApi remove " + z + " payNetReporter:" + iPayNetStateStatisticsApi);
+        }
+    }
+
+    public static void e(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
+            Iterator<IPayNetStateStatisticsApi> it = c.iterator();
+            while (it.hasNext()) {
+                it.next().reportPayNetEvent(str, str2, str3);
+            }
+        }
+    }
+
+    public List<String> b(String str) throws UnknownHostException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a == null) {
+                RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
+                return null;
+            }
+            long uptimeMillis = SystemClock.uptimeMillis();
+            DnsResultInfo ipsByHost = this.a.getIpsByHost(str);
+            if (ipsByHost != null) {
+                ArrayList arrayList = new ArrayList();
+                String[] strArr = ipsByHost.mIpsV6;
+                if (strArr != null) {
+                    arrayList.addAll(d(strArr));
+                    if (ipsByHost.mIpsV6.length == 0) {
+                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 empty hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
+                    }
+                } else {
+                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 null hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
+                }
+                String[] strArr2 = ipsByHost.mIpsV4;
+                if (strArr2 != null) {
+                    arrayList.addAll(d(strArr2));
+                    if (ipsByHost.mIpsV4.length == 0) {
+                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 empty hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
+                    }
+                } else {
+                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 null hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
+                }
+                e(EventType.PayNetStateID.EVENT_DNS_RESULT, ipsByHost.mErrorCode + "", "ipList " + arrayList.size());
+                RLog.info("YYPayHttpDns", "hostname " + str + " mDataSource " + ipsByHost.mDataSource + " code " + ipsByHost.mErrorCode + " res.IPList " + arrayList + " use duration " + (SystemClock.uptimeMillis() - uptimeMillis));
+                return arrayList;
+            }
+            RLog.info("YYPayHttpDns", "getIPListByDns host " + str + "  use duration " + (SystemClock.uptimeMillis() - uptimeMillis));
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<InetAddress> f(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        arrayList.add(InetAddress.getByName(str));
+                    } catch (UnknownHostException e) {
+                        RLog.error("YYPayHttpDns", "getByName(" + str + ") error", e);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized int h(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
+            synchronized (this) {
+                if (!this.b) {
+                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
+                    return -1;
+                } else if (this.a != null) {
+                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
+                    return -2;
+                } else if (context == null) {
+                    RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
+                    return -3;
+                } else {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
+                    this.a = service;
+                    service.setLogEnabled(Env.instance().isTestEnv());
+                    this.a.setGslbEventMessager(new a(this));
+                    this.a.setHttpsEnable(true);
+                    this.a.setNetworkStatus(3);
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    arrayList.add(Env.instance().REVENUE_HTTP_URL);
+                    if (!Env.instance().isTestEnv()) {
+                        arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
+                    }
+                    RLog.info("YYPayHttpDns", "PreResolveHost hosts " + arrayList.toString());
+                    this.a.setPreResolveHosts(arrayList);
+                    RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
+                    return 1;
+                }
+            }
+        }
+        return invokeLLL.intValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(8:3|(5:7|8|9|(3:18|19|20)|(2:14|15)(1:17))|27|(1:11)|18|19|20|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
+        r5 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004e, code lost:
+        com.yy.mobile.framework.revenuesdk.baseapi.log.RLog.error("YYPayHttpDns", "System lookup dns error", r5);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0055  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    @Override // okhttp3.Dns
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<InetAddress> lookup(String str) {
+        InterceptResult invokeL;
+        List<InetAddress> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.b && this.a != null) {
+                RLog.info("YYPayHttpDns", "httpdns lookup ");
+                try {
+                    list = f(b(str));
+                } catch (Exception e) {
+                    RLog.error("YYPayHttpDns", "lookup exception:" + e.getLocalizedMessage(), new Object[0]);
+                }
+                if (list != null || list.isEmpty()) {
+                    RLog.info("YYPayHttpDns", "system lookup");
+                    list = Dns.SYSTEM.lookup(str);
+                }
+                if (list != null) {
+                    return Collections.emptyList();
+                }
+                return list;
+            }
+            list = null;
+            if (list != null) {
+            }
+            RLog.info("YYPayHttpDns", "system lookup");
+            list = Dns.SYSTEM.lookup(str);
+            if (list != null) {
+            }
+        } else {
+            return (List) invokeL.objValue;
         }
     }
 }

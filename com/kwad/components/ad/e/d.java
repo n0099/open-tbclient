@@ -20,7 +20,7 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.k;
 import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends KSFrameLayout {
     public com.kwad.components.core.widget.kwai.b aM;
     public j bx;
@@ -74,10 +74,10 @@ public final class d extends KSFrameLayout {
     }
 
     private void initView() {
-        View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b3, this);
-        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913cb);
+        View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b6, this);
+        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913de);
         this.jK = adBasePvFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091421);
+        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091434);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
     }

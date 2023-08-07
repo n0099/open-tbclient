@@ -1,130 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class rm9 implements sm9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public String b;
-    public TbPageContext<?> c;
+public interface rm9 {
+    Anti GetAntiStat();
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    List<PostInfoList> GetPostList();
 
-    @Override // com.baidu.tieba.sm9
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    User GetUser();
 
-    @Override // com.baidu.tieba.tm9
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    TbBookrack getBookrackData();
 
-    /* loaded from: classes7.dex */
-    public class b extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rm9 a;
+    List<ForumDynamic> getConcernedForumList();
 
-        public b(rm9 rm9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rm9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rm9Var;
-        }
+    List<DynamicInfo> getDynamicInfoList();
 
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
-            }
-        }
+    int getErrorCode();
 
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setUnderlineText(false);
-            }
-        }
+    qw7 getGoodsWindowInfo();
 
-        public /* synthetic */ b(rm9 rm9Var, a aVar) {
-            this(rm9Var);
-        }
-    }
+    HotUserRankEntry getHotRankEntry();
 
-    public rm9(TbPageContext<?> tbPageContext, ExcContent excContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, excContent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
-            return;
-        }
-        this.c = tbPageContext;
-        this.a = new SpannableString(excContent.text);
-        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
-        this.b = excContent.link;
-    }
+    AlaLiveInfoCoreData getLiveInfo();
 
-    @Override // com.baidu.tieba.sm9
-    public CharSequence b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
+    int getMaskType();
+
+    List<ThreadInfo> getNewestThreadList();
+
+    NicknameInfo getNicknameInfo();
+
+    TAInfo getTaInfo();
+
+    UserAgreeInfo getUserAgreeInfo();
+
+    UserGodInfo getUserGodInfo();
 }

@@ -2,53 +2,114 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.l33;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.v8engine.FontParser;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collections;
-import java.util.HashMap;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fa4 extends ba4 {
+public class fa4 extends ea4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public long h;
+    public ii2 b;
 
     /* loaded from: classes5.dex */
-    public class a implements l33.b {
+    public class a extends ResponseCallback<ka4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ca4 b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ yj3 d;
-        public final /* synthetic */ fa4 e;
+        public final /* synthetic */ ma4 a;
+        public final /* synthetic */ f32 b;
+        public final /* synthetic */ fa4 c;
 
-        public a(fa4 fa4Var, String str, ca4 ca4Var, boolean z, yj3 yj3Var) {
+        /* renamed from: com.baidu.tieba.fa4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0285a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ka4 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0285a(a aVar, ka4 ka4Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ka4Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = ka4Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    kd4.call(this.b.b, true, this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    kd4.call(aVar.b, false, aVar.a);
+                }
+            }
+        }
+
+        public a(fa4 fa4Var, ma4 ma4Var, f32 f32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fa4Var, str, ca4Var, Boolean.valueOf(z), yj3Var};
+                Object[] objArr = {fa4Var, ma4Var, f32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,353 +119,121 @@ public class fa4 extends ba4 {
                     return;
                 }
             }
-            this.e = fa4Var;
-            this.a = str;
-            this.b = ca4Var;
-            this.c = z;
-            this.d = yj3Var;
+            this.c = fa4Var;
+            this.a = ma4Var;
+            this.b = f32Var;
         }
 
-        @Override // com.baidu.tieba.l33.b
-        public void a(long j) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(ka4 ka4Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.e.C(this.a, -1, "downloadFile:fail exceed max file size");
-                this.b.cancelTag(this.e.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.l33.b
-        public void b(int i, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) && System.currentTimeMillis() - this.e.h > 500) {
-                if (j2 <= 52428800 && j <= 52428800) {
-                    if (i <= 100) {
-                        ea4 ea4Var = new ea4(i, j2, j);
-                        JSEvent jSEvent = new JSEvent("progressUpdate");
-                        jSEvent.data = ea4Var;
-                        this.e.dispatchEvent(jSEvent);
-                    }
-                    if (this.c && this.d.d().a(j)) {
-                        this.e.C(this.a, -1, "downloadFile:fail exceed max file size");
-                        this.b.cancelTag(this.e.c);
-                    }
-                } else {
-                    this.e.C(this.a, -1, "downloadFile:fail exceed max file size");
-                    this.b.cancelTag(this.e.c);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, ka4Var, i) == null) {
+                if (ea4.a) {
+                    Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.e.h = System.currentTimeMillis();
+                this.c.b.post(new RunnableC0285a(this, ka4Var));
             }
         }
 
-        @Override // com.baidu.tieba.l33.b
-        public void c(long j, long j2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public ka4 parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.e.C(this.a, 0, "progress callback fail()");
-                this.b.cancelTag(this.e.c);
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                ResponseBody body = response.body();
+                if (body == null) {
+                    return null;
+                }
+                String string = body.string();
+                if (ea4.a) {
+                    Log.d("CheckAdvisedToRestApi", "parse response: " + string);
+                }
+                JSONObject jSONObject = new JSONObject(string);
+                String optString = jSONObject.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    if (ea4.a) {
+                        Log.d("CheckAdvisedToRestApi", "errno = " + optString);
+                    }
+                    ma4 ma4Var = this.a;
+                    ma4Var.errNo = optString;
+                    ma4Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
+                    return null;
+                }
+                String optString2 = jSONObject.optJSONObject("data").optString("result");
+                ka4 ka4Var = new ka4();
+                ka4Var.result = !TextUtils.equals(optString2, "0");
+                ka4Var.errNo = "0";
+                ka4Var.errMsg = kd4.b("checkIsUserAdvisedToRest", DnsModel.MSG_OK);
+                return ka4Var;
+            }
+            return (ka4) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                if (ea4.a) {
+                    Log.e("CheckAdvisedToRestApi", "on fail");
+                }
+                if (TextUtils.isEmpty(this.a.errMsg)) {
+                    ma4 ma4Var = this.a;
+                    ma4Var.errNo = YYOption.UrlProtocol.USER;
+                    ma4Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
+                }
+                this.c.b.post(new b(this));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ yj3 d;
-        public final /* synthetic */ boolean e;
-        public final /* synthetic */ fa4 f;
-
-        public b(fa4 fa4Var, String str, String str2, String str3, yj3 yj3Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fa4Var, str, str2, str3, yj3Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = fa4Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = yj3Var;
-            this.e = z;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f.C(this.a, 0, iOException.getMessage());
-                if (SwanAppNetworkUtils.i(null)) {
-                    oi3.u(0, this.a, 1, iOException.getMessage());
-                }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    JSEvent jSEvent = new JSEvent("headersReceived");
-                    jSEvent.data = new oa4(this.f.I(response.headers()));
-                    this.f.dispatchEvent(jSEvent);
-                } catch (JSONException e) {
-                    if (fa4.i) {
-                        e.printStackTrace();
-                    }
-                }
-                String str2 = null;
-                try {
-                    if (TextUtils.isEmpty(this.b)) {
-                        str2 = yc3.A(this.f.I(response.headers()), this.c);
-                    } else {
-                        str2 = this.f.U(this.b);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    this.f.C(this.a, -1, "downloadFile:filePath is invalid");
-                    return;
-                }
-                if (fa4.i) {
-                    Log.d("DownloadTask", "the real file path is " + str2);
-                }
-                if (TextUtils.isEmpty(this.b)) {
-                    str = this.d.g(str2);
-                } else {
-                    str = this.b;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    this.f.C(this.a, -1, "parse tmpFilePath from realFilePath fail");
-                    return;
-                }
-                int code = response.code();
-                String message = response.message();
-                ga4 ga4Var = new ga4();
-                ga4Var.statusCode = code;
-                if (TextUtils.isEmpty(this.b)) {
-                    ga4Var.tempFilePath = str;
-                } else {
-                    ga4Var.filePath = str;
-                }
-                InputStream byteStream = response.body().byteStream();
-                File file = new File(str2);
-                if (file.exists()) {
-                    long length = file.length();
-                    file.delete();
-                    if (this.e) {
-                        this.d.d().b(-length);
-                    }
-                }
-                if (this.f.V(byteStream, file)) {
-                    if (this.e) {
-                        this.d.d().b(file.length());
-                    }
-                    this.f.D(ga4Var);
-                } else {
-                    this.f.C(this.a, -1, "downloadFile:fail abort");
-                }
-                zr4.d(byteStream);
-                zr4.d(response);
-                if (fa4.i) {
-                    Log.d("DownloadTask", "onResponse: respCode: " + code + ", url=" + this.a + ", msg=" + message);
-                }
-                oi3.u(code, this.a, 1, message);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947757392, "Lcom/baidu/tieba/fa4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947757392, "Lcom/baidu/tieba/fa4;");
-                return;
-            }
-        }
-        i = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fa4(fj2 fj2Var, c42 c42Var) {
-        super(fj2Var, c42Var);
+    public fa4(@NonNull ii2 ii2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fj2Var, c42Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((fj2) objArr2[0], (c42) objArr2[1]);
+            Object[] objArr = {ii2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 2;
+        this.b = ii2Var;
     }
 
-    @Override // com.baidu.tieba.ba4
-    public void C(String str, int i2, String str2) {
+    @JavascriptInterface
+    public void checkIsUserAdvisedToRest(JsObject jsObject) {
+        f32 F;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-            super.C(str, i2, str2);
-            pc4.c(str, i2, str2, SwanAppNetworkUtils.i(null));
-        }
-    }
-
-    public void T(Request request, String str, String str2, ca4 ca4Var, ha4 ha4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, str, str2, ca4Var, ha4Var) == null) {
-            String httpUrl = request.url().toString();
-            yj3 G = ix2.T().G();
-            boolean b2 = G.b(str);
-            oi3.A(httpUrl, 1);
-            ca4Var.call(request, Collections.singletonList(ha4Var), new b(this, httpUrl, str, str2, G, b2));
-        }
-    }
-
-    @Nullable
-    public String U(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String i2 = ix2.T().G().i(str);
-            if (i2 == null) {
-                return null;
-            }
-            boolean endsWith = i2.endsWith(File.separator);
-            File parentFile = new File(i2).getParentFile();
-            if (parentFile != null && parentFile.exists()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (endsWith || !z) {
-                return null;
-            }
-            return i2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean V(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, inputStream, file)) == null) {
-            if (inputStream == null || file == null) {
-                return false;
-            }
-            File parentFile = file.getParentFile();
-            if (parentFile != null && !parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) && (F = f32.F(jsObject)) != null && this.b != null) {
+            ma4 ma4Var = new ma4();
             try {
+                int d = F.d("todayPlayedTime");
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read != -1) {
-                        fileOutputStream.write(bArr, 0, read);
-                    } else {
-                        fileOutputStream.flush();
-                        zr4.d(fileOutputStream);
-                        return true;
+                    jSONObject.put("ma_id", ya3.g0());
+                    jSONObject.put("todayPlayedTime", String.valueOf(d));
+                } catch (JSONException e) {
+                    if (ea4.a) {
+                        e.printStackTrace();
                     }
                 }
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                zr4.d(fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                zr4.d(fileOutputStream2);
-                throw th;
-            }
-        } else {
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public void start() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
-            return;
-        }
-        String z = z();
-        if (TextUtils.isEmpty(z)) {
-            return;
-        }
-        if (vb3.M() == null) {
-            C("", -1, "request:swanApp is null");
-            return;
-        }
-        ca4 ca4Var = (ca4) vb3.M().i0();
-        String B = this.b.B("filePath");
-        if (!TextUtils.isEmpty(B)) {
-            if (zr4.x(B)) {
-                C(z, -1, "downloadFile:filePath is invalid");
-                return;
-            }
-            String[] split = B.split("/");
-            if (TextUtils.isEmpty(split[split.length - 1])) {
-                C(z, -1, "downloadFile:filePath is invalid");
-                return;
+                a(p74.b().f(), jSONObject.toString(), new a(this, ma4Var, F));
+            } catch (JSTypeMismatchException e2) {
+                if (ea4.a) {
+                    e2.printStackTrace();
+                }
+                ma4Var.errNo = FontParser.sFontWeightDefault;
+                ma4Var.errMsg = kd4.a("checkIsUserAdvisedToRest", e2);
+                kd4.call(F, false, ma4Var);
             }
         }
-        yj3 G = ix2.T().G();
-        boolean b2 = G.b(B);
-        if (b2 && G.d().a(0L)) {
-            C(z, -1, "downloadFile:fail exceed max size in usr");
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        Request.Builder builder = new Request.Builder();
-        G(builder, this.b.w("header"), hashMap, false);
-        builder.url(z).tag(this.c).build();
-        String t = zr4.t(z);
-        this.h = 0L;
-        ha4 ha4Var = new ha4();
-        ha4Var.c(new a(this, z, ca4Var, b2, G));
-        T(builder.build(), B, t, ca4Var, ha4Var);
     }
 }

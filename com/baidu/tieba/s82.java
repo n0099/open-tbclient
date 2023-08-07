@@ -1,99 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.za3;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s82 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONArray g;
 
-    /* loaded from: classes7.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb3 a;
-
-        public a(vb3 vb3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105212, "Lcom/baidu/tieba/s82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = vb3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105212, "Lcom/baidu/tieba/s82;");
+                return;
+            }
         }
+        h = ir1.a;
+    }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
+    public s82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean a() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public static void b(boolean z) {
+    public static s82 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        vb3 M;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = vb3.M()) != null) {
-            t82.c(z);
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f01cf;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0143;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            s82 s82Var = new s82();
+            try {
+                s82Var.a = jSONObject.getString("appKey");
+                s82Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + dk3.h(0) + "&appVersion=" + so3.D();
+                s82Var.c = jSONObject.getString("wsUrl");
+                s82Var.d = jSONObject.optString("notInHistory", "1");
+                s82Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
+                s82Var.f = jSONObject.optString("slavePreload");
+                s82Var.g = jSONObject.optJSONArray("hosts");
+                return s82Var;
+            } catch (JSONException unused) {
+                if (h) {
+                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
+                }
+                return null;
             }
-            za3.a aVar = new za3.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f017f));
-            aVar.x(context.getString(i));
-            aVar.n(new dr3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f0146, new a(M));
-            aVar.X();
         }
+        return (s82) invokeL.objValue;
+    }
+
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return b(i, this.b);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return b(i, this.c);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
+                Uri parse = Uri.parse(str);
+                String optString = this.g.optString(i);
+                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
+                    return str.replace(parse.getHost(), optString);
+                }
+            }
+            return str;
+        }
+        return (String) invokeIL.objValue;
     }
 }

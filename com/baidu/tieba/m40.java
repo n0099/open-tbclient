@@ -1,191 +1,200 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k40;
-import com.baidu.tieba.m30;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.spec.AlgorithmParameterSpec;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes6.dex */
-public class m40 implements p40 {
+public final class m40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public o40 c;
+    public byte[] d;
+    public int e;
+    public t40 f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947922560, "Lcom/baidu/tieba/m40;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947922560, "Lcom/baidu/tieba/m40;");
+        }
+    }
 
     public m40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 2;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int i2 = 1;
+            if (i != 1) {
+                i2 = 2;
+                if (i != 2) {
+                    throw new NoSuchPaddingException("Padding " + i + " not supported");
+                }
+            }
+            this.b = i2;
+        }
+    }
+
+    public void b(int i, t40 t40Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t40Var) == null) {
+            try {
+                c(i, t40Var, null);
+            } catch (InvalidAlgorithmParameterException e) {
+                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
+                invalidKeyException.initCause(e);
+                throw invalidKeyException;
             }
         }
     }
 
-    @Override // com.baidu.tieba.p40
-    public String a() {
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0088  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(int i, t40 t40Var, AlgorithmParameterSpec algorithmParameterSpec) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, t40Var, algorithmParameterSpec) != null) {
+            return;
+        }
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        throw new InvalidKeyException("Unknown mode: " + i);
+                    }
+                }
+            }
+            z = false;
+            if (t40Var instanceof t40) {
+                throw new InvalidKeyException("only support helios key");
+            }
+            this.a = z ? 1 : 4;
+            this.f = t40Var;
+            int a = l40.a(t40Var.b());
+            this.e = 0;
+            int i2 = this.b;
+            if (i2 == 1) {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                this.c = o40.b(3, a);
+                this.d = new byte[a];
+                return;
+            } else if (i2 != 2) {
+                throw new InvalidKeyException("PEAO not supported");
+            } else {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                o40 b = o40.b(this.a > 2 ? 1 : 2, a);
+                this.c = b;
+                if (z) {
+                    this.d = new byte[b.a()];
+                    return;
+                } else {
+                    this.d = new byte[a];
+                    return;
+                }
+            }
+        }
+        z = true;
+        if (t40Var instanceof t40) {
+        }
+    }
+
+    public final byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n30.b().a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p40
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? m30.f(context.getApplicationContext()).c() : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p40
-    public JSONArray b(Context context) {
-        InterceptResult invokeL;
-        T t;
-        m30.f fVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            k40 k40Var = new k40();
-            m30.f(context).q(k40Var);
-            boolean b = k40Var.b(10000);
-            JSONArray jSONArray = new JSONArray();
-            if (b) {
-                k40.b a = k40Var.a();
-                if (a != null && (t = a.a) != 0 && (fVar = (m30.f) t) != null && fVar.b() != null) {
-                    for (m30.g gVar : fVar.b()) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("aid", gVar.b);
-                            jSONObject.put("pkg", gVar.a);
-                            jSONObject.put("priority", gVar.c);
-                            jSONArray.put(jSONObject);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i = this.e;
+            byte[] bArr = this.d;
+            if (i > bArr.length) {
+                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
+            }
+            try {
+                int i2 = this.a;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 == 4) {
+                                return this.c.c(l40.e(l40.d(bArr, 0, i), this.f));
+                            }
+                            throw new AssertionError("Internal error");
                         }
+                        throw new UnsupportedOperationException("only verify supported");
                     }
+                    throw new UnsupportedOperationException("only verify supported");
                 }
-            } else {
-                k40Var.c();
+                throw new UnsupportedOperationException("only verify supported");
+            } finally {
+                this.e = 0;
             }
-            return jSONArray;
         }
-        return (JSONArray) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p40
-    public String c(Context context) {
-        InterceptResult invokeL;
+    public byte[] e(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            k40 k40Var = new k40();
-            m30.f(context).o(k40Var);
-            if (!k40Var.b(10000)) {
-                k40Var.c();
-                return null;
-            }
-            k40.b a = k40Var.a();
-            if (a == null || TextUtils.isEmpty((CharSequence) a.a)) {
-                return null;
-            }
-            return (String) a.a;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            f(bArr, i, i2);
+            return d();
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tieba.p40
-    public String d(Context context) {
-        InterceptResult invokeL;
+    public final void f(byte[] bArr, int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            k40 k40Var = new k40();
-            m30.f(context).m(k40Var);
-            if (!k40Var.b(10000)) {
-                k40Var.c();
-                return null;
-            }
-            k40.b a = k40Var.a();
-            if (a == null || TextUtils.isEmpty((CharSequence) a.a)) {
-                return null;
-            }
-            return (String) a.a;
+        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p40
-    public String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? m30.f(context.getApplicationContext()).e() : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p40
-    public JSONArray f(Context context) {
-        InterceptResult invokeL;
-        T t;
-        List<f60> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            k40 k40Var = new k40();
-            n30.b().e(context, k40Var);
-            boolean b = k40Var.b(10000);
-            JSONArray jSONArray = new JSONArray();
-            if (b) {
-                k40.b a = k40Var.a();
-                if (a != null && (t = a.a) != 0 && (list = (List) t) != null && list.size() > 0) {
-                    for (f60 f60Var : list) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("pkg", f60Var.a);
-                            jSONObject.put("sigs", Arrays.toString(f60Var.b));
-                            jSONObject.put("vc", f60Var.c);
-                            jSONObject.put("va", f60Var.d);
-                            jSONObject.put("installts", f60Var.e);
-                            jSONObject.put("lstupdatets", f60Var.f);
-                            jSONArray.put(jSONObject);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            } else {
-                k40Var.c();
-            }
-            return jSONArray;
+        int i4 = this.e;
+        int i5 = i4 + i2;
+        byte[] bArr2 = this.d;
+        if (i5 > bArr2.length) {
+            i3 = bArr2.length + 1;
+        } else {
+            System.arraycopy(bArr, i, bArr2, i4, i2);
+            i3 = this.e + i2;
         }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p40
-    public JSONObject g(Context context) {
-        InterceptResult invokeL;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            k40 k40Var = new k40();
-            n30.b().c(context, k40Var);
-            boolean b = k40Var.b(10000);
-            JSONObject jSONObject = new JSONObject();
-            if (b) {
-                k40.b a = k40Var.a();
-                if (a != null && (t = a.a) != 0) {
-                    e60 e60Var = (e60) t;
-                }
-            } else {
-                k40Var.c();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
+        this.e = i3;
     }
 }

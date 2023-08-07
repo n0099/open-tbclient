@@ -1,68 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 /* loaded from: classes6.dex */
-public class h84 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public double clientX;
-    @V8JavascriptField
-    public double clientY;
-    @V8JavascriptField
-    public int identifier;
+public interface h84 {
+    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull zy3 zy3Var);
 
-    public h84() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean b(Context context, String str, String str2, String str3);
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode();
-        }
-        return invokeV.intValue;
-    }
+    boolean c();
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof h84)) {
-                return false;
-            }
-            h84 h84Var = (h84) obj;
-            if (this.identifier != h84Var.identifier || this.clientX != h84Var.clientX || this.clientY != h84Var.clientY) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    String getPackageName();
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
-        }
-        return (String) invokeV.objValue;
-    }
+    void init();
 }

@@ -1,63 +1,43 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.android.ActivityUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.feed.ad.util.InterceptCallback;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.schemedispatch.forbid.InvokeStatistic;
-import com.baidu.searchbox.schemedispatch.forbid.InvokeStatisticKt;
-import com.baidu.searchbox.schemedispatch.forbid.SchemeForbidStatisticUtils;
-import com.baidu.searchbox.schemedispatch.monitor.OpenAppManager;
-import com.baidu.searchbox.schemedispatch.monitor.bean.SchemeCheckInfo;
-import com.baidu.searchbox.schemedispatch.monitor.bean.SchemeCheckInfoKt;
-import com.baidu.searchbox.schemedispatch.monitor.control.OpenAppAllowAlertControl;
-import com.baidu.searchbox.schemedispatch.monitor.control.OpenAppBlockAlertControl;
-import com.baidu.tieba.mx;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.view.HeadlinesAgreeCardView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.vy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class nx {
+public class nx extends dx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<AutoOrientationBtnActDialog> a;
+    public final HeadlinesAgreeCardView h;
+    public q05 i;
+    public int j;
+    public final vy.b k;
+    public zy l;
 
     /* loaded from: classes7.dex */
-    public class a implements AutoOrientationBtnActDialog.OnItemClickListener {
+    public class a implements vy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterceptCallback a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ InvokeStatistic e;
-        public final /* synthetic */ SchemeCheckInfo f;
-        public final /* synthetic */ nx g;
+        public final /* synthetic */ nx a;
 
-        public a(nx nxVar, InterceptCallback interceptCallback, boolean z, Context context, String str, InvokeStatistic invokeStatistic, SchemeCheckInfo schemeCheckInfo) {
+        public a(nx nxVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nxVar, interceptCallback, Boolean.valueOf(z), context, str, invokeStatistic, schemeCheckInfo};
+                Object[] objArr = {nxVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,49 +47,36 @@ public class nx {
                     return;
                 }
             }
-            this.g = nxVar;
-            this.a = interceptCallback;
-            this.b = z;
-            this.c = context;
-            this.d = str;
-            this.e = invokeStatistic;
-            this.f = schemeCheckInfo;
+            this.a = nxVar;
         }
 
-        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.OnItemClickListener
-        public void onItemClick(View view2) {
+        @Override // com.baidu.tieba.vy.b
+        public boolean a(vy.a aVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                InterceptCallback interceptCallback = this.a;
-                if (interceptCallback != null) {
-                    if (this.b) {
-                        interceptCallback.onResult(this.g.e(this.c, this.d, this.e));
-                    } else {
-                        interceptCallback.onResult(true);
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if ((aVar.c() instanceof Integer) && 2 == ((Integer) aVar.c()).intValue()) {
+                    this.a.h.g();
                 }
-                OpenAppAllowAlertControl.addRule(this.f.getScheme());
-                OpenAppBlockAlertControl.removeRule(this.f.getScheme());
-                SchemeForbidStatisticUtils.ubcSchemaDialog(1);
-                this.e.confirmAlert();
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements AutoOrientationBtnActDialog.OnItemClickListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterceptCallback a;
-        public final /* synthetic */ SchemeCheckInfo b;
-        public final /* synthetic */ InvokeStatistic c;
+        public final /* synthetic */ q05 a;
+        public final /* synthetic */ nx b;
 
-        public b(nx nxVar, InterceptCallback interceptCallback, SchemeCheckInfo schemeCheckInfo, InvokeStatistic invokeStatistic) {
+        public b(nx nxVar, q05 q05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nxVar, interceptCallback, schemeCheckInfo, invokeStatistic};
+                Object[] objArr = {nxVar, q05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -119,199 +86,164 @@ public class nx {
                     return;
                 }
             }
-            this.a = interceptCallback;
-            this.b = schemeCheckInfo;
-            this.c = invokeStatistic;
+            this.b = nxVar;
+            this.a = q05Var;
         }
 
-        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.OnItemClickListener
-        public void onItemClick(View view2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                InterceptCallback interceptCallback = this.a;
-                if (interceptCallback != null) {
-                    interceptCallback.onResult(false);
+                if (this.a.getThreadData() != null && this.a.getThreadData().getHasAgree() == 1) {
+                    this.b.h.g();
+                    return;
                 }
-                OpenAppBlockAlertControl.addRule(this.b.getScheme());
-                OpenAppAllowAlertControl.removeRule(this.b.getScheme());
-                SchemeForbidStatisticUtils.ubcSchemaDialog(3);
-                this.c.cancleAlert();
+                this.b.a.p(new vy.a(9));
+                if (this.b.l != null) {
+                    this.b.l.b();
+                }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c {
+    public class c implements zy {
         public static /* synthetic */ Interceptable $ic;
-        public static final nx a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nx a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(258996292, "Lcom/baidu/tieba/nx$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(258996292, "Lcom/baidu/tieba/nx$c;");
+        public c(nx nxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new nx(null);
+            this.a = nxVar;
+        }
+
+        @Override // com.baidu.tieba.zy
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.i != null && this.a.i.getThreadData() != null) {
+                ThreadData threadData = this.a.i.getThreadData();
+                TiebaStatic.log(new StatisticItem("c15023").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", threadData.getTid()).param("fid", threadData.getFid()).param("obj_locate", this.a.j).param("obj_param1", 2));
+            }
+        }
+
+        @Override // com.baidu.tieba.zy
+        public void b() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.i != null && this.a.i.getThreadData() != null) {
+                ThreadData threadData = this.a.i.getThreadData();
+                TiebaStatic.log(new StatisticItem("c15023").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", threadData.getTid()).param("fid", threadData.getFid()).param("obj_locate", this.a.j).param("obj_param1", 1));
+            }
+        }
+
+        @Override // com.baidu.tieba.zy
+        public void onShow() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.i != null && this.a.i.getThreadData() != null) {
+                ThreadData threadData = this.a.i.getThreadData();
+                TiebaStatic.log(new StatisticItem("c15022").param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", threadData.getTid()).param("fid", threadData.getFid()).param("obj_locate", this.a.j));
+            }
         }
     }
 
-    public nx() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nx(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = new a(this);
+        this.l = new c(this);
+        HeadlinesAgreeCardView headlinesAgreeCardView = new HeadlinesAgreeCardView(context);
+        this.h = headlinesAgreeCardView;
+        headlinesAgreeCardView.setOnStatListener(this.l);
+        y(UtilHelper.getDimenPixelSize(R.dimen.tbds36));
     }
 
-    public static nx b() {
-        InterceptResult invokeV;
+    public void F(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c.a;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.j = i;
         }
-        return (nx) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        AutoOrientationBtnActDialog autoOrientationBtnActDialog;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<AutoOrientationBtnActDialog> weakReference = this.a;
-            if (weakReference == null || (autoOrientationBtnActDialog = weakReference.get()) == null || !autoOrientationBtnActDialog.isShowing()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ nx(a aVar) {
-        this();
-    }
-
-    public final boolean c(SchemeCheckInfo schemeCheckInfo) {
+    public final boolean D(q05 q05Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schemeCheckInfo)) == null) {
-            if (schemeCheckInfo.notAlert() || OpenAppAllowAlertControl.checkRule(schemeCheckInfo.getScheme())) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q05Var)) == null) {
+            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getTaskInfoData() != null && q05Var.getThreadData().getTaskInfoData().f() != null && q05Var.getThreadData().getTaskInfoData().j() == 3) {
+                return true;
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean f(Context context, String str, boolean z, boolean z2, InvokeStatistic invokeStatistic) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qx
+    /* renamed from: E */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), invokeStatistic})) == null) {
-            if (TextUtils.isEmpty(str) || context == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
+            this.i = q05Var;
+            if (D(q05Var)) {
+                this.h.setVisibility(0);
+                this.h.onBindDataToView(q05Var);
+                this.h.setItemBtnClickListener(new b(this, q05Var));
+                return;
             }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                return false;
-            }
-            ResolveInfo next = queryIntentActivities.iterator().next();
-            if (next != null) {
-                String str2 = next.activityInfo.name;
-                Intent intent2 = new Intent("android.intent.action.MAIN");
-                intent2.addCategory("android.intent.category.LAUNCHER");
-                intent2.setComponent(new ComponentName(str, str2));
-                intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                try {
-                    boolean startActivitySafely = ActivityUtils.startActivitySafely(context, intent2, z, z2);
-                    if (startActivitySafely) {
-                        invokeStatistic.invokeSuc();
-                    } else {
-                        invokeStatistic.setSource("other").invokeFail();
-                    }
-                    return startActivitySafely;
-                } catch (ActivityNotFoundException unused) {
-                    invokeStatistic.setSource("other").invokeFail();
-                    return false;
-                }
-            }
-            invokeStatistic.setSource(InvokeStatisticKt.SCHEME_INVOKE_SOURCE_NOT_INSTALL).invokeFail();
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final boolean e(Context context, String str, InvokeStatistic invokeStatistic) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, invokeStatistic)) == null) {
-            return f(context, str, false, true, invokeStatistic);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateResource"})
-    public void g(SchemeCheckInfo schemeCheckInfo, String str, boolean z, InterceptCallback interceptCallback, boolean z2, InvokeStatistic invokeStatistic) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{schemeCheckInfo, str, Boolean.valueOf(z), interceptCallback, Boolean.valueOf(z2), invokeStatistic}) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            invokeStatistic.setValue(true);
-            if (z2 && c(schemeCheckInfo)) {
-                if (OpenAppBlockAlertControl.checkRule(schemeCheckInfo.getScheme())) {
-                    interceptCallback.onResult(false);
-                    return;
-                }
-                SchemeForbidStatisticUtils.ubcShowDialog();
-                if (d()) {
-                    return;
-                }
-                invokeStatistic.setValue(false);
-                if (interceptCallback != null && z) {
-                    invokeStatistic.setPage("package");
-                }
-                mx.c cVar = new mx.c();
-                cVar.g(R.string.third_party_visit_dialog_title);
-                cVar.e(String.format(appContext.getResources().getString(R.string.third_party_visit_dialog_content), OpenAppManager.getSchemeName(schemeCheckInfo)));
-                cVar.f(appContext.getResources().getDimensionPixelSize(R.dimen.third_party_visit_dialog_content_size));
-                cVar.setButton(new AutoOrientationBtnActDialog.BtnItem(appContext.getText(R.string.third_party_visit_dialog_cancel), R.color.obfuscated_res_0x7f0604a1, new b(this, interceptCallback, schemeCheckInfo, invokeStatistic))).setButton(new AutoOrientationBtnActDialog.BtnItem(appContext.getText(R.string.third_party_visit_dialog), R.color.obfuscated_res_0x7f0604a1, new a(this, interceptCallback, z, appContext, str, invokeStatistic, schemeCheckInfo)));
-                AutoOrientationBtnActDialog show = cVar.show();
-                invokeStatistic.showAlert();
-                this.a = new WeakReference<>(show);
-            } else if (interceptCallback != null) {
-                if (z) {
-                    invokeStatistic.setPage("package");
-                    interceptCallback.onResult(e(appContext, str, invokeStatistic));
-                    return;
-                }
-                interceptCallback.onResult(true);
-            }
+            this.h.setVisibility(8);
         }
     }
 
-    @SuppressLint({"PrivateResource"})
-    public void h(String str, String str2, boolean z, InterceptCallback interceptCallback, boolean z2, InvokeStatistic invokeStatistic) {
+    @Override // com.baidu.tieba.ww
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), interceptCallback, Boolean.valueOf(z2), invokeStatistic}) == null) {
-            SchemeCheckInfo schemeInGlobalWhiteList = OpenAppManager.getSchemeInGlobalWhiteList(AppRuntime.getAppContext(), "", str, "", null, true);
-            if (schemeInGlobalWhiteList == null) {
-                schemeInGlobalWhiteList = SchemeCheckInfoKt.defaultSchemeCheckInfo(str);
-            }
-            g(schemeInGlobalWhiteList, str2, z, interceptCallback, z2, invokeStatistic);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ww
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.l();
+            this.a.n(10, this.k);
+        }
+    }
+
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
+            this.h.i();
         }
     }
 }

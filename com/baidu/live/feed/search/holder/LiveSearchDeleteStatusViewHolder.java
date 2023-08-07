@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.he0;
+import com.baidu.tieba.fd0;
 /* loaded from: classes3.dex */
 public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     public View a;
@@ -18,21 +18,21 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchDeleteStatusViewHolder(View view2) {
         super(view2);
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091593);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090868);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091592);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0915cc);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0915a6);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090877);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915a5);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0915df);
     }
 
     public void b(int i) {
-        this.c.setTextColor(he0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        String r = he0.f().r();
+        this.c.setTextColor(fd0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        String r = fd0.f().r();
         if (r == "day") {
-            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f3e);
-            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f2c);
+            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f43);
+            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f31);
         } else if (r == "night") {
-            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f48);
-            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f2d);
+            this.d.setImageResource(R.drawable.obfuscated_res_0x7f080f4d);
+            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f32);
         }
     }
 }

@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.searchbox.player.model.YYOption;
@@ -315,7 +316,7 @@ public class a {
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 2);
                 if (com.baidu.sofire.k.b.h(context)) {
-                    service = PendingIntent.getService(context, 1001, intent, 201326592);
+                    service = PendingIntent.getService(context, 1001, intent, BDImageView.DEFAULT_BORDER_COLOR);
                 } else {
                     service = PendingIntent.getService(context, 1001, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
                 }
@@ -528,7 +529,7 @@ public class a {
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 6);
                 if (com.baidu.sofire.k.b.h(context)) {
-                    service = PendingIntent.getService(context, 1000, intent, 201326592);
+                    service = PendingIntent.getService(context, 1000, intent, BDImageView.DEFAULT_BORDER_COLOR);
                 } else {
                     service = PendingIntent.getService(context, 1000, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
                 }

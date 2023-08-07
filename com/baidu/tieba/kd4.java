@@ -1,242 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
-import com.baidu.tieba.jd4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes6.dex */
-public class kd4 extends EventTargetImpl {
+public class kd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public fj2 a;
-    public d64 b;
-    public String c;
 
-    /* loaded from: classes6.dex */
-    public class a implements jd4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kd4 a;
-
-        public a(kd4 kd4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kd4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kd4Var;
-        }
-
-        @Override // com.baidu.tieba.jd4.a
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
-                return;
-            }
-            this.a.C(false);
-            pc4.j(this.a.c, i, "");
-        }
-
-        @Override // com.baidu.tieba.jd4.a
-        public void a(int i, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || !this.a.hasEventListener("progressupdate")) {
-                return;
-            }
-            ld4 ld4Var = new ld4();
-            ld4Var.progress = i;
-            ld4Var.totalBytesWritten = j;
-            ld4Var.totalBytesExpectedToWrite = j2;
-            JSEvent jSEvent = new JSEvent("progressupdate");
-            jSEvent.data = ld4Var;
-            if (kd4.d) {
-                Log.i("LoadSubpackageTask", "progress :" + i + "totalBytesWritten :" + j + "totalBytesExpectedToWrite :" + j2);
-            }
-            this.a.dispatchEvent(jSEvent);
-        }
-
-        @Override // com.baidu.tieba.jd4.a
-        public void success() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                kd4 kd4Var = this.a;
-                this.a.C(kd4Var.D(kd4Var.c));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ kd4 b;
-
-        public b(kd4 kd4Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kd4Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kd4Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a) {
-                    if (this.b.b != null) {
-                        this.b.b.c();
-                        if (kd4.d) {
-                            Log.i("LoadSubpackageTask", "success call");
-                        }
-                    }
-                } else if (this.b.b != null) {
-                    this.b.b.a();
-                    if (kd4.d) {
-                        Log.i("LoadSubpackageTask", "fail call");
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947909230, "Lcom/baidu/tieba/kd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947909230, "Lcom/baidu/tieba/kd4;");
-                return;
-            }
-        }
-        d = fs1.a;
-    }
-
-    public final void G() {
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = null;
-            this.c = null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return "number";
+                case 4:
+                case 9:
+                case 10:
+                default:
+                    return "object";
+                case 6:
+                    return "array object";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function object";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSTypeMismatchException)) == null) {
+            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(ii2 ii2Var, JSTypeMismatchException jSTypeMismatchException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ii2Var, jSTypeMismatchException) == null) {
+            ii2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType)));
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd4(fj2 fj2Var) {
-        super(fj2Var);
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fj2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return String.format("%s: %s", str, str2);
         }
-        this.a = fj2Var;
+        return (String) invokeLL.objValue;
     }
 
-    public void E(JsObject jsObject) {
+    public static void call(f32 f32Var, boolean z, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            G();
-            F(jsObject);
-            if (TextUtils.isEmpty(this.c)) {
-                if (d) {
-                    Log.i("LoadSubpackageTask", IActiveUploadListener.PARAM_ERR_MSG);
-                }
-                pc4.j(this.c, 2111, "");
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{f32Var, Boolean.valueOf(z), obj}) == null) {
+            g54 e = g54.e(f32Var);
+            if (z) {
+                e.d(obj);
+            } else {
+                e.b(obj);
             }
-            jd4.a(this.c, new a(this));
         }
-    }
-
-    public final void F(JsObject jsObject) {
-        c42 F;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jsObject) != null) || jsObject == null || (F = c42.F(jsObject)) == null) {
-            return;
-        }
-        this.b = d64.e(F);
-        try {
-            this.c = F.g("name");
-        } catch (JSTypeMismatchException e) {
-            if (d) {
-                e.printStackTrace();
-            }
-            he4.d(this.a, e);
-            G();
-        }
-    }
-
-    public final void C(boolean z) {
-        fj2 fj2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (fj2Var = this.a) != null) {
-            fj2Var.runOnJSThread(new b(this, z));
-        }
-    }
-
-    public final boolean D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == null) {
-                return false;
-            }
-            String str2 = ix2.T().z() + id4.b().c(str, 2);
-            String c = id4.b().c(str, 3);
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(c)) {
-                return false;
-            }
-            this.a.Y(str2, c);
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

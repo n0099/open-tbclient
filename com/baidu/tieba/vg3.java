@@ -1,55 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.b43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import org.json.JSONArray;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public final String b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public String g;
-    public List<String> h;
-    public final List<String> i;
-    public int j;
-    public String k;
-    public String l;
-    public String m;
-    public a n;
-    public JSONObject o;
-    public String p;
-    public String q;
-    public String r;
-    public List<vg3> s;
+    public int a;
+    public float b;
+    public Set<String> c;
+    public List<Long> d;
+    public List<Integer> e;
+    public List<Float> f;
+    public List<Float> g;
+    public List<Float> h;
+    public List<Float> i;
+    public a j;
 
     /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public JSONArray f;
+        public volatile long a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+        public float f;
+        public int g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,14 +59,176 @@ public class vg3 {
                 }
             }
         }
+
+        public static long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return b43.a.a().a;
+            }
+            return invokeV.longValue;
+        }
+
+        public static float g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                PMSAppInfo u = vi4.i().u(xa3.K().getAppId());
+                if (u == null) {
+                    return 0.0f;
+                }
+                return ((float) u.pkgSize) / 1024.0f;
+            }
+            return invokeV.floatValue;
+        }
+
+        public static float a(List<Float> list, List<Long> list2, long j, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, list2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+                float f = 0.0f;
+                if (j == 0 || list == null || list.isEmpty() || list2 == null || list2.isEmpty() || list.size() != list2.size()) {
+                    return 0.0f;
+                }
+                y72.b("SwanAppStabilityData", "#calcFirstAndMaxMemDiff memList=" + list + " timeList=" + list2 + " fmp=" + j + " isBefore=" + z);
+                float f2 = Float.MIN_VALUE;
+                Float f3 = list.get(0);
+                if (f3 != null) {
+                    f = f3.floatValue();
+                }
+                for (int i = 0; i < list.size(); i++) {
+                    Long l = list2.get(i);
+                    Float f4 = list.get(i);
+                    if (l != null && f4 != null) {
+                        if (z) {
+                            if (l.longValue() <= j) {
+                                f2 = Math.max(f2, f4.floatValue());
+                            }
+                        } else if (l.longValue() >= j) {
+                            f2 = Math.max(f2, f4.floatValue());
+                        }
+                    }
+                }
+                return f2 - f;
+            }
+            return invokeCommon.floatValue;
+        }
+
+        public static float b(List<Integer> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+                int i = 0;
+                float f = 0.0f;
+                for (Integer num : list) {
+                    if (num != null && num.intValue() > 0) {
+                        i++;
+                        f += num.intValue();
+                    }
+                }
+                if (i == 0) {
+                    return 0.0f;
+                }
+                return f / i;
+            }
+            return invokeL.floatValue;
+        }
+
+        public static float e(List<Float> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+                float f = 0.0f;
+                if (list == null || list.isEmpty()) {
+                    return 0.0f;
+                }
+                int i = 0;
+                for (Float f2 : list) {
+                    if (f2 != null) {
+                        i++;
+                        f += f2.floatValue();
+                    }
+                }
+                if (i == 0) {
+                    return -1.0f;
+                }
+                return f / i;
+            }
+            return invokeL.floatValue;
+        }
+
+        public static int h(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
+                int i = 0;
+                for (ob2 ob2Var : pb2.d().c()) {
+                    if (ob2Var != null && ob2Var.e() < j) {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return invokeJ.intValue;
+        }
+
+        public static long d() {
+            InterceptResult invokeV;
+            ga2 o;
+            ex1 q3;
+            px1 M;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                ha2 U = lw2.T().U();
+                if (U == null || (o = U.o()) == null || (q3 = o.q3()) == null) {
+                    return 0L;
+                }
+                hx1 j = q3.j();
+                if (j == null) {
+                    M = q3.M();
+                } else {
+                    M = j.M();
+                }
+                if (M == null) {
+                    return 0L;
+                }
+                return M.c;
+            }
+            return invokeV.longValue;
+        }
+
+        public static float f(List<Float> list, List<Long> list2, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, list2, Long.valueOf(j)})) == null) {
+                return a(list, list2, j, true);
+            }
+            return invokeCommon.floatValue;
+        }
+
+        public static float i(List<Float> list, List<Long> list2, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{list, list2, Long.valueOf(j)})) == null) {
+                return a(list, list2, j, false);
+            }
+            return invokeCommon.floatValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "VerificationData{mFmp=" + this.a + ", mMainPkgSize=" + this.b + ", mIdleCpuAvg=" + this.c + ", mFpsAvg=" + this.d + ", mLaunchDiffMem=" + this.e + ", mRunningDiffMem=" + this.f + ", mLaunchRequestCount=" + this.g + '}';
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public vg3(String str) {
+    public vg3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,373 +238,108 @@ public class vg3 {
                 return;
             }
         }
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = -1;
-        this.k = "";
-        this.l = "";
-        this.m = "";
-        this.b = str;
+        this.a = 500;
+        this.b = 0.0f;
+        this.c = new ConcurrentSkipListSet();
+        this.d = new CopyOnWriteArrayList();
+        this.e = new CopyOnWriteArrayList();
+        this.f = new CopyOnWriteArrayList();
+        this.g = new CopyOnWriteArrayList();
+        this.h = new CopyOnWriteArrayList();
+        this.i = new CopyOnWriteArrayList();
+        this.j = new a();
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public void a(List<Float> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (kp3.f("3.320.0")) {
-                return str;
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1456866260:
-                    if (str.equals("scope.phoneContact")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -653473286:
-                    if (str.equals("scope.userLocation")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -21617665:
-                    if (str.equals("scope.camera")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 277279100:
-                    if (str.equals("scope.mobile")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 411225387:
-                    if (str.equals("scope.record")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 583039347:
-                    if (str.equals("scope.userInfo")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 671518104:
-                    if (str.equals("scope.calendar")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case 986629481:
-                    if (str.equals("scope.writePhotosAlbum")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1303164176:
-                    if (str.equals("scope.faceVerify")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 1326852849:
-                    if (str.equals("scope.realNameInfo")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 1555675269:
-                    if (str.equals("scope.invoiceTitle")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 1927763546:
-                    if (str.equals("scope.address")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return "snsapi_userinfo";
-                case 1:
-                    return "mobile";
-                case 2:
-                    return "mapp_location";
-                case 3:
-                    return "mapp_images";
-                case 4:
-                    return "mapp_choose_address";
-                case 5:
-                    return "mapp_choose_invoice";
-                case 6:
-                    return PermissionProxy.SCOPE_ID_CAMERA;
-                case 7:
-                    return PermissionProxy.SCOPE_ID_RECORD;
-                case '\b':
-                    return "mapp_i_face_verify";
-                case '\t':
-                    return "ppcert";
-                case '\n':
-                    return "scope_calendar";
-                case 11:
-                    return "mapp_i_read_contacts";
-                default:
-                    return str;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            a aVar = this.j;
+            Pair<Long, Long> b = b(10000);
+            long longValue = ((Long) b.first).longValue();
+            aVar.a = ((Long) b.second).longValue();
+            aVar.c = a.e(list);
+            aVar.b = a.g();
+            aVar.e = a.f(this.i, this.d, longValue);
+            aVar.f = a.i(this.i, this.d, longValue);
+            aVar.g = a.h(longValue);
+            aVar.d = a.b(this.e);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public final Pair<Long, Long> b(int i) {
+        InterceptResult invokeI;
+        long c;
+        long d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (kp3.f("3.320.0")) {
-                return str;
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1994404663:
-                    if (str.equals("scope_calendar")) {
-                        c = '\n';
-                        break;
-                    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            long currentTimeMillis = i + System.currentTimeMillis();
+            do {
+                c = a.c();
+                d = a.d();
+                if (c > 0 && d > 0) {
                     break;
-                case -1785599184:
-                    if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case -1603097981:
-                    if (str.equals("mapp_images")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1352756132:
-                    if (str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case -1074510320:
-                    if (str.equals("mapp_choose_invoice")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1068855134:
-                    if (str.equals("mobile")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -982018012:
-                    if (str.equals("ppcert")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case -977063690:
-                    if (str.equals("snsapi_userinfo")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -218238720:
-                    if (str.equals("mapp_location")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 112565975:
-                    if (str.equals("mapp_choose_address")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 862108635:
-                    if (str.equals("mapp_i_read_contacts")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 1746078554:
-                    if (str.equals("mapp_i_face_verify")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return "scope.userInfo";
-                case 1:
-                    return "scope.mobile";
-                case 2:
-                    return "scope.userLocation";
-                case 3:
-                    return "scope.writePhotosAlbum";
-                case 4:
-                    return "scope.address";
-                case 5:
-                    return "scope.invoiceTitle";
-                case 6:
-                    return "scope.camera";
-                case 7:
-                    return "scope.record";
-                case '\b':
-                    return "scope.faceVerify";
-                case '\t':
-                    return "scope.realNameInfo";
-                case '\n':
-                    return "scope.calendar";
-                case 11:
-                    return "scope.phoneContact";
-                default:
-                    return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static vg3 f(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, jSONObject)) == null) {
-            vg3 vg3Var = new vg3(str);
-            vg3Var.a = jSONObject;
-            vg3Var.c = jSONObject.optBoolean("permit", false);
-            vg3Var.d = jSONObject.optBoolean("forbidden", true);
-            vg3Var.e = jSONObject.optString("grade");
-            vg3Var.k = jSONObject.optString("type", "");
-            vg3Var.f = jSONObject.optString("name", "");
-            vg3Var.g = jSONObject.optString("short_name", "");
-            jSONObject.optString("description", "");
-            vg3Var.j = jSONObject.optInt("tip_status", -1);
-            vg3Var.l = jSONObject.optString("explain", "");
-            vg3Var.m = jSONObject.optString("sub_explain", "");
-            JSONArray optJSONArray = jSONObject.optJSONArray("ext");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    vg3Var.i.add(optJSONArray.optString(i));
                 }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("rule");
-            if (optJSONArray2 != null) {
-                int length2 = optJSONArray2.length();
-                for (int i2 = 0; i2 < length2; i2++) {
-                    vg3Var.h.add(optJSONArray2.optString(i2));
+                try {
+                    TimeUnit.MILLISECONDS.sleep(100L);
+                } catch (InterruptedException e) {
+                    y72.l("SwanAppStabilityData", "sleep 中断", e);
                 }
-            }
-            vg3Var.o = jSONObject.optJSONObject("other");
-            vg3Var.p = jSONObject.optString("plugin_app_name");
-            vg3Var.q = jSONObject.optString("plugin_icon_url");
-            if (!jSONObject.has("forbidden")) {
-                v82.k("SwanAppUpdateManager", "scope:" + str + WebGLImageLoader.DATA_URL + jSONObject);
-            }
-            return vg3Var;
+            } while (currentTimeMillis > System.currentTimeMillis());
+            y72.i("SwanAppStabilityData", "fmpTimestamp=" + d + " fmp=" + c);
+            return Pair.create(Long.valueOf(d), Long.valueOf(c));
         }
-        return (vg3) invokeLL.objValue;
+        return (Pair) invokeI.objValue;
     }
 
-    public static vg3 g(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("id", "");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            return f(optString, jSONObject);
-        }
-        return (vg3) invokeL.objValue;
-    }
-
-    public void i(List<vg3> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.s = list;
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.j > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.j != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
+    @NonNull
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "1".equals(this.k);
+            return String.valueOf(JSONObject.wrap(d()));
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public Map<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TreeMap treeMap = new TreeMap();
+            try {
+                treeMap.put("obtainInterval", String.valueOf(this.a));
+                treeMap.put("totalMem", String.valueOf(this.b));
+                treeMap.put("prelinkUrlList", JSONObject.wrap(this.c).toString());
+                treeMap.put("timestampList", JSONObject.wrap(this.d).toString());
+                treeMap.put("fpsList", JSONObject.wrap(this.e).toString());
+                treeMap.put("cpuList", JSONObject.wrap(this.f).toString());
+                treeMap.put("deviceMemList", JSONObject.wrap(this.g).toString());
+                treeMap.put("hostMemList", JSONObject.wrap(this.h).toString());
+                treeMap.put("mnpMemList", JSONObject.wrap(this.i).toString());
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("fmp", String.valueOf(this.j.a));
+                jSONObject.put("mainPkgSize", String.valueOf(this.j.b));
+                jSONObject.put("idleCpuAvg", String.valueOf(this.j.c));
+                jSONObject.put("fpsAvg", String.valueOf(this.j.d));
+                jSONObject.put("launchMemDiff", String.valueOf(this.j.e));
+                jSONObject.put("runningMemDiff", String.valueOf(this.j.f));
+                jSONObject.put("launchRequestCount", String.valueOf(this.j.g));
+                treeMap.put("verificationData", jSONObject.toString());
+            } catch (Exception e) {
+                y72.l("SwanAppStabilityData", "#toMap 出错", e);
+            }
+            return treeMap;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.b, Integer.valueOf(this.j));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "SwanAppStabilityData{mObtainInterval=" + this.a + ", mTotalMem=" + this.b + ", mPrelinkUrlList=" + this.c + ", mTimestampList=" + this.d + ", mFpsList=" + this.e + ", mCpuList=" + this.f + ", mDeviceMemList=" + this.g + ", mHostMemList=" + this.h + ", mMnpMemList=" + this.i + ", mVerificationData=" + this.j + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public void h() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.o) != null && jSONObject.keys() != null && this.o.keys().hasNext()) {
-            a aVar = new a();
-            this.n = aVar;
-            aVar.a = this.o.optString("detail_text");
-            this.n.c = this.o.optString("detail_url");
-            this.n.b = this.o.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            this.n.d = this.o.optString("keyword");
-            this.n.e = this.o.optString("key_color");
-            JSONObject optJSONObject = this.o.optJSONObject("developer_agreements");
-            if (optJSONObject != null) {
-                this.n.f = optJSONObject.optJSONArray("details");
-            }
-        }
     }
 }

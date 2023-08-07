@@ -1,106 +1,467 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.media.MediaPlayer;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
+import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
+import com.baidu.tieba.ana;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.tieba.vma;
+import com.baidu.tieba.wla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.TimeZone;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class bna extends BdAsyncTask<Void, Void, List<cna>> {
+public class bna implements ana.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Context b;
-    public int c;
-    public SimpleDateFormat d;
-    public SimpleDateFormat e;
+    public MediaPlayer a;
+    public int b;
+    public String c;
+    public String d;
+    public boolean e;
+    public Context f;
+    public boolean g;
+    public z69 h;
+
+    @Override // com.baidu.tieba.ana.b
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    public void t(SelectMusicModel selectMusicModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, selectMusicModel) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(List<cna> list);
+    public class a implements wla.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vma.a a;
+        public final /* synthetic */ MusicData b;
+        public final /* synthetic */ bna c;
+
+        public a(bna bnaVar, vma.a aVar, MusicData musicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnaVar, aVar, musicData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = bnaVar;
+            this.a = aVar;
+            this.b = musicData;
+        }
+
+        @Override // com.baidu.tieba.wla.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.d != this.c.b) {
+                return;
+            }
+            this.c.g = false;
+            this.a.b.setVisibility(4);
+            this.a.a.setDrawBorder(true);
+            this.a.a.invalidate();
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
+            if (this.c.h != null) {
+                this.c.h.b(3, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.wla.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.d == this.c.b) {
+                this.c.g = false;
+                this.a.a.setDrawBorder(true);
+                this.a.a.invalidate();
+                this.a.b.setVisibility(4);
+            }
+        }
+
+        @Override // com.baidu.tieba.wla.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.d == this.c.b) {
+                this.c.g = false;
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                this.c.p(str, this.b);
+                this.a.b.setVisibility(4);
+                this.a.a.setDrawBorder(true);
+                this.a.a.invalidate();
+            }
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947652116, "Lcom/baidu/tieba/bna;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class b implements wla.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MusicData a;
+        public final /* synthetic */ bna b;
+
+        @Override // com.baidu.tieba.wla.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public b(bna bnaVar, MusicData musicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnaVar, musicData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bnaVar;
+            this.a = musicData;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947652116, "Lcom/baidu/tieba/bna;");
+
+        @Override // com.baidu.tieba.wla.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
+                if (this.b.h != null) {
+                    this.b.h.b(3, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.wla.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                this.b.p(str, this.a);
+            }
         }
     }
 
-    public bna(Context context) {
+    /* loaded from: classes5.dex */
+    public class c implements MediaPlayer.OnPreparedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bna a;
+
+        public c(bna bnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bnaVar;
+        }
+
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
+                this.a.a.setLooping(true);
+                this.a.a.start();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements MediaPlayer.OnErrorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bna a;
+
+        public d(bna bnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bnaVar;
+        }
+
+        @Override // android.media.MediaPlayer.OnErrorListener
+        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
+                if (this.a.h != null) {
+                    z69 z69Var = this.a.h;
+                    z69Var.b(4, "what-->" + i + "  extra-->" + i2);
+                    return false;
+                }
+                return false;
+            }
+            return invokeLII.booleanValue;
+        }
+    }
+
+    public bna(Activity activity) {
+        d79 d79Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07039a);
-        this.e = new SimpleDateFormat("mm:ss");
-        this.d = new SimpleDateFormat("HH:mm:ss");
-        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.e.setTimeZone(timeZone);
-        this.d.setTimeZone(timeZone);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public List<cna> doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<cna> a2 = dna.a(this.b);
-            dna.d("/sdcard", a2, false);
-            dna.d("/sdcard/DCIM", a2, true);
-            dna.e(a2);
-            return a2;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, d79.class);
+        if (runTask != null) {
+            d79Var = (d79) runTask.getData();
+        } else {
+            d79Var = null;
         }
-        return (List) invokeL.objValue;
+        if (d79Var != null) {
+            this.h = d79Var.get();
+        }
+        this.f = activity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(List<cna> list) {
+    public void g(EditVideoActivityConfig editVideoActivityConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            super.onPostExecute(list);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(list);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editVideoActivityConfig) == null) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
+            editVideoActivityConfig.addMusicInfo(this.d, this.c, this.b);
+        }
+    }
+
+    public void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.e = false;
+            this.d = str;
+            this.c = str2;
+            p(str, null);
+        }
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e = true;
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                this.a.pause();
             }
         }
     }
 
-    public void d(a aVar) {
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.e = false;
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null) {
+                mediaPlayer.start();
+                this.a.seekTo(0);
+            }
+        }
+    }
+
+    public void o() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (mediaPlayer = this.a) != null && mediaPlayer.isPlaying()) {
+            this.a.pause();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null) {
+                if (mediaPlayer.isPlaying()) {
+                    this.a.stop();
+                }
+                this.a.release();
+                this.a = null;
+            }
+            this.d = null;
+            this.c = null;
+        }
+    }
+
+    public void k(MusicData musicData, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, musicData, obj) != null) || musicData == null) {
+            return;
+        }
+        int i = musicData.editMusicType;
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CloudMusicActivityConfig(this.f, 25032)));
+                    return;
+                }
+                return;
+            }
+            r();
+            return;
+        }
+        q(obj, musicData);
+    }
+
+    public final void s(String str, MusicData musicData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, musicData) == null) {
+            this.d = null;
+            r();
+            if (str.startsWith("/")) {
+                File file = new File(str);
+                if (file.exists()) {
+                    file.delete();
+                }
+                wla.g().d();
+            }
+            q(null, musicData);
+        }
+    }
+
+    public void n(int i) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (mediaPlayer = this.a) != null && mediaPlayer.getDuration() > 0) {
+            if (i < 0) {
+                i = 0;
+            }
+            if (i > this.a.getDuration()) {
+                i %= this.a.getDuration();
+            }
+            this.a.seekTo(i);
+            this.a.start();
+        }
+    }
+
+    public final void p(String str, MusicData musicData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048586, this, str, musicData) != null) || this.e) {
+            return;
+        }
+        if (this.a == null) {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            this.a = mediaPlayer;
+            mediaPlayer.setAudioStreamType(3);
+        }
+        try {
+            this.d = str;
+            this.a.reset();
+            this.a.setDataSource(str);
+            this.a.prepare();
+            this.a.setOnPreparedListener(new c(this));
+            this.a.setOnErrorListener(new d(this));
+        } catch (Exception e) {
+            e.printStackTrace();
+            s(str, musicData);
+        }
+    }
+
+    public final void q(Object obj, MusicData musicData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, obj, musicData) == null) && musicData != null && !TextUtils.isEmpty(musicData.resource)) {
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                this.a.stop();
+            }
+            this.g = false;
+            this.c = musicData.id;
+            String f = wla.g().f(musicData.resource);
+            if (obj != null && (obj instanceof vma.a)) {
+                this.b = ((vma.a) obj).d;
+            }
+            if (TextUtils.isEmpty(f)) {
+                if (obj instanceof vma.a) {
+                    vma.a aVar = (vma.a) obj;
+                    aVar.b.setVisibility(0);
+                    aVar.a.setDrawBorder(false);
+                    aVar.a.invalidate();
+                    this.g = true;
+                    wla.g().e(musicData.id, musicData.resource, new a(this, aVar, musicData));
+                    return;
+                }
+                wla.g().e(musicData.id, musicData.resource, new b(this, musicData));
+                return;
+            }
+            p(f, musicData);
         }
     }
 }

@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class h31 implements ky0 {
+public final /* synthetic */ class h31 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract g31 a();
-
-    public abstract i31 b();
-
-    public abstract j31 c();
+    static {
+        int[] iArr = new int[AdDownloadStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+    }
 }

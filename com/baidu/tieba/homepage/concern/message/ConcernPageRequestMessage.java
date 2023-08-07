@@ -6,13 +6,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.b08;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.i0a;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.lx7;
+import com.baidu.tieba.wu5;
+import com.baidu.tieba.zy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class ConcernPageRequestMessage extends NetMessage {
     public static final int LOAD_TYPE_LOAD_MORE = 2;
     public static final int LOAD_TYPE_UPDATE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix5 adInfo;
+    public wu5 adInfo;
     public int isNewFeed;
     public int loadType;
     public String pageTag;
@@ -61,18 +61,18 @@ public class ConcernPageRequestMessage extends NetMessage {
             if (isEmpty) {
                 e = 0;
             } else {
-                e = i0a.f().e("CONCERN");
+                e = zy9.f().e("CONCERN");
             }
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             if (isEmpty) {
                 d = "";
             } else {
-                d = i0a.f().d("CONCERN");
+                d = zy9.f().d("CONCERN");
             }
-            ix5 ix5Var = this.adInfo;
-            if (ix5Var != null && !isEmpty) {
-                str = ix5Var.b;
+            wu5 wu5Var = this.adInfo;
+            if (wu5Var != null && !isEmpty) {
+                str = wu5Var.b;
             }
             AdExtParam.a b = AdExtParam.a.b();
             b.g(e);
@@ -93,23 +93,23 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (b08.I()) {
-                    if (!b08.B()) {
-                        builder.page_tag = b08.w();
+                if (lx7.I()) {
+                    if (!lx7.B()) {
+                        builder.page_tag = lx7.w();
                     } else {
-                        builder.page_tag = b08.v();
+                        builder.page_tag = lx7.v();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(da5.p().r(da5.t("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(SharedPrefHelper.getInstance().getLong(SharedPrefHelper.getSharedPrefKeyWithAccount("concern_data_res_request_time"), 0L));
                 int i2 = 1;
                 if (UbsABTestHelper.isConcernForumCardShow()) {
-                    i = da5.p().q("key_home_concern_all_status", 0);
+                    i = SharedPrefHelper.getInstance().getInt("key_home_concern_all_status", 0);
                 } else {
                     i = 1;
                 }
                 builder.follow_type = Integer.valueOf(i);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    ky5.a(builder, true);
+                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
                 }
                 if (this.loadType > 0) {
                     builder.load_type = Integer.valueOf(this.loadType);
@@ -149,10 +149,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         return (String) invokeV.objValue;
     }
 
-    public void setAdInfo(ix5 ix5Var) {
+    public void setAdInfo(wu5 wu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ix5Var) == null) {
-            this.adInfo = ix5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wu5Var) == null) {
+            this.adInfo = wu5Var;
         }
     }
 

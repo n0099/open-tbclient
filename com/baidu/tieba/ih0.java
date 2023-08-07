@@ -1,64 +1,63 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class ih0 {
+public class ih0 extends zi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    @Override // com.baidu.tieba.zi0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerDeeplink" : (String) invokeV.objValue;
+    }
+
+    public ih0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String b(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zi0
+    public boolean b(@NonNull Context context, @NonNull dj0 dj0Var, @Nullable Map<String, Object> map, @Nullable hj0 hj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            return c(inputStream, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream != null) {
-                if (TextUtils.isEmpty(str)) {
-                    str = System.getProperty("file.encoding", "utf-8");
-                }
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-                StringWriter stringWriter = new StringWriter();
-                char[] cArr = new char[4096];
-                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
-                    stringWriter.write(cArr, 0, read);
-                }
-                String stringWriter2 = stringWriter.toString();
-                inputStreamReader.close();
-                stringWriter.close();
-                if ("utf-8".equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                    return stringWriter2.substring(1);
-                }
-                return stringWriter2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dj0Var, map, hj0Var)) == null) {
+            super.b(context, dj0Var, map, hj0Var);
+            String str = (String) c31.b(dj0Var.d(), "params");
+            if (TextUtils.isEmpty(str)) {
+                return true;
             }
-            throw new IllegalArgumentException("stream may not be null.");
+            JSONObject c = b31.c(str);
+            String optString = c.optString("packageName");
+            String optString2 = c.optString("deeplinkUrl");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                tk0.b(optString, optString2);
+            }
+            return true;
         }
-        return (String) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

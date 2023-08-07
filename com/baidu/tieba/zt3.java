@@ -1,191 +1,139 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.util.Log;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class zt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public boolean c;
-    public String d;
-    public int e;
-    public String f;
-    public String g;
 
-    public zt3() {
+    public static void a(String str) {
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (ut3.a) {
+                Log.d("BDTLS", "bdtls success");
             }
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.d;
-            int hashCode = str.hashCode();
-            if (hashCode != 2154) {
-                if (hashCode != 2161) {
-                    if (hashCode == 2162 && str.equals("CU")) {
-                        c = 1;
-                    }
-                    c = 65535;
+            ju3 m = au3.l().m();
+            if (m == null) {
+                if (ut3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
+                    return;
+                }
+                return;
+            }
+            try {
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
                 } else {
-                    if (str.equals("CT")) {
-                        c = 0;
-                    }
-                    c = 65535;
+                    i = -1;
                 }
-            } else {
-                if (str.equals("CM")) {
-                    c = 2;
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
                 }
-                c = 65535;
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
+                }
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
+                }
+                if (ut3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
+                }
+                bi3 bi3Var = new bi3();
+                bi3Var.b = str;
+                bi3Var.a("dh_group_id", Integer.valueOf(i));
+                bi3Var.a("dh_secret", Integer.valueOf(i2));
+                bi3Var.a("dh_pub_c", Integer.valueOf(i3));
+                bi3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (ut3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
+                }
+                rh3.d(bi3Var);
+            } catch (Exception e) {
+                if (ut3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                    e.printStackTrace();
+                }
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        this.g = "";
+        }
+    }
+
+    public static void b(ju3 ju3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, ju3Var, bdtls$Alert) == null) {
+            if (ut3.a) {
+                Log.d("BDTLS", "bdtls ubc");
+            }
+            if (ju3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
                     } else {
-                        this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a2);
+                        str = "fatal_error";
                     }
-                } else {
-                    this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a0);
+                    int i4 = -1;
+                    if (ju3Var.d() != null) {
+                        i = ju3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (ju3Var.f() != null) {
+                        i2 = ju3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (ju3Var.e() != null) {
+                        i3 = ju3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (ju3Var.g() != null) {
+                        i4 = ju3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (ut3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    bi3 bi3Var = new bi3();
+                    bi3Var.b = "alert";
+                    bi3Var.e = str;
+                    bi3Var.a("dh_group_id", Integer.valueOf(i));
+                    bi3Var.a("dh_secret", Integer.valueOf(i2));
+                    bi3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    bi3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    bi3Var.a("alert_msg", str2);
+                    if (ut3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    rh3.d(bi3Var);
+                } catch (Exception e) {
+                    if (ut3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
                 }
-            } else {
-                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009e);
+            } else if (ut3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
             }
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.d;
-            int hashCode = str.hashCode();
-            if (hashCode != 2154) {
-                if (hashCode != 2161) {
-                    if (hashCode == 2162 && str.equals("CU")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("CT")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("CM")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        this.f = "https://wap.cmpassport.com/resources/html/contract.html";
-                    }
-                } else {
-                    this.f = "https://ms.zzx9.cn/html/oauth/protocol2.html";
-                }
-            } else {
-                this.f = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
         }
     }
 }

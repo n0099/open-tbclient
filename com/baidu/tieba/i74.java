@@ -1,57 +1,29 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.graphics.Point;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.dm2;
+import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class i74 extends hm2<q74, r74> {
+public final class i74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile i74 e;
+    public static final boolean a;
+    public static k74[] b;
+    public static Point c;
+    public static float d;
+    public static float e;
+    public static boolean f;
+    public static int g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a extends dm2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.dm2.a
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -66,75 +38,247 @@ public class i74 extends hm2<q74, r74> {
                 return;
             }
         }
-        d = fs1.a;
+        a = ir1.a;
+        c = new Point();
+        d = 1.0f;
+        e = 1.0f;
+        f = false;
     }
 
-    public static i74 i() {
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h;
+        }
+        return invokeV.longValue;
+    }
+
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (i74.class) {
-                    if (e == null) {
-                        e = new i74();
-                    }
-                }
-            }
-            return e;
+            return g;
         }
-        return (i74) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i74() {
-        super(new q74(), new r74());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((hn2) objArr[0], (kn2) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.hm2
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return k74.b().getPath();
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.hm2
-    @Nullable
-    public ExtensionCore c() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
-            }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
-            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (d) {
-                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                return extensionCore;
-            }
-            return extensionCore;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return f;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            g = 0;
+        }
+    }
+
+    public static float d(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) {
+            return od4.b(motionEvent.getX(i) * d);
+        }
+        return invokeLI.floatValue;
+    }
+
+    public static float e(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) {
+            return od4.b(motionEvent.getY(i) * e);
+        }
+        return invokeLI.floatValue;
+    }
+
+    public static void l(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            Point point = c;
+            point.x = i;
+            point.y = i2;
+        }
+    }
+
+    public static boolean f(EventTarget eventTarget) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eventTarget)) == null) {
+            if (eventTarget == null) {
+                return false;
+            }
+            return eventTarget.hasEventListener("touchstart", "touchmove", "touchcancel", "touchend");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            f = z;
+        }
+    }
+
+    public static void h(MotionEvent motionEvent, j74 j74Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65544, null, motionEvent, j74Var, z) == null) {
+            try {
+                if (!z) {
+                    int actionIndex = motionEvent.getActionIndex();
+                    j74Var.changedTouches = r1;
+                    k74[] k74VarArr = {new k74()};
+                    j74Var.changedTouches[0].identifier = motionEvent.getPointerId(actionIndex);
+                    j74Var.changedTouches[0].clientX = d(motionEvent, actionIndex);
+                    j74Var.changedTouches[0].clientY = e(motionEvent, actionIndex);
+                    return;
+                }
+                int pointerCount = motionEvent.getPointerCount();
+                if (b == null || b.length != pointerCount) {
+                    b = new k74[pointerCount];
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < pointerCount; i++) {
+                    k74 k74Var = new k74();
+                    k74Var.identifier = motionEvent.getPointerId(i);
+                    k74Var.clientX = d(motionEvent, i);
+                    k74Var.clientY = e(motionEvent, i);
+                    if (!k74Var.equals(b[i])) {
+                        arrayList.add(k74Var);
+                    }
+                    b[i] = k74Var;
+                }
+                if (arrayList.size() != 0) {
+                    k74[] k74VarArr2 = new k74[arrayList.size()];
+                    j74Var.changedTouches = k74VarArr2;
+                    arrayList.toArray(k74VarArr2);
+                }
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
+        if (r8.getActionIndex() != r3) goto L23;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void i(MotionEvent motionEvent, j74 j74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, motionEvent, j74Var) == null) {
+            try {
+                int pointerCount = motionEvent.getPointerCount();
+                ArrayList arrayList = new ArrayList();
+                int i = 0;
+                while (i < pointerCount) {
+                    int actionMasked = motionEvent.getActionMasked();
+                    boolean z = true;
+                    if (actionMasked != 6 && actionMasked != 1 && actionMasked != 3) {
+                        z = false;
+                    }
+                    int pointerId = motionEvent.getPointerId(i);
+                    k74 k74Var = new k74();
+                    k74Var.identifier = pointerId;
+                    k74Var.clientX = d(motionEvent, i);
+                    k74Var.clientY = e(motionEvent, i);
+                    arrayList.add(k74Var);
+                    i++;
+                }
+                j74Var.touches = new k74[arrayList.size()];
+                if (!arrayList.isEmpty()) {
+                    arrayList.toArray(j74Var.touches);
+                }
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static JSEvent j(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, motionEvent)) == null) {
+            j74 j74Var = new j74();
+            int actionMasked = motionEvent.getActionMasked();
+            String str = "touchend";
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                        if (actionMasked != 3) {
+                            if (actionMasked != 5) {
+                                if (actionMasked != 6) {
+                                    str = "toucherror";
+                                } else {
+                                    h(motionEvent, j74Var, false);
+                                }
+                            } else {
+                                h(motionEvent, j74Var, false);
+                            }
+                        } else {
+                            h(motionEvent, j74Var, false);
+                            str = "touchcancel";
+                        }
+                    } else {
+                        h(motionEvent, j74Var, true);
+                        str = "touchmove";
+                    }
+                } else {
+                    h(motionEvent, j74Var, false);
+                }
+                j74Var.timeStamp = motionEvent.getEventTime();
+                i(motionEvent, j74Var);
+                JSEvent jSEvent = new JSEvent(str);
+                jSEvent.data = j74Var;
+                if (!"touchmove".equals(str) && j74Var.changedTouches == null) {
+                    return null;
+                }
+            }
+            h(motionEvent, j74Var, false);
+            int i = g + 1;
+            g = i;
+            g = Math.min(i, 1000);
+            h = System.currentTimeMillis();
+            str = "touchstart";
+            j74Var.timeStamp = motionEvent.getEventTime();
+            i(motionEvent, j74Var);
+            JSEvent jSEvent2 = new JSEvent(str);
+            jSEvent2.data = j74Var;
+            return !"touchmove".equals(str) ? jSEvent2 : jSEvent2;
+        }
+        return (JSEvent) invokeL.objValue;
+    }
+
+    public static void m(int i, int i2) {
+        float f2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
+            float f3 = 1.0f;
+            if (i != 0 && (i4 = c.x) != 0) {
+                f2 = i4 / i;
+            } else {
+                f2 = 1.0f;
+            }
+            d = f2;
+            if (i2 != 0 && (i3 = c.y) != 0) {
+                f3 = i3 / i2;
+            }
+            e = f3;
+            if (a) {
+                Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(d), Float.valueOf(e)));
+            }
+        }
     }
 }

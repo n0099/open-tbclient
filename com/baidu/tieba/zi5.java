@@ -1,34 +1,76 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class zi5 {
+public class zi5 extends nh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Object c;
+    public final ri5 a;
 
-    public zi5(int i, int i2, Object obj) {
+    @Override // com.baidu.tieba.nh5
+    public void c(ph5 ph5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ph5Var) == null) {
+        }
+    }
+
+    public zi5(ri5 ri5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), obj};
+            Object[] objArr = {ri5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = obj;
+        this.a = ri5Var;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public ph5 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarLauncherType(6);
+            editorTools.setBackgroundColorId(R.color.CAM_X0602);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
+            editorTools.G(false);
+            return new yi5(editorTools);
+        }
+        return (ph5) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public void d(ph5 ph5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ph5Var) == null) {
+            EditorTools b = ph5Var.b();
+            b.setHideBigEmotion(true);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            b.d(new aj5(b.getContext(), this.a));
+            xh5 p = b.p(5);
+            p.d = 0;
+            p.e(false);
+            b.setClearEbPadding(true);
+            b.f();
+        }
     }
 }

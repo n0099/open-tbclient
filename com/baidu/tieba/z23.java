@@ -1,87 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z23 extends RequestBody {
+public final class z23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final p33 b;
-    public final String c;
 
-    public z23(File file, String str, p33 p33Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, p33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public static final class a implements v23 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ String b;
+
+        public a(Function1 function1, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function1, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = function1;
+            this.b = str;
         }
-        this.a = file;
-        this.c = str;
-        this.b = p33Var;
-    }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(this.c);
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                long j = 0;
-                while (true) {
-                    long read = source.read(bufferedSink.buffer(), 2048L);
-                    if (read != -1) {
-                        j += read;
-                        bufferedSink.flush();
-                        this.b.a(j);
-                    } else {
+        @Override // com.baidu.tieba.v23
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONArray a = z23.a();
+                if (a != null && a.length() != 0) {
+                    int length = a.length();
+                    for (int i = 0; i < length; i++) {
+                        if (Intrinsics.areEqual(this.b, a.get(i))) {
+                            Function1 function1 = this.a;
+                            if (function1 != null) {
+                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    Function1 function12 = this.a;
+                    if (function12 != null) {
+                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
                         return;
                     }
+                    return;
                 }
-            } finally {
-                zr4.d(source);
+                Function1 function13 = this.a;
+                if (function13 != null) {
+                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
+                }
             }
         }
+    }
+
+    public static final /* synthetic */ JSONArray a() {
+        return c();
+    }
+
+    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
+            u23.g().z(new a(function1, str));
+        }
+    }
+
+    public static final JSONArray c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ya3 b0 = ya3.b0();
+            if (b0 == null) {
+                return null;
+            }
+            String q = b0.e0().q("note_data_pay_check_list", "");
+            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            return new JSONObject(q).optJSONArray("pay_keys");
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

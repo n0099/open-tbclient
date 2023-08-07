@@ -19,7 +19,7 @@ public class DefaultCloseableReference<T> extends CloseableReference<T> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
     /* renamed from: clone */
-    public CloseableReference<T> mo163clone() {
+    public CloseableReference<T> mo164clone() {
         Preconditions.checkState(isValid());
         return new DefaultCloseableReference(this.mSharedReference, this.mLeakHandler, this.mStacktrace);
     }

@@ -1,49 +1,122 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.os.Build;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+@Singleton
 /* loaded from: classes5.dex */
-public class fa1 {
+public class fa1 extends sk1<it0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ClogBuilder.LogType logType, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, logType, str, str2, str3) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.u(ClogBuilder.Page.NAD_POP_WEB_PANEL);
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.k(str);
+    /* loaded from: classes5.dex */
+    public class a implements it0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.it0
+        public boolean shouldAcceptCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                return true;
             }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
+            return invokeLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.it0
+        public boolean shouldSendCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                return true;
             }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
+            return invokeLL.booleanValue;
+        }
+
+        public a(fa1 fa1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fa1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            n41.e(clogBuilder);
+        }
+
+        @Override // com.baidu.tieba.it0
+        public String getCookie(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                try {
+                    return CookieManager.getInstance().getCookie(str);
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.it0
+        public void storeCookie(String str, List<String> list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && list != null && list.size() > 0) {
+                try {
+                    CookieManager cookieManager = CookieManager.getInstance();
+                    for (String str2 : list) {
+                        cookieManager.setCookie(str, str2);
+                    }
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        CookieManager.getInstance().flush();
+                        return;
+                    }
+                    CookieSyncManager.createInstance(pj0.b());
+                    CookieSyncManager.getInstance().sync();
+                } catch (Exception unused) {
+                }
+            }
         }
     }
 
-    public static void b(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3) {
+    public fa1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, page, logType, str, str2, str3) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.u(page);
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.k(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
-            }
-            n41.e(clogBuilder);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public it0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (it0) invokeV.objValue;
     }
 }

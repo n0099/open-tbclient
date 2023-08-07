@@ -1,7 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface v11 extends ny0 {
-    void g(@NonNull mx0 mx0Var);
+public final class v11 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final String a(String[] array) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
+            Intrinsics.checkNotNullParameter(array, "array");
+            for (String str : array) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    return str;
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
 }

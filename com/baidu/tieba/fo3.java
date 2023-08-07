@@ -1,121 +1,64 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes5.dex */
 public class fo3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            ya3 M = ya3.M();
+            if (M != null) {
+                return String.format(str, M.O(), M.V());
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
 
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
+            if (ir1.a) {
+                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            String b = b();
+            if (!TextUtils.isEmpty(b)) {
+                if (ir1.a) {
+                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
                 }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
+                WebSettingsGlobalBlink.setRefererPattern(b, ut2.i());
             }
         }
     }
 
-    public static void a(eb2 eb2Var, Context context) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, eb2Var, context) == null) {
-            b(eb2Var, context, 2);
-        }
-    }
-
-    public static void b(eb2 eb2Var, Context context, int i) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, eb2Var, context, i) == null) && eb2Var != null && eb2Var.k() >= i) {
-            bb2 j = eb2Var.j(eb2Var.k() - i);
-            bb2 m = eb2Var.m();
-            if (m != null && m.E0) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
+                return true;
             }
-            float o = mp3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
-            }
+            return false;
         }
-    }
-
-    public static void c(eb2 eb2Var, Context context) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, eb2Var, context) == null) && eb2Var != null && eb2Var.k() >= 2) {
-            bb2 j = eb2Var.j(eb2Var.k() - 2);
-            float o = mp3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(b0));
-            }
-        }
-    }
-
-    public static void d(@NonNull tp4 tp4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, tp4Var, str, i, i2) != null) || tp4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
-                }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
-            }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                tp4Var.i(i, i2);
-                return;
-            }
-            return;
-        }
-        eb2 U = ix2.T().U();
-        bb2 j = U.j(U.k() - 1);
-        if (j != null && j.E0) {
-            return;
-        }
-        tp4Var.i(i, i2);
+        return invokeL.booleanValue;
     }
 }

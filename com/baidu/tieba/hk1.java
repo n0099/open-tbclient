@@ -1,111 +1,240 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.tl1;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class hk1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static tl1 a(@NonNull lk1 lk1Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lk1Var)) == null) {
-            tl1.b bVar = new tl1.b(lk1Var.j(), lk1Var.g);
-            bVar.u("rsplash");
-            boolean z3 = false;
-            if (lk1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.n(c());
-            if (lk1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.p(z2);
-            bVar.o(d(lk1Var.m));
-            bVar.D(lk1Var.n * 1000);
-            bVar.B(1);
-            bVar.G(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.z(false);
-            bVar.c(lk1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.C(72);
-            bVar.A(30);
-            bVar.F(68);
-            bVar.E(30);
-            bVar.h(17);
-            bVar.r(lk1Var.z);
-            if (lk1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.y(z3);
-            bVar.b(lk1Var.B);
-            bVar.q(lk1Var.f());
-            bVar.s("跳转详情页或第三方应用");
-            if (lk1Var.l()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.t(b);
-            bVar.k(lk1Var.H);
-            bVar.m(lk1Var.G);
-            bVar.l(lk1Var.e());
-            bVar.j(lk1Var.X);
-            bVar.x(lk1Var.i());
-            bVar.w(lk1Var.h());
-            bVar.v(lk1Var.g());
-            return bVar.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947826491, "Lcom/baidu/tieba/hk1;")) == null) {
+            return;
         }
-        return (tl1) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947826491, "Lcom/baidu/tieba/hk1;");
+        }
     }
 
-    public static int b() {
+    public static void h(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, exc) == null) {
+        }
+    }
+
+    public hk1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return xj1.a().b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if ((e() & 1) != 0) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @IdRes
-    public static int c() {
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if ((e() & 2) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return xj1.a().c();
+            Context a2 = lk1.a();
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) a2.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return -1;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.importance;
+                }
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return xj1.a().h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = a;
+            if (str == null) {
+                synchronized (hk1.class) {
+                    str = a;
+                    if (str == null) {
+                        Context a2 = lk1.a();
+                        String d = d();
+                        if (d == null && (d = c(a2)) == null) {
+                            d = a2.getPackageName();
+                        }
+                        a = d;
+                        str = d;
+                    }
+                }
             }
-            return xj1.a().g();
+            return str;
         }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = b;
+            if (i == 0) {
+                String b2 = b();
+                String packageName = lk1.a().getPackageName();
+                if (!TextUtils.equals(b2, packageName) && (!b2.startsWith(packageName) || b2.contains(":"))) {
+                    i |= 4;
+                } else {
+                    i = i | 1 | 2;
+                }
+                b = i;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return null;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    public static String d() {
+        InterceptResult invokeV;
+        ?? r2;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            BufferedReader bufferedReader2 = 0;
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+                r2 = null;
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                    return readLine;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return readLine;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                r2 = null;
+                bufferedReader3 = bufferedReader;
+                h("MultiProcess", e);
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                bufferedReader2 = r2;
+                return bufferedReader2;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != 0) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.payment;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l9<?> a;
+    public BdPageContext<?> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -40,12 +40,12 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         return invokeV.booleanValue;
     }
 
-    public PayVcodeModel(l9<?> l9Var) {
+    public PayVcodeModel(BdPageContext<?> bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,10 +55,10 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
                 return;
             }
         }
-        this.a = l9Var;
+        this.a = bdPageContext;
     }
 
-    public void V() {
+    public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -68,7 +68,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         }
     }
 
-    public void W() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));

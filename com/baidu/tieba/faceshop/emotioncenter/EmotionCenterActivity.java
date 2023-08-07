@@ -12,7 +12,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.NativeEmotionManagerActivityConfig;
@@ -24,8 +26,6 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public String j;
     public CustomMessageListener k;
 
-    public final void z1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -92,7 +92,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
                 this.a.j = str;
-                this.a.z1();
+                this.a.y1();
             }
         }
     }
@@ -188,9 +188,9 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0290);
+            setContentView(R.layout.obfuscated_res_0x7f0d0293);
             initView();
-            y1();
+            x1();
             registerListener(this.k);
         }
     }
@@ -198,13 +198,13 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0632));
+            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0633));
             EmotionRecommendFragment emotionRecommendFragment = new EmotionRecommendFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean("need_check_login", true);
             emotionRecommendFragment.setArguments(bundle);
             this.g.add(emotionRecommendFragment);
-            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0633));
+            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0634));
             ForumEmotionFragment forumEmotionFragment = new ForumEmotionFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.j);
@@ -214,21 +214,21 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.b = navigationBar;
             TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f03ce));
             this.c = addTextButtonByDefTextColor;
-            addTextButtonByDefTextColor.setTextSize(0, yi.g(this, R.dimen.obfuscated_res_0x7f07020f));
+            addTextButtonByDefTextColor.setTextSize(0, BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f07020f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
             this.d = imageView;
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, imageView, (View.OnClickListener) null);
-            layoutParams.rightMargin = yi.g(this, R.dimen.M_W_X004);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(this, R.dimen.M_W_X004);
             this.d.setLayoutParams(layoutParams);
-            this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d02a1, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090994);
+            this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d02a4, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f0909a4);
             this.e = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(yi.g(this, R.dimen.obfuscated_res_0x7f070207), yi.g(this, R.dimen.obfuscated_res_0x7f0701e8), yi.g(this, R.dimen.obfuscated_res_0x7f0701e8), yi.g(this, R.dimen.obfuscated_res_0x7f0701e8), yi.g(this, R.dimen.obfuscated_res_0x7f0701e8), yi.g(this, R.dimen.obfuscated_res_0x7f070224), yi.g(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
+            commonPagerSlidingTabStrip.k(BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070207), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070224), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0909d0);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090995);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0909e0);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0909a5);
             this.a = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.h = new b(this, getSupportFragmentManager());
@@ -241,13 +241,13 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.mSkinType = i;
-            q05 layoutMode = getLayoutMode();
+            BDLayoutMode layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
+            layoutMode.setNightMode(z);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.e;
             if (commonPagerSlidingTabStrip != null) {
                 commonPagerSlidingTabStrip.n(i);
@@ -276,14 +276,14 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             } else if (view2 == this.d) {
                 int i = 0;
                 if (!ListUtils.isEmpty(this.g) && (this.g.get(0) instanceof EmotionRecommendFragment)) {
-                    i = ((EmotionRecommendFragment) this.g.get(0)).M1();
+                    i = ((EmotionRecommendFragment) this.g.get(0)).N1();
                 }
                 sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i)));
             }
         }
     }
 
-    public final void y1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setAdapter(this.h);

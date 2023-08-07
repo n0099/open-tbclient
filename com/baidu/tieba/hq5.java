@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
-public interface hq5 extends ro5 {
-    public static final String b = "com.baidu.tieba.hq5";
+public interface hq5 {
+    boolean E0(iq5 iq5Var);
 
-    @NonNull
-    iq5 a(@NonNull TbPageContext tbPageContext);
+    BdUniqueId getUniqueId();
+
+    boolean h1();
 }

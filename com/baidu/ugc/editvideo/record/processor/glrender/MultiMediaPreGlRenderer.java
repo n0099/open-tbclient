@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
-import com.baidu.tieba.fab;
-import com.baidu.tieba.kab;
+import com.baidu.tieba.i9b;
+import com.baidu.tieba.n9b;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
@@ -34,7 +34,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         MultiMediaData multiMediaData;
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         List<MultiMediaDataTrack> multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
-        if ((!kab.e(multiMediaDataTrack) && kab.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) kab.c(multiMediaDataTrack.get(0).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
+        if ((!n9b.e(multiMediaDataTrack) && n9b.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) n9b.c(multiMediaDataTrack.get(0).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
             return -1;
         }
         MultiMediaPreProcessor multiMediaPreProcessor = this.mPreProcessor;
@@ -64,7 +64,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     @Override // com.baidu.ugc.editvideo.record.processor.glrender.BaseGlRenderer, com.baidu.ugc.editvideo.record.processor.glrender.IGlRenderer
     public void onSizeChange(int i, int i2) {
         super.onSizeChange(i, i2);
-        fab.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
+        i9b.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
         OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
         if (onDrawUpdateTextureListener != null) {
             onDrawUpdateTextureListener.onSizeChange(i, i2);

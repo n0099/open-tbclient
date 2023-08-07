@@ -2,6 +2,7 @@ package com.baidu.tieba.immessagecenter.im.stranger;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -9,9 +10,8 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.uc8;
-import com.baidu.tieba.uf8;
+import com.baidu.tieba.md8;
+import com.baidu.tieba.oa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,10 +55,10 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
     }
 
-    public void deleteSelectedDatas(uc8 uc8Var) {
+    public void deleteSelectedDatas(oa8 oa8Var) {
         List<ImMessageCenterShowItemData> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uc8Var) != null) || (list = this.mList) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oa8Var) != null) || (list = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = list.listIterator();
@@ -69,7 +69,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 2, uc8Var);
+        asyncDeleteMsgList(arrayList, 2, oa8Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
@@ -88,9 +88,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         return invokeL.booleanValue;
     }
 
-    public void V(uc8 uc8Var) {
+    public void N(oa8 oa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uc8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, oa8Var) == null) {
             ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
             ArrayList arrayList = new ArrayList();
             while (listIterator.hasNext()) {
@@ -99,7 +99,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                     arrayList.add(next);
                 }
             }
-            asyncDeleteMsgList(arrayList, 2, uc8Var);
+            asyncDeleteMsgList(arrayList, 2, oa8Var);
         }
     }
 
@@ -137,9 +137,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(7));
-        PersonalSettingItemData a = uf8.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-        if (a != null) {
-            buildNormalItem.setGroupSetting(a);
+        PersonalSettingItemData setting = md8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        if (setting != null) {
+            buildNormalItem.setGroupSetting(setting);
         }
         if (asyncCallback == null) {
             insertShowData(buildNormalItem, this.mList);

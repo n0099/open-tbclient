@@ -1,85 +1,191 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.recapp.adapter.FrsAppEmptyHolder;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Abstract;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes8.dex */
-public class zy9 extends yh7<ThreadData, FrsAppEmptyHolder> implements py9 {
+public class zy9 {
     public static /* synthetic */ Interceptable $ic;
+    public static zy9 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, List<JSONObject>> a;
+    public ConcurrentHashMap<String, Integer> b;
 
-    @Override // com.baidu.tieba.py9
-    public void setIsFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zy9(qy9 qy9Var, BdUniqueId bdUniqueId) {
-        super(qy9Var.t(), bdUniqueId);
+    public zy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qy9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: G */
-    public FrsAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static zy9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (zy9.class) {
+                    if (c == null) {
+                        c = new zy9();
+                    }
+                }
+            }
+            return c;
+        }
+        return (zy9) invokeV.objValue;
+    }
+
+    public static JSONObject b(ThreadInfo threadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View view2 = new View(this.c.getPageActivity());
-            view2.setVisibility(8);
-            return new FrsAppEmptyHolder(view2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadInfo)) == null) {
+            if (threadInfo == null) {
+                return null;
+            }
+            return c(threadInfo, threadInfo.fname);
         }
-        return (FrsAppEmptyHolder) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsAppEmptyHolder frsAppEmptyHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
-            if (threadData instanceof AdvertAppInfo) {
-                AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
-                y15 y15Var = advertAppInfo.i;
-                if (advertAppInfo.c == -1001) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                y15.c(y15Var, threadData.position, z);
-            }
-            return frsAppEmptyHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.put(str, new ArrayList());
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return g(this.a.get(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Integer num = this.b.get(str);
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public static JSONObject c(ThreadInfo threadInfo, String str) {
+        InterceptResult invokeLL;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, threadInfo, str)) == null) {
+            if (threadInfo == null) {
+                return null;
+            }
+            String str2 = "" + threadInfo.tid;
+            String str3 = "0";
+            if (StringUtils.isNull(str2) || "0".equals(str2)) {
+                str2 = "" + threadInfo.id;
+            }
+            if (threadInfo.video_info != null) {
+                str3 = "" + threadInfo.video_info.video_duration;
+            }
+            StringBuilder sb = new StringBuilder();
+            List<Abstract> list = threadInfo._abstract;
+            if (list != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    Abstract r6 = (Abstract) cy8.d(list, i);
+                    if (r6 != null && r6.type.intValue() == 0) {
+                        sb.append(r6.text);
+                    }
+                }
+            }
+            String sb2 = sb.toString();
+            String str4 = "" + threadInfo.author_id;
+            User user = threadInfo.author;
+            if (user != null && (l = user.id) != null && l.longValue() != 0) {
+                str4 = "" + threadInfo.author.id;
+            }
+            if (StringUtils.isNull(str)) {
+                str = threadInfo.fname;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("title", threadInfo.title);
+                jSONObject.put("tid", str2);
+                jSONObject.put("fname", str);
+                jSONObject.put("abstract", sb2);
+                jSONObject.put("author_id", str4);
+                jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final String g(List<JSONObject> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            try {
+                if (ListUtils.isEmpty(list)) {
+                    return "";
+                }
+                JSONArray jSONArray = new JSONArray();
+                for (JSONObject jSONObject : list) {
+                    if (jSONObject != null) {
+                        jSONArray.put(jSONObject);
+                    }
+                }
+                return uh.j(jSONArray.toString().getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h(String str, List<JSONObject> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(list);
+            this.a.put(str, arrayList);
+        }
+    }
+
+    public void i(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.b.put(str, Integer.valueOf(i));
+        }
     }
 }

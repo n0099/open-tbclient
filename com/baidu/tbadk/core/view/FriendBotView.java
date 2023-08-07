@@ -6,26 +6,23 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.zd9;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.k15;
+import com.baidu.tieba.vb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,6 +36,7 @@ import kotlin.jvm.functions.Function0;
 import org.json.JSONObject;
 import tbclient.CallRobotEntrance;
 import tbclient.StyleConf;
+import tbclient.StyleConfExtra;
 import tbclient.StyleContentInfo;
 /* loaded from: classes4.dex */
 public class FriendBotView extends RelativeLayout {
@@ -48,14 +46,21 @@ public class FriendBotView extends RelativeLayout {
     public EMTextView b;
     public CallRobotEntrance c;
     public boolean d;
-    public d e;
-    public String f;
-    public Runnable g;
-    public final ViewTreeObserver.OnScrollChangedListener h;
+    public f e;
+    public k15 f;
+    public String g;
+    public StyleContentInfo h;
+    public String i;
+    public final Runnable j;
+    public final ViewTreeObserver.OnScrollChangedListener k;
+    public View.OnClickListener l;
+    public View.OnLongClickListener m;
 
     /* loaded from: classes4.dex */
-    public interface d {
-        void a(boolean z, String str);
+    public interface f {
+        void a(boolean z);
+
+        void b(boolean z, boolean z2, String str);
     }
 
     /* loaded from: classes4.dex */
@@ -88,8 +93,9 @@ public class FriendBotView extends RelativeLayout {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.r();
-            this.a.d = true;
+            this.a.u();
+            this.a.j();
+            this.a.d = false;
         }
     }
 
@@ -123,17 +129,103 @@ public class FriendBotView extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.isAttachedToWindow() || this.a.getGlobalVisibleRect(new Rect())) {
                 return;
             }
-            this.a.t();
+            this.a.u();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements Function0<Unit> {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FriendBotView a;
 
         public c(FriendBotView friendBotView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {friendBotView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = friendBotView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null) {
+                if (this.a.c != null && this.a.c.style_conf != null && this.a.c.style_conf.android_extra != null) {
+                    str = this.a.c.style_conf.android_extra.bot_loading_toast;
+                } else {
+                    str = "";
+                }
+                this.a.e.b(this.a.d, this.a.f.d(), str);
+                if (!this.a.d && !this.a.f.d()) {
+                    this.a.x();
+                    this.a.u();
+                    this.a.d = true;
+                    SafeHandler.getInst().removeCallbacks(this.a.j);
+                    SafeHandler.getInst().postDelayed(this.a.j, 30000L);
+                    this.a.s();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FriendBotView a;
+
+        public d(FriendBotView friendBotView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {friendBotView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = friendBotView;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.a.e != null) {
+                    this.a.e.a(this.a.d);
+                    return true;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements Function0<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FriendBotView a;
+
+        public e(FriendBotView friendBotView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +252,7 @@ public class FriendBotView extends RelativeLayout {
             if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
                 return (Unit) invokeV.objValue;
             }
-            this.a.r();
+            this.a.u();
             return null;
         }
     }
@@ -186,17 +278,18 @@ public class FriendBotView extends RelativeLayout {
         }
     }
 
-    public final void h(Context context) {
+    public void setCallRobotEntranceData(k15 k15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.pb_friend_bot_view, (ViewGroup) this, true);
-            setClipChildren(false);
-            setClipToPadding(false);
-            this.a = (TbImage) findViewById(R.id.pb_friend_bot_image);
-            this.b = (EMTextView) findViewById(R.id.pb_friend_bot_content);
-            this.a.setLooping(false);
-            s();
-            d();
+        if (interceptable == null || interceptable.invokeL(1048591, this, k15Var) == null) {
+            this.f = k15Var;
+            this.c = k15Var.c();
+            setStyleContentInfo(k15Var);
+            setLoadingToast(this.c);
+            p();
+            if (this.b.getVisibility() == 0) {
+                this.b.setText(getBotContent());
+                w();
+            }
         }
     }
 
@@ -240,54 +333,83 @@ public class FriendBotView extends RelativeLayout {
                 return;
             }
         }
-        this.d = true;
-        this.g = new a(this);
-        this.h = new b(this);
-        h(context);
+        this.d = false;
+        this.j = new a(this);
+        this.k = new b(this);
+        this.l = new c(this);
+        this.m = new d(this);
+        m(context);
     }
 
     private void setBotTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            d85 d2 = d85.d(this.b);
-            d2.C(R.dimen.T_X09);
-            d2.D(R.string.F_X01);
+        if (interceptable == null || interceptable.invokeI(65549, this, i) == null) {
+            EMManager.from(this.b).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
             this.b.setTextColor(i);
         }
     }
 
-    public void e(CallRobotEntrance callRobotEntrance) {
+    private void setLoadingToast(CallRobotEntrance callRobotEntrance) {
+        StyleConf styleConf;
+        StyleConfExtra styleConfExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callRobotEntrance) == null) {
-            this.c = callRobotEntrance;
-            this.b.setText(getBotContent());
-            r();
-            this.d = true;
-            u();
+        if ((interceptable == null || interceptable.invokeL(65550, this, callRobotEntrance) == null) && callRobotEntrance != null && (styleConf = callRobotEntrance.style_conf) != null && (styleConfExtra = styleConf.android_extra) != null) {
+            this.i = styleConfExtra.bot_loading_toast;
         }
     }
 
-    public void setClickCallBack(d dVar) {
+    private void setStyleContentInfo(k15 k15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.e = dVar;
+        if (interceptable == null || interceptable.invokeL(65551, this, k15Var) == null) {
+            if (TbadkApplication.getInst().getSkinType() == 4) {
+                this.h = k15Var.a();
+            } else {
+                this.h = k15Var.b();
+            }
+        }
+    }
+
+    public void k(CallRobotEntrance callRobotEntrance) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, callRobotEntrance) == null) {
+            SafeHandler.getInst().removeCallbacks(this.j);
+            this.c = callRobotEntrance;
+            this.b.setText(getBotContent());
+            u();
+            this.d = false;
+            w();
+        }
+    }
+
+    public void setClickCallBack(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, fVar) == null) {
+            this.e = fVar;
+        }
+    }
+
+    public void setDynamicLooping(boolean z) {
+        TbImage tbImage;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && (tbImage = this.a) != null) {
+            tbImage.setLooping(z);
         }
     }
 
     public void setRobotEntrance(CallRobotEntrance callRobotEntrance) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, callRobotEntrance) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, callRobotEntrance) == null) {
             this.c = callRobotEntrance;
             this.b.setText(getBotContent());
-            k();
-            u();
+            p();
+            w();
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.g = str;
         }
     }
 
@@ -295,7 +417,7 @@ public class FriendBotView extends RelativeLayout {
         InterceptResult invokeV;
         StyleConf styleConf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             CallRobotEntrance callRobotEntrance = this.c;
             if (callRobotEntrance != null && (styleConf = callRobotEntrance.style_conf) != null) {
                 return styleConf.content;
@@ -305,38 +427,51 @@ public class FriendBotView extends RelativeLayout {
         return (String) invokeV.objValue;
     }
 
-    private String getBotDynamicResource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            FriendBotPostConfigData friendBotPostConfigData = TbSingleton.getInstance().getFriendBotPostConfigData();
-            if (friendBotPostConfigData != null) {
-                return friendBotPostConfigData.getDynamicButtonResource();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public Runnable getAshRunnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
         }
         return (Runnable) invokeV.objValue;
+    }
+
+    public String getLoadingToast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
     }
 
     public CallRobotEntrance getRobotEntrance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
         return (CallRobotEntrance) invokeV.objValue;
     }
 
-    public boolean j() {
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            EMTextView eMTextView = this.b;
+            if (eMTextView != null) {
+                eMTextView.setVisibility(8);
+            }
+            TbImage tbImage = this.a;
+            if (tbImage != null) {
+                ViewGroup.LayoutParams layoutParams = tbImage.getLayoutParams();
+                layoutParams.width = -1;
+                layoutParams.height = -1;
+                this.a.requestLayout();
+            }
+        }
+    }
+
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -345,43 +480,11 @@ public class FriendBotView extends RelativeLayout {
         return invokeV.booleanValue;
     }
 
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (i()) {
-                q();
-                this.d = false;
-                return;
-            }
-            if (l()) {
-                p();
-            } else {
-                r();
-            }
-            this.d = true;
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            t();
-            u();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            da5.p().H("friend_bot_guide_show", System.currentTimeMillis());
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            getViewTreeObserver().addOnScrollChangedListener(this.h);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            getViewTreeObserver().addOnScrollChangedListener(this.k);
             super.onAttachedToWindow();
         }
     }
@@ -389,52 +492,72 @@ public class FriendBotView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDetachedFromWindow();
-            getViewTreeObserver().removeOnScrollChangedListener(this.h);
+            getViewTreeObserver().removeOnScrollChangedListener(this.k);
         }
     }
 
-    public final void q() {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            t();
-            this.a.setAlpha(0.3f);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d = n();
+            u();
         }
     }
 
-    public final void r() {
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            t();
-            this.a.setAlpha(1.0f);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            setStyleContentInfo(this.f);
+            u();
+            w();
         }
     }
 
-    public final void s() {
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.a.setOnWebpEndedListener(new c(this));
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            SharedPrefHelper.getInstance().putLong("friend_bot_guide_show", System.currentTimeMillis());
         }
     }
 
-    public final void t() {
-        CallRobotEntrance callRobotEntrance;
-        StyleConf styleConf;
+    public final void u() {
+        StyleContentInfo styleContentInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (callRobotEntrance = this.c) != null && (styleConf = callRobotEntrance.style_conf) != null) {
-            String f = f(styleConf);
-            if (!TextUtils.isEmpty(f)) {
-                this.a.k(f);
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (styleContentInfo = this.h) != null) {
+            String str = styleContentInfo.icon;
+            String str2 = styleContentInfo.dynamic_icon;
+            if (!bi.isEmpty(str2)) {
+                this.a.l(str2);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.a.k(str);
             }
         }
     }
 
-    public final void d() {
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.a.setOnWebpEndedListener(new e(this));
+        }
+    }
+
+    public void x() {
+        TbImage tbImage;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (tbImage = this.a) != null) {
+            tbImage.p();
+            u();
+        }
+    }
+
+    public final void j() {
         Map<String, Long> b2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b2 = zd9.b()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = vb9.b()) == null) {
             return;
         }
         Iterator<Map.Entry<String, Long>> it = b2.entrySet().iterator();
@@ -448,49 +571,20 @@ public class FriendBotView extends RelativeLayout {
                 it.remove();
             }
         }
-        da5.p().J("friend_bot_sha_time_tids", new JSONObject(b2).toString());
+        SharedPrefHelper.getInstance().putString("friend_bot_sha_time_tids", new JSONObject(b2).toString());
     }
 
-    public void g() {
-        String str;
-        StyleConf styleConf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(getContext());
-                return;
-            }
-            if (this.e != null) {
-                CallRobotEntrance callRobotEntrance = this.c;
-                if (callRobotEntrance != null && (styleConf = callRobotEntrance.style_conf) != null) {
-                    str = f(styleConf);
-                } else {
-                    str = "";
-                }
-                this.e.a(this.d, str);
-            }
-            if (this.d) {
-                this.a.p();
-                q();
-                this.d = false;
-                zg.a().removeCallbacks(this.g);
-                zg.a().postDelayed(this.g, 30000L);
-                n();
-            }
-        }
-    }
-
-    public final boolean i() {
+    public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = "friend_bot_sha_time" + this.f;
-            Map<String, Long> b2 = zd9.b();
+            String str = "friend_bot_sha_time" + this.g;
+            Map<String, Long> b2 = vb9.b();
             if (b2 != null && b2.containsKey(str)) {
                 long currentTimeMillis = System.currentTimeMillis() - b2.get(str).longValue();
                 if (currentTimeMillis >= 0 && currentTimeMillis < 30000) {
-                    zg.a().removeCallbacks(this.g);
-                    zg.a().postDelayed(this.g, 30000 - currentTimeMillis);
+                    SafeHandler.getInst().removeCallbacks(this.j);
+                    SafeHandler.getInst().postDelayed(this.j, 30000 - currentTimeMillis);
                     return true;
                 }
             }
@@ -499,58 +593,26 @@ public class FriendBotView extends RelativeLayout {
         return invokeV.booleanValue;
     }
 
-    public final boolean l() {
-        InterceptResult invokeV;
-        int intValue;
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            FriendBotPostConfigData friendBotPostConfigData = TbSingleton.getInstance().getFriendBotPostConfigData();
-            if (friendBotPostConfigData == null) {
-                return false;
-            }
-            if (friendBotPostConfigData.getPbFirstFloorBotDynamicIconPlay() == null) {
-                intValue = 0;
-            } else {
-                intValue = friendBotPostConfigData.getPbFirstFloorBotDynamicIconPlay().intValue();
-            }
-            if (intValue == 0) {
-                return false;
-            }
-            if (intValue == 1) {
-                long r = da5.p().r("pb_friend_bot_show", 0L);
-                if (r < 0) {
-                    return true;
-                }
-                return !TimeHelper.isSameDay(r, System.currentTimeMillis());
-            } else if (intValue != 2) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String str = "friend_bot_sha_time" + this.f;
-            Map b2 = zd9.b();
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            String str = "friend_bot_sha_time" + this.g;
+            Map b2 = vb9.b();
             if (b2 == null) {
                 b2 = new HashMap();
             }
             b2.put(str, Long.valueOf(System.currentTimeMillis()));
-            da5.p().J("friend_bot_sha_time_tids", new JSONObject(b2).toString());
+            SharedPrefHelper.getInstance().putString("friend_bot_sha_time_tids", new JSONObject(b2).toString());
         }
     }
 
-    public final void u() {
+    public final void w() {
         StyleContentInfo styleContentInfo;
         String str;
         StyleContentInfo styleContentInfo2;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             int skinType = TbadkApplication.getInst().getSkinType();
             CallRobotEntrance callRobotEntrance = this.c;
             if (callRobotEntrance == null) {
@@ -576,42 +638,35 @@ public class FriendBotView extends RelativeLayout {
         }
     }
 
-    public final String f(@NonNull StyleConf styleConf) {
-        InterceptResult invokeL;
-        String str;
+    public final void m(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, styleConf)) == null) {
-            if (TbadkApplication.getInst().getSkinType() == 4) {
-                StyleContentInfo styleContentInfo = styleConf.dark;
-                if (styleContentInfo != null && !TextUtils.isEmpty(styleContentInfo.icon)) {
-                    str = styleConf.dark.icon;
-                }
-                str = null;
-            } else {
-                StyleContentInfo styleContentInfo2 = styleConf.day;
-                if (styleContentInfo2 != null && !TextUtils.isEmpty(styleContentInfo2.icon)) {
-                    str = styleConf.day.icon;
-                }
-                str = null;
-            }
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.pb_friend_bot_view, (ViewGroup) this, true);
+            setClipChildren(false);
+            setClipToPadding(false);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.pb_friend_bot_container);
+            this.a = (TbImage) findViewById(R.id.pb_friend_bot_image);
+            this.b = (EMTextView) findViewById(R.id.pb_friend_bot_content);
+            this.a.setLooping(false);
+            linearLayout.setOnClickListener(this.l);
+            linearLayout.setOnLongClickListener(this.m);
+            v();
+            j();
         }
-        return (String) invokeL.objValue;
     }
 
-    public final void p() {
+    public void r() {
+        StyleContentInfo styleContentInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            String botDynamicResource = getBotDynamicResource();
-            if (!TextUtils.isEmpty(botDynamicResource)) {
-                this.a.setAlpha(1.0f);
-                this.a.k(botDynamicResource);
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.a != null && (styleContentInfo = this.h) != null) {
+            String str = styleContentInfo.dynamic_icon;
+            if (!TextUtils.isEmpty(str)) {
+                this.a.setCurFrameToPLaceHolder();
+                this.a.k(str);
                 this.a.o();
-                da5.p().H("pb_friend_bot_show", System.currentTimeMillis());
+                return;
             }
+            u();
         }
     }
 }

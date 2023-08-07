@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ura;
 import com.baidu.tieba.view.headcard.playerlist.MatchPlayerCardAdapter;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.yqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,13 +99,13 @@ public final class MatchPlayerListView extends LinearLayout {
         MyHorizontalScrollView myHorizontalScrollView = new MyHorizontalScrollView(context);
         myHorizontalScrollView.setHorizontalScrollBarEnabled(false);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-        layoutParams.bottomMargin = yi.g(context, R.dimen.tbds58);
+        layoutParams.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.tbds58);
         addView(myHorizontalScrollView, layoutParams);
         LinearLayout linearLayout = new LinearLayout(context);
         this.a = linearLayout;
         linearLayout.setOrientation(0);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-        this.a.setPadding(yi.g(context, R.dimen.tbds39), 0, yi.g(context, R.dimen.tbds39), 0);
+        this.a.setPadding(BdUtilHelper.getDimens(context, R.dimen.tbds39), 0, BdUtilHelper.getDimens(context, R.dimen.tbds39), 0);
         myHorizontalScrollView.addView(this.a, layoutParams2);
         this.b = new MatchPlayerCardAdapter(context);
         setFocusableInTouchMode(true);
@@ -116,7 +116,7 @@ public final class MatchPlayerListView extends LinearLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void setData(ura data) {
+    public final void setData(yqa data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -131,7 +131,7 @@ public final class MatchPlayerListView extends LinearLayout {
                 MatchPlayerCardAdapter matchPlayerCardAdapter = this.b;
                 MatchPlayerCardAdapter.ViewHolder onCreateViewHolder = matchPlayerCardAdapter.onCreateViewHolder(this.a, matchPlayerCardAdapter.getItemViewType(i));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.rightMargin = yi.g(getContext(), R.dimen.M_W_X004);
+                layoutParams.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004);
                 this.a.addView(onCreateViewHolder.itemView, layoutParams);
                 this.b.onBindViewHolder(onCreateViewHolder, i);
                 this.c.add(onCreateViewHolder);

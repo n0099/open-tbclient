@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sk1 {
+public abstract class sk1<T> implements tk1<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
+    public T mCachedInstance;
+
+    public abstract T createService() throws ServiceNotFoundException;
 
     static {
         InterceptResult invokeClinit;
@@ -26,45 +32,42 @@ public class sk1 {
                 return;
             }
         }
-        wk1 e = wk1.e();
-        xk1 xk1Var = new xk1();
-        e.f("splash_ad", xk1Var);
-        e.g(xk1Var);
+        DEBUG = AppConfig.isDebug();
     }
 
-    public static boolean a(Context context, String str, pk1 pk1Var) {
-        InterceptResult invokeLLL;
+    public sk1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, pk1Var)) == null) {
-            if (yk1.g(str)) {
-                return c(context, Uri.parse(str), pk1Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean c(Context context, Uri uri, pk1 pk1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.tk1
+    public final T getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, uri, pk1Var)) == null) {
-            return b(context, uri, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE, pk1Var);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean b(Context context, Uri uri, String str, pk1 pk1Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, pk1Var)) == null) {
-            if (context == null) {
-                context = rk1.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.mCachedInstance == null) {
+                    try {
+                        this.mCachedInstance = createService();
+                    } catch (ServiceNotFoundException e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                            throw e;
+                        }
+                    }
+                }
             }
-            wk1 e = wk1.e();
-            vk1 vk1Var = new vk1(uri, str);
-            vk1Var.g(false);
-            return e.b(context, vk1Var, pk1Var);
+            return this.mCachedInstance;
         }
-        return invokeLLLL.booleanValue;
+        return (T) invokeV.objValue;
     }
 }

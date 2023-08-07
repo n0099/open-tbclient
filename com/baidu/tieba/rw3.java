@@ -1,78 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class rw3 implements gw3 {
+public class rw3 implements wu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public sw3 b;
-    public boolean c;
 
-    public rw3(@NonNull Context context) {
+    @Override // com.baidu.tieba.wu2
+    public Map<Class, Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public rw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        c(context);
     }
 
-    @Override // com.baidu.tieba.gw3
-    public void b(int i) {
-        sw3 sw3Var;
+    @Override // com.baidu.tieba.wu2
+    public void a(vb3 vb3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (sw3Var = this.b) != null && sw3Var.c()) {
-            this.c = true;
-            this.b.e(i, this.a);
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.b == null) {
-            this.b = sw3.b(context);
-            d();
+        if (interceptable == null || interceptable.invokeL(1048576, this, vb3Var) == null) {
+            nw3.b().a(vb3Var);
+            nw3.a().a(vb3Var);
         }
     }
 
-    @Override // com.baidu.tieba.gw3
-    public void a() {
-        sw3 sw3Var;
+    @Override // com.baidu.tieba.wu2
+    public Map<String, Object> b(@NonNull zy1 zy1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (sw3Var = this.b) != null && sw3Var.c()) {
-            this.c = false;
-            this.b.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zy1Var)) == null) {
+            Map<String, Object> b = nw3.b().b(zy1Var);
+            Map<String, Object> b2 = nw3.a().b(zy1Var);
+            HashMap hashMap = new HashMap();
+            if (b != null) {
+                hashMap.putAll(b);
+            }
+            if (b2 != null) {
+                hashMap.putAll(b2);
+            }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public final void d() {
+    @Override // com.baidu.tieba.wu2
+    public Map<String, Object> c(@NonNull zy1 zy1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a != null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zy1Var)) == null) {
+            Map<String, Object> c = nw3.b().c(zy1Var);
+            Map<String, Object> c2 = nw3.a().c(zy1Var);
+            HashMap hashMap = new HashMap();
+            if (c != null) {
+                hashMap.putAll(c);
+            }
+            if (c2 != null) {
+                hashMap.putAll(c2);
+            }
+            return hashMap;
         }
-        mw3 f = tw3.f();
-        if (f.a <= 4) {
-            this.a = new int[]{1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
-        } else if (f.h && f.d()) {
-            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1082130944, 4095, 1082147328, 4095, 1098907648, 4095, 1115734016, 4095, 1115750400, 4095, 1115766784, 4095, 1098956800, 0, 1077936128, 1};
-        } else {
-            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
-        }
+        return (Map) invokeL.objValue;
     }
 }

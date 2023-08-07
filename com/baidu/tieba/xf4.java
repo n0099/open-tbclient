@@ -1,156 +1,94 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.vn3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static Method b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948298435, "Lcom/baidu/tieba/xf4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948298435, "Lcom/baidu/tieba/xf4;");
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements vn3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qx2 a;
+        public final /* synthetic */ ig4 b;
+        public final /* synthetic */ eg4 c;
 
-    public static boolean a(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!c) {
-                e();
-            }
-            Method method = b;
-            if (method == null) {
-                return false;
-            }
-            try {
-                method.invoke(a, strArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (cls == null) {
-                return false;
-            }
-            return a(b(cls.getName()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (strArr != null && strArr.length > 0) {
-                return a(strArr);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String replaceAll = str.replaceAll("\\.", "/");
-            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
-            }
-            return replaceAll;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (xf4.class) {
-                if (c) {
+        public a(qx2 qx2Var, ig4 ig4Var, eg4 eg4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qx2Var, ig4Var, eg4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                try {
-                    c = true;
-                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-                    Method b2 = yf4.b(cls, "getRuntime", new Class[0]);
-                    if (b2 != null) {
-                        b2.setAccessible(true);
-                        Object invoke = b2.invoke(null, new Object[0]);
-                        a = invoke;
-                        if (invoke != null) {
-                            Method b3 = yf4.b(cls, "setHiddenApiExemptions", String[].class);
-                            b = b3;
-                            if (b3 != null) {
-                                b3.setAccessible(true);
-                            }
-                        }
+            }
+            this.a = qx2Var;
+            this.b = ig4Var;
+            this.c = eg4Var;
+        }
+
+        @Override // com.baidu.tieba.vn3.b
+        public void a(String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    y72.o("map", " icon is null ");
+                }
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
                     }
-                } catch (Throwable unused) {
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    vx2 vx2Var = this.a.d;
+                    builder.point(new Point(vx2Var.a, vx2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    gg4 gg4Var = new gg4();
+                    gg4Var.a = this.a;
+                    gg4Var.b = imageView;
+                    this.b.o.add(gg4Var);
                 }
             }
         }
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public static void a(ig4 ig4Var, qx2 qx2Var, eg4 eg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, ig4Var, qx2Var, eg4Var) == null) {
+            y72.i("map", "createControl start");
+            if (qx2Var != null && qx2Var.isValid()) {
+                vn3.e(qx2Var.b, new a(qx2Var, ig4Var, eg4Var));
             }
-            return false;
+            y72.i("map", "createControl end");
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

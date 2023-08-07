@@ -1,79 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.utils.ValidationLog;
-import java.util.ArrayList;
+import java.io.File;
 import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<String> b;
 
-    public zbb() {
+    public static JSONObject a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
+            try {
+                jSONObject.put("bosMessage", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-        this.b = new ArrayList();
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static zbb a(String str) {
+    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("errno", str2);
+                jSONObject.put("errmsg", str3);
+                if (z) {
+                    str4 = "1";
+                } else {
+                    str4 = "0";
+                }
+                jSONObject.put(FileMetaUtil.IS_FILE, str4);
+                if (file != null && file.exists() && file.isFile()) {
+                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
+                    jSONObject.put("size", String.valueOf(file.length()));
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
+                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
+                }
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public static JSONObject c(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                zbb zbbVar = new zbb();
-                JSONObject optJSONObject = jSONObject.optJSONObject("action");
-                if (optJSONObject != null) {
-                    zbbVar.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            zbbVar.b.add(optJSONArray.optString(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (list != null) {
+                try {
+                    if (list.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : list) {
+                            sb.append(str);
+                            sb.append("&");
                         }
+                        jSONObject.put("space", sb.toString());
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                return zbbVar;
-            } catch (JSONException e) {
-                ValidationLog.e(e);
-                return null;
             }
+            return jSONObject;
         }
-        return (zbb) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

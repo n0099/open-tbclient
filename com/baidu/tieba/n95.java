@@ -1,165 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n95 extends PopupWindow {
+public class n95 extends l95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m95 a;
+    public int a;
     public int b;
     public int c;
-    public int d;
-    public View e;
-    public View f;
-    public Activity g;
-
-    /* loaded from: classes7.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n95 a;
-
-        public a(n95 n95Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n95Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n95Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                this.a.e();
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n95(Activity activity) {
-        super(activity);
+    public n95(Drawable drawable, int i, int i2, int i3) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = activity;
-        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.keyboard_height_popupwindow, (ViewGroup) null, false);
-        this.e = inflate;
-        setContentView(inflate);
-        GreyUtil.grey(this);
-        setSoftInputMode(21);
-        setInputMethodMode(1);
-        this.f = activity.findViewById(16908290);
-        setWidth(0);
-        setHeight(-1);
-        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.a = i2;
+        this.b = i3;
     }
 
-    public void g(m95 m95Var) {
+    @Override // com.baidu.tieba.l95, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m95Var) == null) {
-            this.a = m95Var;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            canvas.save();
+            canvas.translate(0.0f, this.c);
+            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
+            canvas.restore();
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.l95, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            dismiss();
-        }
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g.getResources().getConfiguration().orientation;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isShowing() && this.f.getWindowToken() != null) {
-            setBackgroundDrawable(new ColorDrawable(0));
-            showAtLocation(this.f, 0, 0, 0);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Point point = new Point();
-            this.g.getWindowManager().getDefaultDisplay().getSize(point);
-            Rect rect = new Rect();
-            this.e.getWindowVisibleDisplayFrame(rect);
-            int d = d();
-            int i = point.y - rect.bottom;
-            if (i == 0) {
-                f(0, d);
-            } else if (d == 1) {
-                this.d = i;
-                f(i, d);
-            } else {
-                this.c = i;
-                f(i, d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            if (this.a == 0 && this.b == 0) {
+                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
             }
+            return getDrawable().getBounds().width() + this.a + this.b;
         }
-    }
-
-    public final void f(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (i <= 0) {
-                this.b = i;
-                i3 = 0;
-            } else {
-                i3 = i - this.b;
-            }
-            m95 m95Var = this.a;
-            if (m95Var != null) {
-                m95Var.a(i3, i2);
-            }
-        }
+        return invokeCommon.intValue;
     }
 }

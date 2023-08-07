@@ -1,47 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.DeleteRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class pi4 extends DeleteRequest.DeleteRequestBuilder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pi4<T> extends ri4 {
+    void a(T t);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pi4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void c(T t);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.DeleteRequest.DeleteRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public DeleteRequest build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ni4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
-        }
-        return (DeleteRequest) invokeV.objValue;
-    }
+    String d(T t);
+
+    void e(T t, sj4 sj4Var);
+
+    void f(T t);
+
+    sj4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
+
+    void i(T t);
+
+    void j(T t);
+
+    Map<String, Object> k();
 }

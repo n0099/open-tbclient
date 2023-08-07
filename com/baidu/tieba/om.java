@@ -1,31 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class om extends DefaultDownloadCallback {
+public class om {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
+    public ArrayList<c> a;
+    public ArrayList<c> b;
+    public a c;
 
-    public om(DefaultDownloadCallback defaultDownloadCallback) {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onPreLoad();
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(om omVar, View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {omVar, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public int b;
+        public TypeAdapter.ViewHolder c;
+        public Object d;
+        public boolean e;
+
+        public c(om omVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {omVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public om() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,55 +95,191 @@ public class om extends DefaultDownloadCallback {
                 return;
             }
         }
-        this.a = defaultDownloadCallback;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    public void a(View view2, Object obj, boolean z, boolean z2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, packageInfo, errorInfo) != null) || errorInfo == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || view2 == null) {
             return;
         }
-        BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.a;
-        if (defaultDownloadCallback != null) {
-            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
+        c cVar = new c(this);
+        cVar.c = new TypeAdapter.ViewHolder(view2);
+        cVar.d = obj;
+        cVar.e = z2;
+        int id = BdUniqueId.gen().getId();
+        cVar.b = id;
+        cVar.a = id;
+        if (i >= 0 && i <= this.b.size()) {
+            this.b.add(i, cVar);
+        } else {
+            this.b.add(cVar);
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    public void b(View view2, Object obj, boolean z, boolean z2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && !StringUtils.isNull(packageInfo.filePath) && !StringUtils.isNull(packageInfo.name)) {
-            File file = new File(packageInfo.filePath);
-            if (file.exists() && file.isFile()) {
-                String b = qm.b(packageInfo.name);
-                File file2 = new File(b);
-                if (file2.exists() && !file2.delete()) {
-                    return;
-                }
-                im.b(packageInfo.name, packageInfo.toString(), "download success");
-                if (!file.renameTo(file2) || qm.c(packageInfo.name)) {
-                    return;
-                }
-                if (b.contains(".so")) {
-                    if (sm.a(BdBaseApplication.getInst().getContext(), qm.a(packageInfo.name))) {
-                        im.b(packageInfo.name, packageInfo.toString(), "load success2");
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo.name;
-                        resHashMap.put(str, qm.a(str));
-                    }
-                    ((hm) ServiceManager.getService(hm.a)).a(packageInfo.name);
-                } else {
-                    ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                    String str2 = packageInfo.name;
-                    resHashMap2.put(str2, qm.a(str2));
-                }
-                DefaultDownloadCallback defaultDownloadCallback = this.a;
-                if (defaultDownloadCallback != null) {
-                    defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || view2 == null) {
+            return;
+        }
+        c cVar = new c(this);
+        cVar.c = new TypeAdapter.ViewHolder(view2);
+        cVar.d = obj;
+        cVar.e = z2;
+        int id = BdUniqueId.gen().getId();
+        cVar.b = id;
+        cVar.a = id;
+        if (i >= 0 && i <= this.a.size()) {
+            this.a.add(i, cVar);
+        } else {
+            this.a.add(cVar);
+        }
+    }
+
+    public TypeAdapter.ViewHolder c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            TextView textView = new TextView(context);
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0be3));
+            int dip2px = BdUtilHelper.dip2px(context, 15.0f);
+            textView.setPadding(dip2px, dip2px, dip2px, dip2px);
+            textView.setHeight(0);
+            return new b(this, textView);
+        }
+        return (TypeAdapter.ViewHolder) invokeL.objValue;
+    }
+
+    public boolean j(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            for (int i = 0; i < this.b.size(); i++) {
+                c cVar = this.b.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    this.b.remove(i);
+                    return true;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public boolean k(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                c cVar = this.a.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    this.a.remove(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int d(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                c cVar = this.b.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public c e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            Iterator<c> it = this.b.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                if (next != null && i == next.b) {
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public int f(View view2) {
+        InterceptResult invokeL;
+        TypeAdapter.ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            for (int i = 0; i < this.a.size(); i++) {
+                c cVar = this.a.get(i);
+                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public c g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            Iterator<c> it = this.a.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                if (next != null && i == next.b) {
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public void l(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+            this.c = aVar;
+        }
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 }

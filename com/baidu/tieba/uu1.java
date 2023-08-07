@@ -1,65 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uu1 implements hx1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface uu1 {
+    boolean A();
 
-    @Override // com.baidu.tieba.hx1
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BaiduIdentityManager.VALUE_OSNAME : (String) invokeV.objValue;
-    }
+    boolean B();
 
-    public uu1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    JSONObject C();
 
-    @Override // com.baidu.tieba.hx1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return bw3.e().d();
-        }
-        return (String) invokeV.objValue;
-    }
+    boolean D();
 
-    @Override // com.baidu.tieba.hx1
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return bw3.e().b();
-        }
-        return (String) invokeV.objValue;
-    }
+    void E();
 
-    @Override // com.baidu.tieba.hx1
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return bw3.e().f();
-        }
-        return (String) invokeV.objValue;
-    }
+    long F();
+
+    boolean G();
+
+    long H();
+
+    String getExpInfos();
+
+    JSONObject getRawSwitch();
+
+    int getSwitch(String str, int i);
+
+    String getSwitch(String str, String str2);
+
+    boolean getSwitch(String str, boolean z);
+
+    boolean j();
+
+    String k();
+
+    boolean l();
+
+    boolean m();
+
+    long n();
+
+    boolean o();
+
+    boolean p();
+
+    int q();
+
+    boolean r();
+
+    boolean s();
+
+    boolean t();
+
+    int u();
+
+    boolean v();
+
+    boolean w();
+
+    boolean x();
+
+    int y();
+
+    boolean z();
 }

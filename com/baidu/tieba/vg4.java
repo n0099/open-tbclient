@@ -1,92 +1,91 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.py2;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class vg4 {
+public abstract class vg4 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaiduMap a;
+    public List<OverlayOptions> b;
+    public List<Overlay> c;
 
-    public static OverlayOptions a(fh4 fh4Var, eh4 eh4Var) {
-        InterceptResult invokeLL;
+    public abstract List<OverlayOptions> b();
+
+    public vg4(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, fh4Var, eh4Var)) == null) {
-            v82.i("map", "createLabel start");
-            if (eh4Var == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            py2 py2Var = eh4Var.a;
-            if (py2Var != null && py2Var.j != null && py2Var.b != null) {
-                Paint paint = new Paint();
-                paint.setAntiAlias(true);
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(py2Var.j.b);
-                paint.setTextSize(py2Var.j.c);
-                py2.c cVar = py2Var.j;
-                float f = cVar.e;
-                float f2 = cVar.j;
-                Paint paint2 = new Paint();
-                paint2.setAntiAlias(true);
-                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint2.setColor(py2Var.j.d);
-                String str = py2Var.j.a;
-                float f3 = f * 2.0f;
-                float measureText = paint.measureText(str) + f3;
-                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
-                if (f4 > 0.0f && measureText > 0.0f) {
-                    float f5 = py2Var.j.h;
-                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
-                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                    RectF rectF = new RectF();
-                    float f6 = f5 / 2.0f;
-                    rectF.left = f6;
-                    rectF.top = f6;
-                    rectF.bottom = f4 + f6;
-                    rectF.right = measureText + f6;
-                    canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    if (f5 > 0.0f) {
-                        paint2.setStyle(Paint.Style.STROKE);
-                        paint2.setColor(py2Var.j.i);
-                        paint2.setStrokeWidth(f5);
-                        canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    }
-                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                    py2.c cVar2 = py2Var.j;
-                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
-                    imageView.setImageBitmap(createBitmap);
-                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    oy2 oy2Var = py2Var.b;
-                    MarkerOptions zIndex = markerOptions.position(new LatLng(oy2Var.a, oy2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
-                    v82.i("map", "createLabel end");
-                    return zIndex;
-                }
-                v82.c("map", "label heigth or width is 0");
-                return null;
-            }
-            v82.c("map", "marker data error");
-            return null;
         }
-        return (OverlayOptions) invokeLL.objValue;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = baiduMap;
+        if (0 == 0) {
+            this.b = new ArrayList();
+        }
+        if (this.c == null) {
+            this.c = new ArrayList();
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            return;
+        }
+        c();
+        if (b() != null) {
+            this.b.addAll(b());
+        }
+        for (OverlayOptions overlayOptions : this.b) {
+            this.c.add(this.a.addOverlay(overlayOptions));
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
+            return;
+        }
+        for (Overlay overlay : this.c) {
+            overlay.remove();
+        }
+        this.b.clear();
+        this.c.clear();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            for (Overlay overlay : this.c) {
+                if (overlay instanceof Marker) {
+                    builder.include(((Marker) overlay).getPosition());
+                }
+            }
+            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+        }
     }
 }

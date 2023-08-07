@@ -1,87 +1,144 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public abstract class n81 {
+public final class n81 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n81 a;
+    public static n81 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a(String str);
-
-    public abstract void b(boolean z);
-
-    /* loaded from: classes7.dex */
-    public class a extends n81 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.n81
-        public String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.n81
-        public void b(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956226, "Lcom/baidu/tieba/n81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947956226, "Lcom/baidu/tieba/n81;");
-                return;
-            }
-        }
-        a = new a();
-    }
+    public boolean a;
+    public HashMap<String, NadWebFeature> b;
 
     public n81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+        this.b = new HashMap<>(4);
+    }
+
+    public static synchronized n81 c() {
+        InterceptResult invokeV;
+        n81 n81Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (n81.class) {
+                if (c == null) {
+                    c = new n81();
+                }
+                n81Var = c;
+            }
+            return n81Var;
+        }
+        return (n81) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, k81 k81Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, k81Var)) == null) {
+            if (valueCallback == null) {
+                return false;
+            }
+            if (activity == null) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (b != null && b.c()) {
+                if (b instanceof m81) {
+                    return ((m81) b).h(activity, valueCallback, k81Var);
+                }
+                valueCallback.onReceiveValue(null);
+            } else {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public NadWebFeature a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return b(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public NadWebFeature b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            e(context);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
+            m81 m81Var = new m81(context);
+            m81Var.a();
+            i(m81Var);
+            this.a = true;
+        }
+    }
+
+    public void f(Activity activity) {
+        NadWebFeature a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof m81)) {
+            ((m81) a).f(activity);
+        }
+    }
+
+    public final void i(NadWebFeature nadWebFeature) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
+            this.b.put(nadWebFeature.b(), nadWebFeature);
+        }
+    }
+
+    public void g(Activity activity, int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof m81)) {
+            ((m81) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
         }
     }
 }

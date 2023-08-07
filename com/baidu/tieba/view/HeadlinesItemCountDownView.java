@@ -10,9 +10,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -142,7 +142,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            d85.d(this.e).x(R.color.CAM_X0109);
+            EMManager.from(this.e).setTextColor(R.color.CAM_X0109);
         }
     }
 

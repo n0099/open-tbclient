@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.module.voiceFloat.TiebaAudioFloatView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +89,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     }
                     ImageView imageView3 = this.d;
                     if (imageView3 != null) {
-                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.lq5
+                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.qo5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -218,7 +218,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             this.a = (ImageView) findViewById(R.id.user_avatar);
             this.b = (RelativeLayout) findViewById(R.id.audio_avatar);
             this.c = (TBLottieAnimationView) findViewById(R.id.float_lottie);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090727);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090736);
             this.d = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_voiceroom_close20, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
@@ -240,9 +240,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             if (tBLottieAnimationView3 != null) {
                 tBLottieAnimationView3.playAnimation();
             }
-            d85 d = d85.d(this);
-            d.o(R.string.J_X01);
-            d.h(SkinManager.getColor(0, (int) R.color.CAM_X0201));
+            EMManager.from(this).setCorner(R.string.J_X01).setBackGroundRealColor(SkinManager.getColor(0, (int) R.color.CAM_X0201));
         }
     }
 }

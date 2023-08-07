@@ -1,124 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Serializable;
-import java.util.HashMap;
-@ModifyClass
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ej5 {
+public class ej5 implements bj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736281, "Lcom/baidu/tieba/ej5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947736281, "Lcom/baidu/tieba/ej5;");
+    public ej5(View view2, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, attributeSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-service/creativeToolsList";
-    }
-
-    public static FrameLayout a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            FrameLayout frameLayout = new FrameLayout(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = yi.g(context, R.dimen.M_W_X006);
-            frameLayout.setLayoutParams(layoutParams);
-            d85 d = d85.d(frameLayout);
-            d.m(R.dimen.L_X02);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0209);
-            ImageView imageView = new ImageView(context);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(yi.g(context, R.dimen.tbds138), yi.g(context, R.dimen.tbds31));
-            layoutParams2.setMargins(yi.g(context, R.dimen.M_W_X004), yi.g(context, R.dimen.M_H_X002), yi.g(context, R.dimen.M_W_X004), yi.g(context, R.dimen.M_H_X002));
-            imageView.setLayoutParams(layoutParams2);
-            SkinManager.setImageResource(imageView, R.drawable.icon_ai_write_rukou);
-            frameLayout.addView(imageView);
-            b(context, frameLayout);
-            return frameLayout;
-        }
-        return (FrameLayout) invokeL.objValue;
-    }
-
-    public static void b(Context context, FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, context, frameLayout) == null) && vq5.a("key_ai_write_button_first_show_red_dot", true)) {
-            if (vq5.e("key_ai_write_button_first_show_red_dot_time", 0L) == 0) {
-                vq5.m("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis());
-            }
-            if (System.currentTimeMillis() - vq5.e("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis()) < 1209600000) {
-                ImageView imageView = new ImageView(context);
-                imageView.setId(R.id.ai_write_button_red_dot);
-                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yi.g(context, R.dimen.tbds18), yi.g(context, R.dimen.tbds18));
-                layoutParams.setMargins((yi.g(context, R.dimen.tbds138) + (yi.g(context, R.dimen.M_W_X004) * 2)) - yi.g(context, R.dimen.tbds18), 0, 0, 0);
-                SkinManager.setImageResource(imageView, R.drawable.icon_news_red_dot);
-                frameLayout.addView(imageView, layoutParams);
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.a = view2;
+        if (attributeSet != null) {
+            TypedArray typedArray = null;
+            try {
+                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, yda.KPSwitchPanelLayout);
+                this.c = typedArray.getBoolean(0, false);
+            } finally {
+                if (typedArray != null) {
+                    typedArray.recycle();
+                }
             }
         }
     }
 
-    @Modify(description = "设置AI发帖入口url")
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return a + "?customfullscreen=1&nonavigationbar=1&type=" + str + "&fid=" + str2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
+            }
+            if (i == this.a.getVisibility()) {
+                return true;
+            }
+            if (!b() || i != 0) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeLL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public static void e(@Nullable String str, @NonNull String str2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            HashMap<String, Serializable> hashMap = new HashMap<>();
-            if (!TextUtils.isEmpty(str)) {
-                hashMap.put("pbReply", str);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            yz4 j = yz4.j(TbadkCoreApplication.getInst().getCurrentActivity(), c("reply", str2));
-            j.f(hashMap);
-            j.p();
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.c) {
+            return;
+        }
+        jj5.d(this.a, i);
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public static void d(@NonNull View view2) {
-        View findViewById;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (findViewById = view2.findViewById(R.id.ai_write_button_red_dot)) != null) {
-            findViewById.setVisibility(8);
-            vq5.k("key_ai_write_button_first_show_red_dot", false);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
         }
+    }
+
+    @Override // com.baidu.tieba.bj5
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bj5
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.bj5
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+        }
+    }
+
+    @Override // com.baidu.tieba.bj5
+    public boolean isVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return !this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
+            }
+            return new int[]{i, i2};
+        }
+        return (int[]) invokeII.objValue;
     }
 }

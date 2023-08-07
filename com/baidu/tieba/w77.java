@@ -1,111 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.component.uistate.RichTextUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.reflect.KFunction;
+import tbclient.FeedPicComponent;
+import tbclient.PicInfo;
 /* loaded from: classes8.dex */
-public class w77 extends kc7 {
+public final class w77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function2<Context, String, Unit> c;
-    public final Function1<u97, Unit> d;
-    public final List<d87> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public w77() {
-        this(null, null, 3, null);
+    public static final p47 a(List<PicInfo> picInfoList, String schema, a67 feedExtraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Function2) objArr[0], (Function1) objArr[1], ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, picInfoList, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            p57 p57Var = new p57();
+            ArrayList arrayList = new ArrayList();
+            Iterator<PicInfo> it = picInfoList.iterator();
+            while (true) {
+                boolean z = false;
+                if (it.hasNext()) {
+                    PicInfo next = it.next();
+                    x67 x67Var = new x67();
+                    x67Var.a = next.small_pic_url;
+                    Integer num = next.width;
+                    Intrinsics.checkNotNullExpressionValue(num, "component.width");
+                    x67Var.b = num.intValue();
+                    Integer num2 = next.height;
+                    Intrinsics.checkNotNullExpressionValue(num2, "component.height");
+                    x67Var.c = num2.intValue();
+                    Double d = next.crop_point_width_ratio;
+                    Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
+                    x67Var.e = d.doubleValue();
+                    Double d2 = next.crop_point_height_ratio;
+                    Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
+                    x67Var.f = d2.doubleValue();
+                    Integer num3 = next.is_long_pic;
+                    if (num3 != null && num3.intValue() == 1) {
+                        z = true;
+                    }
+                    x67Var.d = z;
+                    arrayList.add(x67Var);
+                } else {
+                    p57Var.a = arrayList;
+                    return new p47(p57Var, schema, CollectionsKt__CollectionsKt.listOf((Object[]) new c77[]{b67.b(feedExtraData, "image_click"), b67.b(feedExtraData, "image_click2"), b67.b(feedExtraData, "image_click3"), b67.b(feedExtraData, "image_click4"), b67.b(feedExtraData, "image_click5")}), null, 8, null);
+                }
+            }
+        } else {
+            return (p47) invokeLLL.objValue;
+        }
+    }
+
+    public static final void b(FeedPicComponent feedPicComponent, List<u97<?>> dataList, a67 feedExtraData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, feedPicComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            List<PicInfo> list = feedPicComponent.pics;
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return;
             }
+            List<PicInfo> pics = feedPicComponent.pics;
+            Intrinsics.checkNotNullExpressionValue(pics, "pics");
+            String schema = feedPicComponent.schema;
+            Intrinsics.checkNotNullExpressionValue(schema, "schema");
+            dataList.add(new v97(a(pics, schema, feedExtraData), "pic"));
         }
-    }
-
-    @JvmOverloads
-    public w77(Function2<? super Context, ? super String, Unit> onRichTextClick, Function1<? super u97, Unit> onStat) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {onRichTextClick, onStat};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(onRichTextClick, "onRichTextClick");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.c = onRichTextClick;
-        this.d = onStat;
-        this.e = new ArrayList();
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ w77(Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
-        KFunction kFunction;
-        if ((i & 1) != 0) {
-            kFunction = RichTextUiStateKt.a;
-            function2 = (Function2) kFunction;
-        }
-    }
-
-    public final Function2<Context, String, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function1<u97, Unit> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final List<d87> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
     }
 }

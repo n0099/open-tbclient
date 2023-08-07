@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface cw1 {
-    void a(Activity activity, Bundle bundle, rz2 rz2Var);
+    void a(String str, z03 z03Var, Context context);
 }

@@ -1,110 +1,79 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t82 {
+public class t82 implements a82 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends ik3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes8.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static final b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1052603456, "Lcom/baidu/tieba/t82$b$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-1052603456, "Lcom/baidu/tieba/t82$b$a;");
-                        return;
-                    }
-                }
-                a = new b(null);
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super("searchbox_sconsole_sp");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public static b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return a.a;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public t82() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "consoleSwitch" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !b.c().getBoolean(a(str), false)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static void c(boolean z) {
-        vb3 M;
+    public static void d() {
+        ya3 M;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65538, null, z) == null) && (M = vb3.M()) != null) {
-            b.c().putBoolean(a(M.O()), z);
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = ya3.M()) == null) {
+            return;
+        }
+        hn3.j(M.getActivity());
+        System.exit(0);
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a82
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return r82.e().getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a82
+    public void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = xn3.i(bundle, "extraWSUrl");
+            b82.i(xn3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            b82.j(xn3.i(bundle, "slavePreload"));
+        }
+    }
+
+    @Override // com.baidu.tieba.a82
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("extraWSUrl", a);
+            bundle.putString("slavePreload", b82.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, b82.a());
         }
     }
 }

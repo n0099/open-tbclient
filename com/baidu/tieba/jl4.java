@@ -1,65 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
 import java.util.Map;
+import okhttp3.MediaType;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jl4 {
+public class jl4 extends bk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final xo4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887127, "Lcom/baidu/tieba/jl4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947887127, "Lcom/baidu/tieba/jl4;");
-                return;
-            }
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, fk4<String> fk4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, fk4Var) != null) || d(str, fk4Var)) {
+            return;
         }
-        a = xo4.e();
+        c(ci4.g().getRequest(), str, map, map2, fk4Var);
     }
 
-    public jl4() {
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, fk4<String> fk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, fk4Var) != null) || d(str, fk4Var)) {
+            return;
+        }
+        yh4 postStringRequest = ci4.g().postStringRequest();
+        ki4.a(postStringRequest, map);
+        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
+        c(postStringRequest, str, map, map2, fk4Var);
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
+    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, fk4<String> fk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, fk4Var) == null) {
+            httpRequestBuilder.url(gk4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(bk4.b).cookieManager(bk4.a).enableStat(true).build().executeStat(fk4Var);
         }
     }
 
-    public Integer a(Map<String, Object> map) {
-        InterceptResult invokeL;
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean d(String str, fk4<String> fk4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
-                try {
-                    int intValue = ((Integer) map.get("queue_priority")).intValue();
-                    if (intValue == 200 || intValue == 300) {
-                        return Integer.valueOf(intValue);
-                    }
-                } catch (Exception e) {
-                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, fk4Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
             }
-            return 100;
+            if (fk4Var != null) {
+                fk4Var.onStart();
+                return false;
+            }
+            return false;
         }
-        return (Integer) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -1,229 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class gk9 {
+public class gk9 implements ue5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
-    public LinearLayout b;
-    public EMTextView c;
-    public EMTextView d;
-    public String e;
-    public int f;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ gk9 b;
-
-        public a(gk9 gk9Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gk9Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gk9Var;
-            this.a = tbPageContext;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager urlManager = UrlManager.getInstance();
-                TbPageContext<?> tbPageContext = this.a;
-                urlManager.dealOneLink(tbPageContext, new String[]{gk9.g + this.b.e});
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("obj_locate", this.b.f));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947796948, "Lcom/baidu/tieba/gk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947796948, "Lcom/baidu/tieba/gk9;");
-                return;
-            }
-        }
-        g = TbConfig.TIEBA_ADDRESS + "mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1&postId=";
-    }
-
-    public gk9(TbPageContext<?> tbPageContext, FrameLayout frameLayout) {
+    public gk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, frameLayout};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = frameLayout;
-        i(tbPageContext);
-    }
-
-    public gk9(PbFragment pbFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        d(pbFragment.getPageContext());
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public gk9(AbsVideoPbFragment absVideoPbFragment, FrameLayout frameLayout) {
-        this(absVideoPbFragment.getPageContext(), frameLayout);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {absVideoPbFragment, frameLayout};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (FrameLayout) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void e() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d85 d = d85.d(this.b);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_floor", 5);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_new_post_num", 100);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_time", 10);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_visit_day", 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_no_followed_floor", 8);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_no_followed_time", 30);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            if (z) {
+                return a();
+            }
+            return f();
+        }
+        return invokeZ.intValue;
+    }
+
+    public static int h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65544, null, z)) == null) {
+            if (z) {
+                return c();
+            }
+            return g();
+        }
+        return invokeZ.intValue;
+    }
+
+    @Override // com.baidu.tieba.ue5
+    public void parseJson(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            i(jSONObject.optJSONObject("sprite_pb_guide"));
         }
     }
 
-    public final void d(TbPageContext<?> tbPageContext) {
+    public static void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) != null) || this.a != null) {
+        if ((interceptable != null && interceptable.invokeL(65545, null, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = (FrameLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d078b, (ViewGroup) null);
-        i(tbPageContext);
-    }
-
-    public void f(BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && bdTypeListView != null) {
-            bdTypeListView.removeHeaderView(this.a);
+        JSONObject optJSONObject = jSONObject.optJSONObject("followed");
+        if (optJSONObject != null) {
+            int optInt = optJSONObject.optInt("waiting_floor");
+            if (optInt > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_floor", optInt);
+            }
+            int optInt2 = optJSONObject.optInt("waiting_time");
+            if (optInt2 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_time", optInt2);
+            }
+            int optInt3 = optJSONObject.optInt("visit_day");
+            if (optInt3 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_visit_day", optInt3);
+            }
+            int optInt4 = optJSONObject.optInt("new_post_num");
+            if (optInt4 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_new_post_num", optInt4);
+            }
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.setVisibility(i);
-        }
-    }
-
-    public void c(BdTypeListView bdTypeListView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) && bdTypeListView != null) {
-            bdTypeListView.w(this.a, i);
-        }
-    }
-
-    public final void i(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0907a2);
-            this.c = (EMTextView) this.a.findViewById(R.id.tv_title);
-            this.d = (EMTextView) this.a.findViewById(R.id.tv_content);
-            d85 d = d85.d(this.c);
-            d.x(R.color.CAM_X0109);
-            d.D(R.string.F_X01);
-            d85 d2 = d85.d(this.d);
-            d2.z(R.dimen.M_H_X003);
-            d2.x(R.color.CAM_X0109);
-            d2.D(R.string.F_X01);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.pb_head_block_title));
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.l(yi.g(tbPageContext.getContext(), R.dimen.tbds31));
-            eMRichTextAnyIconSpan.j(yi.g(tbPageContext.getContext(), R.dimen.M_W_X002));
-            eMRichTextAnyIconSpan.f(0);
-            spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.c.setText(spannableStringBuilder);
-            SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.pb_head_block_content));
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.icon_pure_arrow12_right_n, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan2.f(yi.g(tbPageContext.getContext(), R.dimen.tbds3));
-            spannableStringBuilder2.setSpan(eMRichTextAnyIconSpan2, spannableStringBuilder2.length() - 1, spannableStringBuilder2.length(), 33);
-            this.d.setText(spannableStringBuilder2);
-            this.b.setOnClickListener(new a(this, tbPageContext));
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("unfollowed");
+        if (optJSONObject2 != null) {
+            int optInt5 = optJSONObject2.optInt("waiting_floor");
+            if (optInt5 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_no_followed_floor", optInt5);
+            }
+            int optInt6 = optJSONObject2.optInt("waiting_time");
+            if (optInt6 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_no_followed_time", optInt6);
+            }
         }
     }
 }

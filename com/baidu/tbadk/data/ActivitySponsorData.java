@@ -25,7 +25,7 @@ public class ActivitySponsorData extends OrmObject {
         }
     }
 
-    public void V(ActivitySponsor activitySponsor) {
+    public void N(ActivitySponsor activitySponsor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activitySponsor) == null) {
             Integer num = activitySponsor.is_sponsor;

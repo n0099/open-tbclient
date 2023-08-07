@@ -39,9 +39,9 @@ import com.baidu.searchbox.permission.DangerousPermissionManager;
 import com.baidu.searchbox.permission.DangerousPermissionUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d20;
-import com.baidu.tieba.x20;
-import com.baidu.tieba.z20;
+import com.baidu.tieba.b10;
+import com.baidu.tieba.v10;
+import com.baidu.tieba.x10;
 import com.kuaishou.weapon.p0.h;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
@@ -278,7 +278,7 @@ public final class DownloadHelper {
     }
 
     public static boolean checkTeenagerStyleAndTip() {
-        if (d20.a.e()) {
+        if (b10.a.e()) {
             UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.teenager_not_download).show();
             return true;
         }
@@ -506,7 +506,7 @@ public final class DownloadHelper {
                         externalStorageCallBack3.onResult(false);
                     }
                     if (PreferenceUtils.getBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, false)) {
-                        x20.i();
+                        v10.i();
                     } else {
                         PreferenceUtils.setBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, true);
                     }
@@ -1268,7 +1268,7 @@ public final class DownloadHelper {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00d3 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00d4 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:54:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1419,7 +1419,7 @@ public final class DownloadHelper {
                         if (eventCallback2 != null) {
                             eventCallback2.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SYSTEM_GRANTED));
                         }
-                        z20.t(str, true);
+                        x10.t(str, true);
                         return;
                     }
                     ExternalStorageCallBack externalStorageCallBack3 = ExternalStorageCallBack.this;
@@ -1430,8 +1430,8 @@ public final class DownloadHelper {
                     if (eventCallback3 != null) {
                         eventCallback3.callBack(2, new EventCallback.EventBackInfo(110));
                     }
-                    z20.t(str, false);
-                    x20.k(realTopActivity, str, eventCallback);
+                    x10.t(str, false);
+                    v10.k(realTopActivity, str, eventCallback);
                 }
             }
         });

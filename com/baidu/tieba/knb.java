@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.onb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class knb<TResult> implements qob<TResult> {
+public class knb implements onb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public final /* synthetic */ lnb a;
 
-    public knb(Executor executor, gob gobVar) {
+    public knb(lnb lnbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, gobVar};
+            Object[] objArr = {lnbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,14 +26,6 @@ public final class knb<TResult> implements qob<TResult> {
                 return;
             }
         }
-        this.a = executor;
-    }
-
-    @Override // com.baidu.tieba.qob
-    public final void a(cob<TResult> cobVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cobVar) == null) {
-            cobVar.e();
-        }
+        this.a = lnbVar;
     }
 }

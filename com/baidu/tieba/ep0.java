@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-@FunctionalInterface
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public interface ep0<T> {
-    void accept(@NonNull T t) throws Throwable;
+public interface ep0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "getPublicParamsUrl");
+
+    String a(String str);
 }

@@ -5,7 +5,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.l7a;
+import com.baidu.tieba.g6a;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -181,14 +181,14 @@ public final class SpriteTipEdgeFloat {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    l7a l7aVar = new l7a(this.$activity);
-                    l7aVar.M(this.this$0.c());
-                    l7aVar.y(this.$gravity);
-                    l7aVar.I(this.$startX);
-                    l7aVar.J(this.$startY);
-                    l7aVar.d(this.$canDrag);
-                    l7aVar.D(this.$pageSupportList);
-                    return l7aVar.c();
+                    g6a g6aVar = new g6a(this.$activity);
+                    g6aVar.M(this.this$0.c());
+                    g6aVar.y(this.$gravity);
+                    g6aVar.I(this.$startX);
+                    g6aVar.J(this.$startY);
+                    g6aVar.d(this.$canDrag);
+                    g6aVar.D(this.$pageSupportList);
+                    return g6aVar.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }
@@ -239,7 +239,7 @@ public final class SpriteTipEdgeFloat {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            EdgeFloatLifecycle.b.a().l(b());
+            EdgeFloatLifecycle.Companion.a().unRegister(b());
         }
     }
 }

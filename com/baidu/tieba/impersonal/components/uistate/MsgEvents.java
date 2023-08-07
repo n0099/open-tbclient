@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.cw8;
+import com.baidu.tieba.hv8;
+import com.baidu.tieba.hw8;
 import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.tieba.lx8;
-import com.baidu.tieba.ly8;
+import com.baidu.tieba.yt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,17 +47,17 @@ public final class MsgEvents {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements Function2<View, cw8<?>, Unit> {
+    public static final class a implements Function2<View, yt8<?>, Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lx8 a;
+        public final /* synthetic */ hv8 a;
 
-        public a(lx8 lx8Var) {
+        public a(hv8 hv8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lx8Var};
+                Object[] objArr = {hv8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,10 +67,10 @@ public final class MsgEvents {
                     return;
                 }
             }
-            this.a = lx8Var;
+            this.a = hv8Var;
         }
 
-        public void a(View view2, cw8<?> data) {
+        public void a(View view2, yt8<?> data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, data) == null) {
                 Intrinsics.checkNotNullParameter(view2, "view");
@@ -83,8 +83,8 @@ public final class MsgEvents {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // kotlin.jvm.functions.Function2
-        public /* bridge */ /* synthetic */ Unit invoke(View view2, cw8<?> cw8Var) {
-            a(view2, cw8Var);
+        public /* bridge */ /* synthetic */ Unit invoke(View view2, yt8<?> yt8Var) {
+            a(view2, yt8Var);
             return Unit.INSTANCE;
         }
     }
@@ -103,11 +103,11 @@ public final class MsgEvents {
         }
     }
 
-    public final Function2<View, cw8<?>, Unit> a() {
+    public final Function2<View, yt8<?>, Unit> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new Function2<View, cw8<?>, Unit>() { // from class: com.baidu.tieba.impersonal.components.uistate.MsgEvents$genDefaultMsgLongClick$1
+            return new Function2<View, yt8<?>, Unit>() { // from class: com.baidu.tieba.impersonal.components.uistate.MsgEvents$genDefaultMsgLongClick$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -125,7 +125,7 @@ public final class MsgEvents {
                     }
                 }
 
-                public void a(View view2, cw8<?> data) {
+                public void a(View view2, yt8<?> data) {
                     VoiceMsgContent voiceMsgContent;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, data) == null) {
@@ -144,10 +144,10 @@ public final class MsgEvents {
                                 tbPageContextSupport = (TbPageContextSupport) context;
                             }
                             if (tbPageContextSupport != null) {
-                                ly8 ly8Var = ly8.a;
+                                hw8 hw8Var = hw8.a;
                                 TbPageContext<?> pageContext = tbPageContextSupport.getPageContext();
                                 Intrinsics.checkNotNullExpressionValue(pageContext, "context.pageContext");
-                                ly8Var.a(pageContext, new Function1<Integer, Unit>(tbPageContextSupport) { // from class: com.baidu.tieba.impersonal.components.uistate.MsgEvents$genDefaultMsgLongClick$1$invoke$1$1
+                                hw8Var.a(pageContext, new Function1<Integer, Unit>(tbPageContextSupport) { // from class: com.baidu.tieba.impersonal.components.uistate.MsgEvents$genDefaultMsgLongClick$1$invoke$1$1
                                     public static /* synthetic */ Interceptable $ic;
                                     public final /* synthetic */ TbPageContextSupport $context;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -182,30 +182,30 @@ public final class MsgEvents {
                                     }
 
                                     public final void invoke(int i) {
-                                        VoiceManager y0;
-                                        VoiceManager y02;
+                                        VoiceManager z0;
+                                        VoiceManager z02;
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                                            VoiceManager.j jVar = null;
+                                            VoiceManager.i iVar = null;
                                             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                                                 TbadkCoreApplication.getInst().setHeadsetModeOn(false);
                                                 TbPageContextSupport tbPageContextSupport2 = this.$context;
-                                                if (tbPageContextSupport2 instanceof VoiceManager.j) {
-                                                    jVar = (VoiceManager.j) tbPageContextSupport2;
+                                                if (tbPageContextSupport2 instanceof VoiceManager.i) {
+                                                    iVar = (VoiceManager.i) tbPageContextSupport2;
                                                 }
-                                                if (jVar != null && (y02 = jVar.y0()) != null) {
-                                                    y02.setSpeakerphoneOn(true);
+                                                if (iVar != null && (z02 = iVar.z0()) != null) {
+                                                    z02.setSpeakerphoneOn(true);
                                                     return;
                                                 }
                                                 return;
                                             }
                                             TbadkCoreApplication.getInst().setHeadsetModeOn(true);
                                             TbPageContextSupport tbPageContextSupport3 = this.$context;
-                                            if (tbPageContextSupport3 instanceof VoiceManager.j) {
-                                                jVar = (VoiceManager.j) tbPageContextSupport3;
+                                            if (tbPageContextSupport3 instanceof VoiceManager.i) {
+                                                iVar = (VoiceManager.i) tbPageContextSupport3;
                                             }
-                                            if (jVar != null && (y0 = jVar.y0()) != null) {
-                                                y0.setSpeakerphoneOn(false);
+                                            if (iVar != null && (z0 = iVar.z0()) != null) {
+                                                z0.setSpeakerphoneOn(false);
                                             }
                                         }
                                     }
@@ -218,8 +218,8 @@ public final class MsgEvents {
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function2
-                public /* bridge */ /* synthetic */ Unit invoke(View view2, cw8<?> cw8Var) {
-                    a(view2, cw8Var);
+                public /* bridge */ /* synthetic */ Unit invoke(View view2, yt8<?> yt8Var) {
+                    a(view2, yt8Var);
                     return Unit.INSTANCE;
                 }
             };
@@ -227,7 +227,7 @@ public final class MsgEvents {
         return (Function2) invokeV.objValue;
     }
 
-    public final Function2<View, cw8<?>, Unit> b(lx8 repo) {
+    public final Function2<View, yt8<?>, Unit> b(hv8 repo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, repo)) == null) {

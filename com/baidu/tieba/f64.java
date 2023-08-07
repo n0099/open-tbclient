@@ -1,114 +1,124 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public final class f64 extends EventTargetImpl {
+public class f64 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fj2 a;
-    public db4 b;
-    @V8JavascriptField
-    public final String domain;
 
-    @JavascriptInterface
-    public f64 getOpenData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (f64) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f64(fj2 fj2Var) {
-        super(fj2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fj2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716069, "Lcom/baidu/tieba/f64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716069, "Lcom/baidu/tieba/f64;");
                 return;
             }
         }
-        this.domain = "openData";
-        this.a = fj2Var;
+        a = ir1.a;
+        b = 86400000L;
+        c = "duration_permission_list";
     }
 
-    @JavascriptInterface
-    public void getFriendCloudStorage(JsObject jsObject) {
+    public static void a(JsObject jsObject) {
+        g64 g64Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new db4(this.a);
+        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
+            ya3 M = ya3.M();
+            f32 f32Var = null;
+            if (jsObject != null && M != null && b(M)) {
+                if (a) {
+                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
+                }
+                f32 F = f32.F(jsObject);
+                String B = F.B("swanGameId");
+                if (!TextUtils.isEmpty(B)) {
+                    gj3 a2 = mj3.a();
+                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                        a2.putLong(B + "_Duration", 0L);
+                    }
+                    g64Var = new g64();
+                    g64Var.duration = a2.getLong(B + "_Duration", 0L);
+                } else {
+                    g64Var = null;
+                }
+                f32Var = F;
+            } else {
+                g64Var = null;
             }
-            this.b.getFriendCloudStorage(jsObject);
+            kd4.call(f32Var, true, g64Var);
         }
     }
 
-    @JavascriptInterface
-    public void getUserCloudStorage(JsObject jsObject) {
+    public static boolean b(ya3 ya3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new db4(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ya3Var)) == null) {
+            String string = mj3.a().getString(c, "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(string);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        if (ya3.g0().contains(jSONArray.optString(i))) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            this.b.getUserCloudStorage(jsObject);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @JavascriptInterface
-    public void getUserInfo(JsObject jsObject) {
+    public static boolean c(Long l, Long l2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new db4(this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
             }
-            this.b.getUserInfo(jsObject);
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @JavascriptInterface
-    public void initSharedCanvas(JsObject jsObject) {
+    public static void d(long j, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.a.m() instanceof c64)) {
-            ((c64) this.a.m()).z(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void removeUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new db4(this.a);
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && j2 > j && ya3.M() != null && !TextUtils.isEmpty(ya3.g0())) {
+            String g0 = ya3.g0();
+            gj3 a2 = mj3.a();
+            long j3 = a2.getLong(g0 + "_LastPause", 0L);
+            long j4 = a2.getLong(g0 + "_Duration", 0L);
+            if (c(Long.valueOf(j), Long.valueOf(j2))) {
+                if (c(Long.valueOf(j3), Long.valueOf(j))) {
+                    a2.putLong(g0 + "_Duration", (j4 + j2) - j);
+                } else {
+                    a2.putLong(g0 + "_Duration", j2 - j);
+                }
+            } else {
+                a2.putLong(g0 + "_Duration", j2 % b);
             }
-            this.b.removeUserCloudStorage(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void setUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-            if (this.b == null) {
-                this.b = new db4(this.a);
-            }
-            this.b.setUserCloudStorage(jsObject);
+            a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
         }
     }
 }

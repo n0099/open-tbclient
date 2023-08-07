@@ -10,8 +10,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.fp3;
-import com.baidu.tieba.mp3;
+import com.baidu.tieba.io3;
+import com.baidu.tieba.po3;
 /* loaded from: classes4.dex */
 public class GameGuideViewContainer extends FrameLayout {
     public int a;
@@ -43,8 +43,8 @@ public class GameGuideViewContainer extends FrameLayout {
 
     public final int d(int i) {
         int i2;
-        if (i < mp3.g(10.0f)) {
-            i2 = mp3.g(10.0f);
+        if (i < po3.g(10.0f)) {
+            i2 = po3.g(10.0f);
         } else {
             i2 = i;
         }
@@ -94,7 +94,7 @@ public class GameGuideViewContainer extends FrameLayout {
         int i5 = i4 / 2;
         if (i >= i5) {
             i2 = (int) (((i4 - i) / i5) * 400.0f);
-            i3 = mp3.g(10.0f);
+            i3 = po3.g(10.0f);
         } else {
             i2 = (int) ((i / i5) * 400.0f);
             i3 = i4 - this.a;
@@ -114,9 +114,9 @@ public class GameGuideViewContainer extends FrameLayout {
         this.d = getContext().getResources().getDisplayMetrics().widthPixels;
         this.c = getContext().getResources().getDisplayMetrics().heightPixels;
         if (2 == getContext().getResources().getConfiguration().orientation) {
-            this.d += fp3.c();
+            this.d += io3.c();
         } else {
-            this.c += fp3.c();
+            this.c += io3.c();
         }
         this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }

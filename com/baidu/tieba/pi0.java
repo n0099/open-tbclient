@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.text.TextUtils;
-import android.util.Log;
+import android.util.LruCache;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,31 +11,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 /* loaded from: classes7.dex */
-public final class pi0 {
+public class pi0 extends LruCache<String, oi0<File>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a = false;
-    public static final h41 b;
-    public static final pi0 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<e> a;
+    public final String b;
+    public HashMap<oi0<File>, byte[]> c;
+    public long d;
+    public volatile boolean e;
+    public int f;
+    public long g;
 
     /* loaded from: classes7.dex */
-    public static final class a implements Runnable {
+    public interface e {
+        void a(String str, oi0<File> oi0Var);
+
+        void b(String str, oi0<File> oi0Var);
+
+        void c(String str, oi0<File> oi0Var);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ pi0 b;
 
-        public a(long j, String str) {
+        public a(String str, pi0 pi0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), str};
+                Object[] objArr = {str, pi0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,38 +62,159 @@ public final class pi0 {
                     return;
                 }
             }
-            this.a = j;
-            this.b = str;
+            this.a = str;
+            this.b = pi0Var;
         }
 
         @Override // java.lang.Runnable
-        public final void run() {
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (pi0.s()) {
-                    if (pi0.a(pi0.c)) {
-                        Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: canceled for return before N!");
-                        return;
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    File file = new File(this.a);
+                    if (!file.exists()) {
+                        file.mkdirs();
                     }
-                    return;
-                }
-                long j = this.a;
-                if (j < 0) {
-                    return;
-                }
-                if (j > System.currentTimeMillis()) {
-                    if (pi0.a(pi0.c)) {
-                        Log.d("AdDeepLinkStayTime", "tryToPostDeepLinkStayTrans: 留意，时间戳读写出现了异常，抛弃脏数据。");
-                        return;
-                    }
-                    return;
-                }
-                n41.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(this.b).k(String.valueOf(this.a)).l(String.valueOf(System.currentTimeMillis())).m("1"));
-                pi0.y();
-                if (pi0.a(pi0.c)) {
-                    Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: successfully made a deepLink stay trans!");
+                    this.b.o(file.listFiles(), currentTimeMillis);
+                } catch (Exception unused) {
+                    this.b.e = true;
                 }
             }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ byte[] a;
+        public final /* synthetic */ oi0 b;
+        public final /* synthetic */ pi0 c;
+
+        public b(pi0 pi0Var, byte[] bArr, oi0 oi0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pi0Var, bArr, oi0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = pi0Var;
+            this.a = bArr;
+            this.b = oi0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    System.currentTimeMillis();
+                    l61.i(this.a, (File) this.b.a());
+                    this.c.put(((File) this.b.a()).getName(), this.b);
+                    pi0.b(this.c);
+                    if (!this.c.a.isEmpty()) {
+                        for (e eVar : this.c.a) {
+                            eVar.c(((File) this.b.a()).getName(), this.b);
+                        }
+                    }
+                    System.currentTimeMillis();
+                    this.c.f();
+                } catch (Throwable unused) {
+                    if (!this.c.a.isEmpty()) {
+                        for (e eVar2 : this.c.a) {
+                            eVar2.a(((File) this.b.a()).getName(), this.b);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oi0 a;
+        public final /* synthetic */ pi0 b;
+
+        public c(pi0 pi0Var, oi0 oi0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pi0Var, oi0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pi0Var;
+            this.a = oi0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a != null) {
+                        System.currentTimeMillis();
+                        ((File) this.a.a()).getName();
+                        pi0.c(this.b);
+                        this.a.e();
+                        System.currentTimeMillis();
+                    }
+                    this.b.f();
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(pi0 pi0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pi0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                return Long.compare(file.lastModified(), file2.lastModified());
+            }
+            return invokeLL.intValue;
         }
     }
 
@@ -93,336 +228,249 @@ public final class pi0 {
             }
             if ((invokeClinit.flags & 1) != 0) {
                 classClinitInterceptable.invokePostClinit(1948062866, "Lcom/baidu/tieba/pi0;");
-                return;
             }
         }
-        c = new pi0();
-        h41 b2 = k41.a().b("nad_deeplink_stay_time");
-        Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().ge…\"nad_deeplink_stay_time\")");
-        b = b2;
     }
 
-    public pi0() {
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pi0(int i, String str) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.e = false;
+        this.f = 0;
+        this.g = 2592000000L;
+        this.b = str;
+        this.c = new HashMap<>();
     }
 
-    @JvmStatic
-    public static final long c() {
-        InterceptResult invokeV;
+    public final void o(File[] fileArr, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.getInt("sp_key_stay_time", 15) * 1000;
-        }
-        return invokeV.longValue;
-    }
-
-    @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return b.getBoolean("key_deep_link_open", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return b.getBoolean("key_no_need_post_deep_link_trans_on_cold_boot", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String f = i71.f("ad_deeplink_stay_time_ext");
-            if (f == null) {
-                return "";
-            }
-            return f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return b.getLong("key_deep_link_open_time", -1L);
-        }
-        return invokeV.longValue;
-    }
-
-    @JvmStatic
-    public static final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            String string = b.getString("key_deep_link_source_activity", "");
-            if (string == null) {
-                return "";
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            c.n();
-            c.o();
-            c.r();
-            c.m();
-            c.q();
-            c.p();
-        }
-    }
-
-    @JvmStatic
-    public static final boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return b.getBoolean("key_deep_link_return_before_time_threshold", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            b.d("key_deep_link_open", true);
-        }
-    }
-
-    @JvmStatic
-    public static final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            b.g("key_deep_link_open_time", System.currentTimeMillis());
-        }
-    }
-
-    @JvmStatic
-    public static final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
-            b.d("key_no_need_post_deep_link_trans_on_cold_boot", true);
-        }
-    }
-
-    @JvmStatic
-    public static final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            b.d("key_deep_link_return_before_time_threshold", true);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i71.j("", "ad_deeplink_stay_time_ext");
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.d("key_deep_link_open", false);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.g("key_deep_link_open_time", -1L);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.h("key_deep_link_source_activity", "");
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.d("key_no_need_post_deep_link_trans_on_cold_boot", false);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.d("key_deep_link_return_before_time_threshold", false);
-        }
-    }
-
-    @JvmStatic
-    public static final void A(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || TextUtils.isEmpty(str) || b(str)) {
-            return;
-        }
-        new Handler().postDelayed(new a(j(), str), c());
-    }
-
-    public static final /* synthetic */ boolean a(pi0 pi0Var) {
-        return a;
-    }
-
-    @JvmStatic
-    public static final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            l();
-            u();
-            v();
-            t(str);
-            x(str, false);
-            A(str);
-        }
-    }
-
-    @JvmStatic
-    public static final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            i71.j(str, "ad_deeplink_stay_time_ext");
-        }
-    }
-
-    @JvmStatic
-    public static final void w(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && activity != null) {
-            b.h("key_deep_link_source_activity", activity.getLocalClassName());
-        }
-    }
-
-    @JvmStatic
-    public static final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null) {
-                if (str != null) {
-                    String obj = StringsKt__StringsKt.trimEnd((CharSequence) str).toString();
-                    if (obj != null) {
-                        boolean z = b.getBoolean(obj, true);
-                        if (a) {
-                            Log.d("AdDeepLinkStayTime", "saveIfFinishedPostThisAd: extParam=" + obj + " | finished=" + z);
-                        }
-                        return z;
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, fileArr, j) == null) {
+            if (fileArr != null && fileArr.length > 0) {
+                PriorityQueue priorityQueue = new PriorityQueue(11, new d(this));
+                if (priorityQueue.size() > 0) {
+                    File file = (File) priorityQueue.peek();
+                    if (file != null) {
+                        this.d = file.lastModified();
                     }
                 } else {
-                    throw new NullPointerException("null cannot be cast to non-null type kotlin.CharSequence");
+                    this.d = System.currentTimeMillis();
+                }
+                priorityQueue.addAll(Arrays.asList(fileArr));
+                while (!priorityQueue.isEmpty()) {
+                    File file2 = (File) priorityQueue.poll();
+                    if (file2 != null) {
+                        m(file2.getName(), file2);
+                    }
                 }
             }
-            return true;
+            System.currentTimeMillis();
+            k();
+        }
+    }
+
+    public static /* synthetic */ int b(pi0 pi0Var) {
+        int i = pi0Var.f;
+        pi0Var.f = i + 1;
+        return i;
+    }
+
+    public static /* synthetic */ int c(pi0 pi0Var) {
+        int i = pi0Var.f;
+        pi0Var.f = i - 1;
+        return i;
+    }
+
+    public void delete(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && super.get(str) != null) {
+            g((oi0) super.remove(str));
+        }
+    }
+
+    public void e(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
+            a31.b(this.a, eVar);
+        }
+    }
+
+    public final void g(oi0<File> oi0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, oi0Var) == null) {
+            r41.c(new c(this, oi0Var), "delete_disk_file_async", 3);
+        }
+    }
+
+    @Nullable
+    public oi0<File> i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            oi0<File> oi0Var = (oi0) super.get(str);
+            if (oi0Var != null) {
+                try {
+                    oi0Var.a().setLastModified(System.currentTimeMillis());
+                } catch (Throwable unused) {
+                }
+            }
+            return oi0Var;
+        }
+        return (oi0) invokeL.objValue;
+    }
+
+    public void n(e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) && this.a.contains(eVar)) {
+            this.a.remove(eVar);
+        }
+    }
+
+    public boolean query(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            oi0<File> i = i(str);
+            if (i != null && i.a().exists()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @JvmStatic
-    public static final void g(long j, String boot, long j2, String str) {
-        String str2;
+    public static pi0 l(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), boot, Long.valueOf(j2), str}) == null) {
-            Intrinsics.checkNotNullParameter(boot, "boot");
-            if (!d()) {
-                l();
-            } else if (TextUtils.isEmpty(str) || b(str) || j < 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            pi0 pi0Var = new pi0(i, str);
+            pi0Var.e = false;
+            r41.c(new a(str, pi0Var), "restore_cache_from_disk", 3);
+            return pi0Var;
+        }
+        return (pi0) invokeLI.objValue;
+    }
+
+    public final void m(String str, File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, file) == null) && file.exists()) {
+            super.put(str, new oi0(file));
+            this.f++;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.util.LruCache
+    /* renamed from: p */
+    public int sizeOf(String str, oi0<File> oi0Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, oi0Var)) == null) {
+            if (oi0Var == null) {
+                return super.sizeOf(null, null);
+            }
+            return oi0Var.f();
+        }
+        return invokeLL.intValue;
+    }
+
+    public void q(byte[] bArr, oi0<File> oi0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, bArr, oi0Var) == null) && oi0Var != null) {
+            if (this.e) {
+                r(oi0Var, bArr);
             } else {
-                if (j > j2) {
-                    if (a) {
-                        Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: 留意，出现了两次打点混淆的情况，为避免污染数据，放弃上传本次打点。");
-                        return;
+                this.c.put(oi0Var, bArr);
+            }
+        }
+    }
+
+    public final void r(oi0<File> oi0Var, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, oi0Var, bArr) == null) {
+            r41.c(new b(this, bArr, oi0Var), "store_cache_to_disk", 3);
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (System.currentTimeMillis() - this.d < this.g) {
+                    return;
+                }
+                System.currentTimeMillis();
+                Map snapshot = super.snapshot();
+                this.d = System.currentTimeMillis();
+                for (String str : snapshot.keySet()) {
+                    oi0 oi0Var = (oi0) snapshot.get(str);
+                    if (oi0Var.d(this.g)) {
+                        ((File) ((oi0) super.remove(str)).a()).delete();
+                        this.f--;
+                    } else if (((File) oi0Var.a()).lastModified() < this.d) {
+                        this.d = ((File) oi0Var.a()).lastModified();
                     }
-                    return;
                 }
-                if (TextUtils.equals(boot, "boot_from_background")) {
-                    str2 = "1";
-                } else if (TextUtils.equals(boot, "boot_from_cold")) {
-                    str2 = "2";
-                } else {
-                    return;
-                }
-                n41.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TIME).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m(str2));
-                x(str, true);
-                if (a) {
-                    Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: post a deepLink stay time on " + boot);
+                System.currentTimeMillis();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.util.LruCache
+    /* renamed from: h */
+    public void entryRemoved(boolean z, String str, oi0<File> oi0Var, oi0<File> oi0Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, oi0Var, oi0Var2}) == null) {
+            super.entryRemoved(z, str, oi0Var, oi0Var2);
+            if (z && oi0Var != null) {
+                g(oi0Var);
+            }
+            if (z && !this.a.isEmpty()) {
+                for (e eVar : this.a) {
+                    eVar.b(str, oi0Var);
                 }
             }
         }
     }
 
-    @JvmStatic
-    public static final void h(long j, long j2, String str) {
+    public final synchronized void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            if (!d()) {
-                l();
-            } else if (TextUtils.isEmpty(str) || b(str) || j < 0) {
-            } else {
-                if (j > j2) {
-                    if (a) {
-                        Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: 留意，出现了两次打点混淆的情况，为避免污染数据，放弃上传本次打点。");
-                        return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                this.e = true;
+                if (this.c != null) {
+                    for (oi0<File> oi0Var : this.c.keySet()) {
+                        r(oi0Var, this.c.get(oi0Var));
                     }
-                    return;
-                }
-                n41.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m("2"));
-                if (a) {
-                    Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: post last deepLink stay trans when cold boot.");
+                    this.c.clear();
+                    this.c = null;
                 }
             }
-        }
-    }
-
-    @JvmStatic
-    public static final void x(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65556, null, str, z) == null) && str != null) {
-            if (str != null) {
-                String obj = StringsKt__StringsKt.trimEnd((CharSequence) str).toString();
-                if (obj != null) {
-                    b.d(obj, z);
-                    if (a) {
-                        Log.d("AdDeepLinkStayTime", "saveIfFinishedPostThisAd: extParam=" + obj + " | finished=" + z);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type kotlin.CharSequence");
         }
     }
 }

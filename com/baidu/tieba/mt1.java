@@ -1,29 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface mt1 {
-    boolean a(View view2, b23 b23Var);
+public class mt1 implements rv1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    @Override // com.baidu.tieba.rv1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
-    boolean c(View view2, b23 b23Var);
-
-    boolean d(View view2);
-
-    void e(uq3 uq3Var);
-
-    void f(uq3 uq3Var);
-
-    void g(boolean z);
-
-    Context getContext();
-
-    FrameLayout getRootView();
-
-    boolean h();
-
-    boolean removeView(View view2);
+    public mt1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

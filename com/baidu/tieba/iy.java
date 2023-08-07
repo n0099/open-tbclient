@@ -2,22 +2,21 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ForumEnterLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iy extends ey {
+public class iy extends dx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t15 h;
-    public ForumEnterLayout i;
-    public final View.OnClickListener j;
+    public ThreadSmartAppLayout h;
+    public q05 i;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -46,8 +45,8 @@ public class iy extends ey {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i() != null) {
-                this.a.i().a(view2, this.a.h);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
+                this.a.h().a(view2, this.a.i);
             }
         }
     }
@@ -70,56 +69,38 @@ public class iy extends ey {
                 return;
             }
         }
-        this.j = new a(this);
-        int g = yi.g(context, R.dimen.M_H_X003);
-        int g2 = yi.g(context, R.dimen.tbds0);
-        z(g);
-        y(g2);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
-            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
-        } else {
-            this.i = new ForumEnterLayout(context);
-        }
-        this.i.setOnAfterClickListener(this.j);
+        y(BdUtilHelper.getDimens(context, R.dimen.M_H_X003));
+        this.h = new ThreadSmartAppLayout(context);
+        this.h.setAfterClickListener(new a(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: C */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: A */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t15Var) == null) {
-            this.h = t15Var;
-            this.i.setSourceForPb(this.a.j());
-            this.i.setData(t15Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, q05Var) == null) {
+            this.i = q05Var;
+            this.h.onBindDataToView(q05Var);
         }
     }
 
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int g = yi.g(this.b, R.dimen.M_H_X003);
-            int g2 = yi.g(this.b, R.dimen.tbds0);
-            z(g);
-            y(g2);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public View l() {
+    @Override // com.baidu.tieba.ww
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        ThreadSmartAppLayout threadSmartAppLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.i.n(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (threadSmartAppLayout = this.h) != null) {
+            threadSmartAppLayout.c();
         }
     }
 }

@@ -1,115 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public final class hv6 {
+public class hv6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<ThemeColorInfo> b;
-    public final boolean c;
+    public FeatureCardHot a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837217, "Lcom/baidu/tieba/hv6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (obj instanceof hv6) {
-                hv6 hv6Var = (hv6) obj;
-                return Intrinsics.areEqual(this.a, hv6Var.a) && Intrinsics.areEqual(this.b, hv6Var.b) && this.c == hv6Var.c;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947837217, "Lcom/baidu/tieba/hv6;");
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        b = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode + i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "TitleTagsItem(titleText=" + this.a + ", tags=" + this.b + ", isTitleBold=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public hv6(String titleText, List<ThemeColorInfo> tags, boolean z) {
+    public hv6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {titleText, tags, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(titleText, "titleText");
-        Intrinsics.checkNotNullParameter(tags, "tags");
-        this.a = titleText;
-        this.b = tags;
-        this.c = z;
     }
 
-    public /* synthetic */ hv6(String str, List list, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, list, (i & 4) != 0 ? false : z);
-    }
-
-    public final List<ThemeColorInfo> a() {
+    public FeatureCardHot c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (FeatureCardHot) invokeV.objValue;
     }
 
-    public final boolean c() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return b;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(FeatureCardHot featureCardHot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardHot) == null) {
+            this.a = featureCardHot;
+        }
     }
 }

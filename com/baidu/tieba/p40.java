@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public interface p40 {
-    String a();
+public final class p40 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String a(Context context);
-
-    JSONArray b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String e(Context context);
-
-    JSONArray f(Context context);
-
-    JSONObject g(Context context);
+    public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, byteBuffer, byteBuffer2, byteBuffer3, i) == null) {
+            if (i < 0 || byteBuffer2.remaining() < i || byteBuffer3.remaining() < i || byteBuffer.remaining() < i) {
+                throw new IllegalArgumentException("That combination of buffers, offsets and length to xor result in out-of-bond accesses.");
+            }
+            for (int i2 = 0; i2 < i; i2++) {
+                byteBuffer.put((byte) (byteBuffer2.get() ^ byteBuffer3.get()));
+            }
+        }
+    }
 }

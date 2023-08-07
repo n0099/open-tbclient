@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.view.itemcard.download;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,9 +41,9 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
                 return;
             }
         }
-        addParam("screen_width", yi.l(TbadkCoreApplication.getInst().getContext()));
-        addParam("screen_length", yi.j(TbadkCoreApplication.getInst().getContext()));
-        addParam("os_ver", aj.k());
+        addParam("screen_width", BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_length", BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getContext()));
+        addParam("os_ver", DeviceInfoHelper.getOsVersion());
         addParam("package", itemData.pkgName);
         addParam("query", str);
         if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {

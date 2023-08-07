@@ -1,380 +1,233 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public final class efb extends qfb {
+public class efb extends rfb<ggb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<b> b;
-    public final int c;
-    public final boolean d;
 
     /* loaded from: classes5.dex */
-    public static final class a extends qfb implements seb {
+    public class a implements TTAdNative.SplashAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-        public final Ssp.Pid c;
-        public final b d;
+        public final /* synthetic */ efb a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, b bVar) {
-            super(i);
+        public a(efb efbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map, bVar};
+                Object[] objArr = {efbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = bVar;
-            long readLong = objectInput.readLong();
-            this.a = readLong;
-            this.b = objectInput.readInt();
-            this.c = map.get(Long.valueOf(readLong));
+            this.a = efbVar;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject, Map<Long, Ssp.Pid> map, b bVar) {
-            super(0);
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        @MainThread
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
+        @MainThread
+        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
+                LogPrinter.d();
+                tTSplashAd.getMediaExtraInfo();
+                this.a.onAdLoaded(new ggb(tTSplashAd), new String[0]);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
+        @MainThread
+        public void onTimeout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.e();
+                this.a.onError(0, "Load Timeout");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements TTSplashAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ggb a;
+        public final String b;
+        public boolean c;
+        public boolean d;
+        public final /* synthetic */ efb e;
+
+        public b(efb efbVar, ggb ggbVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map, bVar};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {efbVar, ggbVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = bVar;
-            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
-            this.a = adjustLong;
-            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.c = map.get(Long.valueOf(adjustLong));
+            this.e = efbVar;
+            this.a = ggbVar;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.seb
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdClicked(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked((efb) this.a, this.d, new String[0]);
+                this.d = true;
             }
-            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.seb
-        public int b() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdShow(View view2, int i) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || a.class != obj.getClass()) {
-                    return false;
-                }
-                a aVar = (a) obj;
-                return this.a == aVar.a && this.b == aVar.b && Objects.equals(this.c, aVar.c);
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((efb) this.a, this.c, new String[0]);
+                this.c = true;
             }
-            return invokeL.booleanValue;
         }
 
-        public int hashCode() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdSkip() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.a);
+            }
         }
 
-        @Override // com.baidu.tieba.qfb
-        public void srzableInternal(ObjectOutput objectOutput) {
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdTimeOver() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b);
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.a);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public efb(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-        super(i);
+    public efb(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput, map};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = objectInput.readUTF();
-        int readInt = objectInput.readInt();
-        ArrayList arrayList = new ArrayList();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            arrayList.add(new b(objectInput.readInt(), objectInput, map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        if (i >= 1) {
-            this.c = objectInput.readInt();
-        } else {
-            this.c = 0;
-        }
-        this.d = objectInput.readBoolean();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public efb(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-        super(1);
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            ggb ggbVar = (ggb) obj;
         }
-        this.a = jSONObject.getString("sid");
-        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
-        ArrayList arrayList = new ArrayList();
-        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-            arrayList.add(new b(jSONArray.getJSONObject(i3), map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        this.c = jSONObject.optInt("ver", 0);
-        this.d = jSONObject.optBoolean("autoRatio", false);
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rfb
+    public void f(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || efb.class != obj.getClass()) {
-                return false;
-            }
-            efb efbVar = (efb) obj;
-            return Objects.equals(this.a, efbVar.a) && Objects.equals(this.b, efbVar.b) && this.c == efbVar.c && this.d == efbVar.d;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
+            this.e.loadSplashAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build(), new a(this), 5000);
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public final boolean m(ViewGroup viewGroup, ggb ggbVar, TTSplashAd.AdInteractionListener adInteractionListener) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, Integer.valueOf(this.c), Boolean.valueOf(this.d)) : invokeV.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, ggbVar, adInteractionListener)) == null) {
+            View splashView = ((TTSplashAd) ggbVar.a).getSplashView();
+            Log.d("feifei", "price:" + ggbVar.a());
+            if (splashView.getParent() != null) {
+                ((ViewGroup) splashView.getParent()).removeView(splashView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(splashView);
+            onShowStart(ggbVar);
+            ((TTSplashAd) ggbVar.a).setSplashInteractionListener(adInteractionListener);
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qfb
-    public void srzableInternal(ObjectOutput objectOutput) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeUTF(this.a);
-            objectOutput.writeInt(this.b.size());
-            for (b bVar : this.b) {
-                bVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c);
-            objectOutput.writeBoolean(this.d);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            ggb ggbVar = (ggb) obj;
+            m(viewGroup, ggbVar, new b(this, ggbVar, str));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b extends qfb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final List<a> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readLong();
-            int readInt = objectInput.readInt();
-            HashSet hashSet = new HashSet();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            ggb ggbVar = (ggb) obj;
+            ofb ofbVar = new ofb((TTSplashAd) ggbVar.a);
+            m(viewGroup, ggbVar, new gfb(this, ggbVar, str, ofbVar));
+            return ofbVar;
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = NumberUtils.adjustLong(jSONObject.optLong("tmout", 5000L), 100L, 30000L);
-            HashSet hashSet = new HashSet();
-            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                hashSet.add(new a(jSONArray.getJSONObject(i3), map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        public final <T extends a> List<T> a(List<T> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Collections.sort(list, new a(this));
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                return this.a == bVar.a && Objects.equals(this.b, bVar.b);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(Long.valueOf(this.a), this.b) : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.qfb
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (a aVar : this.b) {
-                    aVar.srzable(objectOutput);
-                }
-            }
-        }
-
-        /* JADX INFO: Add missing generic type declarations: [T] */
-        /* loaded from: classes5.dex */
-        public class a<T> implements Comparator<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.util.Comparator
-            public int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                    return -Integer.compare(((a) obj).b, ((a) obj2).b);
-                }
-                return invokeLL.intValue;
-            }
-        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

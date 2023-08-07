@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public interface eq0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "getPublicParamsUrl");
+public interface eq0 extends oj0 {
+    void a(String str, String str2);
 
-    String a(String str);
+    void c(String str, String str2, String str3);
 }

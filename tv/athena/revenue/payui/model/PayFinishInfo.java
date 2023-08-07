@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.q9c;
+import com.baidu.tieba.t8c;
 @Keep
 /* loaded from: classes2.dex */
-public class PayFinishInfo extends q9c {
+public class PayFinishInfo extends t8c {
     public int code;
     public String message;
     public int step;

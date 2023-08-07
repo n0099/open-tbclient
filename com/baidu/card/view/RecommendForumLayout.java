@@ -15,29 +15,29 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.adapter.HorizontalRecommendForumAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.i05;
-import com.baidu.tieba.i25;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.sy;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yr5;
+import com.baidu.tieba.cq5;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.h35;
+import com.baidu.tieba.mz4;
+import com.baidu.tieba.rx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class RecommendForumLayout extends LinearLayout implements sy {
+public class RecommendForumLayout extends LinearLayout implements rx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -111,28 +111,28 @@ public class RecommendForumLayout extends LinearLayout implements sy {
         b();
     }
 
-    public void a(k45 k45Var) {
+    public void a(h35 h35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k45Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, h35Var) == null) {
             this.g.setOnClickListener(this.o);
-            if (!TextUtils.isEmpty(k45Var.d) && k45Var.e != 0) {
-                this.f.setText(k45Var.d);
+            if (!TextUtils.isEmpty(h35Var.d) && h35Var.e != 0) {
+                this.f.setText(h35Var.d);
             } else {
                 this.f.setText(R.string.recommend_forum_title_horizontal);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
                 }
             }
             if (!this.j) {
                 this.g.setVisibility(8);
             }
-            if (k45Var != null && k45Var.e() != null && k45Var.e().size() > 0) {
-                ArrayList<? extends yr5> arrayList = new ArrayList<>();
-                ArrayList<j45> e = k45Var.e();
+            if (h35Var != null && h35Var.e() != null && h35Var.e().size() > 0) {
+                ArrayList<? extends cq5> arrayList = new ArrayList<>();
+                ArrayList<g35> e = h35Var.e();
                 if (this.h) {
                     if (this.i) {
-                        arrayList.add(new i25());
+                        arrayList.add(new f15());
                     }
                     if (e != null) {
                         arrayList.addAll(e);
@@ -142,7 +142,7 @@ public class RecommendForumLayout extends LinearLayout implements sy {
                         arrayList.addAll(e);
                     }
                     if (this.i) {
-                        arrayList.add(new i25());
+                        arrayList.add(new f15());
                     }
                 }
                 this.d.m(arrayList);
@@ -160,7 +160,7 @@ public class RecommendForumLayout extends LinearLayout implements sy {
             this.e = (FrameLayout) findViewById(R.id.title_view);
             TextView textView = (TextView) findViewById(R.id.tv_title);
             this.f = textView;
-            d85.d(textView).C(R.dimen.T_X07);
+            EMManager.from(textView).setTextSize(R.dimen.T_X07);
             this.g = (ImageView) findViewById(R.id.img_arrow);
             this.b = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
             this.c = (RecyclerView) findViewById(R.id.recycler_view);
@@ -187,17 +187,15 @@ public class RecommendForumLayout extends LinearLayout implements sy {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d85 d = d85.d(this);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            d85.d(this.f).x(R.color.CAM_X0105);
+            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.f).setTextColor(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.k.d();
             this.d.notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
@@ -205,10 +203,10 @@ public class RecommendForumLayout extends LinearLayout implements sy {
         }
     }
 
-    public void setData(k45 k45Var) {
+    public void setData(h35 h35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, k45Var) == null) {
-            a(k45Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, h35Var) == null) {
+            a(h35Var);
         }
     }
 
@@ -240,10 +238,10 @@ public class RecommendForumLayout extends LinearLayout implements sy {
         }
     }
 
-    public void setOnItemCoverListener(i05<j45> i05Var) {
+    public void setOnItemCoverListener(mz4<g35> mz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, i05Var) == null) {
-            this.d.o(i05Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, mz4Var) == null) {
+            this.d.o(mz4Var);
         }
     }
 

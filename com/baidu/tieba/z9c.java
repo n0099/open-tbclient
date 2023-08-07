@@ -1,32 +1,47 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class z9c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
 
-    public z9c(String str, int i) {
+    public static List<a9c> a(List<PayWayInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() != 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    PayWayInfo payWayInfo = list.get(i);
+                    if (PayType.ALI_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.ALI_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.ALI_PAY, payWayInfo.name, payWayInfo.tips, 0.0d, false, payWayInfo.perFreePassAmount, payWayInfo.passFreeAlwaysConfirm));
+                    } else if (PayType.WECHAT_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.WECHAT_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.WECHAT_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.DXM_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.DXM_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.DXM_PAY_KJ.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_KJ.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.DXM_PAY_KJ, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.QQ_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.QQ_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.QQ_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.UNION_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.UNION_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.UNION_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.DXM_PAY_H5.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_H5.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new a9c(PayType.DXM_PAY_H5, payWayInfo.name, payWayInfo.tips));
+                    }
+                }
+                return arrayList;
             }
+            RLog.info("PayWayInfoUtils", "createRechargeWayList but mPayWayInfoList null");
+            return arrayList;
         }
-        this.a = str;
-        this.b = i;
+        return (List) invokeL.objValue;
     }
 }

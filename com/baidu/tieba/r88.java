@@ -1,98 +1,85 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes7.dex */
-public final class r88 {
+public class r88 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragment a;
-    public boolean b;
-    public String c;
 
-    public r88(BaseFragment fragment) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075607, "Lcom/baidu/tieba/r88;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948075607, "Lcom/baidu/tieba/r88;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    public r88() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        this.a = fragment;
-    }
-
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            if (this.a.getArguments() != null) {
-                Bundle arguments = this.a.getArguments();
-                Intrinsics.checkNotNull(arguments);
-                this.b = arguments.getBoolean("tab_is_second_tab");
-                Bundle arguments2 = this.a.getArguments();
-                Intrinsics.checkNotNull(arguments2);
-                this.c = arguments2.getString("tab_code");
-            } else if (bundle != null) {
-                this.b = bundle.getBoolean("tab_is_second_tab");
-                this.c = bundle.getString("tab_code");
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m65.o(l65.h);
-            m65.o(l65.a(this.c));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(TopicList topicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
+            topicList.topic_id.longValue();
+            String str = topicList.topic_name;
+            topicList.tag.intValue();
+            topicList.discuss_num.longValue();
+            String str2 = topicList.topic_desc;
+            String str3 = topicList.topic_pic;
         }
     }
 
-    public final void d() {
+    public void b(TopicListModule topicListModule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b) {
-            return;
-        }
-        if (this.a.isPrimary()) {
-            c();
-        } else {
-            b();
-        }
-    }
-
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a.getContext() == null) {
-            return;
-        }
-        Context context = this.a.getContext();
-        Intrinsics.checkNotNull(context);
-        m65.p(context, l65.h);
-        Context context2 = this.a.getContext();
-        Intrinsics.checkNotNull(context2);
-        m65.p(context2, l65.a(this.c));
     }
 }

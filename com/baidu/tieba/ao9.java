@@ -1,146 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.CustomGrid;
 /* loaded from: classes5.dex */
-public class ao9 extends Dialog {
+public class ao9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public LinearLayout c;
-    public float d;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
+    public String g;
+    public String h;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao9 a;
-
-        public a(ao9 ao9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ao9(Context context, View view2) {
-        super(context, 16973835);
+    public ao9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.d = 0.33f;
-        this.a = context;
-        this.b = view2;
-    }
-
-    public void a(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.d = f;
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public void a(CustomGrid customGrid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.person_info_more_dialog);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.d);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003f2);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f6a);
-            this.c = linearLayout;
-            linearLayout.setOnClickListener(new a(this));
-            if (this.b == null) {
-                return;
-            }
-            this.c.removeAllViews();
-            if (this.b.getParent() != null) {
-                if (this.b.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.b.getParent()).removeView(this.b);
-                    this.c.addView(this.b);
-                    return;
-                }
-                return;
-            }
-            this.c.addView(this.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
+            this.a = customGrid.title;
+            this.b = customGrid.action_uri;
+            this.c = customGrid.action_type.intValue();
+            this.d = customGrid.icon;
+            this.e = customGrid.type.intValue();
+            this.g = customGrid.desc;
+            this.h = customGrid.mark_text;
+            this.f = customGrid.red_point_version.longValue();
         }
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view2) {
+    public jo9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.b = view2;
-            LinearLayout linearLayout = this.c;
-            if (linearLayout != null) {
-                linearLayout.removeAllViews();
-                if (this.b.getParent() != null) {
-                    if (this.b.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.b.getParent()).removeView(this.b);
-                        this.c.addView(this.b);
-                        return;
-                    }
-                    return;
-                }
-                this.c.addView(this.b);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            jo9 jo9Var = new jo9();
+            jo9Var.e = this.a;
+            jo9Var.m = true;
+            jo9Var.k = this.d;
+            jo9Var.f = this.b;
+            jo9Var.a = this.e;
+            jo9Var.l = this.c;
+            lo9 lo9Var = new lo9();
+            lo9Var.b = this.g;
+            lo9Var.i = this.h;
+            jo9Var.h = lo9Var;
+            return jo9Var;
         }
+        return (jo9) invokeV.objValue;
     }
 }

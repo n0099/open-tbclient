@@ -1,14 +1,14 @@
 package com.baidu.tieba.homepage.topic.local;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.z88;
+import com.baidu.tieba.t68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(z88 z88Var);
+        void a(t68 t68Var);
 
         void onFail(String str);
     }
@@ -79,26 +79,26 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                 }
                 return;
             }
-            z88 z88Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            t68 t68Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
             if (this.a.a != null) {
-                this.a.a.a(z88Var);
+                this.a.a.a(t68Var);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocalChannelTopicListModel(l9 l9Var) {
-        super(l9Var);
+    public LocalChannelTopicListModel(BdPageContext bdPageContext) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,7 +109,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         registerListener(aVar);
     }
 
-    public void W(b bVar) {
+    public void O(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;

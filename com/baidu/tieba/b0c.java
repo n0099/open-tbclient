@@ -1,28 +1,40 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UnownedUserData;
-import org.chromium.base.UnownedUserDataHost;
-/* compiled from: UnownedUserData.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class b0c {
+public abstract class b0c extends c0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean $default$informOnDetachmentFromHost(UnownedUserData unownedUserData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c0c
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, unownedUserData)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public static void $default$onDetachedFromHost(UnownedUserData unownedUserData, UnownedUserDataHost unownedUserDataHost) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b0c(Framedata.Opcode opcode) {
+        super(opcode);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, unownedUserData, unownedUserDataHost) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {opcode};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 }

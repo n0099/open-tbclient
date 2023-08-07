@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes7.dex */
-public class na4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String data;
-    @V8JavascriptField
-    public Object header;
-    @V8JavascriptField
-    public int statusCode;
+public interface na4 {
+    void a(JsObject jsObject);
 
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
+    void b(JsObject jsObject);
 
-    public na4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(JsObject jsObject);
+
+    void d(JsObject jsObject);
+
+    void e(JsObject jsObject);
+
+    void f();
+
+    void g(JsObject jsObject);
+
+    void h(JsObject jsObject);
+
+    void i(JsObject jsObject);
+
+    void j();
+
+    void k(JsObject jsObject);
 }

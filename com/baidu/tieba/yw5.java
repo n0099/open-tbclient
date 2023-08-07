@@ -1,8 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.ew5;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface yw5<T extends ew5> extends ax5, zw5<T> {
-    View getView();
+public class yw5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(int i) {
+        int videoAutoPlayReal;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
+            if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() == -1) {
+                videoAutoPlayReal = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+            } else {
+                videoAutoPlayReal = TbadkCoreApplication.getInst().getVideoAutoPlayReal();
+            }
+            StatisticItem.make(CommonStatisticKey.KEY_VIDEO_AD_PLAY_SWITCH).param("obj_type", i).param(TiebaStatic.Params.OBJ_PARAM2, videoAutoPlayReal).eventStat();
+        }
+    }
 }

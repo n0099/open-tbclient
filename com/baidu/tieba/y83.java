@@ -1,196 +1,176 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public final class y83 {
+public class y83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final List<String> b;
-    public static final List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283989, "Lcom/baidu/tieba/y83;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a extends ImageSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context, Bitmap bitmap) {
+            super(context, bitmap);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948283989, "Lcom/baidu/tieba/y83;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        a = fs1.a;
-        b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", "emoji", "video", "friends", "target"});
-        c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", "emoji"});
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+                Drawable drawable = getDrawable();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (i3 != 0) {
+                    i3 -= 4;
+                }
+                canvas.save();
+                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+            }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+                Rect bounds = getDrawable().getBounds();
+                if (fontMetricsInt != null) {
+                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    int i8 = i6 + 8;
+                    fontMetricsInt.bottom = i8;
+                    fontMetricsInt.descent = i8;
+                }
+                return bounds.right + 5;
+            }
+            return invokeCommon.intValue;
+        }
     }
 
-    public static final PublishParams a(JSONObject jSONObject) {
+    /* loaded from: classes8.dex */
+    public static class b extends ImageSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Context context, Bitmap bitmap) {
+            super(context, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+                Drawable drawable = getDrawable();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (i3 != 0) {
+                    i3 -= 4;
+                }
+                canvas.save();
+                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+            }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+                Rect bounds = getDrawable().getBounds();
+                if (fontMetricsInt != null) {
+                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    int i8 = i6 + 3;
+                    fontMetricsInt.bottom = i8;
+                    fontMetricsInt.descent = i8;
+                }
+                return bounds.right + 5;
+            }
+            return invokeCommon.intValue;
+        }
+    }
+
+    public static int a(String str) {
         InterceptResult invokeL;
-        int i;
-        float f;
-        int i2;
-        int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            int length = str.length();
+            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
+            int i = 0;
+            int i2 = 0;
+            while (matcher.find()) {
+                i += matcher.group().length();
+                i2++;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
-            ArrayList arrayList = new ArrayList(c);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                arrayList.clear();
-                int length = optJSONArray.length();
-                for (int i5 = 0; i5 < length; i5++) {
-                    try {
-                        String string = optJSONArray.getString(i5);
-                        if (b.contains(string)) {
-                            arrayList.add(string);
-                        }
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-            if (arrayList.isEmpty() && a) {
-                Log.d("PublishParams", "展示列表为空");
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("imageConf");
-            if (optJSONObject != null) {
-                double d = 1.0f;
-                i = Math.min(9, optJSONObject.optInt("maxNum", 9));
-                f = (float) Math.min(d, jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, d));
-            } else {
-                i = 9;
-                f = 1.0f;
-            }
-            Application context = cv2.c();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f1547);
-            String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f1548), 20, null, 4, null);
-            String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f1549), 4, null, 4, null);
-            String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f013e), 4, null, 4, null);
-            String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f154a), 8, null, 4, null);
-            String c2 = c(jSONObject, "navBarTextStyle", "");
-            if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
-                c2 = "black";
-            }
-            int parseColor = Color.parseColor(c2);
-            try {
-                i2 = Color.parseColor(c(jSONObject, "navBarBackgroundColor", "#FFFFFF"));
-            } catch (Exception e6) {
-                if (a) {
-                    e6.printStackTrace();
-                }
-                i2 = -1;
-            }
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060b04);
-            try {
-                i3 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
-            } catch (Exception e7) {
-                if (a) {
-                    e7.printStackTrace();
-                }
-                i3 = color;
-            }
-            try {
-                i4 = Color.parseColor(c(jSONObject, "cancelColor", "#000000"));
-            } catch (Exception e8) {
-                if (a) {
-                    e8.printStackTrace();
-                }
-                i4 = -16777216;
-            }
-            return new PublishParams(b2, e2, e5, parseColor, i2, e3, i3, e4, i4, jSONObject.optString("targetText", ""), jSONObject.optString("emojiPath", ""), jSONObject.optString("cb"), i, f, arrayList, null, null, 98304, null);
+            return (length - i) + i2;
         }
-        return (PublishParams) invokeL.objValue;
-    }
-
-    public static final String b(@NonNull Context context, @NonNull JSONObject obj, @NonNull String key, @StringRes int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, obj, key, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(obj, "obj");
-            Intrinsics.checkNotNullParameter(key, "key");
-            String optString = obj.optString(key);
-            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
-            if (StringsKt__StringsJVMKt.isBlank(optString)) {
-                String string = context.getString(i);
-                Intrinsics.checkNotNullExpressionValue(string, "context.getString(defaultStrRes)");
-                return string;
-            }
-            return optString;
-        }
-        return (String) invokeLLLI.objValue;
-    }
-
-    public static final String c(@NonNull JSONObject obj, @NonNull String key, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, key, str)) == null) {
-            Intrinsics.checkNotNullParameter(obj, "obj");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(str, "default");
-            String optString = obj.optString(key);
-            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
-            if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                return optString;
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static final String d(String s, int i, String substitue) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, s, i, substitue)) == null) {
-            Intrinsics.checkNotNullParameter(s, "s");
-            Intrinsics.checkNotNullParameter(substitue, "substitue");
-            if (s.length() <= i) {
-                return s;
-            }
-            StringBuilder sb = new StringBuilder();
-            String substring = s.substring(0, i - 1);
-            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-            sb.append(substring);
-            sb.append(substitue);
-            return sb.toString();
-        }
-        return (String) invokeLIL.objValue;
-    }
-
-    public static /* synthetic */ String e(String str, int i, String str2, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
-            str2 = "...";
-        }
-        return d(str, i, str2);
+        return invokeL.intValue;
     }
 }

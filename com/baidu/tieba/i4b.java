@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class i4b {
+public final class i4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public cl1<c4b> a;
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            al1 b = al1.b();
-            this.a = b;
-            b.a(new d4b());
-        }
-    }
+    public h4b a;
 
     public i4b() {
         Interceptable interceptable = $ic;
@@ -36,15 +26,29 @@ public class i4b {
                 return;
             }
         }
-        b();
+        this.a = new h4b();
     }
 
-    public c4b a() {
+    public final List<com.baidu.ubs.analytics.a.l> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+            return this.a.a();
         }
-        return (c4b) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.b(i);
+        }
+    }
+
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.c(lVar);
+        }
     }
 }

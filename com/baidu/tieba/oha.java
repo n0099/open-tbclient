@@ -1,73 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetPendantByCategory.ThemePendantInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes7.dex */
-public class oha extends HttpMessageListener {
+public class oha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<DressItemData> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oha(MainTabActivity mainTabActivity) {
-        super(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+    public oha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void a(Message<?> message, String str, boolean z) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, message, str, z) == null) {
-            int i = Integer.MAX_VALUE;
-            if (message instanceof HttpMessage) {
-                HttpMessage httpMessage = (HttpMessage) message;
-                if (httpMessage.getParams() != null) {
-                    Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
-                    if (obj instanceof String) {
-                        i = jab.b((String) obj, Integer.MAX_VALUE);
-                    }
-                }
-            }
-            fh8.a(str, z, i, 2, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+    public List<DressItemData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c(ThemePendantInMain themePendantInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
             return;
         }
-        JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
-        if (jsonHttpResponsedMessage.getError() != 0) {
-            a(httpResponsedMessage.getOrginalMessage(), oe8.a(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString()), false);
-        } else {
-            a(httpResponsedMessage.getOrginalMessage(), TbadkCoreApplication.getInst().getResources().getString(R.string.share_success), true);
+        this.a = themePendantInMain.pendant_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
         }
     }
 }

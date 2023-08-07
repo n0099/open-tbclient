@@ -1,29 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ot6 implements qc7 {
+public final class ot6 extends lt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean b;
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK : (String) invokeV.objValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ot6() {
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,41 +22,35 @@ public final class ot6 implements qc7 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.lt6
+    public boolean b(us6 item, xu6 timer, os6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", this.a);
-            String str = a.get("item_id");
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            vs6 e = item.e();
+            if (e.i() == 0) {
+                return false;
             }
-            hashMap.put("obj_type", str);
-            return hashMap;
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public final ot6 b(String objLocate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
-            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
-            this.a = objLocate;
-            return this;
-        }
-        return (ot6) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

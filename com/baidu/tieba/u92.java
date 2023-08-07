@@ -1,173 +1,109 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Process;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ca3;
+import com.baidu.tieba.vu1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class u92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165755, "Lcom/baidu/tieba/u92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z, String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a implements vu1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ b b;
+
+        public a(Context context, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948165755, "Lcom/baidu/tieba/u92;");
-                return;
+            this.a = context;
+            this.b = bVar;
+        }
+
+        @Override // com.baidu.tieba.vu1.b
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (!z) {
+                    y72.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
+                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f0139));
+                    return;
+                }
+                y72.c("DeveloperAuthenticateHelper", "Authentication Success");
+                this.b.a(true, "");
             }
         }
-        a = fs1.a;
-    }
 
-    public static synchronized String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
-        IOException e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (u92.class) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "start cpu monitor thread");
-                }
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
-                    try {
-                        try {
-                            String c = c(bufferedReader);
-                            if (a) {
-                                Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
-                            }
-                            zr4.d(bufferedReader);
-                            return c;
-                        } catch (IOException e2) {
-                            e = e2;
-                            if (a) {
-                                Log.e("SwanCpuProperty", "error in cpu monitor", e);
-                            }
-                            zr4.d(bufferedReader);
-                            return "";
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        zr4.d(bufferedReader);
-                        throw th;
-                    }
-                } catch (IOException e3) {
-                    bufferedReader = null;
-                    e = e3;
-                } catch (Throwable th3) {
-                    bufferedReader = null;
-                    th = th3;
-                    zr4.d(bufferedReader);
-                    throw th;
-                }
-            }
-        } else {
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public static float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a();
-            try {
-                if (a2.contains("%")) {
-                    return Float.parseFloat(a2.replace("%", "").trim());
-                }
-                return Float.parseFloat(a2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
-                    return 0.0f;
-                }
-                return 0.0f;
-            }
-        }
-        return invokeV.floatValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
-        r11 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
-        if (com.baidu.tieba.u92.a != false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
-        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String c(BufferedReader bufferedReader) throws IOException {
-        InterceptResult invokeL;
-        char read;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
-            char[] cArr = new char[4];
-            int i = 0;
-            if (Build.VERSION.SDK_INT >= 26) {
-                boolean z2 = true;
-                int i2 = 0;
-                int i3 = 0;
-                while (true) {
-                    char read2 = (char) bufferedReader.read();
-                    if (z2 && read2 != ' ') {
-                        i2++;
-                    }
-                    if (i2 == 9) {
-                        if (read2 != '.' && read2 != ' ') {
-                            cArr[i3] = read2;
-                            i3++;
-                        }
-                        i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                        return i + "%";
-                    }
-                    if (read2 == ' ') {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (i2 <= 9 && read2 != 65535 && i3 < 4) {
-                        z2 = z;
-                    }
-                    i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                    return i + "%";
-                }
-            }
-            int i4 = 0;
-            do {
-                read = (char) bufferedReader.read();
-                if (read != ' ' && i4 != 4) {
-                    cArr[i4] = read;
-                    i4++;
+        @Override // com.baidu.tieba.vu1.b
+        public void b(Exception exc) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                y72.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
+                String message = exc.getMessage();
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0139));
+                if (TextUtils.isEmpty(message)) {
+                    str = "";
                 } else {
-                    i4 = 0;
+                    str = "\n" + message;
                 }
-                if (read == '%') {
-                    break;
-                }
-            } while (read != 65535);
-            return String.valueOf(cArr, 0, i4);
+                sb.append(str);
+                this.b.a(false, sb.toString());
+            }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void a(@NonNull ya3 ya3Var, @NonNull Context context, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, ya3Var, context, bVar) == null) {
+            lr1.b(ya3Var.O(), new a(context, bVar));
+        }
+    }
+
+    public static void b(Context context, @StringRes int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
+            ca3.a aVar = new ca3.a(context);
+            aVar.U(i);
+            aVar.x(str);
+            aVar.n(new gq3());
+            aVar.O(R.string.obfuscated_res_0x7f0f0146, null);
+            aVar.X();
+        }
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            b(context, R.string.obfuscated_res_0x7f0f017f, str);
+        }
     }
 }

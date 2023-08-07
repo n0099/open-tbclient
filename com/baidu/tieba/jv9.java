@@ -1,133 +1,168 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.live.arch.utils.LiveActivityHelper;
+import com.baidu.tieba.push.PushExtData;
+import com.baidu.tieba.push.PushRemindInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class jv9 extends iv9 {
+public class jv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int T0;
-    public int U0;
+    public final Set<Activity> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jv9(Context context, View view2) {
-        super(context, view2);
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jv9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jv9 jv9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jv9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jv9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            v35 v35Var;
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof v35) && (v35Var = (v35) customResponsedMessage.getData()) != null && (activity = v35Var.b) != null && v35Var.c != null) {
+                if (this.a.e(activity.getClass().getName())) {
+                    if (!Lifecycle.Event.ON_START.equals(v35Var.c)) {
+                        if (Lifecycle.Event.ON_DESTROY.equals(v35Var.c)) {
+                            this.a.a.remove(v35Var.b);
+                        }
+                    } else if (this.a.a.contains(v35Var.b)) {
+                    } else {
+                        this.a.a.add(v35Var.b);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jv9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-676846850, "Lcom/baidu/tieba/jv9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-676846850, "Lcom/baidu/tieba/jv9$b;");
+                    return;
+                }
+            }
+            a = new jv9();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896892, "Lcom/baidu/tieba/jv9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947896892, "Lcom/baidu/tieba/jv9;");
+                return;
+            }
+        }
+        b = new String[]{LiveActivityHelper.MIX_ACTIVITY_NAME, LiveActivityHelper.MIX_TRANSLUCENT_ACTIVITY_NAME};
+    }
+
+    public jv9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        s0(false);
-        this.T0 = yi.l(this.S) / 10;
+        this.a = new HashSet();
     }
 
-    public void F0(String str, String str2) {
+    public static jv9 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.Y = str2;
-            T();
-            U();
-            v0(this.b);
-            this.F.setPlayer(this.t.getControl());
-            this.B.setVisibility(8);
-            this.u.setPlaceHolder(3);
-            this.u.N(str, 10, false);
-            this.H.setShareData(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (jv9) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2921698));
         }
     }
 
-    @Override // com.baidu.tieba.iv9
-    public void Z(boolean z) {
+    public void f(PushExtData pushExtData, PushRemindInfo pushRemindInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            Context context = this.S;
-            if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
-            } else if (context instanceof BaseActivity) {
-                ((BaseActivity) context).setSwipeBackEnabled(this.c0);
-            }
-            super.Z(z);
-            if (this.c0) {
-                this.U.getLayoutParams().height = -1;
-                return;
-            }
-            this.U.getLayoutParams().height = this.U0;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pushExtData, pushRemindInfo) == null) && !this.a.isEmpty()) {
+            new iv9((Activity) this.a.toArray()[0], pushExtData, pushRemindInfo).t();
         }
     }
 
-    @Override // com.baidu.tieba.iv9
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.t.getControl().setVolume(1.0f, 1.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.iv9
-    public boolean i0(MotionEvent motionEvent) {
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (!this.c0 && motionEvent.getX() <= this.T0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            for (String str2 : b) {
+                if (str2.equals(str)) {
+                    return true;
+                }
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.iv9
-    public void v0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.v0(i);
-            this.J.setVisibility(8);
-            this.D.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.iv9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            if (this.t.getControl().getPlayerWidth() == 0) {
-                return;
-            }
-            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.X = z;
-            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * yi.l(this.S));
-            this.U0 = playerHeight;
-            if (playerHeight > yi.j(this.S)) {
-                this.U0 = yi.j(this.S);
-            }
-            this.U.getLayoutParams().height = this.U0;
-            this.U.requestLayout();
-        }
     }
 }

@@ -1,56 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.PanelEventTypeEnum;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class wq0 implements pk0 {
+public class wq0 extends AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PanelEventTypeEnum a;
+    @NonNull
+    public final zq0 r;
 
-    public wq0(PanelEventTypeEnum type) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wq0(@NonNull gr0 gr0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(gr0Var, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type};
+            Object[] objArr = {gr0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gr0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-    }
-
-    @Override // com.baidu.tieba.pk0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = wq0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "PanelViewEvent::class.java.simpleName");
-            return simpleName;
+        if (gr0Var.k.size() >= 1) {
+            this.r = gr0Var.k.get(0);
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final PanelEventTypeEnum getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (PanelEventTypeEnum) invokeV.objValue;
+        throw ParseError.contentError(3, gr0Var.a.value);
     }
 }

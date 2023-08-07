@@ -1,27 +1,15 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.CheckResult;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes7.dex */
 public class no3 {
     public static /* synthetic */ Interceptable $ic;
@@ -41,157 +29,154 @@ public class no3 {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
-    @NonNull
-    @CheckResult
-    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
-        InterceptResult invokeLLLL;
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
-                    return "";
-                }
-                return "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (b(str) > b(str2)) {
+                return true;
             }
+            return false;
         }
-        return (String) invokeLLLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    public static String b(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        FileInputStream fileInputStream;
+    public static long b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
-            ?? r0 = 0;
-            try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j = 0;
+            for (int i = 0; i < g.length; i++) {
                 try {
-                    MessageDigest messageDigest = MessageDigest.getInstance(str);
-                    messageDigest.reset();
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[8192];
-                        while (true) {
-                            int read = fileInputStream.read(bArr);
-                            if (read > 0) {
-                                messageDigest.update(bArr, 0, read);
-                            } else {
-                                String e = e(messageDigest.digest(), "", z);
-                                zr4.d(fileInputStream);
-                                return e;
-                            }
-                        }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        zr4.d(fileInputStream);
-                        return null;
-                    } catch (IOException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        zr4.d(fileInputStream);
-                        return null;
-                    } catch (NoSuchAlgorithmException e4) {
-                        e = e4;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        zr4.d(fileInputStream);
-                        return null;
+                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
+                } catch (NumberFormatException e) {
+                    y72.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
+                    return 0L;
+                }
+            }
+            y72.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
+            return j;
+        }
+        return invokeL.longValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j2 = 0;
+            for (int i = 0; i < 3; i++) {
+                try {
+                    if (i < g.length) {
+                        j = Integer.parseInt(g[i]);
+                    } else {
+                        j = 0;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    r0 = interceptable;
-                    zr4.d(r0);
-                    throw th;
+                    j2 = (j2 << 16) | j;
+                } catch (NumberFormatException e) {
+                    if (!a) {
+                        return 0L;
+                    }
+                    throw e;
                 }
-            } catch (FileNotFoundException e5) {
-                e = e5;
-                fileInputStream = null;
-            } catch (IOException e6) {
-                e = e6;
-                fileInputStream = null;
-            } catch (NoSuchAlgorithmException e7) {
-                e = e7;
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                zr4.d(r0);
-                throw th;
             }
-        } else {
-            return (String) invokeLLZ.objValue;
-        }
-    }
-
-    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return e(messageDigest.digest(), "", z);
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    @NonNull
-    @CheckResult
-    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, generatePublic);
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
-                    return "";
-                }
-                return "";
+            if (a) {
+                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j2);
             }
+            return j2;
         }
-        return (String) invokeLLL.objValue;
+        return invokeL.longValue;
     }
 
-    public static String e(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static String d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j < 0) {
+                y72.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
+                return "0";
+            }
             StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
+            long j2 = j;
+            for (int i = 2; i >= 0; i--) {
+                if (i > 0) {
+                    long pow = (long) Math.pow(1000.0d, i);
+                    sb.append(j2 / pow);
+                    sb.append(".");
+                    j2 %= pow;
+                } else {
+                    sb.append(j2);
                 }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
             }
-            return sb.toString();
+            String sb2 = sb.toString();
+            y72.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
+            return sb2;
         }
-        return (String) invokeLLZ.objValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            long b = b(str);
+            SwanCoreVersion d0 = sh2.U().d0();
+            if (d0 != null) {
+                j = b(d0.swanCoreVersionName);
+            } else {
+                j = 0;
+            }
+            if (j < b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String[] split = str.split("\\.");
+            if (split.length != 3) {
+                return null;
+            }
+            return split;
+        }
+        return (String[]) invokeL.objValue;
     }
 }

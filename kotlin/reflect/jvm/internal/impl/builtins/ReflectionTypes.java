@@ -110,11 +110,11 @@ public final class ReflectionTypes {
     public final ClassDescriptor find(String str, int i) {
         Name identifier = Name.identifier(str);
         Intrinsics.checkExpressionValueIsNotNull(identifier, "Name.identifier(className)");
-        ClassifierDescriptor mo2103getContributedClassifier = getKotlinReflectScope().mo2103getContributedClassifier(identifier, NoLookupLocation.FROM_REFLECTION);
-        if (!(mo2103getContributedClassifier instanceof ClassDescriptor)) {
-            mo2103getContributedClassifier = null;
+        ClassifierDescriptor mo2104getContributedClassifier = getKotlinReflectScope().mo2104getContributedClassifier(identifier, NoLookupLocation.FROM_REFLECTION);
+        if (!(mo2104getContributedClassifier instanceof ClassDescriptor)) {
+            mo2104getContributedClassifier = null;
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) mo2103getContributedClassifier;
+        ClassDescriptor classDescriptor = (ClassDescriptor) mo2104getContributedClassifier;
         if (classDescriptor == null) {
             return this.notFoundClasses.getClass(new ClassId(ReflectionTypesKt.getKOTLIN_REFLECT_FQ_NAME(), identifier), CollectionsKt__CollectionsJVMKt.listOf(Integer.valueOf(i)));
         }

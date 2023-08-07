@@ -1,81 +1,123 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.w4b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class u4b {
+public final class u4b implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public n4b a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948162438, "Lcom/baidu/tieba/u4b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public u4b(n4b n4bVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948162438, "Lcom/baidu/tieba/u4b;");
-        }
-    }
-
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a) {
-                return w4b.a.a.f(str);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n4bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return SampleResult.OTHERE;
         }
-        return (SampleResult) invokeL.objValue;
+        this.a = n4bVar;
     }
 
-    public static void b(v4b v4bVar) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, v4bVar) != null) || v4bVar == null) {
-            return;
-        }
-        q5b.b(v4bVar);
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            o5b.a().b(str);
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            synchronized (this.a.b()) {
+                Iterator<n4b.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
         }
     }
 
-    public static void e(String str) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
-            o5b.a().c(str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            synchronized (this.a.b()) {
+                Iterator<n4b.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
         }
     }
 
-    public static void f(boolean z) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            synchronized (this.a.b()) {
+                for (n4b.a aVar : this.a.b()) {
+                    aVar.a(activity);
+                }
+            }
         }
     }
 
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (n4b.a aVar : this.a.b()) {
+                    aVar.onActivityDestroyed(activity);
+                }
+            }
         }
-        t5b.a(str, str2, str3, map);
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (n4b.a aVar : this.a.b()) {
+                    aVar.U();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (n4b.a aVar : this.a.b()) {
+                    aVar.b();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            synchronized (this.a.b()) {
+                Iterator<n4b.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
+        }
     }
 }

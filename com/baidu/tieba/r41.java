@@ -1,72 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r41 extends q41 {
+public class r41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r41() {
+    public static void a(Runnable runnable, @NonNull String str, int i, long j) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) != null) || runnable == null) {
+            return;
+        }
+        if (i != 0 && i != 1 && i != 2 && i != 3) {
+            i2 = 3;
+        } else {
+            i2 = i;
+        }
+        z41.b().a().a(runnable, str, i2, j);
+    }
+
+    public static void b(Runnable runnable, @NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Long.valueOf(j)}) != null) || runnable == null) {
+            return;
+        }
+        z41.b().a().b(runnable, str, j);
+    }
+
+    public static void c(@NonNull Runnable runnable, @NonNull String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, runnable, str, i) == null) {
+            a(runnable, str, i, 0L);
         }
     }
 
-    @Override // com.baidu.tieba.t41
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65539, null, runnable, str) == null) {
+            b(runnable, str, 0L);
         }
-        return invokeV.booleanValue;
-    }
-
-    public r41 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("cr", str);
-            return this;
-        }
-        return (r41) invokeL.objValue;
-    }
-
-    public r41 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("ci", str);
-            return this;
-        }
-        return (r41) invokeL.objValue;
-    }
-
-    public r41 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            d("ext", str);
-            return this;
-        }
-        return (r41) invokeL.objValue;
     }
 }

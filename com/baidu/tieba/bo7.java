@@ -1,168 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
+import tbclient.GameCodeList;
+import tbclient.ItemGameCode;
 /* loaded from: classes5.dex */
-public class bo7 {
+public class bo7 extends q05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ye<byte[]> a;
-    public c b;
+    public int a;
+    public List<GameCodeList> b;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(List<ho7> list, List<yn> list2, boolean z);
+    @Override // com.baidu.tieba.q05
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends wy5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ bo7 b;
-
-        public a(bo7 bo7Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bo7Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bo7Var;
-            this.a = str;
+    @Override // com.baidu.tieba.q05
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wy5
-        /* renamed from: a */
-        public GameForumGuideTabResIdl doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Wire wire = new Wire(new Class[0]);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ye yeVar = this.b.a;
-                byte[] bArr = (byte[]) yeVar.get(currentAccount + this.a);
-                if (bArr == null || bArr.length == 0) {
-                    return null;
-                }
-                try {
-                    return (GameForumGuideTabResIdl) wire.parseFrom(bArr, GameForumGuideTabResIdl.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return (GameForumGuideTabResIdl) invokeV.objValue;
-        }
+        return (ThreadData) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements ay5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bo7 a;
-
-        public b(bo7 bo7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947651775, "Lcom/baidu/tieba/bo7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bo7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bo7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ay5
-        /* renamed from: a */
-        public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, gameForumGuideTabResIdl) != null) || gameForumGuideTabResIdl == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947651775, "Lcom/baidu/tieba/bo7;");
                 return;
             }
-            List<ho7> a = ao7.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            List<yn> b = ao7.b(gameForumGuideTabResIdl.data.thread_list);
-            boolean z = true;
-            if (gameForumGuideTabResIdl.data.has_more.intValue() != 1) {
-                z = false;
-            }
-            if (this.a.b != null) {
-                this.a.b.a(a, b, z);
-            }
         }
+        c = BdUniqueId.gen();
     }
 
     public bo7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = BdCacheService.n().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.b = new ArrayList();
     }
 
-    public void c(String str) {
+    public List<GameCodeList> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a != null && str != null) {
-            az5.b(new a(this, str), new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void e(c cVar) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b = cVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public void d(String str, byte[] bArr, boolean z) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ye<byte[]> yeVar = this.a;
-                yeVar.e(currentAccount + str, bArr, 604800000L);
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            ye<byte[]> yeVar2 = this.a;
-            yeVar2.i(currentAccount2 + str, bArr, 604800000L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(ItemGameCode itemGameCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemGameCode) == null) {
+            this.a = itemGameCode.unclaimed_num.intValue();
+            this.b = new ArrayList(itemGameCode.game_code_list);
         }
     }
 }

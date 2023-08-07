@@ -3,28 +3,74 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z14 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.gamenow";
-    public static String b = "file_name";
-    public static String c = "file_unzip_path";
+public class z14 extends e34 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948307084, "Lcom/baidu/tieba/z14;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307084, "Lcom/baidu/tieba/z14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948307084, "Lcom/baidu/tieba/z14;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        boolean z = ir1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z14() {
+        super("getDownloadConfig");
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948307084, "Lcom/baidu/tieba/z14;");
+    }
+
+    @Override // com.baidu.tieba.e34
+    public y22 a(JSONObject jSONObject, co2 co2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, co2Var)) == null) {
+            if (jSONObject == null) {
+                co2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (jSONObject.has("wifiResumeDownloadFlag")) {
+                i24.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
+            }
+            if (jSONObject.has("install_guide_switch")) {
+                n24.r(jSONObject.optBoolean("install_guide_switch"));
+            }
+            if (jSONObject.has("install_guide_count")) {
+                n24.q(jSONObject.optInt("install_guide_count"));
+            }
+            if (jSONObject.has("get_install_result")) {
+                n24.s(jSONObject.optBoolean("get_install_result"));
+            }
+            co2Var.onSuccess(null);
+            return null;
         }
+        return (y22) invokeLL.objValue;
     }
 }

@@ -14,8 +14,11 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -32,12 +35,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.bg;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.og;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,10 +72,10 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public String o;
     public String p;
     public String q;
-    public ng<TbImageView> r;
+    public ag<TbImageView> r;
     public View.OnClickListener s;
     public boolean t;
-    public l9<?> u;
+    public BdPageContext<?> u;
     public int v;
     public int w;
     public Paint x;
@@ -89,7 +89,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes8.dex */
     public interface e {
-        ng<TbImageView> a0();
+        ag<TbImageView> b0();
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -146,7 +146,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements og<TbImageView> {
+    public static class b implements bg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -177,7 +177,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -186,7 +186,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -194,7 +194,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -220,7 +220,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
+        @Override // com.baidu.tieba.bg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -307,7 +307,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                                     imageUrlData.originalSize = mediaData.getOriginalSize();
                                     imageUrlData.isLongPic = mediaData.isLongPic();
                                     imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                                    imageUrlData.threadId = wg.g(this.b.q, -1L);
+                                    imageUrlData.threadId = JavaTypesHelper.toLong(this.b.q, -1L);
                                     imageUrlData.postId = mediaData.getPostId();
                                     concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
                                 }
@@ -330,37 +330,26 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                             Rect rect = new Rect();
                             view2.getGlobalVisibleRect(rect);
                             ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-                            builder.A(arrayList);
-                            builder.E(this.a);
-                            builder.C(this.b.p);
-                            builder.B(this.b.o);
-                            builder.R(this.b.q);
-                            builder.F(this.b.c);
+                            ImageViewerConfig.Builder isCDN = builder.setData(arrayList).setIndex(this.a).setForumName(this.b.p).setForumId(this.b.o).setThreadId(this.b.q).setIsCDN(this.b.c);
                             if (arrayList.size() <= 0) {
                                 str = "";
                             } else {
                                 str = arrayList.get(0);
                             }
-                            builder.M(str);
-                            builder.I(true);
-                            builder.y(concurrentHashMap);
-                            builder.K(true);
-                            builder.Q(this.b.n);
-                            builder.O(this.b.n.getFirst_post_id());
-                            builder.P(rect, UtilHelper.fixedDrawableRect(rect, view2));
+                            isCDN.setLastId(str).setIsReserve(true).setAssistUrls(concurrentHashMap).setIsShowAd(true).setThreadData(this.b.n).setPostId(this.b.n.getFirst_post_id()).setSrcRectInScreen(rect, UtilHelper.fixedDrawableRect(rect, view2));
                             FrsCommonImageLayout frsCommonImageLayout2 = this.b;
-                            l9<?> l9Var = frsCommonImageLayout2.u;
-                            if (l9Var == null) {
+                            BdPageContext<?> bdPageContext = frsCommonImageLayout2.u;
+                            if (bdPageContext == null) {
                                 pageActivity = frsCommonImageLayout2.e;
                             } else {
-                                pageActivity = l9Var.getPageActivity();
+                                pageActivity = bdPageContext.getPageActivity();
                             }
-                            ImageViewerConfig x = builder.x(pageActivity);
-                            x.getIntent().putExtra("from", "frs");
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
+                            ImageViewerConfig bulid = builder.bulid(pageActivity);
+                            bulid.getIntent().putExtra("from", "frs");
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, bulid));
                             TiebaStatic.eventStat(this.b.e, "pic_frs", "");
                             HistoryMessage historyMessage = new HistoryMessage();
-                            historyMessage.Activity = (TbPageContext) r9.a(this.b.e);
+                            historyMessage.Activity = (TbPageContext) l9.a(this.b.e);
                             historyMessage.threadId = this.b.n.getId();
                             historyMessage.threadName = this.b.n.getTitle();
                             historyMessage.forumName = this.b.n.getForum_name();
@@ -449,11 +438,11 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.r = null;
         this.t = true;
         this.e = context;
-        this.i = yi.d(context, 2);
-        this.g = yi.d(this.e, this.j);
+        this.i = BdUtilHelper.dip2px(context, 2);
+        this.g = BdUtilHelper.dip2px(this.e, this.j);
         setOnHierarchyChangeListener(new a(this));
-        this.v = yi.d(this.e, 50.0f);
-        this.w = yi.d(this.e, 23.0f);
+        this.v = BdUtilHelper.dip2px(this.e, 50.0f);
+        this.w = BdUtilHelper.dip2px(this.e, 23.0f);
         Paint paint = new Paint();
         this.x = paint;
         paint.setDither(true);
@@ -461,8 +450,8 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         String str = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
         this.y = str;
-        this.z = ((str.length() + 2) * yi.d(this.e, 10.0f)) / 2;
-        this.A = yi.d(this.e, 10.0f);
+        this.z = ((str.length() + 2) * BdUtilHelper.dip2px(this.e, 10.0f)) / 2;
+        this.A = BdUtilHelper.dip2px(this.e, 10.0f);
         Paint paint2 = new Paint(257);
         this.B = paint2;
         paint2.setColor(-1);
@@ -517,7 +506,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setItemSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.g = yi.d(this.e, i);
+            this.g = BdUtilHelper.dip2px(this.e, i);
         }
     }
 
@@ -552,13 +541,13 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    public static ng<TbImageView> m(Context context, int i) {
+    public static ag<TbImageView> m(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            return new ng<>(new b(context), i, 0);
+            return new ag<>(new b(context), i, 0);
         }
-        return (ng) invokeLI.objValue;
+        return (ag) invokeLI.objValue;
     }
 
     @Override // android.view.ViewGroup
@@ -731,19 +720,19 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         } else {
             i2 = 14;
         }
-        tbImageView.N(picUrl, i2, false);
+        tbImageView.startLoad(picUrl, i2, false);
     }
 
-    public void setData(l9<?> l9Var, MediaData[] mediaDataArr, int i) {
+    public void setData(BdPageContext<?> bdPageContext, MediaData[] mediaDataArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048592, this, l9Var, mediaDataArr, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048592, this, bdPageContext, mediaDataArr, i) == null) {
             this.d = mediaDataArr;
             this.l = i;
-            this.u = l9Var;
+            this.u = bdPageContext;
             Resources resources = getResources();
             this.y = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
-            if (this.r == null && (l9Var.getOrignalPage() instanceof e)) {
-                this.r = ((e) l9Var.getOrignalPage()).a0();
+            if (this.r == null && (bdPageContext.getOrignalPage() instanceof e)) {
+                this.r = ((e) bdPageContext.getOrignalPage()).b0();
             }
             if (this.r == null) {
                 return;
@@ -764,7 +753,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     while (i5 < i4) {
                         TbImageView b2 = this.r.b();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(l9Var.getString(R.string.editor_image));
+                        sb.append(bdPageContext.getString(R.string.editor_image));
                         i5++;
                         sb.append(i5);
                         b2.setContentDescription(sb.toString());

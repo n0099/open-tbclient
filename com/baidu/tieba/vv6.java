@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
+import android.content.Context;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s7;
+import com.baidu.searchbox.download.callback.IDownloadListener;
+import com.baidu.searchbox.download.unified.DownloadParams;
+import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
+import com.baidu.searchbox.download.unified.EventCallback;
+import com.baidu.searchbox.download.unified.EventControlInfoForResume;
+import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class vv6 implements e0, s7.a {
+public class vv6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vv6 a;
+    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ov6 a;
 
     public vv6() {
         Interceptable interceptable = $ic;
@@ -28,31 +34,43 @@ public abstract class vv6 implements e0, s7.a {
                 return;
             }
         }
-        this.a = ov6.i.a();
+        b = DownloadUnifiedManager.getInstance();
     }
 
-    public final ov6 a() {
+    public static vv6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (vv6.class) {
+                    if (a == null) {
+                        a = new vv6();
+                    }
+                }
+            }
+            return a;
         }
-        return (ov6) invokeV.objValue;
+        return (vv6) invokeV.objValue;
     }
 
-    @CallSuper
-    public void reset() {
+    public void b(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = ov6.i.a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
+            b.pauseDownload(uri);
         }
     }
 
-    public final void b(ov6 ov6Var) {
+    public void c(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ov6Var) == null) {
-            Intrinsics.checkNotNullParameter(ov6Var, "<set-?>");
-            this.a = ov6Var;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
+            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
+        }
+    }
+
+    public void d(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
+            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
         }
     }
 }

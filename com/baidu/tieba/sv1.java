@@ -1,48 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface sv1 {
+    void a(Context context, JSONObject jSONObject);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onFinish();
-    }
+    void b(Context context, JSONObject jSONObject);
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z);
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-        void b(Exception exc);
-    }
+    void d(Context context, String[] strArr, int i);
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(boolean z);
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
 
-        void b();
-    }
-
-    void a(a aVar);
-
-    void b(Activity activity, Bundle bundle, hs1 hs1Var);
-
-    void c(js1 js1Var);
-
-    String d(@NonNull Context context);
-
-    boolean e(Context context);
-
-    String f(@NonNull Context context);
-
-    void g(c cVar);
-
-    String h(Context context);
-
-    String i(@NonNull Context context);
-
-    void j(hs1 hs1Var);
+    void f(Context context, JSONObject jSONObject);
 }

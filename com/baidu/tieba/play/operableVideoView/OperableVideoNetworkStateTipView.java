@@ -6,9 +6,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -17,11 +19,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dma;
-import com.baidu.tieba.gb5;
-import com.baidu.tieba.ib5;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.hla;
+import com.baidu.tieba.w95;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,19 +151,19 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c7a);
+            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c90);
             this.b = (TBSpecificationBtn) findViewById(R.id.free_flow);
-            ib5 ib5Var = new ib5();
-            ib5Var.u();
-            ib5Var.j(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            ib5Var.h(yi.g(getContext(), R.dimen.tbds32));
+            y95 y95Var = new y95();
+            y95Var.u();
+            y95Var.j(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            y95Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.video_flow_play));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(ib5Var);
-            gb5 gb5Var = new gb5();
+            this.a.setConfig(y95Var);
+            w95 w95Var = new w95();
             this.b.setText(getResources().getString(R.string.video_open_free_data));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(gb5Var);
+            this.b.setConfig(w95Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -174,7 +174,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || dma.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            if (b() || hla.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
             }
             return false;
         }
@@ -188,8 +188,8 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             return;
         }
         if (view2.getId() == R.id.free_flow) {
-            nx4.E(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f091c7a) {
+            BrowserHelper.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f091c90) {
             setHasAgreeToPlay(true);
             View.OnClickListener onClickListener = this.c;
             if (onClickListener != null) {

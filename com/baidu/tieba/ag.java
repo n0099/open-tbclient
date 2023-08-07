@@ -1,89 +1,168 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
+import java.security.InvalidParameterException;
 import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ag {
+public class ag<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bg a;
-    public cg b;
-    public LinkedList<zf> c;
-    public zf d;
+    public int a;
+    public int b;
+    public LinkedList<T> c;
+    public bg<T> d;
 
-    public ag() {
+    public ag(bg<T> bgVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bgVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new bg();
-        this.b = new cg();
-        this.c = new LinkedList<>();
+        this.a = 10;
+        this.b = 0;
+        this.c = null;
         this.d = null;
-    }
-
-    public zf a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (bgVar != null && i > 0 && i2 <= i) {
+            this.d = bgVar;
+            this.a = i;
+            this.b = i2;
+            this.c = new LinkedList<>();
+            a(this.b);
+            return;
         }
-        return (zf) invokeV.objValue;
+        throw new InvalidParameterException("invalid params");
     }
 
-    public bg b() {
+    /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: java.util.LinkedList<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            synchronized (this) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    Object obj = null;
+                    try {
+                        obj = this.d.a(this.d.d());
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    if (obj != null) {
+                        this.c.offer(obj);
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            synchronized (this) {
+                if (this.c.size() < this.a) {
+                    T t2 = null;
+                    try {
+                        t2 = this.d.c(t);
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    if (t2 != null) {
+                        this.c.offer(t2);
+                    }
+                } else {
+                    this.d.b(t);
+                }
+            }
+        }
+    }
+
+    public T b() {
         InterceptResult invokeV;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            synchronized (this) {
+                t = null;
+                try {
+                    if (this.c.size() > 0) {
+                        t = this.d.a(this.c.poll());
+                    } else {
+                        t = this.d.a(this.d.d());
+                    }
+                    a(this.b - this.c.size());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            return t;
         }
-        return (bg) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public cg c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (cg) invokeV.objValue;
-    }
-
-    public List<zf> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Collections.unmodifiableList(this.c);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void e(zf zfVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, zfVar) == null) && zfVar != null) {
-            this.c.add(zfVar);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+            }
         }
     }
 
-    public void f(zf zfVar) {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zfVar) == null) {
-            this.d = zfVar;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (this) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    try {
+                        this.d.b(this.c.poll());
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            synchronized (this) {
+                if (i < this.b) {
+                    i = this.b;
+                }
+                if (i <= 0) {
+                    i = 1;
+                }
+                this.a = i;
+                d(this.c.size() - this.a);
+            }
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            synchronized (this) {
+                if (i > this.a) {
+                    i = this.a;
+                }
+                this.b = i;
+                a(i - this.c.size());
+            }
         }
     }
 }

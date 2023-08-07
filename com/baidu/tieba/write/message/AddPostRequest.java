@@ -1,13 +1,13 @@
 package com.baidu.tieba.write.message;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.wg;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class AddPostRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ky5.c(builder, true, true, true);
+            NetMessageHelper.bindCommonParamsToProtobufData(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get("tbs");
@@ -113,7 +113,8 @@ public class AddPostRequest extends NetMessage {
             builder.jfrom = this.requestData.get("jfrom");
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
-            builder.is_show_bless = Integer.valueOf(wg.e(this.requestData.get("is_show_bless"), 0));
+            builder.bot_conf = this.requestData.get("bot_conf");
+            builder.is_show_bless = Integer.valueOf(JavaTypesHelper.toInt(this.requestData.get("is_show_bless"), 0));
             try {
                 builder.show_custom_figure = Integer.valueOf(Integer.parseInt(this.requestData.get("show_custom_figure")));
             } catch (NumberFormatException unused) {

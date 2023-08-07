@@ -5,8 +5,8 @@ import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -83,9 +83,7 @@ public class WrapperLinearLayout extends LinearLayout {
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
-            d85 d = d85.d(this);
-            d.o(R.string.J_X14);
-            d.f(R.color.CAM_X0212);
+            EMManager.from(this).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0212);
         }
     }
 }

@@ -1,27 +1,45 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class y70 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static boolean b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public y70() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282935, "Lcom/baidu/tieba/y70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282935, "Lcom/baidu/tieba/y70;");
+                return;
+            }
+        }
+        a = AppConfig.isDebug();
+        b = QuickPersistConfig.getInstance().getBoolean("sp_key_enable_keyevent", true);
+        c = QuickPersistConfig.getInstance().getInt("sp_key_max_keyevent", 20);
+        d = QuickPersistConfig.getInstance().getInt("sp_key_event_timeout", 15000);
+        if (a) {
+            if (!b) {
+                b = true;
+                Log.d("KeyeventConfig", "server config sEnableKeyevent is false, debug set true!");
+            }
+            Log.d("KeyeventConfig", "keyevent enable:" + b);
         }
     }
 
@@ -29,24 +47,26 @@ public class y70 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, y70.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
-                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, y70.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
-                declaredMethod2.setAccessible(true);
-                if (!booleanValue) {
-                    return false;
-                }
-                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+            return b;
         }
         return invokeV.booleanValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
     }
 }

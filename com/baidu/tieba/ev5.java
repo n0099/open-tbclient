@@ -1,227 +1,144 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class ev5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ln> a;
-    public TbPageContext<?> b;
-    public eo c;
-    public tv5 d;
-    public pv5 e;
-    public iv5 f;
-    public kv5 g;
-    public jv5 h;
-    public lv5 i;
-    public mv5 j;
-    public ov5 k;
-    public nv5 l;
-    public rv5 m;
-    public qv5 n;
-    public sv5 o;
-    public gv5 p;
-    public fv5 q;
 
-    public ev5(TbPageContext tbPageContext, eo eoVar) {
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eoVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 <= i2 && i4 <= i) {
+                return 1;
             }
+            int round = Math.round(i3 / i2);
+            int round2 = Math.round(i4 / i);
+            if (round >= round2) {
+                round = round2;
+            }
+            if (round >= 3) {
+                if (round < 6.5d) {
+                    return 4;
+                }
+                if (round < 8) {
+                    return 8;
+                }
+            }
+            return round;
         }
-        this.a = new LinkedList();
-        this.b = tbPageContext;
-        this.c = eoVar;
-        b();
+        return invokeLII.intValue;
     }
 
-    public void a(List<ln> list) {
+    public static Bitmap b(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            options.inSampleSize = a(options, i, i2);
+            options.inJustDecodeBounds = false;
+            return BitmapFactory.decodeFile(str, options);
         }
-        for (ln lnVar : list) {
-            if (!c(lnVar.getType())) {
-                this.a.add(lnVar);
-            }
-        }
-        this.c.addAdapters(this.a);
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public boolean c(BdUniqueId bdUniqueId) {
+    public static Bitmap c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
-            if (bdUniqueId != null && !ListUtils.isEmpty(this.a)) {
-                for (ln lnVar : this.a) {
-                    if (lnVar != null && lnVar.getType() == bdUniqueId) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            Bitmap bitmap = null;
+            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
+                return null;
             }
-            return false;
+            try {
+                try {
+                    Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
+                    view2.draw(new Canvas(createBitmap));
+                    return createBitmap;
+                } catch (OutOfMemoryError e) {
+                    BdLog.e(e);
+                    return bitmap;
+                }
+            } catch (OutOfMemoryError unused) {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.RGB_565);
+                view2.draw(new Canvas(bitmap));
+                return bitmap;
+            }
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void b() {
+    public static float[] d(Bitmap bitmap, Matrix matrix) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            tv5 tv5Var = new tv5(this.b);
-            this.d = tv5Var;
-            tv5Var.M(this.c);
-            this.a.add(this.d);
-            pv5 pv5Var = new pv5(this.b);
-            this.e = pv5Var;
-            pv5Var.M(this.c);
-            this.a.add(this.e);
-            sv5 sv5Var = new sv5(this.b);
-            this.o = sv5Var;
-            sv5Var.M(this.c);
-            this.a.add(this.o);
-            iv5 iv5Var = new iv5(this.b);
-            this.f = iv5Var;
-            iv5Var.M(this.c);
-            this.a.add(this.f);
-            kv5 kv5Var = new kv5(this.b);
-            this.g = kv5Var;
-            kv5Var.M(this.c);
-            this.a.add(this.g);
-            jv5 jv5Var = new jv5(this.b);
-            this.h = jv5Var;
-            jv5Var.M(this.c);
-            this.a.add(this.h);
-            lv5 lv5Var = new lv5(this.b);
-            this.i = lv5Var;
-            lv5Var.M(this.c);
-            this.a.add(this.i);
-            mv5 mv5Var = new mv5(this.b);
-            this.j = mv5Var;
-            mv5Var.M(this.c);
-            this.a.add(this.j);
-            ov5 ov5Var = new ov5(this.b);
-            this.k = ov5Var;
-            ov5Var.M(this.c);
-            this.a.add(this.k);
-            nv5 nv5Var = new nv5(this.b);
-            this.l = nv5Var;
-            nv5Var.M(this.c);
-            this.a.add(this.l);
-            rv5 rv5Var = new rv5(this.b);
-            this.m = rv5Var;
-            rv5Var.M(this.c);
-            this.a.add(this.m);
-            qv5 qv5Var = new qv5(this.b);
-            this.n = qv5Var;
-            qv5Var.M(this.c);
-            this.a.add(this.n);
-            gv5 gv5Var = new gv5(this.b);
-            this.p = gv5Var;
-            gv5Var.M(this.c);
-            this.a.add(this.p);
-            fv5 fv5Var = new fv5(this.b, jq6.S0);
-            this.q = fv5Var;
-            this.a.add(fv5Var);
-            this.c.addAdapters(this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bitmap, matrix)) == null) {
+            float[] fArr = new float[8];
+            matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
+            return fArr;
         }
+        return (float[]) invokeLL.objValue;
     }
 
-    public void d() {
-        eo eoVar;
+    public static int[] e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (eoVar = this.c) != null && eoVar.getListAdapter() != null) {
-            this.c.getListAdapter().notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            return new int[]{options.outWidth, options.outHeight};
         }
+        return (int[]) invokeL.objValue;
     }
 
-    public void e(int i) {
+    public static Bitmap f(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
+        InterceptResult invokeLLII;
+        Bitmap bitmap3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            for (ln lnVar : this.a) {
-                if (lnVar instanceof hv5) {
-                    ((hv5) lnVar).s(i);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmap, bitmap2, i, i2)) == null) {
+            if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            try {
+                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+            } catch (OutOfMemoryError unused) {
+                bitmap3 = null;
+            }
+            try {
+                Canvas canvas = new Canvas(bitmap3);
+                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+                return bitmap3;
+            } catch (OutOfMemoryError unused2) {
+                try {
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
+                    bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    Canvas canvas2 = new Canvas(bitmap3);
+                    canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                    canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+                    return bitmap3;
+                } catch (OutOfMemoryError e) {
+                    BdLog.e(e);
+                    return bitmap3;
                 }
             }
         }
-    }
-
-    public void f(uv5 uv5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, uv5Var) == null) {
-            for (ln lnVar : this.a) {
-                if (lnVar instanceof hv5) {
-                    ((hv5) lnVar).I(uv5Var);
-                }
-            }
-        }
-    }
-
-    public void g(List<ln> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.a.clear();
-        this.c.addAdapters(this.a);
-    }
-
-    public void h(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.c.setData(list);
-        }
-    }
-
-    public void i(i05 i05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i05Var) == null) {
-            for (ln lnVar : this.a) {
-                if (lnVar instanceof hv5) {
-                    ((hv5) lnVar).J(i05Var);
-                }
-            }
-        }
-    }
-
-    public void j(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            for (ln lnVar : this.a) {
-                if (lnVar instanceof hv5) {
-                    ((hv5) lnVar).L(bdUniqueId);
-                }
-            }
-        }
-    }
-
-    public void k(eo eoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, eoVar) == null) {
-            for (ln lnVar : this.a) {
-                if (lnVar instanceof hv5) {
-                    ((hv5) lnVar).M(eoVar);
-                }
-            }
-        }
+        return (Bitmap) invokeLLII.objValue;
     }
 }

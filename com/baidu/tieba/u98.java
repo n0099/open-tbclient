@@ -1,227 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tieba.pl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkItem;
-import tbclient.NewHottopic.PkModule;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class u98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public a d;
-    public a e;
-    public int f;
 
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public long f;
-        public String g;
-
-        public a(u98 u98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static SpannableString a(ArrayList<m06> arrayList, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
+            if (TbFaceManager.i().p(str)) {
+                SpannableString spannableString = new SpannableString(str + " ");
+                m06 d = TbFaceManager.i().d(str);
+                if (arrayList != null) {
+                    arrayList.add(d);
                 }
+                pl5.a g = TbFaceManager.i().g(str);
+                if (g != null) {
+                    int a = (int) (g.a() * 0.5d);
+                    d.setBounds(new Rect(0, 0, a, a));
+                } else {
+                    d.setBounds(new Rect(0, 0, 0, 0));
+                }
+                spannableString.setSpan(new p17(d, 1), 0, str.length(), 33);
+                return spannableString;
             }
+            return null;
         }
+        return (SpannableString) invokeLL.objValue;
     }
 
-    public u98() {
+    public static SpannableString b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
+            return UrlManager.findAllWebUrl(str);
         }
+        return (SpannableString) invokeL.objValue;
     }
 
-    public void a(PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
+    public static ArrayList<TbRichTextData> c(String str, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b6);
-            } else {
-                str = pkModule.agree.pk_desc;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
             }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
+            TbRichTextData tbRichTextData = new TbRichTextData(1);
+            arrayList.add(tbRichTextData);
+            try {
+                int length = str.length();
+                int i3 = 0;
+                String str2 = "";
+                while (i3 < str.length()) {
+                    char charAt = str.charAt(i3);
+                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
+                        String str3 = SmallTailInfo.EMOTION_PREFIX;
+                        i3 += 2;
+                        while (i3 < length) {
+                            char charAt2 = str.charAt(i3);
+                            str3 = str3 + charAt2;
+                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
+                                i3 = i2;
+                            }
+                        }
+                        if (!TbFaceManager.i().p(str3)) {
+                            str2 = str2 + str3;
+                        } else {
+                            if (!TextUtils.isEmpty(str2)) {
+                                if (i == 1) {
+                                    tbRichTextData.O(str2);
+                                } else {
+                                    SpannableString b = b(str2);
+                                    if (b != null) {
+                                        tbRichTextData.O(b);
+                                    }
+                                }
+                                str2 = "";
+                            }
+                            SpannableString a = a(tbRichTextData.P(), str3);
+                            if (a != null) {
+                                tbRichTextData.O(a);
+                            }
+                        }
+                    } else {
+                        str2 = str2 + charAt;
+                    }
+                    i3++;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    if (i == 1) {
+                        tbRichTextData.O(str2);
+                    } else {
+                        SpannableString b2 = b(str2);
+                        if (b2 != null) {
+                            tbRichTextData.O(b2);
+                        }
+                    }
+                }
+            } catch (Exception unused) {
             }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b5);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
+            return arrayList;
         }
-    }
-
-    public void b(tbclient.NewTopicList.PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b6);
-            } else {
-                str = pkModule.agree.pk_desc;
-            }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b5);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
-        }
-    }
-
-    public void c(tbclient.PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b6);
-            } else {
-                str = pkModule.agree.pk_desc;
-            }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            tbclient.PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b5);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            tbclient.PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
-        }
+        return (ArrayList) invokeLI.objValue;
     }
 }

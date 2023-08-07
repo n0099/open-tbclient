@@ -1,69 +1,127 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class io4 {
+public class io4 extends bp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public io4(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ int c;
+
+        public a(String[] strArr, Activity activity, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = strArr;
+            this.b = activity;
+            this.c = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[this.a.length];
+                PackageManager packageManager = this.b.getPackageManager();
+                String packageName = this.b.getPackageName();
+                int length = this.a.length;
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                }
+                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
     }
 
-    public static io4 a() {
-        InterceptResult invokeV;
+    public static void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new io4(2, 2, 1000);
-        }
-        return (io4) invokeV.objValue;
-    }
-
-    @NonNull
-    public static io4 b(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                return new io4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                jo4.a(activity);
+            } else {
+                activity.finish();
             }
-            return a();
         }
-        return (io4) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static boolean f(@NonNull Activity activity, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ko4.a(activity, str);
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                ko4.requestPermissions(activity, strArr, i);
+            } else if (activity instanceof b) {
+                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+            }
+        }
+    }
+
+    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                mo4.startActivity(activity, intent, bundle);
+            } else {
+                activity.startActivity(intent);
+            }
+        }
+    }
+
+    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                mo4.startActivityForResult(activity, intent, i, bundle);
+            } else {
+                activity.startActivityForResult(intent, i);
+            }
+        }
     }
 }

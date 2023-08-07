@@ -1,88 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UrlRequest;
+import java.util.Collection;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class c0b {
+public abstract class c0b extends ExperimentalCronetEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageView b;
-    public EMTextView c;
-    public View d;
 
-    public c0b(Context context) {
+    public abstract z0b g(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, @Nullable RequestFinishedInfo.Listener listener, int i4);
+
+    public c0b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        c();
     }
 
-    public void d(int i) {
-        ImageView imageView;
+    @Override // com.baidu.turbonet.net.ExperimentalCronetEngine
+    public ExperimentalUrlRequest.Builder f(String str, UrlRequest.Callback callback, Executor executor) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (imageView = this.b) != null) {
-            imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, callback, executor)) == null) {
+            return new a1b(str, callback, executor, this);
         }
-    }
-
-    public void e(String str) {
-        EMTextView eMTextView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.c) != null) {
-            eMTextView.setText(str);
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
-            d85 d = d85.d(this.c);
-            d.z(R.dimen.M_T_X001);
-            d.C(R.dimen.T_X05);
-        }
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0a30, (ViewGroup) null);
-            this.d = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091195);
-            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911c5);
-            a();
-        }
+        return (ExperimentalUrlRequest.Builder) invokeLLL.objValue;
     }
 }

@@ -1,55 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.share.CheckRequest;
+import com.baidu.tieba.write.share.CheckResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Toast;
-import tbclient.ToastContent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class mta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public lta b;
+    public HttpMessageListener c;
 
-    public static BdToastData a(Toast toast) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toast)) == null) {
-            if (toast == null) {
-                return null;
-            }
-            BdToastData bdToastData = new BdToastData();
-            bdToastData.setIconType(toast.icon_type.intValue());
-            bdToastData.setIconUrl(toast.icon_url);
-            bdToastData.setIconWidth(toast.icon_width.intValue());
-            bdToastData.setIconHeight(toast.icon_height.intValue());
-            bdToastData.setHudWidth(toast.hud_width.intValue());
-            ArrayList arrayList = new ArrayList();
-            for (ToastContent toastContent : toast.content) {
-                if (toastContent != null) {
-                    BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
-                    contentBean.setText(toastContent.text);
-                    contentBean.setHasColor(toastContent.has_color.intValue());
-                    contentBean.setTextColor(toastContent.text_color);
-                    contentBean.setTextColorDark(toastContent.text_color_dark);
-                    arrayList.add(contentBean);
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mta a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mta mtaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mtaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            List<Integer> list = toast.task_ids;
-            if (list != null) {
-                int[] iArr = new int[list.size()];
-                for (int i = 0; i < toast.task_ids.size(); i++) {
-                    iArr[i] = toast.task_ids.get(i).intValue();
-                }
-                bdToastData.setTaskIds(iArr);
-            }
-            bdToastData.setContent(arrayList);
-            bdToastData.setUrl(toast.url);
-            bdToastData.setBackground(toast.background);
-            return bdToastData;
+            this.a = mtaVar;
         }
-        return (BdToastData) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof CheckResponse)) {
+                return;
+            }
+            nta checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
+            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13aa));
+            }
+            if (this.a.b != null) {
+                this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+            }
+        }
+    }
+
+    public mta(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.a = bdUniqueId;
+        b();
+    }
+
+    public void e(lta ltaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ltaVar) == null) {
+            this.b = ltaVar;
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.registerTask(c());
+            this.c.setTag(this.a);
+            messageManager.registerListener(this.c);
+        }
+    }
+
+    public final HttpMessageTask c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setRetry(3);
+            tbHttpMessageTask.setResponsedClass(CheckResponse.class);
+            return tbHttpMessageTask;
+        }
+        return (HttpMessageTask) invokeV.objValue;
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            if (StringUtils.isNull(str)) {
+                lta ltaVar = this.b;
+                if (ltaVar != null) {
+                    ltaVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0431));
+                    return;
+                }
+                return;
+            }
+            MessageManager.getInstance().removeHttpMessage(this.a);
+            CheckRequest checkRequest = new CheckRequest();
+            checkRequest.setTag(this.a);
+            checkRequest.setAppkey(str);
+            checkRequest.setAppletsKey(str2);
+            MessageManager.getInstance().sendMessage(checkRequest);
+        }
     }
 }

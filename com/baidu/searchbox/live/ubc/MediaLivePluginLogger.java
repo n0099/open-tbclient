@@ -32,7 +32,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\bH\n\u0002\u0010\u0000\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u008d\u00012\u00020\u0001:\u0002\u008d\u0001B\n\b\u0002¢\u0006\u0005\b\u008c\u0001\u0010\u0015JM\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0006\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u00022\u0006\u0010\b\u001a\u00020\u00022\b\u0010\t\u001a\u0004\u0018\u00010\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\f\u0010\rJ\u001f\u0010\u0010\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\r\u0010\u0014\u001a\u00020\u000b¢\u0006\u0004\b\u0014\u0010\u0015J\r\u0010\u0016\u001a\u00020\u000b¢\u0006\u0004\b\u0016\u0010\u0015J\r\u0010\u0017\u001a\u00020\u000b¢\u0006\u0004\b\u0017\u0010\u0015J\r\u0010\u0018\u001a\u00020\u000b¢\u0006\u0004\b\u0018\u0010\u0015J\r\u0010\u0019\u001a\u00020\u000b¢\u0006\u0004\b\u0019\u0010\u0015J\r\u0010\u001a\u001a\u00020\u000b¢\u0006\u0004\b\u001a\u0010\u0015J\r\u0010\u001b\u001a\u00020\u000b¢\u0006\u0004\b\u001b\u0010\u0015J\r\u0010\u001c\u001a\u00020\u000b¢\u0006\u0004\b\u001c\u0010\u0015J\u0015\u0010\u001e\u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u0004¢\u0006\u0004\b\u001e\u0010\u001fJ\u0015\u0010 \u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u0004¢\u0006\u0004\b \u0010\u001fJ\r\u0010!\u001a\u00020\u000b¢\u0006\u0004\b!\u0010\u0015J\r\u0010\"\u001a\u00020\u000b¢\u0006\u0004\b\"\u0010\u0015J\r\u0010#\u001a\u00020\u000b¢\u0006\u0004\b#\u0010\u0015J\r\u0010$\u001a\u00020\u000b¢\u0006\u0004\b$\u0010\u0015J\r\u0010%\u001a\u00020\u000b¢\u0006\u0004\b%\u0010\u0015J\r\u0010&\u001a\u00020\u000b¢\u0006\u0004\b&\u0010\u0015J\r\u0010'\u001a\u00020\u000b¢\u0006\u0004\b'\u0010\u0015J\r\u0010(\u001a\u00020\u000b¢\u0006\u0004\b(\u0010\u0015J\r\u0010)\u001a\u00020\u000b¢\u0006\u0004\b)\u0010\u0015J\r\u0010*\u001a\u00020\u000b¢\u0006\u0004\b*\u0010\u0015J\r\u0010+\u001a\u00020\u000b¢\u0006\u0004\b+\u0010\u0015J\r\u0010,\u001a\u00020\u000b¢\u0006\u0004\b,\u0010\u0015J\r\u0010-\u001a\u00020\u000b¢\u0006\u0004\b-\u0010\u0015J\r\u0010.\u001a\u00020\u000b¢\u0006\u0004\b.\u0010\u0015J\r\u0010/\u001a\u00020\u000b¢\u0006\u0004\b/\u0010\u0015J\r\u00100\u001a\u00020\u000b¢\u0006\u0004\b0\u0010\u0015J\u000f\u00101\u001a\u00020\u000bH\u0002¢\u0006\u0004\b1\u0010\u0015J\r\u00102\u001a\u00020\u000b¢\u0006\u0004\b2\u0010\u0015J\u0015\u00104\u001a\u00020\u000b2\u0006\u00103\u001a\u00020\u0004¢\u0006\u0004\b4\u0010\u001fJ\r\u00105\u001a\u00020\u000b¢\u0006\u0004\b5\u0010\u0015J\r\u00106\u001a\u00020\u000b¢\u0006\u0004\b6\u0010\u0015J\u000f\u00107\u001a\u00020\u000bH\u0002¢\u0006\u0004\b7\u0010\u0015J\r\u00108\u001a\u00020\u000b¢\u0006\u0004\b8\u0010\u0015J\u000f\u00109\u001a\u00020\u000bH\u0002¢\u0006\u0004\b9\u0010\u0015J\u000f\u0010:\u001a\u00020\u000bH\u0002¢\u0006\u0004\b:\u0010\u0015J\r\u0010;\u001a\u00020\u000b¢\u0006\u0004\b;\u0010\u0015J\r\u0010<\u001a\u00020\u000b¢\u0006\u0004\b<\u0010\u0015J\r\u0010=\u001a\u00020\u000b¢\u0006\u0004\b=\u0010\u0015J\r\u0010>\u001a\u00020\u000b¢\u0006\u0004\b>\u0010\u0015J\r\u0010?\u001a\u00020\u000b¢\u0006\u0004\b?\u0010\u0015J\r\u0010@\u001a\u00020\u000b¢\u0006\u0004\b@\u0010\u0015J\r\u0010A\u001a\u00020\u000b¢\u0006\u0004\bA\u0010\u0015J\r\u0010B\u001a\u00020\u000b¢\u0006\u0004\bB\u0010\u0015J\r\u0010C\u001a\u00020\u000b¢\u0006\u0004\bC\u0010\u0015J\r\u0010D\u001a\u00020\u000b¢\u0006\u0004\bD\u0010\u0015J\r\u0010E\u001a\u00020\u000b¢\u0006\u0004\bE\u0010\u0015J\r\u0010F\u001a\u00020\u000b¢\u0006\u0004\bF\u0010\u0015J\r\u0010G\u001a\u00020\u000b¢\u0006\u0004\bG\u0010\u0015J\r\u0010H\u001a\u00020\u000b¢\u0006\u0004\bH\u0010\u0015J\r\u0010I\u001a\u00020\u000b¢\u0006\u0004\bI\u0010\u0015J\r\u0010J\u001a\u00020\u000b¢\u0006\u0004\bJ\u0010\u0015J\u000f\u0010K\u001a\u00020\u000bH\u0016¢\u0006\u0004\bK\u0010\u0015J\u0017\u0010M\u001a\u00020\u000b2\u0006\u0010L\u001a\u00020\u0004H\u0016¢\u0006\u0004\bM\u0010\u001fJ\u000f\u0010N\u001a\u00020\u000bH\u0002¢\u0006\u0004\bN\u0010\u0015J\u0017\u0010P\u001a\u00020\u000b2\b\u0010O\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bP\u0010QJ\u0017\u0010R\u001a\u00020\u000b2\b\u0010O\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bR\u0010QJ\u001f\u0010S\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\bS\u0010\u0011J\u0015\u0010V\u001a\u00020\u000b2\u0006\u0010U\u001a\u00020T¢\u0006\u0004\bV\u0010WJ=\u0010Y\u001a\u00020\u000b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0006\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u00022\u0006\u0010\b\u001a\u00020\u00022\n\b\u0002\u0010X\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\bY\u0010ZJ5\u0010\\\u001a\u00020\u000b2\b\u0010\t\u001a\u0004\u0018\u00010\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u00042\b\b\u0002\u0010[\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\\\u0010]R\u0016\u0010^\u001a\u00020\u00048\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b^\u0010_R%\u0010f\u001a\n a*\u0004\u0018\u00010`0`8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bb\u0010c\u001a\u0004\bd\u0010eR\u0016\u0010h\u001a\u00020g8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bh\u0010iR\u0016\u0010j\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bj\u0010kR\u0016\u0010l\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bl\u0010kR\u0016\u0010m\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bm\u0010kR\u0016\u0010n\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bn\u0010kR\u0016\u0010o\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bo\u0010kR\u0016\u0010p\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bp\u0010kR\u0016\u0010q\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bq\u0010kR\u0016\u0010r\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\br\u0010kR\u0016\u0010s\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bs\u0010kR\u0016\u0010t\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bt\u0010kR\u0016\u0010u\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bu\u0010kR\u0016\u0010v\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bv\u0010kR\u0016\u0010w\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bw\u0010kR\u0016\u0010x\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bx\u0010kR\u0016\u0010y\u001a\u00020\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\by\u0010kR\u0018\u0010{\u001a\u0004\u0018\u00010z8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b{\u0010|R\u0018\u0010~\u001a\u0004\u0018\u00010}8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010\u007fR\u001a\u0010\u0081\u0001\u001a\u00030\u0080\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u0018\u0010\u0083\u0001\u001a\u00020\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\b\u0083\u0001\u0010kR\u001b\u0010\u0084\u0001\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0085\u0001R\u001b\u0010\u0086\u0001\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0086\u0001\u0010\u0085\u0001R\"\u0010\u008b\u0001\u001a\u00030\u0087\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u000f\n\u0005\b\u0088\u0001\u0010c\u001a\u0006\b\u0089\u0001\u0010\u008a\u0001¨\u0006\u008e\u0001"}, d2 = {"Lcom/baidu/searchbox/live/ubc/MediaLivePluginLogger;", "com/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish", "", "isFromUser", "", "roomId", "source", "hasStream", FlowInfoHelper.KEY_IS_COLDLAUNCH, "roomType", "roomTemplate", "", "createSelectLaunchInfo", "(ZLjava/lang/String;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;)V", "slotName", "depSlot", "endSlot", "(Ljava/lang/String;Ljava/lang/String;)V", "getSwitchPreloadSplite", "()Ljava/lang/Boolean;", "logBindMediaComponentDataEnd", "()V", "logBindMediaComponentDataStart", "logBindMixShellDataEnd", "logBindMixShellDataStart", "logCreateMediaComponentEnd", "logCreateMediaComponentStart", "logCreateMixShellEnd", "logCreateMixShellStart", "msg", "logDebug", "(Ljava/lang/String;)V", "logDebugE", "logFirstJumpPreEnterParseEnd", "logFirstJumpPreEnterReqStart", "logFirstJumpPreEnterStart", "logFirstJumpPreEnterStartParse", "logGetLiveTypeEndAndItem", "logGetLiveTypeNetEndAndStartParse", "logListBeginGetLiveTypeStart", "logListBeginSlideReqStart", "logListGetLiveTypeStartToSendReqNet", "logListLoadRoomAndNextListAddItem", "logListOnCreateEndAndNextToLoadRoom", "logListOnCreateStart", "logListParseEndAndNextToAddItem", "logListSlideEndAndAddItem", "logListSlideReqNetEndAndStartParse", "logListSlideStartToSendReqNet", "logLiveRoomDrawUIFinish", "logLiveRoomFirstFrame", "leaveFrom", "logLiveRoomLeave", "logLiveRoomPageEndAndPageAttachStart", "logLiveRoomPageEndBindStartLayout", "logLiveRoomPageEndLayoutDrawBottomComponent", "logLiveRoomPageEndLayoutDrawComponent", "logLiveRoomPageEndLayoutDrawIMComponent", "logLiveRoomPageEndLayoutDrawTopComponent", "logLiveRoomPageOnSelect", "logLiveRoomPageResume", "logLiveRoomStartPage", "logMixShellOnSelect", "logPageAfterSelectedEndFetchLiveBeanDispatchStart", "logPageAfterSelectedStartFetchLiveBean", "logPageAttachEndNextToPageOnCreate", "logPageEnterLiveParseEnd", "logPageEnterLiveParseStart", "logPageEnterLiveRoomReqNetEnd", "logPageEnterLiveRoomReqNetEndAndParseStart", "logPageEnterLiveRoomReqNetStart", "logPageOnCreateEnd", "logPageOnCreateStart", "logPageSelectedEnterFetchEnd", "logPageSelectedEnterFetchStart", "onCoreFinished", "componentName", "onFinished", "printFlowEachSlotInfo", "preLoadSwitch", "setSwitchBusinessPreloadSplite", "(Ljava/lang/Boolean;)V", "setSwitchPreloadSplite", "startSlot", "", "flowObj", "updateLaunchFlowObj", "(Ljava/lang/Object;)V", "businessPluginStatus", "updateStartPageInfo", "(Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/String;)V", "firstJump", "updateStartPageInfoIntentRoomInfo", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V", "UBC_ID_PLUGIN_PAGE_FLOW", "Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService$delegate", "Lkotlin/Lazy;", "getAbService", "()Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "abService", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "hasLogAddItem", "Z", "hasLoggedBeginGetLiveTypeReqStart", "hasLoggedBeginPreEnterReqStart", "hasLoggedBeginSlideReqStart", "hasLoggedBindMediaComponent", "hasLoggedBindMixShell", "hasLoggedCreateMediaComponent", "hasLoggedCreateMixShell", "hasLoggedFirstFrame", "hasLoggedInit", "hasLoggedResume", "hasLoggedSelect", "hasLoggedSelectMixShell", "hasSendEnterRequest", "isDebug", "Lcom/baidu/ubc/Flow;", "launchFlow", "Lcom/baidu/ubc/Flow;", "Lorg/json/JSONObject;", "logStartPageValueJson", "Lorg/json/JSONObject;", "", "pageLoadStartTime", "J", "preEnterSwitch", "switchBusinessPreloadSplite", "Ljava/lang/Boolean;", "switchPreloadSplite", "Lcom/baidu/ubc/UBCManager;", "ubcManager$delegate", "getUbcManager", "()Lcom/baidu/ubc/UBCManager;", "ubcManager", "<init>", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\bH\n\u0002\u0010\u0000\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u008d\u00012\u00020\u0001:\u0002\u008d\u0001B\n\b\u0002¢\u0006\u0005\b\u008c\u0001\u0010\u0015JM\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0006\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u00022\u0006\u0010\b\u001a\u00020\u00022\b\u0010\t\u001a\u0004\u0018\u00010\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\f\u0010\rJ\u001f\u0010\u0010\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\r\u0010\u0014\u001a\u00020\u000b¢\u0006\u0004\b\u0014\u0010\u0015J\r\u0010\u0016\u001a\u00020\u000b¢\u0006\u0004\b\u0016\u0010\u0015J\r\u0010\u0017\u001a\u00020\u000b¢\u0006\u0004\b\u0017\u0010\u0015J\r\u0010\u0018\u001a\u00020\u000b¢\u0006\u0004\b\u0018\u0010\u0015J\r\u0010\u0019\u001a\u00020\u000b¢\u0006\u0004\b\u0019\u0010\u0015J\r\u0010\u001a\u001a\u00020\u000b¢\u0006\u0004\b\u001a\u0010\u0015J\r\u0010\u001b\u001a\u00020\u000b¢\u0006\u0004\b\u001b\u0010\u0015J\r\u0010\u001c\u001a\u00020\u000b¢\u0006\u0004\b\u001c\u0010\u0015J\u0015\u0010\u001e\u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u0004¢\u0006\u0004\b\u001e\u0010\u001fJ\u0015\u0010 \u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u0004¢\u0006\u0004\b \u0010\u001fJ\r\u0010!\u001a\u00020\u000b¢\u0006\u0004\b!\u0010\u0015J\r\u0010\"\u001a\u00020\u000b¢\u0006\u0004\b\"\u0010\u0015J\r\u0010#\u001a\u00020\u000b¢\u0006\u0004\b#\u0010\u0015J\r\u0010$\u001a\u00020\u000b¢\u0006\u0004\b$\u0010\u0015J\r\u0010%\u001a\u00020\u000b¢\u0006\u0004\b%\u0010\u0015J\r\u0010&\u001a\u00020\u000b¢\u0006\u0004\b&\u0010\u0015J\r\u0010'\u001a\u00020\u000b¢\u0006\u0004\b'\u0010\u0015J\r\u0010(\u001a\u00020\u000b¢\u0006\u0004\b(\u0010\u0015J\r\u0010)\u001a\u00020\u000b¢\u0006\u0004\b)\u0010\u0015J\r\u0010*\u001a\u00020\u000b¢\u0006\u0004\b*\u0010\u0015J\r\u0010+\u001a\u00020\u000b¢\u0006\u0004\b+\u0010\u0015J\r\u0010,\u001a\u00020\u000b¢\u0006\u0004\b,\u0010\u0015J\r\u0010-\u001a\u00020\u000b¢\u0006\u0004\b-\u0010\u0015J\r\u0010.\u001a\u00020\u000b¢\u0006\u0004\b.\u0010\u0015J\r\u0010/\u001a\u00020\u000b¢\u0006\u0004\b/\u0010\u0015J\r\u00100\u001a\u00020\u000b¢\u0006\u0004\b0\u0010\u0015J\u000f\u00101\u001a\u00020\u000bH\u0002¢\u0006\u0004\b1\u0010\u0015J\r\u00102\u001a\u00020\u000b¢\u0006\u0004\b2\u0010\u0015J\u0015\u00104\u001a\u00020\u000b2\u0006\u00103\u001a\u00020\u0004¢\u0006\u0004\b4\u0010\u001fJ\r\u00105\u001a\u00020\u000b¢\u0006\u0004\b5\u0010\u0015J\r\u00106\u001a\u00020\u000b¢\u0006\u0004\b6\u0010\u0015J\u000f\u00107\u001a\u00020\u000bH\u0002¢\u0006\u0004\b7\u0010\u0015J\r\u00108\u001a\u00020\u000b¢\u0006\u0004\b8\u0010\u0015J\u000f\u00109\u001a\u00020\u000bH\u0002¢\u0006\u0004\b9\u0010\u0015J\u000f\u0010:\u001a\u00020\u000bH\u0002¢\u0006\u0004\b:\u0010\u0015J\r\u0010;\u001a\u00020\u000b¢\u0006\u0004\b;\u0010\u0015J\r\u0010<\u001a\u00020\u000b¢\u0006\u0004\b<\u0010\u0015J\r\u0010=\u001a\u00020\u000b¢\u0006\u0004\b=\u0010\u0015J\r\u0010>\u001a\u00020\u000b¢\u0006\u0004\b>\u0010\u0015J\r\u0010?\u001a\u00020\u000b¢\u0006\u0004\b?\u0010\u0015J\r\u0010@\u001a\u00020\u000b¢\u0006\u0004\b@\u0010\u0015J\r\u0010A\u001a\u00020\u000b¢\u0006\u0004\bA\u0010\u0015J\r\u0010B\u001a\u00020\u000b¢\u0006\u0004\bB\u0010\u0015J\r\u0010C\u001a\u00020\u000b¢\u0006\u0004\bC\u0010\u0015J\r\u0010D\u001a\u00020\u000b¢\u0006\u0004\bD\u0010\u0015J\r\u0010E\u001a\u00020\u000b¢\u0006\u0004\bE\u0010\u0015J\r\u0010F\u001a\u00020\u000b¢\u0006\u0004\bF\u0010\u0015J\r\u0010G\u001a\u00020\u000b¢\u0006\u0004\bG\u0010\u0015J\r\u0010H\u001a\u00020\u000b¢\u0006\u0004\bH\u0010\u0015J\r\u0010I\u001a\u00020\u000b¢\u0006\u0004\bI\u0010\u0015J\r\u0010J\u001a\u00020\u000b¢\u0006\u0004\bJ\u0010\u0015J\u000f\u0010K\u001a\u00020\u000bH\u0016¢\u0006\u0004\bK\u0010\u0015J\u0017\u0010M\u001a\u00020\u000b2\u0006\u0010L\u001a\u00020\u0004H\u0016¢\u0006\u0004\bM\u0010\u001fJ\u000f\u0010N\u001a\u00020\u000bH\u0002¢\u0006\u0004\bN\u0010\u0015J\u0017\u0010P\u001a\u00020\u000b2\b\u0010O\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bP\u0010QJ\u0017\u0010R\u001a\u00020\u000b2\b\u0010O\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bR\u0010QJ\u001f\u0010S\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\bS\u0010\u0011J\u0015\u0010V\u001a\u00020\u000b2\u0006\u0010U\u001a\u00020T¢\u0006\u0004\bV\u0010WJ=\u0010Y\u001a\u00020\u000b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0006\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u00022\u0006\u0010\b\u001a\u00020\u00022\n\b\u0002\u0010X\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\bY\u0010ZJ5\u0010\\\u001a\u00020\u000b2\b\u0010\t\u001a\u0004\u0018\u00010\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u00042\b\b\u0002\u0010[\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\\\u0010]R\u0016\u0010^\u001a\u00020\u00048\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b^\u0010_R%\u0010f\u001a\n a*\u0004\u0018\u00010`0`8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bb\u0010c\u001a\u0004\bd\u0010eR\u0016\u0010h\u001a\u00020g8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bh\u0010iR\u0016\u0010j\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bj\u0010kR\u0016\u0010l\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bl\u0010kR\u0016\u0010m\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bm\u0010kR\u0016\u0010n\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bn\u0010kR\u0016\u0010o\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bo\u0010kR\u0016\u0010p\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bp\u0010kR\u0016\u0010q\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bq\u0010kR\u0016\u0010r\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\br\u0010kR\u0016\u0010s\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bs\u0010kR\u0016\u0010t\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bt\u0010kR\u0016\u0010u\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bu\u0010kR\u0016\u0010v\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bv\u0010kR\u0016\u0010w\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bw\u0010kR\u0016\u0010x\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bx\u0010kR\u0016\u0010y\u001a\u00020\u00028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\by\u0010kR\u0018\u0010{\u001a\u0004\u0018\u00010z8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b{\u0010|R\u0018\u0010~\u001a\u0004\u0018\u00010}8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010\u007fR\u001a\u0010\u0081\u0001\u001a\u00030\u0080\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u0018\u0010\u0083\u0001\u001a\u00020\u00028\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b\u0083\u0001\u0010kR\u001b\u0010\u0084\u0001\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0085\u0001R\u001b\u0010\u0086\u0001\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0086\u0001\u0010\u0085\u0001R\"\u0010\u008b\u0001\u001a\u00030\u0087\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u000f\n\u0005\b\u0088\u0001\u0010c\u001a\u0006\b\u0089\u0001\u0010\u008a\u0001¨\u0006\u008e\u0001"}, d2 = {"Lcom/baidu/searchbox/live/ubc/MediaLivePluginLogger;", "com/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish", "", "isFromUser", "", "roomId", "source", "hasStream", FlowInfoHelper.KEY_IS_COLDLAUNCH, "roomType", "roomTemplate", "", "createSelectLaunchInfo", "(ZLjava/lang/String;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;)V", "slotName", "depSlot", "endSlot", "(Ljava/lang/String;Ljava/lang/String;)V", "getSwitchPreloadSplite", "()Ljava/lang/Boolean;", "logBindMediaComponentDataEnd", "()V", "logBindMediaComponentDataStart", "logBindMixShellDataEnd", "logBindMixShellDataStart", "logCreateMediaComponentEnd", "logCreateMediaComponentStart", "logCreateMixShellEnd", "logCreateMixShellStart", "msg", "logDebug", "(Ljava/lang/String;)V", "logDebugE", "logFirstJumpPreEnterParseEnd", "logFirstJumpPreEnterReqStart", "logFirstJumpPreEnterStart", "logFirstJumpPreEnterStartParse", "logGetLiveTypeEndAndItem", "logGetLiveTypeNetEndAndStartParse", "logListBeginGetLiveTypeStart", "logListBeginSlideReqStart", "logListGetLiveTypeStartToSendReqNet", "logListLoadRoomAndNextListAddItem", "logListOnCreateEndAndNextToLoadRoom", "logListOnCreateStart", "logListParseEndAndNextToAddItem", "logListSlideEndAndAddItem", "logListSlideReqNetEndAndStartParse", "logListSlideStartToSendReqNet", "logLiveRoomDrawUIFinish", "logLiveRoomFirstFrame", "leaveFrom", "logLiveRoomLeave", "logLiveRoomPageEndAndPageAttachStart", "logLiveRoomPageEndBindStartLayout", "logLiveRoomPageEndLayoutDrawBottomComponent", "logLiveRoomPageEndLayoutDrawComponent", "logLiveRoomPageEndLayoutDrawIMComponent", "logLiveRoomPageEndLayoutDrawTopComponent", "logLiveRoomPageOnSelect", "logLiveRoomPageResume", "logLiveRoomStartPage", "logMixShellOnSelect", "logPageAfterSelectedEndFetchLiveBeanDispatchStart", "logPageAfterSelectedStartFetchLiveBean", "logPageAttachEndNextToPageOnCreate", "logPageEnterLiveParseEnd", "logPageEnterLiveParseStart", "logPageEnterLiveRoomReqNetEnd", "logPageEnterLiveRoomReqNetEndAndParseStart", "logPageEnterLiveRoomReqNetStart", "logPageOnCreateEnd", "logPageOnCreateStart", "logPageSelectedEnterFetchEnd", "logPageSelectedEnterFetchStart", "onCoreFinished", "componentName", "onFinished", "printFlowEachSlotInfo", "preLoadSwitch", "setSwitchBusinessPreloadSplite", "(Ljava/lang/Boolean;)V", "setSwitchPreloadSplite", "startSlot", "", "flowObj", "updateLaunchFlowObj", "(Ljava/lang/Object;)V", "businessPluginStatus", "updateStartPageInfo", "(Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/String;)V", "firstJump", "updateStartPageInfoIntentRoomInfo", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V", "UBC_ID_PLUGIN_PAGE_FLOW", "Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService$delegate", "Lkotlin/Lazy;", "getAbService", "()Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "abService", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "hasLogAddItem", "Z", "hasLoggedBeginGetLiveTypeReqStart", "hasLoggedBeginPreEnterReqStart", "hasLoggedBeginSlideReqStart", "hasLoggedBindMediaComponent", "hasLoggedBindMixShell", "hasLoggedCreateMediaComponent", "hasLoggedCreateMixShell", "hasLoggedFirstFrame", "hasLoggedInit", "hasLoggedResume", "hasLoggedSelect", "hasLoggedSelectMixShell", "hasSendEnterRequest", "isDebug", "Lcom/baidu/ubc/Flow;", "launchFlow", "Lcom/baidu/ubc/Flow;", "Lorg/json/JSONObject;", "logStartPageValueJson", "Lorg/json/JSONObject;", "", "pageLoadStartTime", "J", "preEnterSwitch", "switchBusinessPreloadSplite", "Ljava/lang/Boolean;", "switchPreloadSplite", "Lcom/baidu/ubc/UBCManager;", "ubcManager$delegate", "getUbcManager", "()Lcom/baidu/ubc/UBCManager;", "ubcManager", "<init>", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class MediaLivePluginLogger implements LiveComponentStatusHelper.ILiveComponentLoadFinish {
     public static final String MEDIA_LIVE_PLUGIN_TAG = "LIVE_ARCH";
@@ -149,6 +149,36 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         }
     }
 
+    public MediaLivePluginLogger() {
+        boolean z;
+        this.ubcManager$delegate = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) new Function0<UBCManager>() { // from class: com.baidu.searchbox.live.ubc.MediaLivePluginLogger$ubcManager$2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final UBCManager invoke() {
+                return (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            }
+        });
+        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        if (appInfoService != null) {
+            z = appInfoService.isDebug();
+        } else {
+            z = false;
+        }
+        this.isDebug = z;
+        this.abService$delegate = LazyKt__LazyJVMKt.lazy(new Function0<AbConfigService>() { // from class: com.baidu.searchbox.live.ubc.MediaLivePluginLogger$abService$2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final AbConfigService invoke() {
+                return (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
+            }
+        });
+        this.preEnterSwitch = true;
+        this.UBC_ID_PLUGIN_PAGE_FLOW = LiveMixShellManager.UBC_ID_PLUGIN_PAGE_FLOW;
+        this.handler = new Handler(Looper.getMainLooper());
+    }
+
     private final void logLiveRoomPageEndLayoutDrawBottomComponent() {
         logDebug("logLiveRoomPageEndLayoutDrawBottomComponent");
         if (this.isDebug) {
@@ -225,82 +255,6 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
             getUbcManager().flowEndSlot(this.launchFlow, "page_enter_live_req");
             getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE, null);
         }
-    }
-
-    public MediaLivePluginLogger() {
-        boolean z;
-        this.ubcManager$delegate = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) new Function0<UBCManager>() { // from class: com.baidu.searchbox.live.ubc.MediaLivePluginLogger$ubcManager$2
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
-            public final UBCManager invoke() {
-                return (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            }
-        });
-        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        if (appInfoService != null) {
-            z = appInfoService.isDebug();
-        } else {
-            z = false;
-        }
-        this.isDebug = z;
-        this.abService$delegate = LazyKt__LazyJVMKt.lazy(new Function0<AbConfigService>() { // from class: com.baidu.searchbox.live.ubc.MediaLivePluginLogger$abService$2
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
-            public final AbConfigService invoke() {
-                return (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
-            }
-        });
-        AbConfigService abService = getAbService();
-        this.preEnterSwitch = abService != null ? abService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false;
-        this.UBC_ID_PLUGIN_PAGE_FLOW = LiveMixShellManager.UBC_ID_PLUGIN_PAGE_FLOW;
-        this.handler = new Handler(Looper.getMainLooper());
-    }
-
-    public final void logPageAfterSelectedEndFetchLiveBeanDispatchStart() {
-        logDebug("logPageAfterSelectedEndFetchLiveBeanDispatchStart");
-        if (this.isDebug) {
-            long currentTimeMillis = System.currentTimeMillis();
-            logDebug("选中到获取进场数据之间的耗时：" + (currentTimeMillis - pageSelectStartTime));
-        }
-        if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND, null);
-        }
-    }
-
-    public final void logPageAfterSelectedStartFetchLiveBean() {
-        logDebug("logPageAfterSelectedStartFetchLiveBean");
-        if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("选中到开始取获取进场数据：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_DISPATCH_ENTER_ACTION);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START, null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
-    public void onCoreFinished() {
-        long j;
-        if (this.isDebug) {
-            long currentTimeMillis = System.currentTimeMillis();
-            logDebug("选中到渲染完成耗时：" + (currentTimeMillis - pageSelectStartTime));
-            StringBuilder sb = new StringBuilder();
-            sb.append("完载startTime：");
-            Flow flow = this.launchFlow;
-            if (flow != null) {
-                j = flow.getStartTime();
-            } else {
-                j = 0;
-            }
-            sb.append(Long.valueOf(j));
-            logDebug(sb.toString());
-            logDebug("完载时间耗时：" + (currentTimeMillis - this.pageLoadStartTime));
-        }
-        logLiveRoomDrawUIFinish();
     }
 
     public /* synthetic */ MediaLivePluginLogger(DefaultConstructorMarker defaultConstructorMarker) {
@@ -956,23 +910,63 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         logDebug("updateLaunchFlowObj");
     }
 
+    public final void logPageAfterSelectedEndFetchLiveBeanDispatchStart() {
+        logDebug("logPageAfterSelectedEndFetchLiveBeanDispatchStart");
+        if (this.isDebug) {
+            long currentTimeMillis = System.currentTimeMillis();
+            logDebug("选中到获取进场数据之间的耗时：" + (currentTimeMillis - pageSelectStartTime));
+        }
+        if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START);
+            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND, null);
+        }
+    }
+
+    public final void logPageAfterSelectedStartFetchLiveBean() {
+        logDebug("logPageAfterSelectedStartFetchLiveBean");
+        if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("选中到开始取获取进场数据：" + (currentTimeMillis - pageSelectStartTime));
+            }
+            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_DISPATCH_ENTER_ACTION);
+            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START, null);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
+    public void onCoreFinished() {
+        long j;
+        if (this.isDebug) {
+            long currentTimeMillis = System.currentTimeMillis();
+            logDebug("选中到渲染完成耗时：" + (currentTimeMillis - pageSelectStartTime));
+            StringBuilder sb = new StringBuilder();
+            sb.append("完载startTime：");
+            Flow flow = this.launchFlow;
+            if (flow != null) {
+                j = flow.getStartTime();
+            } else {
+                j = 0;
+            }
+            sb.append(Long.valueOf(j));
+            logDebug(sb.toString());
+            logDebug("完载时间耗时：" + (currentTimeMillis - this.pageLoadStartTime));
+        }
+        logLiveRoomDrawUIFinish();
+    }
+
     public final void updateStartPageInfo(String str, String str2, boolean z, boolean z2, String str3) {
         int i;
         int i2;
         boolean z3;
         Object obj;
         boolean z4;
-        Object obj2;
-        Object obj3;
-        boolean z5;
-        Object obj4;
-        Boolean bool;
         String str4;
         IntentData schemeIntentData;
         IntentData.SchemeModel model;
         IntentData schemeIntentData2;
-        Object obj5;
-        Object obj6;
+        Object obj2;
+        Object obj3;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", "live");
@@ -982,7 +976,6 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("room_id", str);
-                boolean z6 = true;
                 int i3 = 0;
                 if (z) {
                     i = 1;
@@ -1000,81 +993,50 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                 if (z2) {
                     jSONObject2.put("bPluginStatus", str3);
                 }
-                Boolean bool2 = this.switchPreloadSplite;
-                String str5 = "1";
+                Boolean bool = this.switchPreloadSplite;
+                String str5 = "0";
+                if (bool != null) {
+                    if (!bool.booleanValue()) {
+                        obj3 = "0";
+                    } else {
+                        obj3 = "1";
+                    }
+                    jSONObject2.put("prohibit_preload_splite", obj3);
+                }
+                Boolean bool2 = this.switchBusinessPreloadSplite;
                 if (bool2 != null) {
-                    if (bool2.booleanValue()) {
-                        obj6 = "1";
+                    if (!bool2.booleanValue()) {
+                        obj2 = "0";
                     } else {
-                        obj6 = "0";
+                        obj2 = "1";
                     }
-                    jSONObject2.put("prohibit_preload_splite", obj6);
+                    jSONObject2.put("business_preload", obj2);
                 }
-                Boolean bool3 = this.switchBusinessPreloadSplite;
-                if (bool3 != null) {
-                    if (bool3.booleanValue()) {
-                        obj5 = "1";
-                    } else {
-                        obj5 = "0";
-                    }
-                    jSONObject2.put("business_preload", obj5);
-                }
+                jSONObject2.put("prohibit_preload_media_business", "1");
                 AbConfigService abService = getAbService();
-                if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                if (abService != null && abService.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
                     z3 = true;
                 } else {
                     z3 = false;
                 }
-                if (z3) {
-                    obj = "1";
-                } else {
+                if (!z3) {
                     obj = "0";
+                } else {
+                    obj = "1";
                 }
-                jSONObject2.put("prohibit_preload_media_business", obj);
+                jSONObject2.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj);
+                jSONObject2.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, "1");
                 AbConfigService abService2 = getAbService();
-                if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
-                    z4 = true;
+                if (abService2 != null) {
+                    z4 = abService2.getSwitch("android_live_media_pre_inflate_queue", false);
                 } else {
                     z4 = false;
                 }
                 if (z4) {
-                    obj2 = "1";
-                } else {
-                    obj2 = "0";
+                    str5 = "1";
                 }
-                jSONObject2.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
-                AbConfigService abService3 = getAbService();
-                if (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
-                    z6 = false;
-                }
-                if (z6) {
-                    obj3 = "1";
-                } else {
-                    obj3 = "0";
-                }
-                jSONObject2.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, obj3);
-                AbConfigService abService4 = getAbService();
-                if (abService4 != null) {
-                    z5 = abService4.getSwitch("android_live_media_pre_inflate_queue", false);
-                } else {
-                    z5 = false;
-                }
-                if (z5) {
-                    obj4 = "1";
-                } else {
-                    obj4 = "0";
-                }
-                jSONObject2.put("android_live_media_pre_inflate_queue", obj4);
-                AbConfigService abService5 = getAbService();
-                if (abService5 != null) {
-                    bool = Boolean.valueOf(abService5.getSwitch("android_live_first_disp_notify_sub_thread", false));
-                } else {
-                    bool = null;
-                }
-                if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                    str5 = "0";
-                }
-                jSONObject2.put("sub_thread_notify_first_dip_switch", str5);
+                jSONObject2.put("android_live_media_pre_inflate_queue", str5);
+                jSONObject2.put("sub_thread_notify_first_dip_switch", "1");
                 ILivePageInfoInterface iLivePageInfoInterface = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
                 if (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str4 = schemeIntentData2.getId()) == null) {
                     str4 = "";
@@ -1086,7 +1048,7 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                 if (Intrinsics.areEqual(str4, str)) {
                     jSONObject2.put("ganyu_scene_qufen", i3);
                 }
-                logDebug("禁止预加载二级实验 " + z3 + "， 延时加载二级实验： " + z4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z6 + ", 二级预加载打散：" + z5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "播放器子首帧子线程通知：" + bool);
+                logDebug("禁止预加载二级实验 true， 延时加载二级实验： " + z3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 true, 二级预加载打散：" + z4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "播放器子首帧子线程通知：true");
             } catch (Exception e) {
                 e.printStackTrace();
             }

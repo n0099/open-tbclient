@@ -36,7 +36,7 @@ public class ForumCreateInfoData extends OrmObject {
         this.d = null;
     }
 
-    public String V() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,7 +45,7 @@ public class ForumCreateInfoData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int W() {
+    public int O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -54,7 +54,7 @@ public class ForumCreateInfoData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public boolean X() {
+    public boolean P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -66,7 +66,7 @@ public class ForumCreateInfoData extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean Y() {
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -78,7 +78,7 @@ public class ForumCreateInfoData extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public void Z(ForumCreateInfo forumCreateInfo) {
+    public void R(ForumCreateInfo forumCreateInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, forumCreateInfo) == null) && forumCreateInfo != null) {
             this.a = forumCreateInfo.is_show_create.intValue();

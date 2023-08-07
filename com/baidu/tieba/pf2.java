@@ -1,127 +1,111 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.tf2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class pf2 {
+public final class pf2 implements tf2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<mf2> a;
+    public String b;
+    public Map<String, String> c;
+    public int d;
+    public boolean e;
+    public String f;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(Bitmap bitmap);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a extends BaseBitmapDataSubscriber {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ int b;
-
-        public a(b bVar, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-            this.b = i;
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                pf2.b(this.b, this.a, "download icon fail: onCancellation");
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                pf2.b(this.b, this.a, "download icon fail: onFailureImpl");
-            }
-        }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap == null || bitmap.isRecycled()) {
-                    pf2.b(this.b, this.a, "download icon fail: bitmap is null or is recycled");
-                    return;
-                }
-                try {
-                    if (bitmap.getConfig() == null) {
-                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                    } else {
-                        copy = bitmap.copy(bitmap.getConfig(), true);
-                    }
-                    if (this.a != null) {
-                        this.a.a(copy);
-                    }
-                } catch (Exception e) {
-                    int i = this.b;
-                    b bVar = this.a;
-                    pf2.b(i, bVar, "download icon fail: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public static void b(int i, b bVar, String str) {
+    public pf2(CopyOnWriteArrayList<mf2> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, bVar, str) == null) {
-            on3 on3Var = new on3();
-            on3Var.k(4L);
-            on3Var.i(10L);
-            on3Var.f(str);
-            sn3.a().f(on3Var);
-            wi3 wi3Var = new wi3();
-            wi3Var.p(on3Var);
-            wi3Var.q(oi3.n(i));
-            oi3.R(wi3Var);
-            if (bVar != null) {
-                bVar.a(null);
-            }
-        }
-    }
-
-    public static void c(String str, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, bVar) == null) {
-            Uri C = pp3.C(str);
-            if (C == null) {
-                b(i, bVar, "download icon fail: icon url is null");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, i), UiThreadImmediateExecutorService.getInstance());
         }
+        this.a = copyOnWriteArrayList;
+        this.b = str;
+        this.c = map;
+        this.d = i;
+        this.e = z;
+    }
+
+    @Override // com.baidu.tieba.tf2.a
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.tf2.a
+    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
+            if (this.d >= this.a.size()) {
+                return null;
+            }
+            return this.a.get(this.d).a(new pf2(this.a, this.b, this.c, this.d + 1, z));
+        }
+        return (WebResourceResponse) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.tf2.a
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tf2.a
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tf2.a
+    public String getMimeType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.f)) {
+                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
+            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tf2.a
+    public Map<String, String> getRequestHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
     }
 }

@@ -1,89 +1,266 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupInfoData;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ug8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 300;
+    public static long b = 100;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(GroupInfoData groupInfoData, MetaData metaData, int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948210147, "Lcom/baidu/tieba/ug8;")) == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        if (metaData != null) {
-            str = metaData.getUserId();
-        } else {
-            str = null;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        if (!TextUtils.isEmpty(str)) {
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948210147, "Lcom/baidu/tieba/ug8;");
         }
-        statisticItem.addParam("obj_type", i);
-        statisticItem.addParam("obj_source", 100);
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void c(GroupInfoData groupInfoData, MetaData metaData, int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65538, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
+    /* loaded from: classes8.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_SUCCESS);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        if (metaData != null) {
-            str = metaData.getUserId();
-        } else {
-            str = null;
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setVisibility(8);
+            }
         }
-        if (!TextUtils.isEmpty(str)) {
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.setVisibility(8);
+            }
         }
-        statisticItem.addParam("obj_type", i);
-        statisticItem.addParam("obj_source", 1);
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void b(GroupInfoData groupInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, groupInfoData) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
+    /* loaded from: classes8.dex */
+    public static class b implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final View a;
+
+        public b(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_PANEL_SHOW);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        statisticItem.addParam("obj_source", 1);
-        TiebaStatic.log(statisticItem);
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                layoutParams.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                this.a.setLayoutParams(layoutParams);
+            }
+        }
+
+        public /* synthetic */ b(View view2, a aVar) {
+            this(view2);
+        }
     }
 
-    public static void d(@NonNull String str, int i, int i2) {
+    /* loaded from: classes8.dex */
+    public static class c extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final View a;
+        public final int b;
+        public final int c;
+
+        public c(@NonNull View view2, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                layoutParams.width = this.b;
+                layoutParams.height = this.c;
+                this.a.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final RecyclerView.ViewHolder a;
+
+        public d(@NonNull RecyclerView.ViewHolder viewHolder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewHolder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewHolder;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setIsRecyclable(true);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.setIsRecyclable(true);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                this.a.setIsRecyclable(false);
+            }
+        }
+    }
+
+    public static void a(RecyclerView.ViewHolder viewHolder, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_source", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLL(65537, null, viewHolder, view2) == null) {
+            view2.setVisibility(8);
+            Animator c2 = c(viewHolder);
+            view2.setVisibility(0);
+            c2.addListener(new a(view2));
+            c2.start();
+        }
+    }
+
+    public static Animator b(@NonNull View view2, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, view2, i, i2)) == null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
+            ofInt.setDuration(a);
+            ofInt.addUpdateListener(new b(view2, null));
+            return ofInt;
+        }
+        return (Animator) invokeLII.objValue;
+    }
+
+    public static Animator c(@NonNull RecyclerView.ViewHolder viewHolder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewHolder)) == null) {
+            View view2 = (View) viewHolder.itemView.getParent();
+            if (view2 != null) {
+                int measuredHeight = viewHolder.itemView.getMeasuredHeight();
+                viewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(view2.getMeasuredWidth(), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+                Animator b2 = b(viewHolder.itemView, measuredHeight, viewHolder.itemView.getMeasuredHeight());
+                b2.addListener(new d(viewHolder));
+                b2.addListener(new c(viewHolder.itemView, -1, -2));
+                return b2;
+            }
+            throw new IllegalStateException("Cannot animate the layout of a view that has no parent");
+        }
+        return (Animator) invokeL.objValue;
+    }
+
+    public static void d(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewHolder, view2) == null) {
+            view2.setVisibility(0);
+            Animator c2 = c(viewHolder);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 1.0f);
+            ofFloat.setDuration(a + b);
+            ofFloat.addListener(new d(viewHolder));
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(c2, ofFloat);
+            animatorSet.start();
         }
     }
 }

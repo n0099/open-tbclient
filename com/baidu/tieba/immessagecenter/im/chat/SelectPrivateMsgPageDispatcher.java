@@ -6,18 +6,18 @@ import android.util.Base64;
 import androidx.annotation.RequiresApi;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.ay5;
-import com.baidu.tieba.az5;
-import com.baidu.tieba.ce8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.wy5;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.jw5;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.ov5;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.vb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SelectPrivateMsgPageDispatcher implements y2a {
+public class SelectPrivateMsgPageDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends wy5<ImMessageCenterPojo> {
+    public class a extends jw5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -58,20 +58,20 @@ public class SelectPrivateMsgPageDispatcher implements y2a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wy5
+        @Override // com.baidu.tieba.jw5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ce8.f().i(this.a);
+                return vb8.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ay5<ImMessageCenterPojo> {
+    public class b implements ov5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -97,7 +97,7 @@ public class SelectPrivateMsgPageDispatcher implements y2a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ay5
+        @Override // com.baidu.tieba.ov5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class SelectPrivateMsgPageDispatcher implements y2a {
                 return;
             }
             if (imMessageCenterPojo != null) {
-                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), wg.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), JavaTypesHelper.toLong(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
                 personalChatActivityConfig.setRequestCode(12019);
                 personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                 personalChatActivityConfig.setIsReportSelect(true);
@@ -136,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements y2a {
         }
     }
 
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class SelectPrivateMsgPageDispatcher implements y2a {
                     }
                 }
             }
-            az5.c(new a(this, optString), new b(this, optString, arrayList));
+            nw5.c(new a(this, optString), new b(this, optString, arrayList));
         }
     }
 }

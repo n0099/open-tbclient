@@ -1,172 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.sw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qi3 extends v73 {
+public class qi3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092750, "Lcom/baidu/tieba/qi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948092750, "Lcom/baidu/tieba/qi3;");
-                return;
-            }
-        }
-        f = fs1.a;
-    }
-
-    public qi3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qi3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/file/removeSavedFile");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static boolean e(@Nullable String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.equals("0", str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(String str, String str2, @Nullable JSONObject jSONObject) {
-        String str3;
-        String I1;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, jSONObject) != null) || !e(str2)) {
-            return;
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        String str4 = StringUtil.NULL_STRING;
-        if (str2 == null) {
-            str2 = StringUtil.NULL_STRING;
-        }
-        try {
-            jSONObject2.put("version", str2);
-            if (str == null) {
-                str3 = StringUtil.NULL_STRING;
-            } else {
-                str3 = str;
-            }
-            jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str3);
-            vb3 M = vb3.M();
-            if (M != null) {
-                sw2.a Y = M.Y();
-                if (Y == null) {
-                    I1 = StringUtil.NULL_STRING;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (context != null && callbackHandler != null && ya3Var != null && ya3Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    y72.c("removeSavedFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String M = gi3.M(optParamsAsJo.optString("filePath"), ya3.g0());
+                if (vc3.b) {
+                    Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
+                    Log.d("SaveFileAction", "——> handle: filePath " + M);
+                }
+                if (vc3.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
+                }
+                if (TextUtils.isEmpty(M)) {
+                    y72.c("removeSavedFile", "file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                int a = ya3Var.f0().a(M);
+                if (vc3.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a);
+                }
+                if (a > 2000) {
+                    y72.c("removeSavedFile", "file path status code : " + a);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, sb3.a(a)));
+                    return false;
+                } else if (cr4.k(M)) {
+                    y72.i("removeSavedFile", "file delete success");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (vc3.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
+                        return true;
+                    }
+                    return true;
                 } else {
-                    I1 = Y.I1();
+                    y72.c("removeSavedFile", "file delete fail");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, sb3.a(2004)));
+                    if (vc3.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
+                    }
+                    return false;
                 }
-                jSONObject2.put("launchInfo", I1);
-                SwanAppActivity w = M.w();
-                sw2 sw2Var = null;
-                if (w != null && (intent = w.getIntent()) != null) {
-                    sw2Var = sw2.d1(intent);
-                }
-                if (sw2Var != null) {
-                    str4 = sw2Var.I1();
-                }
-                jSONObject2.put("launchInfoIntent", str4);
-            } else {
-                jSONObject2.put("swanApp", StringUtil.NULL_STRING);
             }
-            jSONObject2.put("stackTrace", pp3.y());
-            if (jSONObject != null) {
-                jSONObject2.put("reportExtInfo", jSONObject);
-            }
-        } catch (JSONException e) {
-            if (f) {
-                e.printStackTrace();
-            }
+            y72.c("removeSavedFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        q83 y = ub3.K().y();
-        if (y != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_swan_appid", str);
-            bundle.putString("key_report_info", jSONObject2.toString());
-            y.W(bundle, qi3.class);
-        }
-    }
-
-    @Override // com.baidu.tieba.v73
-    public void b(@NonNull Bundle bundle) {
-        si2 o;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String str = "";
-            String string = bundle.getString("key_swan_appid", "");
-            String string2 = bundle.getString("key_report_info", "");
-            if (!TextUtils.isEmpty(string2)) {
-                str = string2;
-            }
-            JSONObject jSONObject = null;
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                if (f) {
-                    Log.e("VersionBusinessUbc", "execCall: ", e);
-                }
-                e.printStackTrace();
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            if (!TextUtils.isEmpty(string) && (o = SwanAppDbControl.f(AppRuntime.getAppContext()).o(string)) != null) {
-                try {
-                    jSONObject.put("appDbInfo", o.a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (f) {
-                Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
-            }
-            di3.b bVar = new di3.b(10002);
-            bVar.i(jSONObject.toString());
-            bVar.m();
-            c();
-        }
+        return invokeLLLL.booleanValue;
     }
 }

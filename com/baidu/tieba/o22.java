@@ -1,133 +1,62 @@
 package com.baidu.tieba;
 
-import android.media.AudioManager;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.util.Log;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class o22 extends b22 {
+public class o22 extends l22 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioManager f;
 
-    @Override // com.baidu.tieba.yz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "VolumeApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o22(@NonNull wz1 wz1Var) {
-        super(wz1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wz1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((wz1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980282, "Lcom/baidu/tieba/o22;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947980282, "Lcom/baidu/tieba/o22;");
                 return;
             }
         }
+        b = ir1.a;
     }
 
-    public v32 x() {
-        InterceptResult invokeV;
+    public o22() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getMediaVolume", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return new v32(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                v82.c("VolumeApi", "swan activity is null");
-                return new v32(1001, "swan activity is null");
-            }
-            if (this.f == null) {
-                this.f = (AudioManager) w.getSystemService("audio");
-            }
-            float streamMaxVolume = this.f.getStreamMaxVolume(3);
-            float streamVolume = this.f.getStreamVolume(3);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("value", streamVolume / streamMaxVolume);
-                return new v32(0, jSONObject);
-            } catch (JSONException unused) {
-                return new v32(1001, "make result json error");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (v32) invokeV.objValue;
     }
 
-    public final int y(float f, int i) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.m22
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int round = Math.round(i * f);
-            if (round == 0 && f > 0.0f) {
-                return 1;
-            }
-            return round;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public v32 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setMediaVolume", false);
-            vb3 b0 = vb3.b0();
-            if (b0 == null) {
-                return new v32(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                v82.c("VolumeApi", "swan activity is null");
-                return new v32(1001, "swan activity is null");
-            }
-            Pair<v32, JSONObject> s = s(str);
-            v32 v32Var = (v32) s.first;
-            if (!v32Var.isSuccess()) {
-                return v32Var;
-            }
-            try {
-                float parseFloat = Float.parseFloat(((JSONObject) s.second).optString("value"));
-                if (this.f == null) {
-                    this.f = (AudioManager) w.getSystemService("audio");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (BasePendingOperation basePendingOperation : this.a) {
+                if (b) {
+                    Log.d("NetworkOperation", "       *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-                int streamMaxVolume = this.f.getStreamMaxVolume(3);
-                int y = y(parseFloat, streamMaxVolume);
-                if (y >= 0 && y <= streamMaxVolume) {
-                    try {
-                        this.f.setStreamVolume(3, y, 1);
-                        return v32.f();
-                    } catch (SecurityException unused) {
-                        return new v32(1001, "Cannot set volume under silent mode.");
-                    }
-                }
-                return new v32(202, "value is illegal.");
-            } catch (NumberFormatException unused2) {
-                v82.c("VolumeApi", "illegal argument type");
-                return new v32(202, "value is illegal.");
+                sn3.c(basePendingOperation, "operation_request", 100L, TimeUnit.MILLISECONDS);
             }
+            this.a.clear();
         }
-        return (v32) invokeL.objValue;
     }
 }

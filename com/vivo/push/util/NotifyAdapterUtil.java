@@ -16,6 +16,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -287,7 +288,7 @@ public class NotifyAdapterUtil {
             Intent a = iVar.a(context, packageName, j, insideNotificationItem, notifyArriveCallbackByUser);
             if (a != null) {
                 if (isPullService()) {
-                    notification2.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), b.a(context, packageName, j, a, insideNotificationItem), 201326592);
+                    notification2.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), b.a(context, packageName, j, a, insideNotificationItem), BDImageView.DEFAULT_BORDER_COLOR);
                 } else {
                     new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(a);
                     notification2.contentIntent = iVar.a(context, a);
@@ -450,7 +451,7 @@ public class NotifyAdapterUtil {
                 a = iVar.a(context, packageName, j, insideNotificationItem, notifyArriveCallbackByUser);
                 if (a == null) {
                     if (isPullService()) {
-                        builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), b.a(context, packageName, j, a, insideNotificationItem), 201326592));
+                        builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), b.a(context, packageName, j, a, insideNotificationItem), BDImageView.DEFAULT_BORDER_COLOR));
                     } else {
                         new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(a);
                         builder.setContentIntent(iVar.a(context, a));

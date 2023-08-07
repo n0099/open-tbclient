@@ -10,6 +10,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -27,12 +29,11 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b49;
+import com.baidu.tieba.c69;
 import com.baidu.tieba.d69;
-import com.baidu.tieba.e89;
-import com.baidu.tieba.f89;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.lj5;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
@@ -54,10 +55,9 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.pz5;
-import com.baidu.tieba.rd9;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.xh5;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,12 +93,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<lj5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<xh5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001342, new f89(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new d69(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -126,12 +126,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<lj5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<xh5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001343, new e89(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new c69(customMessage.getData()));
                 }
                 return null;
             }
@@ -165,8 +165,8 @@ public class MemberCenterStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                     BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
-                    bubbleListModel.b0();
-                    bubbleListModel.e0(0, yi.l(customMessage.getData().getPageActivity()), yi.j(customMessage.getData().getPageActivity()));
+                    bubbleListModel.T();
+                    bubbleListModel.W(0, BdUtilHelper.getEquipmentWidth(customMessage.getData().getPageActivity()), BdUtilHelper.getEquipmentHeight(customMessage.getData().getPageActivity()));
                 }
                 return null;
             }
@@ -242,12 +242,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<lj5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<xh5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001339, new d69(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new b49(customMessage.getData()));
                 }
                 return null;
             }
@@ -359,7 +359,7 @@ public class MemberCenterStatic {
                         String queryParameter = parse.getQueryParameter(MemberPayStatistic.REFER_PAGE);
                         String queryParameter2 = parse.getQueryParameter(MemberPayStatistic.CLICK_ZONE);
                         String queryParameter3 = parse.getQueryParameter(MemberPayActivityConfig.FROM_SCENE);
-                        String queryParameter4 = parse.getQueryParameter(MemberPayActivityConfig.SCENE_ID);
+                        String queryParameter4 = parse.getQueryParameter("scene_id");
                         if (TextUtils.isEmpty(queryParameter)) {
                             queryParameter = parse.getQueryParameter("referPage");
                         }
@@ -372,7 +372,7 @@ public class MemberCenterStatic {
                         if (TextUtils.isEmpty(queryParameter4)) {
                             queryParameter4 = parse.getQueryParameter("sceneId");
                         }
-                        rd9.e(tbPageContext, wg.e(queryParameter4, 0), queryParameter, queryParameter2, queryParameter3);
+                        PayPanelUtils.launchPayPanel(tbPageContext, JavaTypesHelper.toInt(queryParameter4, 0), queryParameter, queryParameter2, queryParameter3);
                         return 0;
                     }
                 }
@@ -409,14 +409,14 @@ public class MemberCenterStatic {
                 if (strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if ((str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY_ASSIST)) && tbPageContext != null) {
-                        String d = pz5.d(str, MemberPayStatistic.REFER_PAGE);
-                        String d2 = pz5.d(str, MemberPayStatistic.CLICK_ZONE);
-                        String d3 = pz5.d(str, MemberPayActivityConfig.FROM_SCENE);
-                        String d4 = pz5.d(str, MemberPayActivityConfig.SCENE_ID);
-                        if (TextUtils.isEmpty(d4)) {
-                            d4 = pz5.d(str, "sceneId");
+                        String paramFromURL = WebviewHelper.getParamFromURL(str, MemberPayStatistic.REFER_PAGE);
+                        String paramFromURL2 = WebviewHelper.getParamFromURL(str, MemberPayStatistic.CLICK_ZONE);
+                        String paramFromURL3 = WebviewHelper.getParamFromURL(str, MemberPayActivityConfig.FROM_SCENE);
+                        String paramFromURL4 = WebviewHelper.getParamFromURL(str, "scene_id");
+                        if (TextUtils.isEmpty(paramFromURL4)) {
+                            paramFromURL4 = WebviewHelper.getParamFromURL(str, "sceneId");
                         }
-                        rd9.e(tbPageContext, wg.e(d4, 0), d, d2, d3);
+                        PayPanelUtils.launchPayPanel(tbPageContext, JavaTypesHelper.toInt(paramFromURL4, 0), paramFromURL, paramFromURL2, paramFromURL3);
                         return 0;
                     }
                 }
@@ -453,9 +453,9 @@ public class MemberCenterStatic {
                 if (strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_MEMBER_BUY) && tbPageContext != null) {
-                        rd9.b bVar = new rd9.b();
+                        PayPanelUtils.b bVar = new PayPanelUtils.b();
                         bVar.h(220010);
-                        rd9.f(tbPageContext, bVar);
+                        PayPanelUtils.launchPayPanel(tbPageContext, bVar);
                         return 0;
                     }
                 }
@@ -585,7 +585,7 @@ public class MemberCenterStatic {
                         UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                         return;
                     } else {
-                        yi.Q(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f10fb);
+                        BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f10fe);
                         return;
                     }
                 }
@@ -597,8 +597,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            gca.h(i3, cls2, false, false);
-            gca.c(i3, i2, str, cls, false, false, false, false);
+            zaa.h(i3, cls2, false, false);
+            zaa.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

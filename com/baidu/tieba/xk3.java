@@ -1,50 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseIntArray;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapController;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public final class xk3 {
+public class xk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
-    public static final SparseIntArray c;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile xk3 m;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public SensorManager b;
+    public SensorEventListener c;
+    public SensorEventListener d;
+    public Sensor e;
+    public Sensor f;
+    public float[] g;
+    public float[] h;
+    public int i;
+    public c j;
+    public boolean k;
+    public long l;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface c {
+        void a(float f, int i);
+    }
+
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? i != -1 ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? DownloadStatisticConstants.UBC_VALUE_UNKNOW : "high" : "medium" : Config.EXCEPTION_MEMORY_LOW : "unreliable" : "no-contact" : (String) invokeI.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public static class b {
+    public class a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
+        public final /* synthetic */ xk3 a;
 
-        public b() {
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        public a(xk3 xk3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xk3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,203 +74,253 @@ public final class xk3 {
                     return;
                 }
             }
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
+            this.a = xk3Var;
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a != -1 && this.b != -1 && this.c != -1 && this.d != -1 && this.e != -1 && this.f != -1) {
-                    return false;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+                    this.a.g = sensorEvent.values;
+                    this.a.i = sensorEvent.accuracy;
+                    y72.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.a.i);
+                    this.a.k();
+                    return;
                 }
-                return true;
+                y72.o(MapController.COMPASS_LAYER_TAG, "illegal accelerometer event");
             }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303209, "Lcom/baidu/tieba/xk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes8.dex */
+    public class b implements SensorEventListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xk3 a;
+
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303209, "Lcom/baidu/tieba/xk3;");
+        }
+
+        public b(xk3 xk3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xk3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xk3Var;
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
+                    this.a.h = sensorEvent.values;
+                    this.a.i = sensorEvent.accuracy;
+                    y72.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.a.i);
+                    this.a.k();
+                    return;
+                }
+                y72.o(MapController.COMPASS_LAYER_TAG, "illegal magnetic filed event");
+            }
+        }
+    }
+
+    public xk3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
-        SparseIntArray sparseIntArray = new SparseIntArray();
-        c = sparseIntArray;
-        sparseIntArray.put(d("jan"), 0);
-        c.put(d("feb"), 1);
-        c.put(d("mar"), 2);
-        c.put(d("apr"), 3);
-        c.put(d("may"), 4);
-        c.put(d("jun"), 5);
-        c.put(d("jul"), 6);
-        c.put(d("aug"), 7);
-        c.put(d("sep"), 8);
-        c.put(d("oct"), 9);
-        c.put(d("nov"), 10);
-        c.put(d("dec"), 11);
+        this.g = new float[3];
+        this.h = new float[3];
+        this.i = -100;
+        this.k = false;
+        this.l = 0L;
     }
 
-    public static int a(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public void q() {
+        SensorManager sensorManager;
+        SensorManager sensorManager2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    return ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                }
-                return group.charAt(0) - '0';
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!this.k) {
+                y72.o(MapController.COMPASS_LAYER_TAG, "has already stop");
+                return;
             }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int b(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
-            try {
-                return c.get(d(matcher.group(i)), -1);
-            } catch (Exception unused) {
-                return -1;
+            y72.i(MapController.COMPASS_LAYER_TAG, "stop listen");
+            SensorEventListener sensorEventListener = this.c;
+            if (sensorEventListener != null && (sensorManager2 = this.b) != null) {
+                sensorManager2.unregisterListener(sensorEventListener);
+                this.c = null;
             }
+            SensorEventListener sensorEventListener2 = this.d;
+            if (sensorEventListener2 != null && (sensorManager = this.b) != null) {
+                sensorManager.unregisterListener(sensorEventListener2);
+                this.d = null;
+            }
+            this.b = null;
+            this.f = null;
+            this.e = null;
+            this.k = false;
         }
-        return invokeLI.intValue;
     }
 
-    public static int c(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public void l(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    int charAt = ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                    if (charAt >= 70) {
-                        return charAt + FeatureCodes.SKY_SEG;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public void o(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.j = cVar;
+        }
+    }
+
+    public static xk3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (m == null) {
+                synchronized (xk3.class) {
+                    if (m == null) {
+                        m = new xk3();
                     }
-                    return charAt + 2000;
-                } else if (group.length() == 3) {
-                    return ((group.charAt(0) - '0') * 100) + ((group.charAt(1) - '0') * 10) + (group.charAt(2) - '0') + FeatureCodes.SKY_SEG;
-                } else {
-                    if (group.length() == 4) {
-                        return ((group.charAt(0) - '0') * 1000) + ((group.charAt(1) - '0') * 100) + ((group.charAt(2) - '0') * 10) + (group.charAt(3) - '0');
-                    }
-                    return 1970;
-                }
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = -1;
-            if (!TextUtils.isEmpty(str) && str.length() >= 3) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    i += Character.toLowerCase(str.charAt(i2)) - 'a';
                 }
             }
-            return i;
+            return m;
         }
-        return invokeL.intValue;
+        return (xk3) invokeV.objValue;
     }
 
-    public static long e(String str) {
-        InterceptResult invokeL;
+    public static void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1L;
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || m == null) {
+            return;
+        }
+        m.m();
+    }
+
+    public final float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float[] fArr = new float[3];
+            float[] fArr2 = new float[9];
+            SensorManager.getRotationMatrix(fArr2, null, this.g, this.h);
+            SensorManager.getOrientation(fArr2, fArr);
+            return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final SensorEventListener g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            y72.i(MapController.COMPASS_LAYER_TAG, "get Accelerometer listener");
+            SensorEventListener sensorEventListener = this.c;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
             }
-            b bVar = new b(null);
-            Matcher matcher = a.matcher(str);
-            if (matcher.find()) {
-                bVar.c = a(matcher, 1);
-                bVar.b = b(matcher, 2);
-                bVar.a = c(matcher, 3);
-                f(bVar, matcher, 4);
+            a aVar = new a(this);
+            this.c = aVar;
+            return aVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final SensorEventListener j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            y72.i(MapController.COMPASS_LAYER_TAG, "get MagneticFiled listener");
+            SensorEventListener sensorEventListener = this.d;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
+            }
+            b bVar = new b(this);
+            this.d = bVar;
+            return bVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            y72.i(MapController.COMPASS_LAYER_TAG, "release");
+            if (this.k) {
+                q();
+            }
+            this.b = null;
+            this.f = null;
+            this.e = null;
+            this.c = null;
+            this.d = null;
+            this.j = null;
+            this.a = null;
+            m = null;
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j != null && System.currentTimeMillis() - this.l > 200) {
+            float f = f();
+            y72.b("SwanAppCompassManager", "orientation changed, orientation : " + f);
+            this.j.a(f, this.i);
+            this.l = System.currentTimeMillis();
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Context context = this.a;
+            if (context == null) {
+                y72.c(MapController.COMPASS_LAYER_TAG, "start error, none context");
+            } else if (this.k) {
+                y72.o(MapController.COMPASS_LAYER_TAG, "has already start");
             } else {
-                Matcher matcher2 = b.matcher(str);
-                if (!matcher2.find()) {
-                    return -1L;
-                }
-                bVar.b = b(matcher2, 1);
-                bVar.c = a(matcher2, 2);
-                f(bVar, matcher2, 3);
-                bVar.a = c(matcher2, 4);
-            }
-            if (bVar.a()) {
-                return -1L;
-            }
-            if (bVar.a >= 2038) {
-                bVar.a = 2038;
-                bVar.b = 0;
-                bVar.c = 1;
-            }
-            GregorianCalendar gregorianCalendar = new GregorianCalendar();
-            gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f);
-            return gregorianCalendar.getTimeInMillis();
-        }
-        return invokeL.longValue;
-    }
-
-    public static void f(@NonNull b bVar, @NonNull Matcher matcher, int i) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, bVar, matcher, i) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
+                SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+                this.b = sensorManager;
+                if (sensorManager != null) {
+                    this.e = sensorManager.getDefaultSensor(1);
+                    this.f = this.b.getDefaultSensor(2);
+                    this.b.registerListener(g(), this.e, 1);
+                    this.b.registerListener(j(), this.f, 1);
+                    this.k = true;
+                    y72.i(MapController.COMPASS_LAYER_TAG, "start listen");
                     return;
                 }
-                int charAt = group.charAt(0) - '0';
-                if (group.charAt(1) != ':') {
-                    i2 = 2;
-                    charAt = (charAt * 10) + (group.charAt(1) - '0');
-                } else {
-                    i2 = 1;
-                }
-                bVar.d = charAt;
-                bVar.e = ((group.charAt(i3) - '0') * 10) + (group.charAt(i4) - '0');
-                int i5 = i2 + 1 + 1 + 1 + 1;
-                bVar.f = ((group.charAt(i5) - '0') * 10) + (group.charAt(i5 + 1) - '0');
-            } catch (Exception unused) {
+                y72.c(MapController.COMPASS_LAYER_TAG, "none sensorManager");
             }
         }
     }

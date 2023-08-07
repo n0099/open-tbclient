@@ -119,12 +119,12 @@ public final class JavaTypeResolver {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // kotlin.jvm.functions.Function0
                                 public final KotlinType invoke() {
-                                    ClassifierDescriptor mo2101getDeclarationDescriptor = typeConstructor.mo2101getDeclarationDescriptor();
-                                    if (mo2101getDeclarationDescriptor == null) {
+                                    ClassifierDescriptor mo2102getDeclarationDescriptor = typeConstructor.mo2102getDeclarationDescriptor();
+                                    if (mo2102getDeclarationDescriptor == null) {
                                         Intrinsics.throwNpe();
                                     }
-                                    Intrinsics.checkExpressionValueIsNotNull(mo2101getDeclarationDescriptor, "constructor.declarationDescriptor!!");
-                                    SimpleType defaultType = mo2101getDeclarationDescriptor.getDefaultType();
+                                    Intrinsics.checkExpressionValueIsNotNull(mo2102getDeclarationDescriptor, "constructor.declarationDescriptor!!");
+                                    SimpleType defaultType = mo2102getDeclarationDescriptor.getDefaultType();
                                     Intrinsics.checkExpressionValueIsNotNull(defaultType, "constructor.declarationDescriptor!!.defaultType");
                                     return TypeUtilsKt.replaceArgumentsWithStarProjections(defaultType);
                                 }

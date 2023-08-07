@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.bubble.list;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.qia;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
     public boolean isDefault;
     public List<DressItemData> mDressItemList;
-    public zja mRecommand;
+    public qia mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListHttpResponseMessage(int i) {
@@ -67,9 +67,9 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    zja zjaVar = new zja();
-                    this.mRecommand = zjaVar;
-                    zjaVar.d(getBubbleListResIdl.data.recommend);
+                    qia qiaVar = new qia();
+                    this.mRecommand = qiaVar;
+                    qiaVar.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();
@@ -102,13 +102,13 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public zja getRecommand() {
+    public qia getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (zja) invokeV.objValue;
+        return (qia) invokeV.objValue;
     }
 
     public boolean hasMore() {

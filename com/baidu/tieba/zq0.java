@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.VideoEventTypeEnum;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class zq0 implements pk0 {
+public final class zq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VideoEventTypeEnum a;
+    public final String a;
+    public final int b;
 
-    public zq0(VideoEventTypeEnum type) {
+    public zq0(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,28 +29,25 @@ public final class zq0 implements pk0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
+        this.a = jSONObject.optString("url");
+        jSONObject.optInt("width");
+        this.b = jSONObject.optInt("height");
     }
 
-    @Override // com.baidu.tieba.pk0
-    public String a() {
-        InterceptResult invokeV;
+    public static zq0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = zq0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return new zq0(jSONObject);
         }
-        return (String) invokeV.objValue;
+        return (zq0) invokeL.objValue;
     }
 
-    public final VideoEventTypeEnum getType() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.a)) {
+            return;
         }
-        return (VideoEventTypeEnum) invokeV.objValue;
+        po0.a().d(this.a);
     }
 }

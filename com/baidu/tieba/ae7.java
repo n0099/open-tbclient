@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public final class ae7 {
+public class ae7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
+    public int f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -37,85 +38,119 @@ public final class ae7 {
                 return;
             }
         }
-        a = new a(null);
+        h = BdUniqueId.gen();
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public ae7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
 
-        public final j97 a(String iconUrl) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
-                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-                if (TextUtils.isEmpty(iconUrl)) {
-                    return null;
-                }
-                int i = 0;
-                if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                    Uri parse = Uri.parse(iconUrl);
-                    List<String> pathSegments = parse.getPathSegments();
-                    if (pathSegments.size() > 0) {
-                        boolean z = true;
-                        int identifier = z57.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, z57.a.getPackageName());
-                        String queryParameter = parse.getQueryParameter("type");
-                        if (queryParameter == null) {
-                            queryParameter = "";
-                        }
-                        int identifier2 = z57.a.getResources().getIdentifier(parse.getQueryParameter("color"), "color", z57.a.getPackageName());
-                        String queryParameter2 = parse.getQueryParameter(CriusAttrConstants.PADDING);
-                        if (queryParameter2 != null && queryParameter2.length() != 0) {
-                            z = false;
-                        }
-                        if (!z) {
-                            i = yi.g(z57.a, z57.a.getResources().getIdentifier(queryParameter2, EMABTest.TYPE_DIMEN, z57.a.getPackageName()));
-                        }
-                        if (identifier > 0) {
-                            return new j97(identifier, queryParameter, identifier2, i);
-                        }
-                    }
-                }
-                return null;
-            }
-            return (j97) invokeL.objValue;
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
+    }
 
-        public final String b(f97 iconData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
-                Intrinsics.checkNotNullParameter(iconData, "iconData");
-                String b = iconData.b();
-                int currentSkinType = SkinManager.getCurrentSkinType();
-                if (currentSkinType != 0) {
-                    if (currentSkinType == 4) {
-                        return iconData.a();
-                    }
-                    return b;
-                }
-                return iconData.b();
-            }
-            return (String) invokeL.objValue;
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getRecomReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return h;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) != null) || recommendForumInfo == null) {
+            return;
+        }
+        this.a = recommendForumInfo.forum_id.longValue();
+        this.b = recommendForumInfo.forum_name;
+        this.c = recommendForumInfo.avatar;
+        this.e = recommendForumInfo.member_count.intValue();
+        this.f = recommendForumInfo.thread_count.intValue();
+        boolean z = true;
+        if (recommendForumInfo.is_like.intValue() != 1) {
+            z = false;
+        }
+        this.d = z;
+        this.g = recommendForumInfo.recom_reason;
+        String str = recommendForumInfo.extra;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.d = z;
         }
     }
 }

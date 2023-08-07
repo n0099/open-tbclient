@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.av4;
+import com.baidu.tieba.cu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public av4 mData;
+    public cu4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigHTTPResMsg() {
@@ -36,13 +36,13 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public av4 getData() {
+    public cu4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (av4) invokeV.objValue;
+        return (cu4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
                 setErrorString(activeConfigResIdl.error.usermsg);
             }
             if (activeConfigResIdl.data != null) {
-                av4 av4Var = new av4();
-                this.mData = av4Var;
-                av4Var.c(activeConfigResIdl.data);
+                cu4 cu4Var = new cu4();
+                this.mData = cu4Var;
+                cu4Var.c(activeConfigResIdl.data);
             }
         }
     }

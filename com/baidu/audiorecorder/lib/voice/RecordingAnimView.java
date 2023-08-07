@@ -8,19 +8,19 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RecordingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class RecordingAnimView extends View {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 0 ? R.color.white_alpha100 : R.color.white_alpha70 : invokeI.intValue;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class RecordingAnimView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();
@@ -136,7 +136,7 @@ public class RecordingAnimView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();
@@ -202,9 +202,9 @@ public class RecordingAnimView extends View {
             if (this.f) {
                 invalidate();
             }
-            zg.a().removeCallbacks(this.n);
+            SafeHandler.getInst().removeCallbacks(this.n);
             if (!this.g) {
-                zg.a().postDelayed(this.n, 250L);
+                SafeHandler.getInst().postDelayed(this.n, 250L);
             }
         }
     }
@@ -232,7 +232,7 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            zg.a().removeCallbacks(this.n);
+            SafeHandler.getInst().removeCallbacks(this.n);
         }
     }
 

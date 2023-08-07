@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a71;
-import com.baidu.tieba.b81;
-import com.baidu.tieba.bt0;
-import com.baidu.tieba.c41;
+import com.baidu.tieba.d61;
+import com.baidu.tieba.e71;
+import com.baidu.tieba.es0;
+import com.baidu.tieba.f31;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Metadata;
@@ -38,7 +38,7 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
     }
 
     @Override // com.baidu.nadcore.slidingtag.NadSlidingTagBaseView
-    public void setActionListener(c41 c41Var) {
+    public void setActionListener(f31 f31Var) {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,8 +55,8 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    private final void setTextViewList(bt0 bt0Var) {
-        for (bt0.c cVar : bt0Var.a) {
+    private final void setTextViewList(es0 es0Var) {
+        for (es0.c cVar : es0Var.a) {
             TextView w = w(getContext(), cVar);
             if (w != null) {
                 w.setTextSize(0, getTextSizePx());
@@ -72,7 +72,7 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
                 }
                 w.setVisibility(0);
                 if (w != null) {
-                    b81.f(w);
+                    e71.f(w);
                     this.r = Math.max(this.r, w.getMeasuredWidth());
                     getTvList().add(w);
                 }
@@ -134,9 +134,9 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
         setTextHeight(f);
     }
 
-    public final TextView w(Context context, bt0.c cVar) {
+    public final TextView w(Context context, es0.c cVar) {
         if (cVar != null && !StringsKt__StringsJVMKt.isBlank(cVar.a)) {
-            int a = a71.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
+            int a = d61.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
             TextView textView = new TextView(context);
             textView.setText(cVar.a);
             textView.setTextColor(a);

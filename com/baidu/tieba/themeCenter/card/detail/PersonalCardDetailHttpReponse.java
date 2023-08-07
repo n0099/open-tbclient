@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.uia;
+import com.baidu.tieba.lha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uia cardData;
+    public lha cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailHttpReponse(int i) {
@@ -57,10 +57,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        uia uiaVar = new uia();
-        this.cardData = uiaVar;
+        lha lhaVar = new lha();
+        this.cardData = lhaVar;
         if (personalCardDetailRequest != null) {
-            uiaVar.m(personalCardDetailRequest.getCardId());
+            lhaVar.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);
@@ -74,12 +74,12 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
     }
 
-    public uia getCardData() {
+    public lha getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.cardData;
         }
-        return (uia) invokeV.objValue;
+        return (lha) invokeV.objValue;
     }
 }

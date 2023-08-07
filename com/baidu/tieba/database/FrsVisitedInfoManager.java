@@ -10,13 +10,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.sweetsqlite.LongColumn;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d51;
-import com.baidu.tieba.fy6;
-import com.baidu.tieba.gy6;
-import com.baidu.tieba.hy6;
-import com.baidu.tieba.v8a;
-import com.baidu.tieba.w8a;
-import com.baidu.tieba.x41;
+import com.baidu.tieba.a41;
+import com.baidu.tieba.g41;
+import com.baidu.tieba.lv6;
+import com.baidu.tieba.mv6;
+import com.baidu.tieba.nv6;
+import com.baidu.tieba.ov6;
+import com.baidu.tieba.q7a;
+import com.baidu.tieba.r7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,9 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
@@ -37,7 +40,7 @@ import kotlin.io.CloseableKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0004\u0018\u0000 \u00122\u00020\u0001:\u0001\u0012B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\t\u001a\u00020\bH\u0002J\"\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\b2\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u000b0\u000eJ\b\u0010\u0010\u001a\u00020\u000bH\u0002J\u000e\u0010\u0011\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\bR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/database/FrsVisitedInfoManager;", "", "()V", "accountChangedListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "dataSource", "Lcom/baidu/tieba/database/ExSql$IExDataSource;", "dbName", "", "getDataBaseName", "getLastVisitTimeByFid", "", "fid", WebChromeClient.KEY_ARG_CALLBACK, "Lkotlin/Function1;", "", "init", "recordForumCustomData", "Companion", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010%\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0010!\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0018\u0000 \u001b2\u00020\u0001:\u0001\u001bB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\t\u001a\u00020\bH\u0002J\"\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\b2\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u000b0\u000eJ\b\u0010\u0010\u001a\u00020\u000bH\u0002J\u000e\u0010\u0011\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\bJ,\u0010\u0012\u001a\u001a\u0012\u0004\u0012\u00020\b\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\b\u0012\u0004\u0012\u00020\u00140\u00130\u00132\f\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\b0\u0016J\u0016\u0010\u0017\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u00182\u0006\u0010\u0019\u001a\u00020\u001aR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/database/FrsVisitedInfoManager;", "", "()V", "accountChangedListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "dataSource", "Lcom/baidu/tieba/database/ExSql$IExDataSource;", "dbName", "", "getDataBaseName", "getLastVisitTimeByFid", "", "fid", WebChromeClient.KEY_ARG_CALLBACK, "Lkotlin/Function1;", "", "init", "recordForumCustomData", "selectFrsVisitedInfo", "", "Lcom/baidu/tieba/sqlite/entity/FrsVisitedInfo;", "topFids", "", "selectTopN", "", "n", "", "Companion", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class FrsVisitedInfoManager {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +48,7 @@ public final class FrsVisitedInfoManager {
     public static final Lazy<FrsVisitedInfoManager> e;
     public static final SimpleDateFormat f;
     public transient /* synthetic */ FieldHolder $fh;
-    public gy6.a a;
+    public mv6.a a;
     public String b;
     public final CustomMessageListener c;
 
@@ -89,6 +92,15 @@ public final class FrsVisitedInfoManager {
                 return (FrsVisitedInfoManager) FrsVisitedInfoManager.e.getValue();
             }
             return (FrsVisitedInfoManager) invokeV.objValue;
+        }
+
+        public final SimpleDateFormat b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                return (SimpleDateFormat) invokeV.objValue;
+            }
+            return FrsVisitedInfoManager.f;
         }
     }
 
@@ -171,7 +183,7 @@ public final class FrsVisitedInfoManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                 Intrinsics.checkNotNullParameter(params, "params");
-                gy6.a aVar = this.a.a;
+                mv6.a aVar = this.a.a;
                 if (aVar == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                     aVar = null;
@@ -179,9 +191,9 @@ public final class FrsVisitedInfoManager {
                 Cursor b = aVar.b("SELECT latest_time \n                        FROM forum_visited_info \n                        WHERE fid = ?\n                        ORDER BY latest_time DESC \n                        LIMIT 1", this.b);
                 try {
                     if (b.moveToFirst()) {
-                        LongColumn b2 = gy6.a.b(0);
-                        d51.i(b, new LongColumn[]{b2});
-                        j = b2.getValue();
+                        LongColumn c = mv6.a.c(0);
+                        g41.i(b, new LongColumn[]{c});
+                        j = c.getValue();
                     } else {
                         j = -1;
                     }
@@ -248,50 +260,50 @@ public final class FrsVisitedInfoManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                 Intrinsics.checkNotNullParameter(params, "params");
-                String format = FrsVisitedInfoManager.f.format(new Date());
-                v8a v8aVar = new v8a();
-                v8aVar.e(format);
-                v8aVar.f(this.a);
-                gy6.a aVar = this.b.a;
-                gy6.a aVar2 = null;
+                String format = FrsVisitedInfoManager.d.b().format(new Date());
+                q7a q7aVar = new q7a();
+                q7aVar.f(format);
+                q7aVar.g(this.a);
+                mv6.a aVar = this.b.a;
+                mv6.a aVar2 = null;
                 if (aVar == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                     aVar = null;
                 }
                 aVar.beginTransaction();
                 try {
-                    x41[] x41VarArr = {w8a.f, w8a.g};
-                    gy6.a aVar3 = this.b.a;
+                    a41[] a41VarArr = {r7a.f, r7a.g};
+                    mv6.a aVar3 = this.b.a;
                     if (aVar3 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                         aVar3 = null;
                     }
-                    boolean query = aVar3.query(v8aVar, (x41[]) Arrays.copyOf(x41VarArr, 2));
-                    v8aVar.g(System.currentTimeMillis());
+                    boolean query = aVar3.query(q7aVar, (a41[]) Arrays.copyOf(a41VarArr, 2));
+                    q7aVar.h(System.currentTimeMillis());
                     if (query) {
-                        v8aVar.d(v8aVar.c() + 1);
-                        gy6.a aVar4 = this.b.a;
+                        q7aVar.e(q7aVar.c() + 1);
+                        mv6.a aVar4 = this.b.a;
                         if (aVar4 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                             aVar4 = null;
                         }
-                        aVar4.update(v8aVar, (x41[]) Arrays.copyOf(x41VarArr, 2));
+                        aVar4.update(q7aVar, (a41[]) Arrays.copyOf(a41VarArr, 2));
                     } else {
-                        v8aVar.d(1L);
-                        gy6.a aVar5 = this.b.a;
+                        q7aVar.e(1L);
+                        mv6.a aVar5 = this.b.a;
                         if (aVar5 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                             aVar5 = null;
                         }
-                        aVar5.insert(v8aVar);
+                        aVar5.insert(q7aVar);
                     }
-                    gy6.a aVar6 = this.b.a;
+                    mv6.a aVar6 = this.b.a;
                     if (aVar6 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                         aVar6 = null;
                     }
                     aVar6.setTransactionSuccessful();
-                    gy6.a aVar7 = this.b.a;
+                    mv6.a aVar7 = this.b.a;
                     if (aVar7 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                     } else {
@@ -300,7 +312,7 @@ public final class FrsVisitedInfoManager {
                     aVar2.endTransaction();
                     return 0;
                 } catch (Throwable th) {
-                    gy6.a aVar8 = this.b.a;
+                    mv6.a aVar8 = this.b.a;
                     if (aVar8 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("dataSource");
                     } else {
@@ -329,7 +341,7 @@ public final class FrsVisitedInfoManager {
         }
         d = new a(null);
         e = LazyKt__LazyJVMKt.lazy(FrsVisitedInfoManager$Companion$instance$2.INSTANCE);
-        f = new SimpleDateFormat("yyyyMMdd");
+        f = new SimpleDateFormat("yyyyMMdd", Locale.CHINA);
     }
 
     public FrsVisitedInfoManager() {
@@ -372,9 +384,9 @@ public final class FrsVisitedInfoManager {
                 Intrinsics.throwUninitializedPropertyAccessException("dbName");
                 str = null;
             }
-            SQLiteDatabase writableDatabase = new hy6(str).getWritableDatabase();
+            SQLiteDatabase writableDatabase = new nv6(str).getWritableDatabase();
             writableDatabase.setLocale(Locale.US);
-            this.a = new fy6(writableDatabase);
+            this.a = new lv6(writableDatabase);
         }
     }
 
@@ -384,6 +396,39 @@ public final class FrsVisitedInfoManager {
             Intrinsics.checkNotNullParameter(fid, "fid");
             new d(fid, this).execute(new String[0]);
         }
+    }
+
+    public final Map<String, Map<String, q7a>> j(List<String> topFids) {
+        InterceptResult invokeL;
+        Map<String, Map<String, q7a>> c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, topFids)) == null) {
+            Intrinsics.checkNotNullParameter(topFids, "topFids");
+            mv6.a aVar = this.a;
+            if (aVar == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("dataSource");
+                aVar = null;
+            }
+            c2 = ov6.c(aVar, topFids);
+            return c2;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final List<String> k(int i) {
+        InterceptResult invokeI;
+        List<String> d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            mv6.a aVar = this.a;
+            if (aVar == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("dataSource");
+                aVar = null;
+            }
+            d2 = ov6.d(aVar, i);
+            return d2;
+        }
+        return (List) invokeI.objValue;
     }
 
     public final void g(String fid, Function1<? super Long, Unit> callback) {

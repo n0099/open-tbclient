@@ -290,7 +290,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r3v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s = s();

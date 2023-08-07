@@ -1,50 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class u48 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile List<Long> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161136, "Lcom/baidu/tieba/u48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161136, "Lcom/baidu/tieba/u48;");
-                return;
-            }
-        }
-        a = new ArrayList();
-    }
-
-    public static void a(long j) {
+    public static int a(int i, @NonNull List<ym> list, @NonNull String str) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
-            if (a.size() > 300) {
-                a.remove(0);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
+            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
+                while (i < list.size()) {
+                    i++;
+                    if (i >= list.size()) {
+                        return list.size();
+                    }
+                    if (list.get(i) instanceof jn6) {
+                        jn6 jn6Var = (jn6) list.get(i);
+                        if (jn6Var.getThreadData() == null || (!TextUtils.isEmpty(jn6Var.getThreadData().getTid()) && str.equals(jn6Var.getThreadData().getTid()))) {
+                        }
+                    }
+                    return i;
+                }
             }
-            a.add(Long.valueOf(j));
+            return -1;
         }
-    }
-
-    public static boolean b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return a.contains(Long.valueOf(j));
-        }
-        return invokeJ.booleanValue;
+        return invokeILL.intValue;
     }
 }

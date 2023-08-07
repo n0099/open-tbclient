@@ -3,8 +3,8 @@ package com.baidu.tbadk.abtest.helper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +95,7 @@ public class FrsTabTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return da5.p().q(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
+            return SharedPrefHelper.getInstance().getInt(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
         }
         return invokeV.intValue;
     }
@@ -104,7 +104,7 @@ public class FrsTabTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return da5.p().w(generateUserLastAccessKey(), HOT_TAB_NAME);
+            return SharedPrefHelper.getInstance().getString(generateUserLastAccessKey(), HOT_TAB_NAME);
         }
         return (String) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public class FrsTabTestHelper {
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            da5.p().F(generateFrsNewAreaTabSortKey(), i);
+            SharedPrefHelper.getInstance().putInt(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -120,7 +120,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                da5.p().J(generateUserLastAccessKey(), str);
+                SharedPrefHelper.getInstance().putString(generateUserLastAccessKey(), str);
             }
         }
     }

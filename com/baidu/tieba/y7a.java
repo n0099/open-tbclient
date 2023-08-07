@@ -1,13 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes8.dex */
-public final class y7a extends xaa {
+public class y7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ym> a;
+    public List<RecommendForumInfo> b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
     public y7a() {
         Interceptable interceptable = $ic;
@@ -19,6 +33,47 @@ public final class y7a extends xaa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+    }
+
+    public List<ym> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(hy6 hy6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy6Var) == null) {
+            String str = hy6Var.d;
+            this.c = hy6Var.c;
+            List<RecommendForumInfo> list = hy6Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    x7a x7aVar = new x7a();
+                    x7aVar.i(recommendForumInfo);
+                    this.a.add(x7aVar);
+                }
+            }
+            Page page = this.c;
+            if (page != null) {
+                boolean z = true;
+                if (page.has_more.intValue() != 1) {
+                    z = false;
+                }
+                this.d = z;
+                this.e = this.c.current_page.intValue();
             }
         }
     }

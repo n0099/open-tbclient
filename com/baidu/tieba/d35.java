@@ -4,11 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes5.dex */
 public class d35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
 
     public d35() {
         Interceptable interceptable = $ic;
@@ -22,17 +24,5 @@ public class d35 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(HeadSdk headSdk) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, headSdk) != null) || headSdk == null) {
-            return;
-        }
-        String str = headSdk.head_pic;
-        String str2 = headSdk.head_text;
-        String str3 = headSdk.sdk_name;
-        String str4 = headSdk.sdk_params;
-        headSdk.head_type.intValue();
     }
 }

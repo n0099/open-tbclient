@@ -3,45 +3,83 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.huawei.hms.framework.common.StringUtils;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
-import tv.athena.revenue.RevenueManager;
+import java.text.DecimalFormat;
 /* loaded from: classes5.dex */
 public class bac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IPayServiceStatisticsApi a(int i, int i2) {
-        InterceptResult invokeII;
+    public static String a(double d) {
+        InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("PayServiceStatisticsUtil", "getPayServiceStatisticsApi error revenue null", new Object[0]);
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == j) {
+                z = true;
+            } else {
+                z = false;
             }
-            return revenue.getPayServiceStatisticsApi();
+            if (z) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.##").format(d);
         }
-        return (IPayServiceStatisticsApi) invokeII.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public static void b(int i, int i2, int i3, String str) {
+    public static String b(double d) {
+        InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            IPayServiceStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayServiceStatisticsUtil", "onShowPayFailResult error payServiceStatisticsApi null", new Object[0]);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == j) {
+                z = true;
+            } else {
+                z = false;
             }
-            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-            cReportResponse.mEventId = "6";
-            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
-            cReportResponse.mErrCode = i3 + "";
-            cReportResponse.mErrMsg = str;
-            a.onShowPayResult(cReportResponse);
+            if (z) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.#").format(d);
         }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static double c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0.0d;
+            }
+            try {
+                return Double.valueOf(str).doubleValue();
+            } catch (Throwable unused) {
+                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
+                return 0.0d;
+            }
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static long d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0L;
+            }
+            try {
+                return Long.valueOf(str).longValue();
+            } catch (Throwable unused) {
+                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
     }
 }

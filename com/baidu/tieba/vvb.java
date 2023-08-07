@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes8.dex */
 public final class vvb {
     public static /* synthetic */ Interceptable $ic;
@@ -26,6 +25,6 @@ public final class vvb {
                 return;
             }
         }
-        a = new String[]{DownloadStatisticConstants.UBC_VALUE_UNKNOW, "idle", "preparing", DpStatConstants.KEY_PREPARED, "ready", "loading", "playing", "paused", "ended", "invalid"};
+        a = new String[]{HlsPlaylistParser.METHOD_NONE, "PCM", "I420", "NV12", "RGB24", "AAC", "H264", "HEVC", "TEXTURE", "YYAAC", "YYH264", "YYHEVC"};
     }
 }

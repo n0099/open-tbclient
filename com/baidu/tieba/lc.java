@@ -1,44 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lc extends ic {
+public class lc implements mc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    @Override // com.baidu.tieba.ic
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 480;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lc(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+    public lc(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, action};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = f;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object a(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
+            return Float.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object b(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vdVar)) == null) {
+            return Float.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object c(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vdVar)) == null) {
+            return Float.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object d(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vdVar)) == null) {
+            return Float.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object e(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vdVar)) == null) {
+            return d(vdVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mc
+    public Object f(vd vdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vdVar)) == null) {
+            return Double.valueOf(this.a);
+        }
+        return invokeL.objValue;
     }
 }

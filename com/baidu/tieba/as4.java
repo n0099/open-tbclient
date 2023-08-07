@@ -1,109 +1,80 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+@Service
 /* loaded from: classes5.dex */
-public class as4 {
+public class as4 implements tv1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625735, "Lcom/baidu/tieba/as4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625735, "Lcom/baidu/tieba/as4;");
-                return;
+    public as4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = Arrays.asList("TAH-AN00", "TET-AN00");
     }
 
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tv1
+    public jr2 a(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            double b = b(activity) * 0.5199999809265137d;
-            if (b < 1148.0d) {
-                return 1148;
-            }
-            return (int) b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) {
+            return new cs4();
         }
-        return invokeL.intValue;
+        return (jr2) invokeLL.objValue;
     }
 
-    public static double b(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tv1
+    public jt2 b(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (!c(activity)) {
-                return 0.0d;
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.widthPixels;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) {
+            return new fs4(invoker, str);
         }
-        return invokeL.doubleValue;
+        return (jt2) invokeLL.objValue;
     }
 
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tv1
+    public jt2 c(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) {
+            return new es4(invoker, str);
         }
-        return invokeL.booleanValue;
+        return (jt2) invokeLL.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tv1
+    public ir2 d(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MANUFACTURER;
-            String str2 = Build.MODEL;
-            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-                for (String str3 : a) {
-                    if (str2.contains(str3)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) {
+            return new bs4();
         }
-        return invokeV.booleanValue;
+        return (ir2) invokeLL.objValue;
     }
 
-    public static boolean e(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tv1
+    public gp2 e(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            double d = displayMetrics.widthPixels;
-            double d2 = displayMetrics.heightPixels;
-            if (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) {
+            return new ps4(invoker, str);
         }
-        return invokeL.booleanValue;
+        return (gp2) invokeLL.objValue;
     }
 }

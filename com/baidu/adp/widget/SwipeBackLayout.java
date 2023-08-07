@@ -20,10 +20,10 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class SwipeBackLayout extends FrameLayout {
     public int mMaximumVelocity;
     public int mMinimumVelocity;
     public int mMoveDistance;
-    public b mOnSlidingStateChangeListener;
+    public OnSlidingStateChangeListener mOnSlidingStateChangeListener;
     public ViewGroup mRealContentView;
     public Scroller mScroller;
     public int mTouchSlop;
@@ -73,17 +73,17 @@ public class SwipeBackLayout extends FrameLayout {
     public float mXVelocity;
 
     /* loaded from: classes.dex */
-    public interface b {
-        void a(boolean z);
+    public interface OnSlidingStateChangeListener {
+        void onSlidingEnd(boolean z);
 
-        void b();
+        void onSlidingStart();
     }
 
     /* loaded from: classes.dex */
-    public interface c {
-        void K0();
+    public interface b {
+        void H0();
 
-        void m0();
+        void k0();
     }
 
     /* loaded from: classes.dex */
@@ -207,9 +207,9 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                b bVar = this.mOnSlidingStateChangeListener;
-                if (bVar != null) {
-                    bVar.b();
+                OnSlidingStateChangeListener onSlidingStateChangeListener = this.mOnSlidingStateChangeListener;
+                if (onSlidingStateChangeListener != null) {
+                    onSlidingStateChangeListener.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -226,7 +226,7 @@ public class SwipeBackLayout extends FrameLayout {
             this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
             this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
             this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-            this.mFlingDistance = yi.l(context) / 4;
+            this.mFlingDistance = BdUtilHelper.getEquipmentWidth(context) / 4;
         }
     }
 
@@ -504,7 +504,7 @@ public class SwipeBackLayout extends FrameLayout {
                 super.dispatchDraw(canvas);
                 customDispatchDraw(canvas);
             } catch (Exception e) {
-                DefaultLog.getInstance().c("SwipeBackLayout crash", e.getMessage());
+                DefaultLog.getInstance().i("SwipeBackLayout crash", e.getMessage());
                 if (!BdBaseApplication.getInst().isDebugMode()) {
                     return;
                 }
@@ -539,10 +539,10 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    public void setOnSlidingStateChangeListener(b bVar) {
+    public void setOnSlidingStateChangeListener(OnSlidingStateChangeListener onSlidingStateChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
-            this.mOnSlidingStateChangeListener = bVar;
+        if (interceptable == null || interceptable.invokeL(1048590, this, onSlidingStateChangeListener) == null) {
+            this.mOnSlidingStateChangeListener = onSlidingStateChangeListener;
         }
     }
 
@@ -670,9 +670,9 @@ public class SwipeBackLayout extends FrameLayout {
                                 endDrag();
                                 scrollOrigin(10);
                                 this.mIsFinish = false;
-                                b bVar = this.mOnSlidingStateChangeListener;
-                                if (bVar != null) {
-                                    bVar.a(false);
+                                OnSlidingStateChangeListener onSlidingStateChangeListener = this.mOnSlidingStateChangeListener;
+                                if (onSlidingStateChangeListener != null) {
+                                    onSlidingStateChangeListener.onSlidingEnd(false);
                                 }
                             }
                         } else {
@@ -723,9 +723,9 @@ public class SwipeBackLayout extends FrameLayout {
                                 scrollOrigin();
                                 this.mIsFinish = false;
                             }
-                            b bVar2 = this.mOnSlidingStateChangeListener;
-                            if (bVar2 != null) {
-                                bVar2.a(this.mIsFinish);
+                            OnSlidingStateChangeListener onSlidingStateChangeListener2 = this.mOnSlidingStateChangeListener;
+                            if (onSlidingStateChangeListener2 != null) {
+                                onSlidingStateChangeListener2.onSlidingEnd(this.mIsFinish);
                             }
                             return true;
                         }
@@ -736,9 +736,9 @@ public class SwipeBackLayout extends FrameLayout {
                             scrollOrigin();
                             this.mIsFinish = false;
                         }
-                        b bVar3 = this.mOnSlidingStateChangeListener;
-                        if (bVar3 != null) {
-                            bVar3.a(this.mIsFinish);
+                        OnSlidingStateChangeListener onSlidingStateChangeListener3 = this.mOnSlidingStateChangeListener;
+                        if (onSlidingStateChangeListener3 != null) {
+                            onSlidingStateChangeListener3.onSlidingEnd(this.mIsFinish);
                         }
                     }
                 } else {

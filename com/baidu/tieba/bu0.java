@@ -1,10 +1,17 @@
 package com.baidu.tieba;
-
-import com.baidu.nadcore.net.request.Headers;
-import java.io.InputStream;
 /* loaded from: classes5.dex */
 public interface bu0 {
-    void a(Exception exc, int i);
+    void mute(boolean z);
 
-    void c(Headers headers, InputStream inputStream, int i) throws Exception;
+    void pause();
+
+    void resume();
+
+    void setLooping(boolean z);
+
+    void setVideoScalingMode(int i);
+
+    void start();
+
+    void stop();
 }

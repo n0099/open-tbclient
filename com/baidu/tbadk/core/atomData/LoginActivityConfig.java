@@ -6,11 +6,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.s95;
+import com.baidu.tbadk.core.log.Logger;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +69,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        s95.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        Logger.addLog("account", -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

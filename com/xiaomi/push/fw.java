@@ -28,11 +28,11 @@ public class fw implements Cloneable {
 
     public static final String a() {
         String str = c;
-        return str != null ? str : ab.m252a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return str != null ? str : ab.m253a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
-        if (j.m708a(s.m719a()) && ab.b()) {
+        if (j.m709a(s.m720a()) && ab.b()) {
             return;
         }
         c = str;
@@ -45,7 +45,7 @@ public class fw implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m507a() {
+    public int m508a() {
         return this.f421a;
     }
 
@@ -54,12 +54,12 @@ public class fw implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m508a() {
+    public boolean m509a() {
         return this.f423a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] mo509a() {
+    public byte[] mo510a() {
         return null;
     }
 

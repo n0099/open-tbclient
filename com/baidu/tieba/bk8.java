@@ -1,31 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface bk8 extends yj8 {
-    void a();
+public final class bk8 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final bk8 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(@NonNull String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647962, "Lcom/baidu/tieba/bk8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947647962, "Lcom/baidu/tieba/bk8;");
+                return;
+            }
+        }
+        a = new bk8();
+    }
 
-    void k();
+    public final boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 || i == 10001 : invokeI.booleanValue;
+    }
 
-    void l(@NonNull String str);
-
-    void m(@NonNull String str, @NonNull CharSequence charSequence);
-
-    void n(@NonNull zj8 zj8Var);
-
-    void o(Object obj);
-
-    void onDestroy();
-
-    void p();
-
-    void q(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, long j, long j2);
-
-    void r(@NonNull String str, @Nullable String str2);
-
-    void s(int i, int i2, @Nullable String str);
+    public bk8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

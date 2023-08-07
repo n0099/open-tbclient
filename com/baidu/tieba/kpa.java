@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface kpa {
-    void L0();
-
-    long m();
-
-    void p(int i, int i2, Intent intent);
-
-    boolean r();
+    void a(View view2, p07 p07Var);
 }

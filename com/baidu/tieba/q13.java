@@ -1,42 +1,46 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q13 {
+public class q13 extends p13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap e;
 
-    public static void a(Integer num, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q13(String str, Bitmap bitmap, boolean z) {
+        super(5, str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("level", String.valueOf(num));
-            hashMap.put("percentage", str + "%");
-            ix2.T().u(new wl2("text-size-adjust", hashMap));
-            f32.d(num.intValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bitmap, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.e = bitmap;
+        this.d = z;
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
-    public static void b(String str, String str2, String str3) {
+    public Bitmap e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
-            bm2 bm2Var = new bm2();
-            ?? jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "text-size-adjust");
-                jSONObject.put("percentage", str3 + "%");
-                jSONObject.put("level", str2);
-            } catch (JSONException e) {
-                n73.b(Log.getStackTraceString(e));
-            }
-            bm2Var.c = jSONObject;
-            ix2.T().m(str, bm2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return (Bitmap) invokeV.objValue;
     }
 }

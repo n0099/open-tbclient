@@ -1,504 +1,184 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jm6 {
+public class jm6 extends dm6<jv6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public boolean b;
-    public boolean c;
-    public final CustomMessageListener d;
-    public final kb e;
+    public TbImageView i;
+    public LinearLayout j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public LinearLayout n;
+    public ImageView o;
+    public ImageView p;
+    public ImageView q;
+    public ImageView r;
+    public ImageView s;
+    public TextView t;
+    public jv6 u;
+    public View v;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jm6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(jm6 jm6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jm6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jm6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.b || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
-                return;
-            }
-            this.a.b = true;
-            Pair[] pairArr = new Pair[1];
-            if (QuickWebViewSwitch.getInOn()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            pairArr[0] = Pair.create("offline_switch", str);
-            jm6.w("sync return", "", ao6.a(pairArr), "", "");
-            if (!QuickWebViewSwitch.getInOn()) {
-                return;
-            }
-            if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
-                rm6.c();
-                return;
-            }
-            om6 om6Var = new om6();
-            om6Var.setPriority(4);
-            om6Var.execute(new Void[0]);
-        }
+    @Override // com.baidu.tieba.dm6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b3 : invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends kb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jm6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(jm6 jm6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jm6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jm6Var;
-        }
-
-        @Override // com.baidu.tieba.kb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            String str;
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage != null && !responsedMessage.hasError()) {
-                    if (responsedMessage instanceof WebViewCacheResHttpMsg) {
-                        WebViewCacheResHttpMsg webViewCacheResHttpMsg = (WebViewCacheResHttpMsg) responsedMessage;
-                        this.a.x(webViewCacheResHttpMsg);
-                        this.a.f(webViewCacheResHttpMsg.getModuleInfos());
-                    } else if (responsedMessage instanceof WebViewCacheResSocketMsg) {
-                        this.a.f(((WebViewCacheResSocketMsg) responsedMessage).getModuleInfos());
-                    }
-                    this.a.c = true;
-                    return;
-                }
-                if (QuickWebViewSwitch.getInOn()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jm6.w("request webCacheInfo", "error", ao6.a(Pair.create("offline_switch", str)), "", "");
-                h29 hybridLog = HybridLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("离线包接口获取失败");
-                if (responsedMessage != null) {
-                    str2 = responsedMessage.getErrorString();
-                } else {
-                    str2 = "返回数据为空";
-                }
-                sb.append(str2);
-                hybridLog.b("Offline", sb.toString());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final jm6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-685247881, "Lcom/baidu/tieba/jm6$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-685247881, "Lcom/baidu/tieba/jm6$c;");
-                    return;
-                }
-            }
-            a = new jm6(null);
-        }
-    }
-
-    public jm6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jm6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
-        this.b = false;
-        this.c = false;
-        this.d = new a(this, 2921815);
-        this.e = new b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+        r(h());
     }
 
-    public /* synthetic */ jm6(a aVar) {
-        this();
-    }
-
-    public void i(String str) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.a.remove(str);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
+            e().a(h(), this.u);
         }
     }
 
-    public String p(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dm6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(this.t, R.color.CAM_X0107, 1);
+                t(this.u);
             }
-            return this.a.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void y(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) && !TextUtils.isEmpty(str)) {
-            this.a.put(str, str2);
+            this.a = i;
         }
     }
 
-    public static void g(String str, String str2, String str3) {
-        String str4;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, str3) == null) {
-            n().h(str);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3) && !TextUtils.equals("0.0.0.0", str3)) {
-                str4 = "success";
-            } else {
-                str4 = "error";
-            }
-            w("delete bundle", str4, ao6.a(Pair.create("pre_module_name", str), Pair.create("pre_version", str3)), str, str2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905bb);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905bc);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905c6);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905bd);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905bf);
+            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905c5);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c0);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c1);
+            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c2);
+            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c3);
+            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c4);
+            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.i.setDefaultResource(17170445);
+            this.i.setDefaultBgResource(R.color.CAM_X0205);
+            this.i.setDrawBorder(true);
+            this.i.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
+            h().setOnClickListener(this);
+            this.v = view2.findViewById(R.id.obfuscated_res_0x7f090908);
         }
     }
 
-    public static void j(File file, String str, String str2) {
-        String[] list;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dm6
+    /* renamed from: s */
+    public void i(jv6 jv6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65544, null, file, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            File file2 = new File(file, str2);
-            if (file2.exists() && file2.isDirectory() && (list = file2.list()) != null && list.length != 0) {
-                for (String str3 : list) {
-                    if (!StringUtils.isNull(str3) && !str3.equals(str)) {
-                        FileHelper.deleteFileOrDir(new File(file2, str3));
-                    }
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048581, this, jv6Var) == null) && jv6Var != null && jv6Var.c() != null) {
+            this.u = jv6Var;
+            this.i.startLoad(jv6Var.c().avatar, 10, false);
+            this.k.setText(jv6Var.c().game_name);
+            this.l.setText(jv6Var.c().title_small);
+            this.m.setText(String.valueOf(jv6Var.c().game_score));
+            t(jv6Var);
+            this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f081a, StringHelper.numberUniform(jv6Var.c().game_score_num)));
         }
     }
 
-    public static void l(String str, vx9 vx9Var) {
+    public final void t(jv6 jv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, vx9Var) == null) {
-            String p = n().p(str);
-            String c2 = vx9Var.c();
-            boolean d = vx9Var.d();
-            if (StringUtils.isNull(p)) {
-                p = "0.0.0.0";
-            }
-            if (d && c2.equals(p)) {
-                km6.e().c(str);
-                return;
-            }
-            if (d) {
-                w("download bundle", "start", ao6.a(Pair.create("pre_module_name", str), Pair.create("pre_version", p)), str, c2);
-            }
-            if (d) {
-                km6.e().d(str);
-                pm6.c(str, vx9Var);
-                return;
-            }
-            h29 hybridLog = HybridLog.getInstance();
-            hybridLog.b("Offline", "根据离线包配置移除本地离线包：" + str + " " + c2 + " " + p);
-            g(str, c2, p);
-        }
-    }
-
-    public static jm6 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return c.a;
-        }
-        return (jm6) invokeV.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public File m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath(), "bdtbNWCache");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath(), "bdtbWCacheTemp");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @NonNull
-    public Set<String> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.keySet();
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void v() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (!xn6.b(this.a)) {
-                str = new JSONObject(this.a).toString();
-            } else {
-                str = "";
-            }
-            da5.p().J("pref_key_quick_webview_versions", str);
-        }
-    }
-
-    public JSONObject z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.a.isEmpty()) {
-                return null;
-            }
-            return new JSONObject(this.a);
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static void w(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65547, null, str, str2, str3, str4, str5) == null) {
-            ll6 a2 = ll6.a(HybridStatisticKey.KEY_UPDATE_OFFLINE_PACK);
-            a2.c("obj_type", str);
-            a2.c("obj_name", str4);
-            a2.c("obj_param1", str5);
-            a2.c("obj_locate", str2);
-            a2.c(TiebaStatic.Params.OBJ_PARAM2, str3);
-            a2.d();
-        }
-    }
-
-    public final void f(Map<String, vx9> map) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!xn6.b(map)) {
-                for (Map.Entry<String, vx9> entry : map.entrySet()) {
-                    String key = entry.getKey();
-                    vx9 value = entry.getValue();
-                    if (value != null && !StringUtils.isNull(value.c()) && !StringUtils.isNull(value.b()) && !StringUtils.isNull(value.a())) {
-                        l(key, value);
-                        str = value.c();
-                    } else {
-                        km6.e().c(key);
-                        str = "";
-                    }
-                    try {
-                        jSONObject.put(key, str);
-                    } catch (JSONException unused) {
-                    }
-                }
-            } else {
-                km6.e().b();
-            }
-            w("request webCacheInfo", "success", jSONObject.toString(), "", "");
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jv6Var) != null) || jv6Var == null) {
             return;
         }
-        km6.e().i(str);
-        i(str);
-        v();
-        File file = new File(m(), str);
-        h29 hybridLog = HybridLog.getInstance();
-        hybridLog.b("Offline", "移除本地离线包：" + str + " " + this.a + " " + file);
-        if (file.exists() && file.isDirectory()) {
-            FileHelper.deleteFileOrDir(file);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            u();
-            MessageManager.getInstance().registerListener(this.e);
-            MessageManager.getInstance().registerListener(this.d);
-            String w = da5.p().w("pref_key_quick_webview_versions", "");
-            h29 hybridLog = HybridLog.getInstance();
-            hybridLog.c("Offline", "离线包模块开始初始化，当前离线包版本号:" + w);
-            t(w);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            gca.h(309485, WebViewCacheResSocketMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, gca.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
-            tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
-            if (TbSingleton.getInstance().isDebugToolMode()) {
-                if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {
-                    MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                    return;
-                }
-                return;
-            }
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.clear();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
-                    this.a.put(next, optString);
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void x(WebViewCacheResHttpMsg webViewCacheResHttpMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, webViewCacheResHttpMsg) == null) {
-            try {
-                List<String> header = webViewCacheResHttpMsg.getHeader("Set-Cookie");
-                if (!xn6.a(header)) {
-                    for (String str : header) {
-                        if (!TextUtils.isEmpty(str) && str.contains("BAIDUID=")) {
-                            nx4.n(str);
-                            return;
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_empty_bg);
+        if (jv6Var.c().game_score > 0.0d) {
+            if (jv6Var.c().game_score < 2.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (jv6Var.c().game_score == 2.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (jv6Var.c().game_score < 4.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (jv6Var.c().game_score == 4.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (jv6Var.c().game_score < 6.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (jv6Var.c().game_score == 6.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (jv6Var.c().game_score < 8.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (jv6Var.c().game_score == 8.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (jv6Var.c().game_score < 10.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (jv6Var.c().game_score == 10.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
             }
         }
     }

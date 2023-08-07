@@ -12,10 +12,10 @@ import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ep8;
+import com.baidu.tieba.fk8;
+import com.baidu.tieba.gy5;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.x06;
+import com.baidu.tieba.ym8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,13 +29,13 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public mm8 l;
+    public fk8 l;
     public long m;
     public boolean n;
-    public final x06 o;
+    public final gy5 o;
 
     /* loaded from: classes6.dex */
-    public class a implements x06 {
+    public class a implements gy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FallingSlice a;
@@ -58,7 +58,7 @@ public class FallingSlice extends Slice {
             this.a = fallingSlice;
         }
 
-        @Override // com.baidu.tieba.x06
+        @Override // com.baidu.tieba.gy5
         public void a(FallingEventType fallingEventType, @Nullable Object obj) {
             String str;
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    ep8.k("c15184", str, this.a.m, this.a.n);
+                    ym8.k("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
@@ -143,7 +143,7 @@ public class FallingSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (ChatFallingView) view2.findViewById(R.id.obfuscated_res_0x7f091deb);
+                cVar.b = (ChatFallingView) view2.findViewById(R.id.obfuscated_res_0x7f091e01);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -171,11 +171,11 @@ public class FallingSlice extends Slice {
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     @Nullable
-    public View N(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View O(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08b9, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08c3, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -217,16 +217,16 @@ public class FallingSlice extends Slice {
         }
     }
 
-    public void c0(@NonNull FallingData fallingData, long j, boolean z, @Nullable mm8 mm8Var) {
+    public void c0(@NonNull FallingData fallingData, long j, boolean z, @Nullable fk8 fk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), mm8Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), fk8Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = mm8Var;
+            this.l = fk8Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                ep8.k("c15183", fallingData.getAffect(), this.m, z);
+                ym8.k("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

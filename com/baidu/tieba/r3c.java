@@ -1,118 +1,182 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x1c;
-import com.baidu.tieba.y1c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
-public final class r3c<T> implements y1c.c<T> {
+public final class r3c<E> extends p3c<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y1c.c<T> a;
-    public final x1c b;
+    public final AtomicLong c;
+    public long d;
+    public final AtomicLong e;
+    public final int f;
 
-    /* loaded from: classes7.dex */
-    public static final class a<T> extends z1c<T> implements h2c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final z1c<? super T> b;
-        public final x1c.a c;
-        public T d;
-        public Throwable e;
-
-        public a(z1c<? super T> z1cVar, x1c.a aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072135, "Lcom/baidu/tieba/r3c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z1cVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948072135, "Lcom/baidu/tieba/r3c;");
+                return;
+            }
+        }
+        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.longValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (g() == f()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return c(a(this.e.get()));
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.e.get();
+            int a = a(j);
+            AtomicReferenceArray<E> atomicReferenceArray = this.a;
+            E d = d(atomicReferenceArray, a);
+            if (d == null) {
+                return null;
+            }
+            e(atomicReferenceArray, a, null);
+            h(j + 1);
+            return d;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            long f = f();
+            while (true) {
+                long g2 = g();
+                long f2 = f();
+                if (f == f2) {
+                    return (int) (g2 - f2);
                 }
+                f = f2;
             }
-            this.b = z1cVar;
-            this.c = aVar;
-        }
-
-        @Override // com.baidu.tieba.z1c
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.e = th;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.z1c
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.d = t;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.h2c
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.e;
-                    if (th != null) {
-                        this.e = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.d;
-                        this.d = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
-            }
+        } else {
+            return invokeV.intValue;
         }
     }
 
-    public r3c(y1c.c<T> cVar, x1c x1cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r3c(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, x1cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cVar;
-        this.b = x1cVar;
+        this.c = new AtomicLong();
+        this.e = new AtomicLong();
+        this.f = Math.min(i / 4, g.intValue());
     }
 
-    public void call(z1c<? super T> z1cVar) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z1cVar) == null) {
-            x1c.a createWorker = this.b.createWorker();
-            a aVar = new a(z1cVar, createWorker);
-            z1cVar.a(createWorker);
-            z1cVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
+                AtomicReferenceArray<E> atomicReferenceArray = this.a;
+                int i = this.b;
+                long j = this.c.get();
+                int b = b(j, i);
+                if (j >= this.d) {
+                    long j2 = this.f + j;
+                    if (d(atomicReferenceArray, b(j2, i)) == null) {
+                        this.d = j2;
+                    } else if (d(atomicReferenceArray, b) != null) {
+                        return false;
+                    }
+                }
+                e(atomicReferenceArray, b, e);
+                i(j + 1);
+                return true;
+            }
+            throw new NullPointerException("Null is not a valid element");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.e.lazySet(j);
         }
     }
 
-    @Override // com.baidu.tieba.y1c.c, com.baidu.tieba.i2c
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((z1c) ((z1c) obj));
+    public final void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.c.lazySet(j);
+        }
     }
 }

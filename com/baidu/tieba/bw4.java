@@ -1,89 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class bw4 {
+public abstract class bw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a(boolean z, boolean z2, String str);
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static bw4 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void a();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-905105492, "Lcom/baidu/tieba/bw4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-905105492, "Lcom/baidu/tieba/bw4$b;");
-                    return;
-                }
-            }
-            a = new bw4(null);
-        }
-    }
+    public abstract void d();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659370, "Lcom/baidu/tieba/bw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659370, "Lcom/baidu/tieba/bw4;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        a();
-    }
+    public abstract boolean e();
+
+    public abstract MarkData f();
+
+    public abstract String g();
+
+    public abstract void h(boolean z);
+
+    public abstract void i(MarkData markData);
+
+    public abstract void j(a aVar);
 
     public bw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static bw4 a() {
-        InterceptResult invokeV;
+    public static bw4 b(BaseActivity baseActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, bw4.class, baseActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (bw4) runTask.getData();
+            }
+            return null;
         }
-        return (bw4) invokeV.objValue;
+        return (bw4) invokeL.objValue;
     }
 
-    public /* synthetic */ bw4(a aVar) {
-        this();
+    public static bw4 c(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, bw4.class, baseFragmentActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (bw4) runTask.getData();
+            }
+            return null;
+        }
+        return (bw4) invokeL.objValue;
     }
 }

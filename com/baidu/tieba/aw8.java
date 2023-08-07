@@ -1,134 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class aw8 {
+public final class aw8 extends uv8<AudioMsg, VoiceMsgContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
 
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947629703, "Lcom/baidu/tieba/aw8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947629703, "Lcom/baidu/tieba/aw8;");
         }
     }
 
-    public final void k(long j) {
+    @Override // com.baidu.tieba.uv8
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 3;
         }
-    }
-
-    public final void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-        }
+        return invokeV.intValue;
     }
 
     public aw8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = "";
-        this.d = "";
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uv8
+    /* renamed from: h */
+    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
+        InterceptResult invokeL;
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
+            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
+            if (voiceMsgContent != null) {
+                i = voiceMsgContent.a();
+            } else {
+                i = 0;
+            }
+            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
+            if (voiceMsgContent != null) {
+                str = voiceMsgContent.f();
+            } else {
+                str = null;
+            }
+            audioMsg.setRemoteUrl(str);
+            return audioMsg;
         }
-        return (String) invokeV.objValue;
+        return (AudioMsg) invokeL.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uv8
+    /* renamed from: i */
+    public VoiceMsgContent g(AudioMsg sdkMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
+            String localUrl = sdkMsg.getLocalUrl();
+            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
+            voiceMsgContent.i(localUrl);
+            String remoteUrl = sdkMsg.getRemoteUrl();
+            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
+            voiceMsgContent.k(remoteUrl);
+            voiceMsgContent.h(sdkMsg.getDuration());
+            return voiceMsgContent;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.a = i;
-        }
+        return (VoiceMsgContent) invokeL.objValue;
     }
 }

@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.vv2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z24 extends b44 {
+public class z24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,77 +34,81 @@ public class z24 extends b44 {
                 return;
             }
         }
-        c = fs1.a;
+        a = ir1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z24() {
-        super("getAppList");
+    public static void a(String str, String str2, String str3, String str4, x24 x24Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, x24Var) == null) {
+            String l = y24.l(str2);
+            if (TextUtils.isEmpty(l)) {
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.b44
-    public v32 a(@NonNull JSONObject jSONObject, @NonNull zo2 zo2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zo2Var)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", c());
-                if (c) {
-                    Log.i("GetAppListAction", jSONObject2.toString());
-                }
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
-            zo2Var.onSuccess(jSONObject2);
-            return null;
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            y24 y24Var = new y24();
+            y24Var.m(x24Var);
+            y24Var.b = l;
+            y24Var.e = str3;
+            y24Var.v = str;
+            y24Var.l = so3.D();
+            if (ya3.b0() != null) {
+                vv2.a W = ya3.b0().W();
+                y24Var.a = rh3.n(W.G());
+                y24Var.f = W.H();
+                y24Var.c = W.T();
+            }
+            y24Var.t = str4;
+            rh3.x("1245", y24Var);
         }
-        return (v32) invokeLL.objValue;
     }
 
-    public final JSONObject b(PackageInfo packageInfo) throws JSONException {
-        InterceptResult invokeL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = y24.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            y24 y24Var = new y24();
+            y24Var.b = l;
+            y24Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            y24Var.a("packageName", str3);
+            rh3.x("1245", y24Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = p74.b().d();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appName", packageInfo.applicationInfo.name);
-            jSONObject.put("appPackageName", packageInfo.packageName);
-            jSONObject.put("appVersion", packageInfo.versionName);
-            boolean z = true;
-            if ((packageInfo.applicationInfo.flags & 1) == 0) {
-                z = false;
+            try {
+                jSONObject.put("cuid", fu2.h0().i(fu2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", fu2.n().a());
+                jSONObject.put("version", so3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ci4.h(fu2.c()).postRequest().cookieManager(fu2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
             }
-            jSONObject.put("appIsSystemApp", z);
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final JSONArray c() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
-                jSONArray.put(b(packageInfo));
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
     }
 }

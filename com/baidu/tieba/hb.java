@@ -1,39 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class hb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<cb> a;
-    public final LinkedList<jb> b;
-    public final LinkedList<ab> c;
-    public final LinkedList<bb> d;
-    public final LinkedList<ib> e;
-    public final LinkedList<za> f;
-    public final LinkedList<db> g;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public int i;
+    public long j;
+    public long k;
+    public long l;
 
     public hb() {
         Interceptable interceptable = $ic;
@@ -48,184 +34,17 @@ public class hb {
                 return;
             }
         }
-        this.a = new LinkedList<>();
-        this.b = new LinkedList<>();
-        this.c = new LinkedList<>();
-        this.d = new LinkedList<>();
-        this.e = new LinkedList<>();
-        this.f = new LinkedList<>();
-        this.g = new LinkedList<>();
-    }
-
-    public void a(db dbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dbVar) == null) {
-            this.g.add(dbVar);
-        }
-    }
-
-    public CustomResponsedMessage<?> f(CustomResponsedMessage<?> customResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, customResponsedMessage)) == null) {
-            return (CustomResponsedMessage) j(this.f, customResponsedMessage);
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
-    }
-
-    public HttpResponsedMessage h(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpResponsedMessage)) == null) {
-            return (HttpResponsedMessage) j(this.d, httpResponsedMessage);
-        }
-        return (HttpResponsedMessage) invokeL.objValue;
-    }
-
-    public SocketResponsedMessage l(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, socketResponsedMessage)) == null) {
-            return (SocketResponsedMessage) j(this.e, socketResponsedMessage);
-        }
-        return (SocketResponsedMessage) invokeL.objValue;
-    }
-
-    public void n(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
-            int size = this.g.size();
-            for (int i = 0; i < size; i++) {
-                this.g.get(i).b(bdUniqueId);
-            }
-        }
-    }
-
-    public void b(eb<?, ?> ebVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ebVar) != null) || ebVar == null) {
-            return;
-        }
-        yi.c();
-        if (ebVar instanceof cb) {
-            FrameHelper.insert(this.a, (cb) ebVar);
-        } else if (ebVar instanceof jb) {
-            FrameHelper.insert(this.b, (jb) ebVar);
-        } else if (ebVar instanceof ab) {
-            FrameHelper.insert(this.c, (ab) ebVar);
-        } else {
-            BdLog.e("rule invalid");
-        }
-    }
-
-    public void c(fb<?> fbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fbVar) != null) || fbVar == null) {
-            return;
-        }
-        yi.c();
-        if (fbVar instanceof bb) {
-            FrameHelper.insert(this.d, (bb) fbVar);
-        } else if (fbVar instanceof ib) {
-            FrameHelper.insert(this.e, (ib) fbVar);
-        } else if (fbVar instanceof za) {
-            FrameHelper.insert(this.f, (za) fbVar);
-        } else {
-            BdLog.e("rule invalid");
-        }
-    }
-
-    public void d(eb<?, ?> ebVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ebVar) != null) || ebVar == null) {
-            return;
-        }
-        yi.c();
-        if (ebVar instanceof cb) {
-            this.a.remove(ebVar);
-        } else if (ebVar instanceof jb) {
-            this.b.remove(ebVar);
-        } else if (ebVar instanceof ab) {
-            this.c.remove(ebVar);
-        } else {
-            BdLog.e("rule invalid");
-        }
-    }
-
-    public CustomMessage<?> e(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, customMessage, customMessageTask)) == null) {
-            return (CustomMessage) i(this.c, customMessage, customMessageTask);
-        }
-        return (CustomMessage) invokeLL.objValue;
-    }
-
-    public HttpMessage g(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask)) == null) {
-            return (HttpMessage) i(this.a, httpMessage, httpMessageTask);
-        }
-        return (HttpMessage) invokeLL.objValue;
-    }
-
-    public SocketMessage k(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, socketMessage, socketMessageTask)) == null) {
-            return (SocketMessage) i(this.b, socketMessage, socketMessageTask);
-        }
-        return (SocketMessage) invokeLL.objValue;
-    }
-
-    public void m(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, bdUniqueId) == null) {
-            int size = this.g.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.g.get(i2).a(i, bdUniqueId);
-            }
-        }
-    }
-
-    public final <M extends Message<?>, T extends MessageTask> M i(LinkedList<? extends eb<M, T>> linkedList, M m, T t) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linkedList, m, t)) == null) {
-            if (linkedList == null) {
-                return null;
-            }
-            int size = linkedList.size();
-            for (int i = 0; i < size && m != null; i++) {
-                try {
-                    m = linkedList.get(i).rule(m, t);
-                } catch (Exception e) {
-                    BdLog.e(e, true);
-                }
-            }
-            return m;
-        }
-        return (M) invokeLLL.objValue;
-    }
-
-    public final <M extends ResponsedMessage<?>> M j(LinkedList<? extends fb<M>> linkedList, M m) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, linkedList, m)) == null) {
-            if (linkedList == null) {
-                return null;
-            }
-            int size = linkedList.size();
-            for (int i = 0; i < size && m != null; i++) {
-                try {
-                    m = linkedList.get(i).b(m);
-                } catch (Exception e) {
-                    BdLog.e("rule error = " + e.getMessage());
-                }
-            }
-            return m;
-        }
-        return (M) invokeLL.objValue;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.h = 0L;
+        this.i = 0;
+        this.j = 0L;
+        this.k = 0L;
+        this.l = 0L;
     }
 }

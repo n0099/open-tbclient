@@ -1,19 +1,19 @@
 package com.baidu.tieba.share;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.pb.data.ContriInfo;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +141,7 @@ public class AddExperiencedModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
                 this.a.b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                zg.a().postDelayed(this.a.c, 2000L);
+                SafeHandler.getInst().postDelayed(this.a.c, 2000L);
             }
         }
     }
@@ -158,7 +158,7 @@ public class AddExperiencedModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -170,11 +170,11 @@ public class AddExperiencedModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public static boolean a0(String str) {
+    public static boolean S(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (wg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
+            if (JavaTypesHelper.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
                 return true;
             }
             return false;
@@ -182,7 +182,7 @@ public class AddExperiencedModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public void Z(String str, String str2) {
+    public void R(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
@@ -195,7 +195,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            zg.a().removeCallbacks(this.c);
+            SafeHandler.getInst().removeCallbacks(this.c);
         }
     }
 

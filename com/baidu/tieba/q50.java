@@ -1,131 +1,154 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.Signature;
+import android.os.IBinder;
+import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.p50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
-import java.util.Collections;
-import java.util.HashMap;
-import javax.crypto.BadPaddingException;
+import com.heytap.openid.IOpenID;
+import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public final class q50 {
+public class q50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042685, "Lcom/baidu/tieba/q50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ p50.a b;
+
+        public a(Context context, p50.a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948042685, "Lcom/baidu/tieba/q50;");
+            this.a = context;
+            this.b = aVar;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Signature[] signatureArr;
+            String str;
+            Parcel obtain;
+            Parcel obtain2;
+            MessageDigest messageDigest;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
                 return;
             }
+            iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
+            String packageName = this.a.getPackageName();
+            try {
+                signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
+            } catch (Exception e) {
+                this.b.a(false, null);
+                e.printStackTrace();
+                signatureArr = null;
+            }
+            try {
+                try {
+                    if (signatureArr != null && signatureArr.length > 0) {
+                        byte[] byteArray = signatureArr[0].toByteArray();
+                        try {
+                            messageDigest = MessageDigest.getInstance("SHA1");
+                        } catch (Exception e2) {
+                            this.b.a(false, null);
+                            e2.printStackTrace();
+                        }
+                        if (messageDigest != null) {
+                            byte[] digest = messageDigest.digest(byteArray);
+                            StringBuilder sb = new StringBuilder();
+                            for (byte b : digest) {
+                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                            }
+                            str = sb.toString();
+                            obtain = Parcel.obtain();
+                            obtain2 = Parcel.obtain();
+                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
+                            obtain.writeString(packageName);
+                            obtain.writeString(str);
+                            obtain.writeString("OUID");
+                            iBinder.transact(1, obtain, obtain2, 0);
+                            obtain2.readException();
+                            String readString = obtain2.readString();
+                            obtain.recycle();
+                            obtain2.recycle();
+                            this.b.a(true, readString);
+                            return;
+                        }
+                    }
+                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
+                    obtain.writeString(packageName);
+                    obtain.writeString(str);
+                    obtain.writeString("OUID");
+                    iBinder.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    String readString2 = obtain2.readString();
+                    obtain.recycle();
+                    obtain2.recycle();
+                    this.b.a(true, readString2);
+                    return;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    this.b.a(false, null);
+                    obtain.recycle();
+                    obtain2.recycle();
+                    return;
+                }
+            } catch (Throwable th) {
+                obtain.recycle();
+                obtain2.recycle();
+                throw th;
+            }
+            str = null;
+            obtain = Parcel.obtain();
+            obtain2 = Parcel.obtain();
         }
-        Collections.synchronizedMap(new HashMap());
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
     }
 
-    public q50(int i, int i2) {
+    public static void a(Context context, p50.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
                 return;
             }
-        }
-        this.a = i;
-        this.b = i2;
-        if (i2 < 64) {
-            throw new InvalidKeyException("Padded size must be at least 64");
-        }
-        if (i == 1 || i == 2) {
-            i2 -= 11;
-        } else if (i != 3) {
-            throw new InvalidKeyException("Invalid padding: " + i);
-        }
-        this.c = i2;
-    }
-
-    public static q50 b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? new q50(i, i2) : (q50) invokeII.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr.length != this.b) {
-                throw new BadPaddingException("Padded length must be " + this.b);
-            }
-            int i = this.a;
-            if (i == 1 || i == 2) {
-                return d(bArr);
-            }
-            if (i == 3) {
-                return bArr;
-            }
-            throw new AssertionError();
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        if (bArr[0] != 0) {
-            throw new BadPaddingException("Data must start with zero");
-        }
-        int i = 2;
-        if (bArr[1] != this.a) {
-            throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
-        }
-        while (true) {
-            int i2 = i + 1;
-            int i3 = bArr[i] & 255;
-            if (i3 == 0) {
-                int length = bArr.length - i2;
-                if (length <= this.c) {
-                    byte[] bArr2 = new byte[length];
-                    System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
-                    return bArr2;
-                }
-                throw new BadPaddingException("Padding string too short");
-            } else if (i2 == bArr.length) {
-                throw new BadPaddingException("Padding string not terminated");
-            } else {
-                if (this.a == 1 && i3 != 255) {
-                    throw new BadPaddingException("Padding byte not 0xff: " + i3);
-                }
-                i = i2;
+            try {
+                a aVar2 = new a(context, aVar);
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+                context.bindService(intent, aVar2, 1);
+            } catch (Throwable unused) {
+                aVar.a(false, null);
             }
         }
     }

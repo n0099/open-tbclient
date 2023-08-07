@@ -11,19 +11,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.sy;
+import com.baidu.tieba.rx;
 import com.baidu.tieba.widget.InterestForumTagView;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class InterestForumTagLayout extends LinearLayout implements sy {
+public class InterestForumTagLayout extends LinearLayout implements rx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
@@ -118,7 +118,7 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
         if (z) {
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_mustfill, SkinManager.getColor(R.color.CAM_X0301), null);
             if (pureDrawable != null) {
-                this.c.setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
+                this.c.setCompoundDrawablePadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
                 this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);
                 return;
             }
@@ -163,23 +163,21 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                d85 d = d85.d(textView);
-                d.x(R.color.CAM_X0109);
-                d.C(R.dimen.T_X06);
+                EMManager.from(textView).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X06);
             }
             LinearLayout linearLayout = this.d;
             if (linearLayout != null) {
                 int childCount = linearLayout.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = this.d.getChildAt(i2);
-                    if (childAt instanceof sy) {
-                        ((sy) childAt).onChangeSkinType(tbPageContext, i);
+                    if (childAt instanceof rx) {
+                        ((rx) childAt).onChangeSkinType(tbPageContext, i);
                     }
                 }
             }
@@ -232,7 +230,7 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
                 return;
             }
         }
-        this.a = ((((((yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225)) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225)) - yi.g(getContext(), R.dimen.tbds42)) - yi.g(getContext(), R.dimen.M_W_X008)) - (yi.g(getContext(), R.dimen.M_W_X004) * 2)) * 1.0f) / 2.0f;
+        this.a = ((((((BdUtilHelper.getEquipmentWidth(getContext()) - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225)) - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225)) - BdUtilHelper.getDimens(getContext(), R.dimen.tbds42)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X008)) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 2)) * 1.0f) / 2.0f;
         k();
     }
 
@@ -263,9 +261,7 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (eMTextView = this.e) != null) {
-            d85 d = d85.d(eMTextView);
-            d.x(R.color.CAM_X0110);
-            d.C(R.dimen.T_X06);
+            EMManager.from(eMTextView).setTextColor(R.color.CAM_X0110).setTextSize(R.dimen.T_X06);
         }
     }
 
@@ -273,7 +269,7 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ListUtils.isEmpty(this.h) && getContext() != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, yi.g(getContext(), R.dimen.M_W_X004), 0);
+            layoutParams.setMargins(0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), 0);
             int size = this.h.size();
             if (size > 2) {
                 size = 2;
@@ -289,9 +285,9 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && getContext() != null) {
             if (this.g) {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f0aa7);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f0aa8);
             } else {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f0aa5);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f0aa6);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             EMTextView eMTextView = new EMTextView(getContext());
@@ -322,31 +318,31 @@ public class InterestForumTagLayout extends LinearLayout implements sy {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setPadding(yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225), yi.g(getContext(), R.dimen.tbds36), yi.g(getContext(), R.dimen.obfuscated_res_0x7f070225), yi.g(getContext(), R.dimen.tbds36));
+            setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225), BdUtilHelper.getDimens(getContext(), R.dimen.tbds36), BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225), BdUtilHelper.getDimens(getContext(), R.dimen.tbds36));
             setOrientation(1);
             TextView textView = new TextView(getContext());
             this.c = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0aab));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0aac));
             addView(this.c, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(0, yi.g(getContext(), R.dimen.tbds18), 0, 0);
+            layoutParams.setMargins(0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds18), 0, 0);
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f091136);
-            int g = yi.g(getContext(), R.dimen.tbds42);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(g, g);
+            imageView.setId(R.id.obfuscated_res_0x7f091149);
+            int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds42);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens, dimens);
             layoutParams2.addRule(11, -1);
             layoutParams2.addRule(15, -1);
             relativeLayout.addView(this.f, layoutParams2);
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.d = linearLayout;
             linearLayout.setGravity(16);
-            this.d.setMinimumHeight(yi.g(getContext(), R.dimen.tbds68));
+            this.d.setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091136);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091149);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }

@@ -3,8 +3,8 @@ package com.baidu.tbadk.suspended;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,7 +104,7 @@ public class SuspendIdleView extends SusPendedView {
             setIsFinish(false);
             setRatio(0.0f);
             if (getTranAnim() != null) {
-                getTranAnim().setIntValues(yi.j(getContext()), 0);
+                getTranAnim().setIntValues(BdUtilHelper.getEquipmentHeight(getContext()), 0);
             }
             super.i();
         }

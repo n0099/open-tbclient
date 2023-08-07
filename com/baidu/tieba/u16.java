@@ -1,100 +1,165 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u16 implements og<p16> {
+public class u16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public View a;
+    public b b;
+    public VelocityTracker c;
+    public float d;
+    public float e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
+    public int j;
+    public int k;
+    public int l;
 
-    public p16 e(p16 p16Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, p16Var)) == null) ? p16Var : (p16) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void onViewClick();
+
+        void onViewDragToRight();
+
+        void v0(float f, float f2);
     }
 
-    public p16 i(p16 p16Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, p16Var)) == null) ? p16Var : (p16) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u16 a;
+
+        public a(u16 u16Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u16Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u16Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.i && this.a.h && this.a.b != null) {
+                this.a.b.onViewClick();
+            }
+        }
     }
 
-    public u16(int i) {
+    public u16(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = view2;
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
+        if (viewConfiguration != null) {
+            this.l = viewConfiguration.getScaledPagingTouchSlop();
+        }
+        this.k = ViewConfiguration.getMaximumFlingVelocity();
+        this.j = ViewConfiguration.getMinimumFlingVelocity();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.og
-    public /* bridge */ /* synthetic */ p16 a(p16 p16Var) {
-        p16 p16Var2 = p16Var;
-        e(p16Var2);
-        return p16Var2;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.og
-    public /* bridge */ /* synthetic */ p16 c(p16 p16Var) {
-        p16 p16Var2 = p16Var;
-        i(p16Var2);
-        return p16Var2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.og
-    /* renamed from: f */
-    public void b(p16 p16Var) {
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, p16Var) == null) && p16Var != null && p16Var.b() != null) {
-            p16Var.b().recycle();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
-    public void j(int i) {
+    public boolean d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.c == null) {
+                this.c = VelocityTracker.obtain();
+            }
+            this.c.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 3) {
+                        e();
+                    }
+                } else {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
+                        this.i = true;
+                    } else {
+                        this.i = false;
+                    }
+                    VelocityTracker velocityTracker = this.c;
+                    velocityTracker.computeCurrentVelocity(1000, this.k);
+                    if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
+                        this.i = false;
+                        this.h = false;
+                    }
+                    if (this.i) {
+                        b bVar2 = this.b;
+                        if (bVar2 != null) {
+                            bVar2.v0(motionEvent.getRawX(), motionEvent.getRawY());
+                        }
+                    } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
+                        bVar.onViewDragToRight();
+                    }
+                    if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
+                        this.a.postDelayed(new a(this), 300L);
+                    }
+                    this.g = currentTimeMillis;
+                    e();
+                }
+            } else {
+                this.d = motionEvent.getX();
+                this.e = motionEvent.getY();
+                this.f = System.currentTimeMillis();
+                this.h = true;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public final void e() {
+        VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.c) != null) {
+            velocityTracker.clear();
+            this.c.recycle();
+            this.c = null;
         }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.og
-    /* renamed from: h */
-    public p16 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new p16(this.a);
-        }
-        return (p16) invokeV.objValue;
     }
 }

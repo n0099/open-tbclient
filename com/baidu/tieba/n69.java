@@ -1,88 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipThemeItem;
-import tbclient.GetVipInfo.VipThemeList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public class n69 implements yn {
+public class n69 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public i69 a;
-    public List<o69> b;
-    public List<o69> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947954552, "Lcom/baidu/tieba/n69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947954552, "Lcom/baidu/tieba/n69;");
-                return;
-            }
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return c(d(str));
         }
-        d = BdUniqueId.gen();
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return c(str).trim();
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public n69(VipThemeList vipThemeList) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str.trim();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15ce));
+            boolean z = false;
+            int i = 0;
+            while (!z && i < 1000) {
+                Matcher matcher = compile.matcher(str);
+                if (matcher.find()) {
+                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15cf));
+                    i++;
+                } else {
+                    z = true;
+                }
             }
+            return str;
         }
-        if (vipThemeList == null) {
-            return;
-        }
-        String str = vipThemeList.card_id;
-        i69 i69Var = new i69();
-        this.a = i69Var;
-        i69Var.e(2);
-        this.a.d(vipThemeList.class_name);
-        this.a.f(vipThemeList.class_url_name);
-        this.a.g(vipThemeList.class_url);
-        if (vipThemeList.item != null) {
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.b.add(new o69(vipThemeItem));
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            Matcher matcher = Pattern.compile(TbFaceManager.d).matcher(str);
+            while (matcher.find()) {
+                if (!TbFaceManager.i().p(matcher.group())) {
+                    return false;
+                }
             }
+            return true;
         }
-        if (vipThemeList.item_card != null) {
-            this.c = new ArrayList();
-            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.c.add(new o69(vipThemeItem2));
+        return invokeL.booleanValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String c = c(str);
+            if (StringUtils.isNull(c)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15c9);
             }
+            if (!e(c)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15ca);
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 }

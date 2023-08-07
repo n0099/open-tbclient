@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,254 +9,205 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.RequestTimeInfo;
-import com.baidu.turbonet.net.impl.CronetUrlRequest;
-import java.nio.ByteBuffer;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public final class f1b implements CronetUrlRequest.i {
+public class f1b extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetUrlRequest.i a;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
+    public InputStream a;
+    public g1b b;
+    public long c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947712690, "Lcom/baidu/tieba/f1b;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712690, "Lcom/baidu/tieba/f1b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947712690, "Lcom/baidu/tieba/f1b;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        e = f1b.class.getName();
+    }
+
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return this.a.available();
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947712690, "Lcom/baidu/tieba/f1b;");
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                try {
+                    this.a.reset();
+                } catch (IOException e2) {
+                    this.b.b(e2, this.c);
+                    throw e2;
+                }
+            }
         }
     }
 
-    public f1b() {
+    public f1b(InputStream inputStream, g1b g1bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, g1bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = inputStream;
+        this.b = g1bVar;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d) {
+            this.d = true;
+            try {
+                try {
+                    if (this.a.read() == -1) {
+                        this.b.onComplete(this.c);
+                    } else {
+                        this.b.a(this.c);
+                    }
+                    this.a.close();
+                } catch (Exception unused) {
+                    this.a.close();
+                } catch (Throwable th) {
+                    try {
+                        this.a.close();
+                    } catch (Exception e2) {
+                        this.b.b(e2, this.c);
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                this.b.b(e3, this.c);
             }
         }
     }
 
-    public static CronetUrlRequest.i v() {
+    @Override // java.io.InputStream
+    public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetUrlRequest.i iVar = a;
-                if (iVar != null) {
-                    return iVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUrlRequest.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d) {
+                return -1;
             }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new f1b();
+            try {
+                int read = this.a.read();
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
         }
-        return (CronetUrlRequest.i) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void a(long j, CronetUrlRequest cronetUrlRequest, String str) {
+    @Override // java.io.InputStream
+    public int read(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setRequestTag(j, cronetUrlRequest, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            if (this.d) {
+                return -1;
+            }
+            try {
+                int read = this.a.read(bArr, 0, bArr.length);
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void b(long j, CronetUrlRequest cronetUrlRequest, int i) {
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setTCPConnectTimeout(j, cronetUrlRequest, i);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (this.d) {
+                return -1;
+            }
+            try {
+                int read = this.a.read(bArr, i, i2);
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
         }
+        return invokeLII.intValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String e(long j, CronetUrlRequest cronetUrlRequest, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Boolean.valueOf(z)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getConnectionAttempts(j, cronetUrlRequest, z);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            long skip = this.a.skip(j);
+            this.c += skip;
+            return skip;
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public boolean f(long j, CronetUrlRequest cronetUrlRequest, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setHttpMethod(j, cronetUrlRequest, str);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public long g(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_requestTimeGap(j, cronetUrlRequest, i);
-        }
-        return invokeCommon.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void h(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setResponseBodyReadTimeout(j, cronetUrlRequest, i);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void m(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setTimeout(j, cronetUrlRequest, i);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void n(long j, CronetUrlRequest cronetUrlRequest, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_destroy(j, cronetUrlRequest, z);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void p(long j, CronetUrlRequest cronetUrlRequest, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), cronetUrlRequest, Integer.valueOf(i)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setResponseHeaderRecvTimeout(j, cronetUrlRequest, i);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void u(long j, CronetUrlRequest cronetUrlRequest, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_setDestinationAddress(j, cronetUrlRequest, str);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void c(long j, CronetUrlRequest cronetUrlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, cronetUrlRequest) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_disableResponseAutoUngzip(j, cronetUrlRequest);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public RequestTimeInfo i(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, cronetUrlRequest)) == null) {
-            return (RequestTimeInfo) GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getRequestTimeInfo(j, cronetUrlRequest);
-        }
-        return (RequestTimeInfo) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String j(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getDNSResults(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void k(long j, CronetUrlRequest cronetUrlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048586, this, j, cronetUrlRequest) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_followDeferredRedirect(j, cronetUrlRequest);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public void o(long j, CronetUrlRequest cronetUrlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048590, this, j, cronetUrlRequest) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_start(j, cronetUrlRequest);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String r(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048593, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getDNSErrorCode(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String s(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048594, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getDNSNameServers(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public String t(long j, CronetUrlRequest cronetUrlRequest) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j, cronetUrlRequest)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_getRemoteEndpoint(j, cronetUrlRequest);
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public boolean d(long j, CronetUrlRequest cronetUrlRequest, ByteBuffer byteBuffer, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), cronetUrlRequest, byteBuffer, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_readData(j, cronetUrlRequest, byteBuffer, i, i2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public boolean l(long j, CronetUrlRequest cronetUrlRequest, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), cronetUrlRequest, str, str2})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_addRequestHeader(j, cronetUrlRequest, str, str2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequest.i
-    public long q(CronetUrlRequest cronetUrlRequest, long j, String str, int i, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{cronetUrlRequest, Long.valueOf(j), str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i2), Boolean.valueOf(z5), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequest_createRequestAdapter(cronetUrlRequest, j, str, i, z, z2, z3, z4, i2, z5, i3, i4);
-        }
-        return invokeCommon.longValue;
+        return invokeJ.longValue;
     }
 }

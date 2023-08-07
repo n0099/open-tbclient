@@ -4,8 +4,8 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.yi;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.uh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,7 +86,7 @@ public class TiebaIMConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return qi.d(PUBLIC_KEY_BASE64);
+            return uh.d(PUBLIC_KEY_BASE64);
         }
         return (byte[]) invokeV.objValue;
     }
@@ -95,7 +95,7 @@ public class TiebaIMConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return yi.d(context, 300.0f);
+            return BdUtilHelper.dip2px(context, 300.0f);
         }
         return invokeL.intValue;
     }

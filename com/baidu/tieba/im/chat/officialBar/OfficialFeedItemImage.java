@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -16,9 +17,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.le8;
-import com.baidu.tieba.xe8;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ec8;
+import com.baidu.tieba.qc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,17 +85,17 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setRadius(yi.g(this.a, R.dimen.tbds31));
+            this.b.setRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds31));
             this.b.setConrers(3);
             ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-            layoutParams.height = yi.g(this.a, R.dimen.tbds579);
+            layoutParams.height = BdUtilHelper.getDimens(this.a, R.dimen.tbds579);
             this.g.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-            layoutParams2.leftMargin = yi.g(this.a, R.dimen.tbds27);
+            layoutParams2.leftMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds27);
             this.h.setLayoutParams(layoutParams2);
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            layoutParams3.leftMargin = yi.g(this.a, R.dimen.tbds30);
-            layoutParams3.bottomMargin = yi.g(this.a, R.dimen.tbds27);
+            layoutParams3.leftMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds30);
+            layoutParams3.bottomMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds27);
             this.e.setLayoutParams(layoutParams3);
         }
     }
@@ -103,16 +103,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0744, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091736);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09173d);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09173c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091743);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074b, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09174a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091751);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091750);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091757);
             this.f = findViewById(R.id.black_mask);
             this.b.setConrers(15);
-            this.b.setRadius(yi.g(this.a, R.dimen.tbds21));
+            this.b.setRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds21));
             this.g = findViewById(R.id.image_container);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0917cd);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0917e1);
             c();
         }
     }
@@ -120,12 +120,12 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b11, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b12, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
             } else {
-                gradientLinear.blRadius(yi.g(getContext(), R.dimen.tbds21)).brRadius(yi.g(getContext(), R.dimen.tbds21)).into(this.f);
+                gradientLinear.blRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds21)).brRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds21)).into(this.f);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
@@ -146,13 +146,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(xe8.a aVar, int i, le8 le8Var) {
+    public void setData(qc8.a aVar, int i, ec8 ec8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, le8Var) == null) {
-            this.b.N(aVar.c, 10, false);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, ec8Var) == null) {
+            this.b.startLoad(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (le8Var != null) {
-                i = le8Var.i();
+            if (ec8Var != null) {
+                i = ec8Var.i();
             }
             d(i);
         }

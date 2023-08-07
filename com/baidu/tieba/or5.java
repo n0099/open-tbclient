@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class or5 implements qq5<PushRecevierEvent> {
+public class or5 extends nr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int e;
 
     public or5() {
         Interceptable interceptable = $ic;
@@ -25,21 +22,5 @@ public class or5 implements qq5<PushRecevierEvent> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qq5
-    /* renamed from: a */
-    public boolean onEvent(PushRecevierEvent pushRecevierEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pushRecevierEvent)) == null) {
-            if (pushRecevierEvent == null) {
-                return false;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921711, pushRecevierEvent.generalData));
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

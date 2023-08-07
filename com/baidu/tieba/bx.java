@@ -1,76 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bx {
+public class bx extends yw implements qx<ThreadData>, rx {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, ax> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CardForumHeadLayout a;
+    public int b;
+    public int c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301079, "Lcom/baidu/tieba/bx;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448301079, "Lcom/baidu/tieba/bx;");
+    public bx(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        this.a = new CardForumHeadLayout(tbPageContext.getPageActivity());
+        setInsertIndex(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.leftMargin = this.c;
+        layoutParams.topMargin = this.b;
+        layoutParams.bottomMargin = this.d;
+        setLayoutParams(layoutParams);
+        setDecorView(this.a);
     }
 
-    public static synchronized ax a(String str) {
-        InterceptResult invokeL;
-        ax b;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qx
+    /* renamed from: a */
+    public void onBindDataToView(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (bx.class) {
-                b = b(str, 0);
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            if (threadData != null && threadData.getAuthor() != null) {
+                this.a.setVisibility(0);
+                this.a.setData(threadData);
+                this.a.setTag(threadData);
+                return;
             }
-            return b;
-        }
-        return (ax) invokeL.objValue;
-    }
-
-    public static synchronized void c(ax axVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, axVar) == null) {
-            synchronized (bx.class) {
-                if (axVar != null) {
-                    axVar.a();
-                    a.values().remove(axVar);
-                }
-            }
+            this.a.setVisibility(8);
         }
     }
 
-    public static synchronized ax b(String str, int i) {
-        InterceptResult invokeLI;
-        ax axVar;
+    @Override // com.baidu.tieba.rx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            synchronized (bx.class) {
-                if (a.containsKey(str) && (axVar = a.get(str)) != null) {
-                    return axVar;
-                }
-                ax axVar2 = new ax(str, i);
-                try {
-                    axVar2.start();
-                } catch (Exception unused) {
-                }
-                a.put(str, axVar2);
-                return axVar2;
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.a.g();
         }
-        return (ax) invokeLI.objValue;
     }
 }

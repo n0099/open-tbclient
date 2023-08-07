@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,26 +11,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fd5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 2;
+    public static /* synthetic */ Interceptable $ic;
+    public static final Map<ShareDialogConfig.From, Integer> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public List<Integer> d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947760306, "Lcom/baidu/tieba/fd5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760306, "Lcom/baidu/tieba/fd5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947760306, "Lcom/baidu/tieba/fd5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947760306, "Lcom/baidu/tieba/fd5;");
-        }
+        HashMap hashMap = new HashMap();
+        e = hashMap;
+        hashMap.put(ShareDialogConfig.From.Recommend, 1);
+        e.put(ShareDialogConfig.From.Concern, 2);
+        e.put(ShareDialogConfig.From.PB, 3);
+        e.put(ShareDialogConfig.From.FRS, 4);
+        e.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        e.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        e.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        e.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        e.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public fd5() {
@@ -44,184 +66,65 @@ public class fd5 {
         }
     }
 
-    public static int b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return da5.p().q("fun_ad_big_image_density", 6);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int c() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return da5.p().q("fun_ad_big_image_floor", 5);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return da5.p().q("fun_ad_big_image_size", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a < 0) {
-                a = 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (System.currentTimeMillis() / 1000 >= this.a && System.currentTimeMillis() / 1000 <= this.b) {
+                return true;
             }
-            return a;
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static int f() {
-        InterceptResult invokeV;
+    public boolean c(ShareDialogConfig.From from) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int q = da5.p().q("pref_key_fun_ad_density", 6);
-            if (q <= 0) {
-                return 6;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, from)) == null) {
+            if (this.d == null || (num = e.get(from)) == null || !this.d.contains(num)) {
+                return false;
             }
-            return q;
+            return true;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static int g() {
-        InterceptResult invokeV;
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return da5.p().q("pref_key_fun_ad_frs_density", 5);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return da5.p().q("pref_key_fun_ad_frs_first_floor", 2);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return da5.p().q("key_pb_comment_bear_density", 6);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            int q = da5.p().q("key_pb_comment_bear_first", 4);
-            if (q <= 0) {
-                return 4;
-            }
-            return q;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return da5.p().q("key_pb_comment_bear_maxsize", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return da5.p().q("key_video_middle_density", 4);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            int q = da5.p().q("key_video_middle_first", 2);
-            if (q <= 0) {
-                return 2;
-            }
-            return q;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int q = da5.p().q("pref_key_fun_ad_first_floor_min", 2);
-            int q2 = da5.p().q("pref_key_fun_ad_first_floor_max", 3);
-            if (q < q2) {
-                a = ka8.a(q, q2);
-            } else {
-                a = ka8.a(q2, q);
-            }
-            if (a < 0) {
-                a = 2;
-            }
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
-            int optInt2 = jSONObject.optInt("frs_bear_density", 5);
-            da5.p().F("pref_key_fun_ad_frs_first_floor", optInt);
-            da5.p().F("pref_key_fun_ad_frs_density", optInt2);
-            int optInt3 = jSONObject.optInt("index_bear_density", 6);
-            int optInt4 = jSONObject.optInt("index_bear_first_floor_max", 3);
-            int optInt5 = jSONObject.optInt("index_bear_first_floor_min", 2);
-            da5.p().F("pref_key_fun_ad_density", optInt3);
-            da5.p().F("pref_key_fun_ad_first_floor_max", optInt4);
-            da5.p().F("pref_key_fun_ad_first_floor_min", optInt5);
-            int optInt6 = jSONObject.optInt("video_bear_density", 4);
-            int optInt7 = jSONObject.optInt("video_bear_first_floor", 2);
-            da5.p().F("key_video_middle_density", optInt6);
-            da5.p().F("key_video_middle_first", optInt7);
-            int optInt8 = jSONObject.optInt("pb_comment_bear_density", 6);
-            int optInt9 = jSONObject.optInt("pb_comment_bear_first_floor", 4);
-            int optInt10 = jSONObject.optInt("pb_comment_bear_max_size", 1);
-            da5.p().F("key_pb_comment_bear_density", optInt8);
-            da5.p().F("key_pb_comment_bear_first", optInt9);
-            da5.p().F("key_pb_comment_bear_maxsize", optInt10);
-            int optInt11 = jSONObject.optInt("picpage_bear_first_floor", 5);
-            int optInt12 = jSONObject.optInt("picpage_bear_density", 6);
-            int optInt13 = jSONObject.optInt("picpage_bear_max_size", 1);
-            int optInt14 = jSONObject.optInt("picpage_bear_last_frame_switch", 0);
-            da5.p().F("fun_ad_big_image_floor", optInt11);
-            da5.p().F("fun_ad_big_image_density", optInt12);
-            da5.p().F("fun_ad_big_image_size", optInt13);
-            da5.p().F("fun_ad_big_image_switch", optInt14);
-        } catch (Exception e) {
-            e.printStackTrace();
+        this.a = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+        this.b = jSONObject.optInt("end_time");
+        this.c = jSONObject.optString("text");
+        e(jSONObject.optString("page_list"));
+    }
+
+    public final void e(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || bi.isEmpty(str) || (split = str.split(",")) == null) {
+            return;
+        }
+        for (String str2 : split) {
+            int i = JavaTypesHelper.toInt(str2, -1);
+            if (i != -1) {
+                if (this.d == null) {
+                    this.d = new ArrayList();
+                }
+                this.d.add(Integer.valueOf(i));
+            }
         }
     }
 }

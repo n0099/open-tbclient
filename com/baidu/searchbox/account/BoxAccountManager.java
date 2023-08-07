@@ -25,7 +25,6 @@ import com.baidu.searchbox.account.result.BoxOauthResult;
 import com.baidu.searchbox.account.result.BoxOneKeyLoginResult;
 import com.baidu.searchbox.account.result.BoxShareLoginResult;
 import com.baidu.searchbox.account.view.IAccountSmsLoginView;
-import com.baidu.searchbox.live.interfaces.DI;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
@@ -65,7 +64,7 @@ public interface BoxAccountManager {
     public static final int TYPE_ACCOUNT_USER_NAME = 11;
     public static final HashMap<Integer, String> oneKeyErrors = new HashMap<>();
     public static final HashMap<Integer, String> webAuthErrors = new HashMap<>();
-    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(DI.ACCOUNT, "login");
+    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference("account", "login");
 
     void addLoginStatusChangedListener(IAccountStatusChangedListener iAccountStatusChangedListener);
 

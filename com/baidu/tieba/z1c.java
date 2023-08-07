@@ -1,24 +1,97 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.x0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes8.dex */
-public abstract class z1c<T> implements b2c {
+public final class z1c<T, R> implements x0c.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l4c a;
+    public final x0c<T> a;
+    public final p1c<? super T, ? extends R> b;
 
-    public abstract void b(Throwable th);
+    /* loaded from: classes8.dex */
+    public static final class a<T, R> extends d1c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final d1c<? super R> e;
+        public final p1c<? super T, ? extends R> f;
+        public boolean g;
 
-    public abstract void c(T t);
+        public a(d1c<? super R> d1cVar, p1c<? super T, ? extends R> p1cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d1cVar, p1cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = d1cVar;
+            this.f = p1cVar;
+        }
 
-    public z1c() {
+        @Override // com.baidu.tieba.d1c
+        public void f(z0c z0cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, z0cVar) == null) {
+                this.e.f(z0cVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.y0c
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.g) {
+                    k5c.j(th);
+                    return;
+                }
+                this.g = true;
+                this.e.onError(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.y0c
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                try {
+                    this.e.onNext(this.f.call(t));
+                } catch (Throwable th) {
+                    j1c.e(th);
+                    unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.y0c
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+                return;
+            }
+            this.e.onCompleted();
+        }
+    }
+
+    public z1c(x0c<T> x0cVar, p1c<? super T, ? extends R> p1cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x0cVar, p1cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,31 +101,21 @@ public abstract class z1c<T> implements b2c {
                 return;
             }
         }
-        this.a = new l4c();
+        this.a = x0cVar;
+        this.b = p1cVar;
     }
 
-    @Override // com.baidu.tieba.b2c
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
+    public void call(d1c<? super R> d1cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.b2c
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(1048576, this, d1cVar) == null) {
+            a aVar = new a(d1cVar, this.b);
+            d1cVar.b(aVar);
+            this.a.O(aVar);
         }
     }
 
-    public final void a(b2c b2cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b2cVar) == null) {
-            this.a.a(b2cVar);
-        }
+    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((d1c) ((d1c) obj));
     }
 }

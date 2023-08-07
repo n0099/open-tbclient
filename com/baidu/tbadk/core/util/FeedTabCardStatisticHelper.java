@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.s35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -196,15 +196,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(s35 s35Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(NegativeFeedBackData negativeFeedBackData, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, s35Var, str)) == null) {
-            if (s35Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, negativeFeedBackData, str)) == null) {
+            if (negativeFeedBackData == null) {
                 return null;
             }
-            int i = s35Var.o;
+            int i = negativeFeedBackData.cardType;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -213,8 +213,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", s35Var.f());
-            statisticItem.param("fid", s35Var.c());
+            statisticItem.param("tid", negativeFeedBackData.getTid());
+            statisticItem.param("fid", negativeFeedBackData.getFid());
             statisticItem.param("resource_id", str);
             return statisticItem;
         }

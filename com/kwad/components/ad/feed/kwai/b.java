@@ -1,5 +1,5 @@
 package com.kwad.components.ad.feed.kwai;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static boolean bc() {
         return a.da.getValue().booleanValue();

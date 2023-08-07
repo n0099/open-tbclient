@@ -2,7 +2,7 @@ package com.baidu.tieba.stamp.model.msg;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.w9a;
+import com.baidu.tieba.q8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetStampResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<w9a> mFetchStampDataList;
+    public List<q8a> mFetchStampDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStampResponseMessage(int i) {
@@ -48,16 +48,16 @@ public class GetStampResponseMessage extends JsonHttpResponsedMessage {
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (jSONArray = jSONObject.getJSONArray("icon")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    w9a w9aVar = new w9a();
-                    w9aVar.d(jSONArray.getJSONObject(i2).optString("title"));
-                    w9aVar.c(jSONArray.getJSONObject(i2).optString("pic160"));
-                    this.mFetchStampDataList.add(w9aVar);
+                    q8a q8aVar = new q8a();
+                    q8aVar.d(jSONArray.getJSONObject(i2).optString("title"));
+                    q8aVar.c(jSONArray.getJSONObject(i2).optString("pic160"));
+                    this.mFetchStampDataList.add(q8aVar);
                 }
             }
         }
     }
 
-    public List<w9a> getStampList() {
+    public List<q8a> getStampList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

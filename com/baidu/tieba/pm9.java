@@ -1,20 +1,90 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes7.dex */
 public class pm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<tm9> a;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i, String str, ImageUploadResult imageUploadResult);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public c b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                return new ImageUploader("user_pics").uploadInBackground(FileHelper.getFileDireciory(this.a), false);
+            }
+            return (ImageUploadResult) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                if (this.b != null) {
+                    int i = 0;
+                    if (imageUploadResult != null) {
+                        i = imageUploadResult.error_code;
+                        str = imageUploadResult.error_msg;
+                    } else {
+                        str = "";
+                    }
+                    this.b.a(i, str, imageUploadResult);
+                }
+            }
+        }
+    }
 
     public pm9() {
         Interceptable interceptable = $ic;
@@ -26,70 +96,18 @@ public class pm9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public ArrayList<tm9> a() {
-        InterceptResult invokeV;
+    public void a(String str, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, cVar) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final boolean b(ExcContent excContent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            if (longValue == 2 || longValue == 0 || longValue == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        wm9 wm9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
-            loop0: while (true) {
-                wm9Var = null;
-                for (ExcContent excContent : list) {
-                    if (excContent != null && excContent.type != null) {
-                        if (b(excContent)) {
-                            sm9 a = vm9.a(tbPageContext, excContent);
-                            if (a == null) {
-                                continue;
-                            } else if (a.a()) {
-                                if (wm9Var != null) {
-                                    this.a.add(wm9Var);
-                                }
-                                this.a.add(a);
-                            } else {
-                                if (wm9Var == null) {
-                                    wm9Var = new wm9();
-                                }
-                                wm9Var.c(a.b());
-                            }
-                        } else {
-                            if (wm9Var != null) {
-                                this.a.add(wm9Var);
-                            }
-                            this.a.add(vm9.b(excContent));
-                        }
-                    }
-                }
-                break loop0;
-            }
-            if (wm9Var != null) {
-                this.a.add(wm9Var);
-            }
-        }
+        b bVar = new b(null);
+        bVar.a = str;
+        bVar.b = cVar;
+        bVar.execute("");
     }
 }

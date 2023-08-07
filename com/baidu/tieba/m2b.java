@@ -1,48 +1,26 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.l2b;
+import com.baidu.tieba.w2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class m2b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947922188, "Lcom/baidu/tieba/m2b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947922188, "Lcom/baidu/tieba/m2b;");
-                return;
-            }
-        }
-        b = m3b.m();
-    }
+    public final n2b a;
 
     public m2b(Context context) {
         Interceptable interceptable = $ic;
@@ -50,488 +28,275 @@ public class m2b {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = n2b.Q(context);
     }
 
-    public void h(Exception exc) {
+    public void A(List<b2b> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            if (b) {
-                exc.printStackTrace();
-            }
-            o3b.a().h(Log.getStackTraceString(exc));
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a.Z(list);
         }
     }
 
-    public final boolean a(w3b w3bVar) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Throwable th;
+    public void B(d2b d2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w3bVar)) == null) {
-            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
-            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    BufferedReader bufferedReader = null;
-                    try {
-                        try {
-                            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                            long j = Long.MAX_VALUE;
-                            int i = 0;
-                            long j2 = 0;
-                            while (true) {
-                                try {
-                                    String readLine = bufferedReader2.readLine();
-                                    if (readLine == null) {
-                                        break;
-                                    }
-                                    JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                    if (jSONObject.has("abtest")) {
-                                        w3bVar.K("1");
-                                    }
-                                    long j3 = jSONObject.getLong("timestamp");
-                                    if (j3 > 0) {
-                                        if (j3 < j) {
-                                            j = j3;
-                                        }
-                                        if (j3 > j2) {
-                                            j2 = j3;
-                                        }
-                                    }
-                                    if (b) {
-                                        Log.d("UBCFileData", jSONObject.toString());
-                                    }
-                                    w3bVar.b(jSONObject);
-                                    i++;
-                                    if (i >= 10) {
-                                        break;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    bufferedReader = bufferedReader2;
-                                    e.printStackTrace();
-                                    if (bufferedReader != null) {
-                                        bufferedReader.close();
-                                    }
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    bufferedReader = bufferedReader2;
-                                    if (bufferedReader != null) {
-                                        try {
-                                            bufferedReader.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            }
-                            w3bVar.J(j, j2);
-                            if (b) {
-                                Log.d("UBCFileData", "line num " + i + " delete file ");
-                            }
-                            try {
-                                bufferedReader2.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                }
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2bVar) == null) {
+            this.a.a0(d2bVar);
+        }
+    }
+
+    public boolean D(List<x1b> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            return this.a.c0(list);
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x009a, code lost:
-        if (r5.exists() != false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x009c, code lost:
-        r5.delete();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00c8, code lost:
-        if (r5.exists() != false) goto L39;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean e(w3b w3bVar) {
+    public void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.e0(str);
+        }
+    }
+
+    public void a(z2b z2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, z2bVar) == null) {
+            this.a.a(z2bVar);
+        }
+    }
+
+    public void b(z2b z2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z2bVar) == null) {
+            this.a.b(z2bVar);
+        }
+    }
+
+    public boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, w3bVar)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, "filequality");
-            boolean z = false;
-            if (!file2.exists()) {
-                return false;
-            }
-            BufferedReader bufferedReader = null;
-            try {
-                try {
-                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                    long j = Long.MAX_VALUE;
-                    long j2 = 0;
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                            if (jSONObject.has("abtest")) {
-                                w3bVar.K("1");
-                            }
-                            long j3 = jSONObject.getLong("timestamp");
-                            if (j3 > 0) {
-                                if (j3 < j) {
-                                    j = j3;
-                                }
-                                if (j3 > j2) {
-                                    j2 = j3;
-                                }
-                            }
-                            w3bVar.b(jSONObject);
-                            z = true;
-                        } catch (Exception e) {
-                            e = e;
-                            bufferedReader = bufferedReader2;
-                            if (b) {
-                                Log.d("UBCFileData", "getExceptionList read fail:", e);
-                            }
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (Exception e2) {
-                                    if (b) {
-                                        Log.d("UBCFileData", "getExceptionList close fail:", e2);
-                                    }
-                                }
-                            }
-                            if (z) {
-                            }
-                            return z;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            Throwable th2 = th;
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (Exception e3) {
-                                    if (b) {
-                                        Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                    }
-                                }
-                            }
-                            if (z && file2.exists()) {
-                                file2.delete();
-                            }
-                            throw th2;
-                        }
-                    }
-                    w3bVar.J(j, j2);
-                    try {
-                        bufferedReader2.close();
-                    } catch (Exception e4) {
-                        if (b) {
-                            Log.d("UBCFileData", "getExceptionList close fail:", e4);
-                        }
-                    }
-                    if (z) {
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-            } catch (Exception e5) {
-                e = e5;
-            }
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return this.a.x(str);
         }
         return invokeL.booleanValue;
     }
 
-    public final File b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        String str2;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                File file2 = new File(file, "proc");
-                if (!file2.exists()) {
-                    file2.mkdirs();
-                }
-                return new File(file2, str);
-            }
-            if (z) {
-                str2 = "filereal";
-            } else {
-                str2 = "filedata";
-            }
-            return new File(file, str2);
-        }
-        return (File) invokeLZ.objValue;
-    }
-
-    public void c(boolean z) {
-        String str;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                return;
-            }
-            if (z) {
-                str = "filereal";
-            } else {
-                str = "filedata";
-            }
-            File file2 = new File(file, str);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            File file3 = new File(file, "proc");
-            if (file3.exists() && file3.isDirectory() && (listFiles = file3.listFiles()) != null && listFiles.length != 0) {
-                for (File file4 : listFiles) {
-                    if (file4.isFile()) {
-                        file4.delete();
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.a.z(str);
         }
     }
 
-    public void d(y2b y2bVar, File file) {
-        FileOutputStream fileOutputStream;
+    public HashMap<String, String> o(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, y2bVar, file) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("id", y2bVar.l());
-                jSONObject.put("timestamp", y2bVar.p());
-                jSONObject.put("type", "0");
-                if (!TextUtils.isEmpty(y2bVar.f())) {
-                    jSONObject.put("content", y2bVar.f());
-                } else if (y2bVar.m() != null) {
-                    jSONObject.put("content", y2bVar.m().toString());
-                }
-                if (!TextUtils.isEmpty(y2bVar.h())) {
-                    jSONObject.put("abtest", y2bVar.h());
-                }
-                if (!TextUtils.isEmpty(y2bVar.e())) {
-                    jSONObject.put("c", y2bVar.e());
-                }
-                if (y2bVar.q()) {
-                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
-                }
-                jSONObject.put(Constant.ID_TYPE, r2b.o().z(y2bVar.l()));
-                JSONObject d = y2bVar.d();
-                if (d != null) {
-                    jSONObject.put("bizInfo", d);
-                }
-            } catch (JSONException e) {
-                if (b) {
-                    Log.d("UBCFileData", e.getMessage());
-                }
-            }
-            if (b) {
-                Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
-            }
-            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file, true);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
-                fileOutputStream.write(encode);
-                fileOutputStream.write("\n".getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    i3b.f().a(y2bVar.l(), false);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        i3b.f().a(y2bVar.l(), false);
-                    }
-                }
-                i3b.f().a(y2bVar.l(), false);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                i3b.f().a(y2bVar.l(), false);
-                throw th;
-            }
-            i3b.f().a(y2bVar.l(), false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
+            return this.a.H(arrayList);
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public x1b p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            return this.a.I(str);
+        }
+        return (x1b) invokeL.objValue;
+    }
+
+    public int u(z2b z2bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, z2bVar)) == null) {
+            return this.a.S(z2bVar);
+        }
+        return invokeL.intValue;
+    }
+
+    public Map<String, l2b.a> v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            return this.a.T(i);
+        }
+        return (Map) invokeI.objValue;
+    }
+
+    public c2b w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            return this.a.U(str);
+        }
+        return (c2b) invokeL.objValue;
+    }
+
+    public void x(SparseArray<ArrayList> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, sparseArray) == null) {
+            this.a.V(sparseArray);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0078, code lost:
-        if (com.baidu.tieba.m2b.b == false) goto L67;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007a, code lost:
-        android.util.Log.d("UBCFileData", "getExceptionList close fail:", r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0099, code lost:
-        if (com.baidu.tieba.m2b.b == false) goto L67;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean f(w3b w3bVar, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
+    public void y(t1b t1bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, w3bVar, z)) == null) {
-            if (!z) {
-                z2 = a(w3bVar);
-            } else {
-                z2 = false;
-            }
-            File b2 = b("", z);
-            if (b2.exists()) {
-                BufferedReader bufferedReader = null;
-                try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(b2));
-                        long j = Long.MAX_VALUE;
-                        long j2 = 0;
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                if (jSONObject.has("abtest")) {
-                                    w3bVar.K("1");
-                                }
-                                long j3 = jSONObject.getLong("timestamp");
-                                if (j3 > 0) {
-                                    if (j3 < j) {
-                                        j = j3;
-                                    }
-                                    if (j3 > j2) {
-                                        j2 = j3;
-                                    }
-                                }
-                                w3bVar.b(jSONObject);
-                                z2 = true;
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                if (b) {
-                                    Log.d("UBCFileData", "getExceptionList read fail:", e);
-                                }
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                    }
-                                }
-                                return z2;
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e3) {
-                                        if (b) {
-                                            Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                        }
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                        w3bVar.J(j, j2);
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                }
-            }
-            return z2;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void g(y2b y2bVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, y2bVar, z) == null) {
-            d(y2bVar, b(y2bVar.i(), z));
+        if (interceptable == null || interceptable.invokeL(1048607, this, t1bVar) == null) {
+            this.a.W(t1bVar);
         }
     }
 
-    public void i(y2b y2bVar) {
+    public void z(b2b b2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, y2bVar) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, "filequality");
-            if (file2.length() > r2b.o().p()) {
-                if (!file2.delete()) {
-                    return;
-                }
-                file2 = new File(file, "filequality");
-            }
-            d(y2bVar, file2);
+        if (interceptable == null || interceptable.invokeL(1048608, this, b2bVar) == null) {
+            this.a.Y(b2bVar);
+        }
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.b0();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.m();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.n();
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.a.s();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.a.w();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.y();
+        }
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.a.J();
+        }
+        return invokeV.intValue;
+    }
+
+    public w2b.d s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.a.R();
+        }
+        return (w2b.d) invokeV.objValue;
+    }
+
+    public void E(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+            this.a.d0(str, i, str2);
+        }
+    }
+
+    public int r(ArrayList<String> arrayList, boolean z, z2b z2bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{arrayList, Boolean.valueOf(z), z2bVar})) == null) {
+            z2bVar.M(10485760);
+            return this.a.K(arrayList, z, z2bVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public int t(ArrayList<String> arrayList, boolean z, z2b z2bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{arrayList, Boolean.valueOf(z), z2bVar})) == null) {
+            return this.a.K(arrayList, z, z2bVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void G(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            this.a.f0(str, str2);
+        }
+    }
+
+    public void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
+            this.a.h(str, z);
+        }
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
+            this.a.k(str, i);
+        }
+    }
+
+    public boolean g(z2b z2bVar, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, z2bVar, str)) == null) {
+            return this.a.o(z2bVar, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int n(z2b z2bVar, z2b z2bVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, z2bVar, z2bVar2)) == null) {
+            return this.a.E(z2bVar, z2bVar2);
+        }
+        return invokeLL.intValue;
+    }
+
+    public void m(String str, int i, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            this.a.B(str, i, j, jSONArray);
         }
     }
 }

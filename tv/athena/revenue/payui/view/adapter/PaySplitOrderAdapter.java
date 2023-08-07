@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.cac;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
@@ -140,6 +140,6 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, zac.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
+        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, cac.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
     }
 }

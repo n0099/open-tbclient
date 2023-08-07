@@ -1,124 +1,81 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class zd4 {
+public class zd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<wd4> a;
-    public static ArrayList<Integer> b;
-    public static final zd4 c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356095, "Lcom/baidu/tieba/zd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements rp3<kg3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(zd4 zd4Var, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zd4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948356095, "Lcom/baidu/tieba/zd4;");
-                return;
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp3
+        /* renamed from: b */
+        public void a(kg3 kg3Var) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                if (kg3Var != null && (jSONObject = kg3Var.g) != null) {
+                    y72.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(kg3Var.g);
+                    return;
+                }
+                this.a.a(null);
             }
         }
-        c = new zd4();
-        a = new ArrayList<>();
-        b = new ArrayList<>();
     }
 
     public zd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void f() {
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Iterator<wd4> it = a.iterator();
-            while (it.hasNext()) {
-                it.next().close();
-            }
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || b.contains(Integer.valueOf(i))) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null || lw2.T().getActivity() == null) {
             return;
         }
-        b.add(Integer.valueOf(i));
-    }
-
-    public final wd4 b(JSRuntime jsRuntime) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
-            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
-            wd4 wd4Var = new wd4(jsRuntime);
-            a.add(wd4Var);
-            return wd4Var;
-        }
-        return (wd4) invokeL.objValue;
-    }
-
-    public final boolean c(wd4 socket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            if (a.contains(socket)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return b.contains(Integer.valueOf(i));
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void e(wd4 socket) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            if (a.contains(socket)) {
-                g(socket.A());
-                a.remove(socket);
-            }
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            b.remove(Integer.valueOf(i));
-        }
+        kg3.B(lw2.T().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.impersonal.sprite;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.h29;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class ImSpriteSysLog {
     public static /* synthetic */ Interceptable $ic;
     public static final ImSpriteSysLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h29 instance;
+    public final TbLog instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class ImSpriteSysLog {
         $VALUES = new ImSpriteSysLog[]{imSpriteSysLog};
     }
 
-    public static h29 getInstance() {
+    public static TbLog getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (h29) invokeV.objValue;
+        return (TbLog) invokeV.objValue;
     }
 
     public static ImSpriteSysLog[] values() {
@@ -72,7 +72,7 @@ public final class ImSpriteSysLog {
                 return;
             }
         }
-        this.instance = new h29("default");
+        this.instance = new TbLog("default");
     }
 
     public static ImSpriteSysLog valueOf(String str) {

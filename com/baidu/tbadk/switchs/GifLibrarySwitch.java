@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.da5;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,7 +33,7 @@ public class GifLibrarySwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class GifLibrarySwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = da5.p().q("key_live_gif_load_library_key", 1);
+                type = SharedPrefHelper.getInstance().getInt("key_live_gif_load_library_key", 1);
             }
             if (type == 1) {
                 return true;

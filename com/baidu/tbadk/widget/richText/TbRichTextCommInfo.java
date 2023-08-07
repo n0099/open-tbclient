@@ -221,7 +221,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     @Nullable
-    public Map<String, Object> V() {
+    public Map<String, Object> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -231,7 +231,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     @Nullable
-    public String W() {
+    public String O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -240,7 +240,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int X() {
+    public int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -249,7 +249,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String Y() {
+    public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -258,7 +258,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String Z() {
+    public String R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -267,7 +267,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String a0() {
+    public String S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -276,7 +276,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String b0() {
+    public String T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -285,7 +285,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int c0() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -294,7 +294,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int d0() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -303,7 +303,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void e0() {
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String str = this.a;

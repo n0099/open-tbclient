@@ -1,94 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.net.URLEncoder;
 /* loaded from: classes8.dex */
-public class w16 extends b26 {
+public class w16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConstrainImageLayout.c e;
 
-    /* loaded from: classes8.dex */
-    public class a implements ConstrainImageLayout.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(w16 w16Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w16Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
-        public void a(TbImageView tbImageView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
-                tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.s();
-                tbImageView.setDrawCorner(true);
-                tbImageView.setConrers(0);
-                if (i2 == 1) {
-                    tbImageView.setConrers(15);
-                } else if (i2 > 1) {
-                    if (i == 0) {
-                        tbImageView.setConrers(5);
-                    } else if (i == i2 - 1) {
-                        tbImageView.setConrers(10);
+    public static void a(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, str, str2, str3) == null) && tbPageContext != null && !TextUtils.isEmpty(str)) {
+            if (!TbadkCoreApplication.isLogin()) {
+                ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
+            } else if (str.equals(TbadkCoreApplication.getCurrentPortrait())) {
+                BdToast.makeText(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getString(R.string.can_not_raise_self)).show();
+            } else {
+                try {
+                    String str4 = "https://tieba.baidu.com/mo/q/hybrid-main-activity/worldcupPortrait?support_cache=1&thrown_flag_portrait=" + URLEncoder.encode(str, "utf-8");
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                        str4 = str4 + "&figure_url=" + URLEncoder.encode(str2, "utf-8") + "&background_value=" + URLEncoder.encode(str3, "utf-8");
                     }
+                    TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(tbPageContext.getPageActivity(), "", str4, false, true, true);
+                    activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+                    activityConfig.setTranslucentAutoClose(true);
+                    activityConfig.setWebDialogName("WorldCupRaiseFlag");
+                    activityConfig.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w16(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-    }
-
-    @Override // com.baidu.tieba.b26, com.baidu.tieba.y16
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (list.size() < this.b) {
-                list.size();
-            }
-            constrainImageLayout.setTbImageViewConfiguration(this.e);
-            return super.a(constrainImageLayout, list, i, i2);
-        }
-        return invokeLLII.intValue;
     }
 }

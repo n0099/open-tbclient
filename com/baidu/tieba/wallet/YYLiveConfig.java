@@ -1,8 +1,8 @@
 package com.baidu.tieba.wallet;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.xi;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.bi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,18 +71,18 @@ public class YYLiveConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             if (jSONObject != null) {
                 parse(jSONObject);
-                da5.p().J("key_extra_yy_config", jSONObject.toString());
+                SharedPrefHelper.getInstance().putString("key_extra_yy_config", jSONObject.toString());
                 return;
             }
-            String w = da5.p().w("key_extra_yy_config", "");
-            if (!xi.isEmpty(w)) {
+            String string = SharedPrefHelper.getInstance().getString("key_extra_yy_config", "");
+            if (!bi.isEmpty(string)) {
                 try {
-                    parse(new JSONObject(w));
+                    parse(new JSONObject(string));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            da5.p().J("key_extra_yy_config", "");
+            SharedPrefHelper.getInstance().putString("key_extra_yy_config", "");
         }
     }
 
@@ -97,7 +97,7 @@ public class YYLiveConfig {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            da5.p().J("key_extra_yy_config", jSONObject.toString());
+            SharedPrefHelper.getInstance().putString("key_extra_yy_config", jSONObject.toString());
         }
     }
 }

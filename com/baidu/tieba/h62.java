@@ -1,52 +1,47 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h62 extends b52 {
+public class h62 extends m62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j52 a;
+    public String t;
 
-    public h62() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h62(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.b52
-    public void a(c52 c52Var, Canvas canvas) {
-        j52 j52Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, c52Var, canvas) == null) && (j52Var = this.a) != null && j52Var.d()) {
-            if (this.a.c()) {
-                c52Var.c.setShader(this.a.b());
                 return;
             }
-            c52Var.m = this.a.a();
-            c52Var.c.setColor(this.a.a());
-            c52Var.b.setShader(null);
         }
+        this.t = "";
     }
 
-    @Override // com.baidu.tieba.b52
-    public void b(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.m62, com.baidu.tieba.o62, com.baidu.tieba.x03
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new j52(jSONArray);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("src");
     }
 }

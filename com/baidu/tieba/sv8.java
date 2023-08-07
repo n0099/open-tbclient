@@ -1,61 +1,115 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.impersonal.components.LoadingMsgView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class sv8 extends rv8<yv8> implements mc7<sv8> {
+/* loaded from: classes8.dex */
+public final class sv8 extends rv8<vt8, LoadingMsgView, pt8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    public sv8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (sv8) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public static final class a implements LoadingMsgView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pt8 a;
+
+        public a(pt8 pt8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pt8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pt8Var;
+        }
+
+        @Override // com.baidu.tieba.impersonal.components.LoadingMsgView.a
+        public void onShow() {
+            vt8 f;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f = this.a.c().f()) != null) {
+                f.d(true);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv8(cw8<yv8> data, String templateName) {
-        super(data);
+    public sv8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((cw8) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
+        Intrinsics.checkNotNullParameter(name, "name");
     }
 
-    @Override // com.baidu.tieba.mc7
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rv8
+    /* renamed from: l */
+    public LoadingMsgView g(ViewGroup parent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            LoadingMsgView loadingMsgView = new LoadingMsgView(context, null, 2, null);
+            loadingMsgView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            return loadingMsgView;
         }
-        return (String) invokeV.objValue;
+        return (LoadingMsgView) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.mc7
-    public /* bridge */ /* synthetic */ sv8 b() {
-        i();
-        return this;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rv8
+    /* renamed from: k */
+    public void d(LoadingMsgView loadingMsgView, pt8 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, loadingMsgView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (loadingMsgView != null) {
+                loadingMsgView.setShowEmotionTextStatusListener(new a(data));
+            }
+            vt8 f = data.c().f();
+            if (f != null) {
+                if (loadingMsgView != null) {
+                    loadingMsgView.setHasShowEmotionText(f.c());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setAnimationId(f.a());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setEmotionText(f.b());
+                }
+            }
+        }
     }
 }

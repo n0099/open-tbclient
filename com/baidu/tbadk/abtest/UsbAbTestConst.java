@@ -30,8 +30,10 @@ public class UsbAbTestConst {
     public static final String KEY_NATIVE_AD_AUTO_PLAY = "12_14_ad_video_a";
     public static final String KEY_NATIVE_AD_NO_INTERACTION_STYLE = "12_18_personalize_frs_style_a";
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
+    public static final String KEY_PB_NO_CACHE_TEST = "12.45_pb_no_cache_abtest";
     public static final String KEY_PB_REPLY_OPTIMIZE = "12.33_pb_reply_optimize_a";
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
+    public static final String KEY_PERSON_CENTER_H5_ABTEST = "12.45_person_center_h5_abtest";
     public static final String KEY_PUSH_PERMISSION_SCENE_FORUM_FOLLOW_A = "12_37_openpush_b";
     public static final String KEY_PUSH_PERMISSION_SCENE_FORUM_FOLLOW_B = "12_37_openpush_c";
     public static final String KEY_RECOMMEND_FEED_TEST = "12.44_recommend_feed_test";

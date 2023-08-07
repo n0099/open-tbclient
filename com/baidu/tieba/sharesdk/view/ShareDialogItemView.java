@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
@@ -18,7 +19,6 @@ import com.baidu.tbadk.core.util.svg.SvgPureType;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,10 +55,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
     }
 
@@ -239,7 +239,7 @@ public class ShareDialogItemView extends LinearLayout {
             setTag(Integer.valueOf(i2));
             this.b.setScaleType(ImageView.ScaleType.FIT_XY);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.c);
-            this.b.N(str, 12, false);
+            this.b.startLoad(str, 12, false);
             this.b.setIsRound(true);
             if (metaData.getItemType() == k) {
                 UtilHelper.showHeadImageViewBigVForStranger(this.b, metaData);

@@ -1,296 +1,204 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidubce.http.Headers;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.apache.http.protocol.HTTP;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public final class eg0 {
+public class eg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static eg0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fg0 a;
-    public fg0 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ eg0 d;
-
-        public a(eg0 eg0Var, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eg0Var, Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = eg0Var;
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a == 24) {
-                    this.d.b(this.b, this.c, 24);
-                }
-                this.d.b(this.b, this.c, 1);
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public eg0() {
+    public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new fg0();
-        this.b = new fg0("live_show_session");
-    }
-
-    public static byte[] e(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            if (z) {
-                try {
-                    return bg0.b(bArr);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return Base64.encode(bArr, 2);
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public static synchronized eg0 g() {
-        InterceptResult invokeV;
-        eg0 eg0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (eg0.class) {
-                if (c == null) {
-                    c = new eg0();
-                }
-                eg0Var = c;
-            }
-            return eg0Var;
-        }
-        return (eg0) invokeV.objValue;
-    }
-
-    public final void b(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
-            String str3 = WebSettingsGlobalBlink.SESSION_UPLOAD_URL + str2;
-            boolean z = true;
-            byte[] e = e(str.getBytes(), true);
-            if (e == null) {
-                e = e(str.getBytes(), false);
-                z = false;
-            }
-            if (d(bg0.a(e), str3, z)) {
-                f();
-            } else {
-                c(Base64.encode(bg0.a(e(str.getBytes(), false)), 2), i);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
+            c(file, true);
         }
     }
 
-    public final void c(byte[] bArr, int i) {
-        fg0 fg0Var;
+    public static boolean d(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            if (i == 24) {
-                fg0Var = this.b;
-                if (fg0Var == null) {
-                    return;
-                }
-            } else {
-                fg0Var = this.a;
-                if (fg0Var == null) {
-                    return;
-                }
-            }
-            fg0Var.e(bArr);
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00b2 */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0084, code lost:
-        if (r9 == null) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0086, code lost:
-        r9.disconnect();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00a8, code lost:
-        if (r9 == null) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ab, code lost:
-        r8 = -1;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00b0 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00b1 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x00bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r9v1 */
-    /* JADX WARN: Type inference failed for: r9v4, types: [java.net.HttpURLConnection] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean d(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        HttpURLConnection httpURLConnection;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, bArr, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file == null || !file.exists()) {
                 return false;
             }
-            OutputStream outputStream = null;
+            return file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
+            if (file.isDirectory()) {
+                b(file);
+            } else {
+                d(file);
+            }
+        }
+    }
+
+    public static boolean f(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
+            if (file != null && file.exists() && file.isFile()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(File file, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) && file != null && file.isDirectory()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        c(file2, z);
+                    } else {
+                        file2.delete();
+                    }
+                }
+            }
+            if (z) {
+                file.delete();
+            }
+        }
+    }
+
+    public static String g(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStreamReader inputStreamReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
             try {
+                inputStreamReader = new InputStreamReader(context.getAssets().open(str));
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                     try {
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.setDoOutput(true);
-                        httpURLConnection.setRequestMethod("POST");
-                        httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                        httpURLConnection.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-                        if (z) {
-                            httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-                        }
-                        outputStream = httpURLConnection.getOutputStream();
-                        outputStream.write(bArr);
-                        outputStream.flush();
-                        i = httpURLConnection.getResponseCode();
-                        if (outputStream != null) {
+                        BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
+                        while (true) {
                             try {
-                                outputStream.close();
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                sb.append(readLine);
                             } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                e.printStackTrace();
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                return sb.toString();
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                throw th;
+                            }
+                        }
+                        a(bufferedReader2);
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                inputStreamReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStreamReader = null;
+            }
+            a(inputStreamReader);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    public static String h(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            ?? f = f(file);
+            FileInputStream fileInputStream2 = null;
+            try {
+                if (f != 0) {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            String b = gg0.b(fileInputStream);
+                            gg0.a(fileInputStream);
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                        }
-                        if (httpURLConnection != null) {
-                            try {
-                                httpURLConnection.disconnect();
-                            } catch (Exception unused) {
+                            return b;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            gg0.a(fileInputStream);
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
                             }
+                            return null;
                         }
-                    } catch (Error e2) {
-                        e = e2;
-                        zf0.e("DpSessionDatasUploader", "[sendStatisticsDataToServer()] upload error " + e);
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    } catch (Exception e4) {
+                    } catch (IOException e4) {
                         e = e4;
-                        zf0.e("DpSessionDatasUploader", "[sendStatisticsDataToServer()] upload error " + e);
-                        if (outputStream != null) {
+                        fileInputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        gg0.a(fileInputStream2);
+                        if (fileInputStream2 != null) {
                             try {
-                                outputStream.close();
-                            } catch (Exception e5) {
+                                fileInputStream2.close();
+                            } catch (IOException e5) {
                                 e5.printStackTrace();
                             }
                         }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (str != 0) {
-                        try {
-                            str.disconnect();
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Error e7) {
-                e = e7;
-                httpURLConnection = null;
-            } catch (Exception e8) {
-                e = e8;
-                httpURLConnection = null;
+                return null;
             } catch (Throwable th2) {
                 th = th2;
-                str = 0;
-                if (0 != 0) {
-                }
-                if (str != 0) {
-                }
-                throw th;
+                fileInputStream2 = f;
             }
-            return i != 200;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            fg0 fg0Var = this.a;
-            if (fg0Var != null) {
-                fg0Var.a();
-            }
-            fg0 fg0Var2 = this.b;
-            if (fg0Var2 != null) {
-                fg0Var2.a();
-            }
-        }
-    }
-
-    public void h(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, str2, i) == null) {
-            vf0.b().a(new a(this, i, str, str2));
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

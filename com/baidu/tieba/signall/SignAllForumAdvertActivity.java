@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
@@ -12,9 +15,6 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public NavigationBar f;
 
     /* loaded from: classes7.dex */
-    public class a extends rg<jn> {
+    public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumAdvertActivity a;
@@ -55,12 +55,12 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
-                super.onLoaded((a) jnVar, str, i);
-                if (jnVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((a) bdImage, str, i);
+                if (bdImage == null) {
                     this.a.finish();
                 }
             }
@@ -193,16 +193,16 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08a8);
+            setContentView(R.layout.obfuscated_res_0x7f0d08b2);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921dd);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921d8);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921d7);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921f5);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921f0);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921ef);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            sg.h().m(this.a, 10, new a(this), null);
-            this.d.N(this.a, 10, false);
+            BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
+            this.d.startLoad(this.a, 10, false);
             this.d.setOnClickListener(new b(this));
             this.e.setOnClickListener(new c(this));
         }

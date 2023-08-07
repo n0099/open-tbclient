@@ -1,138 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ao8;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergeUtil;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingActivity;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingModel;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.LinkedList;
+import protobuf.QueryUserInfos.DataRes;
+import protobuf.QueryUserInfos.IconInfo;
+import tbclient.PermissionList;
 /* loaded from: classes5.dex */
-public final class ao8 extends ea5<List<? extends ChatMsg>> {
+public class ao8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> b;
-    public FastRequest c;
+    public final PersonalTalkSettingActivity a;
+    public final NavigationBar b;
+    public final View c;
+    public final HeadImageView d;
+    public final TextView e;
+    public final UserIconBox f;
+    public final TextView g;
+    public ImageView h;
+    public TbSettingTextTipView i;
+    public TbSettingTextTipView j;
+    public TbSettingTextTipView k;
+    public RelativeLayout l;
+    public View m;
+    public PersonalTalkSettingViewSettingView n;
 
-    /* loaded from: classes5.dex */
-    public static final class a extends FastRequest.b<MsgContentMergeUtil.Result> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao8 b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ List<ChatMsg> d;
-
-        public a(ao8 ao8Var, long j, List<? extends ChatMsg> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao8Var, Long.valueOf(j), list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ao8Var;
-            this.c = j;
-            this.d = list;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.List */
-        /* JADX WARN: Multi-variable type inference failed */
-        public static final void g(ao8 this$0, List oriMsgList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, this$0, oriMsgList) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                Intrinsics.checkNotNullParameter(oriMsgList, "$oriMsgList");
-                this$0.a = oriMsgList;
-            }
-        }
-
-        /* JADX WARN: Type inference failed for: r5v1, types: [java.util.List, T] */
-        public static final void i(ao8 this$0, long j, MsgContentMergeUtil.Result result, List oriMsgList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{this$0, Long.valueOf(j), result, oriMsgList}) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                Intrinsics.checkNotNullParameter(result, "$result");
-                Intrinsics.checkNotNullParameter(oriMsgList, "$oriMsgList");
-                this$0.a = MsgContentMergeUtil.a.a(j, result, oriMsgList);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: f */
-        public void b(int i, String errMsg, MsgContentMergeUtil.Result result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, result) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.b(i, errMsg, result);
-                final ao8 ao8Var = this.b;
-                final List<ChatMsg> list = this.d;
-                dh.e(new Runnable() { // from class: com.baidu.tieba.sn8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ao8.a.g(ao8.this, list);
-                        }
-                    }
-                });
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: h */
-        public void e(final MsgContentMergeUtil.Result result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                super.e(result);
-                final ao8 ao8Var = this.b;
-                final long j = this.c;
-                final List<ChatMsg> list = this.d;
-                dh.e(new Runnable() { // from class: com.baidu.tieba.vn8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ao8.a.i(ao8.this, j, result, list);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public ao8(TbPageContext<BaseFragmentActivity> pageContext) {
+    public ao8(PersonalTalkSettingActivity personalTalkSettingActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {personalTalkSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -142,83 +61,192 @@ public final class ao8 extends ea5<List<? extends ChatMsg>> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.b = pageContext;
+        this.a = personalTalkSettingActivity;
+        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d075b);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091c24);
+        this.c = findViewById;
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
+        this.b = navigationBar;
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f15d5));
+        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f092175);
+        this.n = personalTalkSettingViewSettingView;
+        personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092822);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092293);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092294);
+        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09013e);
+        this.i.setOnClickListener(this.a);
+        this.j.setOnClickListener(this.a);
+        this.k.setOnClickListener(this.a);
+        this.l.setOnClickListener(this.a);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091c61);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setGodIconWidth(R.dimen.tbds47);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091048);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091046);
+        this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092802);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09091d);
     }
 
-    public static final void b(ao8 this$0) {
+    /* JADX WARN: Removed duplicated region for block: B:27:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(PersonalTalkSettingModel personalTalkSettingModel) {
+        String nameShow;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            FastRequest fastRequest = this$0.c;
-            if (fastRequest != null) {
-                fastRequest.X();
+        if ((interceptable == null || interceptable.invokeL(1048582, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.Y() != null) {
+            DataRes Y = personalTalkSettingModel.Y();
+            TextView textView = this.e;
+            String str = "";
+            if (StringUtils.isNull(personalTalkSettingModel.getNameShow())) {
+                nameShow = Y.name + "";
+            } else {
+                nameShow = personalTalkSettingModel.getNameShow();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ja5
-    public void a(Object... args) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, args) == null) {
-            Intrinsics.checkNotNullParameter(args, "args");
-            Object obj = args[0];
-            if (obj != null) {
-                long longValue = ((Long) obj).longValue();
-                Object obj2 = args[1];
-                if (obj2 != null) {
-                    List<ChatMsg> list = (List) obj2;
-                    if (this.c == null) {
-                        this.c = new FastRequest(this.b, CmdConfigHttp.CMD_GET_CHAT_ROOM_INIT_INFO, TbConfig.GET_CHAT_ROOM_INIT_INFO);
+            textView.setText(nameShow);
+            if (Y.sex.intValue() == 1) {
+                this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
+            } else if (Y.sex.intValue() == 2) {
+                if (Y.iconInfo.size() > 0 && Y.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
+                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                } else {
+                    this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
+                }
+            } else {
+                i = 9;
+                if (personalTalkSettingModel.a0() != null) {
+                    str = zn8.a(personalTalkSettingModel.a0());
+                }
+                if (StringUtils.isNull(str)) {
+                    str = Y.intro;
+                }
+                this.g.setText(str);
+                if (this.f == null) {
+                    LinkedList linkedList = new LinkedList();
+                    for (IconInfo iconInfo : Y.iconInfo) {
+                        IconData iconData = new IconData();
+                        iconData.setIconName(iconInfo.name);
+                        iconData.setIcon(iconInfo.iconUrl);
+                        linkedList.add(iconData);
                     }
-                    ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-                    for (ChatMsg chatMsg : list) {
-                        String senderUid = chatMsg.getSenderUid();
-                        Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        arrayList.add(ql8.c(senderUid));
-                    }
-                    ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-                    for (ChatMsg chatMsg2 : list) {
-                        long msgId = chatMsg2.getMsgId();
-                        String msgKey = chatMsg2.getMsgKey();
-                        Intrinsics.checkNotNullExpressionValue(msgKey, "it.msgKey");
-                        arrayList2.add(new MsgContentMergeUtil.ChatRoomInitInfo(msgId, msgKey));
-                    }
-                    FastRequest fastRequest = this.c;
-                    Intrinsics.checkNotNull(fastRequest);
-                    fastRequest.W("chatroom_id", String.valueOf(longValue));
-                    fastRequest.W("uks", DataExt.toJson(arrayList));
-                    fastRequest.W("msgs", DataExt.toJson(arrayList2));
-                    fastRequest.e0(2000);
-                    fastRequest.Z(2000);
-                    fastRequest.f0(1);
-                    fastRequest.Y(new a(this, longValue, list));
-                    dh.g(new Runnable() { // from class: com.baidu.tieba.un8
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ao8.b(ao8.this);
-                            }
-                        }
-                    });
+                    this.f.g(linkedList, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
                     return;
                 }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.List<com.baidu.android.imsdk.chatmessage.messages.ChatMsg>");
+                return;
             }
-            throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
+            i = 8;
+            if (personalTalkSettingModel.a0() != null) {
+            }
+            if (StringUtils.isNull(str)) {
+            }
+            this.g.setText(str);
+            if (this.f == null) {
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ja5
-    public void onDestroy() {
-        FastRequest fastRequest;
+    public void a(PermissionList permissionList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fastRequest = this.c) != null) {
-            fastRequest.onDestroy();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, permissionList) == null) && permissionList != null && this.n != null) {
+            StringBuilder sb = new StringBuilder();
+            if (permissionList.follow.intValue() == 1) {
+                sb.append("关注、");
+            }
+            if (permissionList.interact.intValue() == 1) {
+                sb.append("互动、");
+            }
+            if (permissionList.chat.intValue() == 1) {
+                sb.append("私信");
+                this.m.setVisibility(8);
+                this.n.a.setVisibility(8);
+                this.n.b.setVisibility(8);
+            } else {
+                this.n.a.setVisibility(0);
+                this.n.b.setVisibility(0);
+            }
+            if (!StringUtils.isNull(sb.toString()) && sb.length() > 0) {
+                sb.insert(0, "禁止");
+            } else {
+                sb.delete(0, sb.length());
+            }
+            String sb2 = sb.toString();
+            if (!StringUtils.isNull(sb2) && sb2.endsWith("、")) {
+                sb2 = sb2.substring(0, sb2.length() - 1);
+            }
+            this.k.setTip(sb2);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n.a(z);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.n.c(z);
+        }
+    }
+
+    public void f(BdSwitchView.b bVar) {
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && (personalTalkSettingViewSettingView = this.n) != null) {
+            personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+        }
+    }
+
+    public void c(PersonalTalkSettingModel personalTalkSettingModel) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null && personalTalkSettingModel.Y() != null && (str = personalTalkSettingModel.Y().portrait) != null && str.length() > 0) {
+            this.d.setImageResource(0);
+            UtilHelper.showHeadImageViewBigV(this.d, personalTalkSettingModel.a0());
+            this.d.setTag(null);
+            this.d.setPageId(this.a.getUniqueId());
+            this.d.startLoad(str, 12, false);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.getLayoutMode().onModeChanged(this.c);
+            this.b.onChangeSkinType(this.a.getPageContext(), i);
+            EMManager.from(this.e).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X04).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.g).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        }
+    }
+
+    public void h(PersonalTalkSettingModel personalTalkSettingModel) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, personalTalkSettingModel) == null) && personalTalkSettingModel != null) {
+            a(personalTalkSettingModel.Z());
+            b(personalTalkSettingModel.isNotify());
+            if (ve8.a(String.valueOf(personalTalkSettingModel.getUid())) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            e(z);
+            g(personalTalkSettingModel);
+            c(personalTalkSettingModel);
         }
     }
 }

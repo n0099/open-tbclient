@@ -2,142 +2,139 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ne3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Service
+@Deprecated
 /* loaded from: classes7.dex */
-public class qc3 extends UnitedSchemeBaseDispatcher {
+public class qc3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public String getDispatcherName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BDWallet" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements ne3.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
 
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return null;
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948086984, "Lcom/baidu/tieba/qc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(qc3 qc3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qc3Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948086984, "Lcom/baidu/tieba/qc3;");
-                return;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.ne3.e
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                y72.i("PreloadSubPackage", "preload subPackage success");
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.c);
             }
         }
-        boolean z = fs1.a;
+
+        @Override // com.baidu.tieba.ne3.e
+        public void b(int i, rm3 rm3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, rm3Var) == null) {
+                y72.c("PreloadSubPackage", "preload subPackage failed");
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.c);
+            }
+        }
     }
 
-    public qc3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qc3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/preloadSubPackage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            v82.b("SwanWalletDispatcher", "entity uri = ", unitedSchemeEntity.getUri());
-            v82.i("SwanWalletDispatcher", "start UnitedSchemeWalletDispatcher");
-            String path = unitedSchemeEntity.getPath(false);
-            if (TextUtils.isEmpty(path)) {
-                if (!unitedSchemeEntity.isOnlyVerify()) {
-                    UnitedSchemeStatisticUtil.doUBCForInvalidScheme(unitedSchemeEntity.getUri(), "no action");
-                }
-                v82.k("SwanWalletDispatcher", "Error: uri action is null.");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.c("PreloadSubPackage", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
-            } else if (unitedSchemeEntity.isOnlyVerify()) {
-                v82.k("SwanWalletDispatcher", "Error: is only verify.");
-                return true;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                y72.c("PreloadSubPackage", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                y72.c("PreloadSubPackage", "none cb");
+                if (vc3.b) {
+                    Log.d("SwanAppAction", "preload subPackage cb is empty");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("root");
+            if (TextUtils.isEmpty(optString2)) {
+                y72.c("PreloadSubPackage", "subPackage root is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (ya3Var.v0(optString2) && ya3Var.u0(optString2)) {
+                y72.i("PreloadSubPackage", "subPackage have existed");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
+                return false;
             } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    v82.k("SwanWalletDispatcher", "Error: params is null.");
+                String R = ya3Var.R(optString2);
+                if (TextUtils.isEmpty(R)) {
+                    y72.i("PreloadSubPackage", "subPackage cannot find aps key");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                String optString = optParamsAsJo.optString("orderInfo");
-                String optString2 = optParamsAsJo.optString("version");
-                String optString3 = optParamsAsJo.optString("cb");
-                vb3 M = vb3.M();
-                if (M == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    v82.k("SwanWalletDispatcher", "Error: swan app is null.");
-                    return false;
-                } else if (M.w() == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    v82.k("SwanWalletDispatcher", "Error: swan activity is null.");
-                    return false;
-                } else {
-                    String optString4 = optParamsAsJo.optString("from");
-                    if (TextUtils.isEmpty(optString4)) {
-                        optString4 = "api";
-                    }
-                    String str = optString4;
-                    k43 k43Var = new k43(M, unitedSchemeEntity, callbackHandler, optString2, M.O(), optString3);
-                    if ("requestPayment".equals(path)) {
-                        v82.i("SwanWalletDispatcher", "start PAYMENT");
-                        oi3.K("baiduqianbao", "create", 0);
-                        return k43Var.B("mapp_request_duxiaoman", optString, str);
-                    } else if ("requestAliPayment".equals(path)) {
-                        v82.i("SwanWalletDispatcher", "start ALI PAYMENT");
-                        oi3.K("alipay", "create", 0);
-                        return k43Var.B("mapp_request_alipayment", optString, str);
-                    } else if ("requestPolymerPayment".equals(path)) {
-                        v82.i("SwanWalletDispatcher", "start POLYMER PAYMENT");
-                        oi3.K("nuomi", "create", 0);
-                        return k43Var.J(optString, optParamsAsJo);
-                    } else if (TextUtils.equals("requestWeChatPayment", path)) {
-                        v82.i("SwanWalletDispatcher", "start WECHAT HTML5 PAYMENT");
-                        oi3.K("wechatH5Action", "create", 0);
-                        return k43Var.B("mapp_request_wechatpayment", optString, str);
-                    } else {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                        return false;
-                    }
-                }
+                ne3.l(ya3Var.b, ya3Var.k0(), "1", optString2, R, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

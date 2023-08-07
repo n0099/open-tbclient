@@ -8,12 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rj7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,7 +112,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.d == null) {
-                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012d);
+                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010131);
                 this.d.setInterpolator(new LinearInterpolator());
                 this.d.setFillAfter(true);
             }
@@ -127,7 +127,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rj7.EntelechyPullUpRefreshView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zg7.EntelechyPullUpRefreshView);
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
@@ -142,9 +142,9 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             addView(this.a);
         }
         this.b = new TbImageView(context);
-        int g = yi.g(getContext(), R.dimen.obfuscated_res_0x7f0703e5);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g, g);
-        layoutParams.topMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e5);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
+        layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.b.setLayoutParams(layoutParams);
         SkinManager.setImageResource(this.b, this.e);
         addView(this.b);

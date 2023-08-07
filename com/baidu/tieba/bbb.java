@@ -2,63 +2,114 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.validation.js.BaseInterpreter;
+import com.baidu.validation.utils.ValidationLog;
 /* loaded from: classes5.dex */
 public class bbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
 
-    public bbb(boolean z, boolean z2, String str, String str2, String str3, int i) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bbb a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-923129047, "Lcom/baidu/tieba/bbb$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-923129047, "Lcom/baidu/tieba/bbb$b;");
+                    return;
+                }
+            }
+            a = new bbb(null);
+        }
+    }
+
+    public bbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = z;
-        this.b = z2;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = i;
     }
 
-    public String a() {
+    public /* synthetic */ bbb(a aVar) {
+        this();
+    }
+
+    public static bbb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                return this.c;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (bbb) invokeV.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String[] split = str.split("_");
+            StringBuilder sb = new StringBuilder();
+            sb.append("com.baidu.validation.js.interpreter.");
+            for (String str2 : split) {
+                char[] charArray = str2.toCharArray();
+                if (charArray[0] >= 'a' && charArray[0] <= 'z') {
+                    charArray[0] = (char) (charArray[0] - ' ');
+                }
+                sb.append(new String(charArray));
             }
-            return new sbb("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.c.getBytes());
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public BaseInterpreter a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "UnionIDInfo{isTrackLimited=" + this.a + ", isSupport=" + this.b + ", OAID='" + this.c + "', EncodedOAID='" + a() + "', AAID='" + this.d + "', VAID='" + this.e + "', StatusCode='" + this.f + "'}";
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? c(str) : (BaseInterpreter) invokeL.objValue;
+    }
+
+    public final BaseInterpreter c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                BaseInterpreter baseInterpreter = (BaseInterpreter) Class.forName(d(str)).newInstance();
+                baseInterpreter.setName(str);
+                return baseInterpreter;
+            } catch (Exception e) {
+                ValidationLog.e(e);
+                return null;
+            }
         }
-        return (String) invokeV.objValue;
+        return (BaseInterpreter) invokeL.objValue;
     }
 }

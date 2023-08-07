@@ -10,23 +10,20 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,16 +36,15 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u001e2\u00020\u00012\u00020\u0002:\u0003\u001d\u001e\u001fB%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u0013\u001a\u00020\u0014H\u0014J\u000e\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\bJ\u0012\u0010\u0017\u001a\u00020\u00142\b\u0010\u0018\u001a\u0004\u0018\u00010\u0019H\u0016J\b\u0010\u001a\u001a\u00020\u0014H\u0014J\u000e\u0010\u001b\u001a\u00020\u00142\u0006\u0010\u001c\u001a\u00020\rR\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0011\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0012X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006 "}, d2 = {"Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView;", "Landroid/widget/LinearLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView$Binding;", "mOnCloseListener", "Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView$OnCloseListener;", "mSkinChangeListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mSkinType", "pageContext", "Lcom/baidu/adp/base/BdPageContext;", "onAttachedToWindow", "", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onClick", "v", "Landroid/view/View;", "onDetachedFromWindow", "setOnCloseListener", "onCloseListener", "Binding", "Companion", "OnCloseListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 \u001a2\u00020\u00012\u00020\u0002:\u0003\u0019\u001a\u001bB%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u000e\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\bJ\u0012\u0010\u0014\u001a\u00020\u00122\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J\u000e\u0010\u0017\u001a\u00020\u00122\u0006\u0010\u0018\u001a\u00020\rR\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u000f\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0010X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView;", "Landroid/widget/LinearLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView$Binding;", "mOnCloseListener", "Lcom/baidu/tieba/immessagecenter/mention/base/NotificationView$OnCloseListener;", "mSkinType", "pageContext", "Lcom/baidu/adp/base/BdPageContext;", "onChangeSkinType", "", WriteMulitImageActivityConfig.SKIN_TYPE, "onClick", "v", "Landroid/view/View;", "setOnCloseListener", "onCloseListener", "Binding", "Companion", "OnCloseListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class NotificationView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-    public final l9<?> b;
+    public final BdPageContext<?> b;
     public int c;
     public b d;
-    public final CustomMessageListener e;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -119,7 +115,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0351a g;
+        public static final C0357a g;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public RelativeLayout b;
@@ -141,20 +137,20 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     return;
                 }
             }
-            g = new C0351a(null);
+            g = new C0357a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.mention.base.NotificationView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0351a {
+        public static final class C0357a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0351a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0357a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0351a() {
+            public C0357a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,16 +171,16 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     Intrinsics.checkNotNullParameter(root, "root");
                     a aVar = new a();
                     aVar.j(root);
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919c0);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919d4);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.open_notify_background)");
                     aVar.h((RelativeLayout) findViewById);
-                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910c1);
+                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910d7);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.img_focus)");
                     aVar.g((ImageView) findViewById2);
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919bd);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919d1);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.open_desc)");
                     aVar.i((TextView) findViewById3);
-                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904cd);
+                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904da);
                     Intrinsics.checkNotNullExpressionValue(findViewById4, "root.findViewById(R.id.btn_open)");
                     aVar.e((TextView) findViewById4);
                     View findViewById5 = root.findViewById(R.id.img_close);
@@ -315,47 +311,6 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NotificationView a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(NotificationView notificationView) {
-            super(2001304);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {notificationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = notificationView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                if (responsedMessage.getCmd() != 2001304) {
-                    return;
-                }
-                this.a.a(TbadkCoreApplication.getInst().getSkinType());
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
     public NotificationView(Context context, AttributeSet attributeSet, int i) {
@@ -381,11 +336,10 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         Intrinsics.checkNotNullParameter(context, "context");
         this.b = TbadkApplication.getInst().getCurrentPageContext(getContext());
         this.c = 3;
-        this.e = new c(this);
-        View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074b, (ViewGroup) this, true);
-        a.C0351a c0351a = a.g;
+        View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0752, (ViewGroup) this, true);
+        a.C0357a c0357a = a.g;
         Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-        a a3 = c0351a.a(rootView);
+        a a3 = c0357a.a(rootView);
         this.a = a3;
         if (a3 != null && (a2 = a3.a()) != null) {
             a2.setOnClickListener(this);
@@ -429,38 +383,13 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         } else {
             textView = null;
         }
-        d85 d = d85.d(textView);
-        d.C(R.dimen.tbds36);
-        d.x(R.color.CAM_X0107);
-        d.D(R.string.F_X01);
+        EMManager.from(textView).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
         a aVar4 = this.a;
         if (aVar4 != null) {
             textView2 = aVar4.a();
         }
-        d85 d2 = d85.d(textView2);
-        d2.C(R.dimen.tbds36);
-        d2.D(R.string.F_X01);
-        d2.x(R.color.CAM_X0341);
-        d85.d(this).f(R.color.CAM_X0201);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.e);
-            TiebaStatic.log("c13704");
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.e);
-        }
+        EMManager.from(textView2).setTextSize(R.dimen.tbds36).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0341);
+        EMManager.from(this).setBackGroundColor(R.color.CAM_X0201);
     }
 
     @Override // android.view.View.OnClickListener
@@ -471,7 +400,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         ImageView b2;
         TextView a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             Integer num4 = null;
             if (view2 != null) {
                 num = Integer.valueOf(view2.getId());
@@ -485,7 +414,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                 num2 = null;
             }
             if (Intrinsics.areEqual(num, num2)) {
-                vg5.e(this.b);
+                DialogUtil.jumpSystemNotificationSetting(this.b);
                 TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
                 return;
             }
@@ -499,7 +428,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                 num4 = Integer.valueOf(b2.getId());
             }
             if (Intrinsics.areEqual(num3, num4)) {
-                da5.p().H("key_im_open_notification_close_time", System.currentTimeMillis());
+                SharedPrefHelper.getInstance().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
                 b bVar = this.d;
                 if (bVar != null && bVar != null) {
                     bVar.onClose();
@@ -511,7 +440,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
 
     public final void setOnCloseListener(b onCloseListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onCloseListener) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onCloseListener) == null) {
             Intrinsics.checkNotNullParameter(onCloseListener, "onCloseListener");
             this.d = onCloseListener;
         }

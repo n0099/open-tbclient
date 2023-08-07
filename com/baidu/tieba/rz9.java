@@ -1,55 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rz9 {
+public final class rz9 extends sr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
+    public final String a;
+    public final String b;
+    public final String c;
 
-    public rz9() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof rz9) {
+                rz9 rz9Var = (rz9) obj;
+                return Intrinsics.areEqual(this.a, rz9Var.a) && Intrinsics.areEqual(this.b, rz9Var.b) && Intrinsics.areEqual(this.c, rz9Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
+            String str3 = this.c;
+            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "RecForumEvent(forumName=" + this.a + ", tid=" + this.b + ", fid=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public rz9(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    public static rz9 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            rz9 rz9Var = new rz9();
-            jSONObject.optString("brand_name");
-            rz9Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            rz9Var.b = jSONObject.optString("button_scheme");
-            rz9Var.c = jSONObject.optString("cmd_scheme");
-            jSONObject.optString("icon");
-            rz9Var.d = jSONObject.optString("operate_recommend_reason");
-            rz9Var.e = jSONObject.optLong("trans_animation_delay", 0L);
-            rz9Var.f = jSONObject.optInt("layout_upgrade", 0);
-            return rz9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (rz9) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

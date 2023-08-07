@@ -1,47 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Hashtable;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class mc5<T extends yn, V extends BdBaseViewPagerAdapter.a> {
+public class mc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a<T, V> b;
-    public BdUniqueId c;
+    public Hashtable<String, String> a;
+    public Hashtable<String, String> b;
 
-    /* loaded from: classes7.dex */
-    public interface a<T extends yn, V extends BdBaseViewPagerAdapter.a> {
-        void a(V v, T t);
-    }
-
-    public abstract V b(ViewGroup viewGroup);
-
-    public void c(V v, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
-        }
-    }
-
-    public abstract View d(ViewGroup viewGroup, V v, T t);
-
-    public mc5(Context context, BdUniqueId bdUniqueId) {
+    public mc5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,32 +32,65 @@ public abstract class mc5<T extends yn, V extends BdBaseViewPagerAdapter.a> {
                 return;
             }
         }
-        this.a = context;
-        this.c = bdUniqueId;
+        this.a = new Hashtable<>();
+        this.b = new Hashtable<>();
     }
 
-    public a<T, V> a() {
-        InterceptResult invokeV;
+    public final void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, hashtable, jSONArray) == null) && (length = jSONArray.length()) > 0) {
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    try {
+                        hashtable.put(next, optJSONObject.get(next));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
-        return (a) invokeV.objValue;
     }
 
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public boolean b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            String str2 = null;
+            if (i == 1) {
+                str2 = this.b.get(str);
+            } else if (i == 2) {
+                str2 = this.a.get(str);
+            }
+            if (StringUtils.isNull(str2)) {
+                return true;
+            }
+            return str2.equals("3");
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeIL.booleanValue;
     }
 
-    public void e(a<T, V> aVar) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+            BdLog.e("consumepath is:" + jSONObject.toString());
+            a(this.a, optJSONArray);
+            a(this.b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.a.toString());
+            BdLog.e("pay mPayCashierType:" + this.b.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,15 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.os.SystemClock;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import android.util.Base64InputStream;
-import android.util.Base64OutputStream;
 import android.util.Log;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t3b;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.l2b;
+import com.baidu.tieba.w2b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,248 +29,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n2b {
+public class n2b extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
+    public static final boolean d;
+    public static n2b e;
+    public static ReentrantLock f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public boolean c;
-    public Context d;
-    public j3b e;
-    public m2b f;
-    public int g;
-    public long h;
-    public List<y2b> i;
-    public long j;
-    public long k;
-    public long l;
-    public int m;
-    public SparseArray<ArrayList> n;
-    public HashMap<String, Long> o;
-    public f3b p;
-    public r2b q;
-    public int r;
-    public int s;
-    public int t;
-    public t3b u;
-    public boolean v;
-    public int w;
-    public Runnable x;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n2b a;
-
-        public a(n2b n2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n2bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.g == 1) {
-                    long uptimeMillis = SystemClock.uptimeMillis() - this.a.h;
-                    if (uptimeMillis >= 5000) {
-                        if (n2b.y) {
-                            Log.d("UBCBehaviorModel", String.format("***saveCache after %d ms***", Long.valueOf(uptimeMillis)));
-                        }
-                        this.a.z();
-                        this.a.g = 0;
-                        return;
-                    }
-                    o2b.w().J(this, 5000 - uptimeMillis);
-                } else if (this.a.g != 2) {
-                } else {
-                    this.a.g = 0;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements e3b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n2b a;
-
-        public b(n2b n2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n2bVar;
-        }
-
-        @Override // com.baidu.tieba.e3b
-        public void a(boolean z, y2b y2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, y2bVar) == null) {
-                if (!z) {
-                    this.a.e.z(y2bVar);
-                    return;
-                }
-                this.a.e.h();
-                i3b.f().a(y2bVar.l(), false);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public y2b b;
-        public File c;
-        public JSONObject d;
-        public String e;
-        public long f;
-        public boolean g;
-        public boolean h;
-        public e3b i;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = true;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-            this.f = -1L;
-            this.g = false;
-            this.h = false;
-            this.i = null;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements t3b.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(n2b n2bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n2bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ d(n2b n2bVar, a aVar) {
-            this(n2bVar);
-        }
-
-        @Override // com.baidu.tieba.t3b.e
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o2b.w().P();
-                o2b.w().K();
-            }
-        }
-
-        @Override // com.baidu.tieba.t3b.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                o2b.w().P();
-                o2b.w().K();
-                o2b.w().E();
-            }
-        }
-
-        @Override // com.baidu.tieba.t3b.e
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                o2b.w().K();
-            }
-        }
-
-        @Override // com.baidu.tieba.t3b.e
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                o2b.w().P();
-                o2b.w().K();
-                o2b.w().E();
-            }
-        }
-
-        @Override // com.baidu.tieba.t3b.e
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                o2b.w().P();
-                o2b.w().K();
-                o2b.w().E();
-            }
-        }
-    }
+    public p1b a;
+    public Context b;
+    public ReentrantReadWriteLock c;
 
     static {
         InterceptResult invokeClinit;
@@ -273,67 +64,36 @@ public class n2b {
                 return;
             }
         }
-        y = m3b.m();
+        d = p2b.m();
+        e = null;
+        f = new ReentrantLock();
     }
 
-    public void H() {
+    @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e.C();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            G(true);
-            G(false);
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            Log.w("UBCDatabaseHelper", "Database is being closed");
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            try {
-                z();
-            } catch (RuntimeException unused) {
-                if (y) {
-                    Log.d("UBCBehaviorModel", "save cache error!");
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+            A(false);
         }
     }
 
-    public j3b n() {
-        InterceptResult invokeV;
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return this.e;
-        }
-        return (j3b) invokeV.objValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            this.m++;
-            v3b.a().d("ubc_real_time_count", this.m);
+        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+            A(true);
         }
     }
 
-    public final void z() {
-        List<y2b> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && (list = this.i) != null && list.size() != 0) {
-            this.e.A(this.i);
-            this.i.clear();
-            if (this.g == 1) {
-                this.g = 2;
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n2b(Context context) {
+        super(context, "bdbehavior.db", (SQLiteDatabase.CursorFactory) null, 9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -343,1426 +103,3953 @@ public class n2b {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.g = 0;
-        this.h = 0L;
-        this.x = new a(this);
-        this.d = context;
-        v3b a2 = v3b.a();
-        this.e = new j3b(context);
-        this.f = new m2b(context);
-        this.p = m3b.j();
-        this.i = new ArrayList(20);
-        this.j = a2.c("ubc_last_upload_non_real", 0L);
-        this.k = a2.c("ubc_reset_real_time_count_time", 0L);
-        this.l = a2.c("ubc_last_upload_failed_data_time", 0L);
-        this.m = a2.b("ubc_real_time_count", 0);
-        r2b o = r2b.o();
-        this.q = o;
-        o.D(this, context);
-        this.b = System.currentTimeMillis();
-        this.a = new Random().nextInt(31) + 60;
-        this.v = r2b.o().I();
-        this.w = r2b.o().x();
-        i3b.f().g(this.e);
-        t3b m = t3b.m();
-        this.u = m;
-        m.n(this.d, this.e, new d(this, null));
+        this.c = new ReentrantReadWriteLock(true);
+        this.a = new p1b(context);
+        this.b = context;
     }
 
-    public final void J(w3b w3bVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, w3bVar) == null) {
-            w3bVar.k();
-            if (w3bVar.y()) {
-                return;
-            }
-            if (w3bVar.x()) {
-                str = w3bVar.p();
-            } else {
-                try {
-                    JSONObject u = w3bVar.u();
-                    String c2 = u3b.c(u.toString().getBytes(), true);
-                    D(u.toString(), c2);
-                    if (y) {
-                        l3b.a(w3bVar);
-                        Log.d("UBCBehaviorModel", "save send data to file " + c2);
-                    }
-                    str = c2;
-                } catch (OutOfMemoryError unused) {
-                    w3bVar.e();
-                    return;
-                }
-            }
-            if (!this.e.g(w3bVar, str)) {
-                w3bVar.e();
-                File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir", str);
-                if (file.exists() && file.delete()) {
-                    Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
-                }
-                this.e.l(str);
-                return;
-            }
-            o3b.a().m(w3bVar.B(), w3bVar.v());
-            o2b.w().Q(w3bVar, str);
-            w3bVar.e();
-            long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - this.l) < 7200000) {
-                return;
-            }
-            this.l = currentTimeMillis;
-            v3b.a().e("ubc_last_upload_failed_data_time", this.l);
-            o2b.w().E();
-            o2b.w().K();
-        }
-    }
-
-    public void O(z2b z2bVar) {
-        InputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, z2bVar) != null) || z2bVar == null) {
-            return;
-        }
-        String a2 = z2bVar.a();
-        File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir", a2);
-        if (!file.exists()) {
-            return;
-        }
-        if (z2bVar.c()) {
-            o2b.w().Q(w3b.g(file, (int) file.length()), a2);
-            return;
-        }
-        InputStream inputStream = null;
-        try {
-            try {
-                if (y) {
-                    Log.d("UBCBehaviorModel", "uploadFile fileName:" + a2);
-                }
-                fileInputStream = new FileInputStream(file);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (Exception e) {
-            e = e;
-        } catch (OutOfMemoryError e2) {
-            e = e2;
-        }
-        try {
-            if (fileInputStream.available() > 0) {
-                inputStream = new Base64InputStream(fileInputStream, 0);
-                JSONObject jSONObject = new JSONObject(r4b.b(inputStream));
-                JSONObject jSONObject2 = jSONObject.getJSONObject(TtmlNode.TAG_METADATA);
-                jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-                jSONObject.put(TtmlNode.TAG_METADATA, jSONObject2);
-                o2b.w().S(jSONObject, a2);
-                fileInputStream = inputStream;
-            }
-            try {
-                fileInputStream.close();
-            } catch (IOException e3) {
-                e = e3;
-                if (!y) {
-                    return;
-                }
-                e.printStackTrace();
-            }
-        } catch (Exception e4) {
-            e = e4;
-            inputStream = fileInputStream;
-            if (y) {
-                Log.d("UBCBehaviorModel", "error:" + e.getMessage());
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e5) {
-                    e = e5;
-                    if (!y) {
-                        return;
-                    }
-                    e.printStackTrace();
-                }
-            }
-        } catch (OutOfMemoryError e6) {
-            e = e6;
-            inputStream = fileInputStream;
-            if (y) {
-                Log.d("UBCBehaviorModel", "OutOfMemoryError:" + e.getMessage());
-            }
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e7) {
-                    e = e7;
-                    if (!y) {
-                        return;
-                    }
-                    e.printStackTrace();
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = fileInputStream;
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e8) {
-                    if (y) {
-                        e8.printStackTrace();
-                    }
-                }
-            }
-            throw th;
-        }
-    }
-
-    public void t(y2b y2bVar) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, y2bVar) == null) {
-            boolean equals = TextUtils.equals(y2bVar.l(), y2bVar.k());
-            boolean z3 = false;
-            if (this.q.e(y2bVar.l()) && (y2bVar.n() & 64) == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if ((y2bVar.n() & 128) != 0) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if ((equals && z) || (equals && z2)) {
-                z3 = true;
-            }
-            if (m3b.i().isPeakTime()) {
-                if (!z3) {
-                    this.e.z(y2bVar);
-                    return;
-                }
-                List<String> i = m3b.i().i();
-                if (i != null && i.contains(y2bVar.l())) {
-                    if (!this.c) {
-                        if ((System.currentTimeMillis() - this.b) / 1000 >= this.a) {
-                            this.c = true;
-                        } else {
-                            this.e.z(y2bVar);
-                            return;
-                        }
-                    }
-                } else {
-                    this.e.z(y2bVar);
-                    return;
-                }
-            }
-            if (z3) {
-                this.e.z(y2bVar);
-            } else if ((y2bVar.n() & 1) == 0) {
-                if (this.q.K(y2bVar.l())) {
-                    g(y2bVar);
-                }
-                if (this.i.size() >= 20) {
-                    z();
-                }
-            } else if (this.q.K(y2bVar.l())) {
-                this.e.z(y2bVar);
-            }
-            o2b.w().I(y2bVar, z3);
-        }
-    }
-
-    public void B(y2b y2bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y2bVar) == null) {
-            this.f.g(y2bVar, this.q.e(y2bVar.l()));
-        }
-    }
-
-    public void C(y2b y2bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y2bVar) != null) || !el1.g()) {
-            return;
-        }
-        this.f.i(y2bVar);
-    }
-
-    public void I(a3b a3bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a3bVar) == null) {
-            this.e.B(a3bVar);
-        }
-    }
-
-    public int q(String str) {
+    public int S(z2b z2bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            r2b r2bVar = this.q;
-            if (r2bVar != null) {
-                return r2bVar.C(str);
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, z2bVar)) == null) {
+            StringBuilder sb = new StringBuilder(256);
+            sb.append("SELECT * FROM ");
+            sb.append("event");
+            sb.append(" WHERE ");
+            sb.append("flowhandle");
+            sb.append(" = ");
+            sb.append(-1);
+            sb.append(" AND ");
+            sb.append("reallog");
+            sb.append(" = \"1\"");
+            return L(sb.toString(), z2bVar);
         }
         return invokeL.intValue;
     }
 
-    public void A(y2b y2bVar) {
-        boolean z;
-        boolean z2;
-        boolean z3;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, y2bVar) == null) {
-            boolean equals = TextUtils.equals(y2bVar.l(), y2bVar.k());
-            if (this.q.e(y2bVar.l()) && (y2bVar.n() & 64) == 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(1048624, this, sQLiteDatabase) == null) {
+            if (d) {
+                Log.i("UBCDatabaseHelper", "Creating database bdbehavior.db version 9");
             }
-            if ((y2bVar.n() & 128) != 0) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if ((equals && z) || (equals && z2)) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            if (m3b.i().isPeakTime()) {
-                if (!z3) {
-                    this.e.z(y2bVar);
-                    return;
-                }
-                List<String> i = m3b.i().i();
-                if (i != null && i.contains(y2bVar.l())) {
-                    if (!this.c) {
-                        if ((System.currentTimeMillis() - this.b) / 1000 >= this.a) {
-                            this.c = true;
-                        } else {
-                            this.e.z(y2bVar);
-                            return;
-                        }
-                    }
-                } else {
-                    this.e.z(y2bVar);
-                    return;
-                }
-            }
-            if (z3 && !V(y2bVar)) {
-                if (this.q.K(y2bVar.l())) {
-                    this.e.z(y2bVar);
-                    return;
-                }
-                return;
-            }
-            if (z3) {
-                i3b.f().a(y2bVar.l(), false);
-            }
-            if (m3b.i().isPeakTime()) {
-                this.e.e();
-            } else if (Math.abs(System.currentTimeMillis() - this.j) >= r2b.o().t()) {
-                if (!z3 && this.q.K(y2bVar.l())) {
-                    g(y2bVar);
-                }
-                U();
-            } else if ((y2bVar.n() & 1) == 0) {
-                if (!z3 && this.q.K(y2bVar.l())) {
-                    g(y2bVar);
-                }
-                if (this.i.size() >= 20) {
-                    z();
-                }
-            } else if (!z3 && this.q.K(y2bVar.l())) {
-                this.e.z(y2bVar);
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE event (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowhandle INTEGER,eventid TEXT,begintime LONG,content TEXT,reserve1 TEXT,reserve2 TEXT,extend TEXT,reallog TEXT);");
+                sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
+                sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT,reallog TEXT);");
+                sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
+                sQLiteDatabase.execSQL("CREATE TABLE arrival (_id INTEGER PRIMARY KEY AUTOINCREMENT,ubcid TEXT,ubctime TEXT DEFAULT CURRENT_DATE,count INTEGER,state INTEGER,reserve1 TEXT,callcnt INTEGER);");
+                y2b.a().f(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, "0");
+            } catch (Exception e2) {
+                Log.w("UBCDatabaseHelper", "Error while creating db: " + e2.toString());
             }
         }
     }
 
-    public final void D(String str, String str2) {
-        OutputStream fileOutputStream;
+    public static n2b Q(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            String str3 = this.d.getFilesDir() + File.separator + "ubcsenddir";
-            File file = new File(str3);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            File file2 = new File(str3, str2);
-            if (!file2.exists()) {
-                OutputStream outputStream = null;
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file2);
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (e == null) {
+                f.lock();
+                if (e == null) {
+                    e = new n2b(context);
                 }
+                f.unlock();
+            }
+            return e;
+        }
+        return (n2b) invokeL.objValue;
+    }
+
+    public final void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE arrival ADD COLUMN callcnt INTEGER");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void e(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void f(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void i(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN reallog DEFAULT '0'");
+                sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN reallog DEFAULT '0'");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void j(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onConfigure(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.enableWriteAheadLogging();
+            super.onConfigure(sQLiteDatabase);
+        }
+    }
+
+    public final void q(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE arrival (_id INTEGER PRIMARY KEY AUTOINCREMENT,ubcid TEXT,ubctime TEXT DEFAULT CURRENT_DATE,count INTEGER,state INTEGER,reserve1 TEXT,callcnt INTEGER);");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void r(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01fb A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x021a  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void A(boolean z) {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c.writeLock().lock();
+            try {
                 try {
-                    outputStream = new Base64OutputStream(fileOutputStream, 0);
-                    outputStream.write(str.getBytes());
-                    outputStream.flush();
-                    l3b.b("save to file suc");
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
                     try {
-                        outputStream.close();
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (!y) {
-                            return;
+                        long currentTimeMillis = System.currentTimeMillis() - u1b.o().k();
+                        Cursor cursor = null;
+                        i3 = writableDatabase.delete("flow", "endtime < " + currentTimeMillis, null);
+                        try {
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "clearInvalidData: delete flow count:" + i3);
+                            }
+                            i2 = writableDatabase.delete("event", "begintime < " + currentTimeMillis, null);
+                            try {
+                                if (d) {
+                                    Log.d("UBCDatabaseHelper", "clearInvalidData: delete event count:" + i2);
+                                }
+                                long currentTimeMillis2 = System.currentTimeMillis() - 86400000;
+                                StringBuilder sb = new StringBuilder(256);
+                                sb.append("SELECT ");
+                                sb.append("flowhandle");
+                                sb.append(" FROM ");
+                                sb.append("flow");
+                                sb.append(" WHERE ");
+                                if (!z) {
+                                    sb.append("begintime");
+                                    sb.append(" < ");
+                                    sb.append(currentTimeMillis2);
+                                    sb.append(" AND ");
+                                }
+                                sb.append("endtime");
+                                sb.append(" is NULL ");
+                                sb.append(" AND ");
+                                sb.append(SpeedStatsUtils.UBC_KEY_OPTION);
+                                sb.append(" = 0");
+                                ArrayList arrayList = new ArrayList();
+                                try {
+                                    Cursor rawQuery = writableDatabase.rawQuery(sb.toString(), null);
+                                    if (rawQuery != null) {
+                                        try {
+                                            if (rawQuery.getCount() > 0) {
+                                                rawQuery.moveToFirst();
+                                                do {
+                                                    arrayList.add(Integer.valueOf(rawQuery.getInt(rawQuery.getColumnIndex("flowhandle"))));
+                                                } while (rawQuery.moveToNext());
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            cursor = rawQuery;
+                                            q3b.a(cursor);
+                                            throw th;
+                                        }
+                                    }
+                                    q3b.a(rawQuery);
+                                    if (arrayList.size() > 0) {
+                                        if (d) {
+                                            Log.d("UBCDatabaseHelper", "clearInvalidData: delete flow count2:" + arrayList.size());
+                                        }
+                                        String P = P(arrayList);
+                                        StringBuilder sb2 = new StringBuilder();
+                                        sb2.append("flowhandle");
+                                        sb2.append(" in (");
+                                        sb2.append(P);
+                                        sb2.append(SmallTailInfo.EMOTION_SUFFIX);
+                                        writableDatabase.delete("flow", sb2.toString(), null);
+                                        writableDatabase.delete("event", sb2.toString(), null);
+                                    }
+                                    writableDatabase.setTransactionSuccessful();
+                                    writableDatabase.endTransaction();
+                                    i = C("flow");
+                                    try {
+                                        try {
+                                            int C = C("event");
+                                            this.c.writeLock().unlock();
+                                            if (i3 > 0 || i2 > 0) {
+                                                r2b.a().e(String.valueOf(u1b.o().k()), i3, i2, 0);
+                                                w2b.m().s(i2, i3);
+                                            }
+                                            if (i <= 0 && C <= 0) {
+                                                return;
+                                            }
+                                        } catch (SQLException e2) {
+                                            e = e2;
+                                            if (d) {
+                                                e.printStackTrace();
+                                            }
+                                            this.a.h(e);
+                                            this.c.writeLock().unlock();
+                                            if (i3 > 0 || i2 > 0) {
+                                                r2b.a().e(String.valueOf(u1b.o().k()), i3, i2, 0);
+                                                w2b.m().s(i2, i3);
+                                            }
+                                            if (i <= 0) {
+                                                return;
+                                            }
+                                            w2b.m().t();
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        this.c.writeLock().unlock();
+                                        if (i3 <= 0 || i2 > 0) {
+                                            r2b.a().e(String.valueOf(u1b.o().k()), i3, i2, 0);
+                                            w2b.m().s(i2, i3);
+                                        }
+                                        if (i > 0) {
+                                            w2b.m().t();
+                                        }
+                                        throw th;
+                                    }
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                writableDatabase.endTransaction();
+                                throw th;
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
                         }
-                        e.printStackTrace();
+                    } catch (Throwable th6) {
+                        th = th6;
                     }
-                } catch (Exception e3) {
+                } catch (SQLException e3) {
                     e = e3;
-                    outputStream = fileOutputStream;
-                    if (y) {
-                        e.printStackTrace();
+                    i = 0;
+                } catch (Throwable th7) {
+                    th = th7;
+                    i = 0;
+                    this.c.writeLock().unlock();
+                    if (i3 <= 0) {
                     }
-                    if (outputStream != null) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e4) {
-                            e = e4;
-                            if (!y) {
-                                return;
-                            }
-                            e.printStackTrace();
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    outputStream = fileOutputStream;
-                    if (outputStream != null) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e5) {
-                            if (y) {
-                                e5.printStackTrace();
-                            }
-                        }
+                    r2b.a().e(String.valueOf(u1b.o().k()), i3, i2, 0);
+                    w2b.m().s(i2, i3);
+                    if (i > 0) {
                     }
                     throw th;
                 }
-            }
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !u3b.a(this.d)) {
-            return;
-        }
-        if (this.n == null) {
-            r();
-        }
-        w3b h = w3b.h(this.d);
-        if (i3b.f().d(h) && h != null && !h.y()) {
-            h.L(true);
-            J(h);
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            w3b i = w3b.i();
-            if (this.f.e(i)) {
-                JSONObject u = i.u();
-                if (y) {
-                    Log.d("UBCBehaviorModel", "sendQualityData:" + u.toString());
+            } catch (SQLException e4) {
+                e = e4;
+                i = 0;
+                i2 = 0;
+                i3 = 0;
+            } catch (Throwable th8) {
+                th = th8;
+                i = 0;
+                i2 = 0;
+                i3 = 0;
+                this.c.writeLock().unlock();
+                if (i3 <= 0) {
                 }
-                o2b.w().R(u);
-            }
-        }
-    }
-
-    public final void W() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || !u3b.a(this.d) || !j()) {
-            return;
-        }
-        w3b h = w3b.h(this.d);
-        h.L(true);
-        if (this.n == null) {
-            r();
-        }
-        if (Y(h, "1")) {
-            return;
-        }
-        T(this.n, h);
-        J(h);
-        y();
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            if (m3b.i().isPeakTime()) {
-                this.e.e();
-            } else if (Math.abs(System.currentTimeMillis() - this.j) >= r2b.o().t()) {
-                U();
-            }
-        }
-    }
-
-    public final void G(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            w3b i = w3b.i();
-            i.L(z);
-            if (this.f.f(i, z)) {
-                JSONObject u = i.u();
-                if (y) {
-                    Log.d("UBCBehaviorModel", "checkFileData:" + u.toString());
+                r2b.a().e(String.valueOf(u1b.o().k()), i3, i2, 0);
+                w2b.m().s(i2, i3);
+                if (i > 0) {
                 }
-                this.f.c(z);
-                o2b.w().R(u);
+                throw th;
             }
+            w2b.m().t();
         }
     }
 
-    public boolean X(y2b y2bVar) {
-        InterceptResult invokeL;
+    /* JADX WARN: Can't wrap try/catch for region: R(14:3|4|5|6|7|8|9|(3:110|111|112)(1:11)|(6:15|(5:16|17|(5:19|(1:21)(1:37)|22|(3:28|29|(1:31))|24)(13:38|(1:40)(2:89|(1:91))|(1:42)|43|(1:45)|(1:47)|48|(1:50)|(1:53)|54|(13:60|61|(1:63)|64|(1:68)|69|70|71|(1:75)|76|(1:78)|79|(1:82))(1:56)|57|(1:59))|25|(1:27)(0))|94|95|96|97)(0)|93|94|95|96|97) */
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0207, code lost:
+        r0 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:101:0x0208, code lost:
+        r1 = r26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x020b, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x020c, code lost:
+        r1 = r26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:110:0x0218, code lost:
+        if (com.baidu.tieba.n2b.d != false) goto L104;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:111:0x021a, code lost:
+        r0.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x021d, code lost:
+        r1.a.h(r0);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:115:0x022c, code lost:
+        r1.c.readLock().unlock();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x0235, code lost:
+        throw r0;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x01d3 A[Catch: all -> 0x01f5, RuntimeException -> 0x01f9, TryCatch #9 {RuntimeException -> 0x01f9, blocks: (B:7:0x0029, B:9:0x0033, B:15:0x0041, B:17:0x0047, B:18:0x0088, B:21:0x00c8, B:25:0x00d8, B:27:0x00e2, B:29:0x00ed, B:35:0x00fd, B:88:0x01d8, B:32:0x00f6, B:34:0x00fa, B:36:0x0105, B:38:0x010f, B:43:0x0122, B:44:0x0127, B:46:0x012d, B:48:0x0134, B:49:0x013d, B:51:0x0143, B:54:0x014c, B:55:0x0156, B:57:0x015c, B:59:0x0169, B:60:0x016e, B:62:0x0174, B:64:0x017e, B:66:0x0185, B:68:0x018b, B:70:0x0191, B:71:0x019a, B:73:0x01a3, B:74:0x01ac, B:85:0x01cd, B:87:0x01d3, B:77:0x01b8, B:83:0x01c7, B:39:0x0115, B:41:0x011b), top: B:129:0x0029, outer: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x01df A[LOOP:0: B:18:0x0088->B:91:0x01df, LOOP_END] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void W(t1b t1bVar) {
+        Cursor cursor;
+        t1b t1bVar2;
+        String str;
+        String str2;
+        int i;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, y2bVar)) == null) {
-            if (!u3b.a(this.d)) {
-                return false;
-            }
-            y2bVar.A("1");
-            w3b p = p(y2bVar, true);
-            if (p == null || p.y()) {
-                return false;
-            }
-            this.e.u(p);
-            o2b.w().U(p.u(), true, y2bVar, new b(this));
-            p.e();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void K(h3b h3bVar, boolean z, d3b d3bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{h3bVar, Boolean.valueOf(z), d3bVar}) == null) {
-            JSONArray jSONArray = new JSONArray();
-            this.r = 0;
-            this.s = 0;
-            this.t = 0;
-            k(h3bVar, z, jSONArray);
-            s(h3bVar, z, jSONArray);
-            if (d3bVar != null && jSONArray.length() > 0) {
-                JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeL(1048597, this, t1bVar) == null) {
+            n2b n2bVar = this;
+            String str3 = "isSend";
+            n2bVar.c.readLock().lock();
+            try {
                 try {
-                    jSONObject.put("items", jSONArray);
-                    int i = this.r + this.s + this.t;
-                    jSONObject.put("count", i + "," + this.r + "," + this.t);
-                    d3bVar.setUBCConfigStatisticData(jSONObject);
-                } catch (JSONException e) {
-                    if (y) {
-                        e.printStackTrace();
+                    SQLiteDatabase readableDatabase = getReadableDatabase();
+                    cursor = null;
+                    try {
+                        try {
+                            cursor = readableDatabase.rawQuery("SELECT * FROM config", null);
+                            if (t1bVar == null) {
+                                try {
+                                    t1bVar2 = new t1b();
+                                } catch (Throwable th) {
+                                    th = th;
+                                    q3b.a(cursor);
+                                    throw th;
+                                }
+                            } else {
+                                t1bVar2 = t1bVar;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            n2bVar = this;
+                        }
+                    } catch (RuntimeException e2) {
+                        if (d) {
+                            e2.printStackTrace();
+                        }
                     }
+                } catch (SQLException e3) {
+                    e = e3;
                 }
-            }
-            this.q.Y(h3bVar.b());
-            this.q.P(h3bVar.i() * 86400000);
-            this.q.Q(h3bVar.h());
-            this.q.R(h3bVar.c());
-            this.q.U(h3bVar.f());
-            this.q.T(h3bVar.e());
-            this.q.S(h3bVar.d());
-            this.q.W(h3bVar.j());
-            this.q.X(h3bVar.k());
-            SparseArray<ArrayList> sparseArray = this.n;
-            if (sparseArray == null) {
-                this.n = new SparseArray<>();
-            } else {
-                sparseArray.clear();
-            }
-            HashMap<String, Long> hashMap = this.o;
-            if (hashMap == null) {
-                this.o = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            this.e.x(this.n);
-            if (y) {
-                Log.d("UBCBehaviorModel", "mIdArray: " + this.n.toString());
-            }
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.n.size(); i3++) {
-                int keyAt = this.n.keyAt(i3);
-                if (keyAt != 0 && i2 == 0) {
-                    i2 = keyAt;
-                }
-                HashMap<String, Long> hashMap2 = this.o;
-                hashMap2.put("ubc_last_upload_time_level_" + keyAt, 0L);
-            }
-            this.q.V(i2);
-            h3bVar.b().clear();
-        }
-    }
-
-    public void L(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) {
-            this.e.E(str, i, str2);
-        }
-    }
-
-    public void M() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !u3b.a(this.d)) {
-            return;
-        }
-        w3b h = w3b.h(this.d);
-        int p = this.q.p();
-        h.L(false);
-        if (this.v) {
-            h.M(this.w);
-            this.e.b(h);
-        } else {
-            h.M(p);
-            this.e.a(h);
-        }
-        int v = h.v();
-        if (v > 0) {
-            if (y) {
-                Log.d("UBCBehaviorModel", "uploadBackLog size=" + v);
-            }
-            J(h);
-        }
-    }
-
-    public final void N(c cVar) {
-        boolean a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, cVar) != null) || cVar == null) {
-            return;
-        }
-        if (t3b.m().p() && !u3b.a(this.d)) {
-            o2b.w().V(cVar.e, false);
-            return;
-        }
-        if (cVar.a) {
-            a2 = this.p.b(cVar.c, cVar.f, cVar.g, cVar.h);
-        } else {
-            a2 = this.p.a(cVar.d, cVar.g, cVar.h);
-        }
-        e3b e3bVar = cVar.i;
-        if (e3bVar != null) {
-            e3bVar.a(a2, cVar.b);
-        }
-        if (TextUtils.isEmpty(cVar.e)) {
-            return;
-        }
-        o2b.w().V(cVar.e, a2);
-    }
-
-    public void Q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir", str);
-            if (y) {
-                Log.d("UBCBehaviorModel", "deleteUploadFile file:" + file.getAbsolutePath());
-            }
-            l3b.b("delete file");
-            if (file.exists() && file.delete()) {
-                Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
-                l3b.b("delete file suc");
-            }
-            this.e.l(str);
-        }
-    }
-
-    public final boolean V(y2b y2bVar) {
-        InterceptResult invokeL;
-        SparseArray<ArrayList> sparseArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, y2bVar)) == null) {
-            if (!u3b.a(this.d) || !j()) {
-                return false;
-            }
-            z();
-            w3b p = p(y2bVar, false);
-            if (p == null || p.y()) {
-                return false;
-            }
-            if ((y2bVar.n() & 128) != 0) {
-                ArrayList arrayList = new ArrayList(1);
-                arrayList.add(y2bVar.l());
-                sparseArray = new SparseArray<>(1);
-                sparseArray.put(0, arrayList);
-            } else {
-                if (this.n == null) {
-                    r();
-                }
-                if (Y(p, "0")) {
-                    return true;
-                }
-                sparseArray = this.n;
-            }
-            T(sparseArray, p);
-            J(p);
-            y();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void P(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            if (y) {
-                Log.d("UBCBehaviorModel", "upload file fail:" + str);
-            }
-            l3b.b("upload file fail");
-            this.e.F(str);
-        }
-    }
-
-    public final void R(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, str) != null) || !u3b.a(this.d) || !j()) {
-            return;
-        }
-        w3b h = w3b.h(this.d);
-        h.L(true);
-        h.C();
-        ArrayList<String> arrayList = new ArrayList<>(1);
-        arrayList.add(str);
-        this.e.r(arrayList, true, h);
-        J(h);
-        y();
-    }
-
-    public final void g(y2b y2bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, y2bVar) == null) {
-            this.i.add(y2bVar);
-            int i = this.g;
-            if (i == 0) {
-                this.h = SystemClock.uptimeMillis();
-                o2b.w().J(this.x, 5000L);
-                this.g = 1;
-            } else if (i == 2) {
-                this.h = SystemClock.uptimeMillis();
-                this.g = 1;
-            }
-        }
-    }
-
-    public void S() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || !u3b.a(this.d)) {
-            return;
-        }
-        this.e.e();
-        w3b h = w3b.h(this.d);
-        int p = this.q.p();
-        h.M(p);
-        h.L(true);
-        w3b h2 = w3b.h(this.d);
-        h2.M(p);
-        h2.L(false);
-        this.e.n(h, h2);
-        int v = h.v();
-        int v2 = h2.v();
-        if (y) {
-            Log.d("UBCBehaviorModel", "real size = " + v + "   no real  = " + v2);
-        }
-        if (v > 0) {
-            if (h.z()) {
-                o3b.a().l("uploadAll", String.valueOf(p), String.valueOf(v));
-            }
-            J(h);
-        }
-        if (v2 > 0) {
-            if (h2.z()) {
-                o3b.a().l("uploadAll", String.valueOf(p), String.valueOf(v2));
-            }
-            J(h2);
-        }
-    }
-
-    public void v() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048616, this) != null) || !u3b.a(this.d)) {
-            return;
-        }
-        File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir");
-        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                z2b w = this.e.w(listFiles[i].getName());
-                if (w != null && TextUtils.equals("1", w.b())) {
-                    if (y) {
-                        Log.d("UBCBehaviorModel", "processOneFailedData send " + listFiles[i].getAbsolutePath());
+                if (cursor != null && cursor.getCount() > 0) {
+                    cursor.moveToFirst();
+                    int columnIndex = cursor.getColumnIndex("eventid");
+                    int columnIndex2 = cursor.getColumnIndex("switch");
+                    int columnIndex3 = cursor.getColumnIndex("sample");
+                    int columnIndex4 = cursor.getColumnIndex("reserve1");
+                    int columnIndex5 = cursor.getColumnIndex("reserve2");
+                    int columnIndex6 = cursor.getColumnIndex("cycle");
+                    int columnIndex7 = cursor.getColumnIndex("uploadrule");
+                    int columnIndex8 = cursor.getColumnIndex("recordrule");
+                    int columnIndex9 = cursor.getColumnIndex("extend");
+                    int columnIndex10 = cursor.getColumnIndex("reallog");
+                    String str4 = "gflow";
+                    while (true) {
+                        String string = cursor.getString(columnIndex);
+                        String string2 = cursor.getString(columnIndex2);
+                        int i2 = cursor.getInt(columnIndex3);
+                        int i3 = columnIndex;
+                        String string3 = cursor.getString(columnIndex4);
+                        int i4 = columnIndex2;
+                        String string4 = cursor.getString(columnIndex5);
+                        int i5 = columnIndex3;
+                        int i6 = cursor.getInt(columnIndex6);
+                        int i7 = columnIndex4;
+                        int i8 = cursor.getInt(columnIndex7);
+                        int i9 = columnIndex5;
+                        int i10 = cursor.getInt(columnIndex8);
+                        int i11 = columnIndex6;
+                        String string5 = cursor.getString(columnIndex9);
+                        int i12 = columnIndex7;
+                        String string6 = cursor.getString(columnIndex10);
+                        int i13 = columnIndex10;
+                        if (a2b.a(string)) {
+                            a2b a2bVar = new a2b();
+                            a2bVar.a = TextUtils.equals(string2, "1");
+                            if (i6 == 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            a2bVar.b = z;
+                            a2bVar.c = i6;
+                            if (!TextUtils.isEmpty(string5)) {
+                                try {
+                                    JSONObject jSONObject = new JSONObject(string5);
+                                    if (jSONObject.has(str3)) {
+                                        a2bVar.d = jSONObject.optBoolean(str3, true);
+                                    }
+                                } catch (JSONException e4) {
+                                    if (d) {
+                                        e4.printStackTrace();
+                                    }
+                                }
+                            }
+                            t1bVar2.a = a2bVar;
+                            str = str3;
+                            str2 = str4;
+                        } else {
+                            str = str3;
+                            if (TextUtils.equals(string2, "0")) {
+                                t1bVar2.b.add(string);
+                            } else if (TextUtils.equals(string2, "1")) {
+                                t1bVar2.f.add(string);
+                            }
+                            if (i6 == 0) {
+                                t1bVar2.c.add(string);
+                            }
+                            if (TextUtils.equals(string3, "1")) {
+                                t1bVar2.e.add(string);
+                            }
+                            if (i2 > 0) {
+                                t1bVar2.h.put(string, Integer.valueOf(i2));
+                            }
+                            if (!TextUtils.isEmpty(string4)) {
+                                t1bVar2.i.put(string, string4);
+                            }
+                            if (i8 != 0 && i10 != 0) {
+                                t1bVar2.j.put(string, new z1b(string, i10, i8));
+                            }
+                            if (!TextUtils.isEmpty(string5)) {
+                                try {
+                                    JSONObject jSONObject2 = new JSONObject(string5);
+                                    if (jSONObject2.has(Constant.ID_TYPE)) {
+                                        t1bVar2.k.add(string);
+                                    }
+                                    if (jSONObject2.has("ch") && TextUtils.equals(jSONObject2.getString("ch"), "1")) {
+                                        t1bVar2.g.add(string);
+                                    }
+                                    str2 = str4;
+                                    try {
+                                        if (jSONObject2.has(str2) && (i = jSONObject2.getInt(str2)) != 0) {
+                                            t1bVar2.m.put(string, Integer.valueOf(i));
+                                        }
+                                        int optInt = jSONObject2.optInt("uploadType", -1);
+                                        if (optInt != -1) {
+                                            t1bVar2.n.put(string, Integer.valueOf(optInt));
+                                        }
+                                        int optInt2 = jSONObject2.optInt("lcache", 2);
+                                        if (optInt2 == 1 || optInt2 == 0) {
+                                            t1bVar2.o.put(string, Integer.valueOf(optInt2));
+                                        }
+                                    } catch (JSONException e5) {
+                                        e = e5;
+                                        e.printStackTrace();
+                                        if (TextUtils.equals(string6, "1")) {
+                                        }
+                                        if (cursor.moveToNext()) {
+                                        }
+                                        q3b.a(cursor);
+                                        n2bVar = this;
+                                        n2bVar.c.readLock().unlock();
+                                    }
+                                } catch (JSONException e6) {
+                                    e = e6;
+                                    str2 = str4;
+                                }
+                            } else {
+                                str2 = str4;
+                            }
+                            if (TextUtils.equals(string6, "1")) {
+                                t1bVar2.l.add(string);
+                            }
+                        }
+                        if (cursor.moveToNext()) {
+                            columnIndex = i3;
+                            str4 = str2;
+                            columnIndex2 = i4;
+                            columnIndex3 = i5;
+                            columnIndex4 = i7;
+                            columnIndex5 = i9;
+                            columnIndex6 = i11;
+                            columnIndex7 = i12;
+                            str3 = str;
+                            columnIndex10 = i13;
+                        }
                     }
-                    l3b.b("processOneFailedData file, send");
-                    this.e.G(listFiles[i].getName(), "0");
-                    O(w);
+                    q3b.a(cursor);
+                    n2bVar = this;
+                    n2bVar.c.readLock().unlock();
+                }
+                q3b.a(cursor);
+                n2bVar = this;
+                n2bVar.c.readLock().unlock();
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        }
+    }
+
+    public void a(z2b z2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, z2bVar) == null) {
+            n2b n2bVar = this;
+            boolean H = u1b.o().H();
+            n2bVar.c.readLock().lock();
+            try {
+                try {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("SELECT a.* FROM ");
+                    sb.append("event");
+                    sb.append(" a ");
+                    sb.append("LEFT JOIN ");
+                    sb.append("config");
+                    sb.append(" b ");
+                    sb.append("ON a.");
+                    sb.append("eventid");
+                    sb.append(" = b.");
+                    sb.append("eventid");
+                    sb.append(" WHERE ");
+                    sb.append("a.");
+                    sb.append("flowhandle");
+                    sb.append(" = ");
+                    sb.append(-1);
+                    sb.append(" AND ");
+                    sb.append("(a.");
+                    sb.append("reallog");
+                    sb.append(" = '0' OR a.");
+                    sb.append("reallog");
+                    sb.append(" = '')");
+                    if (H) {
+                        sb.append(" AND (b.");
+                        sb.append("switch");
+                        sb.append(" IS NULL OR b.");
+                        sb.append("switch");
+                        sb.append(" = '");
+                        sb.append("1");
+                        sb.append("')");
+                    } else {
+                        sb.append(" AND b.");
+                        sb.append("switch");
+                        sb.append(" = '");
+                        sb.append("1");
+                        sb.append("'");
+                    }
+                    sb.append(" ORDER BY b.");
+                    sb.append("cycle");
+                    sb.append(" ASC");
+                    n2bVar.L(sb.toString(), z2bVar);
+                } catch (SQLException e2) {
+                    e = e2;
+                }
+                if (!z2bVar.w() && !z2bVar.z()) {
+                    StringBuilder sb2 = new StringBuilder();
+                    try {
+                        sb2.append("SELECT a.* FROM ");
+                        sb2.append("flow");
+                        sb2.append(" a ");
+                        sb2.append("LEFT JOIN ");
+                        sb2.append("config");
+                        sb2.append(" b ");
+                        sb2.append("ON a.");
+                        sb2.append("flowid");
+                        sb2.append(" = b.");
+                        sb2.append("eventid");
+                        sb2.append(" WHERE ");
+                        sb2.append(" a.");
+                        sb2.append("endtime");
+                        sb2.append(" IS NOT NULL");
+                        if (H) {
+                            sb2.append(" AND (b.");
+                            sb2.append("switch");
+                            sb2.append(" IS NULL OR b.");
+                            sb2.append("switch");
+                            sb2.append(" = '");
+                            sb2.append("1");
+                            sb2.append("')");
+                        } else {
+                            sb2.append(" AND b.");
+                            sb2.append("switch");
+                            sb2.append(" = '");
+                            sb2.append("1");
+                            sb2.append("'");
+                        }
+                        sb2.append(" ORDER BY b.");
+                        sb2.append("cycle");
+                        sb2.append(" ASC");
+                        n2bVar = this;
+                        n2bVar.O(sb2.toString(), z2bVar);
+                    } catch (SQLException e3) {
+                        e = e3;
+                        n2bVar = this;
+                        if (d) {
+                            e.printStackTrace();
+                        }
+                        n2bVar.a.h(e);
+                        n2bVar.c.readLock().unlock();
+                        return;
+                    } catch (Throwable th) {
+                        th = th;
+                        n2bVar = this;
+                        n2bVar.c.readLock().unlock();
+                        throw th;
+                    }
+                    n2bVar.c.readLock().unlock();
                     return;
                 }
+                n2bVar.c.readLock().unlock();
+            } catch (Throwable th2) {
+                th = th2;
             }
         }
     }
 
-    public final void T(SparseArray<ArrayList> sparseArray, w3b w3bVar) {
-        boolean z;
+    public boolean c0(List<x1b> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048595, this, sparseArray, w3bVar) != null) || sparseArray == null) {
-            return;
-        }
-        boolean H = this.q.H();
-        boolean G = this.q.G();
-        int m = this.q.m();
-        if (H && !G && sparseArray.get(m, null) == null) {
-            sparseArray.put(m, new ArrayList(0));
-            z = true;
-        } else {
-            z = false;
-        }
-        for (int i = 0; i < sparseArray.size() && !w3bVar.d(51200); i++) {
-            int keyAt = sparseArray.keyAt(i);
-            if (keyAt == 0) {
-                if (H && G) {
-                    this.e.r(new ArrayList<>(this.q.u()), false, w3bVar);
-                } else {
-                    this.e.r(sparseArray.valueAt(i), true, w3bVar);
-                }
-            } else if (this.v) {
-                w3bVar.M(this.w);
-                if (H && !G && keyAt == m) {
-                    ArrayList<String> o = o(sparseArray, keyAt);
-                    if (o != null) {
-                        this.e.t(o, false, w3bVar);
-                    }
-                } else {
-                    this.e.t(sparseArray.valueAt(i), true, w3bVar);
-                }
-            } else if (H && !G && keyAt == m) {
-                ArrayList<String> o2 = o(sparseArray, keyAt);
-                if (o2 != null) {
-                    this.e.r(o2, false, w3bVar);
-                }
-            } else {
-                this.e.r(sparseArray.valueAt(i), true, w3bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, list)) == null) {
+            if (list == null || list.size() == 0) {
+                return false;
             }
-            if (w3bVar.w()) {
-                break;
-            }
-        }
-        if (z) {
-            sparseArray.remove(m);
-        }
-    }
-
-    public final void U() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || !u3b.a(this.d)) {
-            return;
-        }
-        if (y) {
-            Log.d("UBCBehaviorModel", " upload no real data");
-        }
-        this.j = System.currentTimeMillis();
-        v3b.a().e("ubc_last_upload_non_real", this.j);
-        i();
-        z();
-        this.e.e();
-        HashSet hashSet = new HashSet();
-        if (this.n == null) {
-            r();
-        }
-        w3b h = w3b.h(this.d);
-        h.L(false);
-        for (int i = 0; i < this.n.size(); i++) {
-            int keyAt = this.n.keyAt(i);
-            if (keyAt != 0) {
-                HashMap<String, Long> hashMap = this.o;
-                long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
-                long j = (long) keyAt;
-                long j2 = 60000 * j;
-                if (this.v) {
-                    j2 = 1000 * j;
-                }
-                if (longValue == 0 || (longValue + j2) - System.currentTimeMillis() < this.q.t()) {
-                    if (this.v) {
-                        h.M(this.w);
-                        this.e.t(this.n.valueAt(i), true, h);
-                    } else {
-                        this.e.r(this.n.valueAt(i), true, h);
-                    }
-                    if (h.w()) {
-                        break;
-                    }
-                    HashMap<String, Long> hashMap2 = this.o;
-                    hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
-                    hashSet.add(Integer.valueOf(keyAt));
-                }
-            }
-        }
-        if (h.y()) {
-            return;
-        }
-        boolean H = this.q.H();
-        boolean G = this.q.G();
-        int m = this.q.m();
-        if (H && !G && this.n.get(m, null) == null) {
-            this.n.put(m, new ArrayList(0));
-            z = true;
-        } else {
-            z = false;
-        }
-        if (!this.v) {
-            for (int i2 = 0; i2 < this.n.size(); i2++) {
-                int keyAt2 = this.n.keyAt(i2);
-                if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
-                    if (h.d(51200)) {
-                        break;
-                    }
-                    if (H && !G && keyAt2 == m) {
-                        ArrayList<String> o = o(this.n, keyAt2);
-                        if (o != null) {
-                            this.e.r(o, false, h);
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    SQLiteStatement compileStatement = writableDatabase.compileStatement("replace into config(eventid,type,recordrule,uploadrule,cycle,switch,sample,reserve1,reserve2,extend,reallog" + SmallTailInfo.EMOTION_SUFFIX + " values(?,?,?,?,?,?,?,?,?,?,?)");
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        try {
+                            for (x1b x1bVar : list) {
+                                compileStatement.clearBindings();
+                                compileStatement.bindString(1, x1bVar.c());
+                                if (x1bVar.getType() == 1) {
+                                    compileStatement.bindString(2, "1");
+                                } else {
+                                    compileStatement.bindString(2, "0");
+                                }
+                                int e2 = x1bVar.e();
+                                int d2 = x1bVar.d();
+                                if (e2 != 0 && d2 != 0) {
+                                    compileStatement.bindLong(3, e2);
+                                    compileStatement.bindLong(4, d2);
+                                }
+                                if (x1bVar.o()) {
+                                    compileStatement.bindLong(5, 0L);
+                                } else {
+                                    compileStatement.bindLong(5, x1bVar.h());
+                                }
+                                if (x1bVar.s()) {
+                                    compileStatement.bindString(6, "1");
+                                } else {
+                                    compileStatement.bindString(6, "0");
+                                }
+                                compileStatement.bindLong(7, x1bVar.g());
+                                if (x1bVar.k()) {
+                                    compileStatement.bindString(8, "1");
+                                } else {
+                                    compileStatement.bindString(8, "0");
+                                }
+                                String a = x1bVar.a();
+                                if (!TextUtils.isEmpty(a)) {
+                                    compileStatement.bindString(9, a);
+                                }
+                                JSONObject jSONObject = new JSONObject();
+                                if (x1bVar.m()) {
+                                    jSONObject.put(Constant.ID_TYPE, "1");
+                                }
+                                if (x1bVar.n()) {
+                                    jSONObject.put("ch", "1");
+                                }
+                                if (x1bVar.l()) {
+                                    jSONObject.put("dfc", "1");
+                                }
+                                jSONObject.put("version", x1bVar.j());
+                                int b = x1bVar.b();
+                                if (x1bVar.r()) {
+                                    jSONObject.put("gflow", Integer.toString(b));
+                                }
+                                if (!x1bVar.t()) {
+                                    jSONObject.put("uploadType", Integer.toString(x1bVar.i()));
+                                }
+                                int f2 = x1bVar.f();
+                                if (f2 != 2) {
+                                    jSONObject.put("lcache", f2);
+                                }
+                                if (a2b.a(x1bVar.c())) {
+                                    jSONObject.put("isSend", x1bVar.q());
+                                }
+                                compileStatement.bindString(10, jSONObject.toString());
+                                if (x1bVar.p()) {
+                                    compileStatement.bindString(11, "1");
+                                } else {
+                                    compileStatement.bindString(11, "0");
+                                }
+                                if (compileStatement.executeUpdateDelete() <= 0) {
+                                    return false;
+                                }
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "updateConfig success count: " + list.size());
+                            }
+                            return true;
+                        } catch (JSONException e3) {
+                            if (d) {
+                                e3.printStackTrace();
+                            }
+                            writableDatabase.endTransaction();
+                            return false;
                         }
-                    } else {
-                        this.e.r(this.n.valueAt(i2), true, h);
+                    } finally {
+                        writableDatabase.endTransaction();
                     }
-                    if (h.w()) {
-                        break;
+                } catch (SQLException e4) {
+                    if (d) {
+                        e4.printStackTrace();
                     }
+                    this.a.h(e4);
                 }
+            } finally {
+                this.c.writeLock().unlock();
             }
+        } else {
+            return invokeL.booleanValue;
         }
-        if (z) {
-            this.n.remove(m);
-        }
-        if (y) {
-            Log.d("UBCBehaviorModel", "UBC non real time:");
-        }
-        J(h);
     }
 
-    public final boolean Y(w3b w3bVar, String str) {
-        InterceptResult invokeLL;
+    public void B(String str, int i, long j, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, w3bVar, str)) == null) {
-            if (m3b.i().isPeakTime()) {
-                List<String> i = m3b.i().i();
-                if (i != null && i.size() != 0) {
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    arrayList.addAll(i);
-                    if (arrayList.size() == 0) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            if (i >= 0 && !TextUtils.isEmpty(str)) {
+                this.c.writeLock().lock();
+                try {
+                    try {
+                        SQLiteDatabase writableDatabase = getWritableDatabase();
+                        writableDatabase.beginTransactionNonExclusive();
+                        try {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("state", "2");
+                            contentValues.put("endtime", Long.valueOf(j));
+                            if (jSONArray != null && jSONArray.length() > 0) {
+                                contentValues.put("slot", jSONArray.toString());
+                            }
+                            int update = writableDatabase.update("flow", contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i, null);
+                            if (d && update != 1) {
+                                Log.d("UBCDatabaseHelper", "endFlow#performTransaction: endFlow count:" + update);
+                            }
+                            l2b.f().a(str, false);
+                            w2b.m().y(str, update);
+                            writableDatabase.setTransactionSuccessful();
+                            writableDatabase.endTransaction();
+                        } catch (Throwable th) {
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    } finally {
+                        this.c.writeLock().unlock();
+                    }
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                    this.a.h(e2);
+                }
+            } else if (d) {
+                Log.d("UBCDatabaseHelper", "endFlow#flowHandle invalid");
+            }
+        }
+    }
+
+    public final boolean g(SQLiteDatabase sQLiteDatabase, d2b d2bVar, int i, z2b z2bVar) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048614, this, sQLiteDatabase, d2bVar, i, z2bVar)) == null) {
+            if (d2bVar.k() < 0) {
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                StringBuilder sb = new StringBuilder(256);
+                sb.append("SELECT ");
+                sb.append("eventid");
+                sb.append(" , ");
+                sb.append("begintime");
+                sb.append(" , ");
+                sb.append("content");
+                sb.append(" FROM ");
+                sb.append("event");
+                sb.append(" WHERE ");
+                sb.append("flowhandle");
+                sb.append(" = ");
+                sb.append(d2bVar.k());
+                Cursor rawQuery = sQLiteDatabase.rawQuery(sb.toString(), null);
+                if (rawQuery != null && rawQuery.getCount() > 0) {
+                    rawQuery.moveToFirst();
+                    int columnIndex = rawQuery.getColumnIndex("eventid");
+                    int columnIndex2 = rawQuery.getColumnIndex("begintime");
+                    int columnIndex3 = rawQuery.getColumnIndex("content");
+                    do {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("id", rawQuery.getString(columnIndex));
+                        jSONObject.put("timestamp", Long.toString(rawQuery.getLong(columnIndex2)));
+                        jSONObject.put("content", rawQuery.getString(columnIndex3));
+                        jSONArray.put(jSONObject);
+                    } while (rawQuery.moveToNext());
+                    d2bVar.w(jSONArray);
+                }
+                q3b.a(rawQuery);
+                if (z2bVar.c(d2bVar, i)) {
+                    if (!TextUtils.isEmpty(d2bVar.j())) {
+                        z2bVar.K("1");
+                    }
+                    if (d2bVar.i() > 0 && d2bVar.i() > z2bVar.s()) {
+                        z2bVar.J(0L, d2bVar.i());
+                    }
+                    if (d2bVar.c() > 0) {
+                        if (z2bVar.t() == 0 || d2bVar.c() < z2bVar.t()) {
+                            z2bVar.J(d2bVar.c(), 0L);
+                            return true;
+                        }
                         return true;
                     }
-                    this.e.r(arrayList, true, w3bVar);
-                    J(w3bVar);
-                    y();
+                    return true;
                 }
-                return true;
+            } catch (RuntimeException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            } catch (JSONException unused) {
+                if (d) {
+                    Log.d("UBCDatabaseHelper", "json exception:");
+                }
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLLIL.booleanValue;
     }
 
-    public void h(String str, int i) {
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0100, code lost:
+        if (0 <= 0) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0103, code lost:
+        return r1;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00a3 A[Catch: all -> 0x00e3, TryCatch #0 {all -> 0x00e3, blocks: (B:6:0x0017, B:22:0x0074, B:32:0x008a, B:34:0x00a3, B:35:0x00b9, B:31:0x0086, B:41:0x00df, B:42:0x00e2), top: B:65:0x0017 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int C(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Throwable th;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048602, this, str, i) == null) {
-            z();
-            this.e.d(str, i);
-            if (!m3b.i().isPeakTime() && Math.abs(System.currentTimeMillis() - this.j) >= r2b.o().t()) {
-                if (y) {
-                    Log.d("UBCBehaviorModel", "cancel flow " + str + " invoke ->uploadNonRealTimeData ");
-                }
-                U();
-            }
-        }
-    }
-
-    public final ArrayList o(SparseArray<ArrayList> sparseArray, int i) {
-        InterceptResult invokeLI;
-        ArrayList valueAt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048609, this, sparseArray, i)) == null) {
-            if (sparseArray != null && sparseArray.size() != 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-                    if (sparseArray.keyAt(i2) != i && (valueAt = sparseArray.valueAt(i2)) != null && valueAt.size() != 0) {
-                        arrayList.addAll(valueAt);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.c.writeLock().lock();
+            int i2 = 0;
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        try {
+                            cursor = writableDatabase.rawQuery("SELECT COUNT(*), MIN(_id), MAX(_id) FROM " + str, null);
+                        } catch (RuntimeException e2) {
+                            e = e2;
+                            cursor = null;
+                        } catch (Throwable th2) {
+                            cursor = null;
+                            th = th2;
+                            q3b.a(cursor);
+                            throw th;
+                        }
+                        if (cursor != null) {
+                            try {
+                                try {
+                                } catch (RuntimeException e3) {
+                                    e = e3;
+                                    if (d) {
+                                        e.printStackTrace();
+                                    }
+                                    q3b.a(cursor);
+                                    i = 0;
+                                    i2 = writableDatabase.delete(str, "_id < " + i, null);
+                                    if (d) {
+                                    }
+                                    writableDatabase.setTransactionSuccessful();
+                                }
+                                if (cursor.getCount() > 0) {
+                                    cursor.moveToFirst();
+                                    if (cursor.getInt(0) > w2b.m().l()) {
+                                        int i3 = cursor.getInt(1);
+                                        int i4 = cursor.getInt(2);
+                                        if (w2b.m().o()) {
+                                            i = (i3 + i4) / 3;
+                                        } else {
+                                            i = (i3 + i4) / 2;
+                                        }
+                                        q3b.a(cursor);
+                                        i2 = writableDatabase.delete(str, "_id < " + i, null);
+                                        if (d) {
+                                            Log.d("UBCDatabaseHelper", "ensureDataBaseLimit#performTransaction: delete count:" + i2);
+                                        }
+                                        writableDatabase.setTransactionSuccessful();
+                                    }
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                q3b.a(cursor);
+                                throw th;
+                            }
+                        }
+                        i = 0;
+                        q3b.a(cursor);
+                        i2 = writableDatabase.delete(str, "_id < " + i, null);
+                        if (d) {
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                    } finally {
+                        writableDatabase.endTransaction();
                     }
+                } catch (SQLException e4) {
+                    if (d) {
+                        e4.printStackTrace();
+                    }
+                    this.a.h(e4);
+                    this.c.writeLock().unlock();
                 }
-                return arrayList;
+            } finally {
+                this.c.writeLock().unlock();
+                if (0 > 0) {
+                    r2b.a().b(String.valueOf(u1b.o().l()), 0, str);
+                }
             }
-            return null;
+        } else {
+            return invokeL.intValue;
         }
-        return (ArrayList) invokeLI.objValue;
     }
 
-    public final w3b p(y2b y2bVar, boolean z) {
-        InterceptResult invokeLZ;
-        w3b h;
+    public x1b I(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048610, this, y2bVar, z)) == null) {
-            if (z) {
-                h = w3b.i();
-            } else {
-                h = w3b.h(this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.c.readLock().lock();
+            try {
+                try {
+                    try {
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        cursor = getReadableDatabase().rawQuery(String.format("SELECT * FROM %s where eventid = \"%s\"", "config", str), null);
+                        if (cursor != null) {
+                            try {
+                                if (cursor.getCount() > 0) {
+                                    cursor.moveToFirst();
+                                    String string = cursor.getString(cursor.getColumnIndex("eventid"));
+                                    boolean equals = TextUtils.equals(cursor.getString(cursor.getColumnIndex("switch")), "1");
+                                    int i = cursor.getInt(cursor.getColumnIndex("cycle"));
+                                    if (i == 0) {
+                                        z = true;
+                                    } else {
+                                        z = false;
+                                    }
+                                    x1b x1bVar = new x1b(string, equals, z, i, TextUtils.equals("1", cursor.getString(cursor.getColumnIndex("type"))) ? 1 : 0, TextUtils.equals(cursor.getString(cursor.getColumnIndex("reserve1")), "1"));
+                                    String string2 = cursor.getString(cursor.getColumnIndex("extend"));
+                                    if (!TextUtils.isEmpty(string2)) {
+                                        try {
+                                            JSONObject jSONObject = new JSONObject(string2);
+                                            String optString = jSONObject.optString("dfc");
+                                            if (!TextUtils.isEmpty(optString)) {
+                                                x1bVar.x(TextUtils.equals(optString, "1"));
+                                            }
+                                            String optString2 = jSONObject.optString("version");
+                                            if (!TextUtils.isEmpty(optString2)) {
+                                                x1bVar.G(optString2);
+                                            }
+                                            if (jSONObject.has("uploadType")) {
+                                                x1bVar.F(jSONObject.optInt("uploadType", -1));
+                                            }
+                                            int optInt = jSONObject.optInt("lcache", 2);
+                                            if (optInt == 1 || optInt == 0) {
+                                                x1bVar.B(optInt);
+                                            }
+                                            if (a2b.a(string) && jSONObject.has("isSend")) {
+                                                x1bVar.y(jSONObject.optBoolean("isSend", true));
+                                            }
+                                        } catch (JSONException e2) {
+                                            if (d) {
+                                                e2.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                    x1bVar.E(TextUtils.equals(cursor.getString(cursor.getColumnIndex("reallog")), "1"));
+                                    q3b.a(cursor);
+                                    return x1bVar;
+                                }
+                            } catch (RuntimeException e3) {
+                                e = e3;
+                                if (d) {
+                                    e.printStackTrace();
+                                }
+                                q3b.a(cursor);
+                                return null;
+                            }
+                        }
+                    } catch (RuntimeException e4) {
+                        e = e4;
+                        cursor = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        q3b.a(null);
+                        throw th;
+                    }
+                    q3b.a(cursor);
+                } catch (SQLException e5) {
+                    if (d) {
+                        e5.printStackTrace();
+                    }
+                    this.a.h(e5);
+                }
+                return null;
+            } finally {
+                this.c.readLock().unlock();
             }
-            if (!h.c(y2bVar, y2bVar.g())) {
+        }
+        return (x1b) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0100 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x001b */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00ef A[Catch: all -> 0x0122, SQLException -> 0x0124, DONT_GENERATE, TRY_ENTER, TRY_LEAVE, TryCatch #1 {SQLException -> 0x0124, blocks: (B:8:0x001b, B:41:0x00ef, B:44:0x00fc, B:61:0x011e, B:62:0x0121), top: B:79:0x001b, outer: #2 }] */
+    /* JADX WARN: Type inference failed for: r15v0, types: [int] */
+    /* JADX WARN: Type inference failed for: r15v8, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r15v9 */
+    /* JADX WARN: Type inference failed for: r6v1, types: [java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock] */
+    /* JADX WARN: Type inference failed for: r6v2, types: [android.database.sqlite.SQLiteDatabase] */
+    /* JADX WARN: Type inference failed for: r6v3, types: [android.database.sqlite.SQLiteDatabase] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Map<String, l2b.a> T(int i) {
+        InterceptResult invokeI;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            if (i <= 0) {
                 return null;
             }
-            h.L(true);
-            if ((y2bVar.n() & 128) != 0) {
-                h.C();
+            ?? readLock = this.c.readLock();
+            readLock.lock();
+            try {
+                try {
+                    try {
+                        readLock = getReadableDatabase();
+                        HashMap hashMap = new HashMap();
+                        try {
+                            try {
+                                readLock.beginTransactionNonExclusive();
+                            } catch (Throwable th) {
+                                th = th;
+                            }
+                            try {
+                                cursor = readLock.rawQuery("SELECT ubcid" + StringUtil.ARRAY_ELEMENT_SEPARATOR + "ubctime" + StringUtil.ARRAY_ELEMENT_SEPARATOR + "count" + StringUtil.ARRAY_ELEMENT_SEPARATOR + "callcnt FROM arrival WHERE date(ubctime) > date('now', '-" + ((int) i) + " day')  ORDER BY date(ubctime" + SmallTailInfo.EMOTION_SUFFIX + WordCommandManager.DESC, null);
+                                if (cursor != null) {
+                                    try {
+                                        if (cursor.getCount() > 0) {
+                                            cursor.moveToFirst();
+                                            int columnIndex = cursor.getColumnIndex("ubcid");
+                                            int columnIndex2 = cursor.getColumnIndex("ubctime");
+                                            int columnIndex3 = cursor.getColumnIndex("count");
+                                            int columnIndex4 = cursor.getColumnIndex("callcnt");
+                                            do {
+                                                String string = cursor.getString(columnIndex);
+                                                String string2 = cursor.getString(columnIndex2);
+                                                int i2 = cursor.getInt(columnIndex3);
+                                                int i3 = cursor.getInt(columnIndex4);
+                                                if (i2 >= 1 && !TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                                                    l2b.f().e(hashMap, string2, string, i2, i3);
+                                                }
+                                            } while (cursor.moveToNext());
+                                        }
+                                    } catch (SQLException e2) {
+                                        e = e2;
+                                        if (d) {
+                                            e.printStackTrace();
+                                        }
+                                        this.a.h(e);
+                                        q3b.a(cursor);
+                                        readLock.setTransactionSuccessful();
+                                        if (hashMap.size() > 0) {
+                                        }
+                                        return null;
+                                    }
+                                }
+                            } catch (SQLException e3) {
+                                e = e3;
+                                cursor = null;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                i = 0;
+                                q3b.a(i);
+                                throw th;
+                            }
+                            q3b.a(cursor);
+                            readLock.setTransactionSuccessful();
+                            if (hashMap.size() > 0) {
+                                return hashMap;
+                            }
+                        } catch (SQLException e4) {
+                            if (d) {
+                                e4.printStackTrace();
+                            }
+                            this.a.h(e4);
+                        } catch (RuntimeException e5) {
+                            if (d) {
+                                e5.printStackTrace();
+                            }
+                        }
+                    } catch (SQLException e6) {
+                        if (d) {
+                            e6.printStackTrace();
+                        }
+                        this.a.h(e6);
+                    }
+                    return null;
+                } finally {
+                    readLock.endTransaction();
+                }
+            } finally {
+                this.c.readLock().unlock();
             }
-            if (!TextUtils.isEmpty(y2bVar.h())) {
-                h.K("1");
-            }
-            return h;
         }
-        return (w3b) invokeLZ.objValue;
+        return (Map) invokeI.objValue;
     }
 
-    public final boolean j() {
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00c9 A[Catch: all -> 0x00f8, TryCatch #0 {all -> 0x00f8, blocks: (B:11:0x0024, B:14:0x005d, B:16:0x0070, B:18:0x0090, B:19:0x0099, B:21:0x009f, B:23:0x00a6, B:24:0x00ae, B:26:0x00b8, B:34:0x00c9, B:35:0x00d2, B:37:0x00dd, B:38:0x00f1, B:29:0x00bf, B:31:0x00c3, B:15:0x0069), top: B:61:0x0024, inners: #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00dd A[Catch: all -> 0x00f8, TryCatch #0 {all -> 0x00f8, blocks: (B:11:0x0024, B:14:0x005d, B:16:0x0070, B:18:0x0090, B:19:0x0099, B:21:0x009f, B:23:0x00a6, B:24:0x00ae, B:26:0x00b8, B:34:0x00c9, B:35:0x00d2, B:37:0x00dd, B:38:0x00f1, B:29:0x00bf, B:31:0x00c3, B:15:0x0069), top: B:61:0x0024, inners: #2 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a0(d2b d2bVar) {
+        SQLiteDatabase writableDatabase;
+        ContentValues contentValues;
+        JSONObject jSONObject;
+        boolean z;
+        boolean z2;
+        String d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, d2bVar) == null) {
+            if (d2bVar != null && !TextUtils.isEmpty(d2bVar.l())) {
+                this.c.writeLock().lock();
+                try {
+                    try {
+                        writableDatabase = getWritableDatabase();
+                        writableDatabase.beginTransactionNonExclusive();
+                        try {
+                            contentValues = new ContentValues();
+                            contentValues.put("flowid", d2bVar.l());
+                            contentValues.put("flowhandle", Integer.valueOf(d2bVar.k()));
+                            contentValues.put("state", d2bVar.o());
+                            contentValues.put("begintime", Long.valueOf(d2bVar.c()));
+                            if (d2bVar.m() != null) {
+                                contentValues.put("content", d2bVar.m().toString());
+                            } else {
+                                contentValues.put("content", d2bVar.g());
+                            }
+                            contentValues.put(SpeedStatsUtils.UBC_KEY_OPTION, Integer.valueOf(d2bVar.n()));
+                            contentValues.put("reserve1", d2bVar.j());
+                            if (!TextUtils.isEmpty(d2bVar.f())) {
+                                contentValues.put("reserve2", d2bVar.f());
+                            }
+                            jSONObject = new JSONObject();
+                            z = true;
+                            try {
+                                z2 = false;
+                                if (d2bVar.p()) {
+                                    jSONObject.put("ctr", "1");
+                                    z = false;
+                                }
+                                d2 = d2bVar.d();
+                            } catch (JSONException e2) {
+                                if (d) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                        } catch (Throwable th) {
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    } catch (SQLException e3) {
+                        if (d) {
+                            e3.printStackTrace();
+                        }
+                        this.a.h(e3);
+                    }
+                    if (!TextUtils.isEmpty(d2)) {
+                        jSONObject.put("bizInfo", d2);
+                        if (!z2) {
+                            contentValues.put("extend", jSONObject.toString());
+                        }
+                        long insert = writableDatabase.insert("flow", null, contentValues);
+                        if (d) {
+                            Log.d("UBCDatabaseHelper", "saveFlow#performTransaction: rowId=" + insert);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        writableDatabase.endTransaction();
+                    }
+                    z2 = z;
+                    if (!z2) {
+                    }
+                    long insert2 = writableDatabase.insert("flow", null, contentValues);
+                    if (d) {
+                    }
+                    writableDatabase.setTransactionSuccessful();
+                    writableDatabase.endTransaction();
+                } finally {
+                    this.c.writeLock().unlock();
+                }
+            } else if (d) {
+                Log.d("UBCDatabaseHelper", "saveFlow#event id must not be null");
+            }
+        }
+    }
+
+    public final String D(boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT a.* FROM ");
+            if (z) {
+                sb.append("event");
+                sb.append(" a ");
+                sb.append("LEFT JOIN ");
+                sb.append("config");
+                sb.append(" b ");
+                sb.append("ON a.");
+                sb.append("eventid");
+                sb.append(" = b.");
+                sb.append("eventid");
+                sb.append(" WHERE ");
+                sb.append("a.");
+                sb.append("flowhandle");
+                sb.append(" = ");
+                sb.append(-1);
+                sb.append(" AND ");
+                sb.append("(a.");
+                sb.append("reallog");
+                sb.append(" = '0' OR a.");
+                sb.append("reallog");
+                sb.append(" = '')");
+            } else {
+                sb.append("flow");
+                sb.append(" a ");
+                sb.append("LEFT JOIN ");
+                sb.append("config");
+                sb.append(" b ");
+                sb.append("ON a.");
+                sb.append("flowid");
+                sb.append(" = b.");
+                sb.append("eventid");
+                sb.append(" WHERE ");
+                sb.append("a.");
+                sb.append("endtime");
+                sb.append(" IS NOT NULL");
+            }
+            if (z3) {
+                sb.append(" AND (b.");
+                sb.append("switch");
+                sb.append(" IS NULL OR b.");
+                sb.append("switch");
+                sb.append(" = '");
+                sb.append("1");
+                sb.append("')");
+            } else {
+                sb.append(" AND b.");
+                sb.append("switch");
+                sb.append(" = '");
+                sb.append("1");
+                sb.append("'");
+            }
+            if (z2) {
+                sb.append(" AND ");
+                sb.append("(b.");
+                sb.append("cycle");
+                sb.append(" = 0)");
+                sb.append(" ORDER BY a.");
+                sb.append("begintime");
+                sb.append(WordCommandManager.DESC);
+            } else {
+                sb.append(" AND ");
+                sb.append("(b.");
+                sb.append("cycle");
+                sb.append(" > 0)");
+                sb.append(" ORDER BY a.");
+                sb.append("begintime");
+                sb.append(" ASC");
+            }
+            return sb.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public int E(z2b z2bVar, z2b z2bVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, z2bVar, z2bVar2)) == null) {
+            int G = G(z2bVar, z2bVar2);
+            if (z2bVar.z() && z2bVar2.z()) {
+                return 1;
+            }
+            if (z2bVar.w() && z2bVar2.w()) {
+                return 0;
+            }
+            return F(z2bVar, z2bVar2) | G;
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:136:0x0162 A[EDGE_INSN: B:136:0x0162->B:88:0x0162 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x013b  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0164 A[LOOP:0: B:131:0x0055->B:89:0x0164, LOOP_END] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int F(z2b z2bVar, z2b z2bVar2) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, z2bVar, z2bVar2)) == null) {
+            this.c.readLock().lock();
+            int i = 0;
+            try {
+                try {
+                    boolean z2 = z2bVar.z();
+                    boolean z3 = z2bVar2.z();
+                    Cursor cursor = null;
+                    try {
+                        try {
+                            cursor = getReadableDatabase().rawQuery("SELECT * FROM event WHERE flowhandle = -1 AND reallog = \"0\"", null);
+                            if (cursor != null && cursor.getCount() > 0) {
+                                cursor.moveToFirst();
+                                int columnIndex = cursor.getColumnIndex("eventid");
+                                int columnIndex2 = cursor.getColumnIndex("begintime");
+                                int columnIndex3 = cursor.getColumnIndex("content");
+                                int columnIndex4 = cursor.getColumnIndex("reserve1");
+                                int columnIndex5 = cursor.getColumnIndex("reserve2");
+                                int columnIndex6 = cursor.getColumnIndex("extend");
+                                int i2 = 0;
+                                while (true) {
+                                    try {
+                                        String string = cursor.getString(columnIndex);
+                                        if (!TextUtils.isEmpty(string)) {
+                                            b2b b2bVar = new b2b(string);
+                                            boolean e2 = u1b.o().e(string);
+                                            if (z2 && z3) {
+                                                break;
+                                            } else if ((!z2 || !e2) && (!z3 || e2)) {
+                                                try {
+                                                    if (z2bVar.w() && z2bVar2.w()) {
+                                                        q3b.a(cursor);
+                                                        return i;
+                                                    } else if ((!e2 || !z2bVar.w()) && (!e2 || !z2bVar2.w())) {
+                                                        z = z2;
+                                                        b2bVar.B(cursor.getLong(columnIndex2));
+                                                        String string2 = cursor.getString(columnIndex3);
+                                                        if (!TextUtils.isEmpty(string2)) {
+                                                            b2bVar.t(string2);
+                                                        }
+                                                        String string3 = cursor.getString(columnIndex4);
+                                                        if (!TextUtils.isEmpty(string3)) {
+                                                            b2bVar.w(string3);
+                                                        }
+                                                        String string4 = cursor.getString(columnIndex5);
+                                                        if (!TextUtils.isEmpty(string4)) {
+                                                            b2bVar.s(string4);
+                                                        }
+                                                        String string5 = cursor.getString(columnIndex6);
+                                                        if (!TextUtils.isEmpty(string5)) {
+                                                            JSONObject jSONObject = new JSONObject(string5);
+                                                            if (jSONObject.has("ctr")) {
+                                                                b2bVar.u(true);
+                                                            }
+                                                            if (jSONObject.has("bizInfo")) {
+                                                                b2bVar.r(jSONObject.optString("bizInfo"));
+                                                            }
+                                                        }
+                                                        int g = b2bVar.g();
+                                                        if (e2) {
+                                                            if (d(b2bVar, g, z2bVar)) {
+                                                                if (z2bVar.z()) {
+                                                                    z = true;
+                                                                }
+                                                                if (i2 == 0) {
+                                                                    i2 = 1;
+                                                                }
+                                                                if (!z2bVar.w() && z2bVar2.w()) {
+                                                                    q3b.a(cursor);
+                                                                    this.c.readLock().unlock();
+                                                                    return 0;
+                                                                }
+                                                                i = 0;
+                                                                if (z && z3) {
+                                                                    break;
+                                                                }
+                                                                if (!cursor.moveToNext()) {
+                                                                }
+                                                            } else {
+                                                                i = 0;
+                                                                if (!cursor.moveToNext()) {
+                                                                    break;
+                                                                }
+                                                                z2 = z;
+                                                            }
+                                                        } else {
+                                                            if (d(b2bVar, g, z2bVar2)) {
+                                                                if (z2bVar2.z()) {
+                                                                    z3 = true;
+                                                                }
+                                                                if (i2 == 0) {
+                                                                }
+                                                                if (!z2bVar.w()) {
+                                                                }
+                                                                i = 0;
+                                                                if (z) {
+                                                                    break;
+                                                                    break;
+                                                                }
+                                                                if (!cursor.moveToNext()) {
+                                                                }
+                                                            }
+                                                            i = 0;
+                                                            if (!cursor.moveToNext()) {
+                                                            }
+                                                        }
+                                                    }
+                                                } catch (SQLException e3) {
+                                                    e = e3;
+                                                    i = i2;
+                                                    if (d) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    this.a.h(e);
+                                                    return i;
+                                                }
+                                            }
+                                        }
+                                        z = z2;
+                                        i = 0;
+                                        if (!cursor.moveToNext()) {
+                                        }
+                                    } catch (RuntimeException e4) {
+                                        e = e4;
+                                        i = i2;
+                                        if (d) {
+                                            e.printStackTrace();
+                                        }
+                                        q3b.a(cursor);
+                                        return i;
+                                    } catch (JSONException unused) {
+                                        i = i2;
+                                        if (d) {
+                                            Log.d("UBCDatabaseHelper", "json exception:");
+                                        }
+                                        q3b.a(cursor);
+                                        return i;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        i = i2;
+                                        q3b.a(cursor);
+                                        throw th;
+                                    }
+                                }
+                                i = i2;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                        }
+                    } catch (RuntimeException e5) {
+                        e = e5;
+                    } catch (JSONException unused2) {
+                    }
+                    q3b.a(cursor);
+                } catch (SQLException e6) {
+                    e = e6;
+                }
+                return i;
+            } finally {
+                this.c.readLock().unlock();
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0142 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x0150 A[EDGE_INSN: B:123:0x0150->B:62:0x0150 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0143 A[Catch: RuntimeException -> 0x0159, all -> 0x017c, TryCatch #10 {all -> 0x017c, blocks: (B:60:0x014a, B:54:0x013c, B:57:0x0143, B:79:0x0170, B:81:0x0174), top: B:113:0x0018 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0152 A[LOOP:0: B:12:0x0069->B:63:0x0152, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x018d A[Catch: all -> 0x019f, TryCatch #12 {all -> 0x019f, blocks: (B:71:0x0165, B:93:0x0189, B:95:0x018d, B:96:0x0190, B:82:0x0177, B:84:0x017d, B:85:0x0180), top: B:116:0x0011 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int O(String str, z2b z2bVar) {
+        InterceptResult invokeLL;
+        n2b n2bVar;
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, z2bVar)) == null) {
+            this.c.readLock().lock();
+            try {
+                try {
+                    SQLiteDatabase readableDatabase = getReadableDatabase();
+                    Cursor cursor = null;
+                    try {
+                        try {
+                            try {
+                                cursor = readableDatabase.rawQuery(str, null);
+                                if (cursor != null && cursor.getCount() > 0) {
+                                    cursor.moveToFirst();
+                                    int columnIndex = cursor.getColumnIndex("flowid");
+                                    int columnIndex2 = cursor.getColumnIndex("flowhandle");
+                                    int columnIndex3 = cursor.getColumnIndex("state");
+                                    int columnIndex4 = cursor.getColumnIndex("begintime");
+                                    int columnIndex5 = cursor.getColumnIndex("endtime");
+                                    int columnIndex6 = cursor.getColumnIndex("content");
+                                    int columnIndex7 = cursor.getColumnIndex(SpeedStatsUtils.UBC_KEY_OPTION);
+                                    int columnIndex8 = cursor.getColumnIndex("reserve1");
+                                    int columnIndex9 = cursor.getColumnIndex("reserve2");
+                                    int columnIndex10 = cursor.getColumnIndex("slot");
+                                    int columnIndex11 = cursor.getColumnIndex("extend");
+                                    while (true) {
+                                        try {
+                                            if (!"2".equals(cursor.getString(columnIndex3)) && (Math.abs(cursor.getLong(columnIndex4) - System.currentTimeMillis()) <= 86400000 || (cursor.getInt(columnIndex7) & 4) == 0)) {
+                                                i2 = columnIndex;
+                                                i3 = columnIndex2;
+                                                n2bVar = this;
+                                                try {
+                                                    if (cursor.moveToNext()) {
+                                                        break;
+                                                    }
+                                                    columnIndex = i2;
+                                                    columnIndex2 = i3;
+                                                } catch (RuntimeException e2) {
+                                                    e = e2;
+                                                    if (d) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    q3b.a(cursor);
+                                                    i = 0;
+                                                    n2bVar.c.readLock().unlock();
+                                                    return i;
+                                                }
+                                            }
+                                            d2b d2bVar = new d2b();
+                                            d2bVar.A(cursor.getString(columnIndex));
+                                            d2bVar.z(cursor.getInt(columnIndex2));
+                                            i2 = columnIndex;
+                                            i3 = columnIndex2;
+                                            d2bVar.q(cursor.getLong(columnIndex4));
+                                            d2bVar.v(cursor.getLong(columnIndex5));
+                                            String string = cursor.getString(columnIndex6);
+                                            if (!TextUtils.isEmpty(string)) {
+                                                d2bVar.t(string);
+                                            }
+                                            String string2 = cursor.getString(columnIndex8);
+                                            if (!TextUtils.isEmpty(string2)) {
+                                                d2bVar.y(string2);
+                                            }
+                                            if (!TextUtils.isEmpty(cursor.getString(columnIndex9))) {
+                                                d2bVar.s(cursor.getString(columnIndex9));
+                                            }
+                                            String string3 = cursor.getString(columnIndex10);
+                                            if (columnIndex10 >= 0 && !TextUtils.isEmpty(string3)) {
+                                                d2bVar.B(string3);
+                                            }
+                                            if (!TextUtils.isEmpty(cursor.getString(columnIndex11))) {
+                                                try {
+                                                    JSONObject jSONObject = new JSONObject(cursor.getString(columnIndex11));
+                                                    if (jSONObject.has("ctr")) {
+                                                        try {
+                                                            d2bVar.u(true);
+                                                        } catch (JSONException e3) {
+                                                            e = e3;
+                                                            e.printStackTrace();
+                                                            n2bVar = this;
+                                                            if (!n2bVar.g(readableDatabase, d2bVar, d2bVar.h(), z2bVar)) {
+                                                            }
+                                                            i = 1;
+                                                            q3b.a(cursor);
+                                                            n2bVar.c.readLock().unlock();
+                                                            return i;
+                                                        }
+                                                    }
+                                                    if (jSONObject.has("bizInfo")) {
+                                                        d2bVar.r(jSONObject.optString("bizInfo"));
+                                                    }
+                                                } catch (JSONException e4) {
+                                                    e = e4;
+                                                }
+                                            }
+                                            n2bVar = this;
+                                            if (!n2bVar.g(readableDatabase, d2bVar, d2bVar.h(), z2bVar)) {
+                                                break;
+                                            }
+                                            if (!z2bVar.z()) {
+                                                break;
+                                            }
+                                            if (cursor.moveToNext()) {
+                                            }
+                                        } catch (RuntimeException e5) {
+                                            e = e5;
+                                            n2bVar = this;
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            q3b.a(cursor);
+                                            throw th;
+                                        }
+                                    }
+                                    i = 1;
+                                } else {
+                                    n2bVar = this;
+                                    i = 0;
+                                }
+                            } catch (SQLException e6) {
+                                e = e6;
+                                i = 0;
+                                if (d) {
+                                    e.printStackTrace();
+                                }
+                                n2bVar.a.h(e);
+                                n2bVar.c.readLock().unlock();
+                                return i;
+                            }
+                            try {
+                                q3b.a(cursor);
+                            } catch (SQLException e7) {
+                                e = e7;
+                                if (d) {
+                                }
+                                n2bVar.a.h(e);
+                                n2bVar.c.readLock().unlock();
+                                return i;
+                            }
+                        } catch (RuntimeException e8) {
+                            e = e8;
+                            n2bVar = this;
+                        } catch (Throwable th2) {
+                            th = th2;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (Throwable th4) {
+                    th = th4;
+                    this.c.readLock().unlock();
+                    throw th;
+                }
+            } catch (SQLException e9) {
+                e = e9;
+                n2bVar = this;
+            } catch (Throwable th5) {
+                th = th5;
+                this.c.readLock().unlock();
+                throw th;
+            }
+            n2bVar.c.readLock().unlock();
+            return i;
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0169  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0174 A[Catch: all -> 0x01bd, TryCatch #4 {all -> 0x01bd, blocks: (B:39:0x0143, B:41:0x0148, B:46:0x0156, B:49:0x016b, B:51:0x0174, B:53:0x017e, B:54:0x0183, B:56:0x018e, B:57:0x01a2, B:44:0x0150), top: B:88:0x0143 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x018e A[Catch: all -> 0x01bd, TryCatch #4 {all -> 0x01bd, blocks: (B:39:0x0143, B:41:0x0148, B:46:0x0156, B:49:0x016b, B:51:0x0174, B:53:0x017e, B:54:0x0183, B:56:0x018e, B:57:0x01a2, B:44:0x0150), top: B:88:0x0143 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean o(z2b z2bVar, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        int i;
+        int i2;
+        z2b z2bVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048622, this, z2bVar, str)) == null) {
+            String str2 = "0";
+            SparseArray<Integer> r = z2bVar.r();
+            ArrayList q = z2bVar.q();
+            boolean B = z2bVar.B();
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        try {
+                            if (r != null) {
+                                try {
+                                    if (r.size() > 0) {
+                                        int size = r.size();
+                                        ArrayList arrayList = new ArrayList(size);
+                                        for (int i3 = 0; i3 < size; i3++) {
+                                            arrayList.add(Integer.valueOf(r.keyAt(i3)));
+                                        }
+                                        String P = P(arrayList);
+                                        if (d) {
+                                            Log.d("UBCDatabaseHelper", "save file name " + str + " delete flow handle ids = " + P);
+                                        }
+                                        StringBuilder sb = new StringBuilder();
+                                        sb.append("flowhandle");
+                                        sb.append(" in (");
+                                        sb.append(P);
+                                        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                                        i = writableDatabase.delete("flow", sb.toString(), null);
+                                        if (d) {
+                                            Log.d("UBCDatabaseHelper", "clearUploadedData#performTransaction: flow table delete count:" + i);
+                                        }
+                                        try {
+                                            int delete = writableDatabase.delete("event", sb.toString(), null);
+                                            if (d) {
+                                                Log.d("UBCDatabaseHelper", "clearUploadedData#performTransaction:  delete flow -> event table count:" + delete);
+                                            }
+                                            if (q == null && q.size() > 0) {
+                                                String P2 = P(q);
+                                                if (d) {
+                                                    Log.d("UBCDatabaseHelper", "delete event ids = " + P2);
+                                                }
+                                                i2 = writableDatabase.delete("event", "eventid in (" + P2 + SmallTailInfo.EMOTION_SUFFIX + " AND flowhandle = -1", null);
+                                                if (d) {
+                                                    Log.d("UBCDatabaseHelper", "clearUploadedData#performTransaction: event table count2:" + i2);
+                                                }
+                                                z2bVar2 = z2bVar;
+                                            } else {
+                                                z2bVar2 = z2bVar;
+                                                i2 = 0;
+                                            }
+                                            p(writableDatabase, z2bVar2);
+                                            if ((r != null && r.size() > 0) || (q != null && q.size() > 0)) {
+                                                ContentValues contentValues = new ContentValues();
+                                                contentValues.put(BreakpointSQLiteKey.FILENAME, str);
+                                                contentValues.put("state", "0");
+                                                if (B) {
+                                                    str2 = "1";
+                                                }
+                                                contentValues.put("reserve1", str2);
+                                                if (z2bVar.x()) {
+                                                    String N = N(z2bVar);
+                                                    if (!TextUtils.isEmpty(N)) {
+                                                        contentValues.put("reserve2", N);
+                                                    }
+                                                }
+                                                long insert = writableDatabase.insert("file", null, contentValues);
+                                                if (d) {
+                                                    Log.d("UBCDatabaseHelper", "clearUploadedData#save file: rowId=" + insert);
+                                                }
+                                            }
+                                            writableDatabase.setTransactionSuccessful();
+                                            writableDatabase.endTransaction();
+                                            w2b.m().s(i2, i);
+                                            this.c.writeLock().unlock();
+                                            return true;
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            i2 = 0;
+                                            writableDatabase.endTransaction();
+                                            w2b.m().s(i2, i);
+                                            throw th;
+                                        }
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    i = 0;
+                                    i2 = 0;
+                                    writableDatabase.endTransaction();
+                                    w2b.m().s(i2, i);
+                                    throw th;
+                                }
+                            }
+                            if (r != null) {
+                                ContentValues contentValues2 = new ContentValues();
+                                contentValues2.put(BreakpointSQLiteKey.FILENAME, str);
+                                contentValues2.put("state", "0");
+                                if (B) {
+                                }
+                                contentValues2.put("reserve1", str2);
+                                if (z2bVar.x()) {
+                                }
+                                long insert2 = writableDatabase.insert("file", null, contentValues2);
+                                if (d) {
+                                }
+                                writableDatabase.setTransactionSuccessful();
+                                writableDatabase.endTransaction();
+                                w2b.m().s(i2, i);
+                                this.c.writeLock().unlock();
+                                return true;
+                            }
+                            writableDatabase.endTransaction();
+                            w2b.m().s(i2, i);
+                            this.c.writeLock().unlock();
+                            return true;
+                        } catch (SQLException e2) {
+                            e = e2;
+                            z = true;
+                            if (d) {
+                                e.printStackTrace();
+                            }
+                            this.a.h(e);
+                            return z;
+                        }
+                        p(writableDatabase, z2bVar2);
+                        ContentValues contentValues22 = new ContentValues();
+                        contentValues22.put(BreakpointSQLiteKey.FILENAME, str);
+                        contentValues22.put("state", "0");
+                        if (B) {
+                        }
+                        contentValues22.put("reserve1", str2);
+                        if (z2bVar.x()) {
+                        }
+                        long insert22 = writableDatabase.insert("file", null, contentValues22);
+                        if (d) {
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                    } catch (Throwable th3) {
+                        th = th3;
+                        writableDatabase.endTransaction();
+                        w2b.m().s(i2, i);
+                        throw th;
+                    }
+                    i = 0;
+                    if (q == null) {
+                    }
+                    z2bVar2 = z2bVar;
+                    i2 = 0;
+                } catch (SQLException e3) {
+                    e = e3;
+                    z = false;
+                }
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        } else {
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x01f5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:114:0x0216 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:129:0x0231 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:179:0x0204 */
+    /* JADX WARN: Can't wrap try/catch for region: R(8:(2:14|15)|(2:47|(2:49|(7:(8:60|(1:(18:83|84|85|(1:87)|88|(1:90)|91|(1:93)|94|(1:98)|99|100|(5:133|134|(1:136)|137|(1:139))|102|(3:104|105|(6:107|22|23|24|25|(1:28)(1:27))(3:108|(1:110)|111))(6:128|(2:130|(1:132))|23|24|25|(0)(0))|(1:113)|114|(5:124|(1:127)|24|25|(0)(0))(4:118|119|120|121)))(4:64|65|66|67)|71|72|(1:74)|75|31|32)|56|22|23|24|25|(0)(0))(2:52|53)))|21|22|23|24|25|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x0214, code lost:
+        r0 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0216, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:137:0x0240, code lost:
+        r0.printStackTrace();
+        r3 = r3;
+        r6 = r6;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x0207 A[LOOP:0: B:172:0x0077->B:111:0x0207, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0240 A[Catch: all -> 0x0244, TRY_LEAVE, TryCatch #4 {all -> 0x0244, blocks: (B:135:0x023c, B:137:0x0240), top: B:161:0x023c }] */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x0204 A[EDGE_INSN: B:177:0x0204->B:110:0x0204 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r18v6 */
+    /* JADX WARN: Type inference failed for: r3v17 */
+    /* JADX WARN: Type inference failed for: r3v18 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [int] */
+    /* JADX WARN: Type inference failed for: r6v0 */
+    /* JADX WARN: Type inference failed for: r6v26 */
+    /* JADX WARN: Type inference failed for: r6v27 */
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.n2b] */
+    /* JADX WARN: Type inference failed for: r6v5, types: [android.database.sqlite.SQLiteDatabase] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int G(z2b z2bVar, z2b z2bVar2) {
+        InterceptResult invokeLL;
+        n2b n2bVar;
+        n2b n2bVar2;
+        ?? r3;
+        boolean z;
+        boolean z2;
+        Cursor cursor;
+        n2b n2bVar3;
+        boolean z3;
+        n2b n2bVar4;
+        boolean z4;
+        SQLiteDatabase sQLiteDatabase;
+        int i;
+        int i2;
+        String str;
+        SQLiteDatabase sQLiteDatabase2;
+        n2b n2bVar5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, z2bVar, z2bVar2)) == null) {
+            n2b n2bVar6 = this;
+            String str2 = "bizInfo";
+            ReentrantReadWriteLock.ReadLock readLock = n2bVar6.c.readLock();
+            readLock.lock();
+            try {
+                try {
+                    try {
+                        z = z2bVar.z();
+                        z2 = z2bVar2.z();
+                        n2bVar = getReadableDatabase();
+                        cursor = null;
+                        try {
+                            try {
+                                cursor = n2bVar.rawQuery(" SELECT * FROM flow", null);
+                            } catch (SQLException e2) {
+                                e = e2;
+                            }
+                        } catch (RuntimeException e3) {
+                            e = e3;
+                            n2bVar3 = n2bVar6;
+                            z3 = false;
+                        } catch (Throwable th) {
+                            th = th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r6.c.readLock().unlock();
+                        throw th;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    n2b n2bVar7 = n2bVar6;
+                    n2bVar7.c.readLock().unlock();
+                    throw th;
+                }
+            } catch (SQLException e4) {
+                e = e4;
+                n2bVar = n2bVar6;
+                readLock = null;
+            }
+            if (cursor != null && cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                int columnIndex = cursor.getColumnIndex("flowid");
+                int columnIndex2 = cursor.getColumnIndex("flowhandle");
+                int columnIndex3 = cursor.getColumnIndex("state");
+                int columnIndex4 = cursor.getColumnIndex("begintime");
+                int columnIndex5 = cursor.getColumnIndex("endtime");
+                int columnIndex6 = cursor.getColumnIndex("content");
+                int columnIndex7 = cursor.getColumnIndex(SpeedStatsUtils.UBC_KEY_OPTION);
+                int columnIndex8 = cursor.getColumnIndex("reserve1");
+                int columnIndex9 = cursor.getColumnIndex("reserve2");
+                boolean z5 = z;
+                int columnIndex10 = cursor.getColumnIndex("slot");
+                boolean z6 = z2;
+                int columnIndex11 = cursor.getColumnIndex("extend");
+                boolean z7 = false;
+                SQLiteDatabase sQLiteDatabase3 = n2bVar;
+                while (true) {
+                    try {
+                        sQLiteDatabase = sQLiteDatabase3;
+                    } catch (RuntimeException e5) {
+                        e = e5;
+                        n2bVar = n2bVar6;
+                    } catch (Throwable th4) {
+                        th = th4;
+                    }
+                    if ("2".equals(cursor.getString(columnIndex3)) || (Math.abs(cursor.getLong(columnIndex4) - System.currentTimeMillis()) > 86400000 && (cursor.getInt(columnIndex7) & 4) != 0)) {
+                        String string = cursor.getString(columnIndex);
+                        int i3 = cursor.getInt(columnIndex2);
+                        if (i3 >= 0) {
+                            i = columnIndex2;
+                            boolean e6 = u1b.o().e(string);
+                            if (z5 && z6) {
+                                n2bVar = n2bVar6;
+                                break;
+                            }
+                            if ((!z5 || !e6) && (!z6 || e6)) {
+                                if (z2bVar.w() && z2bVar2.w()) {
+                                    try {
+                                        q3b.a(cursor);
+                                        n2bVar6.c.readLock().unlock();
+                                        return 0;
+                                    } catch (SQLException e7) {
+                                        e = e7;
+                                        n2bVar = n2bVar6;
+                                    }
+                                } else if ((!e6 || !z2bVar.w()) && (!e6 || !z2bVar2.w())) {
+                                    i2 = columnIndex3;
+                                    d2b d2bVar = new d2b();
+                                    d2bVar.A(cursor.getString(columnIndex));
+                                    d2bVar.z(i3);
+                                    try {
+                                        d2bVar.q(cursor.getLong(columnIndex4));
+                                        d2bVar.v(cursor.getLong(columnIndex5));
+                                        String string2 = cursor.getString(columnIndex6);
+                                        if (!TextUtils.isEmpty(string2)) {
+                                            d2bVar.t(string2);
+                                        }
+                                        String string3 = cursor.getString(columnIndex8);
+                                        if (!TextUtils.isEmpty(string3)) {
+                                            d2bVar.y(string3);
+                                        }
+                                        if (!TextUtils.isEmpty(cursor.getString(columnIndex9))) {
+                                            d2bVar.s(cursor.getString(columnIndex9));
+                                        }
+                                        String string4 = cursor.getString(columnIndex10);
+                                        if (columnIndex10 >= 0 && !TextUtils.isEmpty(string4)) {
+                                            d2bVar.B(string4);
+                                        }
+                                        if (!TextUtils.isEmpty(cursor.getString(columnIndex11))) {
+                                            try {
+                                                JSONObject jSONObject = new JSONObject(cursor.getString(columnIndex11));
+                                                if (jSONObject.has("ctr")) {
+                                                    d2bVar.u(true);
+                                                }
+                                                if (jSONObject.has(str2)) {
+                                                    d2bVar.r(jSONObject.optString(str2));
+                                                }
+                                            } catch (JSONException e8) {
+                                                e8.printStackTrace();
+                                            }
+                                        }
+                                        int h = d2bVar.h();
+                                        if (e6) {
+                                            n2bVar = this;
+                                            sQLiteDatabase2 = sQLiteDatabase;
+                                            if (!n2bVar.g(sQLiteDatabase2, d2bVar, h, z2bVar)) {
+                                                str = str2;
+                                                n2bVar5 = n2bVar;
+                                                n2bVar = n2bVar5;
+                                                if (!cursor.moveToNext()) {
+                                                    break;
+                                                }
+                                                columnIndex2 = i;
+                                                columnIndex3 = i2;
+                                                str2 = str;
+                                                n2b n2bVar8 = n2bVar;
+                                                sQLiteDatabase3 = sQLiteDatabase2;
+                                                n2bVar6 = n2bVar8;
+                                            } else {
+                                                str = str2;
+                                                if (z2bVar.z()) {
+                                                    z5 = true;
+                                                }
+                                            }
+                                        } else {
+                                            n2bVar = this;
+                                            str = str2;
+                                            sQLiteDatabase2 = sQLiteDatabase;
+                                            boolean g = n2bVar.g(sQLiteDatabase2, d2bVar, h, z2bVar2);
+                                            n2bVar5 = n2bVar;
+                                            if (g) {
+                                                if (z2bVar2.z()) {
+                                                    z6 = true;
+                                                }
+                                            }
+                                            n2bVar = n2bVar5;
+                                            if (!cursor.moveToNext()) {
+                                            }
+                                        }
+                                        if (!z7) {
+                                            z7 = true;
+                                        }
+                                        if (z2bVar.w() && z2bVar2.w()) {
+                                            try {
+                                                q3b.a(cursor);
+                                                n2bVar.c.readLock().unlock();
+                                                return 0;
+                                            } catch (SQLException e9) {
+                                                e = e9;
+                                            }
+                                        } else {
+                                            n2bVar = n2bVar;
+                                            n2bVar = n2bVar;
+                                            if (z5 && z6) {
+                                                break;
+                                            }
+                                            if (!cursor.moveToNext()) {
+                                            }
+                                        }
+                                    } catch (RuntimeException e10) {
+                                        e = e10;
+                                        n2bVar = this;
+                                        z3 = z7;
+                                        n2bVar3 = n2bVar;
+                                        try {
+                                            z4 = z3;
+                                            n2bVar4 = n2bVar3;
+                                            if (d) {
+                                            }
+                                            q3b.a(cursor);
+                                            r3 = z4;
+                                            n2bVar2 = n2bVar4;
+                                            n2bVar2.c.readLock().unlock();
+                                            return r3;
+                                        } catch (Throwable th5) {
+                                            th = th5;
+                                            q3b.a(cursor);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th6) {
+                                        th = th6;
+                                        q3b.a(cursor);
+                                        throw th;
+                                    }
+                                }
+                                readLock = z7;
+                                if (d) {
+                                    e.printStackTrace();
+                                }
+                                n2bVar.a.h(e);
+                                r3 = readLock;
+                                n2bVar2 = n2bVar;
+                                n2bVar2.c.readLock().unlock();
+                                return r3;
+                            }
+                            n2bVar = n2bVar6;
+                            str = str2;
+                            i2 = columnIndex3;
+                            sQLiteDatabase2 = sQLiteDatabase;
+                            n2bVar5 = n2bVar;
+                            n2bVar = n2bVar5;
+                            if (!cursor.moveToNext()) {
+                            }
+                        }
+                    }
+                    n2bVar = n2bVar6;
+                    str = str2;
+                    i = columnIndex2;
+                    i2 = columnIndex3;
+                    sQLiteDatabase2 = sQLiteDatabase;
+                    n2bVar5 = n2bVar;
+                    n2bVar = n2bVar5;
+                    if (!cursor.moveToNext()) {
+                    }
+                }
+                z4 = z7;
+                n2bVar4 = n2bVar;
+            } else {
+                n2bVar4 = n2bVar6;
+                z4 = false;
+            }
+            q3b.a(cursor);
+            r3 = z4;
+            n2bVar2 = n2bVar4;
+            n2bVar2.c.readLock().unlock();
+            return r3;
+        }
+        return invokeLL.intValue;
+    }
+
+    public HashMap<String, String> H(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, arrayList)) == null) {
+            this.c.readLock().lock();
+            HashMap<String, String> hashMap = new HashMap<>();
+            String P = P(arrayList);
+            try {
+                try {
+                    cursor = null;
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                }
+                try {
+                    try {
+                        cursor = getReadableDatabase().rawQuery("SELECT eventid,extend FROM config WHERE eventid in (" + P + SmallTailInfo.EMOTION_SUFFIX, null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            do {
+                                String string = cursor.getString(cursor.getColumnIndex("eventid"));
+                                String string2 = cursor.getString(cursor.getColumnIndex("extend"));
+                                if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                                    hashMap.put(string, string2);
+                                }
+                            } while (cursor.moveToNext());
+                        }
+                    } catch (SQLiteException e3) {
+                        if (d) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return hashMap;
+                } finally {
+                    q3b.a(cursor);
+                }
+            } finally {
+                this.c.readLock().unlock();
+            }
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public void Y(b2b b2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, b2bVar) == null) {
+            if (b2bVar != null && !TextUtils.isEmpty(b2bVar.l())) {
+                this.c.writeLock().lock();
+                try {
+                    try {
+                        ContentValues M = M(b2bVar);
+                        String k = b2bVar.k();
+                        String l = b2bVar.l();
+                        int j = b2bVar.j();
+                        SQLiteDatabase writableDatabase = getWritableDatabase();
+                        writableDatabase.beginTransactionNonExclusive();
+                        try {
+                            if (l(k, l, j, writableDatabase)) {
+                                long insert = writableDatabase.insert("event", null, M);
+                                if (d) {
+                                    Log.d("UBCDatabaseHelper", "saveEvent#performTransaction: rowId=" + insert);
+                                }
+                                if (insert > 0) {
+                                    w2b.m().x(l, j);
+                                    if (b2bVar.j() == -1) {
+                                        l2b.f().a(b2bVar.l(), false);
+                                    }
+                                }
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            writableDatabase.endTransaction();
+                        } catch (Throwable th) {
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    } catch (SQLException e2) {
+                        if (d) {
+                            e2.printStackTrace();
+                        }
+                        this.a.h(e2);
+                    }
+                } finally {
+                    this.c.writeLock().unlock();
+                }
+            } else if (d) {
+                Log.d("UBCDatabaseHelper", "saveEvent#event id must not be null");
+            }
+        }
+    }
+
+    public boolean x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            this.c.writeLock().lock();
+            try {
+                SQLiteDatabase writableDatabase = getWritableDatabase();
+                writableDatabase.beginTransactionNonExclusive();
+                Cursor cursor = null;
+                try {
+                    cursor = writableDatabase.rawQuery("SELECT * FROM config WHERE eventid=\"" + str + "\"", null);
+                    if (cursor != null && cursor.getCount() != 0) {
+                        int delete = writableDatabase.delete("config", "eventid =? ", new String[]{str});
+                        writableDatabase.setTransactionSuccessful();
+                        if (delete > 0) {
+                            z = true;
+                        }
+                        return z;
+                    }
+                    return true;
+                } finally {
+                    q3b.a(cursor);
+                    writableDatabase.endTransaction();
+                }
+            } catch (SQLException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+                this.a.h(e2);
+                return false;
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            if (y) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - this.k) > 86400000) {
-                this.m = 0;
-                this.k = currentTimeMillis;
-                v3b.a().e("ubc_reset_real_time_count_time", this.k);
-                v3b.a().d("ubc_real_time_count", this.m);
-            }
-            if (this.m < 10000) {
-                return true;
-            }
-            if (y) {
-                Log.d("UBCBehaviorModel", "real time upload total count check fail");
-            }
-            int i = this.m;
-            if (i == 10000) {
-                this.m = i + 1;
-                if (!y) {
-                    o3b.a().f(String.valueOf(10000));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            this.c.readLock().lock();
+            int i = 0;
+            try {
+                try {
+                    SQLiteDatabase readableDatabase = getReadableDatabase();
+                    Cursor cursor = null;
+                    try {
+                        try {
+                            cursor = readableDatabase.rawQuery("SELECT COUNT(eventid) FROM config", null);
+                            if (cursor != null) {
+                                cursor.moveToFirst();
+                                i = cursor.getInt(0);
+                            }
+                        } catch (SQLException e2) {
+                            if (d) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    } finally {
+                        q3b.a(cursor);
+                    }
+                } finally {
+                    this.c.readLock().unlock();
+                }
+            } catch (SQLException e3) {
+                if (d) {
+                    e3.printStackTrace();
                 }
             }
-            return false;
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("state", "1");
+                        int update = writableDatabase.update("file", contentValues, null, null);
+                        if (d) {
+                            Log.d("UBCDatabaseHelper", "updateAllSentFileFail#performTransaction: update file table:" + update);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        writableDatabase.endTransaction();
+                    } catch (Throwable th) {
+                        writableDatabase.endTransaction();
+                        throw th;
+                    }
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                    this.a.h(e2);
+                }
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:22:0x003f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean s() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            this.c.writeLock().lock();
+            boolean z = false;
+            try {
+                SQLiteDatabase writableDatabase = getWritableDatabase();
+                writableDatabase.beginTransactionNonExclusive();
+                try {
+                    try {
+                        i = writableDatabase.delete("event", "reallog =?", new String[]{"1"});
+                        try {
+                            writableDatabase.setTransactionSuccessful();
+                        } catch (SQLException e2) {
+                            e = e2;
+                            if (d) {
+                                e.printStackTrace();
+                            }
+                            this.a.h(e);
+                            if (i > 0) {
+                            }
+                            return z;
+                        }
+                    } catch (SQLException e3) {
+                        e = e3;
+                        i = 0;
+                    }
+                    if (i > 0) {
+                        z = true;
+                    }
+                    return z;
+                } finally {
+                    writableDatabase.endTransaction();
+                }
+            } catch (SQLException e4) {
+                if (d) {
+                    e4.printStackTrace();
+                }
+                this.a.h(e4);
+                return false;
+            } finally {
+                this.c.writeLock().unlock();
+            }
         }
         return invokeV.booleanValue;
     }
 
-    public final void r() {
+    public void w() {
+        SQLiteDatabase writableDatabase;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048612, this) != null) || this.n != null) {
-            return;
-        }
-        if (y) {
-            Log.d("UBCBehaviorModel", "BehaviorModel initCache");
-        }
-        SparseArray<ArrayList> sparseArray = new SparseArray<>();
-        this.n = sparseArray;
-        this.e.x(sparseArray);
-        if (y) {
-            Log.d("UBCBehaviorModel", "mIdArray: " + this.n.toString());
-        }
-        this.o = new HashMap<>();
-        int i = 0;
-        for (int i2 = 0; i2 < this.n.size(); i2++) {
-            int keyAt = this.n.keyAt(i2);
-            if (keyAt != 0 && i == 0) {
-                i = keyAt;
-            }
-            HashMap<String, Long> hashMap = this.o;
-            hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
-        }
-        this.q.V(i);
-    }
-
-    public void k(h3b h3bVar, boolean z, JSONArray jSONArray) {
-        JSONObject a2;
-        String str;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048605, this, new Object[]{h3bVar, Boolean.valueOf(z), jSONArray}) != null) || (a2 = h3bVar.a()) == null) {
-            return;
-        }
-        Iterator<String> keys = a2.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
+        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
+            this.c.writeLock().lock();
             try {
-                JSONObject jSONObject = new JSONObject();
-                u2b p = this.e.p(next);
-                String optString = a2.optString(next, "0");
-                if (p == null) {
-                    str = "0";
-                } else {
-                    str = p.j();
-                }
-                if (Integer.parseInt(str) >= Integer.parseInt(optString)) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z && str != null && z2) {
-                    jSONObject.put("product", String.format("del/%s", next));
-                    jSONObject.put("valid", "2");
-                    jSONObject.put("version", optString);
-                    jSONArray.put(jSONObject);
-                    this.t++;
-                } else {
-                    jSONObject.put("product", String.format("del/%s", next));
-                    jSONObject.put("version", optString);
-                    jSONObject.put("valid", "1");
-                    if (!this.e.j(next)) {
-                        jSONObject.put("valid", "0");
-                        this.s++;
-                    } else {
-                        this.r++;
+                try {
+                    writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
                     }
-                    jSONArray.put(jSONObject);
+                    this.a.h(e2);
                 }
-            } catch (Exception e) {
-                if (y) {
-                    e.printStackTrace();
+                try {
+                    int delete = writableDatabase.delete("file", null, null);
+                    if (d) {
+                        Log.d("UBCDatabaseHelper", "deleteAllSentFile#performTransaction: delete file table:" + delete);
+                    }
+                    writableDatabase.setTransactionSuccessful();
+                    writableDatabase.endTransaction();
+                } catch (Throwable th) {
+                    writableDatabase.endTransaction();
+                    throw th;
                 }
+            } finally {
+                this.c.writeLock().unlock();
             }
         }
     }
 
-    public void l(String str, int i, int i2, long j, JSONArray jSONArray) {
-        List<String> i3;
+    public int K(ArrayList<String> arrayList, boolean z, z2b z2bVar) {
+        InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), jSONArray}) == null) {
-            z();
-            this.e.m(str, i, j, jSONArray);
-            if ((i2 & 128) != 0) {
-                R(str);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{arrayList, Boolean.valueOf(z), z2bVar})) == null) {
+            String P = P(arrayList);
+            if (z) {
+                str = " in  (";
+            } else {
+                str = " not in (";
             }
-            boolean e = this.q.e(str);
-            if (m3b.i().isPeakTime()) {
-                if (e && (i3 = m3b.i().i()) != null && i3.contains(str)) {
-                    if (!this.c) {
-                        if ((System.currentTimeMillis() - this.b) / 1000 < this.a) {
-                            return;
-                        }
-                        this.c = true;
+            if (TextUtils.isEmpty(P) && z) {
+                return 0;
+            }
+            StringBuilder sb = new StringBuilder(256);
+            if (!z && TextUtils.isEmpty(P)) {
+                sb.append("SELECT * FROM ");
+                sb.append("flow");
+            } else {
+                sb.append("SELECT * ");
+                sb.append(" FROM ");
+                sb.append("flow");
+                sb.append(" WHERE ");
+                sb.append("flowid");
+                sb.append(str);
+                sb.append(P);
+                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            }
+            int O = O(sb.toString(), z2bVar);
+            if (z2bVar.w()) {
+                return 0;
+            }
+            StringBuilder sb2 = new StringBuilder(256);
+            if (!z && TextUtils.isEmpty(P)) {
+                sb2.append("SELECT *  FROM ");
+                sb2.append("event");
+                sb2.append(" WHERE ");
+                sb2.append("flowhandle");
+                sb2.append(" = ");
+                sb2.append(-1);
+                sb2.append(" AND ");
+                sb2.append("reallog");
+                sb2.append(" = \"0\"");
+            } else {
+                sb2.append("SELECT *  FROM ");
+                sb2.append("event");
+                sb2.append(" WHERE ");
+                sb2.append("eventid");
+                sb2.append(str);
+                sb2.append(P);
+                sb2.append(SmallTailInfo.EMOTION_SUFFIX);
+                sb2.append(" AND ");
+                sb2.append("flowhandle");
+                sb2.append(" = ");
+                sb2.append(-1);
+                sb2.append(" AND ");
+                sb2.append("reallog");
+                sb2.append(" = \"0\"");
+            }
+            return L(sb2.toString(), z2bVar) | O;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final int L(String str, z2b z2bVar) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, z2bVar)) == null) {
+            this.c.readLock().lock();
+            int i = 0;
+            try {
+                try {
+                    cursor = null;
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
                     }
+                    this.a.h(e2);
+                }
+                try {
+                    try {
+                        cursor = getReadableDatabase().rawQuery(str, null);
+                        if (cursor != null && cursor.getCount() > 0) {
+                            cursor.moveToFirst();
+                            int columnIndex = cursor.getColumnIndex("eventid");
+                            int columnIndex2 = cursor.getColumnIndex("begintime");
+                            int columnIndex3 = cursor.getColumnIndex("content");
+                            int columnIndex4 = cursor.getColumnIndex("reserve1");
+                            int columnIndex5 = cursor.getColumnIndex("reserve2");
+                            int columnIndex6 = cursor.getColumnIndex("extend");
+                            do {
+                                String string = cursor.getString(columnIndex);
+                                if (!TextUtils.isEmpty(string)) {
+                                    b2b b2bVar = new b2b(string);
+                                    b2bVar.B(cursor.getLong(columnIndex2));
+                                    String string2 = cursor.getString(columnIndex3);
+                                    if (!TextUtils.isEmpty(string2)) {
+                                        b2bVar.t(string2);
+                                    }
+                                    String string3 = cursor.getString(columnIndex4);
+                                    if (!TextUtils.isEmpty(string3)) {
+                                        b2bVar.w(string3);
+                                    }
+                                    if (!TextUtils.isEmpty(cursor.getString(columnIndex5))) {
+                                        b2bVar.s(cursor.getString(columnIndex5));
+                                    }
+                                    if (!TextUtils.isEmpty(cursor.getString(columnIndex6))) {
+                                        JSONObject jSONObject = new JSONObject(cursor.getString(columnIndex6));
+                                        if (jSONObject.has("ctr")) {
+                                            b2bVar.u(true);
+                                        }
+                                        if (jSONObject.has(SpeedStatsUtils.UBC_KEY_OPTION)) {
+                                            b2bVar.z(jSONObject.optInt(SpeedStatsUtils.UBC_KEY_OPTION, 0));
+                                        }
+                                        if (jSONObject.has("bizInfo")) {
+                                            b2bVar.r(jSONObject.optString("bizInfo"));
+                                        }
+                                    }
+                                    if (!d(b2bVar, b2bVar.g(), z2bVar)) {
+                                        break;
+                                    } else if (z2bVar.z()) {
+                                        break;
+                                    }
+                                }
+                            } while (cursor.moveToNext());
+                            i = 1;
+                        }
+                    } catch (RuntimeException e3) {
+                        if (d) {
+                            e3.printStackTrace();
+                        }
+                    } catch (JSONException unused) {
+                        if (d) {
+                            Log.d("UBCDatabaseHelper", "json exception:");
+                        }
+                    }
+                    return i;
+                } finally {
+                    q3b.a(cursor);
+                }
+            } finally {
+                this.c.readLock().unlock();
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public final ContentValues M(b2b b2bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, b2bVar)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("flowhandle", Integer.valueOf(b2bVar.j()));
+            contentValues.put("eventid", b2bVar.l());
+            contentValues.put("begintime", Long.valueOf(b2bVar.p()));
+            if (!TextUtils.isEmpty(b2bVar.f())) {
+                contentValues.put("content", b2bVar.f());
+            } else if (b2bVar.m() != null && !TextUtils.isEmpty(b2bVar.m().toString())) {
+                contentValues.put("content", b2bVar.m().toString());
+            }
+            if (!TextUtils.isEmpty(b2bVar.h())) {
+                contentValues.put("reserve1", b2bVar.h());
+            }
+            if (!TextUtils.isEmpty(b2bVar.e())) {
+                contentValues.put("reserve2", b2bVar.e());
+            }
+            JSONObject jSONObject = new JSONObject();
+            boolean z = true;
+            try {
+                boolean z2 = false;
+                if (b2bVar.q()) {
+                    jSONObject.put("ctr", "1");
+                    z = false;
+                }
+                if ((b2bVar.n() & 128) != 0) {
+                    jSONObject.put(SpeedStatsUtils.UBC_KEY_OPTION, b2bVar.n());
+                    z = false;
+                }
+                String c = b2bVar.c();
+                if (!TextUtils.isEmpty(c)) {
+                    jSONObject.put("bizInfo", c);
                 } else {
-                    return;
+                    z2 = z;
+                }
+                if (!z2) {
+                    contentValues.put("extend", jSONObject.toString());
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
                 }
             }
-            if (e) {
-                if (y) {
-                    Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadRealTimeFlow ");
-                }
-                W();
+            if (!TextUtils.isEmpty(b2bVar.o())) {
+                contentValues.put("reallog", b2bVar.o());
+            } else {
+                contentValues.put("reallog", "0");
             }
-            if (!m3b.i().isPeakTime() && Math.abs(System.currentTimeMillis() - this.j) >= r2b.o().t()) {
-                if (y) {
-                    Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadNonRealTimeData ");
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x00b4 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r0v7, types: [android.database.Cursor] */
+    public c2b U(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            ?? r0 = " , ";
+            this.c.readLock().lock();
+            c2b c2bVar = null;
+            try {
+                try {
+                    try {
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        cursor = getReadableDatabase().rawQuery("SELECT state , reserve1 , reserve2 FROM file WHERE " + BreakpointSQLiteKey.FILENAME + "=\"" + str + "\"", null);
+                        if (cursor != null) {
+                            try {
+                                if (cursor.getCount() > 0) {
+                                    cursor.moveToFirst();
+                                    String string = cursor.getString(cursor.getColumnIndex("state"));
+                                    String str2 = "";
+                                    boolean z = false;
+                                    if (!cursor.isNull(cursor.getColumnIndex("reserve1"))) {
+                                        str2 = cursor.getString(cursor.getColumnIndex("reserve1"));
+                                    }
+                                    if (!cursor.isNull(cursor.getColumnIndex("reserve2"))) {
+                                        z = X(cursor.getString(cursor.getColumnIndex("reserve2")));
+                                    }
+                                    c2bVar = new c2b(str, string, str2, z);
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                                if (d) {
+                                    e.printStackTrace();
+                                }
+                                q3b.a(cursor);
+                                return c2bVar;
+                            }
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        cursor = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r0 = 0;
+                        q3b.a(r0);
+                        throw th;
+                    }
+                    q3b.a(cursor);
+                } catch (SQLException e4) {
+                    if (d) {
+                        e4.printStackTrace();
+                    }
+                    this.a.h(e4);
                 }
-                U();
+                return c2bVar;
+            } finally {
+                this.c.readLock().unlock();
+            }
+        }
+        return (c2b) invokeL.objValue;
+    }
+
+    public void V(SparseArray<ArrayList> sparseArray) {
+        SQLiteDatabase readableDatabase;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, sparseArray) == null) {
+            this.c.readLock().lock();
+            try {
+                try {
+                    readableDatabase = getReadableDatabase();
+                    cursor = null;
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                    this.a.h(e2);
+                }
+                try {
+                    try {
+                        cursor = readableDatabase.rawQuery("SELECT eventid , type , cycle FROM config WHERE switch=\"1\" AND (reallog = \"0\" OR reallog = \"\")", null);
+                        if (cursor != null && cursor.getCount() > 0) {
+                            cursor.moveToFirst();
+                            int columnIndex = cursor.getColumnIndex("eventid");
+                            int columnIndex2 = cursor.getColumnIndex("type");
+                            int columnIndex3 = cursor.getColumnIndex("cycle");
+                            boolean I = u1b.o().I();
+                            int w = u1b.o().w();
+                            do {
+                                String string = cursor.getString(columnIndex);
+                                if (!a2b.a(string)) {
+                                    cursor.getString(columnIndex2);
+                                    int i = cursor.getInt(columnIndex3);
+                                    if (i != 0) {
+                                        if (I) {
+                                            i = w;
+                                        } else if (i < 1) {
+                                            i = 1;
+                                        } else if (i > 720) {
+                                            i = 720;
+                                        }
+                                    }
+                                    if (string != null) {
+                                        ArrayList arrayList = sparseArray.get(i);
+                                        if (arrayList == null) {
+                                            arrayList = new ArrayList();
+                                            sparseArray.put(i, arrayList);
+                                        }
+                                        arrayList.add(string);
+                                    }
+                                }
+                            } while (cursor.moveToNext());
+                        }
+                    } catch (RuntimeException e3) {
+                        if (d) {
+                            e3.printStackTrace();
+                        }
+                    }
+                } finally {
+                    q3b.a(cursor);
+                }
+            } finally {
+                this.c.readLock().unlock();
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0102  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0119  */
+    public final String N(z2b z2bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, z2bVar)) == null) {
+            if (z2bVar != null && z2bVar.x()) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ubc_data_backend_type", "1");
+                    return jSONObject.toString();
+                } catch (JSONException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                        return null;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String P(ArrayList arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, arrayList)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (i > 0) {
+                    sb.append(",");
+                }
+                sb.append("'");
+                sb.append(arrayList.get(i));
+                sb.append("'");
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean X(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            if (!TextUtils.equals(new JSONObject(str).optString("ubc_data_backend_type", "0"), "1")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void Z(List<b2b> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
+            if (list != null && list.size() != 0) {
+                for (b2b b2bVar : list) {
+                    Y(b2bVar);
+                }
+            } else if (d) {
+                Log.d("UBCDatabaseHelper", "saveEvents#data must not be null");
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0203 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x0222 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0116 */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: com.baidu.tieba.n2b */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: com.baidu.tieba.n2b */
+    /* JADX WARN: Can't wrap try/catch for region: R(18:3|(12:4|5|6|7|8|9|10|(9:102|103|104|105|106|107|108|109|110)(6:12|13|14|15|16|17)|18|19|20|21)|(3:70|71|(18:73|74|75|76|24|25|26|27|(1:29)(1:55)|30|31|32|33|(1:37)|39|40|41|42))|23|24|25|26|27|(0)(0)|30|31|32|33|(2:35|37)|39|40|41|42) */
+    /* JADX WARN: Can't wrap try/catch for region: R(29:3|4|5|6|7|8|9|10|(9:102|103|104|105|106|107|108|109|110)(6:12|13|14|15|16|17)|18|19|20|21|(3:70|71|(18:73|74|75|76|24|25|26|27|(1:29)(1:55)|30|31|32|33|(1:37)|39|40|41|42))|23|24|25|26|27|(0)(0)|30|31|32|33|(2:35|37)|39|40|41|42) */
+    /* JADX WARN: Code restructure failed: missing block: B:110:0x020e, code lost:
+        if (com.baidu.tieba.n2b.d != false) goto L64;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:111:0x0210, code lost:
+        r0.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x0213, code lost:
+        r3.a.h(r0);
+        r1 = r1;
+        r3 = r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x0223, code lost:
+        r3.c.readLock().unlock();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x022c, code lost:
+        throw r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x01d8, code lost:
+        r0 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x01d9, code lost:
+        r2 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x01dd, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x01de, code lost:
+        r2 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x01f2, code lost:
+        r0 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x01f3, code lost:
+        r3 = r24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x01f6, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x01f7, code lost:
+        r3 = r24;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x014c A[Catch: all -> 0x01fa, TRY_LEAVE, TryCatch #23 {all -> 0x01fa, blocks: (B:37:0x0113, B:63:0x0148, B:65:0x014c), top: B:124:0x0113 }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x018d A[Catch: all -> 0x01d8, RuntimeException -> 0x01dd, TryCatch #22 {RuntimeException -> 0x01dd, all -> 0x01d8, blocks: (B:67:0x0150, B:69:0x018d, B:71:0x01ba, B:70:0x01a7), top: B:148:0x0150 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01a7 A[Catch: all -> 0x01d8, RuntimeException -> 0x01dd, TryCatch #22 {RuntimeException -> 0x01dd, all -> 0x01d8, blocks: (B:67:0x0150, B:69:0x018d, B:71:0x01ba, B:70:0x01a7), top: B:148:0x0150 }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01c5 A[Catch: RuntimeException -> 0x01d6, all -> 0x01ec, TryCatch #0 {RuntimeException -> 0x01d6, blocks: (B:73:0x01bf, B:75:0x01c5, B:77:0x01cb), top: B:122:0x01bf }] */
+    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.w2b$d] */
+    /* JADX WARN: Type inference failed for: r1v2, types: [com.baidu.tieba.n2b] */
+    /* JADX WARN: Type inference failed for: r1v21 */
+    /* JADX WARN: Type inference failed for: r1v22 */
+    /* JADX WARN: Type inference failed for: r1v23 */
+    /* JADX WARN: Type inference failed for: r1v24 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r3v13 */
+    /* JADX WARN: Type inference failed for: r3v14 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Type inference failed for: r3v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void s(h3b h3bVar, boolean z, JSONArray jSONArray) {
-        List<u2b> b2;
-        HashMap<String, String> hashMap;
-        ArrayList arrayList;
+    public w2b.d R() {
+        InterceptResult invokeV;
+        SQLiteDatabase readableDatabase;
         String str;
+        Cursor cursor;
         String str2;
+        w2b.d dVar;
         String str3;
+        Cursor cursor2;
+        Cursor cursor3;
         String str4;
-        JSONObject jSONObject;
-        String optString;
-        String j;
-        JSONObject jSONObject2;
-        boolean z2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{h3bVar, Boolean.valueOf(z), jSONArray}) == null) && (b2 = h3bVar.b()) != null && b2.size() != 0) {
-            ArrayList arrayList2 = new ArrayList(b2);
-            String str5 = "Json格式转化失败";
-            String str6 = "1";
-            String str7 = "UBCBehaviorModel";
-            if (this.e.q() > 0) {
-                ArrayList<String> arrayList3 = new ArrayList<>();
-                Iterator it = arrayList2.iterator();
-                while (it.hasNext()) {
-                    arrayList3.add(((u2b) it.next()).c());
-                }
-                HashMap<String, String> o = this.e.o(arrayList3);
-                Iterator it2 = arrayList2.iterator();
-                while (it2.hasNext()) {
-                    u2b u2bVar = (u2b) it2.next();
-                    String c2 = u2bVar.c();
-                    String str8 = o.get(c2);
-                    if (!TextUtils.isEmpty(str8)) {
-                        try {
-                            jSONObject = new JSONObject(str8);
-                            optString = jSONObject.optString("version");
-                            hashMap = o;
-                            try {
-                                j = u2bVar.j();
-                                arrayList = arrayList2;
-                            } catch (NumberFormatException unused) {
-                                arrayList = arrayList2;
-                                str2 = str5;
-                                str3 = str7;
-                                if (y) {
-                                    Log.d(str3, "数据转换失败");
-                                }
-                                str5 = str2;
-                                str7 = str3;
-                                o = hashMap;
-                                arrayList2 = arrayList;
-                            } catch (JSONException unused2) {
-                                arrayList = arrayList2;
-                                str = str5;
-                                str4 = str7;
-                                if (y) {
-                                    str2 = str;
-                                    str3 = str4;
-                                    Log.d(str3, str2);
-                                    str5 = str2;
-                                    str7 = str3;
-                                    o = hashMap;
-                                    arrayList2 = arrayList;
-                                }
-                                str2 = str;
-                                str3 = str4;
-                                str5 = str2;
-                                str7 = str3;
-                                o = hashMap;
-                                arrayList2 = arrayList;
-                            }
-                        } catch (NumberFormatException unused3) {
-                            hashMap = o;
-                        } catch (JSONException unused4) {
-                            hashMap = o;
-                        }
-                        try {
-                            jSONObject2 = new JSONObject();
-                            str = str5;
-                            try {
-                                str4 = str7;
-                            } catch (NumberFormatException unused5) {
-                                str3 = str7;
-                                str2 = str;
-                            } catch (JSONException unused6) {
-                                str4 = str7;
-                                if (y) {
-                                }
-                                str2 = str;
-                                str3 = str4;
-                                str5 = str2;
-                                str7 = str3;
-                                o = hashMap;
-                                arrayList2 = arrayList;
-                            }
-                        } catch (NumberFormatException unused7) {
-                            str2 = str5;
-                            str3 = str7;
-                            if (y) {
-                            }
-                            str5 = str2;
-                            str7 = str3;
-                            o = hashMap;
-                            arrayList2 = arrayList;
-                        } catch (JSONException unused8) {
-                            str = str5;
-                            str4 = str7;
-                            if (y) {
-                            }
-                            str2 = str;
-                            str3 = str4;
-                            str5 = str2;
-                            str7 = str3;
-                            o = hashMap;
-                            arrayList2 = arrayList;
-                        }
-                        try {
-                            if (Integer.parseInt(optString) >= Integer.parseInt(j)) {
-                                z2 = true;
-                            } else {
-                                z2 = false;
-                            }
-                        } catch (NumberFormatException unused9) {
-                            str2 = str;
-                            str3 = str4;
-                            if (y) {
-                            }
-                            str5 = str2;
-                            str7 = str3;
-                            o = hashMap;
-                            arrayList2 = arrayList;
-                        } catch (JSONException unused10) {
-                            if (y) {
-                            }
-                            str2 = str;
-                            str3 = str4;
-                            str5 = str2;
-                            str7 = str3;
-                            o = hashMap;
-                            arrayList2 = arrayList;
-                        }
-                        if (z && optString != null && j != null && z2) {
-                            it2.remove();
-                            jSONObject2.put("product", "set/" + c2);
-                            jSONObject2.put("valid", "2");
-                            jSONObject2.put("version", j);
-                            jSONArray.put(jSONObject2);
-                            this.t++;
-                            o = hashMap;
-                            arrayList2 = arrayList;
-                            str5 = str;
-                            str7 = str4;
-                        } else {
-                            if (!TextUtils.equals(jSONObject.optString("dfc"), "1") && u2bVar.l()) {
-                                it2.remove();
-                            }
-                            str2 = str;
-                            str3 = str4;
-                            str5 = str2;
-                            str7 = str3;
-                            o = hashMap;
-                            arrayList2 = arrayList;
-                        }
-                    }
-                }
-            }
-            ArrayList arrayList4 = arrayList2;
-            String str9 = str5;
-            String str10 = str7;
-            boolean D = this.e.D(arrayList4);
-            int size = arrayList4.size();
-            if (D) {
-                this.r += size;
-            } else {
-                this.s += size;
-                str6 = "0";
-            }
-            Iterator it3 = arrayList4.iterator();
-            while (it3.hasNext()) {
-                u2b u2bVar2 = (u2b) it3.next();
-                JSONObject jSONObject3 = new JSONObject();
-                String c3 = u2bVar2.c();
-                String j2 = u2bVar2.j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ?? r1 = this;
+            String str5 = "'";
+            String str6 = " AND b.";
+            String str7 = "')";
+            w2b.d dVar2 = new w2b.d();
+            boolean H = u1b.o().H();
+            n2b readLock = r1.c.readLock();
+            readLock.lock();
+            try {
                 try {
-                    jSONObject3.put("product", "set/" + c3);
-                    jSONObject3.put("version", j2);
-                    jSONObject3.put("valid", str6);
-                } catch (JSONException unused11) {
-                    if (y) {
-                        Log.d(str10, str9);
+                    try {
+                        readableDatabase = getReadableDatabase();
+                        try {
+                            try {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("SELECT COUNT(*) FROM ");
+                                str = "SELECT COUNT(*) FROM ";
+                                try {
+                                    sb.append("event");
+                                    sb.append(" a ");
+                                    sb.append("LEFT JOIN ");
+                                    sb.append("config");
+                                    sb.append(" b ");
+                                    sb.append("ON a.");
+                                    sb.append("eventid");
+                                    sb.append(" = b.");
+                                    sb.append("eventid");
+                                    sb.append(" WHERE ");
+                                    sb.append("a.");
+                                    sb.append("flowhandle");
+                                    sb.append(" = ");
+                                    sb.append(-1);
+                                    sb.append(" AND ");
+                                    sb.append("(a.");
+                                    sb.append("reallog");
+                                    sb.append(" = '0' OR a.");
+                                    sb.append("reallog");
+                                    sb.append(" = '')");
+                                    if (!H) {
+                                        str2 = "1";
+                                        str3 = " IS NULL OR b.";
+                                        try {
+                                            sb.append(str6);
+                                            sb.append("switch");
+                                            sb.append(" = '");
+                                            sb.append(str2);
+                                            str6 = str6;
+                                            str4 = str5;
+                                        } catch (RuntimeException e2) {
+                                            e = e2;
+                                            str6 = str6;
+                                            dVar = dVar2;
+                                            cursor2 = null;
+                                            r1 = dVar;
+                                            if (d) {
+                                            }
+                                            q3b.a(cursor2);
+                                            StringBuilder sb2 = new StringBuilder();
+                                            sb2.append(str);
+                                            sb2.append("flow");
+                                            sb2.append(" a ");
+                                            sb2.append("LEFT JOIN ");
+                                            sb2.append("config");
+                                            sb2.append(" b ");
+                                            sb2.append("ON a.");
+                                            sb2.append("flowid");
+                                            sb2.append(" = b.");
+                                            sb2.append("eventid");
+                                            sb2.append(" WHERE ");
+                                            sb2.append(" a.");
+                                            sb2.append("endtime");
+                                            sb2.append(" IS NOT NULL");
+                                            if (H) {
+                                            }
+                                            cursor3 = null;
+                                            cursor3 = readableDatabase.rawQuery(sb2.toString(), null);
+                                            if (cursor3 != null) {
+                                            }
+                                            q3b.a(cursor3);
+                                            n2b n2bVar = this;
+                                            w2b.d dVar3 = r1;
+                                            n2bVar.c.readLock().unlock();
+                                            return dVar3;
+                                        }
+                                        try {
+                                            sb.append(str4);
+                                        } catch (RuntimeException e3) {
+                                            e = e3;
+                                            str5 = str4;
+                                            dVar = dVar2;
+                                            cursor2 = null;
+                                            r1 = dVar;
+                                            if (d) {
+                                            }
+                                            q3b.a(cursor2);
+                                            StringBuilder sb22 = new StringBuilder();
+                                            sb22.append(str);
+                                            sb22.append("flow");
+                                            sb22.append(" a ");
+                                            sb22.append("LEFT JOIN ");
+                                            sb22.append("config");
+                                            sb22.append(" b ");
+                                            sb22.append("ON a.");
+                                            sb22.append("flowid");
+                                            sb22.append(" = b.");
+                                            sb22.append("eventid");
+                                            sb22.append(" WHERE ");
+                                            sb22.append(" a.");
+                                            sb22.append("endtime");
+                                            sb22.append(" IS NOT NULL");
+                                            if (H) {
+                                            }
+                                            cursor3 = null;
+                                            cursor3 = readableDatabase.rawQuery(sb22.toString(), null);
+                                            if (cursor3 != null) {
+                                            }
+                                            q3b.a(cursor3);
+                                            n2b n2bVar2 = this;
+                                            w2b.d dVar32 = r1;
+                                            n2bVar2.c.readLock().unlock();
+                                            return dVar32;
+                                        }
+                                    } else {
+                                        try {
+                                            try {
+                                                sb.append(" AND (b.");
+                                                sb.append("switch");
+                                                sb.append(" IS NULL OR b.");
+                                                sb.append("switch");
+                                                sb.append(" = '");
+                                                str2 = "1";
+                                            } catch (RuntimeException e4) {
+                                                e = e4;
+                                                str2 = "1";
+                                            }
+                                            try {
+                                                sb.append(str2);
+                                                str3 = " IS NULL OR b.";
+                                            } catch (RuntimeException e5) {
+                                                e = e5;
+                                                str3 = " IS NULL OR b.";
+                                                dVar = dVar2;
+                                                cursor2 = null;
+                                                r1 = dVar;
+                                                if (d) {
+                                                }
+                                                q3b.a(cursor2);
+                                                StringBuilder sb222 = new StringBuilder();
+                                                sb222.append(str);
+                                                sb222.append("flow");
+                                                sb222.append(" a ");
+                                                sb222.append("LEFT JOIN ");
+                                                sb222.append("config");
+                                                sb222.append(" b ");
+                                                sb222.append("ON a.");
+                                                sb222.append("flowid");
+                                                sb222.append(" = b.");
+                                                sb222.append("eventid");
+                                                sb222.append(" WHERE ");
+                                                sb222.append(" a.");
+                                                sb222.append("endtime");
+                                                sb222.append(" IS NOT NULL");
+                                                if (H) {
+                                                }
+                                                cursor3 = null;
+                                                try {
+                                                    cursor3 = readableDatabase.rawQuery(sb222.toString(), null);
+                                                    if (cursor3 != null) {
+                                                    }
+                                                } catch (RuntimeException e6) {
+                                                    e = e6;
+                                                    if (d) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    q3b.a(cursor3);
+                                                    n2b n2bVar22 = this;
+                                                    w2b.d dVar322 = r1;
+                                                    n2bVar22.c.readLock().unlock();
+                                                    return dVar322;
+                                                }
+                                                q3b.a(cursor3);
+                                                n2b n2bVar222 = this;
+                                                w2b.d dVar3222 = r1;
+                                                n2bVar222.c.readLock().unlock();
+                                                return dVar3222;
+                                            }
+                                            try {
+                                                sb.append(str7);
+                                                str7 = str7;
+                                                str4 = str5;
+                                            } catch (RuntimeException e7) {
+                                                e = e7;
+                                                str7 = str7;
+                                                dVar = dVar2;
+                                                cursor2 = null;
+                                                r1 = dVar;
+                                                if (d) {
+                                                }
+                                                q3b.a(cursor2);
+                                                StringBuilder sb2222 = new StringBuilder();
+                                                sb2222.append(str);
+                                                sb2222.append("flow");
+                                                sb2222.append(" a ");
+                                                sb2222.append("LEFT JOIN ");
+                                                sb2222.append("config");
+                                                sb2222.append(" b ");
+                                                sb2222.append("ON a.");
+                                                sb2222.append("flowid");
+                                                sb2222.append(" = b.");
+                                                sb2222.append("eventid");
+                                                sb2222.append(" WHERE ");
+                                                sb2222.append(" a.");
+                                                sb2222.append("endtime");
+                                                sb2222.append(" IS NOT NULL");
+                                                if (H) {
+                                                }
+                                                cursor3 = null;
+                                                cursor3 = readableDatabase.rawQuery(sb2222.toString(), null);
+                                                if (cursor3 != null) {
+                                                }
+                                                q3b.a(cursor3);
+                                                n2b n2bVar2222 = this;
+                                                w2b.d dVar32222 = r1;
+                                                n2bVar2222.c.readLock().unlock();
+                                                return dVar32222;
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            cursor = null;
+                                            q3b.a(cursor);
+                                            throw th;
+                                        }
+                                    }
+                                    str5 = str4;
+                                } catch (RuntimeException e8) {
+                                    e = e8;
+                                    str2 = "1";
+                                    dVar = dVar2;
+                                    str3 = " IS NULL OR b.";
+                                    cursor2 = null;
+                                    r1 = dVar;
+                                    if (d) {
+                                    }
+                                    q3b.a(cursor2);
+                                    StringBuilder sb22222 = new StringBuilder();
+                                    sb22222.append(str);
+                                    sb22222.append("flow");
+                                    sb22222.append(" a ");
+                                    sb22222.append("LEFT JOIN ");
+                                    sb22222.append("config");
+                                    sb22222.append(" b ");
+                                    sb22222.append("ON a.");
+                                    sb22222.append("flowid");
+                                    sb22222.append(" = b.");
+                                    sb22222.append("eventid");
+                                    sb22222.append(" WHERE ");
+                                    sb22222.append(" a.");
+                                    sb22222.append("endtime");
+                                    sb22222.append(" IS NOT NULL");
+                                    if (H) {
+                                    }
+                                    cursor3 = null;
+                                    cursor3 = readableDatabase.rawQuery(sb22222.toString(), null);
+                                    if (cursor3 != null) {
+                                    }
+                                    q3b.a(cursor3);
+                                    n2b n2bVar22222 = this;
+                                    w2b.d dVar322222 = r1;
+                                    n2bVar22222.c.readLock().unlock();
+                                    return dVar322222;
+                                }
+                                try {
+                                    cursor2 = readableDatabase.rawQuery(sb.toString(), null);
+                                } catch (RuntimeException e9) {
+                                    e = e9;
+                                    dVar = dVar2;
+                                    cursor2 = null;
+                                    r1 = dVar;
+                                    if (d) {
+                                    }
+                                    q3b.a(cursor2);
+                                    StringBuilder sb222222 = new StringBuilder();
+                                    sb222222.append(str);
+                                    sb222222.append("flow");
+                                    sb222222.append(" a ");
+                                    sb222222.append("LEFT JOIN ");
+                                    sb222222.append("config");
+                                    sb222222.append(" b ");
+                                    sb222222.append("ON a.");
+                                    sb222222.append("flowid");
+                                    sb222222.append(" = b.");
+                                    sb222222.append("eventid");
+                                    sb222222.append(" WHERE ");
+                                    sb222222.append(" a.");
+                                    sb222222.append("endtime");
+                                    sb222222.append(" IS NOT NULL");
+                                    if (H) {
+                                    }
+                                    cursor3 = null;
+                                    cursor3 = readableDatabase.rawQuery(sb222222.toString(), null);
+                                    if (cursor3 != null) {
+                                    }
+                                    q3b.a(cursor3);
+                                    n2b n2bVar222222 = this;
+                                    w2b.d dVar3222222 = r1;
+                                    n2bVar222222.c.readLock().unlock();
+                                    return dVar3222222;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                cursor = null;
+                            }
+                        } catch (RuntimeException e10) {
+                            e = e10;
+                            str = "SELECT COUNT(*) FROM ";
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (SQLException e11) {
+                    e = e11;
+                }
+            } catch (SQLException e12) {
+                e = e12;
+                readLock = r1;
+                r1 = dVar2;
+            } catch (Throwable th4) {
+                th = th4;
+                readLock = r1;
+            }
+            try {
+                if (cursor2 != null) {
+                    try {
+                    } catch (RuntimeException e13) {
+                        e = e13;
+                        dVar = dVar2;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        cursor = cursor2;
+                        q3b.a(cursor);
+                        throw th;
+                    }
+                    if (cursor2.getCount() > 0) {
+                        cursor2.moveToFirst();
+                        dVar = dVar2;
+                        try {
+                            try {
+                                dVar.a = cursor2.getInt(0);
+                                r1 = dVar;
+                            } catch (RuntimeException e14) {
+                                e = e14;
+                                r1 = dVar;
+                                if (d) {
+                                    e.printStackTrace();
+                                    r1 = dVar;
+                                }
+                                q3b.a(cursor2);
+                                StringBuilder sb2222222 = new StringBuilder();
+                                sb2222222.append(str);
+                                sb2222222.append("flow");
+                                sb2222222.append(" a ");
+                                sb2222222.append("LEFT JOIN ");
+                                sb2222222.append("config");
+                                sb2222222.append(" b ");
+                                sb2222222.append("ON a.");
+                                sb2222222.append("flowid");
+                                sb2222222.append(" = b.");
+                                sb2222222.append("eventid");
+                                sb2222222.append(" WHERE ");
+                                sb2222222.append(" a.");
+                                sb2222222.append("endtime");
+                                sb2222222.append(" IS NOT NULL");
+                                if (H) {
+                                }
+                                cursor3 = null;
+                                cursor3 = readableDatabase.rawQuery(sb2222222.toString(), null);
+                                if (cursor3 != null) {
+                                }
+                                q3b.a(cursor3);
+                                n2b n2bVar2222222 = this;
+                                w2b.d dVar32222222 = r1;
+                                n2bVar2222222.c.readLock().unlock();
+                                return dVar32222222;
+                            }
+                            q3b.a(cursor2);
+                            StringBuilder sb22222222 = new StringBuilder();
+                            sb22222222.append(str);
+                            sb22222222.append("flow");
+                            sb22222222.append(" a ");
+                            sb22222222.append("LEFT JOIN ");
+                            sb22222222.append("config");
+                            sb22222222.append(" b ");
+                            sb22222222.append("ON a.");
+                            sb22222222.append("flowid");
+                            sb22222222.append(" = b.");
+                            sb22222222.append("eventid");
+                            sb22222222.append(" WHERE ");
+                            sb22222222.append(" a.");
+                            sb22222222.append("endtime");
+                            sb22222222.append(" IS NOT NULL");
+                            if (H) {
+                                sb22222222.append(" AND (b.");
+                                sb22222222.append("switch");
+                                sb22222222.append(str3);
+                                sb22222222.append("switch");
+                                sb22222222.append(" = '");
+                                sb22222222.append(str2);
+                                sb22222222.append(str7);
+                            } else {
+                                sb22222222.append(str6);
+                                sb22222222.append("switch");
+                                sb22222222.append(" = '");
+                                sb22222222.append(str2);
+                                sb22222222.append(str5);
+                            }
+                            cursor3 = null;
+                            cursor3 = readableDatabase.rawQuery(sb22222222.toString(), null);
+                            if (cursor3 != null && cursor3.getCount() > 0) {
+                                cursor3.moveToFirst();
+                                r1.b = cursor3.getInt(0);
+                            }
+                            q3b.a(cursor3);
+                            n2b n2bVar22222222 = this;
+                            w2b.d dVar322222222 = r1;
+                            n2bVar22222222.c.readLock().unlock();
+                            return dVar322222222;
+                        } catch (Throwable th6) {
+                            th = th6;
+                            cursor = cursor2;
+                            q3b.a(cursor);
+                            throw th;
+                        }
                     }
                 }
-                jSONArray.put(jSONObject3);
+                cursor3 = readableDatabase.rawQuery(sb22222222.toString(), null);
+                if (cursor3 != null) {
+                    cursor3.moveToFirst();
+                    r1.b = cursor3.getInt(0);
+                }
+                q3b.a(cursor3);
+                n2b n2bVar222222222 = this;
+                w2b.d dVar3222222222 = r1;
+                n2bVar222222222.c.readLock().unlock();
+                return dVar3222222222;
+            } catch (Throwable th7) {
+                th = th7;
+                q3b.a(cursor3);
+                throw th;
             }
-            h3bVar.m(arrayList4);
+            r1 = dVar2;
+            q3b.a(cursor2);
+            StringBuilder sb222222222 = new StringBuilder();
+            sb222222222.append(str);
+            sb222222222.append("flow");
+            sb222222222.append(" a ");
+            sb222222222.append("LEFT JOIN ");
+            sb222222222.append("config");
+            sb222222222.append(" b ");
+            sb222222222.append("ON a.");
+            sb222222222.append("flowid");
+            sb222222222.append(" = b.");
+            sb222222222.append("eventid");
+            sb222222222.append(" WHERE ");
+            sb222222222.append(" a.");
+            sb222222222.append("endtime");
+            sb222222222.append(" IS NOT NULL");
+            if (H) {
+            }
+            cursor3 = null;
+        } else {
+            return (w2b.d) invokeV.objValue;
         }
     }
 
-    public void u() {
-        File[] listFiles;
+    public void b(z2b z2bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048615, this) != null) || !u3b.a(this.d)) {
-            return;
-        }
-        if (r2b.o().M() && System.currentTimeMillis() < r2b.o().v()) {
-            return;
-        }
-        File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir");
-        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-            if (listFiles.length > 1000) {
-                if (!y) {
-                    o3b.a().d(String.valueOf(1000), listFiles.length);
-                }
-                for (File file2 : listFiles) {
-                    file2.delete();
-                }
-                this.e.i();
-            }
-            for (int i = 0; i < listFiles.length; i++) {
-                if (y) {
-                    Log.d("UBCBehaviorModel", "uploadFailedData fileName:" + listFiles[i].getAbsolutePath());
-                }
-                z2b w = this.e.w(listFiles[i].getName());
-                if (w != null && TextUtils.equals("0", w.b())) {
-                    if (y) {
-                        Log.d("UBCBehaviorModel", "processFailedData sending, not send again");
+        if (interceptable == null || interceptable.invokeL(1048603, this, z2bVar) == null) {
+            boolean H = u1b.o().H();
+            this.c.readLock().lock();
+            try {
+                try {
+                    L(D(true, true, H), z2bVar);
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
                     }
-                    l3b.b("processFailedData file, no need to send");
-                } else if (w != null && TextUtils.equals("1", w.b())) {
-                    l3b.b("processFailedData file, send");
-                    this.e.G(listFiles[i].getName(), "0");
-                    O(w);
-                } else {
-                    if (y) {
-                        Log.d("UBCBehaviorModel", "processFailedData data in db");
-                    }
-                    l3b.b("processFailedData file, data in db, delete file");
-                    listFiles[i].delete();
+                    this.a.h(e2);
                 }
+                if (!z2bVar.w() && !z2bVar.z()) {
+                    L(D(true, false, H), z2bVar);
+                    if (!z2bVar.w() && !z2bVar.z()) {
+                        O(D(false, true, H), z2bVar);
+                        if (!z2bVar.w() && !z2bVar.z()) {
+                            O(D(false, false, H), z2bVar);
+                        }
+                    }
+                }
+            } finally {
+                this.c.readLock().unlock();
             }
         }
     }
 
-    public void w(y2b y2bVar, boolean z) {
-        SparseArray<ArrayList> sparseArray;
+    public void e0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048617, this, y2bVar, z) == null) {
-            if (z) {
-                if (!u3b.a(this.d) || !j()) {
-                    return;
-                }
-                z();
-                w3b h = w3b.h(this.d);
-                h.L(true);
-                if ((y2bVar.n() & 128) != 0) {
-                    h.C();
-                    ArrayList arrayList = new ArrayList(1);
-                    arrayList.add(y2bVar.l());
-                    sparseArray = new SparseArray<>(1);
-                    sparseArray.put(0, arrayList);
-                } else {
-                    if (this.n == null) {
-                        r();
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("state", "1");
+                        int update = writableDatabase.update("file", contentValues, BreakpointSQLiteKey.FILENAME + "=\"" + str + "\"", null);
+                        if (d) {
+                            Log.d("UBCDatabaseHelper", "updateSendedFileFail#performTransaction: update file table:" + update);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        writableDatabase.endTransaction();
+                    } catch (Throwable th) {
+                        writableDatabase.endTransaction();
+                        throw th;
                     }
-                    if (Y(h, "0")) {
-                        return;
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
                     }
-                    sparseArray = this.n;
+                    this.a.h(e2);
                 }
-                T(sparseArray, h);
-                if (h.y()) {
-                    return;
-                }
-                J(h);
-                y();
+            } finally {
+                this.c.writeLock().unlock();
             }
-            x();
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        int delete = writableDatabase.delete("file", BreakpointSQLiteKey.FILENAME + "=\"" + str + "\"", null);
+                        if (d) {
+                            Log.d("UBCDatabaseHelper", "deleteSendedFile#performTransaction: delete file table:" + delete);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        writableDatabase.endTransaction();
+                    } catch (Throwable th) {
+                        writableDatabase.endTransaction();
+                        throw th;
+                    }
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                    this.a.h(e2);
+                }
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        }
+    }
+
+    public final boolean d(b2b b2bVar, int i, z2b z2bVar) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048608, this, b2bVar, i, z2bVar)) == null) {
+            boolean c = z2bVar.c(b2bVar, i);
+            if (c) {
+                if (!TextUtils.isEmpty(b2bVar.h())) {
+                    z2bVar.K("1");
+                }
+                long p = b2bVar.p();
+                if (p > 0) {
+                    if (z2bVar.t() == 0 || p < z2bVar.t()) {
+                        z2bVar.J(p, 0L);
+                    }
+                    if (p > z2bVar.s()) {
+                        z2bVar.J(0L, p);
+                    }
+                }
+            }
+            return c;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public void d0(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048609, this, str, i, str2) == null) {
+            if (i >= 0 && !TextUtils.isEmpty(str)) {
+                this.c.writeLock().lock();
+                try {
+                    try {
+                        SQLiteDatabase writableDatabase = getWritableDatabase();
+                        writableDatabase.beginTransactionNonExclusive();
+                        try {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("content", str2);
+                            int update = writableDatabase.update("flow", contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i, null);
+                            if (d && update != 1) {
+                                Log.d("UBCDatabaseHelper", "updateFlowValue#performTransaction: updateFlowValue count:" + update);
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            writableDatabase.endTransaction();
+                        } catch (Throwable th) {
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    } catch (SQLException e2) {
+                        if (d) {
+                            e2.printStackTrace();
+                        }
+                        this.a.h(e2);
+                    }
+                } finally {
+                    this.c.writeLock().unlock();
+                }
+            } else if (d) {
+                Log.d("UBCDatabaseHelper", "updateFlowValue#flowHandle invalid");
+            }
+        }
+    }
+
+    public void f0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, str, str2) == null) {
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("state", str2);
+                        writableDatabase.update("file", contentValues, BreakpointSQLiteKey.FILENAME + "=\"" + str + "\"", null);
+                        writableDatabase.setTransactionSuccessful();
+                        writableDatabase.endTransaction();
+                    } catch (Throwable th) {
+                        writableDatabase.endTransaction();
+                        throw th;
+                    }
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                    this.a.h(e2);
+                }
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        }
+    }
+
+    public void h(String str, boolean z) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048615, this, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.c.writeLock().lock();
+        String str3 = "callcnt";
+        if (z) {
+            str2 = "callcnt";
+        } else {
+            str2 = "count";
+        }
+        if (z) {
+            str3 = "count";
+        }
+        try {
+            try {
+                SQLiteDatabase writableDatabase = getWritableDatabase();
+                writableDatabase.beginTransactionNonExclusive();
+                try {
+                    try {
+                        SQLiteStatement compileStatement = writableDatabase.compileStatement("UPDATE arrival SET " + str2 + " = " + str2 + " + 1, state = 0 WHERE ubcid = ? AND date(ubctime" + SmallTailInfo.EMOTION_SUFFIX + " = date(\"now\")");
+                        compileStatement.clearBindings();
+                        compileStatement.bindString(1, str);
+                        if (compileStatement.executeUpdateDelete() <= 0) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("ubcid", str);
+                            contentValues.put(str2, (Integer) 1);
+                            contentValues.put(str3, (Integer) 0);
+                            contentValues.put("state", (Integer) 0);
+                            writableDatabase.insert("arrival", null, contentValues);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                    } catch (SQLException e2) {
+                        if (d) {
+                            e2.printStackTrace();
+                        }
+                        this.a.h(e2);
+                    }
+                } finally {
+                    writableDatabase.endTransaction();
+                }
+            } catch (SQLException e3) {
+                if (d) {
+                    e3.printStackTrace();
+                }
+                this.a.h(e3);
+            }
+        } finally {
+            this.c.writeLock().unlock();
+        }
+    }
+
+    public void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048618, this, str, i) == null) {
+            if (i >= 0 && !TextUtils.isEmpty(str)) {
+                this.c.writeLock().lock();
+                try {
+                    try {
+                        SQLiteDatabase writableDatabase = getWritableDatabase();
+                        writableDatabase.beginTransactionNonExclusive();
+                        try {
+                            int delete = writableDatabase.delete("flow", "flowid=\"" + str + "\" AND flowhandle = " + i, null);
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "cancelFlow#performTransaction: cancelFlow flow count:" + delete);
+                            }
+                            int delete2 = writableDatabase.delete("event", "flowhandle = " + i, null);
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "cancelFlow#performTransaction: cancelFlow event count:" + delete2);
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            writableDatabase.endTransaction();
+                        } catch (Throwable th) {
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    } catch (SQLException e2) {
+                        if (d) {
+                            e2.printStackTrace();
+                        }
+                        this.a.h(e2);
+                    }
+                } finally {
+                    this.c.writeLock().unlock();
+                }
+            } else if (d) {
+                Log.d("UBCDatabaseHelper", "cancelFlow#flowHandle invalid");
+            }
+        }
+    }
+
+    public void p(SQLiteDatabase sQLiteDatabase, z2b z2bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048626, this, sQLiteDatabase, z2bVar) == null) && z2bVar != null && !z2bVar.y() && z2bVar.l().size() >= 1) {
+            this.c.writeLock().lock();
+            try {
+                try {
+                    Set<String> l = z2bVar.l();
+                    String[] strArr = (String[]) l.toArray(new String[l.size()]);
+                    String[] strArr2 = new String[l.size()];
+                    Arrays.fill(strArr2, "?");
+                    String join = TextUtils.join(",", strArr2);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("date(");
+                    sb.append("ubctime");
+                    sb.append(") in (");
+                    sb.append(join);
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                    String sb2 = sb.toString();
+                    sb.append(" AND ");
+                    sb.append("date(");
+                    sb.append("ubctime");
+                    sb.append(") < date('now')");
+                    int delete = sQLiteDatabase.delete("arrival", sb.toString(), strArr);
+                    if (d) {
+                        Log.d("UBCDatabaseHelper", "clearUploadedUBCRecords delete " + delete + " records");
+                    }
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("state", (Integer) 1);
+                    int update = sQLiteDatabase.update("arrival", contentValues, sb2, strArr);
+                    if (d) {
+                        Log.d("UBCDatabaseHelper", "clearUploadedUBCRecords update " + update + " records");
+                    }
+                } catch (SQLException e2) {
+                    if (d) {
+                        e2.printStackTrace();
+                    }
+                    this.a.h(e2);
+                }
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        }
+    }
+
+    public final boolean l(String str, String str2, int i, SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048619, this, str, str2, i, sQLiteDatabase)) == null) {
+            this.c.writeLock().lock();
+            try {
+                boolean equals = str.equals(str2);
+                boolean z = false;
+                if (!equals) {
+                    Cursor cursor = null;
+                    try {
+                        cursor = sQLiteDatabase.rawQuery("SELECT state FROM flow WHERE flowhandle = " + i, null);
+                        if (cursor != null && cursor.getCount() > 0) {
+                            cursor.moveToFirst();
+                            String string = cursor.getString(0);
+                            if (!TextUtils.isEmpty(string)) {
+                                if ("1".equals(string)) {
+                                    z = true;
+                                }
+                            }
+                        }
+                    } catch (SQLException e2) {
+                        if (d) {
+                            e2.printStackTrace();
+                        }
+                        this.a.h(e2);
+                    } catch (RuntimeException e3) {
+                        if (d) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    q3b.a(cursor);
+                } else {
+                    z = true;
+                }
+                return z;
+            } finally {
+                this.c.writeLock().unlock();
+            }
+        }
+        return invokeLLIL.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            this.c.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    Cursor cursor = null;
+                    try {
+                        try {
+                            int delete = writableDatabase.delete("arrival", "date(ubctime) <= date('now', '-7 day') ", null);
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "clearInvalidUBCRecords delete " + delete + " records");
+                            }
+                            int delete2 = writableDatabase.delete("arrival", "state = 1 AND date(ubctime) < date('now')", null);
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "clearInvalidUBCRecords delete " + delete2 + " records");
+                            }
+                            Cursor rawQuery = writableDatabase.rawQuery("SELECT COUNT(*), MIN(_id), MAX(_id) FROM arrival", null);
+                            int i = 0;
+                            if (rawQuery != null) {
+                                try {
+                                    if (rawQuery.getCount() > 0) {
+                                        rawQuery.moveToFirst();
+                                        if (rawQuery.getInt(0) > 15000) {
+                                            i = (rawQuery.getInt(1) + rawQuery.getInt(2)) / 3;
+                                        }
+                                    }
+                                } catch (SQLException e2) {
+                                    cursor = rawQuery;
+                                    e = e2;
+                                    if (d) {
+                                        e.printStackTrace();
+                                    }
+                                    this.a.h(e);
+                                    q3b.a(cursor);
+                                    writableDatabase.endTransaction();
+                                } catch (Throwable th) {
+                                    cursor = rawQuery;
+                                    th = th;
+                                    q3b.a(cursor);
+                                    writableDatabase.endTransaction();
+                                    throw th;
+                                }
+                            }
+                            int delete3 = writableDatabase.delete("arrival", "_id < " + i, null);
+                            if (d) {
+                                Log.d("UBCDatabaseHelper", "clearInvalidUBCRecords delete count:" + delete3);
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            q3b.a(rawQuery);
+                        } catch (SQLException e3) {
+                            e = e3;
+                        }
+                        writableDatabase.endTransaction();
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } finally {
+                    this.c.writeLock().unlock();
+                }
+            } catch (SQLException e4) {
+                if (d) {
+                    e4.printStackTrace();
+                }
+                this.a.h(e4);
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048625, this, sQLiteDatabase, i, i2) == null) {
+            try {
+                sQLiteDatabase.beginTransaction();
+                while (i < i2) {
+                    switch (i) {
+                        case 1:
+                            r(sQLiteDatabase);
+                            break;
+                        case 2:
+                            j(sQLiteDatabase);
+                            break;
+                        case 3:
+                            e(sQLiteDatabase);
+                            break;
+                        case 4:
+                            f(sQLiteDatabase);
+                            break;
+                        case 6:
+                            i(sQLiteDatabase);
+                            break;
+                        case 7:
+                            q(sQLiteDatabase);
+                            break;
+                        case 8:
+                            c(sQLiteDatabase);
+                            break;
+                    }
+                    i++;
+                }
+                sQLiteDatabase.setTransactionSuccessful();
+            } finally {
+                try {
+                } finally {
+                }
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -22,8 +23,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.on6;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.vk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements on6 {
+    public class c implements vk6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewWebViewCardView a;
@@ -156,7 +156,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
             this.a = newWebViewCardView;
         }
 
-        @Override // com.baidu.tieba.on6
+        @Override // com.baidu.tieba.vk6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.p09
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.ky8
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
@@ -254,7 +254,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e7, (ViewGroup) null);
+            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ea, (ViewGroup) null);
             H();
             return this.n;
         }
@@ -321,14 +321,14 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int j = yi.j(getContext());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(getContext());
             int container = webViewCard.getContainer();
             if (container != 1) {
                 if (container == 2) {
-                    setWebviewHeight(j - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0703bc));
+                    setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703bc));
                 }
             } else {
-                setWebviewHeight(j - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0703a0));
+                setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a0));
             }
         }
         if (!TextUtils.isEmpty(webViewCard.getPageUrl())) {

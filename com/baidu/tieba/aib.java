@@ -1,89 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.xib;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class aib<A extends xib> extends AdReporter<A> {
+public class aib<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
+    public final A a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aib(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+    public aib(A a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
+        this.a = a;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        double c;
+    public A a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            xib xibVar = (xib) obj;
-            if (xibVar != null && xibVar.a != 0 && !TextUtils.isEmpty(xibVar.e())) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Pair.create("gdt_rq_id", xibVar.e()));
-                if (!this.e) {
-                    c = FunAdSdk.getARPU(this.f);
-                } else {
-                    c = (xibVar.c() / 100.0d) / 1000.0d;
-                }
-                arrayList.add(Pair.create("rvn", Double.valueOf(c)));
-                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * c)))));
-                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (A) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReward(Object obj) {
-        InterceptResult invokeL;
+    public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            xib xibVar = (xib) obj;
-            if (xibVar != null && !TextUtils.isEmpty(xibVar.f())) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Pair.create("gdt_tr_id", xibVar.f()));
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
         }
-        return (List) invokeL.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
     }
 }

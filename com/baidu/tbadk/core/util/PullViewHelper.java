@@ -14,9 +14,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch;
-import com.baidu.tieba.da5;
+import com.baidu.tieba.kg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(da5.p().l("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(SharedPrefHelper.getInstance().getBoolean("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private File createFileDir(File file) {
@@ -185,31 +185,31 @@ public class PullViewHelper {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String w = da5.p().w("pull_image_url", "");
+            String string = SharedPrefHelper.getInstance().getString("pull_image_url", "");
             boolean z = false;
-            int q = da5.p().q("pull_image_num", 0);
-            this.pullview_backgroundColor_day = da5.p().q("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = da5.p().q("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
-            if (!TextUtils.isEmpty(w)) {
-                if (q > 0 && isImagesExist(q)) {
-                    this.drawables = new Drawable[q];
+            int i = SharedPrefHelper.getInstance().getInt("pull_image_num", 0);
+            this.pullview_backgroundColor_day = SharedPrefHelper.getInstance().getInt("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = SharedPrefHelper.getInstance().getInt("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            if (!TextUtils.isEmpty(string)) {
+                if (i > 0 && isImagesExist(i)) {
+                    this.drawables = new Drawable[i];
                     File imageFileDir = getImageFileDir();
                     if (imageFileDir != null && (listFiles = imageFileDir.listFiles()) != null) {
-                        for (int i = 1; i <= q; i++) {
-                            this.drawables[i - 1] = buildDrawable(listFiles, i + ".");
+                        for (int i2 = 1; i2 <= i; i2++) {
+                            this.drawables[i2 - 1] = buildDrawable(listFiles, i2 + ".");
                         }
                     }
                 }
                 Drawable[] drawableArr = this.drawables;
                 if (drawableArr != null) {
                     int length = drawableArr.length;
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 < length) {
-                            if (drawableArr[i2] == null) {
+                        if (i3 < length) {
+                            if (drawableArr[i3] == null) {
                                 break;
                             }
-                            i2++;
+                            i3++;
                         } else {
                             z = true;
                             break;
@@ -395,8 +395,8 @@ public class PullViewHelper {
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int q = da5.p().q("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int q2 = da5.p().q("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int i3 = SharedPrefHelper.getInstance().getInt("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int i4 = SharedPrefHelper.getInstance().getInt("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -405,20 +405,20 @@ public class PullViewHelper {
                     i = Color.parseColor(str5);
                 } catch (Exception unused2) {
                 }
-                if (q != i2 || i != q2) {
-                    da5.p().F("pullview_background_color_day", i2);
-                    da5.p().F("pullview_background_color_night", i);
+                if (i3 != i2 || i != i4) {
+                    SharedPrefHelper.getInstance().putInt("pullview_background_color_day", i2);
+                    SharedPrefHelper.getInstance().putInt("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                da5.p().F("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                da5.p().F("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                SharedPrefHelper.getInstance().putInt("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                SharedPrefHelper.getInstance().putInt("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
-            da5.p().A("pullview_should_show_3d_loading", true);
+            SharedPrefHelper.getInstance().putBoolean("pullview_should_show_3d_loading", true);
             setShouldShowLoadingView(true);
-            ch.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
+            kg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullViewHelper this$0;
@@ -430,9 +430,9 @@ public class PullViewHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i5 = newInitContext.flag;
+                        if ((i5 & 1) != 0) {
+                            int i6 = i5 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -445,10 +445,10 @@ public class PullViewHelper {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        da5.p().Q("pull_image_url");
-                        da5.p().Q("pull_image_num");
-                        da5.p().Q("pullview_background_color_day");
-                        da5.p().Q("pullview_background_color_night");
+                        SharedPrefHelper.getInstance().remove("pull_image_url");
+                        SharedPrefHelper.getInstance().remove("pull_image_num");
+                        SharedPrefHelper.getInstance().remove("pullview_background_color_day");
+                        SharedPrefHelper.getInstance().remove("pullview_background_color_night");
                         this.this$0.deletePullDir();
                         this.this$0.buildDrawables();
                     }

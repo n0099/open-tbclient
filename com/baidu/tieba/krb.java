@@ -1,56 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class krb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "h";
+public final class krb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final float a;
+    public final float b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947924110, "Lcom/baidu/tieba/krb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public krb(float f, float f2, float f3) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947924110, "Lcom/baidu/tieba/krb;");
-        }
+        this.a = f;
+        this.b = f2;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public final float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Context a2 = grb.a();
-            if (a2 == null) {
-                return "";
-            }
-            try {
-                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                String str2 = a;
-                jrb.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
-                return "";
-            } catch (Exception e2) {
-                String str3 = a;
-                jrb.d(str3, "getVersion: " + e2.getMessage());
-                return "";
-            } catch (Throwable unused) {
-                jrb.d(a, "throwable");
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return invokeV.floatValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
     }
 }

@@ -1,65 +1,110 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tieba.ru2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class qf2 {
+public final class qf2 implements hf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a b;
+    public OutputStream c;
+    public File d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948089836, "Lcom/baidu/tieba/qf2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948089836, "Lcom/baidu/tieba/qf2;");
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(File file);
+
+        void b(File file);
+    }
+
+    public qf2(File file, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = fs1.a;
+        this.d = file;
+        this.b = aVar;
+        b(file);
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b(ub3.K().q().W().e0());
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            cv2.g0().getSwitch("swan_app_precreate_video_switch_v2", false);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = ix2.T().g();
+        a aVar = this.b;
+        if (aVar != null) {
+            if (this.e) {
+                aVar.a(this.d);
+            } else {
+                aVar.b(this.d);
             }
-            String f = np3.f(str);
-            boolean z = ix2.T().e(f, ix2.T().s(), ru2.e.i(ub3.K().getAppId(), ub3.K().q().W().v1()).getPath() + File.separator).o;
-            v82.i("PreCreateVideoHelper", "hasVideoInPage path : " + f + " has video :" + z);
-            return z;
         }
-        return invokeL.booleanValue;
+        cr4.d(this.c);
+    }
+
+    public final void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            try {
+                if (this.c == null && file != null) {
+                    cr4.h(this.d);
+                    this.c = new FileOutputStream(file);
+                }
+            } catch (Exception e) {
+                if (hf2.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public void c(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) && inputStream != null && !this.e) {
+            cr4.Q(inputStream, this.d);
+            this.e = true;
+        }
+    }
+
+    public void d(byte[] bArr, int i, int i2) {
+        OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) && (outputStream = this.c) != null) {
+            try {
+                if (i2 > 0) {
+                    outputStream.write(bArr, i, i2);
+                } else {
+                    this.e = true;
+                }
+            } catch (IOException unused) {
+                cr4.d(this.c);
+                this.c = null;
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.b(this.d);
+                }
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.res.Resources;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ti;
+import com.baidu.tieba.xh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class TbErrInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int x = ti.x();
+            int x = xh.x();
             if (x != 1) {
                 if (x != 2) {
                     if (x != 3) {
@@ -201,9 +201,9 @@ public class TbErrInfo {
                             return resources.getString(R.string.tb_err_unknown);
                         }
                     }
-                    return resources.getString(R.string.obfuscated_res_0x7f0f0e1f);
+                    return resources.getString(R.string.obfuscated_res_0x7f0f0e21);
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f1842);
+                return resources.getString(R.string.obfuscated_res_0x7f0f1846);
             }
             return resources.getString(R.string.tb_err_location_failed);
         }

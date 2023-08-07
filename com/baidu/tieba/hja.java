@@ -1,83 +1,124 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
+import com.baidu.tieba.tracker.Monitor;
+import com.baidu.tieba.tracker.core.data.EventParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import kotlin.Pair;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hja extends BaseAdapter {
+public final class hja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ija b;
-    public DressItemData c;
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static final void a(Fragment fragment, String pid, Pair<String, String>... params) {
+        ija ijaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public hja(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dressItemData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, fragment, pid, params) == null) {
+            Intrinsics.checkNotNullParameter(fragment, "<this>");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            Intrinsics.checkNotNullParameter(params, "params");
+            eja<ija> b = Monitor.a.b(pid);
+            if (fragment instanceof ija) {
+                ijaVar = (ija) fragment;
+            } else {
+                ijaVar = null;
+            }
+            if (ijaVar != null && b != null) {
+                b.b((Pair[]) Arrays.copyOf(params, params.length));
             }
         }
-        this.a = tbPageContext;
-        this.c = dressItemData;
-        this.b = new ija(tbPageContext);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public static final void c(Fragment fragment, String pid, Pair<String, ? extends Object>... params) {
+        ija ijaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
-            this.b.d(this.c);
-            this.a.getLayoutMode().k(this.b.a());
-            return this.b.a();
+        if (interceptable == null || interceptable.invokeLLL(65538, null, fragment, pid, params) == null) {
+            Intrinsics.checkNotNullParameter(fragment, "<this>");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            Intrinsics.checkNotNullParameter(params, "params");
+            eja<ija> a = Monitor.a.a(fragment, pid);
+            if (fragment instanceof ija) {
+                ijaVar = (ija) fragment;
+            } else {
+                ijaVar = null;
+            }
+            if (ijaVar != null) {
+                a.e(ijaVar, 20000L).fillTrackParams(new EventParams((Pair[]) Arrays.copyOf(params, params.length)));
+            }
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public static final void e(Fragment fragment, String pid, Pair<String, String>... params) {
+        ija ijaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fragment, pid, params) == null) {
+            Intrinsics.checkNotNullParameter(fragment, "<this>");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            Intrinsics.checkNotNullParameter(params, "params");
+            eja<ija> b = Monitor.a.b(pid);
+            if (fragment instanceof ija) {
+                ijaVar = (ija) fragment;
+            } else {
+                ijaVar = null;
+            }
+            if (ijaVar != null && b != null) {
+                b.f((Pair[]) Arrays.copyOf(params, params.length));
+            }
+        }
+    }
+
+    public static final void b(Fragment fragment, Pair<String, String>... params) {
+        ija ijaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, fragment, params) == null) {
+            Intrinsics.checkNotNullParameter(fragment, "<this>");
+            Intrinsics.checkNotNullParameter(params, "params");
+            if (fragment instanceof ija) {
+                ijaVar = (ija) fragment;
+            } else {
+                ijaVar = null;
+            }
+            if (ijaVar != null) {
+                a(fragment, ijaVar.getTraceId(), (Pair[]) Arrays.copyOf(params, params.length));
+            }
+        }
+    }
+
+    public static final void d(Fragment fragment, Pair<String, ? extends Object>... params) {
+        ija ijaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, fragment, params) == null) {
+            Intrinsics.checkNotNullParameter(fragment, "<this>");
+            Intrinsics.checkNotNullParameter(params, "params");
+            if (fragment instanceof ija) {
+                ijaVar = (ija) fragment;
+            } else {
+                ijaVar = null;
+            }
+            if (ijaVar != null) {
+                c(fragment, ijaVar.getTraceId(), (Pair[]) Arrays.copyOf(params, params.length));
+            }
+        }
+    }
+
+    public static final void f(Fragment fragment, Pair<String, String>... params) {
+        ija ijaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, fragment, params) == null) {
+            Intrinsics.checkNotNullParameter(fragment, "<this>");
+            Intrinsics.checkNotNullParameter(params, "params");
+            if (fragment instanceof ija) {
+                ijaVar = (ija) fragment;
+            } else {
+                ijaVar = null;
+            }
+            if (ijaVar != null) {
+                e(fragment, ijaVar.getTraceId(), (Pair[]) Arrays.copyOf(params, params.length));
+            }
+        }
     }
 }

@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tieba.hv8;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalInputBinding;
-import com.baidu.tieba.lx8;
-import com.baidu.tieba.qv8;
+import com.baidu.tieba.mt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatInputSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lx8 j;
+    public final hv8 j;
     public ImPersonInputView k;
     public SlicePersonalInputBinding l;
 
-    public ChatInputSlice(lx8 repo) {
+    public ChatInputSlice(hv8 repo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +77,7 @@ public final class ChatInputSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View O(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -92,10 +92,10 @@ public final class ChatInputSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void P(boolean z) {
+    public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.P(z);
+            super.Q(z);
             ImPersonInputView imPersonInputView = this.k;
             if (imPersonInputView != null) {
                 imPersonInputView.b(z);
@@ -128,7 +128,7 @@ public final class ChatInputSlice extends Slice {
             ImPersonInputView imPersonInputView = slicePersonalInputBinding.b;
             this.k = imPersonInputView;
             if (imPersonInputView != null) {
-                new qv8(E().getPageContext(), imPersonInputView, this.j);
+                new mt8(F().getPageContext(), imPersonInputView, this.j);
             }
         }
     }

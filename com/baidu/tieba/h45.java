@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes6.dex */
 public class h45 {
     public static /* synthetic */ Interceptable $ic;
@@ -15,7 +16,6 @@ public class h45 {
     public String a;
     public String b;
     public String c;
-    public String d;
 
     public h45() {
         Interceptable interceptable = $ic;
@@ -31,35 +31,58 @@ public class h45 {
         }
     }
 
-    public void a(Intent intent) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.b = intent.getStringExtra("recom_source");
-        this.c = intent.getStringExtra("recom_abtag");
-        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+        return (String) invokeV.objValue;
     }
 
-    public void b(ThreadData threadData) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        this.a = threadData.mRecomWeight;
-        this.b = threadData.mRecomSource;
-        this.c = threadData.mRecomAbTag;
-        this.d = threadData.mRecomExtra;
+        return (String) invokeV.objValue;
     }
 
-    public void c(Intent intent) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
-            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
-            intent.putExtra("recom_source", this.b);
-            intent.putExtra("recom_abtag", this.c);
-            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optLong("activity_id");
+            jSONObject.optInt("activity_type");
+            this.a = jSONObject.optString("activity_url");
+            this.b = jSONObject.optString("activity_all_icon");
+            this.c = jSONObject.optString("activity_half_icon");
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void e(YuleActivity yuleActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, yuleActivity) != null) || yuleActivity == null) {
+            return;
+        }
+        yuleActivity.activity_id.longValue();
+        yuleActivity.activity_type.intValue();
+        this.a = yuleActivity.activity_url;
+        this.b = yuleActivity.activity_all_icon;
+        this.c = yuleActivity.activity_half_icon;
     }
 }

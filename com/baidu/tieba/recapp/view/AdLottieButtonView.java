@@ -16,10 +16,10 @@ import com.airbnb.lottie.LottieCompositionFactory;
 import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e76;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.uz9;
+import com.baidu.tieba.cx9;
+import com.baidu.tieba.l46;
+import com.baidu.tieba.my9;
+import com.baidu.tieba.o36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ public class AdLottieButtonView extends FrameLayout {
     public LottieAnimationView a;
     public TextView b;
     public int c;
-    public ly9 d;
+    public cx9 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdLottieButtonView(@NonNull Context context) {
@@ -104,15 +104,15 @@ public class AdLottieButtonView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(65541, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h66.AdLottieButtonView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, o36.AdLottieButtonView);
         this.c = obtainStyledAttributes.getResourceId(0, this.c);
         obtainStyledAttributes.recycle();
     }
 
-    public void setClickListener(ly9 ly9Var) {
+    public void setClickListener(cx9 cx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ly9Var) == null) {
-            this.d = ly9Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cx9Var) == null) {
+            this.d = cx9Var;
         }
     }
 
@@ -121,7 +121,7 @@ public class AdLottieButtonView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(this.c, this);
             this.a = (LottieAnimationView) findViewById(R.id.lottie_view);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09247e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092496);
         }
     }
 
@@ -143,12 +143,12 @@ public class AdLottieButtonView extends FrameLayout {
         }
     }
 
-    public void setData(@Nullable uz9 uz9Var) {
+    public void setData(@Nullable my9 my9Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uz9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, my9Var) == null) {
             int i2 = 8;
-            if (uz9Var == null) {
+            if (my9Var == null) {
                 setVisibility(8);
                 this.a.cancelAnimation();
                 this.a.clearAnimation();
@@ -157,16 +157,16 @@ public class AdLottieButtonView extends FrameLayout {
             }
             setVisibility(0);
             LottieAnimationView lottieAnimationView = this.a;
-            if (TextUtils.isEmpty(uz9Var.a)) {
+            if (TextUtils.isEmpty(my9Var.a)) {
                 i = 8;
             } else {
                 i = 0;
             }
             lottieAnimationView.setVisibility(i);
-            LottieCompositionFactory.fromUrl(getContext(), uz9Var.a).addListener(new LottieListener<LottieComposition>(this, uz9Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.2
+            LottieCompositionFactory.fromUrl(getContext(), my9Var.a).addListener(new LottieListener<LottieComposition>(this, my9Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ uz9 a;
+                public final /* synthetic */ my9 a;
                 public final /* synthetic */ AdLottieButtonView b;
 
                 {
@@ -174,7 +174,7 @@ public class AdLottieButtonView extends FrameLayout {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, uz9Var};
+                        Object[] objArr = {this, my9Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -185,7 +185,7 @@ public class AdLottieButtonView extends FrameLayout {
                         }
                     }
                     this.b = this;
-                    this.a = uz9Var;
+                    this.a = my9Var;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -232,15 +232,15 @@ public class AdLottieButtonView extends FrameLayout {
                 }
             });
             TextView textView = this.b;
-            if (!TextUtils.isEmpty(uz9Var.b)) {
+            if (!TextUtils.isEmpty(my9Var.b)) {
                 i2 = 0;
             }
             textView.setVisibility(i2);
-            this.b.setText(uz9Var.b);
-            setOnClickListener(new View.OnClickListener(this, uz9Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.3
+            this.b.setText(my9Var.b);
+            setOnClickListener(new View.OnClickListener(this, my9Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ uz9 a;
+                public final /* synthetic */ my9 a;
                 public final /* synthetic */ AdLottieButtonView b;
 
                 {
@@ -248,7 +248,7 @@ public class AdLottieButtonView extends FrameLayout {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, uz9Var};
+                        Object[] objArr = {this, my9Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -259,7 +259,7 @@ public class AdLottieButtonView extends FrameLayout {
                         }
                     }
                     this.b = this;
-                    this.a = uz9Var;
+                    this.a = my9Var;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -267,7 +267,7 @@ public class AdLottieButtonView extends FrameLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         if (this.b.d == null || !this.b.d.a()) {
-                            e76.a(this.a.c);
+                            l46.a(this.a.c);
                         }
                     }
                 }

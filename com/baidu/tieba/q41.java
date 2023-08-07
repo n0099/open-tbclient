@@ -1,95 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class q41 implements t41 {
+public class q41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public static boolean b;
+    public static long c;
+    public static int d;
+    public static int e;
+    public static int f;
+    public static int g;
+    public static int h;
+    public static int i;
+    public static double j;
+    public static double k;
+    public static double l;
+    public static long m;
+    public static long n;
+    public static double o;
+    public static double p;
+    public static double q;
+    public static double r;
+    public static double[] s;
+    public static AtomicBoolean t;
+    public static final Object u;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder a;
 
-    @Override // com.baidu.tieba.t41
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public q41() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041755, "Lcom/baidu/tieba/q41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041755, "Lcom/baidu/tieba/q41;");
                 return;
             }
         }
-        this.a = new StringBuilder();
+        a = new int[]{0, 1, 2, 3};
+        b = true;
+        c = 2000L;
+        d = 2;
+        e = 2;
+        f = 6;
+        g = 4;
+        h = 6;
+        i = 30;
+        j = 10.0d;
+        k = 30.0d;
+        l = 2.0d;
+        m = 500L;
+        n = 3000L;
+        o = 999.0d;
+        p = 8.0d;
+        q = 3.0d;
+        r = 1.0d;
+        s = new double[]{999.0d, 8.0d, 3.0d, 1.0d};
+        t = new AtomicBoolean(false);
+        u = new Object();
     }
 
-    @Override // com.baidu.tieba.t41
-    @NonNull
-    public String toString() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return t.get();
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t41
-    public <T extends t41> T b(String str, String str2) {
-        InterceptResult invokeLL;
+    public static Object b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return (T) d(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return u;
         }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T extends t41> T c(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            return (T) d(str, obj);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T extends t41> T d(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this;
-            }
-            if (obj != null) {
-                try {
-                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
-                        if (this.a.length() > 0) {
-                            this.a.append('&');
-                        }
-                        StringBuilder sb = this.a;
-                        sb.append(str);
-                        sb.append('=');
-                        sb.append(obj);
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return this;
-        }
-        return (T) invokeLL.objValue;
+        return invokeV.objValue;
     }
 }

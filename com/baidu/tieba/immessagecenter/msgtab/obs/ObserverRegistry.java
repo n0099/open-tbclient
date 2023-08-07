@@ -1,7 +1,7 @@
 package com.baidu.tieba.immessagecenter.msgtab.obs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yr8;
+import com.baidu.tieba.sp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u000b\u001a\u00020\fH\u0016J\b\u0010\r\u001a\u00020\fH\u0016R!\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00010\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/obs/ObserverRegistry;", "Lcom/baidu/tieba/immessagecenter/msgtab/obs/DataChangedMonitor;", "()V", "mMonitors", "", "getMMonitors", "()[Lcom/baidu/tieba/immessagecenter/msgtab/obs/DataChangedMonitor;", "mMonitors$delegate", "Lkotlin/Lazy;", "starting", "", "start", "", "stop", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ObserverRegistry implements yr8 {
+public final class ObserverRegistry implements sp8 {
     public static /* synthetic */ Interceptable $ic;
     public static final ObserverRegistry a;
     public static boolean b;
@@ -52,22 +52,22 @@ public final class ObserverRegistry implements yr8 {
         }
     }
 
-    public final yr8[] a() {
+    public final sp8[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (yr8[]) c.getValue();
+            return (sp8[]) c.getValue();
         }
-        return (yr8[]) invokeV.objValue;
+        return (sp8[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yr8
+    @Override // com.baidu.tieba.sp8
     public void start() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !b) {
             b = true;
-            for (yr8 yr8Var : a()) {
-                yr8Var.start();
+            for (sp8 sp8Var : a()) {
+                sp8Var.start();
             }
         }
     }

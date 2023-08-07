@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class e41 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+public final class e41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        int[] iArr = new int[AdDownloadStatus.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+    public static <T> T a(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
+            try {
+                return cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e) {
+                throw new RuntimeException(cls + " can't init new instance by default constructor.", e);
+            }
+        }
+        return (T) invokeL.objValue;
     }
 }

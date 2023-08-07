@@ -1,40 +1,45 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface n87 extends Comparable<n87> {
-    boolean D();
+public final class n87 implements h87 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean E();
-
-    String J();
-
-    boolean R();
-
-    int getPriority();
-
-    void hide();
-
-    int o(int i, int i2);
-
-    void reset();
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static int a(n87 n87Var, n87 other) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, n87Var, other)) == null) {
-                Intrinsics.checkNotNullParameter(other, "other");
-                return Intrinsics.compare(other.getPriority(), n87Var.getPriority());
+    public n87() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return invokeLL.intValue;
         }
+    }
+
+    @Override // com.baidu.tieba.h87
+    public SpannableString b(Context context, z67 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            SpannableString j = n06.j(richTextData.b());
+            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
+            return j;
+        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

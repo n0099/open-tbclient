@@ -1,83 +1,43 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pvb {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
 
-    public pvb(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076909, "Lcom/baidu/tieba/pvb;")) == null) {
+            return;
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = true;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948076909, "Lcom/baidu/tieba/pvb;");
+        }
     }
 
-    public pvb(float f, float f2, float f3, float f4, boolean z) {
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (pvb.class) {
+                if (a) {
+                    return;
+                }
+                a = true;
+                Log.i("[cronet]", "cronet_lib load");
             }
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = z;
-    }
-
-    public static pvb a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            pvb pvbVar = new pvb(0.0f, 1.0f, 1.0f, 0.0f);
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                pvbVar.b = (float) jSONObject.optDouble("bottomLeftX");
-                pvbVar.c = (float) jSONObject.optDouble("bottomLeftY");
-                pvbVar.d = (float) jSONObject.optDouble("upperRightX");
-                pvbVar.e = (float) jSONObject.optDouble("upperRightY");
-                pvbVar.a = jSONObject.optBoolean("forceEnable");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return pvbVar;
-        }
-        return (pvb) invokeL.objValue;
     }
 }

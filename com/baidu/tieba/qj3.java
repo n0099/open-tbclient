@@ -1,100 +1,335 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.gh3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes7.dex */
-public class qj3 extends sd3 {
+public class qj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Set<String> b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qj3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/file/save");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gh3.b bVar = new gh3.b(10010);
+                bVar.l(String.valueOf(qj3.c));
+                bVar.k(this.a);
+                bVar.j(String.valueOf(this.b));
+                bVar.h(ya3.g0());
+                bVar.m();
+                if (this.b == 3) {
+                    int unused = qj3.c = 0;
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (context != null && callbackHandler != null && vb3Var != null && vb3Var.f0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    v82.c("saveFile", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String M = dj3.M(optParamsAsJo.optString("tempFilePath"), vb3Var.getAppId());
-                if (sd3.b) {
-                    Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
-                    Log.d("SaveFileAction", "——> handle: tempFilePath " + M);
-                }
-                if (TextUtils.isEmpty(M)) {
-                    v82.c("saveFile", "temp file path is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                int a = vb3Var.f0().a(M);
-                if (sd3.b) {
-                    Log.d("SaveFileAction", "——> handle: statusCode " + a);
-                }
-                if (a > 2000) {
-                    v82.c("saveFile", "file path status code : " + a);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, pc3.a(a)));
-                    return false;
-                }
-                String o = vb3Var.f0().o(M);
-                if (TextUtils.isEmpty(o)) {
-                    v82.c("saveFile", "save file path is null");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, pc3.a(2003)));
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("savedFilePath", dj3.J(o, vb3.g0()));
-                    if (sd3.b) {
-                        Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + o + " update saveFilePath " + jSONObject.get("savedFilePath"));
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException unused) {
-                    v82.o("saveFile", "save file path to scheme fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+    /* loaded from: classes7.dex */
+    public class b implements hv3<Pair<String, File>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(qj3 qj3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qj3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            v82.c("saveFile", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
-        return invokeLLLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.hv3
+        /* renamed from: a */
+        public void run(@NonNull Pair<String, File> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                if (qj3.b != null && pair.first != null && qj3.b.contains(pair.first)) {
+                    new pj3(fu2.c(), pair.first).clearAll();
+                    return;
+                }
+                File file = pair.second;
+                if (file != null) {
+                    cr4.L(file);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Callable<SharedPreferences> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pj3 a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ qj3 e;
+
+        public c(qj3 qj3Var, pj3 pj3Var, long j, Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qj3Var, pj3Var, Long.valueOf(j), context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = qj3Var;
+            this.a = pj3Var;
+            this.b = j;
+            this.c = context;
+            this.d = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // java.util.concurrent.Callable
+        public SharedPreferences call() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.a.setCustomMeta(this.b | 1)) {
+                    return null;
+                }
+                String l = this.e.l(this.c, this.d);
+                if (qj3.a) {
+                    Log.i("SwanExtensionApiImpl", String.format("customMeta=%d, name=%s, spName=%s", Long.valueOf(this.b), this.d, l));
+                }
+                if (l == null) {
+                    return null;
+                }
+                return this.c.getSharedPreferences(l, 0);
+            }
+            return (SharedPreferences) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final qj3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-487703729, "Lcom/baidu/tieba/qj3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-487703729, "Lcom/baidu/tieba/qj3$d;");
+                    return;
+                }
+            }
+            a = new qj3(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948093711, "Lcom/baidu/tieba/qj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948093711, "Lcom/baidu/tieba/qj3;");
+                return;
+            }
+        }
+        a = ir1.a;
+        b = new CopyOnWriteArraySet();
+        c = 0;
+    }
+
+    public qj3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static qj3 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return d.a;
+        }
+        return (qj3) invokeV.objValue;
+    }
+
+    public /* synthetic */ qj3(a aVar) {
+        this();
+    }
+
+    public final ar4 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new ir4(str);
+        }
+        return (ar4) invokeL.objValue;
+    }
+
+    public void g(@NonNull String str, Set<String> set, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, set, z) == null) {
+            h(str, set, z);
+            jj2.c(new File(pj3.c()), str, SwanKV.PREFS_SUFFIX, set, z, new b(this));
+        }
+    }
+
+    public void h(@NonNull String str, Set<String> set, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, set, z) == null) {
+            jj2.b(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ActivityChooserModel.HISTORY_FILE_EXTENSION, set, z);
+        }
+    }
+
+    public final void m(Context context, String str, @NonNull pj3 pj3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, pj3Var) == null) {
+            long customMeta = pj3Var.getCustomMeta();
+            if ((customMeta & 1) == 1) {
+                return;
+            }
+            pj3Var.importFromSharedPreferences(new c(this, pj3Var, customMeta, context, str));
+        }
+    }
+
+    @AnyThread
+    public static void i(int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, str) == null) {
+            sn3.f().execute(new a(str, i));
+        }
+    }
+
+    @NonNull
+    @AnyThread
+    public ar4 k(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, str, z)) == null) {
+            try {
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                pj3 pj3Var = new pj3(context, str, i);
+                b.add(str);
+                m(context, str, pj3Var);
+                if (c > 0) {
+                    i(3, str);
+                }
+                return pj3Var;
+            } catch (NoClassDefFoundError | UnsatisfiedLinkError e) {
+                if (a) {
+                    Log.e("SwanExtensionApiImpl", "getSharedPrefsImpl", e);
+                }
+                c++;
+                i(2, str);
+                return f(str);
+            }
+        }
+        return (ar4) invokeLLZ.objValue;
+    }
+
+    @Nullable
+    public final String l(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            if (str == null) {
+                str = context.getPackageName() + "_preferences";
+            }
+            if ("default".equals(str)) {
+                if (ir4.d(context, str).exists()) {
+                    return str;
+                }
+                str = context.getPackageName() + "_preferences";
+            }
+            if (ir4.d(context, str).exists()) {
+                return str;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

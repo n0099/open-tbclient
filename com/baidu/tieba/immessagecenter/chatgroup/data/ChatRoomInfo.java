@@ -31,6 +31,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
     public String name;
     public int noDisturb;
     public long roomId;
+    public String singleListHotText;
     public long topTime;
     public int unreadNum;
 
@@ -163,10 +164,19 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
         return invokeV.longValue;
     }
 
-    public long getTimestamp() {
+    public String getSingleListHotText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.singleListHotText;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getTimestamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             ChatNewMessage chatNewMessage = this.mNewMessage;
             if (chatNewMessage != null) {
                 return chatNewMessage.getMsgTime();
@@ -179,7 +189,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
     public long getTopTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.topTime;
         }
         return invokeV.longValue;
@@ -188,7 +198,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
     public int getUnreadNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.unreadNum;
         }
         return invokeV.intValue;
@@ -197,7 +207,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
     public boolean isLocationScrolled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.isLocationScrolled;
         }
         return invokeV.booleanValue;
@@ -206,7 +216,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
     public boolean isNoDisturb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (this.noDisturb == 1) {
                 return true;
             }
@@ -218,7 +228,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
     public boolean isSubscribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             if (this.isSubscribe == 1) {
                 return true;
             }
@@ -229,7 +239,7 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
 
     public void parse(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048594, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.roomId = jSONObject.optLong("room_id");
@@ -255,105 +265,112 @@ public class ChatRoomInfo extends OrmObject implements Serializable {
 
     public void setAtInfo(AtInfo atInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, atInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, atInfo) == null) {
             this.atInfo = atInfo;
         }
     }
 
     public void setAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.avatar = str;
         }
     }
 
     public void setDeleteTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
             this.deleteTime = j;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.forumId = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             this.forumName = str;
         }
     }
 
     public void setIsShow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             this.isShow = i;
         }
     }
 
     public void setIsSubscribe(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             this.isSubscribe = i;
         }
     }
 
     public void setJumpUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.jumpUrl = str;
         }
     }
 
     public void setLocationScrolled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.isLocationScrolled = z;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.name = str;
         }
     }
 
     public void setNewMessage(ChatNewMessage chatNewMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, chatNewMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, chatNewMessage) == null) {
             this.mNewMessage = chatNewMessage;
         }
     }
 
     public void setNoDisturb(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             this.noDisturb = i;
         }
     }
 
     public void setRoomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
             this.roomId = j;
+        }
+    }
+
+    public void setSingleListHotText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+            this.singleListHotText = str;
         }
     }
 
     public void setTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
             this.topTime = j;
         }
     }
 
     public void setUnreadNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.unreadNum = i;
         }
     }

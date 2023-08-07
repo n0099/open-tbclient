@@ -1,66 +1,90 @@
 package com.baidu.tieba;
 
+import android.view.animation.LinearInterpolator;
+import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qy5 extends Thread {
+public class qy5 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
+    public final Scroller a;
+    public final ny5 b;
+    public int c;
+    public int d;
 
-    public qy5(int i, int i2) {
+    public qy5(ny5 ny5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {ny5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.a = i;
-        this.b = i2;
+        this.b = ny5Var;
+        this.a = new Scroller(ny5Var.getContext(), new LinearInterpolator());
     }
 
-    public void a(String str) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !this.a.isFinished();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.abortAnimation();
         }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
+    public void b(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
+            c(0, 0, i, i2, i3);
+        }
+    }
+
+    public void c(int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            this.a.startScroll(i, i2, i3, i4, i5);
+            this.b.removeCallbacks(this);
+            this.b.post(this);
+            this.c = i;
+            this.d = i2;
+        }
+    }
+
+    @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.run();
-            if (TbadkCoreApplication.getInst().checkInterrupt()) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.computeScrollOffset()) {
+                int currX = this.a.getCurrX();
+                int currY = this.a.getCurrY();
+                this.b.b(this.c, this.d, currX, currY);
+                this.b.post(this);
+                this.c = currX;
+                this.d = currY;
                 return;
             }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("img_num", String.valueOf(this.a));
-            netWork.addPostData("img_total", String.valueOf(this.b));
-            String str = this.c;
-            if (str != null) {
-                netWork.addPostData("img_type", str);
-            }
-            netWork.postNetData();
+            this.b.removeCallbacks(this);
+            this.b.a();
         }
     }
 }

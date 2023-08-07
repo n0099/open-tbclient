@@ -1,15 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface d16 {
-    String a();
-
-    void b(String str);
-
-    String c();
-
-    String d();
-
-    boolean e();
-
-    boolean isValid();
+    void a(int i, int i2, int i3);
 }

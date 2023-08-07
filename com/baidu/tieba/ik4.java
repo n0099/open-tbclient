@@ -1,61 +1,102 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.hk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ik4 implements dk4<vk4> {
+public class ik4 extends fk4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final hk4.a a;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pkg_sub" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dk4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
-
-    public ik4() {
+    public ik4(hk4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.dk4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.hk4.a
+    public void onFail(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, exc) == null) && a()) {
+            this.a.onFail(exc);
         }
     }
 
-    public final String b() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL,bundle_id TEXT NOT NULL,category INT NOT NULL," + NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL,independent INT DEFAULT 0,sub_pkg_name TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0, UNIQUE (app_id,sub_pkg_name));";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hk4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
+            this.a.onStart();
+        }
+    }
+
+    @Override // com.baidu.tieba.hk4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+            String str2 = "";
+            if (response == null || response.body() == null) {
+                str = "";
+            } else {
+                str2 = response.request().url().toString();
+                str = response.body().string();
+            }
+            b(str2, str, networkStatRecord.toUBCJson());
+            return str;
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onSuccess(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) && a()) {
+            this.a.onSuccess(str, i);
+        }
     }
 }

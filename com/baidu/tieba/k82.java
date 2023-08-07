@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.util.Base64;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.websocket.IWebSocketListener;
+import com.baidu.searchbox.websocket.WebSocketManager;
+import com.baidu.searchbox.websocket.WebSocketRequest;
+import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,20 +22,116 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k82 {
+public class k82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public zq3 a;
-    @NonNull
-    public ArrayMap<String, k72> b;
-    @NonNull
-    public ArrayMap<String, List<k72>> c;
+
+    /* loaded from: classes6.dex */
+    public static class a implements IWebSocketListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JsFunction a;
+        public final /* synthetic */ JsFunction b;
+        public final /* synthetic */ JsFunction c;
+        public final /* synthetic */ JsFunction d;
+
+        public a(JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, JsFunction jsFunction4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jsFunction, jsFunction2, jsFunction3, jsFunction4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jsFunction;
+            this.b = jsFunction2;
+            this.c = jsFunction3;
+            this.d = jsFunction4;
+        }
+
+        @Override // com.baidu.searchbox.websocket.IWebSocketListener
+        public void onClose(JSONObject jSONObject) {
+            String jSONObject2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    jSONObject2 = "";
+                } else {
+                    jSONObject2 = jSONObject.toString();
+                }
+                if (k82.a) {
+                    Log.d("WebSocketHelper", "onClose - " + jSONObject2);
+                }
+                JsFunction jsFunction = this.c;
+                if (jsFunction != null) {
+                    jsFunction.call(jSONObject2);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.websocket.IWebSocketListener
+        public void onError(Throwable th, JSONObject jSONObject) {
+            String jSONObject2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) {
+                if (jSONObject == null) {
+                    jSONObject2 = "";
+                } else {
+                    jSONObject2 = jSONObject.toString();
+                }
+                if (k82.a) {
+                    Log.d("WebSocketHelper", "onError throwable - " + th);
+                    Log.d("WebSocketHelper", "onError jsonObject - " + jSONObject2);
+                }
+                JsFunction jsFunction = this.d;
+                if (jsFunction != null) {
+                    jsFunction.call(k82.g(th));
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.websocket.IWebSocketListener
+        public void onMessage(String str) {
+            JsFunction jsFunction;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (jsFunction = this.b) != null) {
+                jsFunction.call(k82.h(str));
+            }
+        }
+
+        @Override // com.baidu.searchbox.websocket.IWebSocketListener
+        public void onOpen(Map<String, String> map) {
+            JsFunction jsFunction;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, map) == null) && (jsFunction = this.a) != null) {
+                jsFunction.call();
+            }
+        }
+
+        @Override // com.baidu.searchbox.websocket.IWebSocketListener
+        public void onMessage(ByteBuffer byteBuffer) {
+            JsFunction jsFunction;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) && (jsFunction = this.b) != null) {
+                jsFunction.call(k82.h(byteBuffer));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,299 +146,224 @@ public final class k82 {
                 return;
             }
         }
-        d = fs1.a;
+        a = ir1.a;
     }
 
-    public k82(@NonNull zq3 zq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zq3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = zq3Var;
-        this.b = new ArrayMap<>();
-        this.c = new ArrayMap<>();
-    }
-
-    @Nullable
-    public SwanAppComponentContainerView a(String str) {
+    public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            k72 k72Var = this.b.get(str);
-            if (k72Var == null) {
-                v82.c("Component-Container", "getContainerView : get a null  component#" + str);
-                return null;
-            }
-            return k72Var.m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return i(202, str, null);
         }
-        return (SwanAppComponentContainerView) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @UiThread
-    public boolean b(k72 k72Var) {
-        InterceptResult invokeL;
-        boolean b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k72Var)) == null) {
-            if (k72Var == null) {
-                o82.a("Component-Container", "insert component with a null component");
-                return false;
-            }
-            l72 n = k72Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = k72Var.o();
-            SwanAppComponentContainerView m = k72Var.m();
-            if (m == null) {
-                o82.a("Component-Container", "insert " + o + " with a null container view");
-                return false;
-            }
-            if (this.b.containsKey(str2)) {
-                v82.o("Component-Container", o + " repeat insert: " + str2);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                o82.a("Component-Container", "insert " + o + " with a empty component id");
-                return false;
-            }
-            b23 b23Var = n.h;
-            if (b23Var == null) {
-                o82.a("Component-Container", "insert " + o + " with a null position");
-                return false;
-            }
-            if (!b23Var.h()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("insert ");
-                sb.append(o);
-                sb.append(" with a invalid position: ");
-                Object obj = n.h;
-                if (obj == null) {
-                    obj = StringUtil.NULL_STRING;
-                }
-                sb.append(obj);
-                o82.a("Component-Container", sb.toString());
-                n.h = new b23();
-            }
-            if (!j82.c(n)) {
-                if (TextUtils.isEmpty(n.d)) {
-                    b = this.a.c(m, n.h);
-                } else {
-                    SwanAppComponentContainerView a = a(n.d);
-                    if (a == null) {
-                        v82.c("Component-Container", "insert " + o + " to parent with a null parent container view");
-                        return false;
-                    }
-                    if (a.indexOfChild(m) >= 0) {
-                        o82.a("Component-Container", o + " repeat insert view!");
-                        a.removeView(m);
-                    }
-                    a.addView(m, n.b());
-                    b = true;
-                }
-            } else {
-                b = j82.b(this, n, m);
-                if (!b) {
-                    o82.a("Component-Container", o + " insertComponentForScroll fail");
-                }
-            }
-            if (b) {
-                this.b.put(n.b, k72Var);
-                if (k72Var.s(2)) {
-                    v82.o("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
-                    List<k72> list = this.c.get(str);
-                    if (list == null) {
-                        list = new ArrayList<>();
-                        this.c.put(str, list);
-                    }
-                    list.add(k72Var);
-                }
-            }
-            return b;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        k72 value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d) {
-                Log.d("Component-Container", "container destroy");
-            }
-            for (Map.Entry<String, k72> entry : this.b.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null) {
-                    value.y();
-                }
-            }
-            this.b.clear();
-            this.c.clear();
-        }
-    }
-
-    public final boolean d(@NonNull k72 k72Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull l72 l72Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, k72Var, swanAppComponentContainerView, l72Var)) == null) {
-            String o = k72Var.o();
-            if (d) {
-                Log.d("Component-Container", o + " perform position update");
-            }
-            b23 b23Var = l72Var.h;
-            if (b23Var != null && b23Var.h()) {
-                if (j82.c(l72Var) && !j82.e(this, l72Var, swanAppComponentContainerView)) {
-                    o82.a("Component-Container", o + " performPositionUpdateForScroll fail");
-                }
-                String str = l72Var.d;
-                if (TextUtils.isEmpty(str)) {
-                    return this.a.a(swanAppComponentContainerView, l72Var.h);
-                }
-                SwanAppComponentContainerView a = a(str);
-                if (a == null) {
-                    v82.c("Component-Container", "update " + o + " to parent with a null parent container view");
-                    return false;
-                } else if (swanAppComponentContainerView.getParent() == a) {
-                    a.updateViewLayout(swanAppComponentContainerView, l72Var.b());
-                    return true;
-                } else {
-                    o82.a("Component-Container", "update " + o + " to parent with a illegal parent view");
-                    return false;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("insert ");
-            sb.append(o);
-            sb.append(" with a invalid position: ");
-            Object obj = l72Var.h;
-            if (obj == null) {
-                obj = StringUtil.NULL_STRING;
-            }
-            sb.append(obj);
-            o82.a("Component-Container", sb.toString());
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @UiThread
-    public boolean e(k72 k72Var) {
+    public static String d(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k72Var)) == null) {
-            boolean z = false;
-            if (k72Var == null) {
-                o82.a("Component-Container", "remove component with a null component");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject)) == null) {
+            if (jsObject == null) {
+                return f("params is null");
             }
-            l72 n = k72Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = k72Var.o();
-            SwanAppComponentContainerView m = k72Var.m();
-            if (m == null) {
-                o82.a("Component-Container", "remove " + o + " with a null container view");
-                return false;
-            } else if (TextUtils.isEmpty(str2)) {
-                o82.a("Component-Container", "remove " + o + " with a empty component id");
-                return false;
-            } else {
-                if (!j82.c(n)) {
-                    if (TextUtils.isEmpty(n.d)) {
-                        z = this.a.removeView(m);
-                    } else {
-                        SwanAppComponentContainerView a = a(n.d);
-                        if (a == null) {
-                            v82.c("Component-Container", "remove " + o + " to parent with a null parent container view");
-                        } else if (a == m.getParent()) {
-                            a.removeView(m);
-                            z = true;
-                        } else {
-                            o82.a("Component-Container", "remove " + o + " to parent with a illegal parent view");
-                        }
-                    }
-                } else {
-                    z = j82.g(this, n, m);
-                    if (!z) {
-                        o82.a("Component-Container", o + " removeComponentForScroll fail");
-                    }
-                }
-                if (z || k72Var.s(1)) {
-                    this.b.remove(str2);
-                    if (k72Var.s(2)) {
-                        v82.o("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
-                        List<k72> list = this.c.get(str);
-                        if (list != null) {
-                            list.remove(k72Var);
-                        }
-                    }
-                }
-                return z;
+            f32 F = f32.F(jsObject);
+            if (F == null) {
+                return f("paramsMap is null");
             }
+            String B = F.B("taskId");
+            int q = F.q("code");
+            String B2 = F.B("reason");
+            if (TextUtils.isEmpty(B)) {
+                return f("taskId is empty");
+            }
+            try {
+                WebSocketManager.INSTANCE.close(B, q, B2);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return i(0, "close success", null);
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @UiThread
-    public boolean f(k72 k72Var, @NonNull n82 n82Var) {
-        InterceptResult invokeLL;
+    public static String g(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k72Var, n82Var)) == null) {
-            if (k72Var == null) {
-                o82.a("Component-Container", "update component with a null component");
-                return false;
-            }
-            l72 n = k72Var.n();
-            String o = k72Var.o();
-            SwanAppComponentContainerView m = k72Var.m();
-            if (m == null) {
-                o82.a("Component-Container", "update " + o + " with a null container view");
-                return false;
-            }
-            if (!this.b.containsKey(n.b)) {
-                v82.c("Component-Container", "don't insert" + o);
-            }
-            if (k72Var instanceof c82) {
-                if (n82Var.a(7)) {
-                    boolean d2 = j82.d(this, k72Var, n, m, n82Var);
-                    if (!d2) {
-                        o82.a("Component-Container", o + " perform scroll type update fail");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (obj != null) {
+                try {
+                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, String.valueOf(obj));
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
                     }
-                    return d2;
-                } else if (n82Var.a(8)) {
-                    j82.f(this, k72Var, n, m, n82Var);
                 }
             }
-            if (n82Var.a(3) && !d(k72Var, m, n)) {
-                v82.c("Component-Container", o + " perform position update fail");
-                return false;
-            } else if (k72Var instanceof i72) {
-                i72 i72Var = (i72) k72Var;
-                if (i72Var.J()) {
-                    if (d) {
-                        Log.d("Component-Container", o + "perform position update with animation");
-                    }
-                    if (!i72Var.M()) {
-                        v82.c("Component-Container", o + " perform position update with animation fail");
-                        return false;
-                    }
-                    return true;
-                }
-                return true;
-            } else {
-                return true;
+            String jSONObject2 = jSONObject.toString();
+            if (a) {
+                Log.d("WebSocketHelper", "getOnErrorParam - " + jSONObject2);
             }
+            return jSONObject2;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String m(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jsObject)) == null) {
+            if (jsObject == null) {
+                return f("params is null");
+            }
+            f32 F = f32.F(jsObject);
+            if (F == null) {
+                return f("paramsMap is null");
+            }
+            String B = F.B("taskId");
+            String B2 = F.B("data");
+            if (TextUtils.isEmpty(B)) {
+                return f("taskId is empty");
+            }
+            try {
+                WebSocketManager.INSTANCE.send(B, B2);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return i(0, "send success", null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jsObject)) == null) {
+            if (jsObject == null) {
+                return f("params is null");
+            }
+            f32 F = f32.F(jsObject);
+            if (F == null) {
+                return f("paramsMap is null");
+            }
+            String B = F.B("url");
+            if (TextUtils.isEmpty(B)) {
+                return f("url is null");
+            }
+            f32 w = F.w("header");
+            String[] D = F.D(WebSocketRequest.PARAM_KEY_PROTOCOLS);
+            WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
+            builder.setUrl(B);
+            builder.setHeaders(k(w));
+            if (D != null && D.length > 0) {
+                builder.setProtocols(Arrays.asList(D));
+            }
+            WebSocketTask connect = WebSocketManager.INSTANCE.connect(builder.build(), l(F));
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("taskId", connect.getTaskId());
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return i(0, "connect success", jSONObject);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String h(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (obj instanceof String) {
+                    jSONObject.put("dataType", EMABTest.TYPE_STRING);
+                    jSONObject.put("data", obj);
+                } else if (obj instanceof ByteBuffer) {
+                    jSONObject.put("dataType", "arrayBuffer");
+                    ByteBuffer byteBuffer = (ByteBuffer) obj;
+                    byte[] bArr = new byte[byteBuffer.remaining()];
+                    byteBuffer.get(bArr);
+                    jSONObject.put("data", Base64.encodeToString(bArr, 2));
+                }
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (a) {
+                Log.d("WebSocketHelper", "getOnMessageParam - " + jSONObject2);
+            }
+            return jSONObject2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(int i, String str, JSONObject jSONObject) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65545, null, i, str, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("reason", i);
+                jSONObject2.put("message", str);
+                if (jSONObject != null) {
+                    jSONObject2.put("data", jSONObject);
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            String jSONObject3 = jSONObject2.toString();
+            if (a) {
+                Log.d("WebSocketHelper", "getResultMsg - " + jSONObject3);
+            }
+            return jSONObject3;
+        }
+        return (String) invokeILL.objValue;
+    }
+
+    public static JsFunction j(@NonNull f32 f32Var, @NonNull String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, f32Var, str, z)) == null) {
+            JsFunction u = f32Var.u(str);
+            if (u != null) {
+                u.setReleaseMode(z);
+            }
+            return u;
+        }
+        return (JsFunction) invokeLLZ.objValue;
+    }
+
+    public static Map<String, String> k(f32 f32Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, f32Var)) == null) {
+            HashMap hashMap = new HashMap();
+            if (f32Var != null) {
+                for (String str : f32Var.j()) {
+                    hashMap.put(str, f32Var.B(str));
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static IWebSocketListener l(@NonNull f32 f32Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, f32Var)) == null) {
+            return new a(j(f32Var, "onOpen", true), j(f32Var, "onMessage", false), j(f32Var, "onClose", true), j(f32Var, GameAssistConstKt.TYPE_CALLBACK_ERROR, false));
+        }
+        return (IWebSocketListener) invokeL.objValue;
     }
 }

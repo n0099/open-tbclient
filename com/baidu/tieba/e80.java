@@ -1,102 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.MediaType;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.RequestBody;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.support.cookie.Cookie;
-import com.baidu.searchbox.network.support.cookie.CookieHandler;
-import com.baidu.searchbox.network.support.cookie.CookieJar;
-import com.baidu.tieba.q70;
+import android.util.Log;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class e80 implements q70 {
+public class e80 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static boolean b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CookieJar a;
-    public v70 b;
 
-    public e80(CookieJar cookieJar, v70 v70Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cookieJar, v70Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688076, "Lcom/baidu/tieba/e80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947688076, "Lcom/baidu/tieba/e80;");
                 return;
             }
         }
-        this.a = cookieJar;
-        this.b = v70Var;
+        a = AppConfig.isDebug();
+        b = QuickPersistConfig.getInstance().getBoolean("enable_external_opt", true);
+        c = QuickPersistConfig.getInstance().getBoolean("enable_external_push_opt", false);
+        if (a) {
+            Log.d("ExternalABUtils", "external opt ab:" + a() + " push opt ab:" + b());
+        }
     }
 
-    @Override // com.baidu.tieba.q70
-    public Response a(q70.a aVar) throws IOException {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            Request request = aVar.request();
-            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            Request.Builder newBuilder = request.newBuilder();
-            newBuilder.removeHeader("bdapp-support-brotli");
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
-                }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
-                }
-            }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            if (request.header("User-Agent") == null && this.b.C() != null) {
-                newBuilder.header("User-Agent", this.b.C());
-            }
-            Response a = aVar.a(newBuilder.build());
-            CookieHandler.receiveHeaders(this.a, request, a.headers());
-            return a.newBuilder().request(request).build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
         }
-        return (Response) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String b(List<Cookie> list) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append('=');
-                sb.append(cookie.value());
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -1,87 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class tx6 {
+public class tx6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final tx6 a;
-    public static final k0 b;
-    public static final Class<? extends vv6>[] c;
-    public static final k0 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948196631, "Lcom/baidu/tieba/tx6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (SharedPrefHelper.getInstance().getBoolean("like_forum_sort_level", false)) {
+                return 2;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948196631, "Lcom/baidu/tieba/tx6;");
-                return;
-            }
+            return 1;
         }
-        a = new tx6();
-        k0 b2 = k0.d(aw6.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{aw6.class, zv6.class};
-        k0.b d2 = k0.d(aw6.class, zv6.class);
-        d2.c(bw6.class, dw6.class);
-        k0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
+        return invokeI.intValue;
     }
 
-    public tx6() {
+    public static void b(TbPageContext<?> tbPageContext, String str) {
+        ForumSquareActivityConfig forumSquareActivityConfig;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeLL(65537, null, tbPageContext, str) != null) || tbPageContext == null) {
+            return;
         }
-    }
-
-    public final k0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (!StringUtils.isNull(str)) {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
+        } else {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
         }
-        return (k0) invokeV.objValue;
-    }
-
-    public final Class<? extends vv6>[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c;
-        }
-        return (Class[]) invokeV.objValue;
-    }
-
-    public final k0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return d;
-        }
-        return (k0) invokeV.objValue;
+        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
     }
 }

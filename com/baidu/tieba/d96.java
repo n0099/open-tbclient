@@ -1,41 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class d96 {
     public static /* synthetic */ Interceptable $ic;
+    public static d96 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<StatisticItem> a;
 
-    public d96(JSONObject jSONObject) {
+    public d96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        try {
-            if (jSONObject.has("code")) {
-                jSONObject.getInt("code");
+    }
+
+    public static d96 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (d96.class) {
+                    if (b == null) {
+                        b = new d96();
+                    }
+                }
             }
-            if (jSONObject.has("msg")) {
-                jSONObject.getString("msg");
-            }
-        } catch (JSONException e) {
-            BdLog.e(e.getMessage());
+            return b;
         }
+        return (d96) invokeV.objValue;
+    }
+
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        List<StatisticItem> list = this.a;
+        if (list != null) {
+            list.add(statisticItem);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

@@ -47,31 +47,31 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onPullToRefresh() {
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1176);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1179);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onRefreshing() {
         resetRotation();
         this.mArrowImageView.startAnimation(this.mRotateAnimation);
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1175);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1178);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToLongRefresh() {
         super.onReleaseToLongRefresh();
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1174);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1177);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToRefresh() {
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1177);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f117a);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReset() {
         resetRotation();
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1176);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1179);
     }
 
     public RotateLoadingLayout(Context context) {
@@ -110,11 +110,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.mHeaderContainer = (RelativeLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8f);
-        this.mArrowImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8d);
-        this.mHintTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d90);
-        this.mHeaderTimeView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d93);
-        this.mHeaderTimeViewTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d95);
+        this.mHeaderContainer = (RelativeLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da5);
+        this.mArrowImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da3);
+        this.mHintTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da6);
+        this.mHeaderTimeView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091da9);
+        this.mHeaderTimeViewTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dab);
         this.mArrowImageView.setScaleType(ImageView.ScaleType.CENTER);
         this.mArrowImageView.setImageResource(com.baidu.tieba.R.drawable.default_ptr_rotate);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
@@ -128,6 +128,6 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0820, viewGroup, false);
+        return LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0828, viewGroup, false);
     }
 }

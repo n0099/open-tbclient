@@ -2,143 +2,49 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.webkit.ValueCallback;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.nadcore.webarch.feature.NadWebFeature;
+import android.graphics.drawable.ColorDrawable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class k91 {
+public class k91 {
     public static /* synthetic */ Interceptable $ic;
-    public static k91 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, NadWebFeature> b;
 
-    public k91() {
+    public static void a(Context context, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
+            return;
+        }
+        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
+    }
+
+    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
+            if (!(context instanceof Activity)) {
+                return null;
             }
-        }
-        this.a = false;
-        this.b = new HashMap<>(4);
-    }
-
-    public static synchronized k91 c() {
-        InterceptResult invokeV;
-        k91 k91Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (k91.class) {
-                if (c == null) {
-                    c = new k91();
-                }
-                k91Var = c;
+            if (viewGroup == null) {
+                viewGroup = new FrameLayout(context);
+                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
+                colorDrawable.setAlpha(86);
+                viewGroup.setBackground(colorDrawable);
             }
-            return k91Var;
-        }
-        return (k91) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 21)
-    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, h91 h91Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, h91Var)) == null) {
-            if (valueCallback == null) {
-                return false;
+            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
+            if (viewGroup.getParent() != null) {
+                viewGroup2.removeView(viewGroup);
             }
-            if (activity == null) {
-                valueCallback.onReceiveValue(null);
-                return false;
+            if (z) {
+                viewGroup2.addView(viewGroup);
             }
-            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
-            if (b != null && b.c()) {
-                if (b instanceof j91) {
-                    return ((j91) b).h(activity, valueCallback, h91Var);
-                }
-                valueCallback.onReceiveValue(null);
-            } else {
-                valueCallback.onReceiveValue(null);
-            }
-            return false;
+            return viewGroup;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public NadWebFeature a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return b(str);
-        }
-        return (NadWebFeature) invokeL.objValue;
-    }
-
-    public NadWebFeature b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (NadWebFeature) invokeL.objValue;
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            e(context);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
-            j91 j91Var = new j91(context);
-            j91Var.a();
-            i(j91Var);
-            this.a = true;
-        }
-    }
-
-    public void f(Activity activity) {
-        NadWebFeature a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof j91)) {
-            ((j91) a).f(activity);
-        }
-    }
-
-    public final void i(NadWebFeature nadWebFeature) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
-            this.b.put(nadWebFeature.b(), nadWebFeature);
-        }
-    }
-
-    public void g(Activity activity, int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof j91)) {
-            ((j91) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
-        }
+        return (ViewGroup) invokeLLZ.objValue;
     }
 }

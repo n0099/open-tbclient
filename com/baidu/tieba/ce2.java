@@ -1,81 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ce2 {
+public abstract class ce2 extends ti4 implements sk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671801, "Lcom/baidu/tieba/ce2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671801, "Lcom/baidu/tieba/ce2;");
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public ce2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
+        int K = K();
+        this.a = K;
+        this.b = K;
     }
 
-    public static boolean a(ta2 ta2Var, String str) {
-        InterceptResult invokeLL;
-        vb3 b0;
-        xd2 a2;
+    public int J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ta2Var, str)) == null) {
-            if (a) {
-                Log.d("MasterIsolationHelper", "JS CALL - " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            if (i == 0) {
+                return this.a;
             }
-            boolean z = false;
-            if (u73.D()) {
-                return false;
-            }
-            if (ta2Var != null && !TextUtils.isEmpty(ta2Var.getContainerId())) {
-                if (ke2.i().k(ta2Var.getContainerId())) {
-                    return true;
-                }
-                if (!vf2.h()) {
-                    return false;
-                }
-                String containerId = ta2Var.getContainerId();
-                if (!be2.a(containerId) || (b0 = vb3.b0()) == null || !b(ta2Var) || (a2 = ee2.b().a()) == null) {
-                    return false;
-                }
-                String h = a2.h();
-                if (TextUtils.isEmpty(h)) {
-                    return false;
-                }
-                z = (TextUtils.equals(a2.i().a(), ta2Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
-                if (a && z) {
-                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
-                }
-            }
-            return z;
+            return i;
         }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean b(ta2 ta2Var) {
-        InterceptResult invokeL;
+    public ce2 L(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ta2Var)) == null) {
-            if ((ta2Var instanceof dj2) && ((dj2) ta2Var).getInvokeSourceType() == 0) {
-                return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = this.b;
+            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
+                this.b = i;
             }
-            return false;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (ce2) invokeI.objValue;
     }
 }

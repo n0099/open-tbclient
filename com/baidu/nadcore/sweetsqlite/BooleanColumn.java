@@ -1,6 +1,6 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import com.baidu.tieba.x41;
+import com.baidu.tieba.a41;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class BooleanColumn extends Column implements Serializable {
@@ -12,8 +12,8 @@ public class BooleanColumn extends Column implements Serializable {
         return 1;
     }
 
-    public BooleanColumn(x41 x41Var) {
-        super(x41Var);
+    public BooleanColumn(a41 a41Var) {
+        super(a41Var);
     }
 
     public BooleanColumn setDefaultValue(boolean z) {

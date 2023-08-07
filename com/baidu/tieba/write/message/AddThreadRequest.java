@@ -2,6 +2,7 @@ package com.baidu.tieba.write.message;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
@@ -10,8 +11,7 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.wg;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class AddThreadRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ky5.c(builder, true, true, true);
+            NetMessageHelper.bindCommonParamsToProtobufData(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get("tbs");
@@ -131,8 +131,9 @@ public class AddThreadRequest extends NetMessage {
             builder.is_article = this.requestData.get(WriteActivityConfig.IS_ARTICLE);
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
-            builder.is_xiuxiu_thread = Integer.valueOf(wg.e(this.requestData.get("is_xiuxiu_thread"), 0));
-            builder.is_show_bless = Integer.valueOf(wg.e(this.requestData.get("is_show_bless"), 0));
+            builder.is_xiuxiu_thread = Integer.valueOf(JavaTypesHelper.toInt(this.requestData.get("is_xiuxiu_thread"), 0));
+            builder.is_show_bless = Integer.valueOf(JavaTypesHelper.toInt(this.requestData.get("is_show_bless"), 0));
+            builder.bot_conf = this.requestData.get("bot_conf");
             if (!TextUtils.isEmpty(this.requestData.get("is_question"))) {
                 try {
                     builder.is_question = Integer.valueOf(Integer.parseInt(this.requestData.get("is_question")));

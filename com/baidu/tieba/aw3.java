@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aw3 extends uv3 {
+public class aw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zv3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public aw3() {
+    public static synchronized zv3 a() {
+        InterceptResult invokeV;
+        zv3 zv3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (aw3.class) {
+                if (a == null) {
+                    a = new zv3();
+                }
+                zv3Var = a;
             }
+            return zv3Var;
         }
+        return (zv3) invokeV.objValue;
     }
 }

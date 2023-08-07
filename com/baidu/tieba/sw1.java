@@ -1,19 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface sw1 {
-    void a(String str);
+    boolean a();
 
-    void b();
-
-    void c(String str);
-
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable sw2 sw2Var);
-
-    void e(String str);
-
-    void f(String str);
+    String b();
 }

@@ -1,71 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipBannerItem;
-import tbclient.GetVipInfo.VipBannerList;
 /* loaded from: classes5.dex */
-public class f69 implements yn {
+public class f69 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<g69> a;
+    public View a;
+    public ImageView b;
+    public Context c;
+    public TextView d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716224, "Lcom/baidu/tieba/f69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947716224, "Lcom/baidu/tieba/f69;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public f69(VipBannerList vipBannerList) {
+    public f69() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipBannerList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (vipBannerList != null && vipBannerList.item != null) {
-            String str = vipBannerList.card_id;
-            this.a = new ArrayList();
-            for (VipBannerItem vipBannerItem : vipBannerList.item) {
-                this.a.add(new g69(vipBannerItem));
-            }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
+            SkinManager.setImageResource(this.b, R.drawable.icon_tail_post_add);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
+        }
+    }
+
+    public View a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            this.c = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0960, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092404);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092403);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f15cc), Integer.valueOf(i)));
         }
     }
 }

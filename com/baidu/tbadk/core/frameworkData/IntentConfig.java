@@ -13,27 +13,27 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.BdPageContextSupport;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.at5;
-import com.baidu.tieba.dt5;
-import com.baidu.tieba.et5;
-import com.baidu.tieba.gt5;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.wq5;
-import com.baidu.tieba.zg;
+import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
+import com.baidu.tieba.ar5;
+import com.baidu.tieba.dr5;
+import com.baidu.tieba.er5;
+import com.baidu.tieba.ig;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -334,7 +334,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            ah.unbindService(this.a.mContext, this.a.mClientConnection);
+            ig.unbindService(this.a.mContext, this.a.mClientConnection);
         }
     }
 
@@ -367,7 +367,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            at5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            ar5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -378,7 +378,7 @@ public class IntentConfig extends OrmObject {
             }
             if (currentVisiblePageExtra != null) {
                 TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-                wq5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+                MutiProcessManager.publishEvent(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
             }
             this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
         }
@@ -440,7 +440,7 @@ public class IntentConfig extends OrmObject {
         }
         jSONObject.put("component", this.mComponentClass);
         jSONObject.put("extra", jSONObject2);
-        ActivityLog.getInstance().c(str, jSONObject.toString());
+        ActivityLog.getInstance().i(str, jSONObject.toString());
     }
 
     public static boolean checkStartActivityInterval(Class<?> cls) {
@@ -461,7 +461,7 @@ public class IntentConfig extends OrmObject {
     private void logIntent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
-            zg.a().post(new b(this, str));
+            SafeHandler.getInst().post(new b(this, str));
         }
     }
 
@@ -525,7 +525,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            ah.bindService(this.mContext, intent, this.mClientConnection, 1);
+            ig.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -554,7 +554,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForResultForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            ah.bindService(this.mContext, intent, this.mClientConnection, 1);
+            ig.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -562,13 +562,13 @@ public class IntentConfig extends OrmObject {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            m9<?> b2 = r9.b(context);
-            et5 et5Var = null;
-            if (b2 instanceof dt5) {
-                et5Var = ((dt5) b2).getTbPageInfo();
+            BdPageContextSupport<?> b2 = l9.b(context);
+            er5 er5Var = null;
+            if (b2 instanceof dr5) {
+                er5Var = ((dr5) b2).getTbPageInfo();
             }
-            if (et5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", et5Var.a());
+            if (er5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", er5Var.a());
             }
         }
     }
@@ -576,10 +576,10 @@ public class IntentConfig extends OrmObject {
     public void addSourceTraceForPageStayDurationStat() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
-            m9<?> b2 = r9.b(this.mContext);
+            BdPageContextSupport<?> b2 = l9.b(this.mContext);
             ArrayList<String> arrayList = null;
-            if (b2 instanceof gt5) {
-                arrayList = (ArrayList) ((gt5) b2).getNextPageSourceKeyList();
+            if (b2 instanceof IPageStayDuration) {
+                arrayList = (ArrayList) ((IPageStayDuration) b2).getNextPageSourceKeyList();
             }
             if (ListUtils.isEmpty(arrayList)) {
                 return;
@@ -666,7 +666,7 @@ public class IntentConfig extends OrmObject {
             Class<?> cls2 = this.mComponentClass;
             if (cls2 != null && this.mContext != null) {
                 if (!checkStartActivityInterval(cls2)) {
-                    ActivityLog.getInstance().b(WBConstants.SHARE_START_ACTIVITY, "fail checkStartActivityInterval");
+                    ActivityLog.getInstance().e(WBConstants.SHARE_START_ACTIVITY, "fail checkStartActivityInterval");
                     return false;
                 }
                 try {
@@ -691,8 +691,8 @@ public class IntentConfig extends OrmObject {
                     return false;
                 }
             }
-            h29 activityLog = ActivityLog.getInstance();
-            activityLog.b(WBConstants.SHARE_START_ACTIVITY, "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
+            TbLog activityLog = ActivityLog.getInstance();
+            activityLog.e(WBConstants.SHARE_START_ACTIVITY, "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
             return false;
         }
         return invokeL.booleanValue;
@@ -704,7 +704,7 @@ public class IntentConfig extends OrmObject {
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             logIntent("startActivityForResult");
             if (!checkStartActivityInterval(this.mComponentClass)) {
-                ActivityLog.getInstance().b("startActivityForResult", "fail checkStartActivityInterval");
+                ActivityLog.getInstance().e("startActivityForResult", "fail checkStartActivityInterval");
                 return;
             }
             if (this.mIntent != null && (cls = this.mComponentClass) != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(cls.getName())) {
@@ -730,8 +730,8 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            h29 activityLog = ActivityLog.getInstance();
-            activityLog.b("startActivityForResult", "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
+            TbLog activityLog = ActivityLog.getInstance();
+            activityLog.e("startActivityForResult", "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
         }
     }
 }

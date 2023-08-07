@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class rk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static List<pk1> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "baiduNaSplash" : (String) invokeV.objValue;
-    }
-
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return rk0.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return null;
         }
-        return (Context) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 }

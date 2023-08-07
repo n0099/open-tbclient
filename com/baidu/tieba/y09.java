@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes8.dex */
-public class y09 {
+public class y09 implements ym {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, y09> f;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public Long a;
     public String b;
     public String c;
-    public int d;
-    public String e;
+    public Integer d;
+    public Integer e;
+    public String f;
+    public int g;
+    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +38,7 @@ public class y09 {
                 return;
             }
         }
-        f = new HashMap<>();
+        i = BdUniqueId.gen();
     }
 
     public y09() {
@@ -41,47 +46,114 @@ public class y09 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = "";
     }
 
-    public static y09 a(long j, String str) {
-        InterceptResult invokeJL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(j);
-            sb.append("_");
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            sb.append(str);
-            return f.get(sb.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (y09) invokeJL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        String str;
+    public Long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append("_");
-            if (TextUtils.isEmpty(this.b)) {
-                str = "";
-            } else {
-                str = this.b;
-            }
-            sb.append(str);
-            f.put(sb.toString(), this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Integer f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return i;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public Integer h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public void i(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, recommendForumInfo) == null) {
+            this.c = recommendForumInfo.avatar;
+            this.a = recommendForumInfo.forum_id;
+            this.b = recommendForumInfo.forum_name;
+            this.d = recommendForumInfo.thread_count;
+            this.e = recommendForumInfo.member_count;
+            this.f = recommendForumInfo.slogan;
+            this.g = recommendForumInfo.is_like.intValue();
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.h = z;
         }
     }
 }

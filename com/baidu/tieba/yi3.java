@@ -1,186 +1,140 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.sw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes8.dex */
-public class yi3 extends xi3 {
+public abstract class yi3 implements cj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanCoreVersion k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public File a;
+    public final long b;
+
+    @NonNull
+    public abstract String c();
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331078, "Lcom/baidu/tieba/yi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948331078, "Lcom/baidu/tieba/yi3;");
+                return;
+            }
+        }
+        c = new ReentrantReadWriteLock();
+    }
 
     public yi3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = "";
-        this.q = "";
-        this.r = "";
-        this.s = "";
-        this.t = "";
-        ni3.i(this);
-        ni3.h(this);
-        ni3.f(this);
-        ni3.g(this);
+        this.a = d();
+        this.b = getMaxSize();
     }
 
-    @Override // com.baidu.tieba.xi3
-    public JSONObject f() {
-        int i;
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cj3
+    public boolean a(long j) {
+        InterceptResult invokeJ;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            c.readLock().lock();
             try {
-                vb3 D = ix2.T().D();
-                if (TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                    i = 1;
+                if (e() + j > this.b) {
+                    z = true;
                 } else {
-                    i = 0;
+                    z = false;
                 }
-                String i2 = al3.i(this.k, i);
-                if (D != null && D.Y() != null) {
-                    sw2.a Y = D.Y();
-                    if (TextUtils.isEmpty(this.l)) {
-                        this.l = D.k0();
-                    }
-                    if (TextUtils.isEmpty(this.m)) {
-                        this.m = Y.w1();
-                    }
-                    Bundle P = Y.P();
-                    if (P != null) {
-                        this.o = P.getString("aiapp_extra_need_download", "");
-                    }
-                    if (TextUtils.isEmpty(this.p)) {
-                        this.p = Y.W();
-                    }
-                    this.p = ni3.b(this.p);
-                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
-                        this.s = Y.e0();
-                    }
-                    String b = ni3.b(this.s);
-                    this.s = b;
-                    if (b == null) {
-                        this.s = "";
-                    }
-                    if (TextUtils.isEmpty(this.u)) {
-                        this.u = Y.V();
-                    }
-                }
-                this.n = SwanAppNetworkUtils.f().type;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                this.h.put("swan", i2);
-                this.h.put("appversion", this.l);
-                this.h.put("thirdversion", this.m);
-                this.h.put("net", this.n);
-                this.h.put("needdown", this.o);
-                this.h.put("scheme", this.p);
-                this.h.put("page", this.s);
-                this.h.put("launchid", this.u);
-                if (!TextUtils.isEmpty(this.t)) {
-                    this.h.put("error_code", this.t);
-                }
-                if (!TextUtils.isEmpty(this.q)) {
-                    this.h.put("canceltime", this.q);
-                }
-                if (!TextUtils.isEmpty(this.r)) {
-                    this.h.put("successtime", this.r);
-                }
-                if (xi3.j) {
-                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
-                }
-            } catch (JSONException e) {
-                if (xi3.j) {
-                    e.printStackTrace();
-                }
+                return z;
+            } finally {
+                c.readLock().unlock();
             }
-            return super.f();
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeJ.booleanValue;
     }
 
-    public String g() {
+    @Override // com.baidu.tieba.cj3
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c.writeLock().lock();
+            try {
+                try {
+                    if (this.a == null) {
+                        this.a = d();
+                    }
+                    File file = this.a;
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    cr4.O(String.valueOf(e() + j).getBytes(), file);
+                } catch (Exception e) {
+                    if (ir1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } finally {
+                c.writeLock().unlock();
+            }
+        }
+    }
+
+    public final File d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(c() + File.separator + "record.pro");
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public void h(vw2 vw2Var) {
+    public final long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vw2Var) == null) {
-            if (vw2Var == null) {
-                if (xi3.j) {
-                    Log.w("SwanAppUBCEvent", "launchinfo is null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                this.a = d();
             }
-            this.f = vw2Var.H();
-            this.c = vw2Var.T();
-            this.o = vw2Var.s0().getString("aiapp_extra_need_download", "");
-            this.p = vw2Var.W();
-            this.s = vw2Var.e0();
-            this.u = vw2Var.V();
+            File file = this.a;
+            if (file.exists() && file.isFile()) {
+                String E = cr4.E(file);
+                try {
+                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
+                        return Long.parseLong(E.trim());
+                    }
+                } catch (Exception e) {
+                    if (ir1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return 0L;
         }
-    }
-
-    public void i(vw2 vw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vw2Var) == null) {
-            h(vw2Var);
-        }
-    }
-
-    public void j(vw2 vw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vw2Var) == null) {
-            h(vw2Var);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.u = str;
-        }
+        return invokeV.longValue;
     }
 }

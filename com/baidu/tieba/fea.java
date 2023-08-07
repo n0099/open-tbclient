@@ -1,109 +1,222 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class fea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MainTabActivity a;
+    public PopupWindow b;
+    public FragmentTabHost c;
+    public String d;
+    public long e;
+    public View f;
+    public TextView g;
+    public TextView h;
+    public Runnable i;
+    public Runnable j;
+    public View.OnClickListener k;
 
-    public static void a() {
-        t9 mainDBDatabaseManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
-            mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fea a;
+
+        public a(fea feaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && this.a.b != null && this.a.b.getContentView() != null) {
+                FragmentTabWidget fragmentTabWidget = this.a.c.getFragmentTabWidget();
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.a.a.getActivity());
+                int dimens = BdUtilHelper.getDimens(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0703af);
+                this.a.b.getContentView().measure(0, 0);
+                jg.l(this.a.b, fragmentTabWidget, (equipmentWidth - BdUtilHelper.getDimens(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0703db)) / 2, -dimens);
+                SharedPrefHelper.getInstance().putLong("home_tip", this.a.e);
+                SafeHandler.getInst().postDelayed(this.a.j, 5000L);
+                TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
+            }
         }
     }
 
-    public static void b(String str) {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fea a;
+
+        public b(fea feaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fea a;
+
+        public c(fea feaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.h();
+                if (WriteActivityConfig.isAsyncWriting()) {
+                    return;
+                }
+                WriteActivityConfig.newInstance(this.a.a).setType(9).setTitle(this.a.d).setForumId("0").send();
+                TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
+            }
+        }
+    }
+
+    public fea(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            BdLog.e("deleteVieoChunkUploadData Called");
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null && mainDBDatabaseManager != null) {
-                mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-            }
+        }
+        this.i = new a(this);
+        this.j = new b(this);
+        this.k = new c(this);
+        this.a = mainTabActivity;
+        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092347);
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jg.c(this.b);
         }
     }
 
-    public static gea c(String str) {
-        InterceptResult invokeL;
-        gea geaVar;
-        Exception e;
-        Cursor cursor;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Cursor cursor2 = null;
-            gea geaVar2 = null;
-            if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
-                return null;
-            }
-            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.j("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-                try {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            geaVar = new gea();
-                            try {
-                                geaVar.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                                geaVar.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
-                                geaVar2 = geaVar;
-                            } catch (Exception e2) {
-                                e = e2;
-                                mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
-                                vg.a(cursor);
-                                return geaVar;
-                            }
-                        }
-                        vg.a(cursor);
-                        return geaVar2;
-                    } catch (Exception e3) {
-                        geaVar = null;
-                        e = e3;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    vg.a(cursor2);
-                    throw th;
-                }
-            } catch (Exception e4) {
-                geaVar = null;
-                e = e4;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                vg.a(cursor2);
-                throw th;
-            }
-        } else {
-            return (gea) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.i);
+            SafeHandler.getInst().removeCallbacks(this.j);
+            g();
         }
     }
 
-    public static boolean d(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        t9 mainDBDatabaseManager;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
-                return false;
-            }
-            Date date = new Date();
-            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
         }
-        return invokeLLI.booleanValue;
+    }
+
+    public void j(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && SharedPrefHelper.getInstance().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.d = str2;
+            this.e = j;
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+                this.f = inflate;
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092557);
+                this.h = (TextView) this.f.findViewById(R.id.tips_content);
+                this.f.setOnClickListener(this.k);
+            }
+            this.g.setText(StringHelper.cutHotTopicShow(str, 24, "..."));
+            this.h.setText(R.string.topic_join);
+            if (this.b == null) {
+                PopupWindow popupWindow = new PopupWindow(this.f, -2, -2);
+                this.b = popupWindow;
+                GreyUtil.grey(popupWindow);
+            } else {
+                h();
+            }
+            SafeHandler.getInst().removeCallbacks(this.i);
+            SafeHandler.getInst().postDelayed(this.i, 100L);
+        }
     }
 }

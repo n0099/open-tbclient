@@ -1,75 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
+import okhttp3.Callback;
+import okhttp3.Request;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class d84 {
+public class d84 implements ls1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d84 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947658409, "Lcom/baidu/tieba/d84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947658409, "Lcom/baidu/tieba/d84;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-    }
 
     public d84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        new ArrayDeque();
     }
 
-    public static d84 b() {
+    @Override // com.baidu.tieba.ls1
+    public HttpManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (d84.class) {
-                    if (a == null) {
-                        a = new d84();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f94.b();
         }
-        return (d84) invokeV.objValue;
+        return (HttpManager) invokeV.objValue;
     }
 
-    public DuMixGameSurfaceView a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ls1
+    public void call(HttpManager httpManager, Request request, Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return new DuMixGameSurfaceView(context);
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof f94)) {
+            ((f94) httpManager).call(request, callback);
         }
-        return (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

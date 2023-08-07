@@ -1,42 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface rh0 {
-    void a(Context context);
+public final class rh0<X, Y> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final X a;
+    public final Y b;
 
-    long b();
-
-    void c(int i, int i2);
-
-    @Deprecated
-    int d(int i, int i2, Map<String, float[]> map);
-
-    int e(MediaTrack mediaTrack, int i, Map<String, float[]> map);
-
-    void f(List<MediaTrack> list, Map<String, ShaderConfig> map);
-
-    int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map);
-
-    void h(int i, long j);
-
-    int i(MediaSegment mediaSegment, int i, Map<String, float[]> map);
-
-    int j(MediaTrack mediaTrack, int i, Map<String, float[]> map);
-
-    int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f);
-
-    List<MediaTrack> l();
-
-    @Deprecated
-    int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map);
-
-    void n(List<MediaTrack> list);
-
-    void release();
+    public rh0(X x, Y y) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x, y};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = x;
+        this.b = y;
+    }
 }

@@ -1,127 +1,172 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.webkit.WebView;
-import androidx.collection.ArrayMap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
-public class gl6 extends hl6 {
+public class gl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
-    public final Map<String, AbsJsInterface> b;
 
-    public gl6(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = webView;
-        this.b = new ArrayMap();
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            vn6.c("newHybrid", "remove k:" + str);
-            AbsJsInterface absJsInterface = this.b.get(str);
-            if (absJsInterface != null) {
-                absJsInterface.deAttachWebView();
-            }
-            this.a.removeJavascriptInterface(str);
-        }
-    }
-
-    public static gl6 g(WebView webView) {
+    public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
-            return new gl6(webView);
-        }
-        return (gl6) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fl6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.b.keySet()) {
-                h(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file != null && (!file.exists() ? file.mkdirs() : file.isDirectory())) {
+                return true;
             }
-            this.b.clear();
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fl6
-    public void b() {
+    public static boolean c(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Map<String, Class<? extends AbsJsInterface>> b = ln6.a().b();
-            if (!b.isEmpty()) {
-                try {
-                    e(b);
-                } catch (JsInterfaceException e) {
-                    if (!ym6.a()) {
-                        ((wn6) ServiceManager.getService(wn6.a)).a(e);
-                        return;
-                    }
-                    throw e;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            if (file != null && (!file.exists() || (file.isFile() && file.delete()))) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
+    public static boolean b(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            if (d()) {
-                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
-                    Class<? extends AbsJsInterface> value = entry.getValue();
-                    if (c(value)) {
-                        try {
-                            f(entry.getKey(), value);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file == null) {
+                return false;
+            }
+            if (!file.exists()) {
+                return true;
+            }
+            if (!file.isDirectory()) {
+                return false;
+            }
+            File[] listFiles = file.listFiles();
+            if (!el6.e(listFiles)) {
+                for (File file2 : listFiles) {
+                    if (file2 != null) {
+                        if (file2.isFile()) {
+                            if (!file2.delete()) {
+                                return false;
+                            }
+                        } else if (file2.isDirectory() && !b(file2)) {
+                            return false;
                         }
-                    } else {
-                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
                     }
                 }
-                return;
             }
-            throw new JsInterfaceException("The injected object is not safe, give up injection");
+            return file.delete();
         }
+        return invokeL.booleanValue;
     }
 
-    @SuppressLint({"JavascriptInterface"})
-    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0074 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v13, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r6v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r6v2 */
+    /* JADX WARN: Type inference failed for: r6v3 */
+    /* JADX WARN: Type inference failed for: r6v4 */
+    /* JADX WARN: Type inference failed for: r6v5 */
+    /* JADX WARN: Type inference failed for: r6v6 */
+    /* JADX WARN: Type inference failed for: r6v7, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r6v8 */
+    /* JADX WARN: Type inference failed for: r7v0 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v4 */
+    /* JADX WARN: Type inference failed for: r7v5 */
+    /* JADX WARN: Type inference failed for: r7v7 */
+    /* JADX WARN: Type inference failed for: r7v9 */
+    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r9v2 */
+    /* JADX WARN: Type inference failed for: r9v4 */
+    /* JADX WARN: Type inference failed for: r9v5 */
+    /* JADX WARN: Type inference failed for: r9v6 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9, types: [java.io.Reader, java.io.InputStreamReader] */
+    public static String d(File file) {
+        ?? r6;
+        ?? r7;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
-            vn6.c("newHybrid", "inject k:" + str + "  v:" + cls);
-            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            newInstance.attachWebView(this.a);
-            this.b.put(str, newInstance);
-            this.a.addJavascriptInterface(newInstance, str);
+        if (interceptable != null) {
+            r6 = interceptable;
+            r7 = 65539;
+            InterceptResult invokeL = r6.invokeL(65539, null, file);
+            if (invokeL != null) {
+                return (String) invokeL.objValue;
+            }
+        }
+        if (file == 0 || !file.exists() || !file.canRead()) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            try {
+                r6 = new FileInputStream((File) file);
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                file = new InputStreamReader(r6);
+            } catch (Exception e) {
+                e = e;
+                file = 0;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                r7 = 0;
+                r6 = r6;
+                th = th;
+                file = r7;
+                il6.a(new Closeable[]{r6, file, r7});
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            file = 0;
+            r6 = 0;
+            bufferedReader = null;
+        } catch (Throwable th3) {
+            th = th3;
+            r6 = 0;
+            r7 = 0;
+        }
+        try {
+            bufferedReader = new BufferedReader(file);
+            try {
+                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                    sb.append(readLine);
+                }
+                String sb2 = sb.toString();
+                il6.a(new Closeable[]{r6, file, bufferedReader});
+                return sb2;
+            } catch (Exception e3) {
+                e = e3;
+                e.printStackTrace();
+                il6.a(new Closeable[]{r6, file, bufferedReader});
+                return null;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            bufferedReader = null;
+        } catch (Throwable th4) {
+            r7 = 0;
+            th = th4;
+            il6.a(new Closeable[]{r6, file, r7});
+            throw th;
         }
     }
 }

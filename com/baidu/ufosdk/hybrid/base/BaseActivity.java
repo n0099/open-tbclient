@@ -51,7 +51,7 @@ public abstract class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
             if (this.a) {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f010179, R.anim.obfuscated_res_0x7f01017d);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01017e, R.anim.obfuscated_res_0x7f010182);
             }
         }
     }
@@ -114,7 +114,7 @@ public abstract class BaseActivity extends Activity {
                         i = 0;
                     }
                     Log.d("BaseActivity", "onSetDefaultStatusBarColor: " + i);
-                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0929c7);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0929e1);
                     if (viewGroup != null && i > 0) {
                         if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
                             ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);

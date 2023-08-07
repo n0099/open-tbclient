@@ -5,9 +5,9 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.o36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,9 +97,9 @@ public class MaxHeightFrameLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             float f = this.b;
             if (f <= 0.0f) {
-                this.b = this.a * yi.j(getContext());
+                this.b = this.a * BdUtilHelper.getEquipmentHeight(getContext());
             } else {
-                this.b = Math.min(f, this.a * yi.j(getContext()));
+                this.b = Math.min(f, this.a * BdUtilHelper.getEquipmentHeight(getContext()));
             }
         }
     }
@@ -107,7 +107,7 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h66.MaxHeightFrameLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o36.MaxHeightFrameLayout);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 int index = obtainStyledAttributes.getIndex(i);

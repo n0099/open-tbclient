@@ -25,9 +25,9 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int floating_click_view_id = 0x7f090b55;
-        public static final int floating_click_view_tag = 0x7f090b56;
-        public static final int player_floating_replay = 0x7f091c8a;
+        public static final int floating_click_view_id = 0x7f090b65;
+        public static final int floating_click_view_tag = 0x7f090b66;
+        public static final int player_floating_replay = 0x7f091ca0;
     }
 
     /* loaded from: classes4.dex */
@@ -38,16 +38,16 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class string {
-        public static final int player_floating_close_tips = 0x7f0f10b7;
-        public static final int player_floating_close_warning = 0x7f0f10b8;
-        public static final int player_floating_network_3g = 0x7f0f10b9;
-        public static final int player_floating_network_wifi = 0x7f0f10ba;
-        public static final int player_floating_notification_channel = 0x7f0f10bb;
-        public static final int player_floating_notification_content = 0x7f0f10bc;
-        public static final int player_floating_notification_title = 0x7f0f10bd;
-        public static final int player_floating_permission_message = 0x7f0f10be;
-        public static final int player_floating_permission_title = 0x7f0f10bf;
-        public static final int player_floating_play_error = 0x7f0f10c0;
-        public static final int player_floating_replay = 0x7f0f10c1;
+        public static final int player_floating_close_tips = 0x7f0f10ba;
+        public static final int player_floating_close_warning = 0x7f0f10bb;
+        public static final int player_floating_network_3g = 0x7f0f10bc;
+        public static final int player_floating_network_wifi = 0x7f0f10bd;
+        public static final int player_floating_notification_channel = 0x7f0f10be;
+        public static final int player_floating_notification_content = 0x7f0f10bf;
+        public static final int player_floating_notification_title = 0x7f0f10c0;
+        public static final int player_floating_permission_message = 0x7f0f10c1;
+        public static final int player_floating_permission_title = 0x7f0f10c2;
+        public static final int player_floating_play_error = 0x7f0f10c3;
+        public static final int player_floating_replay = 0x7f0f10c4;
     }
 }

@@ -1,22 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.searchbox.websocket.WebSocketTask;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,59 +12,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
-import java.util.LinkedHashMap;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k33 extends sd3 {
+public class k33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862110, "Lcom/baidu/tieba/k33;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947862110, "Lcom/baidu/tieba/k33;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onFail(String str);
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+        void onSuccess(JSONObject jSONObject);
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements IWebSocketListener {
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k33 a;
-        public final /* synthetic */ WeakReference b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
 
-        public a(k33 k33Var, WeakReference weakReference, String str, String str2, String str3, String str4) {
+        public a(k33 k33Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k33Var, weakReference, str, str2, str3, str4};
+                Object[] objArr = {k33Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,381 +63,173 @@ public final class k33 extends sd3 {
                 }
             }
             this.a = k33Var;
-            this.b = weakReference;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = str4;
         }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onClose(JSONObject jSONObject) {
-            int i;
-            String str;
-            vb3 c;
-            h33 m0;
-            String optString;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                JSONObject jSONObject2 = new JSONObject();
-                if (jSONObject != null) {
-                    i = jSONObject.optInt("code");
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f == null) {
+                    y72.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+                    return;
+                }
+                this.a.f.onFail(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    y72.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) != 0) {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
                 } else {
-                    i = 0;
-                }
-                jSONObject2.put("code", i);
-                String str2 = "";
-                if (jSONObject != null && (optString = jSONObject.optString("reason", "")) != null) {
-                    str2 = optString;
-                }
-                jSONObject2.put("reason", str2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("status", "0");
-                jSONObject3.put("message", "websocket closed");
-                jSONObject3.put("data", jSONObject2);
-                CallbackHandler callbackHandler = (CallbackHandler) this.b.get();
-                if (callbackHandler != null) {
-                    callbackHandler.handleSchemeDispatchCallback(this.e, jSONObject3.toString());
-                }
-                if (jSONObject != null) {
-                    str = jSONObject.getString("taskID");
-                } else {
-                    str = null;
-                }
-                if (str != null && (c = this.a.c()) != null && (m0 = c.m0()) != null) {
-                    m0.c(str);
+                    this.a.f.onSuccess(jSONObject.optJSONObject("data"));
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onError(Throwable t, JSONObject jSONObject) {
-            String str;
-            vb3 c;
-            h33 m0;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, jSONObject) == null) {
-                Intrinsics.checkNotNullParameter(t, "t");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(StatConstants.KEY_EXT_ERR_MSG, t.getMessage());
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("status", "0");
-                jSONObject3.put("message", "error happen");
-                jSONObject3.put("data", jSONObject2);
-                CallbackHandler callbackHandler = (CallbackHandler) this.b.get();
-                if (callbackHandler != null) {
-                    callbackHandler.handleSchemeDispatchCallback(this.f, jSONObject3.toString());
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return yn3.d(response.body().string());
                 }
-                if (jSONObject != null) {
-                    str = jSONObject.getString("taskID");
-                } else {
-                    str = null;
-                }
-                if (str != null && (c = this.a.c()) != null && (m0 = c.m0()) != null) {
-                    m0.c(str);
-                }
+                return null;
             }
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onMessage(String message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-                Intrinsics.checkNotNullParameter(message, "message");
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("data", message);
-                jSONObject.put("dataType", EMABTest.TYPE_STRING);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("status", "0");
-                jSONObject2.put("message", "message received");
-                jSONObject2.put("data", jSONObject);
-                CallbackHandler callbackHandler = (CallbackHandler) this.b.get();
-                if (callbackHandler != null) {
-                    callbackHandler.handleSchemeDispatchCallback(this.d, jSONObject2.toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onOpen(Map<String, String> headers) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, headers) == null) {
-                Intrinsics.checkNotNullParameter(headers, "headers");
-                JSONObject jSONObject = new JSONObject(headers);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("header", jSONObject);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("status", "0");
-                jSONObject3.put("message", "websocket open success");
-                jSONObject3.put("data", jSONObject2);
-                CallbackHandler callbackHandler = (CallbackHandler) this.b.get();
-                if (callbackHandler != null) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, jSONObject3.toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onMessage(ByteBuffer message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-                Intrinsics.checkNotNullParameter(message, "message");
-                byte[] bArr = new byte[message.remaining()];
-                message.get(bArr);
-                String encodeToString = Base64.encodeToString(bArr, 2);
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("data", encodeToString);
-                jSONObject.put("dataType", "arrayBuffer");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("status", "0");
-                jSONObject2.put("message", "message received");
-                jSONObject2.put("data", jSONObject);
-                CallbackHandler callbackHandler = (CallbackHandler) this.b.get();
-                if (callbackHandler != null) {
-                    callbackHandler.handleSchemeDispatchCallback(this.d, jSONObject2.toString());
-                }
-            }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k33(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/webSocket");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862110, "Lcom/baidu/tieba/k33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862110, "Lcom/baidu/tieba/k33;");
+                return;
+            }
+        }
+        boolean z = ir1.a;
+        h = String.format("%s/ma/pay_check", s72.b());
+        i = f23.a;
+    }
+
+    public k33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean i(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, String str, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, entity, callbackHandler, str, vb3Var)) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (sd3.b) {
-                Log.d("websocket", "handleSubAction subAction: " + str);
-            }
-            if (vb3Var == null) {
-                v82.c("websocket", "param is null");
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (sd3.b) {
-                    Log.d("websocket", "websocket --- illegal swanApp");
-                }
-                return false;
-            } else if (TextUtils.isEmpty(vb3Var.b)) {
-                v82.c("websocket", "aiapp id is invalid");
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none swanApp id");
-                if (sd3.b) {
-                    Log.d("websocket", "websocket --- none swanApp id");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
-                if (optParamsAsJo == null) {
-                    v82.c("websocket", "no params found");
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(202, "no params found");
-                    if (sd3.b) {
-                        Log.d("websocket", "websocket --- none params found");
-                    }
-                    return false;
-                }
-                if (str != null) {
-                    int hashCode = str.hashCode();
-                    if (hashCode != -1597844571) {
-                        if (hashCode != -1293540435) {
-                            if (hashCode == 1991859579 && str.equals("/swanAPI/webSocket/close")) {
-                                return k(context, optParamsAsJo, entity, callbackHandler, vb3Var);
-                            }
-                        } else if (str.equals("/swanAPI/webSocket/connect")) {
-                            return l(context, optParamsAsJo, entity, callbackHandler, vb3Var);
-                        }
-                    } else if (str.equals("/swanAPI/webSocket/send")) {
-                        return m(context, optParamsAsJo, entity, callbackHandler, vb3Var);
-                    }
-                }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(302);
-                return false;
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final IWebSocketListener j(JSONObject jSONObject, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, callbackHandler)) == null) {
-            return new a(this, new WeakReference(callbackHandler), jSONObject.getString("onOpen"), jSONObject.getString("onMessage"), jSONObject.getString("onClose"), jSONObject.getString(GameAssistConstKt.TYPE_CALLBACK_ERROR));
-        }
-        return (IWebSocketListener) invokeLL.objValue;
-    }
-
-    public final boolean k(Context context, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, jSONObject, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (!jSONObject.has("taskID")) {
-                v82.c("websocket", "taskID lose");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "taskID lose");
-                if (sd3.b) {
-                    Log.d("websocket", "close --- taskID lose");
-                }
-                return false;
-            }
-            String taskId = jSONObject.getString("taskID");
-            int optInt = jSONObject.optInt("code", 1000);
-            String reason = jSONObject.optString("reason", "close normally");
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String O = xa3.K().q().O();
             try {
-                try {
-                    WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
-                    Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
-                    Intrinsics.checkNotNullExpressionValue(reason, "reason");
-                    webSocketManager.close(taskId, optInt, reason);
-                    vb3Var.m0().c(taskId);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                } catch (Exception e) {
-                    v82.c("websocket", e.getMessage());
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage());
-                    if (sd3.b) {
-                        Log.d("websocket", "close --- " + e.getMessage());
-                    }
-                    h33 m0 = vb3Var.m0();
-                    Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
-                    m0.c(taskId);
-                    return false;
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(O)) {
+                    O = "";
                 }
-            } catch (Throwable th) {
-                h33 m02 = vb3Var.m0();
-                Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
-                m02.c(taskId);
-                throw th;
+                jSONObject.put("appkey", O);
+            } catch (JSONException e) {
+                y72.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
             }
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean m(Context context, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
+    public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, context, jSONObject, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (jSONObject.has("taskID") && jSONObject.has("data")) {
-                String taskId = jSONObject.getString("taskID");
-                String data = jSONObject.getString("data");
-                try {
-                    if (jSONObject.optString("dataType", EMABTest.TYPE_STRING).equals("arrayBuffer")) {
-                        ByteBuffer buffer = ByteBuffer.wrap(Base64.decode(data, 2));
-                        WebSocketManager webSocketManager = WebSocketManager.INSTANCE;
-                        Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
-                        Intrinsics.checkNotNullExpressionValue(buffer, "buffer");
-                        webSocketManager.send(taskId, buffer);
-                    } else {
-                        WebSocketManager webSocketManager2 = WebSocketManager.INSTANCE;
-                        Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
-                        Intrinsics.checkNotNullExpressionValue(data, "data");
-                        webSocketManager2.send(taskId, data);
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                } catch (Exception e) {
-                    v82.c("websocket", e.getMessage());
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage());
-                    if (sd3.b) {
-                        Log.d("websocket", "send --- " + e.getMessage());
-                    }
-                    return false;
-                }
-            }
-            v82.c("websocket", "taskID or data lose");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "taskID or data lose");
-            if (sd3.b) {
-                Log.d("websocket", "send --- taskID or data lose");
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean l(Context context, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeLLLLL;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, context, jSONObject, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (jSONObject.has("url") && jSONObject.has("cb")) {
-                JSONObject cb = jSONObject.getJSONObject("cb");
-                if (cb.has("onOpen") && cb.has("onMessage") && cb.has("onClose") && cb.has(GameAssistConstKt.TYPE_CALLBACK_ERROR)) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    if (!vb3Var.m0().a()) {
-                        jSONObject2.put("errno", "1");
-                    } else {
-                        String string = jSONObject.getString("url");
-                        String optString = jSONObject.optString("__plugin__");
-                        int c = mc3.c("socket", string, optString);
-                        if (c != 1) {
-                            if (c != 2) {
-                                WebSocketRequest fromJSON = WebSocketRequest.Companion.fromJSON(jSONObject);
-                                if (!TextUtils.isEmpty(optString)) {
-                                    wk4 h = t73.h(optString);
-                                    Map<String, String> headers = fromJSON.getHeaders();
-                                    if (headers == null) {
-                                        headers = new LinkedHashMap<>();
-                                        fromJSON.setHeaders(headers);
-                                    }
-                                    String b = s73.b(h);
-                                    Intrinsics.checkNotNullExpressionValue(b, "SwanPluginHostSign.hostSign(pmsPlugin)");
-                                    headers.put("X-SWAN-HOSTSIGN", b);
-                                }
-                                Intrinsics.checkNotNullExpressionValue(cb, "cb");
-                                try {
-                                    WebSocketTask connect = WebSocketManager.INSTANCE.connect(fromJSON, j(cb, callbackHandler));
-                                    jSONObject2.put("errno", "0");
-                                    jSONObject2.put(DownloadStatisticConstants.UBC_VALUE_TASK, connect.toJSON());
-                                    vb3Var.m0().b(connect);
-                                } catch (Exception e) {
-                                    v82.c("websocket", e.getMessage());
-                                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage());
-                                    if (sd3.b) {
-                                        Log.d("websocket", "connect --- " + e.getMessage());
-                                    }
-                                    return false;
-                                }
-                            } else {
-                                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "request url header must be https or wss");
-                                return false;
-                            }
-                        } else {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-                            return false;
-                        }
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-                    return true;
-                }
-                v82.c("websocket", "websocket callback lose");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "websocket callback lose");
-                if (sd3.b) {
-                    Log.d("websocket", "connect --- websocket callback lose");
-                }
-                return false;
-            }
-            v82.c("websocket", "url or cb lose");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "url or cb lose");
-            if (sd3.b) {
-                Log.d("websocket", "connect --- url or cb lose");
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        this.b.put(str, str2);
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
+            }
+            this.a = qo3.b(this.a, this.c);
+            bi4 bi4Var = new bi4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            bi4Var.c = this.b;
+            bi4Var.g = true;
+            y72.b("PayCheckRequest", "start paycheck request : " + this.e);
+            ci4.g().e(bi4Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = gk4.i(h);
+            this.a = i2;
+            this.a = u72.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", fo3.b());
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            y72.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
+        }
     }
 }

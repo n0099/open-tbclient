@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zb3;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ge3 extends fe3 {
+public class ge3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge3(yb3 yb3Var) {
-        super(yb3Var);
+    public ge3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/stopPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yb3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yb3) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,52 +36,33 @@ public class ge3 extends fe3 {
         }
     }
 
-    @Override // com.baidu.tieba.fe3
-    public void I(String str) {
-        String str2;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
-            ub3 K = ub3.K();
-            if (!K.E()) {
-                return;
-            }
-            if (K.q().n0()) {
-                K.n("flag_finish_activity", "flag_remove_task");
-                return;
-            }
-            on3 on3Var = new on3();
-            on3Var.k(10L);
-            on3Var.i(2107L);
-            on3Var.d("app forbidden");
-            bc3.y0(sj4.i().u(str), cv2.c(), K.q().W(), false, null, on3Var);
-        }
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (vb3.b0() != null && this.b != 0) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            ha2 U = lw2.T().U();
+            if (U == null) {
+                y72.c("stopPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!(U.m() instanceof ga2)) {
+                y72.c("stopPullDownRefresh", "top fragment error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                ga2 ga2Var = (ga2) U.m();
+                if (ga2Var.f0() == null) {
+                    y72.c("stopPullDownRefresh", "view is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                ga2Var.f0().w(false);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                y72.i("stopPullDownRefresh", "refresh complete");
                 return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oq3
-    /* renamed from: N */
-    public void a(zb3.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (h83.J(aVar.D(), "swan_forbidden_kill_on_client")) {
-                this.b = aVar.j("ipc_forbidden_flag", 1);
-                this.d = aVar.o("mAppId", ub3.K().getAppId());
-            }
-            if (h83.J(aVar.D(), "swan_kill_to_client")) {
-                ub3.K().n("flag_finish_activity", "flag_remove_task");
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

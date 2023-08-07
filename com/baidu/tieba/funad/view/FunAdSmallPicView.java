@@ -11,19 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy7;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.kv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FunAdSmallPicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class FunAdSmallPicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ae, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b1, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090106);
@@ -113,9 +113,9 @@ public class FunAdSmallPicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            d85.d(this.e).x(R.color.CAM_X0105);
-            d85.d(this.d).x(R.color.CAM_X0109);
-            d85.d(this.f).x(R.color.CAM_X0109);
+            EMManager.from(this.e).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.d).setTextColor(R.color.CAM_X0109);
+            EMManager.from(this.f).setTextColor(R.color.CAM_X0109);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -129,11 +129,11 @@ public class FunAdSmallPicView extends LinearLayout {
             this.d.setText(funNativeAd2.getNativeInfo().getTitle());
             this.e.setText(funNativeAd2.getNativeInfo().getDescription());
         }
-        cy7.F(this.b, funNativeAd2);
+        kv7.F(this.b, funNativeAd2);
         if (!StringHelper.equals(str, this.a.getUrl())) {
-            this.a.H();
+            this.a.reset();
         }
-        this.a.N(str, 10, false);
+        this.a.startLoad(str, 10, false);
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {

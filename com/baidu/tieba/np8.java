@@ -6,132 +6,128 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes7.dex */
-public abstract class np8 implements mp8 {
+public final class np8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<lp8> a;
-    public pp8 b;
-    public mp8 c;
-    public int d;
+    public final long a;
+    public final int b;
+    public boolean c;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    public static /* synthetic */ np8 b(np8 np8Var, long j, int i, boolean z, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            j = np8Var.a;
         }
+        if ((i2 & 2) != 0) {
+            i = np8Var.b;
+        }
+        if ((i2 & 4) != 0) {
+            z = np8Var.c;
+        }
+        return np8Var.a(j, i, z);
     }
 
-    public void c() {
+    public final np8 a(long j, int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? new np8(j, i, z) : (np8) invokeCommon.objValue;
     }
 
-    public abstract List<lp8> j(List list);
-
-    public np8() {
+    @JvmOverloads
+    public np8(long j, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = -1;
+        this.a = j;
+        this.b = i;
+        this.c = z;
     }
 
-    public int e() {
+    public /* synthetic */ np8(long j, int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(j, (i2 & 2) != 0 ? 2 : i, (i2 & 4) != 0 ? false : z);
+    }
+
+    public final long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.size() > 0) {
-                return this.a.size();
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public List<lp8> f() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Collections.unmodifiableList(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return (((b.a(this.a) * 31) + this.b) * 31) + a.a(this.c);
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public lp8 d(int i) {
-        InterceptResult invokeI;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0 && i < e()) {
-                return f().get(i);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return null;
-        }
-        return (lp8) invokeI.objValue;
-    }
-
-    public void i(int i) {
-        pp8 pp8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (pp8Var = this.b) != null) {
-            pp8Var.c(i, 1);
-        }
-    }
-
-    public void k(mp8 mp8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mp8Var) == null) {
-            this.c = mp8Var;
-        }
-    }
-
-    public void l(pp8 pp8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pp8Var) == null) {
-            this.b = pp8Var;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(List list) {
-        List<lp8> j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
-            this.a.addAll(j);
-            pp8 pp8Var = this.b;
-            if (pp8Var != null) {
-                pp8Var.b(0, e());
+            if (!(obj instanceof np8)) {
+                return false;
             }
+            np8 np8Var = (np8) obj;
+            if (this.a == np8Var.a && this.b == np8Var.b && this.c == np8Var.c) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void h(List list) {
-        List<lp8> j;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
-            int e = e();
-            this.a.clear();
-            this.b.a(0, e);
-            this.a.addAll(j);
-            this.b.c(0, e());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "NavigationData(dataId=" + this.a + ", type=" + this.b + ')';
         }
+        return (String) invokeV.objValue;
     }
 }

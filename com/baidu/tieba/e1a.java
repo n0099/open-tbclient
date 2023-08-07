@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,17 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class e1a implements qc7 {
+public final class e1a implements y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract String b();
-
-    @Override // com.baidu.tieba.qc7
+    @Override // com.baidu.tieba.y97
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13696" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_NAMEPLATE_OF_USER_LEVEL_STATIC : (String) invokeV.objValue;
     }
 
     public e1a() {
@@ -39,25 +36,21 @@ public abstract class e1a implements qc7 {
         }
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            String str = a.get("is_video_work");
+            hashMap.put("obj_type", "1");
+            hashMap.put("obj_locate", "2");
+            String str = a.get("growth_level");
             if (str == null) {
-                str = "0";
+                str = "";
             }
             hashMap.put("obj_source", str);
-            hashMap.put(TiebaStatic.Params.IS_FOLLOW, b());
             return hashMap;
         }
         return (Map) invokeL.objValue;

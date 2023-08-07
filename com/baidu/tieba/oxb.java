@@ -1,18 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.TextureView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class oxb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TextureView.SurfaceTextureListener a;
-
-    public void a(TextureView.SurfaceTextureListener surfaceTextureListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTextureListener) == null) {
-            this.a = surfaceTextureListener;
-        }
-    }
+public interface oxb {
+    void a(String str, boolean z, HashMap<String, String> hashMap);
 }

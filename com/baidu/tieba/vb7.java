@@ -2,27 +2,28 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.ParameterizedType;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class vb7<V extends View, M> implements lc7<V, M> {
+public final class vb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final k37.e a;
+    public final View b;
 
-    public vb7(String str) {
+    public vb7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,48 +33,73 @@ public abstract class vb7<V extends View, M> implements lc7<V, M> {
                 return;
             }
         }
-        this.a = str;
+        Intrinsics.checkNotNullParameter(context, "context");
+        k37.e a = k37.a().a();
+        this.a = a;
+        View create = a.create(context);
+        Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
+        this.b = create;
     }
 
-    @Override // com.baidu.tieba.lc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a(String protrait) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            try {
-                Context context = viewGroup.getContext();
-                if (context instanceof ev6) {
-                    context = ((ev6) context).getPageContext().getPageActivity();
-                }
-                if (context == null) {
-                    context = viewGroup.getContext();
-                }
-                return d().getConstructor(Context.class).newInstance(context);
-            } catch (Exception e) {
-                throw new IllegalStateException(e);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, protrait) == null) {
+            Intrinsics.checkNotNullParameter(protrait, "protrait");
+            this.a.i(this.b, protrait);
         }
-        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lc7
-    @NonNull
-    public String c() {
+    public final void b(String url) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url) == null) {
+            Intrinsics.checkNotNullParameter(url, "url");
+            this.a.f(this.b, url);
+        }
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.d(this.b, i);
+        }
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.g(this.b, i);
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.a(this.b, i);
+        }
+    }
+
+    public final void f(ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
+            Intrinsics.checkNotNullParameter(scaleType, "scaleType");
+            this.a.h(this.b, scaleType);
+        }
+    }
+
+    public final void g(k37.d config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            this.a.c(this.b, config);
+        }
+    }
+
+    public final View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final Class<V> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        }
-        return (Class) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 }

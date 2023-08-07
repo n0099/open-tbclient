@@ -1,34 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class nw0 extends e01 {
+public class nw0 extends pw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void s(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
 
     public nw0() {
         Interceptable interceptable = $ic;
@@ -44,17 +25,12 @@ public abstract class nw0 extends e01 {
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public a01 r() {
-        InterceptResult invokeV;
+    public static pw0 w(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            j01 j01Var = this.a;
-            if (j01Var != null) {
-                return (a01) j01Var;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.layer.AbsNewControlLayer");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return pw0.m(str, 1);
         }
-        return (a01) invokeV.objValue;
+        return (pw0) invokeL.objValue;
     }
 }

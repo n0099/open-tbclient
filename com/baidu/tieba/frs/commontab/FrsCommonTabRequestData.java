@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.commontab;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ay7;
-import com.baidu.tieba.es5;
-import com.baidu.tieba.fx5;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.yi;
+import com.baidu.tbadk.mvc.data.INetRequestData;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.iv7;
+import com.baidu.tieba.tu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes5.dex */
-public class FrsCommonTabRequestData extends OrmObject implements es5 {
+public class FrsCommonTabRequestData extends OrmObject implements INetRequestData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -33,21 +33,21 @@ public class FrsCommonTabRequestData extends OrmObject implements es5 {
     public String tabName;
     public int tabType;
 
-    @Override // com.baidu.tieba.ds5
-    public HashMap<String, Object> P() {
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, String> getHttpHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ds5
-    public HashMap<String, String> T() {
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, Object> makeHttpParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
@@ -73,11 +73,11 @@ public class FrsCommonTabRequestData extends OrmObject implements es5 {
         this.sortType = 0;
     }
 
-    @Override // com.baidu.tieba.gs5
-    public Object q(boolean z) {
+    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
+    public Object encodeSocketRequestData(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.tab_id = Integer.valueOf(this.tabId);
             builder.tab_type = Integer.valueOf(this.tabType);
@@ -88,21 +88,21 @@ public class FrsCommonTabRequestData extends OrmObject implements es5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = ay7.e().d("frs_feed");
+            String d = iv7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = fx5.g(d, fx5.f());
-            builder.ad_bear_sid_price = Double.valueOf(fx5.i());
-            builder.has_ad_bear = Integer.valueOf(fx5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = tu5.g(d, tu5.f());
+            builder.ad_bear_sid_price = Double.valueOf(tu5.i());
+            builder.has_ad_bear = Integer.valueOf(tu5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
             }
-            builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) yi.i(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            ky5.c(builder, true, false, true);
+            NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

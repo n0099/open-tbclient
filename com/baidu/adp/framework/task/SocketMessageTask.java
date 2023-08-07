@@ -14,13 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int PRIORITY_SUPER_HIGH = -3;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public Class<? extends SocketResponsedMessage> d;
-    public DupLicateMode e;
+    public boolean mCanRetry;
+    public DupLicateMode mDupLicateMode;
+    public boolean mNeedAck;
+    public boolean mNeedCompress;
+    public Class<? extends SocketResponsedMessage> mResponsedClass;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -110,54 +111,45 @@ public class SocketMessageTask extends MessageTask {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = true;
-        this.e = DupLicateMode.NONE;
-    }
-
-    public DupLicateMode a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (DupLicateMode) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
+        this.mNeedAck = false;
+        this.mNeedCompress = false;
+        this.mCanRetry = true;
+        this.mDupLicateMode = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return FrameHelper.c(this.mCmd);
         }
         return invokeV.booleanValue;
     }
 
-    public boolean d() {
+    public DupLicateMode getDupLicateMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDupLicateMode;
+        }
+        return (DupLicateMode) invokeV.objValue;
+    }
+
+    public boolean getNeedAck() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mNeedAck;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean getNeedCompress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mNeedCompress;
         }
         return invokeV.booleanValue;
     }
@@ -165,44 +157,53 @@ public class SocketMessageTask extends MessageTask {
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mResponsedClass;
         }
         return (Class) invokeV.objValue;
     }
 
-    public void e(boolean z) {
+    public boolean isCanRetry() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mCanRetry;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setCanRetry(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.mCanRetry = z;
         }
     }
 
-    public void f(DupLicateMode dupLicateMode) {
+    public void setDupLicateMode(DupLicateMode dupLicateMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dupLicateMode) == null) {
-            this.e = dupLicateMode;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dupLicateMode) == null) {
+            this.mDupLicateMode = dupLicateMode;
         }
     }
 
-    public void g(boolean z) {
+    public void setNeedAck(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.mNeedAck = z;
         }
     }
 
-    public void h(boolean z) {
+    public void setNeedCompress(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.b = z;
+            this.mNeedCompress = z;
         }
     }
 
     public void setResponsedClass(Class<? extends SocketResponsedMessage> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cls) == null) {
-            this.d = cls;
+            this.mResponsedClass = cls;
         }
     }
 }

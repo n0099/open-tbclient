@@ -1,64 +1,57 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.view.View;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class yq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long[] b;
-        public final /* synthetic */ Runnable c;
-
-        public a(Runnable runnable) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948338766, "Lcom/baidu/tieba/yq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = runnable;
-            this.a = 5;
-            this.b = new long[5];
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                long[] jArr = this.b;
-                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-                long[] jArr2 = this.b;
-                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
-                    this.b = new long[this.a];
-                    this.c.run();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948338766, "Lcom/baidu/tieba/yq3;");
+                return;
             }
         }
+        s72.b();
+        a = s72.b();
     }
 
-    public static void a(View view2, Runnable runnable) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
-            view2.setOnClickListener(new a(runnable));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return String.format("%s/smtapp/ad/auto", a);
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return String.format("%s/smtapp/ad/similar", a);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return String.format("%s/searchbox?action=userx&type=attribute", a);
+        }
+        return (String) invokeV.objValue;
     }
 }

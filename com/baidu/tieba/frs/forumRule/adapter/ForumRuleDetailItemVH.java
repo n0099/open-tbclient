@@ -5,12 +5,12 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a36;
-import com.baidu.tieba.d85;
+import com.baidu.tieba.j06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,15 +52,11 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.e) {
-                d85 d = d85.d(this.c);
-                d.D(R.string.F_X02);
-                d.x(R.color.CAM_X0301);
+                EMManager.from(this.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0301);
                 this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
-            d85 d2 = d85.d(this.c);
-            d2.D(R.string.F_X02);
-            d2.x(R.color.CAM_X0105);
+            EMManager.from(this.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
             this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
@@ -68,11 +64,11 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public final void b(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf0);
-            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090bef);
+            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c02);
+            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c01);
             this.d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            a36 layoutStrategy = this.d.getLayoutStrategy();
+            j06 layoutStrategy = this.d.getLayoutStrategy();
             layoutStrategy.p(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
             this.d.setLayoutStrategy(layoutStrategy);
             a();

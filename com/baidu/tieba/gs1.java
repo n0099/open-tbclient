@@ -1,16 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class gs1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gs1 {
+    File a(String str, String str2);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "2.34.0" : (String) invokeV.objValue;
-    }
+    File b();
+
+    String c();
 }

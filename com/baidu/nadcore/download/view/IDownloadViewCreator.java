@@ -3,7 +3,7 @@ package com.baidu.nadcore.download.view;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.zm0;
+import com.baidu.tieba.xl0;
 /* loaded from: classes3.dex */
 public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
@@ -17,7 +17,7 @@ public interface IDownloadViewCreator {
         DEFAULT
     }
 
-    zm0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
+    xl0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class b {
@@ -48,18 +48,18 @@ public interface IDownloadViewCreator {
     /* loaded from: classes3.dex */
     public class a implements IDownloadViewCreator {
         @Override // com.baidu.nadcore.download.view.IDownloadViewCreator
-        public zm0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
+        public xl0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
             int i = b.a[viewType.ordinal()];
             if (i != 1) {
                 if (i != 2 && i != 3) {
                     return null;
                 }
                 AdProgressButton adProgressButton = new AdProgressButton(viewGroup.getContext());
-                adProgressButton.c(viewGroup);
+                adProgressButton.b(viewGroup);
                 return adProgressButton;
             }
             DefaultDownloadViewLP defaultDownloadViewLP = new DefaultDownloadViewLP(viewGroup.getContext());
-            defaultDownloadViewLP.c(viewGroup);
+            defaultDownloadViewLP.b(viewGroup);
             return defaultDownloadViewLP;
         }
     }

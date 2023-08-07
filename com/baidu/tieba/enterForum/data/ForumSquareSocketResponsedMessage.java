@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.data;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.z07;
+import com.baidu.tieba.hy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetForumSquare.GetForumSquareResIdl;
 public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z07 mForumSquareRespData;
+    public hy6 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareSocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public z07 getData() {
+    public hy6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mForumSquareRespData;
         }
-        return (z07) invokeV.objValue;
+        return (hy6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -68,9 +68,9 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
             if (getForumSquareResIdl.data == null) {
                 return getForumSquareResIdl;
             }
-            z07 z07Var = new z07();
-            this.mForumSquareRespData = z07Var;
-            z07Var.a(getForumSquareResIdl.data);
+            hy6 hy6Var = new hy6();
+            this.mForumSquareRespData = hy6Var;
+            hy6Var.a(getForumSquareResIdl.data);
             return getForumSquareResIdl;
         }
         return invokeIL.objValue;

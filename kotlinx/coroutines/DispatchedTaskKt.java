@@ -58,7 +58,7 @@ public final class DispatchedTaskKt {
             CoroutineDispatcher coroutineDispatcher = ((DispatchedContinuation) delegate$kotlinx_coroutines_core).dispatcher;
             CoroutineContext context = delegate$kotlinx_coroutines_core.getContext();
             if (coroutineDispatcher.isDispatchNeeded(context)) {
-                coroutineDispatcher.mo2341dispatch(context, dispatchedTask);
+                coroutineDispatcher.mo2342dispatch(context, dispatchedTask);
                 return;
             } else {
                 resumeUnconfined(dispatchedTask);
@@ -81,7 +81,7 @@ public final class DispatchedTaskKt {
             Result.Companion companion2 = Result.Companion;
             successfulResult$kotlinx_coroutines_core = dispatchedTask.getSuccessfulResult$kotlinx_coroutines_core(takeState$kotlinx_coroutines_core);
         }
-        Object m846constructorimpl = Result.m846constructorimpl(successfulResult$kotlinx_coroutines_core);
+        Object m847constructorimpl = Result.m847constructorimpl(successfulResult$kotlinx_coroutines_core);
         if (z) {
             DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
             Continuation<T> continuation2 = dispatchedContinuation.continuation;
@@ -94,7 +94,7 @@ public final class DispatchedTaskKt {
                 undispatchedCoroutine = null;
             }
             try {
-                dispatchedContinuation.continuation.resumeWith(m846constructorimpl);
+                dispatchedContinuation.continuation.resumeWith(m847constructorimpl);
                 Unit unit = Unit.INSTANCE;
                 if (undispatchedCoroutine != null) {
                     if (!clearThreadContext) {
@@ -108,7 +108,7 @@ public final class DispatchedTaskKt {
                 }
             }
         }
-        continuation.resumeWith(m846constructorimpl);
+        continuation.resumeWith(m847constructorimpl);
     }
 
     public static final void resumeUnconfined(DispatchedTask<?> dispatchedTask) {
@@ -134,7 +134,7 @@ public final class DispatchedTaskKt {
         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
             th = StackTraceRecoveryKt.recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
         }
-        continuation.resumeWith(Result.m846constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m847constructorimpl(ResultKt.createFailure(th)));
     }
 
     public static final void runUnconfinedEventLoop(DispatchedTask<?> dispatchedTask, EventLoop eventLoop, Function0<Unit> function0) {

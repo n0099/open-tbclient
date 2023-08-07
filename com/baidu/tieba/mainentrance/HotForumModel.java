@@ -2,14 +2,14 @@ package com.baidu.tieba.mainentrance;
 
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.m29;
-import com.baidu.tieba.n29;
+import com.baidu.tieba.g09;
+import com.baidu.tieba.h09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,25 +20,25 @@ import java.util.List;
 public class HotForumModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l9 a;
+    public BdPageContext a;
     public b b;
-    public List<m29> c;
+    public List<g09> c;
     public HotSearchInfoData d;
-    public List<n29> e;
+    public List<h09> e;
     public String f;
 
     /* loaded from: classes7.dex */
     public interface b {
         void E(String str);
 
-        void q(List<m29> list, List<n29> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void q(List<g09> list, List<h09> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -55,7 +55,7 @@ public class HotForumModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotForumModel a;
@@ -82,13 +82,13 @@ public class HotForumModel extends BdBaseModel {
             this.a = hotForumModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e1f));
+                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e21));
                 } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
                     if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                         if (responsedMessage instanceof HotForumHttpResponseMessage) {
@@ -110,48 +110,48 @@ public class HotForumModel extends BdBaseModel {
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                         this.a.b.E(responsedMessage.getErrorString());
                     } else {
-                        this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e1f));
+                        this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e21));
                     }
                 } else {
-                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e1f));
+                    this.a.b.E(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e21));
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotForumModel(l9 l9Var, b bVar) {
-        super(l9Var);
+    public HotForumModel(BdPageContext bdPageContext, b bVar) {
+        super(bdPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l9Var, bVar};
+            Object[] objArr = {bdPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = l9Var;
+        this.a = bdPageContext;
         this.b = bVar;
-        f0();
+        X();
     }
 
-    public final void f0() {
+    public final void X() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
         }
     }
 
-    public void g0() {
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             sendMessage(new HotForumNetMessage());
         }
     }

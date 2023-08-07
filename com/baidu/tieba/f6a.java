@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class f6a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e6a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized e6a a() {
-        InterceptResult invokeV;
-        e6a e6aVar;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (f6a.class) {
-                if (a == null) {
-                    a = new e6a();
-                }
-                e6aVar = a;
-            }
-            return e6aVar;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", str2);
+            TiebaStatic.log(statisticItem);
         }
-        return (e6a) invokeV.objValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

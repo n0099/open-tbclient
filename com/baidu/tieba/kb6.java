@@ -1,48 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class kb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<lb6> b;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public kb6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return cv2.M().a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-            if (a()) {
-                i = 2;
-            } else {
-                i = 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (defaultNightMode != i) {
-                AppCompatDelegate.setDefaultNightMode(i);
-            }
-        }
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
-            intent.putExtra("key_night_mode", z);
-            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
         }
     }
 }

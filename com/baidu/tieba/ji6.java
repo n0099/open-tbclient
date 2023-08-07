@@ -1,140 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ala.AlaCmdConfigCustom;
-import com.baidu.ala.gift.AlaDynamicGift;
-import com.baidu.ala.gift.AlaDynamicGiftAndNativeData;
-import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
-import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
-import com.baidu.ala.gift.IFrameCallback;
-import com.baidu.ala.gift.IImageFramePlayerViewController;
+import android.text.TextUtils;
+import android.view.View;
+import android.webkit.JsPromptResult;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ji6 {
+public class ji6 implements nk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public RelativeLayout b;
-    public IImageFramePlayerViewController c;
-    public AlaEffectPreviewView d;
-    public AlaEnterEffectData e;
-    public int f;
-    public IFrameCallback g;
-    public c h;
+    public final ArrayList<pk6> b;
+    public final ki6 c;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements IFrameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ji6 a;
-
-        @Override // com.baidu.ala.gift.IFrameCallback
-        public void onFrameStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.ala.gift.IFrameCallback
-        public void onFrameUpdate(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            }
-        }
-
-        public a(ji6 ji6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ji6Var;
-        }
-
-        @Override // com.baidu.ala.gift.IFrameCallback
-        public void onFrameEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ji6.b(this.a);
-                if (this.a.f <= 0 && this.a.e != null) {
-                    ji6 ji6Var = this.a;
-                    ji6Var.g(ji6Var.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ji6 a;
-
-        public b(ji6 ji6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ji6Var;
-        }
-
-        @Override // com.baidu.tieba.ji6.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ji6.b(this.a);
-                if (this.a.e != null) {
-                    if (this.a.e.type == 1 && this.a.f <= 0) {
-                        ji6 ji6Var = this.a;
-                        ji6Var.g(ji6Var.e);
-                    } else if (this.a.e.type == 0) {
-                        ji6 ji6Var2 = this.a;
-                        ji6Var2.g(ji6Var2.e);
-                    }
-                }
-            }
-        }
-    }
-
-    public ji6(Context context, RelativeLayout relativeLayout) {
+    public ji6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,94 +51,264 @@ public class ji6 {
                 return;
             }
         }
-        this.f = 2;
-        this.g = new a(this);
-        this.h = new b(this);
-        this.a = context;
-        this.b = relativeLayout;
+        this.b = new ArrayList<>();
+        this.c = new ki6();
     }
 
-    public static /* synthetic */ int b(ji6 ji6Var) {
-        int i = ji6Var.f;
-        ji6Var.f = i - 1;
-        return i;
-    }
-
-    public void g(AlaEnterEffectData alaEnterEffectData) {
+    @Override // com.baidu.tieba.nk6
+    public void a(List<Pair<String, String>> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
-            return;
-        }
-        this.e = alaEnterEffectData;
-        int i = alaEnterEffectData.type;
-        if (i == 1) {
-            this.f = 2;
-            e(alaEnterEffectData);
-            f(alaEnterEffectData);
-        } else if (i == 0) {
-            f(alaEnterEffectData);
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.c.g(list);
         }
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.nk6
+    public void b(String str, HashMap<String, Object> hashMap) {
+        WebView webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            IImageFramePlayerViewController iImageFramePlayerViewController = this.c;
-            if (iImageFramePlayerViewController != null) {
-                iImageFramePlayerViewController.onDestroy();
-            }
-            AlaEffectPreviewView alaEffectPreviewView = this.d;
-            if (alaEffectPreviewView != null) {
-                alaEffectPreviewView.f();
-            }
-        }
-    }
-
-    public final void e(AlaEnterEffectData alaEnterEffectData) {
-        AlaDynamicGiftConfigInfo alaDynamicGiftConfigInfo;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
-            if (this.c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.a)) != null && runTask.getData() != null) {
-                IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
-                this.c = iImageFramePlayerViewController;
-                iImageFramePlayerViewController.setFrameCallback(this.g);
-            }
-            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.c;
-            if (iImageFramePlayerViewController2 != null) {
-                if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
-                    this.b.addView(this.c.getAnimView(), new RelativeLayout.LayoutParams(-1, yi.j(this.a)));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap) == null) {
+            for (WeakReference<WebView> weakReference : rk6.b().a()) {
+                if (weakReference != null && (webView = weakReference.get()) != null) {
+                    try {
+                        d(webView, str, hashMap);
+                    } catch (JsInterfaceException e) {
+                        BdLog.e(e, true);
+                    }
                 }
-                AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
-                AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
-                alaDynamicGiftAndNativeData.mAlaDynamicGift = alaDynamicGift;
-                if (alaDynamicGift != null && (alaDynamicGiftConfigInfo = alaDynamicGift.configInfo) != null) {
-                    alaDynamicGiftConfigInfo.isBottomMargin = 1;
-                    alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
-                }
-                alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
-                this.c.setData(alaDynamicGiftAndNativeData);
-                this.c.startAnim();
             }
         }
     }
 
-    public final void f(AlaEnterEffectData alaEnterEffectData) {
+    @Override // com.baidu.tieba.nk6
+    public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
-            if (this.d == null) {
-                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.a);
-                this.d = alaEffectPreviewView;
-                alaEffectPreviewView.setAnimCompleteCallback(this.h);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, jsPromptResult)) == null) {
+            l(str, str, webView.getUrl());
+            if (str.startsWith("tiebaapp")) {
+                return o(webView, str);
             }
-            if (this.d.getParent() == null) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.addRule(2, R.id.obfuscated_res_0x7f090983);
-                layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ef);
-                this.b.addView(this.d, layoutParams);
+            boolean n = n(webView, str, jsPromptResult);
+            if (!n) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "hybrid").param("obj_source", str));
             }
-            this.d.setData(alaEnterEffectData);
-            this.d.g();
+            return n;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nk6
+    public void g(String str, JSONObject jSONObject, WebView webView) {
+        WebView webView2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, jSONObject, webView) == null) {
+            for (WeakReference<WebView> weakReference : rk6.b().a()) {
+                if (weakReference != null && (webView2 = weakReference.get()) != null) {
+                    j(webView2, str, jSONObject, webView);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nk6
+    public void d(View view2, String str, @Nullable HashMap<String, Object> hashMap) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, view2, str, hashMap) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (view2 instanceof WebView) {
+                webView = (WebView) view2;
+            } else if (view2 instanceof TbWebView) {
+                webView = ((TbWebView) view2).getInnerWebView();
+            } else {
+                webView = null;
+            }
+            if (webView != null) {
+                m(webView.getUrl(), str, str);
+                if (this.c.f(webView, this.c.h(webView, str, hashMap))) {
+                    cl6.c("newHybrid", "端能力 执行成功 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+                    return;
+                }
+                cl6.d("newHybrid", "端能力 执行失败 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+                return;
+            }
+            cl6.b("newHybrid", "端能力 执行失败 view类型不匹配！" + view2);
+        }
+    }
+
+    @Override // com.baidu.tieba.nk6
+    public void e(View view2, String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048580, this, view2, str, valueCallback) == null) && !TextUtils.isEmpty(str)) {
+            if (view2 instanceof WebView) {
+                ((WebView) view2).evaluateJavascript(str, valueCallback);
+            } else if (view2 instanceof TbWebView) {
+                ((TbWebView) view2).s(str, valueCallback);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nk6
+    public void i(View view2, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, str, jSONObject) == null) {
+            j(view2, str, jSONObject, null);
+        }
+    }
+
+    public final void l(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("js_call_native");
+            statisticItem.addParam("obj_type", str);
+            statisticItem.addParam("obj_name", str2);
+            statisticItem.addParam("obj_source", str3);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void m(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("native_call_js");
+            statisticItem.addParam("obj_type", str);
+            statisticItem.addParam("obj_name", str2);
+            statisticItem.addParam("obj_source", str3);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final boolean p(TbPageContext<?> tbPageContext, String str, jca jcaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, tbPageContext, str, jcaVar)) == null) {
+            if (jcaVar == null || jcaVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+                return false;
+            }
+            jcaVar.s(true);
+            jcaVar.z(0);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nk6
+    public void f(pk6 pk6Var, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, pk6Var, obj) == null) && (obj instanceof hca)) {
+            this.b.add(pk6Var);
+            this.c.a((hca) obj);
+        }
+    }
+
+    @Override // com.baidu.tieba.nk6
+    public void h(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, jSONObject) == null) {
+            g(str, jSONObject, null);
+        }
+    }
+
+    public void j(View view2, String str, JSONObject jSONObject, WebView webView) {
+        WebView webView2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, view2, str, jSONObject, webView) == null) {
+            if (view2 instanceof WebView) {
+                webView2 = (WebView) view2;
+            } else if (view2 instanceof TbWebView) {
+                webView2 = ((TbWebView) view2).getInnerWebView();
+            } else {
+                webView2 = null;
+            }
+            if (webView2 == null) {
+                return;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("key", str);
+                jSONObject2.put("data", jSONObject);
+                if (webView != null) {
+                    jSONObject2.put("sourceWebviewId", webView.toString());
+                }
+                this.c.b(webView2, jSONObject2.toString());
+            } catch (Exception e) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.e("JsBridge", "dispatchEvent Exception:" + e);
+            }
+        }
+    }
+
+    public final boolean k(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            Iterator<pk6> it = this.b.iterator();
+            while (it.hasNext()) {
+                pk6 next = it.next();
+                if (next != null && next.b(webView, str, str2, str3, jsPromptResult)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean n(WebView webView, String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, webView, str, jsPromptResult)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("JsBridge", "旧版端能力：start processJSON json:" + str + " " + webView);
+                JSONObject jSONObject = new JSONObject(str);
+                return k(webView, jSONObject.optString("interfaceName", ""), jSONObject.optString("methodName", ""), jSONObject.optString("param", ""), jsPromptResult);
+            } catch (JSONException e) {
+                TbLog hybridLog2 = HybridLog.getInstance();
+                hybridLog2.e("JsBridge", "旧版端能力异常：processJSON JSONException:" + e);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean o(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, webView, str)) == null) {
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("JsBridge", "新版端能力：start processScheme scheme:" + str + " " + webView);
+            lca lcaVar = new lca();
+            String a = nca.a(str);
+            String d = nca.d(str);
+            String b = nca.b(str);
+            lcaVar.f(a);
+            lcaVar.h(d);
+            jca jcaVar = new jca();
+            jcaVar.w(b);
+            if (bi.isEmpty(a) || bi.isEmpty(d) || bi.isEmpty(b)) {
+                jcaVar.z(101);
+            }
+            try {
+                lcaVar.j(nca.f(str));
+            } catch (JSONException unused) {
+                lcaVar.j(new JSONObject());
+                jcaVar.z(101);
+            }
+            lcaVar.i(nca.e(str));
+            lcaVar.g(nca.c(str));
+            jca d2 = this.c.d(webView, lcaVar, jcaVar);
+            if (d2.g()) {
+                this.c.e(webView, d2);
+                return false;
+            }
+            p(v9a.c(webView.getContext()), str, d2);
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

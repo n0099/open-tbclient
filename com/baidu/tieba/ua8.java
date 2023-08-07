@@ -1,74 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.SparseArray;
+import android.util.LongSparseArray;
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedActivity;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
+import com.baidu.tieba.qc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class ua8 {
+public class ua8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity<?> a;
-    public SparseArray<String> b;
+    public TbPageContext<OfficialBarFeedActivity> a;
+    public List<rc8> b;
+    public LongSparseArray<ec8> c;
+    public OfficialBarFeedMsglistAdapter.c d;
+    public BdTypeListView e;
+    public boolean f;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<ra8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ ua8 b;
 
-        public a(ua8 ua8Var, ShareItem shareItem) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ua8 ua8Var, View view2, ra8 ra8Var) {
+            super(view2, ra8Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ua8Var, shareItem};
+                Object[] objArr = {ua8Var, view2, ra8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((View) objArr2[0], objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ua8Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                oi.a(this.a.x);
-                yi.R(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
-            }
         }
     }
 
-    public ua8(BaseActivity<?> baseActivity) {
+    public ua8(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
+            Object[] objArr = {tbPageContext, bdTypeListView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,85 +84,137 @@ public class ua8 {
             }
         }
         this.b = null;
-        this.a = baseActivity;
+        this.c = null;
+        this.a = tbPageContext;
+        this.d = cVar;
+        this.e = bdTypeListView;
     }
 
-    public final void b(ShareItem shareItem, String str, long j, String str2) {
-        Uri parse;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public rc8 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
-                if (str.length() > 20) {
-                    sb.append(str.substring(0, 20));
-                    sb.append("...");
-                } else {
-                    sb.append(str);
-                }
-                sb.append(StringUtils.lineSeparator);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<rc8> list = this.b;
+            if (list == null || list.size() == 0 || i < 0 || i >= getCount()) {
+                return null;
             }
-            if (j > 0) {
-                sb.append(this.a.getActivity().getString(R.string.topic_temperature));
-                sb.append(StringHelper.numFormatOver10000(j));
+            return this.b.get(i);
+        }
+        return (rc8) invokeI.objValue;
+    }
+
+    public void c(List<rc8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (this.b == null) {
+                this.b = new LinkedList();
             }
-            shareItem.J0 = sb.toString();
-            if (StringUtils.isNull(str2)) {
-                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
-            } else {
-                parse = Uri.parse(str2);
-            }
-            shareItem.K0 = parse;
+            this.b.clear();
+            this.b.addAll(list);
+            notifyDataSetChanged();
         }
     }
 
-    public final SparseArray<String> c() {
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public final View b(int i, View view2, ViewGroup viewGroup, rc8 rc8Var, MsgCommonItemAdapter.MsgViewHolder<ra8> msgViewHolder) {
+        InterceptResult invokeCommon;
+        ec8 ec8Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rc8Var, msgViewHolder})) == null) {
+            ra8 b = msgViewHolder.b();
+            qc8.a d = rc8Var.d();
+            d.m = rc8Var.b();
+            LongSparseArray<ec8> longSparseArray = this.c;
+            if (longSparseArray == null) {
+                ec8Var = null;
+            } else {
+                ec8Var = longSparseArray.get(d.h);
+            }
+            b.D(this.a.getPageActivity().getBaseContext(), d, rc8Var.c(), ec8Var, rc8Var.e(), rc8Var.f(), i);
+            if (this.f) {
+                str = "c13865";
+            } else {
+                str = "c13863";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            String str2 = d.n;
+            if (str2 == null) {
+                str2 = "";
+            }
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", d.e);
+            TiebaStatic.log(statisticItem);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @RequiresApi(api = 16)
+    public void e(LongSparseArray<ec8> longSparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, longSparseArray) == null) {
+            if (this.c == null) {
+                this.c = new LongSparseArray<>();
+            }
+            this.c.clear();
+            for (int i = 0; i < longSparseArray.size(); i++) {
+                this.c.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                SparseArray<String> sparseArray = new SparseArray<>(8);
-                this.b = sparseArray;
-                sparseArray.put(2, "topic_wx_timeline");
-                this.b.put(3, "topic_wx_friend");
-                this.b.put(4, "topic_qq_zone");
-                this.b.put(5, "topic_tencent_weibo");
-                this.b.put(6, "topic_sina_weibo");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<rc8> list = this.b;
+            if (list == null) {
+                return 0;
             }
-            return this.b;
+            return list.size();
         }
-        return (SparseArray) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
-        Uri parse;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        a aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            if (TextUtils.isEmpty(str) && z) {
-                BaseActivity<?> baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
-                return;
-            }
-            if (StringUtils.isNull(str3)) {
-                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
-            }
-            if (StringUtils.isNull(str4)) {
-                parse = null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
             } else {
-                parse = Uri.parse(str4);
+                aVar = null;
             }
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = str2;
-            shareItem.w = str5;
-            shareItem.x = str3;
-            shareItem.b = true;
-            shareItem.u = str;
-            shareItem.z = parse;
-            shareItem.i = true;
-            b(shareItem, str5, j, str6);
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
-            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            shareDialogConfig.setIsCopyLink(true);
-            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            if (aVar == null) {
+                ra8 ra8Var = new ra8(this.a, this.f);
+                ra8Var.E(this.d);
+                View x = ra8Var.x();
+                a aVar3 = new a(this, ra8Var.x(), ra8Var);
+                x.setTag(aVar3);
+                view2 = x;
+                aVar2 = aVar3;
+            } else {
+                aVar2 = aVar;
+            }
+            b(i, view2, viewGroup, getItem(i), aVar2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

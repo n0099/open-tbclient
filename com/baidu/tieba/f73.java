@@ -1,99 +1,70 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f73 {
+public abstract class f73 implements d73<b73> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONObject g;
-    public String h;
-    public v32 i;
+
+    @Override // com.baidu.tieba.d73
+    public abstract /* synthetic */ void onEvent(@NonNull T t);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716999, "Lcom/baidu/tieba/f73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716999, "Lcom/baidu/tieba/f73;");
+                return;
+            }
+        }
+        b = ir1.a;
+    }
 
     public f73() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            v32 v32Var = this.i;
-            if (v32Var != null && !v32Var.isSuccess()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean a() {
+    @Override // com.baidu.tieba.d73
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
-                return true;
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("SwanPluginFunPageModel{providerAppKey='");
-            sb.append(this.a);
-            sb.append('\'');
-            sb.append(", providerRootPath='");
-            sb.append(this.c);
-            sb.append('\'');
-            sb.append(", providerVersion='");
-            sb.append(this.d);
-            sb.append('\'');
-            sb.append(", componentId='");
-            sb.append(this.f);
-            sb.append('\'');
-            sb.append(", cb='");
-            sb.append(this.h);
-            sb.append('\'');
-            sb.append(", pageParams=");
-            sb.append(this.g);
-            sb.append(", swanApiResult=");
-            v32 v32Var = this.i;
-            if (v32Var == null) {
-                a = null;
-            } else {
-                a = v32Var.a();
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && g73.a(str)) {
+                throw new RuntimeException("illegal observer id");
             }
-            sb.append(a);
-            sb.append('}');
-            return sb.toString();
+            return this.a;
         }
         return (String) invokeV.objValue;
     }

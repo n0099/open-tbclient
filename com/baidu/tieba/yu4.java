@@ -1,33 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.cp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetToken.DataRes;
-import tbclient.GetToken.ToastInfo;
+import com.facebook.common.executors.CallerThreadExecutor;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.BaseDataSubscriber;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.image.CloseableBitmap;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class yu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public a g;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public static class a implements fs {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public final /* synthetic */ Context a;
 
-        public a() {
+        public a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.fs
+        public void a(String str, es esVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, esVar) == null) {
+                yu4.d(this.a, str, esVar);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements hs {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,80 +86,161 @@ public class yu4 {
                 }
             }
         }
-    }
 
-    public yu4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.tieba.hs
+        public void a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                yu4.c(str);
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public static class c implements ds {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.c) && StringUtils.isNull(this.a) && StringUtils.isNull(this.b) && StringUtils.isNull(this.d) && StringUtils.isNull(this.e) && StringUtils.isNull(this.f) && this.g == null) {
-                return true;
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = context;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.ds
+        @Nullable
+        public Map<String, Object> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String zid = TbadkCoreApplication.getInst().getZid(this.a, null, 0, null);
+                HashMap hashMap = new HashMap();
+                hashMap.put("zid", zid);
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
     }
 
-    public void e(DataRes dataRes) {
+    /* loaded from: classes8.dex */
+    public static class d extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es a;
+
+        public d(es esVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {esVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = esVar;
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                this.a.onError();
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onNewResultImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Throwable th;
+            CloseableReference<CloseableImage> closeableReference;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                try {
+                    closeableReference = dataSource.getResult();
+                    if (closeableReference != null) {
+                        try {
+                            CloseableImage closeableImage = closeableReference.get();
+                            if (closeableImage instanceof CloseableBitmap) {
+                                Bitmap underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap();
+                                if (underlyingBitmap != null && !underlyingBitmap.isRecycled()) {
+                                    this.a.a(underlyingBitmap.copy(underlyingBitmap.getConfig(), true));
+                                } else {
+                                    this.a.onError();
+                                }
+                            } else {
+                                this.a.onError();
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            CloseableReference.closeSafely(closeableReference);
+                            throw th;
+                        }
+                    }
+                    CloseableReference.closeSafely(closeableReference);
+                } catch (Throwable th3) {
+                    th = th3;
+                    closeableReference = null;
+                }
+            }
+        }
+    }
+
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.a = dataRes.title;
-        this.b = dataRes.img;
-        this.c = dataRes.tips;
-        this.d = dataRes.url;
-        this.e = dataRes.btn_sure;
-        this.f = dataRes.btn_cancel;
-        if (dataRes.activity_done != null) {
-            a aVar = new a();
-            this.g = aVar;
-            ToastInfo toastInfo = dataRes.activity_done;
-            String str = toastInfo.url;
-            aVar.a = toastInfo.btntext;
-            String str2 = toastInfo.message;
-            String str3 = toastInfo.sharetoken;
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity instanceof TbPageContextSupport) {
+            if (!URLUtil.isHttpUrl(str) && !URLUtil.isHttpsUrl(str)) {
+                Uri parse = Uri.parse(str);
+                if (parse != null) {
+                    UtilHelper.dealOneScheme(currentActivity, parse.toString());
+                    return;
+                }
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
+        }
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || context == null) {
+            return;
+        }
+        cp.b bVar = new cp.b(context);
+        bVar.b(false);
+        bVar.g(yu.d());
+        bVar.c(yu.c());
+        bVar.d(new c(context));
+        bVar.f(new b());
+        bVar.e(new a(context));
+        BDPTask.m.x(bVar.a());
+    }
+
+    public static void d(Context context, String str, es esVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, context, str, esVar) == null) && context != null && !TextUtils.isEmpty(str) && esVar != null) {
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).setProgressiveRenderingEnabled(true).build(), context).subscribe(new d(esVar), CallerThreadExecutor.getInstance());
         }
     }
 }

@@ -1,60 +1,21 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f10 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public h10 a;
+public interface f10 {
+    String getBDVCInfo();
 
-    public f10() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String getC3Aid();
 
-    public static f10 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            f10 f10Var = new f10();
-            h10 h10Var = new h10();
-            f10Var.a = h10Var;
-            h10Var.e("PKCS1Padding");
-            return f10Var;
-        }
-        return (f10) invokeV.objValue;
-    }
+    String getCfrom();
 
-    public void b(int i, i10 i10Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, i10Var) == null) {
-            this.a.a(i, i10Var, g10.a);
-        }
-    }
+    String getDeviceId();
 
-    public final byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.d(bArr, 0, bArr.length);
-            }
-            throw new IllegalArgumentException("Null input buffer");
-        }
-        return (byte[]) invokeL.objValue;
-    }
+    String getFrom();
+
+    String getSchemeHeader();
+
+    String getSid();
+
+    String getZid();
+
+    String processUrlExternal(String str, boolean z);
 }

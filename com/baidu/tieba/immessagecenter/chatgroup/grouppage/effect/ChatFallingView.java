@@ -6,17 +6,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.v06;
-import com.baidu.tieba.w06;
-import com.baidu.tieba.x06;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ey5;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.gy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class ChatFallingView extends FallingView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements v06.c {
+    public class a implements ey5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -54,7 +54,7 @@ public class ChatFallingView extends FallingView {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.v06.c
+        @Override // com.baidu.tieba.ey5.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -129,11 +129,11 @@ public class ChatFallingView extends FallingView {
 
     @Override // com.baidu.tbadk.widget.falling.FallingView
     @NonNull
-    public w06 p() {
+    public fy5 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            w06 a2 = w06.a();
+            fy5 a2 = fy5.a();
             a2.g(7000);
             a2.k(19);
             a2.j(false);
@@ -141,36 +141,36 @@ public class ChatFallingView extends FallingView {
             a2.i(false);
             return a2;
         }
-        return (w06) invokeV.objValue;
+        return (fy5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.falling.FallingView
     @NonNull
-    public v06 q(@NonNull Bitmap bitmap) {
+    public ey5 q(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
             Random random = new Random();
-            v06.b bVar = new v06.b(bitmap);
+            ey5.b bVar = new ey5.b(bitmap);
             bVar.p(true, true);
-            bVar.o(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
-            bVar.n(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
-            bVar.l(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100), yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100));
+            bVar.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
+            bVar.n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
+            bVar.l(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new a(this, random));
             return bVar.k();
         }
-        return (v06) invokeL.objValue;
+        return (ey5) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.falling.FallingView
     public void u(@NonNull View view2, @NonNull FallingData fallingData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, fallingData) == null) {
-            x06 x06Var = this.r;
-            if (x06Var != null) {
-                x06Var.a(FallingEventType.CLICK, fallingData);
+            gy5 gy5Var = this.r;
+            if (gy5Var != null) {
+                gy5Var.a(FallingEventType.CLICK, fallingData);
             }
-            nx4.s(getContext(), fallingData.getJumpUrl());
+            BrowserHelper.startWebActivity(getContext(), fallingData.getJumpUrl());
         }
     }
 }

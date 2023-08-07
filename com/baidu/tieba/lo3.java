@@ -1,176 +1,171 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.ol3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.GeneralSecurityException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes6.dex */
 public class lo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ oq3 c;
-
-        public a(int i, long j, oq3 oq3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949561, "Lcom/baidu/tieba/lo3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), oq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = i;
-            this.b = j;
-            this.c = oq3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947949561, "Lcom/baidu/tieba/lo3;");
+                return;
+            }
         }
+        a = ir1.a;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            return b(file, str, null);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) {
+            return d(readableByteChannel, str, null);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static boolean b(File file, String str, fp3 fp3Var) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Object valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, fp3Var)) == null) {
+            if (file == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z && file.exists() && !TextUtils.isEmpty(str)) {
+                ReadableByteChannel readableByteChannel = null;
                 try {
-                    lo3.f(jSONObject, i33.c(), this.a, this.b);
-                } catch (Exception e) {
-                    vo3.f(jSONObject, "errorMsg", e.getMessage());
-                }
-                this.c.a(jSONObject);
-            }
-        }
-    }
-
-    public lo3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (lo3.class) {
-                    a = e();
+                    readableByteChannel = Channels.newChannel(new FileInputStream(file));
+                    return d(readableByteChannel, str, fp3Var);
+                } catch (IOException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    cr4.d(readableByteChannel);
                 }
             }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void d(@NonNull sw2 sw2Var, @NonNull oq3<JSONObject> oq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sw2Var, oq3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(sw2Var.i("host_launch_type"), sw2Var.k("box_cold_launch"), oq3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        String replace;
-        String replace2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
-            }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            vo3.f(jSONObject, "model", Build.MODEL);
-            vo3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            vo3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            ol3.a a2 = ol3.a(cv2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            vo3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            vo3.f(jSONObject, "appCurVersion", pp3.D());
-            vo3.f(jSONObject, "startupType", String.valueOf(i2));
-            vo3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(ru2.i());
-            vo3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            vo3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) ub3.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                vo3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                vo3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
+            if (fp3Var != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("zipfile: isEmpty=");
+                sb.append(z);
+                sb.append("; exists=");
+                if (z) {
+                    valueOf = "";
                 } else {
-                    str = "0";
+                    valueOf = Boolean.valueOf(file.exists());
                 }
-                vo3.f(jSONObject, "lowMemory", str);
+                sb.append(valueOf);
+                fp3Var.a = sb.toString();
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean d(ReadableByteChannel readableByteChannel, String str, fp3 fp3Var) throws IOException {
+        InterceptResult invokeLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, fp3Var)) == null) {
+            if (readableByteChannel == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z && !TextUtils.isEmpty(str)) {
+                String c = er4.c(false, readableByteChannel);
+                if (fp3Var != null) {
+                    fp3Var.a = c;
+                }
+                try {
+                    String str2 = new String(e(Base64.decode(str.getBytes("utf-8"), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
+                    if (fp3Var != null) {
+                        fp3Var.b = str2;
+                    }
+                    return TextUtils.equals(str2, c);
+                } catch (Exception e) {
+                    if (a) {
+                        Log.i("SwanAppSignChecker", e.toString());
+                        e.printStackTrace();
+                    }
+                    if (fp3Var != null) {
+                        fp3Var.b = e.getLocalizedMessage();
+                    }
+                    return false;
+                }
+            }
+            if (fp3Var != null) {
+                fp3Var.a = "zipSource isNullIs=" + z;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static PublicKey f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+                return null;
             }
         }
+        return (PublicKey) invokeL.objValue;
     }
 }

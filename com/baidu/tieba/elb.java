@@ -1,21 +1,71 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface elb {
-    void onAdClicked(Ssp.Pid pid);
+public class elb {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static final Object b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onAdClose(Ssp.Pid pid);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739598, "Lcom/baidu/tieba/elb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947739598, "Lcom/baidu/tieba/elb;");
+                return;
+            }
+        }
+        b = new Object();
+    }
 
-    void onAdLoad(Ssp.Pid pid);
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a != null) {
+                return a;
+            }
+            synchronized (b) {
+                if (a != null) {
+                    return a;
+                }
+                a = b(vkb.getContext().provideContext());
+                return a;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void onAdLoadError(Ssp.Pid pid, int i, String str);
-
-    void onAdLoaded(Ssp.Pid pid, double d);
-
-    void onAdShow(Ssp.Pid pid, double d);
-
-    void onAdShowError(Ssp.Pid pid, int i, String str);
-
-    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
 }

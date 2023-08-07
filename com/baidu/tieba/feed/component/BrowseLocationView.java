@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c87;
-import com.baidu.tieba.fc7;
 import com.baidu.tieba.feed.component.BrowseLocationView;
 import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
-import com.baidu.tieba.gc7;
+import com.baidu.tieba.k57;
+import com.baidu.tieba.n97;
+import com.baidu.tieba.o97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u000e\u001a\u00020\u000fH\u0016J\u0012\u0010\u0010\u001a\u00020\u000f2\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/feed/component/BrowseLocationView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "M_H_X003", "", "mProgressView", "Landroid/widget/TextView;", "mReadHere", "", "onChangeSkin", "", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/BrowseLocationUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class BrowseLocationView extends FrameLayout implements fc7 {
+public final class BrowseLocationView extends FrameLayout implements n97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -87,7 +87,7 @@ public final class BrowseLocationView extends FrameLayout implements fc7 {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        View findViewById = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0180, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f091e06);
+        View findViewById = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f091e1c);
         Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.read_progress)");
         TextView textView = (TextView) findViewById;
         this.b = textView;
@@ -99,18 +99,18 @@ public final class BrowseLocationView extends FrameLayout implements fc7 {
         String format = String.format(Locale.getDefault(), "%s%s", Arrays.copyOf(new Object[]{getResources().getString(R.string.obfuscated_res_0x7f0f0389), this.c}, 2));
         Intrinsics.checkNotNullExpressionValue(format, "format(locale, format, *args)");
         textView2.setText(format);
-        b();
+        c();
     }
 
     public /* synthetic */ BrowseLocationView(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void c(BrowseLocationUiState browseLocationUiState, c87 data, View view2) {
+    public static final void b(BrowseLocationUiState browseLocationUiState, k57 data, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, browseLocationUiState, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
-            Function2<c87, View, Unit> i = browseLocationUiState.i();
+            Function2<k57, View, Unit> i = browseLocationUiState.i();
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             i.invoke(data, view2);
         }
@@ -118,7 +118,7 @@ public final class BrowseLocationView extends FrameLayout implements fc7 {
 
     @SuppressLint({"NotifyDataSetChanged"})
     public final void a(final BrowseLocationUiState browseLocationUiState) {
-        final c87 h;
+        final k57 h;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, browseLocationUiState) == null) && browseLocationUiState != null && (h = browseLocationUiState.h()) != null) {
             String formatTimeShort = StringHelper.getFormatTimeShort(h.d);
@@ -127,7 +127,7 @@ public final class BrowseLocationView extends FrameLayout implements fc7 {
             String format = String.format(Locale.getDefault(), "%s%s", Arrays.copyOf(new Object[]{formatTimeShort, this.c}, 2));
             Intrinsics.checkNotNullExpressionValue(format, "format(locale, format, *args)");
             textView.setText(format);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.q67
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,18 +135,18 @@ public final class BrowseLocationView extends FrameLayout implements fc7 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        BrowseLocationView.c(BrowseLocationUiState.this, h, view2);
+                        BrowseLocationView.b(BrowseLocationUiState.this, h, view2);
                     }
                 }
             });
-            b();
+            c();
         }
     }
 
-    @Override // com.baidu.tieba.fc7
-    public void b() {
+    @Override // com.baidu.tieba.n97
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || gc7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || o97.a(this)) {
             return;
         }
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);

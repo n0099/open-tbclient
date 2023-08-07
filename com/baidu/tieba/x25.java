@@ -1,73 +1,98 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes8.dex */
-public class x25 {
+public class x25 extends qba {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId o1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public t25 c;
+    public String f1;
+    public String g1;
+    public String h1;
+    public String i1;
+    public String j1;
+    public String k1;
+    public List<String> l1;
+    public String m1;
+    public String n1;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248494, "Lcom/baidu/tieba/x25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248494, "Lcom/baidu/tieba/x25;");
+                return;
+            }
+        }
+        o1 = BdUniqueId.gen();
+    }
 
     public x25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.qba, com.baidu.tieba.ym
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return o1;
         }
-        return (String) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    public boolean z1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!StringUtils.isNull(this.i1)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A1(RecommendBook recommendBook) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, recommendBook) != null) || recommendBook == null) {
             return;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new t25();
-        ArrayList<w25> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        String str4 = "";
-        if (str3 == null) {
-            str3 = "";
-        }
-        String str5 = this.b;
-        if (str5 != null) {
-            str4 = str5;
-        }
-        w25 w25Var = new w25(str3, str4, null);
-        w25Var.r(true);
-        arrayList.add(w25Var);
-        this.c.g(arrayList);
+        this.f1 = recommendBook.recommend_text;
+        this.g1 = recommendBook.suggest_text;
+        this.h1 = recommendBook.suggest_url;
+        this.i1 = recommendBook.book_id;
+        recommendBook.book_type.intValue();
+        this.j1 = recommendBook.book_cover;
+        this.k1 = recommendBook.book_title;
+        this.l1 = recommendBook.book_tips;
+        this.m1 = recommendBook.botton_text;
+        this.n1 = recommendBook.subscript_icon;
     }
 }

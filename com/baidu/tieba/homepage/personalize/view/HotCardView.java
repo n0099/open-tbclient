@@ -10,11 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,15 +25,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b85;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.hj;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.sy;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.yca;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ji;
+import com.baidu.tieba.lz4;
+import com.baidu.tieba.ma5;
+import com.baidu.tieba.qba;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class HotCardView extends LinearLayout implements sy {
+public class HotCardView extends LinearLayout implements rx {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer l;
     public static int m;
@@ -59,7 +59,7 @@ public class HotCardView extends LinearLayout implements sy {
     public ThreadData h;
     public View i;
     public int j;
-    public h05 k;
+    public lz4 k;
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
@@ -150,25 +150,25 @@ public class HotCardView extends LinearLayout implements sy {
         b();
     }
 
-    public void setOutOnClickListener(h05 h05Var) {
+    public void setOutOnClickListener(lz4 lz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h05Var) == null) {
-            this.k = h05Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lz4Var) == null) {
+            this.k = lz4Var;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084f, (ViewGroup) this, true);
+            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092542);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907b2);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.d = (EMTextView) findViewById(R.id.more_label_view);
             this.e = (TbImageView) findViewById(R.id.image_content);
-            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f09074e);
-            this.b.setLineSpacing(yi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.c.setLineSpacing(yi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f09075d);
+            this.b.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.c.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
             c();
         }
     }
@@ -176,7 +176,7 @@ public class HotCardView extends LinearLayout implements sy {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = yi.g(getContext(), R.dimen.tbds237);
+            this.g = BdUtilHelper.getDimens(getContext(), R.dimen.tbds237);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
             int i = this.g;
             marginLayoutParams.width = i;
@@ -190,7 +190,7 @@ public class HotCardView extends LinearLayout implements sy {
             this.e.setForegroundColor(0);
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(yi.g(getContext(), R.dimen.tbds1));
+            this.e.setBorderWidth(BdUtilHelper.getDimens(getContext(), R.dimen.tbds1));
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -200,7 +200,7 @@ public class HotCardView extends LinearLayout implements sy {
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, threadData, i, themeColorInfo) == null) {
             this.f.removeAllViews();
             this.f.stopFlipping();
-            List<yca> postList = threadData.getPostList();
+            List<qba> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());
@@ -235,7 +235,7 @@ public class HotCardView extends LinearLayout implements sy {
                     return;
                 }
                 this.e.setVisibility(0);
-                this.e.N(ThreadCardUtils.getThumbnailsUrl((MediaData) linkedList.get(0)), 10, false);
+                this.e.startLoad(ThreadCardUtils.getThumbnailsUrl((MediaData) linkedList.get(0)), 10, false);
                 if (linkedList.size() > l.intValue()) {
                     this.d.setText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(linkedList.size() - l.intValue())}));
                     this.d.setVisibility(0);
@@ -246,25 +246,16 @@ public class HotCardView extends LinearLayout implements sy {
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048581, this, tbPageContext, i) != null) || this.j == i) {
             return;
         }
         this.j = i;
-        d85 d = d85.d(this.b);
-        d.D(R.string.F_X02);
-        d.C(R.dimen.T_X05);
-        d.x(R.color.CAM_X0105);
-        d85 d2 = d85.d(this.c);
-        d2.C(R.dimen.T_X07);
-        d2.x(R.color.CAM_X0107);
-        d85 d3 = d85.d(this.d);
-        d3.x(R.color.CAM_X0101);
-        d3.D(R.string.F_X02);
-        d3.o(R.string.J_X01);
-        d3.f(R.color.CAM_X0607);
+        EMManager.from(this.b).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105);
+        EMManager.from(this.c).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0107);
+        EMManager.from(this.d).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X02).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
         this.e.setSkinType(i);
     }
 
@@ -276,27 +267,27 @@ public class HotCardView extends LinearLayout implements sy {
         this.h = threadData;
         e(threadData);
         int i2 = 2;
-        m = (yi.l(getContext()) - (yi.g(getContext(), R.dimen.M_W_X004) * 2)) - (yi.g(getContext(), R.dimen.M_W_X005) * 2);
+        m = (BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 2)) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005) * 2);
         if (this.e.getVisibility() == 0) {
-            m = (m - yi.g(getContext(), R.dimen.M_W_X006)) - this.g;
+            m = (m - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006)) - this.g;
         }
         if (threadData.getIsNoTitle() == 1) {
             this.c.setVisibility(8);
         } else {
             this.c.setVisibility(0);
             this.c.setText(threadData.getAbstractText());
-            i2 = (2 - hj.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
+            i2 = (2 - ji.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(threadData.getTitleText());
-        float[] B = b85.B(R.string.J_X04);
+        float[] B = w65.B(R.string.J_X04);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        xb5 xb5Var = new xb5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
-        xb5Var.b(dimenPixelSize2);
-        xb5Var.a(false);
+        ma5 ma5Var = new ma5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
+        ma5Var.b(dimenPixelSize2);
+        ma5Var.a(false);
         String valueOf = String.valueOf(i);
         spannableStringBuilder.insert(0, (CharSequence) valueOf);
-        spannableStringBuilder.setSpan(xb5Var, 0, valueOf.length(), 17);
+        spannableStringBuilder.setSpan(ma5Var, 0, valueOf.length(), 17);
         this.b.setMaxLines(i2);
         this.b.setText(spannableStringBuilder);
         d(threadData, i - 1, themeColorInfo);

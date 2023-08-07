@@ -8,17 +8,17 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv2;
-import com.baidu.tieba.cy1;
-import com.baidu.tieba.ey1;
-import com.baidu.tieba.fs1;
-import com.baidu.tieba.gd2;
-import com.baidu.tieba.mp3;
-import com.baidu.tieba.uo3;
+import com.baidu.tieba.fu2;
+import com.baidu.tieba.fx1;
+import com.baidu.tieba.hx1;
+import com.baidu.tieba.ir1;
+import com.baidu.tieba.jc2;
+import com.baidu.tieba.po3;
+import com.baidu.tieba.xn3;
 /* loaded from: classes4.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean q = fs1.a;
-    public cy1 m;
+    public static final boolean q = ir1.a;
+    public fx1 m;
     public String n;
     public int o = 0;
     public int p = 0;
@@ -35,21 +35,21 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends gd2 {
+    public class b extends jc2 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.gd2, com.baidu.tieba.jd2
+        @Override // com.baidu.tieba.jc2, com.baidu.tieba.mc2
         public void d(String str) {
             super.d(str);
             if (!TextUtils.isEmpty(str)) {
-                ((TextView) SwanAppScopeDetailActivity.this.findViewById(R.id.obfuscated_res_0x7f092542)).setText(str);
+                ((TextView) SwanAppScopeDetailActivity.this.findViewById(R.id.obfuscated_res_0x7f09255a)).setText(str);
             }
         }
     }
 
     public final void B() {
-        findViewById(R.id.obfuscated_res_0x7f090322).setOnClickListener(new a());
+        findViewById(R.id.obfuscated_res_0x7f090323).setOnClickListener(new a());
     }
 
     public final void F() {
@@ -69,20 +69,20 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cy1 cy1Var = this.m;
-        if (cy1Var != null) {
-            cy1Var.destroy();
+        fx1 fx1Var = this.m;
+        if (fx1Var != null) {
+            fx1Var.destroy();
             this.m = null;
         }
         this.n = null;
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.cy1] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.fx1] */
     public final void C() {
         if (TextUtils.isEmpty(this.n)) {
             return;
         }
-        ey1 c = cv2.F0().c(this);
+        hx1 c = fu2.F0().c(this);
         c.W(new b());
         this.m = c.r();
         c.loadUrl(this.n);
@@ -93,18 +93,18 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if (intent == null) {
             return;
         }
-        this.n = uo3.h(intent, "url");
+        this.n = xn3.h(intent, "url");
         if (q) {
             Log.d("ScopeDetailActivity", "mUrl=" + this.n);
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.lp4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.oo4, android.app.Activity
     public void onCreate(Bundle bundle) {
         E(R.anim.obfuscated_res_0x7f01001d, R.anim.obfuscated_res_0x7f010026);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0925);
-        mp3.a(this);
+        setContentView(R.layout.obfuscated_res_0x7f0d092f);
+        po3.a(this);
         D(getIntent());
         B();
         C();

@@ -1,84 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ix9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public TbRichText d;
+public interface ix9 {
+    lm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    public ix9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    dx9 b();
 
-    public TbRichText a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (TbRichText) invokeV.objValue;
-    }
+    void c(AdvertAppInfo advertAppInfo, ky8<?> ky8Var, String str, String str2, int i, int i2);
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
+    yw9 d();
 
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
+    lm<?, ?> e(hx9 hx9Var, BdUniqueId bdUniqueId);
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
+    void f();
 
-    public void e(LockWindowThreadInfo lockWindowThreadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, lockWindowThreadInfo) != null) || lockWindowThreadInfo == null) {
-            return;
-        }
-        this.a = lockWindowThreadInfo.tid.longValue();
-        this.b = lockWindowThreadInfo.title;
-        this.c = lockWindowThreadInfo.post_num.intValue();
-        if (!ListUtils.isEmpty(lockWindowThreadInfo.content)) {
-            this.d = TbRichTextView.c0(lockWindowThreadInfo.content, true);
-        }
-    }
+    List<AdvertAppInfo> g();
+
+    lm<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+
+    IAdBaseAsyncController i(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+
+    fx9 j();
+
+    void k(AdvertAppInfo advertAppInfo);
+
+    void l(HashMap<String, String> hashMap, Context context);
 }

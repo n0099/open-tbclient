@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OnActivityFinishListener<T> extends SimpleMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class OnActivityFinishListener<T> extends SimpleMessageListener {
                 return;
             }
         }
-        b(tbPageContext);
+        c(tbPageContext);
     }
 
     public static <T> void j(@NonNull TbPageContext<?> tbPageContext, @Nullable T t) {

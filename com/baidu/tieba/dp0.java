@@ -1,32 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import android.view.View;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
 public interface dp0 {
-    float getLaunchSpeedScore();
+    public static final ServiceReference a = new ServiceReference("nad.core", "rewardCriusPop");
 
-    float getStaticDeviceScore();
+    void a(bp0 bp0Var);
 
-    @Autowired
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void b(mr0 mr0Var, Context context);
 
-        @Singleton
-        @Inject(force = false)
-        public static dp0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return gz0.a();
-            }
-            return (dp0) invokeV.objValue;
-        }
-    }
+    View getView();
+
+    void release();
+
+    void show();
 }

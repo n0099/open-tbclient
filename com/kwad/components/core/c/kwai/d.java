@@ -8,7 +8,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 public final class d extends com.kwad.sdk.mvp.a {
     @Nullable
     public b DG;
-    public b.C0648b DH;
+    public b.C0649b DH;
     public AdTemplate mAdTemplate;
     @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;

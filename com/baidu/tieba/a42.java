@@ -2,41 +2,43 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a42 extends sd3 {
+public class a42 extends v32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public final String n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i != 2001 ? i != 2002 ? "error draw on canvas" : "width / height must > 0" : "data length invalid" : (String) invokeI.objValue;
+    }
+
     /* loaded from: classes5.dex */
-    public class a implements oq3<Map<String, vg3>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ a42 c;
+        public final /* synthetic */ z52 a;
+        public final /* synthetic */ CanvasView b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ a42 d;
 
-        public a(a42 a42Var, CallbackHandler callbackHandler, String str) {
+        public a(a42 a42Var, z52 z52Var, CanvasView canvasView, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a42Var, callbackHandler, str};
+                Object[] objArr = {a42Var, z52Var, canvasView, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,40 +48,47 @@ public class a42 extends sd3 {
                     return;
                 }
             }
-            this.c = a42Var;
-            this.a = callbackHandler;
-            this.b = str;
+            this.d = a42Var;
+            this.a = z52Var;
+            this.b = canvasView;
+            this.c = callbackHandler;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oq3
-        /* renamed from: b */
-        public void a(Map<String, vg3> map) {
+        @Override // java.lang.Runnable
+        public void run() {
+            JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-                if (map != null) {
-                    this.c.l(this.b, this.a, map);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int h = this.a.h();
+                if (h == 0) {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
+                    this.b.c(this.a.i(), this.a.j());
+                    this.b.postInvalidate();
                 } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(h, this.d.n(h));
+                }
+                String str = this.a.e;
+                if (!TextUtils.isEmpty(str)) {
+                    this.c.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a42(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/getLaunchAppInfo");
+    public a42(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/canvas/putImageData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((vb3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,66 +96,49 @@ public class a42 extends sd3 {
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
         InterceptResult invokeLLLL;
+        ga2 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (vb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            z52 o = o(unitedSchemeEntity);
+            if (o == null) {
+                y72.c("SwanAppCanvas", "CanvasPutImageData action parse model is null");
+                unitedSchemeEntity.result = l(201);
                 return false;
             }
-            String optString = vo3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+            if (TextUtils.isEmpty(o.c) && (H = lw2.T().H()) != null) {
+                o.c = H.v3();
             }
-            k(optString, callbackHandler);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            if (!TextUtils.isEmpty(o.c) && !TextUtils.isEmpty(o.b)) {
+                CanvasView a2 = z62.a(o);
+                if (a2 == null) {
+                    y72.c("SwanAppCanvas", "CanvasPutImageData canvas view is null");
+                    unitedSchemeEntity.result = l(201);
+                    return false;
+                }
+                sn3.k(new a(this, o, a2, callbackHandler), "CanvasPutImageDataAction");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            y72.c("SwanAppCanvas", "CanvasPutImageData slave id = " + o.c + " ; canvas id = " + o.b);
+            unitedSchemeEntity.result = l(201);
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(String str, CallbackHandler callbackHandler) {
+    public z52 o(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
-            t33.h(new a(this, callbackHandler, str));
-        }
-    }
-
-    public final void l(String str, CallbackHandler callbackHandler, Map<String, vg3> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, map) == null) {
-            vg3 vg3Var = map.get("scope_open_app");
-            if (vg3Var == null) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str)) {
+                return new z52(str);
             }
-            boolean z = vg3Var.d;
-            int c = op3.c();
-            long e = op3.e();
-            List<String> list = vg3Var.i;
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (String str2 : list) {
-                    jSONArray.put(str2);
-                }
-                jSONObject.put("launchCount", c);
-                jSONObject.put("visitDuration", e);
-                jSONObject.put("forbidden", z);
-                jSONObject.put("ext", jSONArray);
-                if (sd3.b) {
-                    Log.i("GetBehaviorInfoAction", "launchCount:" + c + " visitDuration:" + e + " forbidden:" + z + " ext:" + jSONArray.toString());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e2) {
-                if (sd3.b) {
-                    e2.printStackTrace();
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
+            return null;
         }
+        return (z52) invokeL.objValue;
     }
 }

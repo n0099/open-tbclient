@@ -8,19 +8,19 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by5;
-import com.baidu.tieba.j47;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.q05;
+import com.baidu.tieba.pv5;
+import com.baidu.tieba.r17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -156,7 +156,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d028d);
+            setContentView(R.layout.obfuscated_res_0x7f0d0290);
             w1(bundle);
             x1();
         }
@@ -168,14 +168,14 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            q05 layoutMode = getLayoutMode();
+            BDLayoutMode layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
-            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f0909ac));
+            layoutMode.setNightMode(z);
+            getLayoutMode().onModeChanged(findViewById(R.id.obfuscated_res_0x7f0909bc));
             this.a.onChangeSkinType(getPageContext(), i);
         }
     }
@@ -242,16 +242,16 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0644));
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0645));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090e37);
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090e49);
             if (this.l != 0 && this.m != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = by5.c();
+            boolean c = pv5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -262,20 +262,20 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             } else {
                 gifInfo.mStaticUrl = this.j;
             }
-            this.b.l0(gifInfo);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909ab);
+            this.b.t(gifInfo);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909bb);
             if (!TextUtils.isEmpty(this.h)) {
-                this.c.N(this.h, 10, false);
+                this.c.startLoad(this.h, 10, false);
             } else {
-                Bitmap f = j47.f(this.f, "panel.png");
+                Bitmap f = r17.f(this.f, "panel.png");
                 if (f != null) {
-                    new jn(f, false).h(this.c);
+                    new BdImage(f, false).drawImageTo(this.c);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909cf);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909df);
             this.d = textView;
             textView.setText(this.g);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09099b);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ab);
             this.e = textView2;
             textView2.setOnClickListener(new b(this));
         }

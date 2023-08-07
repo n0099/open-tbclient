@@ -1,15 +1,18 @@
 package com.baidu.tieba.person.more;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonMoreActivityConfig;
@@ -17,11 +20,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.po9;
-import com.baidu.tieba.qp9;
-import com.baidu.tieba.up6;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.in9;
+import com.baidu.tieba.jo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +32,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public po9 a;
+    public in9 a;
     public Bundle b;
-    public qp9 c;
-    public up6 d;
+    public jo9 c;
+    public bn6 d;
 
     /* loaded from: classes7.dex */
-    public class a extends up6<qp9> {
+    public class a extends bn6<jo9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,14 +62,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.up6
+        @Override // com.baidu.tieba.bn6
         /* renamed from: d */
-        public void a(View view2, qp9 qp9Var) {
+        public void a(View view2, jo9 jo9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, qp9Var) != null) {
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, jo9Var) != null) {
                 return;
             }
-            this.b.c = qp9Var;
+            this.b.c = jo9Var;
             if (this.b.c == null || this.b.A1()) {
                 return;
             }
@@ -111,9 +112,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            po9 po9Var = this.a;
-            if (po9Var != null) {
-                po9Var.d();
+            in9 in9Var = this.a;
+            if (in9Var != null) {
+                in9Var.d();
             }
         }
     }
@@ -127,10 +128,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d07bc);
-            po9 po9Var = new po9(getPageContext(), this.b, this.d);
-            this.a = po9Var;
-            po9Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d07c4);
+            in9 in9Var = new in9(getPageContext(), this.b, this.d);
+            this.a = in9Var;
+            in9Var.c();
         }
     }
 
@@ -171,14 +172,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                yi.Q(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                BdUtilHelper.showToast(getPageContext().getPageActivity(), (int) R.string.cosume_record_plugin_not_install_tip);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            nx4.C(getPageContext().getPageActivity(), true, str);
+            BrowserHelper.startWebActivity((Context) getPageContext().getPageActivity(), true, str);
         }
     }
 }

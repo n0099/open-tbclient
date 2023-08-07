@@ -1,101 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.p55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class wt6 {
+public final class wt6 extends et6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements p55.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public a(TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
-                p55Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements p55.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
-                p55Var.dismiss();
-            }
-        }
-    }
-
-    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
-        Uri uri;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public wt6(zs6 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((zs6) objArr2[0], (k0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            p55 p55Var = new p55(tbPageContext.getPageActivity());
-            p55Var.setContentViewSize(1);
-            p55Var.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-            p55Var.setPositiveButton(R.string.change_account, new a(tbPageContext, i));
-            p55Var.setNegativeButton(R.string.not_change_account, new b());
-            p55Var.create(tbPageContext).show();
+        Intrinsics.checkNotNullParameter(context, "context");
+        k0 b = k0.i(jt6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
+    }
+
+    @Override // com.baidu.tieba.et6
+    public void l(h0 entity, float f) {
+        us6 a;
+        jt6 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            gt6 b = eu6.b(entity);
+            if (b == null || (a = b.a()) == null || (a2 = eu6.a(entity)) == null) {
+                return;
+            }
+            if (du6.b(this) >= a.e().k()) {
+                a2.h(true);
+                a2.c(du6.b(this) - a.e().k());
+                return;
+            }
+            a2.h(false);
         }
     }
 }

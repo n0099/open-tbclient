@@ -1,60 +1,140 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardHeadView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ad7 extends vb7<CardHeadView, c77> {
+public class ad7 extends lm<bd7, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public View.OnClickListener b;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ad7 a;
+
+        public a(ad7 ad7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ad7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
+                String str = (String) view2.getTag();
+                if (this.a.a == 4) {
+                    str = str + "?isNightModel=1";
+                }
+                BrowserHelper.startWebActivity(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f04b2), str, true);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad7(String str) {
-        super(str);
+    public ad7(BdPageContext bdPageContext) {
+        super(bdPageContext.getPageActivity(), bd7.c, bdPageContext.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.vb7, com.baidu.tieba.lc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            zd7.k(a, 0);
-            return a;
-        }
-        return (View) invokeL.objValue;
+        this.b = new a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc7
-    /* renamed from: e */
-    public void b(@NonNull CardHeadView cardHeadView, @NonNull c77 c77Var) {
+    @Override // com.baidu.tieba.lm
+    /* renamed from: z */
+    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, c77Var) == null) {
-            cardHeadView.g(c77Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d045d, viewGroup, false));
+        }
+        return (ComplaintBarlordViewHolder) invokeL.objValue;
+    }
+
+    public View A(int i, View view2, ViewGroup viewGroup, bd7 bd7Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bd7Var, complaintBarlordViewHolder})) == null) {
+            if (bd7Var != null && complaintBarlordViewHolder != null) {
+                y(complaintBarlordViewHolder);
+                x(complaintBarlordViewHolder, bd7Var);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.lm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bd7 bd7Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        A(i, view2, viewGroup, bd7Var, complaintBarlordViewHolder);
+        return view2;
+    }
+
+    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder, bd7 bd7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, complaintBarlordViewHolder, bd7Var) == null) {
+            complaintBarlordViewHolder.d.setText(bd7Var.a);
+            complaintBarlordViewHolder.b.setTag(bd7Var.b);
+            complaintBarlordViewHolder.b.setOnClickListener(this.b);
+        }
+    }
+
+    public final void y(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, complaintBarlordViewHolder) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.a = skinType;
+            if (complaintBarlordViewHolder.a == skinType) {
+                return;
+            }
+            complaintBarlordViewHolder.a = skinType;
+            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
+            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
+            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
         }
     }
 }

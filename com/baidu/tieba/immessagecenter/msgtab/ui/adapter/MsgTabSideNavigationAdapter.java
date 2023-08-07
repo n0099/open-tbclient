@@ -7,20 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.ii8;
+import com.baidu.tieba.ag8;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.tieba.immessagecenter.msgtab.ui.adapter.MsgTabSideNavigationAdapter;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.lz4;
+import com.baidu.tieba.np8;
 import com.baidu.tieba.tr8;
-import com.baidu.tieba.wt8;
-import com.baidu.tieba.xt8;
-import com.baidu.tieba.yt8;
-import com.baidu.tieba.zt8;
+import com.baidu.tieba.ur8;
+import com.baidu.tieba.vr8;
+import com.baidu.tieba.wr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,9 +37,9 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragmentActivity a;
-    public final List<tr8> b;
-    public final List<tr8> c;
-    public h05<tr8> d;
+    public final List<np8> b;
+    public final List<np8> c;
+    public lz4<np8> d;
 
     @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B5\u0012.\u0010\u0002\u001a*\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u0005\u0012\u0016\b\u0001\u0012\u0012\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u00050\u00060\u0003¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bJ\u000e\u0010\f\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000eR6\u0010\u0002\u001a*\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u0005\u0012\u0016\b\u0001\u0012\u0012\u0012\u0006\b\u0001\u0012\u00020\u0004\u0012\u0006\b\u0001\u0012\u00020\u00050\u00060\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabSideNavigationAdapter$ViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "mItemView", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "(Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;)V", "bindData", "", "data", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "setOnClickListener", "clickListener", "Landroid/view/View$OnClickListener;", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
@@ -70,17 +70,17 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
             this.a = mItemView;
         }
 
-        public final void b(tr8 data) {
+        public final void b(np8 data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 BaseView<? extends IUiState, ? extends IUiIntent, ? extends BaseViewModel<? extends IUiState, ? extends IUiIntent>> baseView = this.a;
-                if (baseView instanceof wt8) {
-                    ((wt8) baseView).P(data);
-                } else if (baseView instanceof zt8) {
-                    ((zt8) baseView).P(data);
-                } else if (baseView instanceof yt8) {
-                    ((yt8) baseView).P(data);
+                if (baseView instanceof tr8) {
+                    ((tr8) baseView).Q(data);
+                } else if (baseView instanceof wr8) {
+                    ((wr8) baseView).Q(data);
+                } else if (baseView instanceof vr8) {
+                    ((vr8) baseView).Q(data);
                 }
             }
         }
@@ -115,11 +115,11 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         this.c = new ArrayList();
     }
 
-    public final void n(List<tr8> list) {
+    public final void n(List<np8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
-            if (ii8.a.b(this.c, list)) {
+            if (ag8.a.b(this.c, list)) {
                 this.c.clear();
                 this.c.addAll(list);
                 notifyDataSetChanged();
@@ -130,11 +130,11 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         }
     }
 
-    public final void o(List<tr8> list) {
+    public final void o(List<np8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
-            if (ii8.a.b(this.b, list)) {
+            if (ag8.a.b(this.b, list)) {
                 this.b.clear();
                 this.b.addAll(list);
                 notifyItemRangeChanged(0, list.size());
@@ -145,15 +145,15 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         }
     }
 
-    public static final void q(MsgTabSideNavigationAdapter this$0, tr8 it, int i, View v) {
+    public static final void q(MsgTabSideNavigationAdapter this$0, np8 it, int i, View v) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65537, null, this$0, it, i, v) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(it, "$it");
             Intrinsics.checkNotNullParameter(v, "v");
-            h05<tr8> h05Var = this$0.d;
-            if (h05Var != null) {
-                h05Var.d(v, it, i, 0L);
+            lz4<np8> lz4Var = this$0.d;
+            if (lz4Var != null) {
+                lz4Var.d(v, it, i, 0L);
             }
         }
     }
@@ -177,7 +177,7 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         return invokeV.intValue;
     }
 
-    public final List<tr8> l() {
+    public final List<np8> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -194,7 +194,7 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            tr8 m = m(i);
+            np8 m = m(i);
             if (m != null) {
                 return m.getType();
             }
@@ -203,14 +203,14 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         return invokeI.intValue;
     }
 
-    public final void s(h05<tr8> h05Var) {
+    public final void s(lz4<np8> lz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, h05Var) == null) {
-            this.d = h05Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, lz4Var) == null) {
+            this.d = lz4Var;
         }
     }
 
-    public final tr8 m(int i) {
+    public final np8 m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -222,11 +222,11 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
             if (i2 < this.c.size()) {
                 return this.c.get(i2);
             }
-            h29 iMLog = IMLog.getInstance();
-            iMLog.c("MsgTabSideNavigationAdapter", "item == null,position=" + i + ",headerSize=" + size + ",bodySize=" + this.c.size() + ",itemCount=" + getItemCount());
+            TbLog iMLog = IMLog.getInstance();
+            iMLog.i("MsgTabSideNavigationAdapter", "item == null,position=" + i + ",headerSize=" + size + ",bodySize=" + this.c.size() + ",itemCount=" + getItemCount());
             return null;
         }
-        return (tr8) invokeI.objValue;
+        return (np8) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -236,10 +236,10 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            final tr8 m = m(i);
+            final np8 m = m(i);
             if (m != null) {
                 holder.b(m);
-                holder.c(new View.OnClickListener() { // from class: com.baidu.tieba.zr8
+                holder.c(new View.OnClickListener() { // from class: com.baidu.tieba.tp8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -267,31 +267,31 @@ public final class MsgTabSideNavigationAdapter extends RecyclerView.Adapter<View
                 if (i != 3) {
                     if (i != 4) {
                         if (i == 5) {
-                            xt8 xt8Var = new xt8(this.a);
+                            ur8 ur8Var = new ur8(this.a);
                             Context context = parent.getContext();
                             Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                            BaseView.J(xt8Var, context, parent, false, false, 8, null);
-                            return new ViewHolder(xt8Var);
+                            BaseView.M(ur8Var, context, parent, false, false, 8, null);
+                            return new ViewHolder(ur8Var);
                         }
                         throw new IllegalArgumentException("MsgTabLeftNavAdapter->onCreateViewHolder->" + i + " undefined !!!");
                     }
-                    yt8 yt8Var = new yt8(this.a);
+                    vr8 vr8Var = new vr8(this.a);
                     Context context2 = parent.getContext();
                     Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
-                    BaseView.J(yt8Var, context2, parent, false, false, 8, null);
-                    return new ViewHolder(yt8Var);
+                    BaseView.M(vr8Var, context2, parent, false, false, 8, null);
+                    return new ViewHolder(vr8Var);
                 }
-                wt8 wt8Var = new wt8(this.a);
+                tr8 tr8Var = new tr8(this.a);
                 Context context3 = parent.getContext();
                 Intrinsics.checkNotNullExpressionValue(context3, "parent.context");
-                BaseView.J(wt8Var, context3, parent, false, false, 8, null);
-                return new ViewHolder(wt8Var);
+                BaseView.M(tr8Var, context3, parent, false, false, 8, null);
+                return new ViewHolder(tr8Var);
             }
-            zt8 zt8Var = new zt8(this.a);
+            wr8 wr8Var = new wr8(this.a);
             Context context4 = parent.getContext();
             Intrinsics.checkNotNullExpressionValue(context4, "parent.context");
-            BaseView.J(zt8Var, context4, parent, false, false, 8, null);
-            return new ViewHolder(zt8Var);
+            BaseView.M(wr8Var, context4, parent, false, false, 8, null);
+            return new ViewHolder(wr8Var);
         }
         return (ViewHolder) invokeLI.objValue;
     }

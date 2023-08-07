@@ -1,29 +1,151 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.data.NewUserRedPackageData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.buoy.BuoyComponent;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.ui.components.buoy.TaskBuoyView;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ActiveConfig.DataRes;
-import tbclient.FloatStrategy;
-import tbclient.MissionInfo;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class av4 {
     public static /* synthetic */ Interceptable $ic;
+    public static int b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataRes a;
-    public boolean b;
-    public String c;
-    public final ArrayList<au4> d;
-    public final ArrayList<FloatStrategy> e;
-    public NewUserRedPackageData f;
-    public ActiveCenterData g;
+    public BdUniqueId a;
+
+    /* loaded from: classes5.dex */
+    public class a implements gp {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(av4 av4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gp
+        public void a(TaskInfo taskInfo, TaskStatus taskStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, taskInfo, taskStatus) == null) {
+                BdLog.d(taskInfo.getActionId() + " taskStatus onChanged :" + taskStatus);
+                if (taskStatus.isRegistered()) {
+                    BdLog.d("isRegistered=============>");
+                }
+                if (taskStatus.isUnRegistered()) {
+                    BdLog.d("isUnRegistered=============>");
+                }
+                if (taskStatus.isRunning()) {
+                    BdLog.d("isRunning=============>");
+                }
+                if (taskStatus.isFinished()) {
+                    BdLog.d("isFinished=============>");
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gp
+        public void b(TaskInfo taskInfo, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i, str) == null) {
+                BdLog.d("[debug]error:" + str + " " + i);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends wu {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(av4 av4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.wu, com.baidu.tieba.xu
+        public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) {
+                super.a(view2, taskInfo, taskBuoyViewData);
+                taskBuoyViewData.getTaskStatus().isFinished();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final av4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-934658133, "Lcom/baidu/tieba/av4$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-934658133, "Lcom/baidu/tieba/av4$c;");
+                    return;
+                }
+            }
+            a = new av4(null);
+        }
+    }
 
     public av4() {
         Interceptable interceptable = $ic;
@@ -35,74 +157,187 @@ public class av4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.c = "";
-        this.d = new ArrayList<>();
-        this.e = new ArrayList<>();
     }
 
-    public ArrayList<FloatStrategy> a() {
+    public static av4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (av4) invokeV.objValue;
     }
 
-    public ArrayList<au4> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (ArrayList) invokeV.objValue;
+    public /* synthetic */ av4(a aVar) {
+        this();
     }
 
-    public void c(DataRes dataRes) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
-            this.a = dataRes;
-            this.d.clear();
-            this.e.clear();
-            if (dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || b(str) == null) {
+            return;
+        }
+        BDPTask.m.h(str);
+    }
+
+    public TaskInfo b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (BDPTask.m.m(str) == null) {
+                return null;
+            }
+            return BDPTask.m.m(str).getTaskInfo();
+        }
+        return (TaskInfo) invokeL.objValue;
+    }
+
+    public final void c(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
+            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_EXPAND_DATA);
+            if (TextUtils.isEmpty(queryParameter)) {
                 return;
             }
-            boolean z = true;
-            if (dataRes.is_new_user.intValue() != 1) {
-                z = false;
+            String queryParameter2 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TASK_ACTION_ID);
+            if (!TextUtils.isEmpty(queryParameter2)) {
+                l(queryParameter2, queryParameter);
             }
-            this.b = z;
-            this.c = dataRes.active_url;
-            this.e.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.a.mission_list) {
-                if (missionInfo != null) {
-                    au4 au4Var = new au4(missionInfo);
-                    if (missionInfo.tasktype.intValue() == 5) {
-                        ba5.e().g(missionInfo);
-                    } else if (missionInfo.tasktype.intValue() == 9) {
-                        ou4.c().f(au4Var);
-                    } else if (au4Var.L()) {
-                        this.d.add(au4Var);
-                    }
+            d(uri, queryParameter);
+        }
+    }
+
+    public void h(BuoyComponent buoyComponent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof pp)) {
+            ((pp) buoyComponent).F();
+        }
+    }
+
+    public void i(Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, uri) != null) || uri == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TASK_INFO);
+        if (TextUtils.isEmpty(queryParameter)) {
+            return;
+        }
+        j(queryParameter);
+        c(uri);
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            BDPTask.m.A(str, new a(this));
+        }
+    }
+
+    public void k(BuoyComponent buoyComponent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof pp)) {
+            ((pp) buoyComponent).H();
+        }
+    }
+
+    public void n(BuoyComponent buoyComponent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, buoyComponent) != null) || buoyComponent == null) {
+            return;
+        }
+        buoyComponent.n();
+    }
+
+    public final void d(Uri uri, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, uri, str) == null) {
+            dt4 dt4Var = new dt4(str);
+            if (StringHelper.equals(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_SCHEME_FROM), BdUniDispatchSchemeController.SCHEME_FROM_TB_TOKEN)) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_KW);
+            String queryParameter2 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_TID);
+            String queryParameter3 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY);
+            String queryParameter4 = uri.getQueryParameter("hightlight_anchor_pid");
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", dt4Var.e()).param("obj_type", dt4Var.d()).param("obj_param1", dt4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, dt4Var.s()).param("extra", dt4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", queryParameter).param("tid", queryParameter2).param("query", queryParameter3).param("pid", queryParameter4).param("refer", uri.getQueryParameter("refer")).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, dt4Var.G()));
+        }
+    }
+
+    public String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            String string = sharedPrefHelper.getString("key_sdk_task_expand_data_" + str, "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    return new JSONObject(string).optString(str2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return null;
                 }
             }
-            if (ListUtils.isNotEmpty(this.a.task_list)) {
-                eu4.d().h(this.a.task_list);
-            } else {
-                eu4.d().h(null);
-            }
-            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
-            this.f = newUserRedPackageData;
-            newUserRedPackageData.parseProto(dataRes);
-            if (dataRes.active_center != null) {
-                ActiveCenterData activeCenterData = new ActiveCenterData();
-                this.g = activeCenterData;
-                activeCenterData.parseProto(dataRes);
-            }
+            return null;
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            yu4.e(context);
+            this.a = BdUniqueId.gen();
+            zu4.a().b(this.a);
+            c = UtilHelper.getDimenPixelSize(R.dimen.tbds340);
+            b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X011);
+        }
+    }
+
+    public void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            sharedPrefHelper.putString("key_sdk_task_expand_data_" + str, str2);
+        }
+    }
+
+    public BuoyComponent m(Activity activity, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLLL;
+        TaskInfo b2;
+        BuoyComponent buoyComponent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, activity, viewGroup, str)) == null) {
+            if (activity == null || (b2 = b(str)) == null) {
+                return null;
+            }
+            TaskBuoyView taskBuoyView = new TaskBuoyView(activity);
+            taskBuoyView.U(new b(this));
+            if (b2.isClickAction()) {
+                buoyComponent = ip.b(taskBuoyView, new TaskBuoyViewModel(b2), b2);
+            } else {
+                buoyComponent = ip.a(taskBuoyView, new qp(b2), b2);
+            }
+            if (viewGroup != null) {
+                buoyComponent.l(viewGroup, null);
+            } else {
+                int statusBarHeight = UtilHelper.getStatusBarHeight();
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                layoutParams.gravity = 5;
+                layoutParams.topMargin = c + statusBarHeight;
+                layoutParams.rightMargin = b;
+                buoyComponent.l((FrameLayout) activity.findViewById(16908290), layoutParams);
+            }
+            if (buoyComponent instanceof pp) {
+                ((pp) buoyComponent).J();
+            }
+            return buoyComponent;
+        }
+        return (BuoyComponent) invokeLLL.objValue;
     }
 }

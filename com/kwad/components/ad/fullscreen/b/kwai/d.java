@@ -10,7 +10,7 @@ import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public ImageView eI;
     public TextView eJ;
@@ -80,15 +80,15 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         int i;
         View view2;
         super.onCreate();
-        this.eI = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913dd);
-        this.eJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091403);
+        this.eI = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913f0);
+        this.eJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091416);
         if (TextUtils.isEmpty(com.kwad.components.ad.fullscreen.kwai.b.bD())) {
             if (com.kwad.components.ad.fullscreen.kwai.b.bC() == 0) {
                 imageView = this.eI;
-                i = R.drawable.obfuscated_res_0x7f080e64;
+                i = R.drawable.obfuscated_res_0x7f080e69;
             } else {
                 imageView = this.eI;
-                i = R.drawable.obfuscated_res_0x7f080ec0;
+                i = R.drawable.obfuscated_res_0x7f080ec5;
             }
             imageView.setImageResource(i);
             this.eJ.setVisibility(8);

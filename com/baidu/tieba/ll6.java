@@ -1,94 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class ll6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
-    public ll6(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = StatisticItem.make(str);
-    }
-
-    public static ll6 a(HybridStatisticKey hybridStatisticKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridStatisticKey)) == null) {
-            return new ll6(hybridStatisticKey.getValue());
-        }
-        return (ll6) invokeL.objValue;
-    }
-
-    public static String b(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, statisticItem)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (statisticItem == null) {
-                return "";
-            }
-            sb.append("RD_STAT_LOG: ");
-            sb.append("key=");
-            sb.append(statisticItem.getKey());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            List<Object> params = statisticItem.getParams();
-            if (params != null && (size = params.size()) > 0) {
-                for (int i = 0; i < size; i++) {
-                    sb.append(params.get(i));
-                    if (i % 2 == 0) {
-                        sb.append("=");
-                    } else if (i != size - 1) {
-                        sb.append(",");
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public ll6 c(String str, String str2) {
+    public static boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.a.param(str, str2);
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            cl6.b("newHybrid", "基础版本：" + str + ",当前版本：" + str2);
+            if (TextUtils.equals(str, str2)) {
+                return true;
+            }
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    String[] split = str.split("[._]");
+                    String[] split2 = str2.split("[._]");
+                    int min = Math.min(split.length, split2.length);
+                    long j = 0;
+                    for (int i = 0; i < min; i++) {
+                        j = b(split2[i]).longValue() - b(split[i]).longValue();
+                        if (j != 0) {
+                            break;
+                        }
+                    }
+                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    if (i2 == 0) {
+                        if (split2.length > split.length) {
+                            return true;
+                        }
+                        return false;
+                    } else if (i2 > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return false;
         }
-        return (ll6) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void d() {
+    public static Long b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (ym6.a()) {
-                vn6.a("newHybrid", b(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                return Long.valueOf(Long.parseLong(str));
+            } catch (NumberFormatException unused) {
+                return 0L;
             }
-            this.a.eventStat();
         }
+        return (Long) invokeL.objValue;
     }
 }

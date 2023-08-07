@@ -1,11 +1,11 @@
 package com.baidu.tieba.homepage.video.message;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ky5;
-import com.baidu.tieba.yi;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,14 +46,14 @@ public class VideoTabRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.scr_w = Integer.valueOf(yi.l(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(yi.j(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(yi.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
             builder.new_net_type = Integer.valueOf(this.new_net_type);
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ky5.a(builder, true);
+                NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             }
             RecomVideoReqIdl.Builder builder2 = new RecomVideoReqIdl.Builder();
             builder2.data = builder.build(false);

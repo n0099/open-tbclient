@@ -2,17 +2,17 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.c09;
-import com.baidu.tieba.d09;
-import com.baidu.tieba.e09;
-import com.baidu.tieba.h09;
+import com.baidu.tieba.ay8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.tieba.yx8;
+import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements c09<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements yx8<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements c09<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public e09 c;
-        public d09 d;
+        public ay8 c;
+        public zx8 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements c09<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                e09 e09Var = new e09();
-                this.c = e09Var;
-                e09Var.d = jSONObject.optString("rText");
+                ay8 ay8Var = new ay8();
+                this.c = ay8Var;
+                ay8Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    d09 d09Var = new d09(optJSONObject);
-                    this.d = d09Var;
-                    if (!d09Var.j()) {
+                    zx8 zx8Var = new zx8(optJSONObject);
+                    this.d = zx8Var;
+                    if (!zx8Var.j()) {
                         this.d = null;
                     }
                 }
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements c09<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = h09.b(optJSONObject.optString("descColor", ""));
-                bVar.f = h09.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = ColorUtils.parseColor(optJSONObject.optString("descColor", ""));
+                bVar.f = ColorUtils.parseColor(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,14 +248,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements c09<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c09
+    @Override // com.baidu.tieba.yx8
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {
-            int l = yi.l(TbadkCoreApplication.getInst());
-            int i = (int) (l * playPicInfoCard.ratio);
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+            int i = (int) (equipmentWidth * playPicInfoCard.ratio);
             for (b bVar : this.imageResList) {
-                sg.h().k(bVar.b, 17, null, l, i, tbPageContext.getUniqueId(), new Object[0]);
+                BdResourceLoader.getInstance().loadResource(bVar.b, 17, null, equipmentWidth, i, tbPageContext.getUniqueId(), new Object[0]);
             }
         }
     }

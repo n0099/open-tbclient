@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BannerImage;
+import org.json.JSONObject;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes6.dex */
-public class g25 implements h85 {
+public class g25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
+    public int b;
 
     public g25() {
         Interceptable interceptable = $ic;
@@ -25,17 +27,20 @@ public class g25 implements h85 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = 0;
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public String b() {
@@ -47,49 +52,25 @@ public class g25 implements h85 {
         return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h85
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h85
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(BannerImage bannerImage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bannerImage) != null) || bannerImage == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = bannerImage.img_url;
-        this.b = bannerImage.ahead_url;
-        this.c = bannerImage.title;
+        try {
+            this.b = jSONObject.optInt("class_id", 0);
+            this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public void e(String str) {
+    public void d(Classify classify) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, classify) != null) || classify == null) {
+            return;
         }
+        this.b = classify.class_id.intValue();
+        this.a = classify.class_name;
     }
 }

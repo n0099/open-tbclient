@@ -2,16 +2,17 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Hottopic.JoinUser;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes8.dex */
 public class x88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public List<a98> a;
 
     public x88() {
         Interceptable interceptable = $ic;
@@ -27,18 +28,18 @@ public class x88 {
         }
     }
 
-    public static x88 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(JoinUser joinUser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
+            joinUser.join_user_num.longValue();
+            this.a = new ArrayList();
+            for (UserInfo userInfo : joinUser.join_user) {
+                if (userInfo != null) {
+                    a98 a98Var = new a98();
+                    a98Var.a(userInfo);
+                    this.a.add(a98Var);
+                }
             }
-            x88 x88Var = new x88();
-            x88Var.a = jSONObject.optString("content");
-            x88Var.b = jSONObject.optString("tid");
-            return x88Var;
         }
-        return (x88) invokeL.objValue;
     }
 }

@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -20,9 +22,7 @@ import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.r9;
 import com.baidu.tieba.view.TbLayerImageView;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,8 +105,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = yi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -176,8 +176,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = yi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -205,8 +205,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = yi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = yi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -259,7 +259,7 @@ public class HeadPendantView extends RelativeLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = yi.g(getContext(), R.dimen.tbds42);
+            this.i = BdUtilHelper.getDimens(getContext(), R.dimen.tbds42);
             b();
             d();
             c();
@@ -314,7 +314,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new TbImageView(this.a);
-            l9<?> a2 = r9.a(this.a);
+            BdPageContext<?> a2 = l9.a(this.a);
             if (a2 != null) {
                 this.b.setPageId(a2.getUniqueId());
             }
@@ -398,7 +398,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             if (i > 0) {
-                this.i = yi.g(getContext(), i);
+                this.i = BdUtilHelper.getDimens(getContext(), i);
             }
             if (this.i > 0 && (imageView = this.e) != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
@@ -526,7 +526,7 @@ public class HeadPendantView extends RelativeLayout {
     public void k(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f.J(str, i, 0, 0, z);
+            this.f.startLoad(str, i, 0, 0, z);
         }
     }
 

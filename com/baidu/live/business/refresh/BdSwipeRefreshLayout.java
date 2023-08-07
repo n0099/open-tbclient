@@ -62,21 +62,21 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     /* loaded from: classes3.dex */
     public interface h {
-        void a();
-
-        void b();
-
-        void c(float f, float f2);
-
-        void d();
-
-        void e();
-
         long getCompleteAnimTime();
 
         View getView();
 
+        void onCompleteRefresh();
+
         void onFinish();
+
+        void onPullPercentChange(float f, float f2);
+
+        void onPullToRefresh();
+
+        void onRefreshing();
+
+        void onReleaseToRefresh();
     }
 
     /* loaded from: classes3.dex */
@@ -225,7 +225,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public final void h() {
         this.a = 3;
-        this.u.d();
+        this.u.onCompleteRefresh();
         postDelayed(new g(), this.u.getCompleteAnimTime());
     }
 
@@ -269,13 +269,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public final void q() {
         this.a = 0;
-        this.u.a();
+        this.u.onPullToRefresh();
     }
 
     public final void r() {
         j jVar;
         this.a = 2;
-        this.u.e();
+        this.u.onRefreshing();
         if (this.C && (jVar = this.c) != null) {
             jVar.onRefresh();
         }
@@ -283,7 +283,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public final void s() {
         this.a = 1;
-        this.u.b();
+        this.u.onReleaseToRefresh();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
@@ -501,7 +501,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 }
             }
             if (f2 >= 0.0f) {
-                this.u.c(Math.min(1.0f, f2 / this.f), pow);
+                this.u.onPullPercentChange(Math.min(1.0f, f2 / this.f), pow);
             }
         }
         v(i4 - this.m, true, "moveSpinner");

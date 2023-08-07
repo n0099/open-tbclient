@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,8 +95,8 @@ public class PickEmotionView extends FrameLayout {
             this.b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f07041c);
-            layoutParams.rightMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f07041c);
+            layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07041c);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07041c);
             addView(this.b, layoutParams);
         }
     }
@@ -138,8 +138,8 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
             this.a.setLoadProcType(i);
-            this.a.n0();
-            this.a.p0(emotionImageData);
+            this.a.y();
+            this.a.A(emotionImageData);
         }
     }
 }

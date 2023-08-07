@@ -1,60 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.qva;
-import com.baidu.tieba.write.write.WriteImageGridView;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rva {
+public class rva extends uva<rwa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public WriteImageGridView b;
-    public WriteImagesInfo c;
-    public qva d;
-    public hn5 e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public PostPrefixData k;
-    public int l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public b p;
-    public qva.f q;
+    @Nullable
+    public View g;
+    @Nullable
+    public PlayVoiceBntNew h;
+    @Nullable
+    public ImageView i;
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements qva.f {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rva a;
@@ -77,172 +56,183 @@ public class rva {
             this.a = rvaVar;
         }
 
-        @Override // com.baidu.tieba.qva.f
-        public void a() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.c == null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
-            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
-            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
-            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumFloatActivityConfig.setCanSelectVideo(false);
-            albumFloatActivityConfig.setCanSelectOnlyVideo(false);
-            albumFloatActivityConfig.setCanEditImage(false);
-            AntiData antiData = new AntiData();
-            antiData.voice_message = this.a.h;
-            antiData.setIfVoice(this.a.m);
-            albumFloatActivityConfig.setStatisticFrom(this.a.l);
-            albumFloatActivityConfig.setExtraData(antiData, this.a.k, this.a.i, this.a.j);
-            albumFloatActivityConfig.setFromWrite(3);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
-        }
-
-        @Override // com.baidu.tieba.qva.f
-        public void b(int i) {
-            int count;
-            ImageFileInfo imageInfoAt;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.c != null && (count = ListUtils.getCount(this.a.c.getChosedFiles())) != 0 && i >= 0 && i < count && (imageInfoAt = this.a.c.getImageInfoAt(i)) != null && imageInfoAt.getImageType() != 1) {
-                this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
-            }
-        }
-
-        @Override // com.baidu.tieba.qva.f
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.c != null && this.a.c.getChosedFiles() != null && i >= 0 && i < this.a.c.getChosedFiles().size()) {
-                ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
-                if (remove.isTempFile()) {
-                    fc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
-                }
-                rva rvaVar = this.a;
-                rvaVar.d.g(rvaVar.c);
-                this.a.d.notifyDataSetChanged();
-                if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
-                    if (this.a.p != null) {
-                        this.a.p.b();
-                    }
-                    if (!this.a.n) {
-                        this.a.b.setVisibility(8);
-                    }
-                }
-                if (this.a.p != null) {
-                    this.a.p.a();
-                }
-            }
+            this.a.B();
         }
     }
 
-    public rva(TbPageContext<?> tbPageContext, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rva(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, rwa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new hn5();
-        this.f = "write";
-        this.g = "";
-        this.h = null;
-        this.n = false;
-        this.q = new a(this);
-        this.a = tbPageContext;
-        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f092a2f);
-        qva qvaVar = new qva(view2.getContext(), this.e, null, this.q);
-        this.d = qvaVar;
-        this.b.setAdapter((ListAdapter) qvaVar);
     }
 
-    public void p(boolean z) {
+    @Override // com.baidu.tieba.zva
+    public void b(WriteData writeData) {
+        PlayVoiceBntNew playVoiceBntNew;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.n = z;
-            this.d.f(z);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
+            return;
+        }
+        VoiceData.VoiceModel voiceModel = playVoiceBntNew.getVoiceModel();
+        writeData.setVoiceModel(voiceModel);
+        if (voiceModel != null) {
+            if (voiceModel.getId() != null) {
+                writeData.setVoice(voiceModel.getId());
+                writeData.setVoiceDuringTime(voiceModel.getDuration());
+                return;
+            }
+            writeData.setVoice(null);
+            writeData.setVoiceDuringTime(-1);
+            return;
+        }
+        writeData.setVoice(null);
+        writeData.setVoiceDuringTime(-1);
+    }
+
+    @Override // com.baidu.tieba.zva
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && writeData.getVoiceModel() != null) {
+            A(writeData.getVoiceModel());
         }
     }
 
-    public void r(b bVar) {
+    @Override // com.baidu.tieba.zva
+    public void e(@NonNull WriteData writeData) {
+        PlayVoiceBntNew playVoiceBntNew;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.p = bVar;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
+            return;
         }
+        writeData.setVoiceModel(playVoiceBntNew.getVoiceModel());
     }
 
-    public void s(boolean z) {
+    @Override // com.baidu.tieba.zva
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d.h(z);
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d.i(z);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.b();
-        }
-    }
-
-    public GridView o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (GridView) invokeV.objValue;
-    }
-
-    public void q(String str, String str2, String str3, PostPrefixData postPrefixData, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, postPrefixData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.h = str;
-            this.i = str2;
-            this.j = str3;
-            this.k = postPrefixData;
-            this.l = i;
-            this.m = z;
-        }
-    }
-
-    public void u(WriteImagesInfo writeImagesInfo, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, writeImagesInfo, str, str2) == null) {
-            this.f = str;
-            this.g = str2;
-            this.c = writeImagesInfo;
-            this.d.g(writeImagesInfo);
-            this.d.notifyDataSetChanged();
-            v();
-        }
-    }
-
-    public final void v() {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.n) {
-                this.b.setVisibility(0);
-            } else if (!this.o && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
-                this.b.setVisibility(0);
-            } else {
-                this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_home_delete16, R.color.CAM_X0107, null);
+            PlayVoiceBntNew playVoiceBntNew = this.h;
+            if (playVoiceBntNew != null) {
+                playVoiceBntNew.b();
             }
         }
+    }
+
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public void r(lh5 lh5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lh5Var) == null) {
+            super.r(lh5Var);
+            int i = lh5Var.a;
+            if (i == 10) {
+                Object obj = lh5Var.c;
+                if (obj instanceof VoiceData.VoiceModel) {
+                    A((VoiceData.VoiceModel) obj);
+                }
+            } else if (i == 11) {
+                B();
+            }
+        }
+    }
+
+    public final void A(VoiceData.VoiceModel voiceModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, voiceModel) == null) && this.g != null && this.h != null && voiceModel != null && this.e != null && !TextUtils.isEmpty(voiceModel.getVoiceId()) && voiceModel.getDuration() > 0) {
+            ((rwa) this.d).a = voiceModel;
+            this.e.setVoiceModel(voiceModel);
+            this.g.setVisibility(0);
+            this.h.setVoiceModel(voiceModel);
+            this.h.l();
+            bwa bwaVar = this.b;
+            if (bwaVar != null) {
+                bwaVar.i();
+                this.b.x(new int[]{34});
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zva
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d059a, viewGroup, false);
+            this.g = inflate;
+            this.h = (PlayVoiceBntNew) inflate.findViewById(R.id.obfuscated_res_0x7f0904e5);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091206);
+            this.i = imageView;
+            if (imageView != null) {
+                imageView.setOnClickListener(new a(this));
+            }
+            return this.g;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g == null || this.h == null || this.e == null) {
+            return;
+        }
+        D d = this.d;
+        if (((rwa) d).a != null) {
+            fb5.a(fb5.b(((rwa) d).a.getVoiceId()));
+        }
+        ((rwa) this.d).a = null;
+        this.e.setVoiceModel(null);
+        this.g.setVisibility(8);
+        this.h.m();
+        this.h.setVoiceModel(null);
+        bwa bwaVar = this.b;
+        if (bwaVar != null) {
+            bwaVar.f();
+            this.b.i();
+            this.b.x(new int[]{34});
+        }
+    }
+
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+        }
+    }
+
+    @Override // com.baidu.tieba.uva, com.baidu.tieba.zva
+    public boolean t() {
+        InterceptResult invokeV;
+        PlayVoiceBntNew playVoiceBntNew;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            View view2 = this.g;
+            if (view2 == null || view2.getVisibility() != 0 || (playVoiceBntNew = this.h) == null || playVoiceBntNew.getVoiceModel() == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.a2c;
-import com.baidu.tieba.q2c;
+import com.baidu.tieba.d1c;
+import com.baidu.tieba.t1c;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
@@ -12,8 +12,8 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
     public final AtomicReference<Object> queue;
     public final AtomicInteger wip;
 
-    public OnSubscribeFromEmitter$LatestEmitter(a2c<? super T> a2cVar) {
-        super(a2cVar);
+    public OnSubscribeFromEmitter$LatestEmitter(d1c<? super T> d1cVar) {
+        super(d1cVar);
         this.queue = new AtomicReference<>();
         this.wip = new AtomicInteger();
     }
@@ -38,7 +38,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
-        a2c<? super T> a2cVar = this.actual;
+        d1c<? super T> d1cVar = this.actual;
         AtomicReference<Object> atomicReference = this.queue;
         int i2 = 1;
         do {
@@ -49,7 +49,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                 i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                 if (i == 0) {
                     break;
-                } else if (a2cVar.isUnsubscribed()) {
+                } else if (d1cVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
                     return;
                 } else {
@@ -72,13 +72,13 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                     } else if (z2) {
                         break;
                     } else {
-                        a2cVar.onNext((Object) NotificationLite.e(andSet));
+                        d1cVar.onNext((Object) NotificationLite.e(andSet));
                         j2++;
                     }
                 }
             }
             if (i == 0) {
-                if (a2cVar.isUnsubscribed()) {
+                if (d1cVar.isUnsubscribed()) {
                     atomicReference.lazySet(null);
                     return;
                 }
@@ -98,7 +98,7 @@ public final class OnSubscribeFromEmitter$LatestEmitter<T> extends OnSubscribeFr
                 }
             }
             if (j2 != 0) {
-                q2c.g(this, j2);
+                t1c.g(this, j2);
             }
             i2 = this.wip.addAndGet(-i2);
         } while (i2 != 0);

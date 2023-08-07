@@ -1,138 +1,190 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.annotation.TargetApi;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
+import com.huawei.secure.android.common.util.LogsUtil;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes7.dex */
 public class rqb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948131686, "Lcom/baidu/tieba/rqb;")) == null) {
-            return;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "whiteListUrl is null");
+                return null;
+            } else if (!URLUtil.isNetworkUrl(str)) {
+                return str;
+            } else {
+                return b(str);
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948131686, "Lcom/baidu/tieba/rqb;");
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SecureRandom a() {
-        InterceptResult invokeV;
-        SecureRandom secureRandom;
+    @TargetApi(9)
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            vqb.b("EncryptUtil", "generateSecureRandomNew ");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "url is null");
+                return str;
+            }
             try {
-            } catch (NoSuchAlgorithmException unused) {
-                vqb.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+                if (!URLUtil.isNetworkUrl(str)) {
+                    LogsUtil.d("UriUtil", "url don't starts with http or https");
+                    return "";
+                }
+                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
+            } catch (MalformedURLException e) {
+                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
+                return "";
             }
-            if (Build.VERSION.SDK_INT >= 26) {
-                secureRandom = SecureRandom.getInstanceStrong();
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        vqb.c("EncryptUtil", "NoSuchAlgorithmException");
-                        return secureRandom;
-                    } catch (Throwable th) {
-                        if (b) {
-                            vqb.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
-                            b = false;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (d(str, str2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (f(str, str2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return TextUtils.equals(b(str), a(str2));
+            }
+            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean h(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (g(str, str2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
+                    if (!str2.equals(str)) {
+                        if (!str.startsWith(str2 + "?")) {
+                            if (!str.startsWith(str2 + "#")) {
+                                if (!str2.endsWith("/")) {
+                                    return false;
+                                }
+                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
+                                    return false;
+                                }
+                                return str.startsWith(str2);
+                            }
                         }
-                        return secureRandom;
                     }
+                    return true;
                 }
-                AESEngine aESEngine = new AESEngine();
-                byte[] bArr = new byte[32];
-                secureRandom.nextBytes(bArr);
-                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
+                Log.e("UriUtil", "url contains unsafe char");
             }
-            secureRandom = null;
-            if (secureRandom == null) {
-            }
-            AESEngine aESEngine2 = new AESEngine();
-            byte[] bArr2 = new byte[32];
-            secureRandom.nextBytes(bArr2);
-            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
+            return false;
         }
-        return (SecureRandom) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static byte[] b(int i) {
-        InterceptResult invokeI;
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            SecureRandom a2 = a();
-            if (a2 == null) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[i];
-            a2.nextBytes(bArr);
-            return bArr;
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return sqb.a(c(i));
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static byte[] c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (!a) {
-                byte[] bArr = new byte[i];
-                SecureRandom secureRandom = null;
-                try {
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        secureRandom = SecureRandom.getInstanceStrong();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            String b = b(str);
+            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
+                String a = a(str2);
+                if (TextUtils.isEmpty(a)) {
+                    Log.e("UriUtil", "whitelist host is null");
+                    return false;
+                } else if (a.equals(b)) {
+                    return true;
+                } else {
+                    if (b.endsWith(a)) {
+                        try {
+                            String substring = b.substring(0, b.length() - a.length());
+                            if (!substring.endsWith(".")) {
+                                return false;
+                            }
+                            return substring.matches("^[A-Za-z0-9.-]+$");
+                        } catch (IndexOutOfBoundsException e) {
+                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
+                        } catch (Exception e2) {
+                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
+                            return false;
+                        }
                     }
-                } catch (NoSuchAlgorithmException unused) {
-                    vqb.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+                    return false;
                 }
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        vqb.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
-                        return new byte[0];
-                    } catch (Exception e) {
-                        vqb.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
-                        return new byte[0];
-                    }
-                }
-                secureRandom.nextBytes(bArr);
-                return bArr;
             }
-            return b(i);
+            LogsUtil.d("UriUtil", "url or whitelist is null");
+            return false;
         }
-        return (byte[]) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 }

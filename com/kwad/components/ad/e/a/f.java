@@ -48,7 +48,7 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     private void G(int i) {
-        com.kwad.components.core.c.a.a.a(new a.C0646a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.f.3
+        com.kwad.components.core.c.a.a.a(new a.C0647a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.f.3
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(f.this.mAdTemplate, 2, f.this.jL.jK.getTouchCoords());
@@ -110,10 +110,10 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091407);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f09125a);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09125c);
-        this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091257);
+        this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09141a);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126d);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09126f);
+        this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f09126a);
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter

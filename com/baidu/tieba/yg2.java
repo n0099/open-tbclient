@@ -1,191 +1,269 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.webkit.internal.GlobalConstants;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 /* loaded from: classes8.dex */
-public class yg2 implements xg2 {
+public class yg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yg2 b;
+    public static final boolean a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, wg2> a;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ yg2 b;
-
-        public a(yg2 yg2Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329125, "Lcom/baidu/tieba/yg2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = yg2Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.h(this.a);
-            }
-        }
-    }
-
-    public yg2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948329125, "Lcom/baidu/tieba/yg2;");
                 return;
             }
         }
-        this.a = new HashMap();
+        a = ir1.a;
+        b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        StringBuilder sb = new StringBuilder();
+        sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
+        sb.append(File.separator);
+        sb.append("libs");
+        c = sb.toString();
+        d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
-    public static yg2 d() {
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0173 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a() {
+        FileLock fileLock;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: start");
+            }
+            File file = new File(b + File.separator + GlobalConstants.LIB_ZEUS_V8);
+            if (file.exists() && file.length() > 0) {
+                File file2 = new File(c);
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                File file3 = new File(file2, GlobalConstants.LIB_ZEUS_V8);
+                long j = mj3.a().getLong("zeus_v8_modified_time", -1L);
+                if (file.lastModified() == j && file.length() == file3.length()) {
+                    if (a) {
+                        Log.d("SwanSailorHelper", "fixSoLoadCrash: srcModifiedTime=" + file.lastModified() + ";savedModifiedTime=" + j + ";srcFileLength=" + file.length() + ";destFileLength=" + file3.length());
+                        return;
+                    }
+                    return;
+                }
+                if (a) {
+                    Log.d("SwanSailorHelper", "fixSoLoadCrash: start copy");
+                }
+                FileInputStream fileInputStream = null;
+                try {
+                    File file4 = new File(file2, "libzeusv8.so.lock");
+                    if (!file4.exists()) {
+                        try {
+                            file4.createNewFile();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    FileChannel channel = new RandomAccessFile(file4, "rw").getChannel();
+                    try {
+                        fileLock = channel.lock();
+                        if (fileLock != null) {
+                            try {
+                                if (fileLock.isValid()) {
+                                    long lastModified = file.lastModified();
+                                    FileInputStream fileInputStream2 = new FileInputStream(file);
+                                    try {
+                                        fileOutputStream = new FileOutputStream(file3);
+                                        try {
+                                            byte[] bArr = new byte[8192];
+                                            while (true) {
+                                                int read = fileInputStream2.read(bArr);
+                                                if (read <= 0) {
+                                                    break;
+                                                }
+                                                fileOutputStream.write(bArr, 0, read);
+                                            }
+                                            fileOutputStream.flush();
+                                            mj3.a().putLong("zeus_v8_modified_time", lastModified);
+                                            fileInputStream = fileInputStream2;
+                                            cr4.d(fileInputStream);
+                                            cr4.d(fileOutputStream);
+                                            if (fileLock != null) {
+                                                try {
+                                                    fileLock.release();
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                            cr4.d(channel);
+                                        } catch (Exception e2) {
+                                            fileChannel = channel;
+                                            e = e2;
+                                            fileInputStream = fileInputStream2;
+                                            try {
+                                                e.printStackTrace();
+                                                cr4.d(fileInputStream);
+                                                cr4.d(fileOutputStream);
+                                                if (fileLock != null) {
+                                                    try {
+                                                        fileLock.release();
+                                                    } catch (IOException e3) {
+                                                        e3.printStackTrace();
+                                                    }
+                                                }
+                                                cr4.d(fileChannel);
+                                                return;
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                cr4.d(fileInputStream);
+                                                cr4.d(fileOutputStream);
+                                                if (fileLock != null) {
+                                                    try {
+                                                        fileLock.release();
+                                                    } catch (IOException e4) {
+                                                        e4.printStackTrace();
+                                                    }
+                                                }
+                                                cr4.d(fileChannel);
+                                                throw th;
+                                            }
+                                        } catch (Throwable th2) {
+                                            fileChannel = channel;
+                                            th = th2;
+                                            fileInputStream = fileInputStream2;
+                                            cr4.d(fileInputStream);
+                                            cr4.d(fileOutputStream);
+                                            if (fileLock != null) {
+                                            }
+                                            cr4.d(fileChannel);
+                                            throw th;
+                                        }
+                                    } catch (Exception e5) {
+                                        fileChannel = channel;
+                                        e = e5;
+                                        fileOutputStream = null;
+                                    } catch (Throwable th3) {
+                                        fileChannel = channel;
+                                        th = th3;
+                                        fileOutputStream = null;
+                                    }
+                                }
+                            } catch (Exception e6) {
+                                fileChannel = channel;
+                                e = e6;
+                                fileOutputStream = null;
+                            } catch (Throwable th4) {
+                                fileChannel = channel;
+                                th = th4;
+                                fileOutputStream = null;
+                            }
+                        }
+                        fileOutputStream = null;
+                        cr4.d(fileInputStream);
+                        cr4.d(fileOutputStream);
+                        if (fileLock != null) {
+                        }
+                        cr4.d(channel);
+                    } catch (Exception e7) {
+                        fileChannel = channel;
+                        fileOutputStream = null;
+                        e = e7;
+                        fileLock = null;
+                    } catch (Throwable th5) {
+                        fileChannel = channel;
+                        fileOutputStream = null;
+                        th = th5;
+                        fileLock = null;
+                    }
+                } catch (Exception e8) {
+                    e = e8;
+                    fileLock = null;
+                    fileOutputStream = null;
+                    fileChannel = null;
+                } catch (Throwable th6) {
+                    th = th6;
+                    fileLock = null;
+                    fileOutputStream = null;
+                    fileChannel = null;
+                }
+            } else if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: srcFile is not exist");
+            }
+        }
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (yg2.class) {
-                    if (b == null) {
-                        b = new yg2();
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            mj3.a().putLong("zeus_v8_modified_time", -1L);
+            if (a) {
+                Log.d("SwanSailorHelper", "fixSoLoadCrash: resetZeusV8ModifiedTime");
+            }
+        }
+    }
+
+    public static tg3 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
+            if (z) {
+                return tg3.c(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
+            }
+            boolean z2 = true;
+            if (b()) {
+                a();
+                bh2.g(AppRuntime.getAppContext(), b);
+                boolean h = bh2.h("zeusv8", c, true);
+                if (new File(b + File.separator + "libv8.engine.so").exists()) {
+                    if (!bh2.h("arcore_sdk_c", b, false) || !bh2.h("arcore_sdk_jni", b, false) || !bh2.h(SwanKV.LIB_CPP_SHARED, b, false) || !bh2.h("v8.engine", b, false)) {
+                        z2 = false;
                     }
+                } else {
+                    z2 = SoLoader.load(AppRuntime.getAppContext(), "v8.engine");
                 }
+                return tg3.d(h, z2);
             }
-            return b;
+            bh2.h("zeusv8", d, true);
+            return tg3.c(bh2.h("v8.engine", d, true));
         }
-        return (yg2) invokeV.objValue;
-    }
-
-    public synchronized yg2 b(String str, UbcFlowEvent ubcFlowEvent) {
-        InterceptResult invokeLL;
-        wg2 wg2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
-            synchronized (this) {
-                if (c(str) && (wg2Var = this.a.get(str)) != null) {
-                    wg2Var.a(str, ubcFlowEvent);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (yg2) invokeLL.objValue;
-    }
-
-    public synchronized yg2 f(String str, zg2 zg2Var) {
-        InterceptResult invokeLL;
-        wg2 wg2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, zg2Var)) == null) {
-            synchronized (this) {
-                if (c(str) && (wg2Var = this.a.get(str)) != null) {
-                    wg2Var.e(str, zg2Var);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (yg2) invokeLL.objValue;
-    }
-
-    public void j(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
-        }
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return !TextUtils.isEmpty(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final synchronized void h(String str) {
-        wg2 wg2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (c(str) && (wg2Var = this.a.get(str)) != null) {
-                    this.a.remove(str);
-                    wg2Var.h(str);
-                }
-            }
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            j(str, 0L);
-        }
-    }
-
-    public synchronized yg2 e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        wg2 wg2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (c(str) && (wg2Var = this.a.get(str)) != null) {
-                    wg2Var.d(str, z);
-                    if (z2) {
-                        i(str);
-                    }
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (yg2) invokeCommon.objValue;
-    }
-
-    public synchronized yg2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                if (c(str) && !this.a.containsKey(str)) {
-                    wg2 wg2Var = new wg2();
-                    this.a.put(str, wg2Var);
-                    wg2Var.f(str);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (yg2) invokeL.objValue;
+        return (tg3) invokeZ.objValue;
     }
 }

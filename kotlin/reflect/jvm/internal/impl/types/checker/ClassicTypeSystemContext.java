@@ -187,9 +187,9 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static FqNameUnsafe getClassFqNameUnsafe(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (mo2101getDeclarationDescriptor != null) {
-                    return DescriptorUtilsKt.getFqNameUnsafe((ClassDescriptor) mo2101getDeclarationDescriptor);
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (mo2102getDeclarationDescriptor != null) {
+                    return DescriptorUtilsKt.getFqNameUnsafe((ClassDescriptor) mo2102getDeclarationDescriptor);
                 }
                 throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.ClassDescriptor");
             }
@@ -198,9 +198,9 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static PrimitiveType getPrimitiveArrayType(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (mo2101getDeclarationDescriptor != null) {
-                    return KotlinBuiltIns.getPrimitiveArrayType((ClassDescriptor) mo2101getDeclarationDescriptor);
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (mo2102getDeclarationDescriptor != null) {
+                    return KotlinBuiltIns.getPrimitiveArrayType((ClassDescriptor) mo2102getDeclarationDescriptor);
                 }
                 throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.ClassDescriptor");
             }
@@ -209,9 +209,9 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static PrimitiveType getPrimitiveType(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (mo2101getDeclarationDescriptor != null) {
-                    return KotlinBuiltIns.getPrimitiveType((ClassDescriptor) mo2101getDeclarationDescriptor);
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (mo2102getDeclarationDescriptor != null) {
+                    return KotlinBuiltIns.getPrimitiveType((ClassDescriptor) mo2102getDeclarationDescriptor);
                 }
                 throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.ClassDescriptor");
             }
@@ -241,11 +241,11 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static TypeParameterMarker getTypeParameterClassifier(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (!(mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-                    mo2101getDeclarationDescriptor = null;
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (!(mo2102getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+                    mo2102getDeclarationDescriptor = null;
                 }
-                return (TypeParameterDescriptor) mo2101getDeclarationDescriptor;
+                return (TypeParameterDescriptor) mo2102getDeclarationDescriptor;
             }
             throw new IllegalArgumentException(("ClassicTypeSystemContext couldn't handle: " + typeConstructorMarker + StringUtil.ARRAY_ELEMENT_SEPARATOR + Reflection.getOrCreateKotlinClass(typeConstructorMarker.getClass())).toString());
         }
@@ -268,7 +268,7 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static boolean isClassTypeConstructor(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                return ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor() instanceof ClassDescriptor;
+                return ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor() instanceof ClassDescriptor;
             }
             throw new IllegalArgumentException(("ClassicTypeSystemContext couldn't handle: " + typeConstructorMarker + StringUtil.ARRAY_ELEMENT_SEPARATOR + Reflection.getOrCreateKotlinClass(typeConstructorMarker.getClass())).toString());
         }
@@ -324,8 +324,8 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static boolean isUnderKotlinPackage(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (mo2101getDeclarationDescriptor != null && KotlinBuiltIns.isUnderKotlinPackage(mo2101getDeclarationDescriptor)) {
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (mo2102getDeclarationDescriptor != null && KotlinBuiltIns.isUnderKotlinPackage(mo2102getDeclarationDescriptor)) {
                     return true;
                 }
                 return false;
@@ -364,9 +364,9 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static Collection<KotlinTypeMarker> supertypes(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                Collection<KotlinType> mo2102getSupertypes = ((TypeConstructor) typeConstructorMarker).mo2102getSupertypes();
-                Intrinsics.checkExpressionValueIsNotNull(mo2102getSupertypes, "this.supertypes");
-                return mo2102getSupertypes;
+                Collection<KotlinType> mo2103getSupertypes = ((TypeConstructor) typeConstructorMarker).mo2103getSupertypes();
+                Intrinsics.checkExpressionValueIsNotNull(mo2103getSupertypes, "this.supertypes");
+                return mo2103getSupertypes;
             }
             throw new IllegalArgumentException(("ClassicTypeSystemContext couldn't handle: " + typeConstructorMarker + StringUtil.ARRAY_ELEMENT_SEPARATOR + Reflection.getOrCreateKotlinClass(typeConstructorMarker.getClass())).toString());
         }
@@ -478,11 +478,11 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static boolean isCommonFinalClassConstructor(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (!(mo2101getDeclarationDescriptor instanceof ClassDescriptor)) {
-                    mo2101getDeclarationDescriptor = null;
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (!(mo2102getDeclarationDescriptor instanceof ClassDescriptor)) {
+                    mo2102getDeclarationDescriptor = null;
                 }
-                ClassDescriptor classDescriptor = (ClassDescriptor) mo2101getDeclarationDescriptor;
+                ClassDescriptor classDescriptor = (ClassDescriptor) mo2102getDeclarationDescriptor;
                 if (classDescriptor == null || !ModalityKt.isFinalClass(classDescriptor) || classDescriptor.getKind() == ClassKind.ENUM_ENTRY || classDescriptor.getKind() == ClassKind.ANNOTATION_CLASS) {
                     return false;
                 }
@@ -493,11 +493,11 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
 
         public static boolean isInlineClass(ClassicTypeSystemContext classicTypeSystemContext, TypeConstructorMarker typeConstructorMarker) {
             if (typeConstructorMarker instanceof TypeConstructor) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2101getDeclarationDescriptor();
-                if (!(mo2101getDeclarationDescriptor instanceof ClassDescriptor)) {
-                    mo2101getDeclarationDescriptor = null;
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((TypeConstructor) typeConstructorMarker).mo2102getDeclarationDescriptor();
+                if (!(mo2102getDeclarationDescriptor instanceof ClassDescriptor)) {
+                    mo2102getDeclarationDescriptor = null;
                 }
-                ClassDescriptor classDescriptor = (ClassDescriptor) mo2101getDeclarationDescriptor;
+                ClassDescriptor classDescriptor = (ClassDescriptor) mo2102getDeclarationDescriptor;
                 if (classDescriptor != null && classDescriptor.isInline()) {
                     return true;
                 }
@@ -520,7 +520,7 @@ public interface ClassicTypeSystemContext extends TypeSystemCommonBackendContext
             if (simpleTypeMarker instanceof SimpleType) {
                 if (!KotlinTypeKt.isError((KotlinType) simpleTypeMarker)) {
                     SimpleType simpleType = (SimpleType) simpleTypeMarker;
-                    if (!(simpleType.getConstructor().mo2101getDeclarationDescriptor() instanceof TypeAliasDescriptor) && (simpleType.getConstructor().mo2101getDeclarationDescriptor() != null || (simpleTypeMarker instanceof CapturedType) || (simpleTypeMarker instanceof NewCapturedType) || (simpleTypeMarker instanceof DefinitelyNotNullType) || (simpleType.getConstructor() instanceof IntegerLiteralTypeConstructor))) {
+                    if (!(simpleType.getConstructor().mo2102getDeclarationDescriptor() instanceof TypeAliasDescriptor) && (simpleType.getConstructor().mo2102getDeclarationDescriptor() != null || (simpleTypeMarker instanceof CapturedType) || (simpleTypeMarker instanceof NewCapturedType) || (simpleTypeMarker instanceof DefinitelyNotNullType) || (simpleType.getConstructor() instanceof IntegerLiteralTypeConstructor))) {
                         return true;
                     }
                 }

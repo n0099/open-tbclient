@@ -1,109 +1,113 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.sw2;
+import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t44 {
+public class t44 extends ey2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public EventTargetImpl d;
+    public q44 e;
 
-    public static void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            s44 s44Var = new s44();
-            s44Var.b = str;
-            s44Var.e = str2;
-            if (vb3.M() != null && vb3.M().Y() != null) {
-                sw2.a Y = vb3.M().Y();
-                s44Var.a = oi3.n(Y.G());
-                s44Var.f = Y.H();
-                s44Var.c = Y.T();
-                s44Var.a("play_time", Long.valueOf(j));
-            }
-            oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        String str3;
-        sw2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (vb3.M() != null && vb3.M().Y() != null) {
-                aVar = vb3.M().Y();
-                str3 = oi3.n(aVar.G());
-            } else {
-                str3 = "";
-                aVar = null;
-            }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                s44 s44Var = new s44();
-                s44Var.b = str;
-                s44Var.e = str2;
-                s44Var.a = str3;
-                s44Var.f = aVar.H();
-                s44Var.c = aVar.T();
-                oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
-            }
-        }
-    }
-
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            s44 s44Var = new s44();
-            s44Var.b = str;
-            s44Var.e = str2;
-            if (vb3.M() != null && vb3.M().Y() != null) {
-                sw2.a Y = vb3.M().Y();
-                s44Var.a = oi3.n(Y.G());
-                s44Var.f = Y.H();
-                s44Var.c = Y.T();
-            }
-            s44Var.k = str3;
-            oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            s44 s44Var = new s44();
-            s44Var.b = str;
-            s44Var.e = "show";
-            if (vb3.M() != null && vb3.M().Y() != null) {
-                sw2.a Y = vb3.M().Y();
-                s44Var.a = oi3.n(Y.G());
-                s44Var.f = Y.H();
-                s44Var.c = Y.T();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            s44Var.a("early", str2);
-            oi3.y("916", PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, s44Var);
-        }
-    }
-
-    public static boolean e() {
+    @Override // com.baidu.tieba.ey2
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (sc4.c() > 0 && f84.c() && System.currentTimeMillis() - sc4.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131221, "Lcom/baidu/tieba/t44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948131221, "Lcom/baidu/tieba/t44;");
+                return;
+            }
+        }
+        f = ir1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t44(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = eventTargetImpl;
+    }
+
+    @Override // com.baidu.tieba.ey2
+    public void b(String str, JSONObject jSONObject) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            q44 q44Var = this.e;
+            if (q44Var != null) {
+                q44Var.p(optString, jSONObject);
+            }
+            if (!this.d.hasEventListener(optString)) {
+                return;
+            }
+            JSEvent jSEvent = new JSEvent(optString);
+            if (jSONObject != null) {
+                jSEvent.data = jSONObject;
+            }
+            if (f && !"onTimeUpdate".equals(str)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("type = ");
+                sb.append(str);
+                sb.append("  result = ");
+                if (jSONObject != null) {
+                    str2 = jSONObject.toString();
+                } else {
+                    str2 = StringUtil.NULL_STRING;
+                }
+                sb.append(str2);
+                Log.d("AudioCallbackForV8", sb.toString());
+            }
+            this.d.dispatchEvent(jSEvent);
+        }
+    }
+
+    public void e(q44 q44Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q44Var) == null) {
+            this.e = q44Var;
+        }
     }
 }

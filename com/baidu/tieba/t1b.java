@@ -1,32 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.CronetException;
-import com.baidu.turbonet.net.RequestFinishedInfo;
-import com.baidu.turbonet.net.UrlResponseInfo;
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 /* loaded from: classes8.dex */
-public class t1b extends RequestFinishedInfo {
+public class t1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a2b a;
+    public HashSet<String> b;
+    public HashSet<String> c;
+    public HashSet<String> d;
+    public HashSet<String> e;
+    public HashSet<String> f;
+    public HashSet<String> g;
+    public HashMap<String, Integer> h;
+    public HashMap<String, String> i;
+    public HashMap<String, z1b> j;
+    public HashSet<String> k;
+    public HashSet<String> l;
+    public HashMap<String, Integer> m;
+    public HashMap<String, Integer> n;
+    public HashMap<String, Integer> o;
 
-    public t1b(String str, Collection<Object> collection, RequestFinishedInfo.Metrics metrics, int i, @Nullable UrlResponseInfo urlResponseInfo, @Nullable CronetException cronetException) {
+    public t1b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, collection, metrics, Integer.valueOf(i), urlResponseInfo, cronetException};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a2b();
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashSet<>();
+        this.g = new HashSet<>();
+        this.h = new HashMap<>();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashSet<>();
+        this.l = new HashSet<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
     }
 }

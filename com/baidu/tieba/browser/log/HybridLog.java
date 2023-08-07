@@ -1,7 +1,7 @@
 package com.baidu.tieba.browser.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.h29;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class HybridLog {
     public static /* synthetic */ Interceptable $ic;
     public static final HybridLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h29 instance;
+    public final TbLog instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class HybridLog {
         $VALUES = new HybridLog[]{hybridLog};
     }
 
-    public static h29 getInstance() {
+    public static TbLog getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (h29) invokeV.objValue;
+        return (TbLog) invokeV.objValue;
     }
 
     public static HybridLog[] values() {
@@ -72,7 +72,7 @@ public final class HybridLog {
                 return;
             }
         }
-        this.instance = new h29("hybrid");
+        this.instance = new TbLog("hybrid");
     }
 
     public static HybridLog valueOf(String str) {

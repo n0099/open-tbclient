@@ -1,33 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes5.dex */
-public final class bx3 {
+public class bx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static zy3 a() {
-        InterceptResult invokeV;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new yy3();
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (!SwanAppInitHelper.entranceOK()) {
+                Log.w("SwanAppLaunchHelper", "entrance not open");
+                qa3.g(AppRuntime.getAppContext(), "not support for this android version").G();
+            } else if (TextUtils.isEmpty(str)) {
+                qa3.g(AppRuntime.getAppContext(), ExceptionMessage.URL_EMPTY).G();
+            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
+                b(str);
+            } else if (str.startsWith("bdswan")) {
+                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
+            } else if (!str.startsWith("https") && !str.startsWith("http")) {
+                qa3.g(AppRuntime.getAppContext(), "not support this uri").G();
+            } else {
+                c(str);
+            }
         }
-        return (zy3) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static vx3 b() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new tx3();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
         }
-        return (vx3) invokeV.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            ax3.e(str);
+        }
     }
 }

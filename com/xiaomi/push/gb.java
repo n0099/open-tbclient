@@ -21,7 +21,7 @@ public final class gb {
 
     static {
         try {
-            for (ClassLoader classLoader : m520a()) {
+            for (ClassLoader classLoader : m521a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -73,7 +73,7 @@ public final class gb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m519a() {
+    public static String m520a() {
         return "3.1.0";
     }
 
@@ -88,7 +88,7 @@ public final class gb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m520a() {
+    public static ClassLoader[] m521a() {
         ClassLoader[] classLoaderArr = {gb.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 2; i++) {

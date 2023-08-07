@@ -1,45 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tieba.g15;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.view.ShareThreadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.MessageFormat;
 /* loaded from: classes5.dex */
-public abstract class dd9 {
+public class dd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BaseActivity b;
-    public ed9 c;
-    public BdAsyncTask<?, ?, ?> d;
-    public fd9 e;
-    public String f;
-    public View.OnClickListener g;
-    public final g15.a h;
-
-    public abstract void j(fd9 fd9Var);
+    public PbChosenActivity a;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -69,24 +60,25 @@ public abstract class dd9 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.n(view2);
+                this.a.a.sendMessage(new CustomMessage(2001277));
+                TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends WebAuthListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SocialType a;
+        public final /* synthetic */ ShareItem a;
         public final /* synthetic */ dd9 b;
 
-        public b(dd9 dd9Var, SocialType socialType) {
+        public b(dd9 dd9Var, ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dd9Var, socialType};
+                Object[] objArr = {dd9Var, shareItem};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -97,51 +89,40 @@ public abstract class dd9 {
                 }
             }
             this.b = dd9Var;
-            this.a = socialType;
+            this.a = shareItem;
         }
 
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.b.l();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.b.b.closeLoadingDialog();
-                BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f1628), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.b.f();
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), this.b.f, this.a.name().toLowerCase());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ShareItem shareItem = this.a;
+                shareItem.linkUrl = ff5.t(shareItem.linkUrl, shareItem.tid, UtilHelper.isVideoThread(shareItem.obj_type));
+                AndroidUtils.copyToClipboard(this.a.linkUrl);
+                BdUtilHelper.showToast(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements g15.a {
+    public static class c implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dd9 a;
+        public final /* synthetic */ gd9 a;
+        public final /* synthetic */ PbChosenActivity b;
+        public final /* synthetic */ ShareThreadView c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ String h;
 
-        public c(dd9 dd9Var) {
+        public c(gd9 gd9Var, PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView, long j, String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dd9Var};
+                Object[] objArr = {gd9Var, pbChosenActivity, shareThreadView, Long.valueOf(j), str, str2, str3, str4};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -151,48 +132,51 @@ public abstract class dd9 {
                     return;
                 }
             }
-            this.a = dd9Var;
+            this.a = gd9Var;
+            this.b = pbChosenActivity;
+            this.c = shareThreadView;
+            this.d = j;
+            this.e = str;
+            this.f = str2;
+            this.g = str3;
+            this.h = str4;
         }
 
-        @Override // com.baidu.tieba.g15.a
-        public void b(String str) {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
+            gd9 gd9Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.l();
-            }
-        }
-
-        @Override // com.baidu.tieba.g15.a
-        public void c(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                this.a.b.closeLoadingDialog();
-                this.a.e(accountData);
-            }
-        }
-
-        @Override // com.baidu.tieba.g15.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                this.a.b.closeLoadingDialog();
-                this.a.b.showToast(str2);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) && (gd9Var = this.a) != null && gd9Var.getThreadInfo() != null) {
+                PbChosenActivity pbChosenActivity = this.b;
+                if (pbChosenActivity != null && pbChosenActivity.getPageContext() != null && this.b.getPageContext().getPageActivity() != null) {
+                    BdUtilHelper.hideSoftKeyPad(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
+                    Activity pageActivity = this.b.getPageContext().getPageActivity();
+                    long j = this.d;
+                    String str = this.e;
+                    String str2 = this.f;
+                    String str3 = this.g;
+                    String leaveMsg = this.c.getLeaveMsg();
+                    gd9 gd9Var2 = this.a;
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, dd9.c(gd9Var2, gd9Var2.getThreadInfo().excid.longValue(), this.h).toChatMessageContent())));
+                }
+                m45Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements Runnable {
+    public static class d implements m45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
+        public final /* synthetic */ PbChosenActivity a;
+        public final /* synthetic */ ShareThreadView b;
 
-        public d(dd9 dd9Var, AccountData accountData) {
+        public d(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dd9Var, accountData};
+                Object[] objArr = {pbChosenActivity, shareThreadView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -202,25 +186,26 @@ public abstract class dd9 {
                     return;
                 }
             }
-            this.a = accountData;
+            this.a = pbChosenActivity;
+            this.b = shareThreadView;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.m45.e
+        public void onClick(m45 m45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d15.g(this.a);
-                s95.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+                BdUtilHelper.hideSoftKeyPad(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
+                m45Var.dismiss();
             }
         }
     }
 
-    public dd9(TbPageContext tbPageContext, ed9 ed9Var, String str) {
+    public dd9(PbChosenActivity pbChosenActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ed9Var, str};
+            Object[] objArr = {pbChosenActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -230,153 +215,71 @@ public abstract class dd9 {
                 return;
             }
         }
-        this.g = new a(this);
-        this.h = new c(this);
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() instanceof BaseActivity) {
-            this.b = (BaseActivity) tbPageContext.getPageActivity();
-        }
-        this.c = ed9Var;
-        this.f = str;
-        ed9Var.d(this.g);
+        this.a = pbChosenActivity;
     }
 
-    public void c(int i) {
+    public static ShareFromPBMsgData c(gd9 gd9Var, long j, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.setResult(i, new Intent());
-            this.b.finish();
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c.b(z);
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c.e(z);
-        }
-    }
-
-    public final void m(SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new LoginActivityConfig(this.b, true, 25061).start();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            m(SocialType.QQ_SSO);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            m(SocialType.WEIXIN);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            m(SocialType.SINA_WEIBO_SSO);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            m(SocialType.YY);
-        }
-    }
-
-    public final void e(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            h(accountData);
-            s95.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-            TbadkCoreApplication.getInst().onUserChanged(this.b.getIntent());
-            c(-1);
-            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (session != null) {
-                BdAsyncTask<?, ?, ?> bdAsyncTask = this.d;
-                if (bdAsyncTask != null) {
-                    bdAsyncTask.cancel();
-                }
-                this.d = g15.b().a(session.username, session.bduss, "", null, this.h);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{gd9Var, Long.valueOf(j), str})) == null) {
+            if (gd9Var == null || gd9Var.getThreadInfo() == null) {
+                return null;
             }
-            this.b.closeLoadingDialog();
-            c(0);
+            ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
+            shareFromPBMsgData.setContent(gd9Var.getThreadInfo()._abstract);
+            shareFromPBMsgData.setImageUrl(str);
+            shareFromPBMsgData.setForumName(gd9Var.getThreadInfo().forum.forum_name);
+            shareFromPBMsgData.setPostId(null);
+            shareFromPBMsgData.setThreadId(gd9Var.getThreadInfo().thread_id + "");
+            shareFromPBMsgData.setTheNewThemeId(String.valueOf(j));
+            shareFromPBMsgData.setTitle(gd9Var.getThreadInfo().title);
+            return shareFromPBMsgData;
+        }
+        return (ShareFromPBMsgData) invokeCommon.objValue;
+    }
+
+    public static void d(PbChosenActivity pbChosenActivity, gd9 gd9Var, long j, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pbChosenActivity, gd9Var, Long.valueOf(j), str, str2, str3, str4}) == null) && gd9Var != null && gd9Var.getThreadInfo() != null) {
+            m45 m45Var = new m45(pbChosenActivity.getPageContext().getPageActivity());
+            ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
+            shareThreadView.setTitle(gd9Var.getThreadInfo().title);
+            shareThreadView.setDesc(gd9Var.getThreadInfo()._abstract);
+            shareThreadView.c(str4, false);
+            m45Var.setContentView(shareThreadView);
+            m45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f137a, new c(gd9Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
+            m45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new d(pbChosenActivity, shareThreadView));
+            m45Var.setCanceledOnTouchOutside(false);
+            m45Var.create(pbChosenActivity.getPageContext()).show();
         }
     }
 
-    public void l() {
+    public void e(gd9 gd9Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b.getLoadingDialog() != null && this.b.getLoadingDialog().c()) {
-                return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, gd9Var, str) == null) && gd9Var != null && gd9Var.getThreadInfo() != null && gd9Var.getThreadInfo().excid != null) {
+            String str2 = gd9Var.getThreadInfo().forum.forum_name;
+            String str3 = gd9Var.getThreadInfo().title;
+            String str4 = gd9Var.getThreadInfo()._abstract;
+            Resources resources = this.a.getPageContext().getPageActivity().getResources();
+            String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
+            String string = resources.getString(R.string.obfuscated_res_0x7f0f0454, str3);
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = str3;
+            shareItem.content = format;
+            shareItem.linkUrl = TbConfig.TIEBA_ADDRESS + "mo/q/recommendpb?ftid=" + gd9Var.getThreadInfo().excid;
+            shareItem.prefferContent = string;
+            shareItem.shareAbstract = str4;
+            shareItem.ftid = Long.toString(gd9Var.getThreadInfo().excid.longValue());
+            shareItem.tid = Long.toString(gd9Var.getThreadInfo().thread_id.longValue());
+            shareItem.isFromChosenPb = true;
+            if (!StringUtils.isNull(str)) {
+                shareItem.imageUri = Uri.parse(str);
             }
-            this.b.showLoadingDialog(this.a.getString(R.string.sapi_logining));
-            if (this.b.getLoadingDialog() != null) {
-                this.b.getLoadingDialog().f(false);
-                this.b.getLoadingDialog().g(false);
-            }
-        }
-    }
-
-    public final void h(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            ch.a().c(new d(this, accountData));
-            s95.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-            TbadkCoreApplication.setCurrentAccount(accountData, this.a.getPageActivity());
-            nx4.k(TbadkCoreApplication.getInst());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
-        }
-    }
-
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0904ab) {
-                this.b.finish();
-            } else if (view2.getId() == R.id.btn_skip) {
-                this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091dc1) {
-                g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0929df) {
-                o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0929e2) {
-                p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092a63) {
-                q();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091781) {
-                d();
-            }
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.a.getPageContext().getPageActivity(), shareItem, true);
+            shareDialogConfig.setIsCopyLink(true);
+            shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new a(this));
+            shareDialogConfig.setCopyLinkListener(new b(this, shareItem));
+            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

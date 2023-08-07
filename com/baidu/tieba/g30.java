@@ -1,314 +1,239 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.ABTestConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g30 extends f30 {
+public class g30 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static g30 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Thread a;
+    public AtomicInteger b;
+    public h30 c;
+    public q30 d;
+    public HashMap<String, String> e;
+    public HashMap<String, String> f;
+    public o30 g;
+    public Context h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742853, "Lcom/baidu/tieba/g30;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g30 a;
+
+        public a(g30 g30Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g30Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947742853, "Lcom/baidu/tieba/g30;");
-                return;
+            this.a = g30Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g30 g30Var = this.a;
+                g30Var.c = new l30(g30Var.h);
+                if (this.a.g != null) {
+                    this.a.g.a(this.a.c.a());
+                    z = this.a.g.a();
+                } else {
+                    z = false;
+                }
+                if (z && this.a.k()) {
+                    this.a.m();
+                    this.a.o();
+                }
+                this.a.a = null;
             }
         }
-        a = ABTestConfig.isDebug();
     }
 
-    public g30() {
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (context == null) {
+                throw new NullPointerException("context should not be null");
+            }
+            if (g30.i == null) {
+                synchronized (g30.class) {
+                    if (g30.i == null) {
+                        g30 unused = g30.i = new g30(context.getApplicationContext(), null);
+                    }
+                }
+            }
+        }
+
+        public static b c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                if (a == null) {
+                    synchronized (g30.class) {
+                        if (a == null) {
+                            a = new b(context);
+                        }
+                    }
+                }
+                return a;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g30.i.e = new HashMap();
+                g30.i.e.put(BOSTokenRequest.CHARSET, "utf-8");
+                g30.i.e.put("Content-type", "application/json");
+                g30.i.d = new y30();
+            }
+        }
+
+        public g30 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (g30.i.d == null) {
+                    a();
+                }
+                return g30.i;
+            }
+            return (g30) invokeV.objValue;
+        }
+    }
+
+    public g30(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new AtomicInteger(0);
+        new AtomicBoolean(false);
+        this.h = context;
+        this.g = new v30(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x003a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:? */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0082 A[Catch: IOException -> 0x007e, TryCatch #10 {IOException -> 0x007e, blocks: (B:53:0x007a, B:57:0x0082, B:59:0x0087), top: B:76:0x007a }] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0087 A[Catch: IOException -> 0x007e, TRY_LEAVE, TryCatch #10 {IOException -> 0x007e, blocks: (B:53:0x007a, B:57:0x0082, B:59:0x0087), top: B:76:0x007a }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v11, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r2v9 */
-    @Override // com.baidu.tieba.f30
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str) {
+    public /* synthetic */ g30(Context context, f30 f30Var) {
+        this(context);
+    }
+
+    public final String e(String str) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        ?? r2;
-        InputStreamReader inputStreamReader;
-        Throwable th;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                fileInputStream = new FileInputStream(str);
-                try {
-                    inputStreamReader = new InputStreamReader(fileInputStream);
-                } catch (IOException e) {
-                    e = e;
-                    inputStreamReader = null;
-                    r2 = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                    r2 = 0;
-                    th = th;
-                    inputStreamReader = r2;
-                    if (r2 != 0) {
-                    }
-                    if (inputStreamReader != null) {
-                    }
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
-                }
-                try {
-                    r2 = new BufferedReader(inputStreamReader);
-                    try {
-                        try {
-                            StringBuilder sb = new StringBuilder();
-                            while (true) {
-                                String readLine = r2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                sb.append(readLine);
-                            }
-                            String sb2 = sb.toString();
-                            try {
-                                r2.close();
-                                inputStreamReader.close();
-                                fileInputStream.close();
-                            } catch (IOException e2) {
-                                if (a) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                            return sb2;
-                        } catch (IOException e3) {
-                            e = e3;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            if (r2 != 0) {
-                                try {
-                                    r2.close();
-                                } catch (IOException e4) {
-                                    if (a) {
-                                        e4.printStackTrace();
-                                    }
-                                    return null;
-                                }
-                            }
-                            if (inputStreamReader != null) {
-                                inputStreamReader.close();
-                            }
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            return null;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (r2 != 0) {
-                            try {
-                                r2.close();
-                            } catch (IOException e5) {
-                                if (a) {
-                                    e5.printStackTrace();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (inputStreamReader != null) {
-                            inputStreamReader.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    r2 = 0;
-                } catch (Throwable th4) {
-                    r2 = 0;
-                    th = th4;
-                    if (r2 != 0) {
-                    }
-                    if (inputStreamReader != null) {
-                    }
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
-                }
-            } catch (IOException e7) {
-                e = e7;
-                inputStreamReader = null;
-                fileInputStream = null;
-                r2 = 0;
-            } catch (Throwable th5) {
-                th = th5;
-                fileInputStream = null;
-                r2 = 0;
+            if (TextUtils.isEmpty(str)) {
+                throw new NullPointerException("url should not be empty");
             }
-        } else {
-            return (String) invokeL.objValue;
+            HashMap<String, String> hashMap = this.f;
+            return hashMap == null ? str : x30.b(str, hashMap);
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:85:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.f30
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(String str, String str2) {
-        FileOutputStream fileOutputStream;
-        OutputStreamWriter outputStreamWriter;
-        BufferedWriter bufferedWriter;
+    public final Runnable h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            BufferedWriter bufferedWriter2 = null;
-            try {
-                fileOutputStream = new FileOutputStream(new File(str));
-                try {
-                    outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-                    try {
-                        try {
-                            bufferedWriter = new BufferedWriter(outputStreamWriter);
-                        } catch (IOException e) {
-                            e = e;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (Runnable) invokeV.objValue;
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        r30 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String e = e("https://mbd.baidu.com/store");
+            q30 q30Var = this.d;
+            JSONObject a3 = u30.a((q30Var == null || (a2 = q30Var.a()) == null) ? null : a2.a(e, "POST", this.e, this.c.a()));
+            return a3 != null && a3.optInt("errno", -1) == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void m() {
+        o30 o30Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (o30Var = this.g) == null) {
+            return;
+        }
+        o30Var.b(this.c.a());
+    }
+
+    public final void o() {
+        AtomicInteger atomicInteger;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (atomicInteger = this.b) == null) {
+            return;
+        }
+        atomicInteger.set(2);
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (g30.class) {
+                if (this.b.get() == 0) {
+                    if (this.h == null) {
+                        throw new NullPointerException("context should not be null");
                     }
-                    try {
-                        bufferedWriter.write(str2);
-                        bufferedWriter.close();
-                        try {
-                            bufferedWriter.close();
-                            outputStreamWriter.close();
-                            fileOutputStream.close();
-                        } catch (IOException | IllegalStateException e2) {
-                            e = e2;
-                            if (!a) {
-                                return;
-                            }
-                            e.printStackTrace();
-                        }
-                    } catch (IOException e3) {
-                        e = e3;
-                        bufferedWriter2 = bufferedWriter;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                                if (!a) {
-                                    return;
-                                }
-                                e.printStackTrace();
-                            } catch (IllegalStateException e5) {
-                                e = e5;
-                                if (!a) {
-                                }
-                                e.printStackTrace();
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedWriter2 = bufferedWriter;
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e6) {
-                                e = e6;
-                                if (a) {
-                                    e.printStackTrace();
-                                }
-                                throw th;
-                            } catch (IllegalStateException e7) {
-                                e = e7;
-                                if (a) {
-                                }
-                                throw th;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                        throw th;
+                    this.b.set(1);
+                    if (this.a == null) {
+                        this.a = new Thread(h());
                     }
-                } catch (IOException e8) {
-                    e = e8;
-                    outputStreamWriter = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    outputStreamWriter = null;
+                    this.a.start();
                 }
-            } catch (IOException e9) {
-                e = e9;
-                fileOutputStream = null;
-                outputStreamWriter = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-                outputStreamWriter = null;
             }
         }
     }

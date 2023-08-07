@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveBannerWrapData;
+import android.os.Build;
+import android.widget.EditText;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
-public class gb0 extends fb0 {
+public class gb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveBannerWrapData b;
 
-    public gb0() {
+    public static void a(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) && Build.VERSION.SDK_INT < 29) {
+            try {
+                Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
+                declaredField.setAccessible(true);
+                declaredField.set(editText, Integer.valueOf(i));
+            } catch (Exception unused) {
             }
         }
     }

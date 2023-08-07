@@ -1,87 +1,98 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveDoubleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qc6 {
+public class qc6 extends lm<gd6, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
+    public TbPageContext<?> a;
+    public e96 b;
+    public String c;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(qc6 qc6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qc6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optString("user_id");
-            jSONObject.optString("portrait");
-        }
-    }
-
-    public qc6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qc6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: s */
+    public AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView = new AlaGameFrsLiveDoubleView(this.a);
+            alaGameFrsLiveDoubleView.t(this.c);
+            return new AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder(alaGameFrsLiveDoubleView);
+        }
+        return (AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder) invokeL.objValue;
+    }
+
+    public void u(e96 e96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, e96Var) == null) {
+            this.b = e96Var;
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gd6 gd6Var, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder alaGameFrsLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("has_follow_live");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.a = new ArrayList<>(optJSONArray.length());
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null) {
-                        a aVar = new a(this);
-                        aVar.a(optJSONObject2);
-                        this.a.add(aVar);
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gd6Var, alaGameFrsLiveDoubleViewHolder})) == null) {
+            alaGameFrsLiveDoubleViewHolder.a.i(gd6Var);
+            alaGameFrsLiveDoubleViewHolder.a.u(this.b);
+            String str2 = "";
+            if (StringUtils.isNull(gd6Var.a.getThreadAlaInfo().appId)) {
+                str = "";
+            } else {
+                str = gd6Var.a.getThreadAlaInfo().appId;
             }
+            d96.b().a(new StatisticItem("c12115").param("obj_id", gd6Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str));
+            ThreadData threadData = gd6Var.b;
+            if (threadData != null) {
+                if (!StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
+                    str2 = gd6Var.b.getThreadAlaInfo().appId;
+                }
+                d96.b().a(new StatisticItem("c12115").param("obj_id", gd6Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str2));
+            }
+            return alaGameFrsLiveDoubleViewHolder.getView();
         }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
-        if (optJSONObject3 != null) {
-            optJSONObject3.optString("url");
-        }
+        return (View) invokeCommon.objValue;
     }
 }

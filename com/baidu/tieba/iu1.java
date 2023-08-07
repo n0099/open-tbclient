@@ -1,42 +1,43 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iu1 implements nw1 {
+public abstract class iu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.nw1
-    public void a() {
+    public Resources b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public abstract void c(boolean z);
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.nw1
-    public void b(String str, l02 l02Var) {
+    public void f(Object obj, mg3 mg3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, l02Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, mg3Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.nw1
-    public void c(SwanAppActivity swanAppActivity, String str, l02 l02Var) {
+    public void g(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity, str, l02Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nw1
-    public void d(String str, String str2, JSONObject jSONObject, l02 l02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, jSONObject, l02Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
         }
     }
 
@@ -51,6 +52,22 @@ public class iu1 implements nw1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return mj3.a().getBoolean("PREFS_NIGHT_MODE", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            mj3.a().putBoolean("PREFS_NIGHT_MODE", z);
         }
     }
 }

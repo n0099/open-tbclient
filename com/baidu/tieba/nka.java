@@ -1,186 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import org.json.JSONObject;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class nka {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "databases";
+    public static final String b = "app_swan_prefs";
+    public static final String c = "shared_prefs";
     public transient /* synthetic */ FieldHolder $fh;
-    public yf5 a;
-    public pka b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006725, "Lcom/baidu/tieba/nka;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948006725, "Lcom/baidu/tieba/nka;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948006725, "Lcom/baidu/tieba/nka;")) == null) {
+            return;
         }
-        c = new a(null);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948006725, "Lcom/baidu/tieba/nka;");
+        }
     }
 
-    public /* synthetic */ nka(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+    public static final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c(vka.f());
+            e();
+            d();
+            vka.a();
+        }
     }
 
-    @JvmStatic
-    public static final nka c() {
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a();
+            i();
+            f();
+            h();
+            g();
+        }
+    }
+
+    public static final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (nka) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && vka.c(vka.d().getExternalCacheDir())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final nka a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (nka) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final nka b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571297337, "Lcom/baidu/tieba/nka$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-571297337, "Lcom/baidu/tieba/nka$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new nka(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final nka a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (nka) invokeV.objValue;
-        }
-    }
-
-    public nka() {
+    public static final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return vka.c(vka.d().getCacheDir());
         }
+        return invokeV.booleanValue;
     }
 
-    public final void a() {
+    public static final boolean f() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pka pkaVar = this.b;
-            if (pkaVar != null) {
-                oka.c(pkaVar.c(), pkaVar.b(), pkaVar.a(), pkaVar.d());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File filesDir = vka.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
             }
-            this.b = null;
+            return vka.c(new File(str, a));
         }
+        return invokeV.booleanValue;
     }
 
-    public final void b() {
+    public static final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (LooperBlockSwitch.getIsOn()) {
-                m65.q(TbadkCoreApplication.getInst(), "updateDialog", new JSONObject());
-                return;
-            }
-            yf5 yf5Var = this.a;
-            if (yf5Var != null) {
-                oka.b(yf5Var);
-            }
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return vka.c(vka.d().getFilesDir());
         }
+        return invokeV.booleanValue;
     }
 
-    public final void d(pka pkaVar) {
+    public static final boolean i() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkaVar) == null) {
-            this.b = pkaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            File filesDir = vka.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            return vka.c(new File(str, b));
         }
+        return invokeV.booleanValue;
     }
 
-    public final void e(yf5 yf5Var) {
+    public static final boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yf5Var) == null) {
-            this.a = yf5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return vka.c(vka.g(str));
         }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean h() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            File filesDir = vka.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            boolean c2 = vka.c(new File(str, c));
+            if (c2) {
+                vka.b();
+            }
+            return c2;
+        }
+        return invokeV.booleanValue;
     }
 }

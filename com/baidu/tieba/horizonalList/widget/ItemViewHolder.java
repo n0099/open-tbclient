@@ -2,7 +2,7 @@ package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.ra8;
+import com.baidu.tieba.l88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
 
-    public abstract void b(ra8 ra8Var);
+    public abstract void b(l88 l88Var);
 
     public abstract ItemViewHolder c(View view2);
 

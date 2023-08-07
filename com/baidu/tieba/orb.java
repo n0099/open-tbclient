@@ -1,190 +1,194 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.URLUtil;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.secure.android.common.util.LogsUtil;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class orb {
+public final class orb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public orb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                LogsUtil.f("UriUtil", "whiteListUrl is null");
-                return null;
-            } else if (!URLUtil.isNetworkUrl(str)) {
-                return str;
-            } else {
-                return b(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.c = 1.0f;
+        this.d = 1.0f;
     }
 
-    @TargetApi(9)
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                LogsUtil.f("UriUtil", "url is null");
-                return str;
-            }
-            try {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    LogsUtil.d("UriUtil", "url don't starts with http or https");
-                    return "";
-                }
-                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
-            } catch (MalformedURLException e) {
-                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean c(String str, String[] strArr) {
-        InterceptResult invokeLL;
+    public final float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (d(str, str2)) {
-                        return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 1.0f;
+            this.d = 1.0f;
+            this.e = false;
+        }
+    }
+
+    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
+            g();
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f2 - f4) / 2.0f;
+            float f7 = f3 / f4;
+            float f8 = f / f2;
+            float f9 = f2 / f4;
+            float f10 = f / f3;
+            boolean z = false;
+            switch (nrb.$EnumSwitchMapping$0[scaleType.ordinal()]) {
+                case 1:
+                    this.a = f5;
+                    this.b = f6;
+                    return;
+                case 2:
+                    if (f7 > f8) {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
                     }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean e(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (f(str, str2)) {
-                        return true;
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    this.b = (f2 - (f4 * f10)) / 2.0f;
+                    return;
+                case 3:
+                    if (f3 < f && f4 < f2) {
+                        this.a = f5;
+                        this.b = f6;
+                        return;
+                    } else if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    } else {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
                     }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return TextUtils.equals(b(str), a(str2));
-            }
-            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (g(str, str2)) {
-                        return true;
+                case 4:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
                     }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
-                    if (!str2.equals(str)) {
-                        if (!str.startsWith(str2 + "?")) {
-                            if (!str.startsWith(str2 + "#")) {
-                                if (!str2.endsWith("/")) {
-                                    return false;
-                                }
-                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
-                                    return false;
-                                }
-                                return str.startsWith(str2);
-                            }
-                        }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = (f - (f3 * f9)) / 2.0f;
+                    return;
+                case 5:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        return;
                     }
-                    return true;
-                }
-                Log.e("UriUtil", "url contains unsafe char");
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            String b = b(str);
-            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
-                String a = a(str2);
-                if (TextUtils.isEmpty(a)) {
-                    Log.e("UriUtil", "whitelist host is null");
-                    return false;
-                } else if (a.equals(b)) {
-                    return true;
-                } else {
-                    if (b.endsWith(a)) {
-                        try {
-                            String substring = b.substring(0, b.length() - a.length());
-                            if (!substring.endsWith(".")) {
-                                return false;
-                            }
-                            return substring.matches("^[A-Za-z0-9.-]+$");
-                        } catch (IndexOutOfBoundsException e) {
-                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
-                        } catch (Exception e2) {
-                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
-                            return false;
-                        }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    return;
+                case 6:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = f2 - (f4 * f10);
+                        return;
                     }
-                    return false;
-                }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = f - (f3 * f9);
+                    return;
+                case 7:
+                    Math.max(f10, f9);
+                    if (f10 > f9) {
+                        z = true;
+                    }
+                    this.e = z;
+                    this.c = f10;
+                    this.d = f9;
+                    return;
+                default:
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    return;
             }
-            LogsUtil.d("UriUtil", "url or whitelist is null");
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 }

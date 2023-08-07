@@ -1,23 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
+import com.fun.ad.sdk.channel.CsjForbidStrategy;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wh0 implements rh0 {
+public class wh0 implements ho0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rh0 a;
+
+    /* loaded from: classes8.dex */
+    public class a extends gt0<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh0 a;
+
+        @Override // com.baidu.tieba.et0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+            }
+        }
+
+        public a(wh0 wh0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wh0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft0
+        /* renamed from: e */
+        public void b(Headers headers, JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLLI(1048579, this, headers, jSONObject, i) != null) {
+                return;
+            }
+            this.a.i(jSONObject);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ft0
+        /* renamed from: f */
+        public JSONObject d(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
+                if (i != 200 || TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return new JSONObject(str);
+            }
+            return (JSONObject) invokeLLI.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wh0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-317865300, "Lcom/baidu/tieba/wh0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-317865300, "Lcom/baidu/tieba/wh0$b;");
+                    return;
+                }
+            }
+            a = new wh0(null);
+        }
+    }
 
     public wh0() {
         Interceptable interceptable = $ic;
@@ -29,147 +110,136 @@ public class wh0 implements rh0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new uh0();
     }
 
-    @Override // com.baidu.tieba.rh0
-    public long b() {
+    public static wh0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (wh0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ho0
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.b();
+            return n31.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
         }
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public List<MediaTrack> l() {
+    public final long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a.l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return n31.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
         }
-        return (List) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public void release() {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.release();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return n31.a().b("nad_app_quick_config").getString("ip_dx_data", "");
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public void a(Context context) {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a.a(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (System.currentTimeMillis() / 1000 <= d()) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public void n(List<MediaTrack> list) {
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.a.n(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (System.currentTimeMillis() - e() > CsjForbidStrategy.FORBID_TIME_ANTI_SPAM) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public void c(int i, int i2) {
+    @Override // com.baidu.tieba.ho0
+    public void request() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.rh0
-    public void f(List<MediaTrack> list, Map<String, ShaderConfig> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, list, map) == null) {
-            this.a.f(list, map);
-        }
-    }
-
-    @Override // com.baidu.tieba.rh0
-    public void h(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            this.a.h(i, j);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            m();
         }
     }
 
-    @Override // com.baidu.tieba.rh0
-    public int d(int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, map)) == null) {
-            return this.a.d(i, i2, map);
-        }
-        return invokeIIL.intValue;
+    public /* synthetic */ wh0(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.rh0
-    public int e(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
+    public final void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, mediaTrack, i, map)) == null) {
-            return this.a.e(mediaTrack, i, map);
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeLIL.intValue;
+        k(jSONObject);
+        j(jSONObject.optLong("exptime"));
     }
 
-    @Override // com.baidu.tieba.rh0
-    public int i(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
+    public final void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSegment, i, map)) == null) {
-            return this.a.i(mediaSegment, i, map);
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            n31.a().b("nad_app_quick_config").g("ip_dx_expire_time", j);
         }
-        return invokeLIL.intValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public int j(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
+    public final void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048585, this, mediaTrack, i, map)) == null) {
-            return this.a.j(mediaTrack, i, map);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            n31.a().b("nad_app_quick_config").h("ip_dx_data", jSONObject.toString());
         }
-        return invokeLIL.intValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
+    public final void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
-            return this.a.g(mediaTrack, i, i2, map);
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            n31.a().b("nad_app_quick_config").g("request_ip_dx_time", j);
         }
-        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.rh0
-    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
-        InterceptResult invokeCommon;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) {
-            return this.a.k(i, fArr, fArr2, i2, i3, f);
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && pj0.a().n() && h() && !g()) {
+            l(System.currentTimeMillis());
+            wj0 a2 = pj0.c().a();
+            String g = a2.g();
+            String packageName = a2.packageName();
+            String str = "https://bz-ipdx.baidu.com/miaozhen?" + String.format("uid=%s&appname=%s", g, packageName);
+            ys0 a3 = us0.b().a();
+            nt0 nt0Var = new nt0();
+            nt0Var.l(str);
+            nt0Var.c();
+            a3.a(nt0Var, new a(this));
         }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.rh0
-    public int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) {
-            return this.a.m(i, fArr, fArr2, i2, i3, i4, map);
-        }
-        return invokeCommon.intValue;
     }
 }

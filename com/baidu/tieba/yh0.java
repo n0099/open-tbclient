@@ -1,60 +1,170 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import android.app.Activity;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yh0 {
+public class yh0 implements mo0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<jo0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static MediaOneAEffect a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
-            mediaOneAEffect.start = 0L;
-            mediaOneAEffect.end = j;
-            ArrayList arrayList = new ArrayList();
-            mediaOneAEffect.aParams = arrayList;
-            arrayList.add(c());
-            return mediaOneAEffect;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330024, "Lcom/baidu/tieba/yh0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948330024, "Lcom/baidu/tieba/yh0;");
+                return;
+            }
         }
-        return (MediaOneAEffect) invokeJ.objValue;
+        ArrayList arrayList = new ArrayList();
+        a = arrayList;
+        arrayList.add(new lh0());
+        a.add(new rn0());
+        a.add(new xh0());
+        bi0 bi0Var = new bi0();
+        gk1<jo0> gk1Var = bi0Var.a;
+        if (gk1Var != null && !a31.g(gk1Var.getList())) {
+            a.addAll(bi0Var.a.getList());
+        }
     }
 
-    public static MediaAEffect b(long j) {
-        InterceptResult invokeJ;
+    public yh0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            MediaAEffect mediaAEffect = new MediaAEffect();
-            mediaAEffect.name = "defaultScene";
-            mediaAEffect.duration = j;
-            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
-            mediaAEffect.effectType = "scene";
-            mediaAEffect.shaderConfigKey = zh0.b;
-            ArrayList arrayList = new ArrayList();
-            mediaAEffect.mediaOneAEffects = arrayList;
-            arrayList.add(a(j));
-            return mediaAEffect;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (MediaAEffect) invokeJ.objValue;
     }
 
-    public static ShaderParams c() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ShaderParams shaderParams = new ShaderParams();
-            shaderParams.name = "scale";
-            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
-            shaderParams.values = new float[]{1.0f, 1.2f};
-            return shaderParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !a.isEmpty();
         }
-        return (ShaderParams) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivityCreated(activity, bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, activity, bundle) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivitySaveInstanceState(activity, bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivityDestroyed(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivityPaused(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivityResumed(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivityStarted(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onActivityStopped(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onBackgroundToForeground(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mo0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, activity) != null) || !f()) {
+            return;
+        }
+        for (jo0 jo0Var : a) {
+            jo0Var.onForegroundToBackground(activity);
+        }
     }
 }

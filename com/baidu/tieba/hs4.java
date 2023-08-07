@@ -1,81 +1,121 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hs4 {
+public final class hs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hs4 c;
+    public static final boolean a;
+    public static final SparseArray<Integer> b;
+    public static final SparseArray<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gs4<String> a;
-    public String b;
 
-    @SuppressLint({"BDThrowableCheck"})
-    public hs4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834272, "Lcom/baidu/tieba/hs4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947834272, "Lcom/baidu/tieba/hs4;");
                 return;
             }
         }
-        gs4<String> gs4Var = new gs4<>();
-        this.a = gs4Var;
-        if (context == null) {
-            return;
-        }
-        gs4Var.a(new ks4(context));
-        this.a.a(new ms4(context));
-        this.a.a(new ls4(context));
-        this.a.a(new os4(context));
-        this.a.a(new is4(context));
-        this.a.a(new ns4(context));
+        a = ir1.a;
+        SparseArray<Integer> sparseArray = new SparseArray<>(32);
+        b = sparseArray;
+        sparseArray.put(10015, 2001);
+        b.put(10013, 2002);
+        b.put(904, 2003);
+        b.put(10012, 2004);
+        b.put(10004, 2006);
+        b.put(701, 2007);
+        b.put(10005, 2008);
+        b.put(10006, 2009);
+        b.put(10007, -2301);
+        b.put(10008, 2101);
+        b.put(923, 2103);
+        b.put(10009, 2105);
+        b.put(10010, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6));
+        b.put(10003, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7));
+        b.put(10011, 2108);
+        b.put(10014, 3001);
+        b.put(3002, 3002);
+        b.put(3003, 3003);
+        b.put(3004, 3005);
+        SparseArray<String> sparseArray2 = new SparseArray<>();
+        c = sparseArray2;
+        sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
+        c.put(10014, "MEDIA_ERR_NETWORK");
+        c.put(3002, "MEDIA_ERR_NETWORK");
+        c.put(3003, "MEDIA_ERR_NETWORK");
+        c.put(3004, "MEDIA_ERR_NETWORK");
+        c.put(-2022, "MEDIA_ERR_NETWORK");
+        c.put(-111, "MEDIA_ERR_NETWORK");
+        c.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    public static hs4 b(Context context) {
-        InterceptResult invokeL;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (hs4.class) {
-                    if (c == null) {
-                        c = new hs4(context);
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
         }
-        return (hs4) invokeL.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static JSONObject c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                synchronized (this) {
-                    if (TextUtils.isEmpty(this.b)) {
-                        String b = this.a.b();
-                        this.b = b;
-                        this.a.d(b);
-                    }
-                }
-            }
-            return this.b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return d(StatConstants.KEY_EXT_ERR_MSG, a(i));
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeI.objValue;
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (b.indexOfKey(i) < 0) {
+                if (a) {
+                    Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
+                    return 100;
+                }
+                return 100;
+            }
+            return b.get(i).intValue();
+        }
+        return invokeI.intValue;
+    }
+
+    public static JSONObject d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (obj instanceof Integer) {
+                    jSONObject.put(str, ((Integer) obj).intValue());
+                } else if (obj instanceof String) {
+                    jSONObject.put(str, obj);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

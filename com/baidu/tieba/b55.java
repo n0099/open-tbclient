@@ -1,196 +1,72 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.Post;
 /* loaded from: classes5.dex */
-public final class b55 {
+public abstract class b55 implements Comparable<b55> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final boolean c;
-    public final String d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947595975, "Lcom/baidu/tieba/b55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947595975, "Lcom/baidu/tieba/b55;");
-                return;
-            }
-        }
-        e = new a(null);
-    }
-
-    @JvmStatic
-    public static final b55 e(Post post) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, post)) == null) ? e.a(post) : (b55) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof b55) {
-                b55 b55Var = (b55) obj;
-                return Intrinsics.areEqual(this.a, b55Var.a) && Intrinsics.areEqual(this.b, b55Var.b) && this.c == b55Var.c && Intrinsics.areEqual(this.d, b55Var.d);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return ((hashCode + i) * 31) + this.d.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "TopPostTagInfo(tag=" + this.a + ", color=" + this.b + ", shieldIcon=" + this.c + ", iconUrl=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public int a;
+    public Activity b;
 
     /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void callback(boolean z);
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
+    public abstract void b();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    public abstract void d(a aVar);
 
-        @JvmStatic
-        public final b55 a(Post post) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, post)) == null) {
-                Intrinsics.checkNotNullParameter(post, "post");
-                if (!xi.isEmpty(post.toutiao_card_tag) && !xi.isEmpty(post.toutiao_card_tag_color)) {
-                    String str = post.toutiao_card_tag;
-                    Intrinsics.checkNotNullExpressionValue(str, "post.toutiao_card_tag");
-                    String str2 = post.toutiao_card_tag_color;
-                    Intrinsics.checkNotNullExpressionValue(str2, "post.toutiao_card_tag_color");
-                    Integer num = post.shield_icon;
-                    boolean z = true;
-                    z = (num == null || num.intValue() != 1) ? false : false;
-                    String str3 = post.icon_url;
-                    Intrinsics.checkNotNullExpressionValue(str3, "post.icon_url");
-                    return new b55(str, str2, z, str3);
-                }
-                return null;
-            }
-            return (b55) invokeL.objValue;
+    public abstract void e();
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public b55(String tag, String color, boolean z, String iconUrl) {
+    public b55(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tag, color, Boolean.valueOf(z), iconUrl};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(tag, "tag");
-        Intrinsics.checkNotNullParameter(color, "color");
-        Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-        this.a = tag;
-        this.b = color;
-        this.c = z;
-        this.d = iconUrl;
+        this.a = Integer.MIN_VALUE;
+        this.b = activity;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(b55 b55Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b55Var)) == null) {
+            return this.a - b55Var.a;
         }
-        return (String) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c55.j();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

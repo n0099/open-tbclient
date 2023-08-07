@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.bza;
-import com.baidu.tieba.wu5;
+import com.baidu.tieba.eya;
+import com.baidu.tieba.ls5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bza k;
+    public eya k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void D1() {
+    public void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -78,15 +78,15 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            bza bzaVar = this.k;
-            if (bzaVar != null) {
-                bzaVar.onDestroy();
+            eya eyaVar = this.k;
+            if (eyaVar != null) {
+                eyaVar.onDestroy();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public View.OnClickListener w1() {
+    public View.OnClickListener v1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -96,7 +96,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public wu5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ls5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
@@ -109,10 +109,10 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str == null) {
                     str = "";
                 }
-                this.k = new bza(linearLayout, navigationBar, this, str);
+                this.k = new eya(linearLayout, navigationBar, this, str);
             }
             return this.k;
         }
-        return (wu5) invokeLL.objValue;
+        return (ls5) invokeLL.objValue;
     }
 }

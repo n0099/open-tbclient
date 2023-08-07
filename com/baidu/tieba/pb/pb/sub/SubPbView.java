@@ -15,12 +15,12 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rf9;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.ke9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,9 +78,9 @@ public class SubPbView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.k = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SubPbView subPbView = this.a;
-                subPbView.p = 1.0f - (subPbView.k / yi.j(this.a.getContext()));
+                subPbView.p = 1.0f - (subPbView.k / BdUtilHelper.getEquipmentHeight(this.a.getContext()));
                 if (this.a.k != 0) {
-                    if (this.a.k == yi.j(this.a.getContext())) {
+                    if (this.a.k == BdUtilHelper.getEquipmentHeight(this.a.getContext())) {
                         this.a.p = 0.0f;
                         if (this.a.i && (this.a.getContext() instanceof Activity)) {
                             ((Activity) this.a.getContext()).finish();
@@ -175,12 +175,12 @@ public class SubPbView extends LinearLayout {
         this.n = false;
         this.p = 0.0f;
         if (0 != 0) {
-            this.o = yi.j(context) / 10;
+            this.o = BdUtilHelper.getEquipmentHeight(context) / 10;
         } else {
-            this.o = (yi.j(context) / 3) - yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07037a);
+            this.o = (BdUtilHelper.getEquipmentHeight(context) / 3) - BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07037a);
         }
-        this.k = yi.j(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(yi.j(context), 0);
+        this.k = BdUtilHelper.getEquipmentHeight(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(BdUtilHelper.getEquipmentHeight(context), 0);
         this.j = ofInt;
         ofInt.setDuration(this.l);
         this.j.setInterpolator(new LinearInterpolator());
@@ -276,9 +276,9 @@ public class SubPbView extends LinearLayout {
                         if (action == 2) {
                             float rawY = motionEvent.getRawY();
                             this.g = rawY;
-                            this.p = 1.0f - ((rawY - this.f) / yi.j(getContext()));
+                            this.p = 1.0f - ((rawY - this.f) / BdUtilHelper.getEquipmentHeight(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rf9(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ke9(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -297,9 +297,9 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rf9(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ke9(this.g, this.f, this.k, this.p, this.i)));
                         }
-                        this.j.setIntValues((int) (this.g - this.f), yi.j(getContext()));
+                        this.j.setIntValues((int) (this.g - this.f), BdUtilHelper.getEquipmentHeight(getContext()));
                         this.j.setDuration(300L);
                         this.j.start();
                     } else {
@@ -307,7 +307,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rf9(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ke9(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -375,9 +375,9 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rf9(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ke9(this.g, this.f, this.k, this.p, this.i)));
             }
-            this.j.setIntValues(0, yi.j(getContext()));
+            this.j.setIntValues(0, BdUtilHelper.getEquipmentHeight(getContext()));
             this.j.setDuration(300L);
             this.j.start();
         }
@@ -410,26 +410,26 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(rf9 rf9Var) {
+    public void setSubPbViewData(ke9 ke9Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, rf9Var) != null) || rf9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, ke9Var) != null) || ke9Var == null) {
             return;
         }
-        this.p = rf9Var.d;
-        float f = rf9Var.b;
+        this.p = ke9Var.d;
+        float f = ke9Var.b;
         this.f = f;
-        float f2 = rf9Var.a;
+        float f2 = ke9Var.a;
         this.g = f2;
-        this.k = rf9Var.c;
-        this.i = rf9Var.e;
+        this.k = ke9Var.c;
+        this.i = ke9Var.e;
         if (f2 > f) {
             z = true;
         } else {
             z = false;
         }
         if (this.i) {
-            this.j.setIntValues((int) (this.g - this.f), yi.j(getContext()));
+            this.j.setIntValues((int) (this.g - this.f), BdUtilHelper.getEquipmentHeight(getContext()));
             this.j.setDuration(0L);
             this.j.start();
         }

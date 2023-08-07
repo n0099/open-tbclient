@@ -14,11 +14,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectForumConfig;
 import com.baidu.tbadk.core.data.GameData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -110,12 +110,12 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ec, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090662);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090664);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090665);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090661);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090663);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09066f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090671);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090672);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09066e);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090670);
             setOnClickListener(this);
             c();
         }
@@ -132,9 +132,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-        d85 d = d85.d(this.d);
-        d.o(R.string.J_X06);
-        d.f(R.color.CAM_X0206);
+        EMManager.from(this.d).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setBackgroundColor(this.f, R.color.CAM_X0210);
     }

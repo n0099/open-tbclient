@@ -1,151 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class ar9 extends ln<ls9, CardViewHolder<nt9>> {
+public class ar9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ng<PersonCommonForumItemView> b;
 
-    /* loaded from: classes5.dex */
-    public class a implements og<PersonCommonForumItemView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ar9 a;
-
-        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+    public static void a(String str, List<ym> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
+            return;
         }
-
-        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+        if (list == null) {
+            list = new ArrayList<>();
         }
-
-        public a(ar9 ar9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ar9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            ym ymVar = list.get(i);
+            if (ymVar instanceof yg5) {
+                yg5 yg5Var = (yg5) ymVar;
+                if (!yg5Var.c()) {
+                    jSONArray.put(yg5Var.a());
                 }
             }
-            this.a = ar9Var;
         }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.og
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            e(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.og
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            h(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
-        /* renamed from: f */
-        public void b(PersonCommonForumItemView personCommonForumItemView) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) && personCommonForumItemView != null) {
-                personCommonForumItemView.removeAllViews();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og
-        /* renamed from: g */
-        public PersonCommonForumItemView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new PersonCommonForumItemView(this.a.mContext);
-            }
-            return (PersonCommonForumItemView) invokeV.objValue;
-        }
+        jSONArray.put(str);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ar9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), ls9.b);
+    public static String c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext != null && !StringUtils.isNull(str)) {
+                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+                }
+                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
             }
+            return null;
         }
-        this.b = new ng<>(new a(this), 12, 0);
-        this.a = tbPageContext;
+        return (String) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: t */
-    public CardViewHolder<nt9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void d(yg5 yg5Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            nt9 nt9Var = new nt9(this.a);
-            nt9Var.A(this.b);
-            return new CardViewHolder<>(nt9Var);
+        if ((interceptable != null && interceptable.invokeLL(65539, null, yg5Var, bdUniqueId) != null) || yg5Var == null || StringUtils.isNull(yg5Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+        httpMessage.addParam("pic_url", yg5Var.a());
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ls9 ls9Var, CardViewHolder<nt9> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public static void b(yg5 yg5Var, List<ym> list) {
+        yg5 yg5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ls9Var, cardViewHolder})) == null) {
-            cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.b().i(ls9Var);
-            return cardViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeLL(65537, null, yg5Var, list) == null) && yg5Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(yg5Var.a())) {
+            JSONArray jSONArray = new JSONArray();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                ym ymVar = list.get(i);
+                if ((ymVar instanceof yg5) && (yg5Var2 = (yg5) ymVar) != yg5Var && !yg5Var2.c()) {
+                    jSONArray.put(yg5Var2.a());
+                }
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            httpMessage.addParam("pic_list", jSONArray.toString());
+            if (jSONArray.length() <= 0) {
+                httpMessage.addParam("truncat", 1);
+            } else {
+                httpMessage.addParam("truncat", 0);
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (View) invokeCommon.objValue;
     }
 }

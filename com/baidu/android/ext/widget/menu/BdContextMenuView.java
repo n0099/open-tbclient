@@ -168,10 +168,10 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0611, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0616, (ViewGroup) null);
                     viewHolder = new ViewHolder(this);
-                    viewHolder.mListIcon = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091195);
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911c5);
+                    viewHolder.mListIcon = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911a8);
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911d8);
                     viewHolder.mListName = textView;
                     textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060653));
                     setBackgroundSelector(view2, i);

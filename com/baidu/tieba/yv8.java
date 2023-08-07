@@ -1,13 +1,21 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class yv8 extends wv8 {
+public final class yv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SparseArray<xv8<ChatMsg, yt8<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public yv8() {
         Interceptable interceptable = $ic;
@@ -19,7 +27,58 @@ public final class yv8 extends wv8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
+    }
+
+    public final void a(int i, xv8<ChatMsg, yt8<?>> converter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
+        }
+    }
+
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            this.b.put(sdkMsg, Integer.valueOf(i));
+        }
+    }
+
+    public final ChatMsg c(yt8<?> tbMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            xv8<ChatMsg, yt8<?>> xv8Var = this.a.get(tbMsg.e().getType());
+            if (xv8Var == null) {
+                return null;
+            }
+            return xv8Var.b(tbMsg);
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    public final yt8<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
+            }
+            xv8<ChatMsg, yt8<?>> xv8Var = this.a.get(num.intValue());
+            if (xv8Var == null) {
+                return null;
+            }
+            return xv8Var.a(sdkMsg);
+        }
+        return (yt8) invokeL.objValue;
     }
 }

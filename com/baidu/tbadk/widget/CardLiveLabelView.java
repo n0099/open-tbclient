@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CardLiveLabelView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public RelativeLayout k;
     public View l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class CardLiveLabelView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,20 +222,16 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    d85 d = d85.d(this.c);
-                    d.o(R.string.J_X01);
-                    d.f(R.color.CAM_X0605);
-                    d85 d2 = d85.d(this.j);
-                    d2.o(R.string.J_X07);
-                    d2.f(R.color.CAM_X0310);
+                    EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0605);
+                    EMManager.from(this.j).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-                    d85.d(this.i).C(R.dimen.T_X09);
+                    EMManager.from(this.i).setTextSize(R.dimen.T_X09);
                     return;
                 }
                 return;
             }
-            float g = yi.g(getContext(), R.dimen.tbds31);
-            SkinManager.setBackgroundEndColorToAutoColor(this.c, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{g, g, g, g, g, g, g, g});
+            float dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds31);
+            SkinManager.setBackgroundEndColorToAutoColor(this.c, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{dimens, dimens, dimens, dimens, dimens, dimens, dimens, dimens});
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
         }
@@ -244,7 +240,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091f6a);
+            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091f81);
         }
     }
 

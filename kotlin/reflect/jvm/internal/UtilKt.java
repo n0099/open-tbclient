@@ -398,11 +398,11 @@ public final class UtilKt {
                 KClassValue.Value.NormalClass normalClass = (KClassValue.Value.NormalClass) value3;
                 return loadClass(classLoader, normalClass.getClassId(), normalClass.getArrayDimensions());
             } else if (value3 instanceof KClassValue.Value.LocalClass) {
-                ClassifierDescriptor mo2101getDeclarationDescriptor = ((KClassValue.Value.LocalClass) value3).getType().getConstructor().mo2101getDeclarationDescriptor();
-                if (!(mo2101getDeclarationDescriptor instanceof ClassDescriptor)) {
-                    mo2101getDeclarationDescriptor = null;
+                ClassifierDescriptor mo2102getDeclarationDescriptor = ((KClassValue.Value.LocalClass) value3).getType().getConstructor().mo2102getDeclarationDescriptor();
+                if (!(mo2102getDeclarationDescriptor instanceof ClassDescriptor)) {
+                    mo2102getDeclarationDescriptor = null;
                 }
-                ClassDescriptor classDescriptor = (ClassDescriptor) mo2101getDeclarationDescriptor;
+                ClassDescriptor classDescriptor = (ClassDescriptor) mo2102getDeclarationDescriptor;
                 if (classDescriptor == null) {
                     return null;
                 }

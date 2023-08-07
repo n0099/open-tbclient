@@ -1,169 +1,125 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.entelechy.adapter.FrsVideoActivityViewHolder;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
+import com.baidu.tieba.kr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pm7 extends yh7<sba, FrsVideoActivityViewHolder> {
+public final class pm7 extends b55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sba a;
-        public final /* synthetic */ pm7 b;
-
-        public a(pm7 pm7Var, sba sbaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm7Var, sbaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pm7Var;
-            this.a = sbaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
-                da5 p = da5.p();
-                p.H("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
-                sba sbaVar = this.a;
-                if (sbaVar != null && !StringUtils.isNull(sbaVar.b)) {
-                    nx4.q(this.b.mContext, this.a.b);
-                }
-            }
-        }
-    }
+    public final om7 c;
+    public final FrsSpriteGuideTipController d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public pm7(Activity activity, om7 om7Var, FrsSpriteGuideTipController frsSpriteGuideTipController) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {activity, om7Var, frsSpriteGuideTipController};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.c = om7Var;
+        this.d = frsSpriteGuideTipController;
     }
 
-    public void M(String str) {
+    public static final void g(pm7 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.l = str;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
     }
 
-    public final boolean I(long j) {
-        InterceptResult invokeJ;
+    public static final void h(pm7 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j == 0) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - j > 86400000) {
-                return true;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(currentTimeMillis);
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j);
-            if (calendar.get(7) > calendar2.get(7)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
-        return invokeJ.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: J */
-    public FrsVideoActivityViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b55
+    public void d(b55.a shouldShowCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03a3, (ViewGroup) null);
-            FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
-            SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
-            SkinManager.setImageResource(frsVideoActivityViewHolder.b, R.drawable.icon_news_list_prompt);
-            SkinManager.setImageResource(frsVideoActivityViewHolder.d, R.drawable.icon_index_category_arrow_r);
-            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
-            return frsVideoActivityViewHolder;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
+            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
+            shouldShowCallback.callback(true);
         }
-        return (FrsVideoActivityViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh7, com.baidu.tieba.ln
-    /* renamed from: L */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sba sbaVar, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
-        InterceptResult invokeCommon;
-        String str;
+    @Override // com.baidu.tieba.b55
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sbaVar, frsVideoActivityViewHolder})) == null) {
-            if (view2 != null && frsVideoActivityViewHolder != null) {
-                view2.setOnClickListener(new a(this, sbaVar));
-                TextView textView = frsVideoActivityViewHolder.a;
-                if (sbaVar != null) {
-                    str = sbaVar.a;
-                } else {
-                    str = "";
-                }
-                textView.setText(str);
-                da5 p = da5.p();
-                if (I(p.r("frs_video_activity_tip" + this.l, 0L))) {
-                    frsVideoActivityViewHolder.b.setVisibility(0);
-                } else {
-                    frsVideoActivityViewHolder.b.setVisibility(8);
-                }
-                return frsVideoActivityViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            om7 om7Var = this.c;
+            if (om7Var != null) {
+                om7Var.o();
             }
-            return null;
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
+            if (frsSpriteGuideTipController != null) {
+                frsSpriteGuideTipController.g();
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.b55
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            DefaultLog.getInstance().i("FrsGuide", "开始显示frs吧引导");
+            om7 om7Var = this.c;
+            if (om7Var != null) {
+                DefaultLog.getInstance().i("FrsGuide", "展示线上吧引导样式");
+                om7Var.t(new kr6.e() { // from class: com.baidu.tieba.jm7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.kr6.e
+                    public final void onDismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            pm7.g(pm7.this);
+                        }
+                    }
+                });
+                om7Var.w();
+            }
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
+            if (frsSpriteGuideTipController != null) {
+                DefaultLog.getInstance().i("FrsGuide", "展示精灵吧引导样式");
+                frsSpriteGuideTipController.j(new kr6.e() { // from class: com.baidu.tieba.lm7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.kr6.e
+                    public final void onDismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            pm7.h(pm7.this);
+                        }
+                    }
+                });
+                frsSpriteGuideTipController.l();
+            }
+        }
     }
 }

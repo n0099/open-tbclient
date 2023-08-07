@@ -1,55 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class ps0 {
+public final class ps0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final os0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final HashMap<AdBaseModel.STYLE, Integer> a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public b f;
-    public float g;
-    public boolean h;
-    public String i;
-    public a j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public int g;
-        public int h;
-        public int i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072476, "Lcom/baidu/tieba/ps0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948072476, "Lcom/baidu/tieba/ps0;");
+                return;
+            }
+        }
+        a = new ts0();
     }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-    }
-
-    public abstract int a(AdBaseModel.STYLE style);
-
-    public abstract int b(AdOperator.TYPE type);
 }

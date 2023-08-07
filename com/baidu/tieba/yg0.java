@@ -1,68 +1,35 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class yg0 {
+public class yg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static kg0 a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public int c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public boolean j;
-        public boolean k;
-        public boolean l;
-        public int m;
-        public int n;
-        public JSONObject o;
-        public JSONObject p;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        boolean z;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329063, "Lcom/baidu/tieba/yg0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948329063, "Lcom/baidu/tieba/yg0;");
+                return;
             }
         }
-    }
-
-    public static void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("sdk_version", Integer.valueOf(hg0.h()));
-                if (jSONObject2.length() > 0) {
-                    jSONObject2.put("debug_info", jSONObject);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            kg0 kg0Var = a;
-            if (kg0Var != null) {
-                kg0Var.report(str, jSONObject2);
-            }
+        try {
+            z = zg0.a;
+        } catch (Throwable unused) {
+            z = false;
         }
+        a = z;
     }
 }

@@ -12,16 +12,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c00;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.ry;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.up6;
+import com.baidu.tieba.az;
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.qx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements qx<q05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,10 +44,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public up6<t15> m;
-    public t15 n;
+    public bn6<q05> m;
+    public q05 n;
     public View.OnClickListener o;
-    public c00 p;
+    public az p;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    up6 up6Var = this.a.m;
+                    bn6 bn6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    up6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    bn6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -143,7 +143,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
         this.b = 3;
         this.l = false;
         this.a = context;
-        f();
+        e();
     }
 
     public void setCanCenterStart(boolean z) {
@@ -153,10 +153,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
         }
     }
 
-    public void setData(t15 t15Var) {
+    public void setData(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t15Var) == null) {
-            this.n = t15Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, q05Var) == null) {
+            this.n = q05Var;
         }
     }
 
@@ -167,26 +167,26 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
         }
     }
 
-    public void setOnCardSubClickListener(up6<t15> up6Var) {
+    public void setOnCardSubClickListener(bn6<q05> bn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, up6Var) == null) {
-            this.m = up6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bn6Var) == null) {
+            this.m = bn6Var;
         }
     }
 
-    public void setVideoAreaClickListener(c00 c00Var) {
+    public void setVideoAreaClickListener(az azVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, c00Var) == null) {
-            this.p = c00Var;
-            if (c00Var != null) {
-                i();
+        if (interceptable == null || interceptable.invokeL(1048586, this, azVar) == null) {
+            this.p = azVar;
+            if (azVar != null) {
+                h();
             }
         }
     }
 
-    public final void f() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.video_image_no_player_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.j = (RelativeLayout) findViewById(R.id.operable_video_container);
@@ -209,12 +209,12 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ry
-    /* renamed from: g */
-    public void b(t15 t15Var) {
+    @Override // com.baidu.tieba.qx
+    /* renamed from: f */
+    public void onBindDataToView(q05 q05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t15Var) == null) && t15Var != null && t15Var.getThreadData() != null && t15Var.getThreadData().originalThreadData != null) {
-            OriginalThreadInfo originalThreadInfo = t15Var.getThreadData().originalThreadData;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) && q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().originalThreadData != null) {
+            OriginalThreadInfo originalThreadInfo = q05Var.getThreadData().originalThreadData;
             originalThreadInfo.r.is_vertical.intValue();
             String str = originalThreadInfo.f;
             originalThreadInfo.r.video_length.intValue();
@@ -223,7 +223,23 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
             this.i.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
             this.g.setText(String.format(this.a.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
             this.h.setVisibility(8);
-            this.c.N(originalThreadInfo.r.thumbnail_url, 10, false);
+            this.c.startLoad(originalThreadInfo.r.thumbnail_url, 10, false);
+        }
+    }
+
+    public void g(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.b != i) {
+                EMManager.from(this.d).setMaskBackGround(R.array.Mask_X003);
+                EMManager.from(this.d).setCorner(R.string.J_X05);
+                SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
+                SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
+                SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
+                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_pause44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            }
+            this.b = i;
         }
     }
 
@@ -237,27 +253,11 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ry<t15> 
         return (View) invokeV.objValue;
     }
 
-    public final void i() {
+    public final void h() {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (relativeLayout = this.k) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (relativeLayout = this.k) != null) {
             relativeLayout.setOnClickListener(new b(this));
-        }
-    }
-
-    public void h(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            if (this.b != i) {
-                d85.d(this.d).u(R.array.Mask_X003);
-                d85.d(this.d).o(R.string.J_X05);
-                SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
-                SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
-                SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_pause44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            }
-            this.b = i;
         }
     }
 }

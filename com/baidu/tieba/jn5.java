@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import androidx.annotation.WorkerThread;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface jn5 {
-    String a(ImageFileInfo imageFileInfo);
+    @WorkerThread
+    void a(int i, long j, List<Long> list, int i2, String str);
 }

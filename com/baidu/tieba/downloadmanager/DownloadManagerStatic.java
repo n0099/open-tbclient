@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dz6;
-import com.baidu.tieba.sy6;
-import com.baidu.tieba.ty6;
+import com.baidu.tieba.aw6;
+import com.baidu.tieba.bw6;
+import com.baidu.tieba.lw6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class DownloadManagerStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                ty6.e().c(customMessage.getData());
+                bw6.e().c(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -60,7 +60,7 @@ public class DownloadManagerStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<sy6> {
+    public static class b implements CustomMessageTask.CustomRunnable<aw6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,12 +79,12 @@ public class DownloadManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<sy6> run(CustomMessage<sy6> customMessage) {
+        public CustomResponsedMessage<aw6> run(CustomMessage<aw6> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                ty6.e().g(customMessage.getData());
-                dz6.a(customMessage.getData());
+                bw6.e().g(customMessage.getData());
+                lw6.a(customMessage.getData());
                 return new CustomResponsedMessage<>(2921627, customMessage.getData());
             }
             return (CustomResponsedMessage) invokeL.objValue;

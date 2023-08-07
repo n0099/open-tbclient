@@ -8,22 +8,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.p78;
-import com.baidu.tieba.sy;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.j58;
+import com.baidu.tieba.rx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements sy {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements rx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements sy {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            p78.h();
+            j58.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -156,27 +156,27 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements sy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, yi.g(getContext(), R.dimen.M_H_X003), 0, 0);
+            marginLayoutParams.setMargins(0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(marginLayoutParams);
             setOrientation(0);
             setGravity(16);
-            int g = yi.g(getContext(), R.dimen.M_W_X005);
-            setPadding(g, 0, g, 0);
+            int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005);
+            setPadding(dimens, 0, dimens, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09e0));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09e1));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09e1));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, yi.g(getContext(), R.dimen.tbds75));
-            int g2 = yi.g(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(g2, yi.g(getContext(), R.dimen.M_H_X005), g2, yi.g(getContext(), R.dimen.tbds38));
-            int g3 = yi.g(getContext(), R.dimen.M_W_X007);
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09e2));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, BdUtilHelper.getDimens(getContext(), R.dimen.tbds75));
+            int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(dimens2, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005), dimens2, BdUtilHelper.getDimens(getContext(), R.dimen.tbds38));
+            int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X007);
             this.b.setGravity(16);
-            this.b.setPadding(g3, 0, g3, 0);
+            this.b.setPadding(dimens3, 0, dimens3, 0);
             addView(this.b, layoutParams2);
             this.b.setOnClickListener(new a(this));
             this.c = new ImageView(getContext());
@@ -185,34 +185,23 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements sy {
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                d85 d = d85.d(textView);
-                d.x(R.color.CAM_X0105);
-                d.C(R.dimen.T_X06);
-                d.D(R.string.F_X01);
+                EMManager.from(textView).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                d85 d2 = d85.d(eMTextView);
-                d2.x(R.color.CAM_X0302);
-                d2.C(R.dimen.T_X08);
-                d2.D(R.string.F_X01);
-                d2.o(R.string.J_X01);
-                d2.m(R.dimen.L_X02);
-                d2.l(R.color.CAM_X0302);
+                EMManager.from(eMTextView).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0302);
             }
             ImageView imageView = this.c;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            d85 d3 = d85.d(this);
-            d3.o(R.string.J_X06);
-            d3.f(R.color.CAM_X0205);
+            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 

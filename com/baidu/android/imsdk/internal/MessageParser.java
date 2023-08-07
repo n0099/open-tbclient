@@ -31,8 +31,8 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.u90;
-import com.baidu.tieba.y90;
+import com.baidu.tieba.s80;
+import com.baidu.tieba.w80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,10 +114,10 @@ public class MessageParser {
             return invokeV.booleanValue;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:96:0x0263, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:96:0x0264, code lost:
             if (r8 > (-1)) goto L63;
          */
-        /* JADX WARN: Removed duplicated region for block: B:127:0x032c  */
+        /* JADX WARN: Removed duplicated region for block: B:127:0x032d  */
         /* JADX WARN: Removed duplicated region for block: B:14:0x004d  */
         /* JADX WARN: Removed duplicated region for block: B:38:0x017b  */
         /* JADX WARN: Removed duplicated region for block: B:40:0x017f  */
@@ -1007,14 +1007,14 @@ public class MessageParser {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:105:0x0294 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0295 A[Catch: Exception -> 0x048b, TryCatch #2 {Exception -> 0x048b, blocks: (B:5:0x001b, B:150:0x03b2, B:152:0x03b8, B:154:0x03d2, B:156:0x03e4, B:157:0x03eb, B:159:0x03f3, B:160:0x03fa, B:162:0x0402, B:166:0x040f, B:167:0x0412, B:169:0x0418, B:171:0x041e, B:173:0x0424, B:174:0x0427, B:176:0x042d, B:178:0x0432, B:180:0x043e, B:182:0x044d, B:184:0x045a, B:185:0x0461, B:187:0x0469, B:188:0x0472, B:181:0x0442, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0354, B:136:0x0369, B:138:0x0376, B:139:0x037f, B:141:0x0387, B:143:0x0392, B:144:0x0395, B:124:0x0328, B:126:0x0331, B:130:0x0346, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02f9, B:118:0x02fe, B:120:0x030b, B:121:0x030e), top: B:200:0x001b, inners: #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0344 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x0346 A[Catch: Exception -> 0x048b, TryCatch #2 {Exception -> 0x048b, blocks: (B:5:0x001b, B:150:0x03b2, B:152:0x03b8, B:154:0x03d2, B:156:0x03e4, B:157:0x03eb, B:159:0x03f3, B:160:0x03fa, B:162:0x0402, B:166:0x040f, B:167:0x0412, B:169:0x0418, B:171:0x041e, B:173:0x0424, B:174:0x0427, B:176:0x042d, B:178:0x0432, B:180:0x043e, B:182:0x044d, B:184:0x045a, B:185:0x0461, B:187:0x0469, B:188:0x0472, B:181:0x0442, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0354, B:136:0x0369, B:138:0x0376, B:139:0x037f, B:141:0x0387, B:143:0x0392, B:144:0x0395, B:124:0x0328, B:126:0x0331, B:130:0x0346, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02f9, B:118:0x02fe, B:120:0x030b, B:121:0x030e), top: B:200:0x001b, inners: #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x0369 A[Catch: Exception -> 0x048b, TryCatch #2 {Exception -> 0x048b, blocks: (B:5:0x001b, B:150:0x03b2, B:152:0x03b8, B:154:0x03d2, B:156:0x03e4, B:157:0x03eb, B:159:0x03f3, B:160:0x03fa, B:162:0x0402, B:166:0x040f, B:167:0x0412, B:169:0x0418, B:171:0x041e, B:173:0x0424, B:174:0x0427, B:176:0x042d, B:178:0x0432, B:180:0x043e, B:182:0x044d, B:184:0x045a, B:185:0x0461, B:187:0x0469, B:188:0x0472, B:181:0x0442, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0354, B:136:0x0369, B:138:0x0376, B:139:0x037f, B:141:0x0387, B:143:0x0392, B:144:0x0395, B:124:0x0328, B:126:0x0331, B:130:0x0346, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02f9, B:118:0x02fe, B:120:0x030b, B:121:0x030e), top: B:200:0x001b, inners: #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x0392 A[Catch: Exception -> 0x048b, TryCatch #2 {Exception -> 0x048b, blocks: (B:5:0x001b, B:150:0x03b2, B:152:0x03b8, B:154:0x03d2, B:156:0x03e4, B:157:0x03eb, B:159:0x03f3, B:160:0x03fa, B:162:0x0402, B:166:0x040f, B:167:0x0412, B:169:0x0418, B:171:0x041e, B:173:0x0424, B:174:0x0427, B:176:0x042d, B:178:0x0432, B:180:0x043e, B:182:0x044d, B:184:0x045a, B:185:0x0461, B:187:0x0469, B:188:0x0472, B:181:0x0442, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0354, B:136:0x0369, B:138:0x0376, B:139:0x037f, B:141:0x0387, B:143:0x0392, B:144:0x0395, B:124:0x0328, B:126:0x0331, B:130:0x0346, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02f9, B:118:0x02fe, B:120:0x030b, B:121:0x030e), top: B:200:0x001b, inners: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0295 A[Catch: Exception -> 0x048c, TryCatch #1 {Exception -> 0x048c, blocks: (B:5:0x001b, B:150:0x03b3, B:152:0x03b9, B:154:0x03d3, B:156:0x03e5, B:157:0x03ec, B:159:0x03f4, B:160:0x03fb, B:162:0x0403, B:166:0x0410, B:167:0x0413, B:169:0x0419, B:171:0x041f, B:173:0x0425, B:174:0x0428, B:176:0x042e, B:178:0x0433, B:180:0x043f, B:182:0x044e, B:184:0x045b, B:185:0x0462, B:187:0x046a, B:188:0x0473, B:181:0x0443, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0355, B:136:0x036a, B:138:0x0377, B:139:0x0380, B:141:0x0388, B:143:0x0393, B:144:0x0396, B:124:0x0329, B:126:0x0332, B:130:0x0347, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02fa, B:118:0x02ff, B:120:0x030c, B:121:0x030f), top: B:199:0x001b, inners: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0345 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0347 A[Catch: Exception -> 0x048c, TryCatch #1 {Exception -> 0x048c, blocks: (B:5:0x001b, B:150:0x03b3, B:152:0x03b9, B:154:0x03d3, B:156:0x03e5, B:157:0x03ec, B:159:0x03f4, B:160:0x03fb, B:162:0x0403, B:166:0x0410, B:167:0x0413, B:169:0x0419, B:171:0x041f, B:173:0x0425, B:174:0x0428, B:176:0x042e, B:178:0x0433, B:180:0x043f, B:182:0x044e, B:184:0x045b, B:185:0x0462, B:187:0x046a, B:188:0x0473, B:181:0x0443, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0355, B:136:0x036a, B:138:0x0377, B:139:0x0380, B:141:0x0388, B:143:0x0393, B:144:0x0396, B:124:0x0329, B:126:0x0332, B:130:0x0347, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02fa, B:118:0x02ff, B:120:0x030c, B:121:0x030f), top: B:199:0x001b, inners: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x036a A[Catch: Exception -> 0x048c, TryCatch #1 {Exception -> 0x048c, blocks: (B:5:0x001b, B:150:0x03b3, B:152:0x03b9, B:154:0x03d3, B:156:0x03e5, B:157:0x03ec, B:159:0x03f4, B:160:0x03fb, B:162:0x0403, B:166:0x0410, B:167:0x0413, B:169:0x0419, B:171:0x041f, B:173:0x0425, B:174:0x0428, B:176:0x042e, B:178:0x0433, B:180:0x043f, B:182:0x044e, B:184:0x045b, B:185:0x0462, B:187:0x046a, B:188:0x0473, B:181:0x0443, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0355, B:136:0x036a, B:138:0x0377, B:139:0x0380, B:141:0x0388, B:143:0x0393, B:144:0x0396, B:124:0x0329, B:126:0x0332, B:130:0x0347, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02fa, B:118:0x02ff, B:120:0x030c, B:121:0x030f), top: B:199:0x001b, inners: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x0393 A[Catch: Exception -> 0x048c, TryCatch #1 {Exception -> 0x048c, blocks: (B:5:0x001b, B:150:0x03b3, B:152:0x03b9, B:154:0x03d3, B:156:0x03e5, B:157:0x03ec, B:159:0x03f4, B:160:0x03fb, B:162:0x0403, B:166:0x0410, B:167:0x0413, B:169:0x0419, B:171:0x041f, B:173:0x0425, B:174:0x0428, B:176:0x042e, B:178:0x0433, B:180:0x043f, B:182:0x044e, B:184:0x045b, B:185:0x0462, B:187:0x046a, B:188:0x0473, B:181:0x0443, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0355, B:136:0x036a, B:138:0x0377, B:139:0x0380, B:141:0x0388, B:143:0x0393, B:144:0x0396, B:124:0x0329, B:126:0x0332, B:130:0x0347, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02fa, B:118:0x02ff, B:120:0x030c, B:121:0x030f), top: B:199:0x001b, inners: #4 }] */
     /* JADX WARN: Removed duplicated region for block: B:94:0x027a A[ADDED_TO_REGION] */
     /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v13, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v23 */
     /* JADX WARN: Type inference failed for: r7v1, types: [T, java.lang.Long] */
     /*
@@ -1022,6 +1022,13 @@ public class MessageParser {
     */
     public static ChatMsg realParserMessage(Context context, JSONObject jSONObject, Type<Long> type, boolean z, boolean z2) {
         InterceptResult invokeCommon;
+        long optLong;
+        long optLong2;
+        long optLong3;
+        long optLong4;
+        String optString;
+        int optInt;
+        String optString2;
         String str;
         int i;
         boolean isDuMsg;
@@ -1033,7 +1040,7 @@ public class MessageParser {
         boolean isJsonParseResult;
         boolean z4;
         ChatMsg chatMsg;
-        String optString;
+        String optString3;
         int i2;
         ?? r1;
         boolean z5;
@@ -1045,365 +1052,364 @@ public class MessageParser {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, jSONObject, type, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             String str3 = TAG;
             try {
-                long optLong = jSONObject.optLong("msgid");
-                long optLong2 = jSONObject.optLong("from_user");
-                long optLong3 = jSONObject.optLong("create_time");
-                long optLong4 = jSONObject.optLong("contacter");
-                String optString2 = jSONObject.optString("content");
-                int optInt = jSONObject.optInt("category");
+                optLong = jSONObject.optLong("msgid");
+                optLong2 = jSONObject.optLong("from_user");
+                optLong3 = jSONObject.optLong("create_time");
+                optLong4 = jSONObject.optLong("contacter");
+                optString = jSONObject.optString("content");
+                optInt = jSONObject.optInt("category");
                 type.t = Long.valueOf(optLong);
-                String optString3 = jSONObject.optString("tips");
-                try {
-                    if (optInt != 0) {
-                        if (optInt != 1) {
-                            if (optInt != 2) {
-                                if (optInt != 3) {
-                                    if (optInt != 4) {
-                                        if (optInt != 6) {
-                                            if (optInt != 9) {
-                                                str = "";
-                                                str3 = TAG;
-                                                chatMsg = null;
-                                                z4 = false;
-                                            } else {
-                                                int optInt2 = jSONObject.optInt("type");
-                                                int optInt3 = jSONObject.optInt("is_deleted");
-                                                ChatMsg newChatMsg3 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt2, -1);
-                                                if (newChatMsg3 == null) {
-                                                    return newChatMsg3;
-                                                }
-                                                newChatMsg3.setCategory(optInt);
-                                                newChatMsg3.setContacter(optLong4);
-                                                newChatMsg3.setFromUser(optLong2);
-                                                newChatMsg3.setMsgType(optInt2);
-                                                newChatMsg3.setChatType(58);
-                                                newChatMsg3.setDialogueId(jSONObject.optLong("dialogue_id"));
-                                                newChatMsg3.setContacterIsRead(jSONObject.optInt(TableDefine.BusiChatMsgColumns.COLUMN_CONTACTER_IS_READ));
-                                                newChatMsg3.setTips(jSONObject.optString("tips"));
-                                                newChatMsg3.setDialogueId(jSONObject.optLong("dialogue_id"));
-                                                newChatMsg3.setContacterIsRead(jSONObject.optInt(TableDefine.BusiChatMsgColumns.COLUMN_CONTACTER_IS_READ));
-                                                newChatMsg3.setSessionType(jSONObject.optInt("session_type", 0));
-                                                newChatMsg3.setLogicDel(optInt3);
-                                                z4 = newChatMsg3.setMsgContentFromServer(optString2);
-                                                chatMsg = newChatMsg3;
-                                            }
+                optString2 = jSONObject.optString("tips");
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                if (optInt != 0) {
+                    if (optInt != 1) {
+                        if (optInt != 2) {
+                            if (optInt != 3) {
+                                if (optInt != 4) {
+                                    if (optInt != 6) {
+                                        if (optInt != 9) {
+                                            str = "";
+                                            str3 = TAG;
+                                            chatMsg = null;
+                                            z4 = false;
                                         } else {
-                                            int optInt4 = jSONObject.optInt("type");
-                                            newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt4, -1);
-                                            if (newChatMsg2 == null) {
-                                                return newChatMsg2;
+                                            int optInt2 = jSONObject.optInt("type");
+                                            int optInt3 = jSONObject.optInt("is_deleted");
+                                            ChatMsg newChatMsg3 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt2, -1);
+                                            if (newChatMsg3 == null) {
+                                                return newChatMsg3;
                                             }
-                                            newChatMsg2.setCategory(optInt);
-                                            newChatMsg2.setContacter(optLong4);
-                                            newChatMsg2.setFromUser(optLong2);
-                                            newChatMsg2.setMsgType(optInt4);
-                                            msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString2);
+                                            newChatMsg3.setCategory(optInt);
+                                            newChatMsg3.setContacter(optLong4);
+                                            newChatMsg3.setFromUser(optLong2);
+                                            newChatMsg3.setMsgType(optInt2);
+                                            newChatMsg3.setChatType(58);
+                                            newChatMsg3.setDialogueId(jSONObject.optLong("dialogue_id"));
+                                            newChatMsg3.setContacterIsRead(jSONObject.optInt(TableDefine.BusiChatMsgColumns.COLUMN_CONTACTER_IS_READ));
+                                            newChatMsg3.setTips(jSONObject.optString("tips"));
+                                            newChatMsg3.setDialogueId(jSONObject.optLong("dialogue_id"));
+                                            newChatMsg3.setContacterIsRead(jSONObject.optInt(TableDefine.BusiChatMsgColumns.COLUMN_CONTACTER_IS_READ));
+                                            newChatMsg3.setSessionType(jSONObject.optInt("session_type", 0));
+                                            newChatMsg3.setLogicDel(optInt3);
+                                            z4 = newChatMsg3.setMsgContentFromServer(optString);
+                                            chatMsg = newChatMsg3;
                                         }
                                     } else {
-                                        int optInt5 = jSONObject.optInt("type");
-                                        if (optInt5 == 81) {
-                                            optInt5 = 0;
-                                        }
-                                        newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt5, -1);
+                                        int optInt4 = jSONObject.optInt("type");
+                                        newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt4, -1);
                                         if (newChatMsg2 == null) {
                                             return newChatMsg2;
                                         }
                                         newChatMsg2.setCategory(optInt);
                                         newChatMsg2.setContacter(optLong4);
                                         newChatMsg2.setFromUser(optLong2);
-                                        newChatMsg2.setMsgType(optInt5);
-                                        msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString2);
-                                        if (newChatMsg2 instanceof TextMsg) {
-                                            ((TextMsg) newChatMsg2).setCastId(optLong4);
-                                            if (ConversationStudioManImpl.getInstance(context).isReliable(optLong4)) {
-                                                ((TextMsg) newChatMsg2).setCastId(optLong4);
-                                                ((TextMsg) newChatMsg2).setPriority(jSONObject.optLong("prority"));
-                                                newChatMsg2.setMsgContent(jSONObject.toString());
-                                            }
-                                        }
-                                        LogUtils.d("IMFetchMsgByIdMsg parse ", msgContentFromServer + "");
+                                        newChatMsg2.setMsgType(optInt4);
+                                        msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString);
                                     }
                                 } else {
-                                    int i3 = jSONObject.getInt("cmd");
-                                    newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i3);
+                                    int optInt5 = jSONObject.optInt("type");
+                                    if (optInt5 == 81) {
+                                        optInt5 = 0;
+                                    }
+                                    newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt5, -1);
                                     if (newChatMsg2 == null) {
                                         return newChatMsg2;
                                     }
                                     newChatMsg2.setCategory(optInt);
                                     newChatMsg2.setContacter(optLong4);
                                     newChatMsg2.setFromUser(optLong2);
-                                    newChatMsg2.setNotifyCmd(i3);
-                                    msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString2);
+                                    newChatMsg2.setMsgType(optInt5);
+                                    msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString);
+                                    if (newChatMsg2 instanceof TextMsg) {
+                                        ((TextMsg) newChatMsg2).setCastId(optLong4);
+                                        if (ConversationStudioManImpl.getInstance(context).isReliable(optLong4)) {
+                                            ((TextMsg) newChatMsg2).setCastId(optLong4);
+                                            ((TextMsg) newChatMsg2).setPriority(jSONObject.optLong("prority"));
+                                            newChatMsg2.setMsgContent(jSONObject.toString());
+                                        }
+                                    }
+                                    LogUtils.d("IMFetchMsgByIdMsg parse ", msgContentFromServer + "");
                                 }
-                                str = "";
-                                str3 = TAG;
-                                ChatMsg chatMsg2 = newChatMsg2;
-                                z4 = msgContentFromServer;
-                                chatMsg = chatMsg2;
                             } else {
-                                int i4 = jSONObject.getInt("cmd");
-                                ChatMsg newChatMsg4 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i4);
-                                if (newChatMsg4 == null) {
-                                    return newChatMsg4;
+                                int i3 = jSONObject.getInt("cmd");
+                                newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i3);
+                                if (newChatMsg2 == null) {
+                                    return newChatMsg2;
                                 }
-                                newChatMsg4.setCategory(optInt);
-                                newChatMsg4.setContacter(optLong4);
-                                newChatMsg4.setFromUser(optLong2);
-                                boolean msgContentFromServer2 = newChatMsg4.setMsgContentFromServer(optString2);
-                                newChatMsg4.setNotifyCmd(i4);
-                                chatMsg = handleSysChatMsg(newChatMsg4);
-                                chatMsg.setMsgType(-1);
-                                z4 = msgContentFromServer2;
+                                newChatMsg2.setCategory(optInt);
+                                newChatMsg2.setContacter(optLong4);
+                                newChatMsg2.setFromUser(optLong2);
+                                newChatMsg2.setNotifyCmd(i3);
+                                msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString);
                             }
                             str = "";
+                            str3 = TAG;
+                            ChatMsg chatMsg2 = newChatMsg2;
+                            z4 = msgContentFromServer;
+                            chatMsg = chatMsg2;
                         } else {
-                            long optLong5 = jSONObject.optLong("group_id");
-                            int optInt6 = jSONObject.optInt("type");
-                            if (optInt6 == 80) {
-                                DuParser invokeParse2 = new DuParser(context, optString2, optInt).invokeParse();
-                                if (invokeParse2.isMsgNull()) {
-                                    return null;
-                                }
-                                newChatMsg = invokeParse2.getMsg();
-                                z6 = invokeParse2.isJsonParseResult();
-                            } else {
-                                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt6, -1);
-                                if (newChatMsg != null) {
-                                    z6 = newChatMsg.setMsgContentFromServer(optString2);
-                                    newChatMsg.setMsgType(optInt6);
-                                } else {
-                                    z6 = false;
-                                }
+                            int i4 = jSONObject.getInt("cmd");
+                            ChatMsg newChatMsg4 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i4);
+                            if (newChatMsg4 == null) {
+                                return newChatMsg4;
                             }
-                            if (newChatMsg == null) {
-                                return newChatMsg;
-                            }
-                            newChatMsg.setCategory(optInt);
-                            newChatMsg.setContacter(optLong5);
-                            newChatMsg.setFromUser(optLong2);
-                            if (!TextUtils.isEmpty(newChatMsg.getMsgContent())) {
-                                JSONObject jSONObject2 = new JSONObject(newChatMsg.getMsgContent());
-                                jSONObject2.put("tips", optString3);
-                                newChatMsg.setMsgContent(jSONObject2.toString());
-                            }
-                            chatMsg = newChatMsg;
-                            str = "";
-                            z4 = z6;
+                            newChatMsg4.setCategory(optInt);
+                            newChatMsg4.setContacter(optLong4);
+                            newChatMsg4.setFromUser(optLong2);
+                            boolean msgContentFromServer2 = newChatMsg4.setMsgContentFromServer(optString);
+                            newChatMsg4.setNotifyCmd(i4);
+                            chatMsg = handleSysChatMsg(newChatMsg4);
+                            chatMsg.setMsgType(-1);
+                            z4 = msgContentFromServer2;
                         }
-                        str3 = TAG;
+                        str = "";
                     } else {
-                        int optInt7 = jSONObject.optInt("type");
-                        long optLong6 = jSONObject.optLong("msg_expires", 0L);
-                        int optInt8 = jSONObject.optInt("business_type");
+                        long optLong5 = jSONObject.optLong("group_id");
+                        int optInt6 = jSONObject.optInt("type");
+                        if (optInt6 == 80) {
+                            DuParser invokeParse2 = new DuParser(context, optString, optInt).invokeParse();
+                            if (invokeParse2.isMsgNull()) {
+                                return null;
+                            }
+                            newChatMsg = invokeParse2.getMsg();
+                            z6 = invokeParse2.isJsonParseResult();
+                        } else {
+                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt6, -1);
+                            if (newChatMsg != null) {
+                                z6 = newChatMsg.setMsgContentFromServer(optString);
+                                newChatMsg.setMsgType(optInt6);
+                            } else {
+                                z6 = false;
+                            }
+                        }
+                        if (newChatMsg == null) {
+                            return newChatMsg;
+                        }
+                        newChatMsg.setCategory(optInt);
+                        newChatMsg.setContacter(optLong5);
+                        newChatMsg.setFromUser(optLong2);
+                        if (!TextUtils.isEmpty(newChatMsg.getMsgContent())) {
+                            JSONObject jSONObject2 = new JSONObject(newChatMsg.getMsgContent());
+                            jSONObject2.put("tips", optString2);
+                            newChatMsg.setMsgContent(jSONObject2.toString());
+                        }
+                        chatMsg = newChatMsg;
+                        str = "";
+                        z4 = z6;
+                    }
+                    str3 = TAG;
+                } else {
+                    int optInt7 = jSONObject.optInt("type");
+                    long optLong6 = jSONObject.optLong("msg_expires", 0L);
+                    int optInt8 = jSONObject.optInt("business_type");
+                    try {
+                        str = "";
                         try {
-                            str = "";
-                            try {
-                                i = new JSONObject(optString2).optInt("template_type", 0);
-                                str3 = TAG;
-                            } catch (JSONException e) {
-                                e = e;
-                                str3 = TAG;
-                                LogUtils.e(str3, "parserMessage template_type:", e);
-                                i = 0;
-                                isDuMsg = isDuMsg(optInt7, optInt8, i);
-                                if (i != 2) {
-                                    z3 = false;
-                                    if (!isDuMsg) {
-                                    }
-                                    j = optLong6;
-                                    str2 = "content";
-                                    invokeParse = new DuParser(context, optString2, optInt).invokeParse();
-                                    if (!invokeParse.isMsgNull()) {
-                                    }
-                                }
-                                z3 = true;
+                            i = new JSONObject(optString).optInt("template_type", 0);
+                            str3 = TAG;
+                        } catch (JSONException e2) {
+                            e = e2;
+                            str3 = TAG;
+                            LogUtils.e(str3, "parserMessage template_type:", e);
+                            i = 0;
+                            isDuMsg = isDuMsg(optInt7, optInt8, i);
+                            if (i != 2) {
+                                z3 = false;
                                 if (!isDuMsg) {
                                 }
                                 j = optLong6;
                                 str2 = "content";
-                                invokeParse = new DuParser(context, optString2, optInt).invokeParse();
+                                invokeParse = new DuParser(context, optString, optInt).invokeParse();
                                 if (!invokeParse.isMsgNull()) {
                                 }
                             }
-                        } catch (JSONException e2) {
-                            e = e2;
-                            str = "";
-                        }
-                        isDuMsg = isDuMsg(optInt7, optInt8, i);
-                        if (i != 2 && i != 3 && i != 5 && i != 6) {
-                            z3 = false;
-                            if (!isDuMsg && !z3) {
-                                if ((i != 1 || i == 4) && optInt7 == 80) {
-                                    optInt7 = 0;
-                                }
-                                msg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt7, -1);
-                                if (msg != null) {
-                                    return msg;
-                                }
-                                msg.setMsgType(optInt7);
-                                boolean msgContentFromServer3 = msg.setMsgContentFromServer(optString2);
-                                msg.setTemplateType(i);
-                                if (msg.isDumiMessage()) {
-                                    msg.setChatType(100);
-                                    StringBuilder sb = new StringBuilder();
-                                    i2 = optInt7;
-                                    sb.append("setchattype as dumi ");
-                                    j = optLong6;
-                                    sb.append(msg.getMsgId());
-                                    LogUtils.d(str3, sb.toString());
-                                } else {
-                                    i2 = optInt7;
-                                    j = optLong6;
-                                }
-                                msg.setChatType(0);
-                                str2 = "content";
-                                if (optInt8 == 11) {
-                                    try {
-                                        JSONObject jSONObject3 = new JSONObject(jSONObject.optString(str2));
-                                        String optString4 = jSONObject3.optString("ext");
-                                        if (!TextUtils.isEmpty(optString4) && new JSONObject(optString4).optInt("sub_app_identity") == 20) {
-                                            msg.setChatType(20);
-                                        }
-                                        String optString5 = jSONObject3.optString("text");
-                                        if (!TextUtils.isEmpty(optString5)) {
-                                            msg.setMsgContent(optString5);
-                                        }
-                                        LogUtils.w(str3, "parserMessage studioPa msg :" + msg.toString());
-                                    } catch (Exception e3) {
-                                        LogUtils.e(str3, "IM_BUSINESS_TYPE_STUDIO_USE_PA Exception :", e3);
-                                    }
-                                }
-                                isJsonParseResult = msgContentFromServer3;
-                                optInt7 = i2;
-                                if (optInt8 == 10 && optInt7 == 0) {
-                                    optString = new JSONObject(jSONObject.optString(str2)).optString("ext");
-                                    if (!TextUtils.isEmpty(optString)) {
-                                        JSONObject jSONObject4 = new JSONObject(optString);
-                                        if (jSONObject4.has(IMConstants.MSG_CONTENT_EXT_ACTION)) {
-                                            msg.setInterActiveAction(jSONObject4.optString(IMConstants.MSG_CONTENT_EXT_ACTION));
-                                        }
-                                        if (jSONObject4.has(IMConstants.MSG_CONTENT_EXT_SOURCE)) {
-                                            msg.setInterActiveSource(jSONObject4.optInt(IMConstants.MSG_CONTENT_EXT_SOURCE));
-                                        }
-                                    }
-                                }
-                                if (optInt8 > 0) {
-                                    msg.setBusinessType(optInt8);
-                                }
-                                msg.setCategory(optInt);
-                                msg.setContacter(optLong4);
-                                msg.setFromUser(optLong2);
-                                msg.setExpiresTime(j);
-                                msg.setTips(optString3);
-                                z4 = isJsonParseResult;
-                                chatMsg = msg;
+                            z3 = true;
+                            if (!isDuMsg) {
                             }
                             j = optLong6;
                             str2 = "content";
-                            invokeParse = new DuParser(context, optString2, optInt).invokeParse();
+                            invokeParse = new DuParser(context, optString, optInt).invokeParse();
                             if (!invokeParse.isMsgNull()) {
-                                return null;
                             }
-                            msg = invokeParse.getMsg();
-                            isJsonParseResult = invokeParse.isJsonParseResult();
-                            if (optInt8 == 10) {
-                                optString = new JSONObject(jSONObject.optString(str2)).optString("ext");
-                                if (!TextUtils.isEmpty(optString)) {
+                        }
+                    } catch (JSONException e3) {
+                        e = e3;
+                        str = "";
+                    }
+                    isDuMsg = isDuMsg(optInt7, optInt8, i);
+                    if (i != 2 && i != 3 && i != 5 && i != 6) {
+                        z3 = false;
+                        if (!isDuMsg && !z3) {
+                            if ((i != 1 || i == 4) && optInt7 == 80) {
+                                optInt7 = 0;
+                            }
+                            msg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt7, -1);
+                            if (msg != null) {
+                                return msg;
+                            }
+                            msg.setMsgType(optInt7);
+                            boolean msgContentFromServer3 = msg.setMsgContentFromServer(optString);
+                            msg.setTemplateType(i);
+                            if (msg.isDumiMessage()) {
+                                msg.setChatType(100);
+                                StringBuilder sb = new StringBuilder();
+                                i2 = optInt7;
+                                sb.append("setchattype as dumi ");
+                                j = optLong6;
+                                sb.append(msg.getMsgId());
+                                LogUtils.d(str3, sb.toString());
+                            } else {
+                                i2 = optInt7;
+                                j = optLong6;
+                            }
+                            msg.setChatType(0);
+                            str2 = "content";
+                            if (optInt8 == 11) {
+                                try {
+                                    JSONObject jSONObject3 = new JSONObject(jSONObject.optString(str2));
+                                    String optString4 = jSONObject3.optString("ext");
+                                    if (!TextUtils.isEmpty(optString4) && new JSONObject(optString4).optInt("sub_app_identity") == 20) {
+                                        msg.setChatType(20);
+                                    }
+                                    String optString5 = jSONObject3.optString("text");
+                                    if (!TextUtils.isEmpty(optString5)) {
+                                        msg.setMsgContent(optString5);
+                                    }
+                                    LogUtils.w(str3, "parserMessage studioPa msg :" + msg.toString());
+                                } catch (Exception e4) {
+                                    LogUtils.e(str3, "IM_BUSINESS_TYPE_STUDIO_USE_PA Exception :", e4);
+                                }
+                            }
+                            isJsonParseResult = msgContentFromServer3;
+                            optInt7 = i2;
+                            if (optInt8 == 10 && optInt7 == 0) {
+                                optString3 = new JSONObject(jSONObject.optString(str2)).optString("ext");
+                                if (!TextUtils.isEmpty(optString3)) {
+                                    JSONObject jSONObject4 = new JSONObject(optString3);
+                                    if (jSONObject4.has(IMConstants.MSG_CONTENT_EXT_ACTION)) {
+                                        msg.setInterActiveAction(jSONObject4.optString(IMConstants.MSG_CONTENT_EXT_ACTION));
+                                    }
+                                    if (jSONObject4.has(IMConstants.MSG_CONTENT_EXT_SOURCE)) {
+                                        msg.setInterActiveSource(jSONObject4.optInt(IMConstants.MSG_CONTENT_EXT_SOURCE));
+                                    }
                                 }
                             }
                             if (optInt8 > 0) {
+                                msg.setBusinessType(optInt8);
                             }
                             msg.setCategory(optInt);
                             msg.setContacter(optLong4);
                             msg.setFromUser(optLong2);
                             msg.setExpiresTime(j);
-                            msg.setTips(optString3);
+                            msg.setTips(optString2);
                             z4 = isJsonParseResult;
                             chatMsg = msg;
                         }
-                        z3 = true;
-                        if (!isDuMsg) {
-                            if (i != 1) {
-                            }
-                            optInt7 = 0;
-                            msg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt7, -1);
-                            if (msg != null) {
-                            }
-                        }
                         j = optLong6;
                         str2 = "content";
-                        invokeParse = new DuParser(context, optString2, optInt).invokeParse();
+                        invokeParse = new DuParser(context, optString, optInt).invokeParse();
                         if (!invokeParse.isMsgNull()) {
-                        }
-                    }
-                    if (!z4 && z) {
-                        return null;
-                    }
-                    if (chatMsg != null) {
-                        if (chatMsg.shouldAbandonMsg(context)) {
-                            LogUtils.d(str3, "msg will abandon for shouldAbandonMsg=true, msg=" + chatMsg.toString());
                             return null;
                         }
-                        chatMsg.setMsgId(optLong);
-                        chatMsg.setMsgTime(optLong3);
-                        if (jSONObject.has("contacter_uk")) {
-                            chatMsg.setContacterUk(jSONObject.optLong("contacter_uk"));
-                        }
-                        if (jSONObject.has("appid")) {
-                            chatMsg.setAppId(jSONObject.optLong("appid"));
-                        }
-                        if (jSONObject.has("is_read")) {
-                            int optInt9 = jSONObject.optInt("is_read");
-                            chatMsg.setMsgReaded(optInt9);
-                            if (optInt9 == 1) {
-                                z5 = true;
-                            } else {
-                                z5 = false;
+                        msg = invokeParse.getMsg();
+                        isJsonParseResult = invokeParse.isJsonParseResult();
+                        if (optInt8 == 10) {
+                            optString3 = new JSONObject(jSONObject.optString(str2)).optString("ext");
+                            if (!TextUtils.isEmpty(optString3)) {
                             }
-                            chatMsg.setIsClicked(z5);
                         }
-                        if (chatMsg.isSelf(context)) {
-                            r1 = 1;
-                            chatMsg.setMsgReaded(1);
-                        } else {
-                            r1 = 1;
+                        if (optInt8 > 0) {
                         }
-                        if (MsgUtility.isNotice(chatMsg)) {
-                            chatMsg.setMsgReaded(r1);
-                        }
-                        if (chatMsg.isMsgRead()) {
-                            chatMsg.setIsClicked(r1);
-                        }
-                        if (optInt == 0 && (17592186044416L & optLong4) != 0) {
-                            chatMsg.setPaid(optLong4);
-                        } else {
-                            chatMsg.setPaid(jSONObject.optLong(Constants.EXTRA_PAUID_TYPE, -1L));
-                        }
-                        JSONObject jSONObject5 = new JSONObject(optString2);
-                        if (jSONObject5.has("send_type")) {
-                            chatMsg.setSendType(jSONObject5.optInt("send_type"));
-                        }
-                        if (jSONObject5.has("send_scene")) {
-                            chatMsg.setSendScene(jSONObject5.optInt("send_scene"));
-                        }
-                        String str4 = str;
-                        chatMsg.setMsgKey(jSONObject.optString("msg_key", str4));
-                        chatMsg.setDeviceFlag(2);
-                        chatMsg.setOriginPa(jSONObject.optString("origin_pa", str4));
+                        msg.setCategory(optInt);
+                        msg.setContacter(optLong4);
+                        msg.setFromUser(optLong2);
+                        msg.setExpiresTime(j);
+                        msg.setTips(optString2);
+                        z4 = isJsonParseResult;
+                        chatMsg = msg;
                     }
-                    return chatMsg;
-                } catch (Exception e4) {
-                    e = e4;
-                    str3 = TAG;
-                    LogUtils.e(str3, "parserMessage:", e);
+                    z3 = true;
+                    if (!isDuMsg) {
+                        if (i != 1) {
+                        }
+                        optInt7 = 0;
+                        msg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt7, -1);
+                        if (msg != null) {
+                        }
+                    }
+                    j = optLong6;
+                    str2 = "content";
+                    invokeParse = new DuParser(context, optString, optInt).invokeParse();
+                    if (!invokeParse.isMsgNull()) {
+                    }
+                }
+                if (!z4 && z) {
                     return null;
                 }
+                if (chatMsg != null) {
+                    if (chatMsg.shouldAbandonMsg(context)) {
+                        LogUtils.d(str3, "msg will abandon for shouldAbandonMsg=true, msg=" + chatMsg.toString());
+                        return null;
+                    }
+                    chatMsg.setMsgId(optLong);
+                    chatMsg.setMsgTime(optLong3);
+                    if (jSONObject.has("contacter_uk")) {
+                        chatMsg.setContacterUk(jSONObject.optLong("contacter_uk"));
+                    }
+                    if (jSONObject.has("appid")) {
+                        chatMsg.setAppId(jSONObject.optLong("appid"));
+                    }
+                    if (jSONObject.has("is_read")) {
+                        int optInt9 = jSONObject.optInt("is_read");
+                        chatMsg.setMsgReaded(optInt9);
+                        if (optInt9 == 1) {
+                            z5 = true;
+                        } else {
+                            z5 = false;
+                        }
+                        chatMsg.setIsClicked(z5);
+                    }
+                    if (chatMsg.isSelf(context)) {
+                        r1 = 1;
+                        chatMsg.setMsgReaded(1);
+                    } else {
+                        r1 = 1;
+                    }
+                    if (MsgUtility.isNotice(chatMsg)) {
+                        chatMsg.setMsgReaded(r1);
+                    }
+                    if (chatMsg.isMsgRead()) {
+                        chatMsg.setIsClicked(r1);
+                    }
+                    if (optInt == 0 && (17592186044416L & optLong4) != 0) {
+                        chatMsg.setPaid(optLong4);
+                    } else {
+                        chatMsg.setPaid(jSONObject.optLong(Constants.EXTRA_PAUID_TYPE, -1L));
+                    }
+                    JSONObject jSONObject5 = new JSONObject(optString);
+                    if (jSONObject5.has("send_type")) {
+                        chatMsg.setSendType(jSONObject5.optInt("send_type"));
+                    }
+                    if (jSONObject5.has("send_scene")) {
+                        chatMsg.setSendScene(jSONObject5.optInt("send_scene"));
+                    }
+                    String str4 = str;
+                    chatMsg.setMsgKey(jSONObject.optString("msg_key", str4));
+                    chatMsg.setDeviceFlag(2);
+                    chatMsg.setOriginPa(jSONObject.optString("origin_pa", str4));
+                }
+                return chatMsg;
             } catch (Exception e5) {
                 e = e5;
+                str3 = TAG;
+                LogUtils.e(str3, "parserMessage:", e);
+                return null;
             }
-        } else {
-            return (ChatMsg) invokeCommon.objValue;
         }
+        return (ChatMsg) invokeCommon.objValue;
     }
 
     public static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
@@ -1419,7 +1425,7 @@ public class MessageParser {
                     bLCPRequest.b = 95L;
                     bLCPRequest.c = newAckMessage.getBody().getBytes();
                     bLCPRequest.d = System.nanoTime();
-                    u90.d(bLCPRequest, new y90(newAckMessage, context, list, z) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
+                    s80.d(bLCPRequest, new w80(newAckMessage, context, list, z) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -1427,7 +1433,7 @@ public class MessageParser {
                         public final /* synthetic */ List val$lt;
                         public final /* synthetic */ NewAckMessage val$msg;
 
-                        @Override // com.baidu.tieba.aa0
+                        @Override // com.baidu.tieba.y80
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
@@ -1455,8 +1461,8 @@ public class MessageParser {
                             this.val$isReliable = z;
                         }
 
-                        @Override // com.baidu.tieba.y90
-                        public void onResponse(int i, String str, @NonNull y90.a aVar) {
+                        @Override // com.baidu.tieba.w80
+                        public void onResponse(int i, String str, @NonNull w80.a aVar) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
                                 LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + aVar.a + ", data :" + new String(aVar.c));

@@ -37,7 +37,7 @@ public class ApkDetailPojo extends OrmObject {
         }
     }
 
-    public static ApkDetailPojo V(ApkDetail apkDetail) {
+    public static ApkDetailPojo N(ApkDetail apkDetail) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, apkDetail)) == null) {
@@ -61,7 +61,7 @@ public class ApkDetailPojo extends OrmObject {
         return (ApkDetailPojo) invokeL.objValue;
     }
 
-    public static ApkDetailPojo W(tbclient.ApkDetail apkDetail) {
+    public static ApkDetailPojo O(tbclient.ApkDetail apkDetail) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, apkDetail)) == null) {

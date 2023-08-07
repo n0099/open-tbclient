@@ -1,71 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewTreeObserver;
-import android.widget.TextView;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.ISharePrefsWrapper;
+import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class zd1 implements ViewTreeObserver.OnGlobalLayoutListener {
+public class zd1 implements ISharePrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public int b;
 
-    public zd1(TextView textView) {
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
+            return null;
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putStringSet(String str, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        }
+    }
+
+    public zd1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        int maxLines = textView.getMaxLines();
-        this.b = maxLines;
-        if (maxLines <= 0) {
-            this.b = 1;
-        }
-        this.a = textView;
-        textView.setMaxLines(this.b + 1);
-        this.a.setSingleLine(false);
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        CharSequence text;
+    public final SharedPreferences a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = "";
-            if (this.a.getLineCount() > this.b) {
-                try {
-                    text = this.a.getText().subSequence(0, this.a.getLayout().getLineEnd(this.b - 1) - 2);
-                    str = "...";
-                } catch (Exception e) {
-                    rl0.d("CustomLinkByEllipsize", "", e);
-                    text = this.a.getText();
-                }
-                TextUtils.TruncateAt ellipsize = this.a.getEllipsize();
-                if (ellipsize == TextUtils.TruncateAt.START) {
-                    this.a.setText(str);
-                    this.a.append(text);
-                } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
-                    this.a.setText(text.subSequence(0, text.length() / 2));
-                    this.a.append(str);
-                    this.a.append(text.subSequence(text.length() / 2, text.length()));
-                } else {
-                    this.a.setText(text);
-                    this.a.append(str);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            return a().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
+            return a().getFloat(str, f);
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            return a().getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
+            return a().getLong(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            return a().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putBoolean(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
+            a().edit().putBoolean(str, z).commit();
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putFloat(String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
+            a().edit().putFloat(str, f).commit();
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putInt(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
+            a().edit().putInt(str, i).commit();
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putLong(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
+            a().edit().putLong(str, j).commit();
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
+    public void putString(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            a().edit().putString(str, str2).commit();
         }
     }
 }

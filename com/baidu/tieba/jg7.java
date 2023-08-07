@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.ye;
+import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetHorseRaceLampList.DataRes;
+import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes6.dex */
 public class jg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ye<byte[]> a;
+    public List<LiveHorseRaceData> a;
 
     public jg7() {
         Interceptable interceptable = $ic;
@@ -28,42 +30,31 @@ public class jg7 {
                 return;
             }
         }
-        b();
+        this.a = new ArrayList();
     }
 
-    public final void b() {
+    public List<LiveHorseRaceData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            o55.e();
-            this.a = o55.c("tb.tbtiel_level_info");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        ye.b<byte[]> bVar;
-        byte[] bArr;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ye<byte[]> yeVar = this.a;
-            if (yeVar != null && str != null) {
-                bVar = yeVar.h(str);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        new LiveHorseRaceData();
+        List<LiveList> list = dataRes.live_list;
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
+                liveHorseRaceData.parserProtobuf(list.get(i));
+                this.a.add(liveHorseRaceData);
+            }
         }
     }
 }

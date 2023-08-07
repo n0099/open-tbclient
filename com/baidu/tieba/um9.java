@@ -1,115 +1,197 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.RoundLinearLayout;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
-public class um9 implements tm9, PreLoadImageProvider {
+public class um9 extends BdBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public ArrayList<PreLoadImageInfo> d;
-    public String e;
+    public RoundLinearLayout a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TbPageContext f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
 
-    @Override // com.baidu.tieba.tm9
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    public um9(ExcContent excContent) {
-        Long l;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public um9(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
+            Object[] objArr = {tbPageContext, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
-            this.d = new ArrayList<>(1);
-            this.a = excContent.src;
-            String str = excContent.bsize;
-            this.e = str;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.b = wg.e(split[0], 0);
-                    this.c = wg.e(split[1], 0);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.b <= 0) {
-                this.b = 1;
-            }
-            if (this.c <= 0) {
-                this.c = 1;
-            }
-            String str2 = excContent.cdn_src;
-            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-            preLoadImageInfo.procType = 17;
-            preLoadImageInfo.height = this.c;
-            preLoadImageInfo.width = this.b;
-            if (StringUtils.isNull(str2)) {
-                preLoadImageInfo.imgUrl = this.a;
-            } else {
-                preLoadImageInfo.imgUrl = str2;
-            }
-            this.d.add(preLoadImageInfo);
-        }
+        this.f = tbPageContext;
+        E(tbPageContext, onClickListener);
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
+    public View A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i <= 0) {
-                return 0;
-            }
-            return (i * this.c) / this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeI.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public String d() {
+    public View D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
+    public View u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (ArrayList) invokeV.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void E(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, onClickListener) == null) {
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07de, (ViewGroup) null);
+            this.a = roundLinearLayout;
+            roundLinearLayout.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bfb);
+            this.b = textView;
+            textView.setOnClickListener(onClickListener);
+            TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bfd);
+            this.c = textView2;
+            textView2.setOnClickListener(onClickListener);
+            TextView textView3 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bf9);
+            this.d = textView3;
+            textView3.setOnClickListener(onClickListener);
+            TextView textView4 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bfc);
+            this.e = textView4;
+            textView4.setOnClickListener(onClickListener);
+            TextView textView5 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bfa);
+            this.g = textView5;
+            textView5.setOnClickListener(onClickListener);
+            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bfe);
+            TextView textView6 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091bf7);
+            this.i = textView6;
+            textView6.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void F(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e.setVisibility(0);
+            if (i == 0) {
+                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0cf9));
+            } else if (i == 1) {
+                this.e.setText(this.f.getResources().getString(R.string.un_mute));
+            }
+        }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.h.setVisibility(8);
+                return;
+            }
+            this.h.setVisibility(0);
+            this.h.setText(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c9a), str));
+        }
+    }
+
+    public void G(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            if (z) {
+                this.b.setText(R.string.obfuscated_res_0x7f0f1216);
+            } else {
+                this.b.setText(R.string.frs_recommend_friend_item_add);
+            }
+            if (z2) {
+                this.d.setText(R.string.obfuscated_res_0x7f0f1210);
+            } else {
+                this.d.setText(R.string.obfuscated_res_0x7f0f035f);
+            }
+            if (z3) {
+                this.i.setVisibility(0);
+            } else {
+                this.i.setVisibility(8);
+            }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0211);
+            SkinManager.setViewTextColorSelector(this.d, R.color.CAM_X0105);
+            SkinManager.setViewTextColorSelector(this.b, R.color.CAM_X0105);
+            SkinManager.setViewTextColorSelector(this.c, R.color.CAM_X0105);
+            SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColorSelector(this.i, R.color.CAM_X0105);
+            SkinManager.setViewTextColorSelector(this.g, R.color.CAM_X0107);
+        }
     }
 }

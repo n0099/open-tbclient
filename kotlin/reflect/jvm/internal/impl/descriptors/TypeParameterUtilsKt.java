@@ -21,11 +21,11 @@ import kotlin.sequences.SequencesKt___SequencesKt;
 /* loaded from: classes10.dex */
 public final class TypeParameterUtilsKt {
     public static final PossiblyInnerType buildPossiblyInnerType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2101getDeclarationDescriptor = kotlinType.getConstructor().mo2101getDeclarationDescriptor();
-        if (!(mo2101getDeclarationDescriptor instanceof ClassifierDescriptorWithTypeParameters)) {
-            mo2101getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (!(mo2102getDeclarationDescriptor instanceof ClassifierDescriptorWithTypeParameters)) {
+            mo2102getDeclarationDescriptor = null;
         }
-        return buildPossiblyInnerType(kotlinType, (ClassifierDescriptorWithTypeParameters) mo2101getDeclarationDescriptor, 0);
+        return buildPossiblyInnerType(kotlinType, (ClassifierDescriptorWithTypeParameters) mo2102getDeclarationDescriptor, 0);
     }
 
     public static final PossiblyInnerType buildPossiblyInnerType(KotlinType kotlinType, ClassifierDescriptorWithTypeParameters classifierDescriptorWithTypeParameters, int i) {

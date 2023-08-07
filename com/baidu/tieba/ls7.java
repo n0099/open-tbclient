@@ -1,12 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.content.Intent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ls7 {
-    void a(dca dcaVar, FrsViewData frsViewData);
+public class ls7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getView();
-
-    void onChangeSkinType(int i);
+    public static ks7 a(ps7 ps7Var, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ps7Var, intent)) == null) {
+            int intExtra = intent.getIntExtra("transition_type", 0);
+            if (intExtra == 1) {
+                return new qs7(ps7Var, intent);
+            }
+            if (intExtra == 2) {
+                return new js7(ps7Var, intent);
+            }
+            return null;
+        }
+        return (ks7) invokeLL.objValue;
+    }
 }

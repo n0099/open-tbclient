@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.data.GameData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a56;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.do5;
-import com.baidu.tieba.y46;
+import com.baidu.tieba.f26;
+import com.baidu.tieba.h26;
+import com.baidu.tieba.om5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class GameRelatedForumsView extends FrameLayout implements a56<String> {
+public class GameRelatedForumsView extends FrameLayout implements h26<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
@@ -44,13 +44,13 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
     public LinearLayoutManager c;
     public boolean d;
     public int e;
-    public co5 f;
-    public do5 g;
+    public LoadingView f;
+    public om5 g;
     public List<SelectForumData> h;
     public int i;
     public HttpMessageListener j;
 
-    @Override // com.baidu.tieba.a56
+    @Override // com.baidu.tieba.h26
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -210,7 +210,7 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a56
+    @Override // com.baidu.tieba.h26
     /* renamed from: o */
     public void c(String str) {
         Interceptable interceptable = $ic;
@@ -298,9 +298,9 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
             return;
         }
         if (this.f == null) {
-            co5 co5Var = new co5(getContext());
-            this.f = co5Var;
-            co5Var.onChangeSkinType();
+            LoadingView loadingView = new LoadingView(getContext());
+            this.f = loadingView;
+            loadingView.onChangeSkinType();
         }
         this.f.attachView(this, z);
     }
@@ -309,15 +309,15 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            if (getContext() instanceof y46) {
-                return ((y46) getContext()).h1();
+            if (getContext() instanceof f26) {
+                return ((f26) getContext()).d1();
             }
             return null;
         }
         return (GameData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a56
+    @Override // com.baidu.tieba.h26
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -325,22 +325,22 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
             return;
         }
         this.i = skinType;
-        co5 co5Var = this.f;
-        if (co5Var != null) {
-            co5Var.onChangeSkinType();
+        LoadingView loadingView = this.f;
+        if (loadingView != null) {
+            loadingView.onChangeSkinType();
         }
-        do5 do5Var = this.g;
-        if (do5Var != null) {
-            do5Var.onChangeSkinType();
+        om5 om5Var = this.g;
+        if (om5Var != null) {
+            om5Var.onChangeSkinType();
         }
         this.b.notifyDataSetChanged();
     }
 
     public void j() {
-        co5 co5Var;
+        LoadingView loadingView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (co5Var = this.f) != null) {
-            co5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (loadingView = this.f) != null) {
+            loadingView.dettachView(this);
             this.f = null;
         }
     }
@@ -348,9 +348,9 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            do5 do5Var = this.g;
-            if (do5Var != null) {
-                do5Var.dettachView(this);
+            om5 om5Var = this.g;
+            if (om5Var != null) {
+                om5Var.dettachView(this);
                 this.g = null;
             }
             this.a.setVisibility(0);
@@ -361,9 +361,9 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            co5 co5Var = this.f;
-            if (co5Var != null) {
-                return co5Var.isViewAttached();
+            LoadingView loadingView = this.f;
+            if (loadingView != null) {
+                return loadingView.isViewAttached();
             }
             return false;
         }
@@ -374,16 +374,16 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            do5 do5Var = this.g;
-            if (do5Var != null) {
-                return do5Var.isViewAttached();
+            om5 om5Var = this.g;
+            if (om5Var != null) {
+                return om5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.a56
+    @Override // com.baidu.tieba.h26
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -396,14 +396,14 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
         }
     }
 
-    @Override // com.baidu.tieba.a56
+    @Override // com.baidu.tieba.h26
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             GameData gameData = getGameData();
             if (gameData != null) {
-                return String.format(getContext().getString(R.string.obfuscated_res_0x7f0f08c7), gameData.gameName);
+                return String.format(getContext().getString(R.string.obfuscated_res_0x7f0f08c8), gameData.gameName);
             }
             return null;
         }
@@ -413,8 +413,8 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c8, (ViewGroup) this, true);
-            this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09212d);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03cb, (ViewGroup) this, true);
+            this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092144);
             this.b = new SelectForumItemAdapter(this);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             this.c = linearLayoutManager;
@@ -431,17 +431,17 @@ public class GameRelatedForumsView extends FrameLayout implements a56<String> {
             return;
         }
         if (this.g == null) {
-            this.g = new do5(getContext(), new b(this));
+            this.g = new om5(getContext(), new b(this));
         }
-        this.g.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
+        this.g.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.g.attachView(this, z);
         if (z2) {
-            this.g.p();
+            this.g.o();
         } else {
-            this.g.h(R.drawable.new_pic_emotion_01);
-            this.g.e();
+            this.g.g(R.drawable.new_pic_emotion_01);
+            this.g.d();
         }
-        this.g.o(getContext().getString(R.string.obfuscated_res_0x7f0f00bb));
+        this.g.n(getContext().getString(R.string.obfuscated_res_0x7f0f00bb));
         this.a.setVisibility(8);
     }
 }

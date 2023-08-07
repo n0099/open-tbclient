@@ -1,99 +1,88 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.g02;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-@Service
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oe4 extends g02 implements ht1 {
+public class oe4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<g02.a> a;
 
-    public oe4() {
+    @NonNull
+    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            RecommendItemModel recommendItemModel = new RecommendItemModel();
+            recommendItemModel.appName = jSONObject.optString("app_name");
+            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
+            recommendItemModel.scheme = jSONObject.optString("scheme");
+            recommendItemModel.desc = jSONObject.optString("desc");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+            if (optJSONObject != null) {
+                recommendItemModel.buttonText = optJSONObject.optString("text");
             }
+            return recommendItemModel;
         }
-        this.a = new ArrayList<>();
+        return (RecommendItemModel) invokeL.objValue;
     }
 
-    @Nullable
-    public static oe4 c() {
-        InterceptResult invokeV;
-        s74 s74Var;
+    @NonNull
+    public static ne4 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            eb2 U = ix2.T().U();
-            if (U == null || (s74Var = (s74) U.n(s74.class)) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            ne4 ne4Var = new ne4();
+            if (jSONObject == null) {
+                return ne4Var;
             }
-            return s74Var.w3();
-        }
-        return (oe4) invokeV.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Iterator<g02.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.a.clear();
+            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
+            if (optJSONObject != null) {
+                ne4Var.a = a(optJSONObject);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ht1
-    public g02 getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c();
-        }
-        return (g02) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g02
-    public synchronized void a(g02.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (!this.a.contains(aVar)) {
-                    this.a.add(aVar);
+            ne4Var.b = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ne4Var.b.add(a(optJSONArray.optJSONObject(i)));
                 }
             }
+            return ne4Var;
         }
+        return (ne4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.g02
-    public synchronized void b(int i) {
+    @NonNull
+    public static pe4 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                Iterator<g02.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().b(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            pe4 pe4Var = new pe4();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                pe4Var.a = jSONObject.getInt("errno");
+                pe4Var.b = jSONObject.optString("errmsg");
+                pe4Var.c = jSONObject.optJSONObject("data");
+                return pe4Var;
+            } catch (JSONException e) {
+                pe4Var.a = -1;
+                pe4Var.b = "network error: response parse failed.";
+                if (ir1.a) {
+                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
                 }
+                return pe4Var;
             }
         }
+        return (pe4) invokeL.objValue;
     }
 }

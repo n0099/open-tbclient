@@ -1,19 +1,19 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gca;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.model.message.AddPollPostHttpResponseMessage;
 import com.baidu.tieba.model.message.AddPollPostRequestNetMessage;
 import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AddPollPostModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public long b;
-    public kb c;
+    public NetMessageListener c;
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -53,7 +53,7 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends kb {
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddPollPostModel a;
@@ -80,7 +80,7 @@ public class AddPollPostModel extends BdBaseModel {
             this.a = addPollPostModel;
         }
 
-        @Override // com.baidu.tieba.kb
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             AddPollPostHttpResponseMessage addPollPostHttpResponseMessage;
             String str;
@@ -132,46 +132,46 @@ public class AddPollPostModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l9) newInitContext.callArgs[0]);
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
-        Y();
+        Q();
     }
 
-    public void Z(b bVar) {
+    public void R(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void a0(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             this.b = j;
         }
     }
 
-    public void X(String str, String str2, long j) {
+    public void P(String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
-            addPollPostRequestNetMessage.setThreadId(wg.g(str, 0L));
+            addPollPostRequestNetMessage.setThreadId(JavaTypesHelper.toLong(str, 0L));
             addPollPostRequestNetMessage.setOptions(str2);
             addPollPostRequestNetMessage.setForumId(j);
             sendMessage(addPollPostRequestNetMessage);
         }
     }
 
-    public final void Y() {
+    public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            gca.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-            gca.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+            zaa.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+            zaa.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
         }
     }
 

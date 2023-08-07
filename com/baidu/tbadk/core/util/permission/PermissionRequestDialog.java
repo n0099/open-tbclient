@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l9;
-import com.baidu.tieba.p55;
+import com.baidu.tieba.m45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes4.dex */
-public class PermissionRequestDialog extends p55 {
+public class PermissionRequestDialog extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -93,14 +93,14 @@ public class PermissionRequestDialog extends p55 {
         }
     }
 
-    @Override // com.baidu.tieba.p55
-    public p55 create(l9<?> l9Var) {
+    @Override // com.baidu.tieba.m45
+    public m45 create(BdPageContext<?> bdPageContext) {
         InterceptResult invokeL;
         char c;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l9Var)) == null) {
-            super.create(l9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bdPageContext)) == null) {
+            super.create(bdPageContext);
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode != -63024214) {
@@ -127,16 +127,16 @@ public class PermissionRequestDialog extends p55 {
                     if (c != 2) {
                         string = null;
                     } else {
-                        str2 = l9Var.getString(R.string.request_permission_title_location);
-                        string = l9Var.getString(R.string.request_permission_detail_location);
+                        str2 = bdPageContext.getString(R.string.request_permission_title_location);
+                        string = bdPageContext.getString(R.string.request_permission_detail_location);
                     }
                 } else {
-                    str2 = l9Var.getString(R.string.request_permission_title_record_audio);
-                    string = l9Var.getString(R.string.request_permission_detail_record_audio);
+                    str2 = bdPageContext.getString(R.string.request_permission_title_record_audio);
+                    string = bdPageContext.getString(R.string.request_permission_detail_record_audio);
                 }
             } else {
-                str2 = l9Var.getString(R.string.request_permission_title_camera);
-                string = l9Var.getString(R.string.request_permission_detail_camera);
+                str2 = bdPageContext.getString(R.string.request_permission_title_camera);
+                string = bdPageContext.getString(R.string.request_permission_detail_camera);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends p55 {
             });
             return this;
         }
-        return (p55) invokeL.objValue;
+        return (m45) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

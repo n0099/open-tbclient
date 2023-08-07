@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jw0 extends pw0 {
+public abstract class jw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wz0 a;
 
     public jw0() {
         Interceptable interceptable = $ic;
@@ -25,43 +26,26 @@ public class jw0 extends pw0 {
         }
     }
 
-    @Override // com.baidu.tieba.pw0
-    public boolean E() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return q().V();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pw0
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            N(q().V());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
         }
     }
 
-    @Override // com.baidu.tieba.pw0
-    public void J() {
+    public void b(@NonNull wz0 wz0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean E = E();
-            if (E && y21.c(getContext()) == 0) {
-                y21.d(getContext(), (int) (y21.b(getContext()) * 0.35d));
-            }
-            M(E);
-            boolean z = !E;
-            N(z);
-            Q(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz0Var) == null) {
+            this.a = wz0Var;
         }
     }
 
-    public void Q(boolean z) {
+    public void c(@NonNull pw0 pw0Var) {
+        wz0 wz0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            q().w0(z);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pw0Var) != null) || (wz0Var = this.a) == null) {
+            return;
         }
+        wz0Var.d(pw0Var);
     }
 }

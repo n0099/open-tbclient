@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
+import org.json.JSONObject;
+import tbclient.CartoonThread;
 /* loaded from: classes6.dex */
 public class m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
+    public long a;
+    public int b;
 
     public m15() {
         Interceptable interceptable = $ic;
@@ -35,58 +31,43 @@ public class m15 {
         }
     }
 
-    public boolean a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNULL(this.a) && this.d > 0) {
-                int i = this.e;
-                if (i == 1 || i == 3) {
-                    long j = this.f;
-                    if (j > 0) {
-                        long j2 = this.g;
-                        if (j2 > 0 && j2 > j) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public void b(BigdayInfo bigdayInfo) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
-            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-                this.a = bigdayInfo.img_url;
-                this.b = bigdayInfo.jump_url;
-                this.c = bigdayInfo.img_colour.intValue();
-                this.d = bigdayInfo.id.longValue();
-                this.e = bigdayInfo.position.intValue();
-                this.f = bigdayInfo.start_time.longValue();
-                this.g = bigdayInfo.end_time.longValue();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
+            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void d(CartoonThread cartoonThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof m15)) {
-                return false;
-            }
-            m15 m15Var = (m15) obj;
-            if (!m15Var.a() || !a() || this.d != m15Var.d || !StringHelper.equals(this.a, m15Var.a) || (((this.b != null || m15Var.b != null) && !StringHelper.equals(this.b, m15Var.b)) || this.c != m15Var.c || this.e != m15Var.e || this.f != m15Var.f || this.g != m15Var.g)) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a = cartoonThread.cartoon_id.longValue();
+        this.b = cartoonThread.chapter_id.intValue();
     }
 }

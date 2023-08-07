@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,84 +9,55 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s03 extends x03 {
+public class s03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097555, "Lcom/baidu/tieba/s03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948097555, "Lcom/baidu/tieba/s03;");
-                return;
-            }
-        }
-        boolean z = fs1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s03(String str) {
-        super(str);
+    public s03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.x03
-    public boolean a(n03 n03Var, p03 p03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
-        InterceptResult invokeCommon;
+    public static s03 a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{n03Var, p03Var, context, unitedSchemeEntity, callbackHandler, vb3Var})) == null) {
-            v82.i("video", "open, video id:" + p03Var.j + " slave id: " + p03Var.c);
-            n03Var.l();
-            d(n03Var, p03Var, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x03
-    public n03 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            ty2 f = uy2.f(str, str2, str3);
-            if (f == null) {
-                return new n03(context, p03.h(jSONObject, new p03()));
-            }
-            if (!(f.i() instanceof n03)) {
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            String optString = jSONObject.optString("error");
+            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
                 return null;
             }
-            return (n03) f.i();
+            s03 s03Var = new s03();
+            s03Var.a = optJSONObject2.optString("ak");
+            s03Var.b = optJSONObject2.optString("sk");
+            s03Var.c = optJSONObject2.optString("token");
+            s03Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
+                s03Var.f = optJSONObject.optString("bosobject");
+                s03Var.e = optJSONObject.optString("bosurl");
+            }
+            return s03Var;
         }
-        return (n03) invokeLLLLL.objValue;
-    }
-
-    public final void d(n03 n03Var, p03 p03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, n03Var, p03Var, unitedSchemeEntity, callbackHandler) == null) {
-            n03Var.o(p03Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
+        return (s03) invokeLL.objValue;
     }
 }

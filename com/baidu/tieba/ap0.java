@@ -1,34 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.nadcore.stats.request.ClogBuilder;
 /* loaded from: classes5.dex */
-public final class ap0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    @Inject(force = false)
-    public static zo0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new xy0();
-        }
-        return (zo0) invokeV.objValue;
-    }
-
-    public static t11 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a().create();
-        }
-        return (t11) invokeV.objValue;
-    }
+public interface ap0 {
+    boolean a(String str, ClogBuilder.LogType logType, String str2);
 }

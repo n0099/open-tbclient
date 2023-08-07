@@ -10,6 +10,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
+import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.ss.android.socialbase.appdownloader.DownloadHandlerService;
 import com.ss.android.socialbase.appdownloader.e;
 import com.ss.android.socialbase.appdownloader.i;
@@ -64,7 +65,7 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         intent.putExtra("extra_click_download_ids", i2);
         intent.putExtra("extra_click_download_type", i);
         intent.putExtra("extra_from_notification", true);
-        return PendingIntent.getService(this.b, i2, intent, 201326592);
+        return PendingIntent.getService(this.b, i2, intent, BDImageView.DEFAULT_BORDER_COLOR);
     }
 
     private boolean a(BaseException baseException, com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo) {

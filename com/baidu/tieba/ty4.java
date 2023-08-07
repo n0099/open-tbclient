@@ -1,92 +1,98 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ty4 implements in6 {
+public class ty4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final View b;
+    public final ThreadAchievementShareInfo.ParamBean c;
+    public TbImageView d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
 
-    @Override // com.baidu.tieba.in6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        hn6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.in6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.in6
-    public /* synthetic */ void onDestroy() {
-        hn6.b(this);
-    }
-
-    public ty4() {
+    public ty4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = context;
+        this.b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
+        this.c = threadAchievementShareInfo.getParams();
+        c();
+        b();
+    }
+
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void b() {
+        ThreadAchievementShareInfo.ParamBean paramBean;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (paramBean = this.c) != null && paramBean.getVideo_info() != null && !TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
+            this.d.startLoad(this.c.getVideo_info().getThumbnail_url(), 10, false);
+            this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+            this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
         }
     }
 
-    public qda c(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
-        InterceptResult invokeCommon;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, str7, str8})) == null) {
-            Activity a = xm6.a(webView.getContext());
-            if (a != null) {
-                PayWalletActivityConfig payWalletActivityConfig = new PayWalletActivityConfig(a, new PayConfig().setPayType(1).setIsLeft("0").setPropsId(String.valueOf(str4)).setMoney(String.valueOf(i)).setPropsMon(String.valueOf(i2)).setVipType(str3).setPayChannel(str2).setAutoPay(i3).setReferPage(str6).setClickZone(str7).setFromScene(wg.e(str8, 0)));
-                payWalletActivityConfig.setRequestCode(25078);
-                payWalletActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, payWalletActivityConfig));
-            }
-            return new qda();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = (TextView) this.b.findViewById(R.id.comment_num);
+            this.g = (TextView) this.b.findViewById(R.id.comment_desc);
+            this.h = (TextView) this.b.findViewById(R.id.praise_desc);
+            TextView textView = (TextView) this.b.findViewById(R.id.praise_num);
+            this.i = textView;
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.video_img);
+            this.d = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.transparent);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.play_icon);
+            this.e = imageView;
+            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
-        return (qda) invokeCommon.objValue;
-    }
-
-    public qda d(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            if (hashMap == null) {
-                return null;
-            }
-            qda qdaVar = new qda();
-            String str = hashMap.get(WalletPayResultActivityConfig.PAY_RESULT);
-            if (StringUtils.isNotNull(str)) {
-                qdaVar.o(str);
-            }
-            return qdaVar;
-        }
-        return (qda) invokeLL.objValue;
     }
 }

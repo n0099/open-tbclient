@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+@Service
 /* loaded from: classes7.dex */
-public class rr7 implements MessageQueue.IdleHandler {
+public class rr7 implements h65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsModelController> a;
-    public MvcSocketResponsedMessage<nba, ?> b;
-    public MvcSocketMessage<FrsRequestData, nba> c;
-    public MvcNetMessage<FrsRequestData, nba> d;
-    public uba e;
+
+    @Override // com.baidu.tieba.h65
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_SHIELD_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public rr7() {
         Interceptable interceptable = $ic;
@@ -37,57 +34,13 @@ public class rr7 implements MessageQueue.IdleHandler {
         }
     }
 
-    @Override // android.os.MessageQueue.IdleHandler
-    public boolean queueIdle() {
+    @Override // com.baidu.tieba.h65
+    public f65 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.a.get();
-            if (frsModelController == null) {
-                return false;
-            }
-            frsModelController.b1(this.b, this.c, this.d);
-            uba ubaVar = this.e;
-            if (ubaVar != null) {
-                ubaVar.b();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new qr7();
         }
-        return invokeV.booleanValue;
-    }
-
-    public void a(FrsModelController frsModelController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.a = new WeakReference<>(frsModelController);
-        }
-    }
-
-    public void b(uba ubaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ubaVar) == null) {
-            this.e = ubaVar;
-        }
-    }
-
-    public void c(MvcSocketMessage<FrsRequestData, nba> mvcSocketMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
-            this.c = mvcSocketMessage;
-        }
-    }
-
-    public void d(MvcNetMessage<FrsRequestData, nba> mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.d = mvcNetMessage;
-        }
-    }
-
-    public void e(MvcSocketResponsedMessage<nba, ?> mvcSocketResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
-            this.b = mvcSocketResponsedMessage;
-        }
+        return (f65) invokeV.objValue;
     }
 }

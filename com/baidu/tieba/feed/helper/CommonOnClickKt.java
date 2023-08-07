@@ -2,9 +2,9 @@ package com.baidu.tieba.feed.helper;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.c67;
+import com.baidu.tieba.d67;
 import com.baidu.tieba.feed.widget.FeedBackReasonView;
-import com.baidu.tieba.u87;
-import com.baidu.tieba.v87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public final class CommonOnClickKt {
     public static /* synthetic */ Interceptable $ic;
     public static final Function2<View, String, Unit> a;
-    public static final Function2<u87, View, Unit> b;
+    public static final Function2<c67, View, Unit> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public final class CommonOnClickKt {
         b = CommonOnClickKt$FeedBackOnClick$1.INSTANCE;
     }
 
-    public static final Function2<u87, View, Unit> a() {
+    public static final Function2<c67, View, Unit> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -60,7 +60,7 @@ public final class CommonOnClickKt {
         return (Function2) invokeV.objValue;
     }
 
-    public static final JSONObject c(v87 businessData, List<Integer> selectedIds, List<? extends FeedBackReasonView.b> reasons) {
+    public static final JSONObject c(d67 businessData, List<Integer> selectedIds, List<? extends FeedBackReasonView.b> reasons) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, businessData, selectedIds, reasons)) == null) {

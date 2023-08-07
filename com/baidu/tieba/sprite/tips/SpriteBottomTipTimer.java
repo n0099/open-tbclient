@@ -1,6 +1,6 @@
 package com.baidu.tieba.sprite.tips;
 
-import com.baidu.tieba.zg;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +62,7 @@ public final class SpriteBottomTipTimer {
                         aVar.onLoop();
                     }
                 }
-                zg.a().postDelayed(this, 300000L);
+                SafeHandler.getInst().postDelayed(this, 300000L);
             }
         }
     }
@@ -98,6 +98,6 @@ public final class SpriteBottomTipTimer {
         }
         this.a = new ArrayList<>();
         this.b = new b(this);
-        zg.a().postDelayed(this.b, 300000L);
+        SafeHandler.getInst().postDelayed(this.b, 300000L);
     }
 }

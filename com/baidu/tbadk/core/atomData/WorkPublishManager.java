@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.atomData;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.bfa;
-import com.baidu.tieba.rta;
+import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
+import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,21 +77,21 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            bfa.k(true);
-            bfa.i(str2);
+            WriteMsgHolder.setFromPersonCenter(true);
+            WriteMsgHolder.setFlutterPageId(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            bfa.j(8);
-            bfa.i(str2);
+            WriteMsgHolder.setFrom(8);
+            WriteMsgHolder.setFlutterPageId(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (rta.b()) {
-            rta.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (WriteVideoUtil.hasDraft()) {
+            WriteVideoUtil.openBottomActionSheet(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        rta.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        WriteVideoUtil.sendThread(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

@@ -3,12 +3,12 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.media.ThumbnailUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.qg;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.dg;
+import com.baidu.tieba.eg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes4.dex */
-public class LocalVideoThumbLoaderProc implements tg<jn> {
+public class LocalVideoThumbLoaderProc implements eg<BdImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public jn m127decodeToResource(byte[] bArr, Object... objArr) {
+    public BdImage m127decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, objArr)) == null) {
             return null;
         }
-        return (jn) invokeLL.objValue;
+        return (BdImage) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.tg
+    @Override // com.baidu.tieba.eg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class LocalVideoThumbLoaderProc implements tg<jn> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tg
+    @Override // com.baidu.tieba.eg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public class LocalVideoThumbLoaderProc implements tg<jn> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.tg
-    public jn getFromRemote(String str, String str2, int i, int i2, qg qgVar, Object... objArr) {
+    @Override // com.baidu.tieba.eg
+    public BdImage getFromRemote(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), qgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
             return null;
         }
-        return (jn) invokeCommon.objValue;
+        return (BdImage) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.tg
+    @Override // com.baidu.tieba.eg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,51 +93,51 @@ public class LocalVideoThumbLoaderProc implements tg<jn> {
         }
     }
 
-    public jn createVideoThumbnail(String str, int i, int i2) {
+    public BdImage createVideoThumbnail(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
                 if (new File(str).exists()) {
-                    return new jn(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
+                    return new BdImage(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
                 }
                 return null;
             } catch (Throwable unused) {
                 return null;
             }
         }
-        return (jn) invokeLII.objValue;
+        return (BdImage) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.tg
-    public jn getFromLocal(String str, String str2, int i, int i2, qg qgVar, Object... objArr) {
+    @Override // com.baidu.tieba.eg
+    public BdImage getFromLocal(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), qgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return createVideoThumbnail(str, i, i2);
         }
-        return (jn) invokeCommon.objValue;
+        return (BdImage) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.tg
-    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.eg
+    public BdImage getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            jn checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.v().A(toCacheKey(str)), i, i2);
-            if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
+            BdImage checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.B().D(toCacheKey(str)), i, i2);
+            if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.getRawBitmap() != null && !checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
             return null;
         }
-        return (jn) invokeCommon.objValue;
+        return (BdImage) invokeCommon.objValue;
     }
 
     public String toCacheKey(String str) {
@@ -149,15 +149,15 @@ public class LocalVideoThumbLoaderProc implements tg<jn> {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tg
+    @Override // com.baidu.tieba.eg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof jn)) {
-            jn jnVar = (jn) obj;
-            if (jnVar.u()) {
-                jnVar.A(i);
-                jnVar.z(i2);
-                TbImageMemoryCache.v().m(toCacheKey(str), jnVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof BdImage)) {
+            BdImage bdImage = (BdImage) obj;
+            if (bdImage.isNeedCache()) {
+                bdImage.setRequestWidth(i);
+                bdImage.setRequestHeight(i2);
+                TbImageMemoryCache.B().m(toCacheKey(str), bdImage);
             }
         }
     }

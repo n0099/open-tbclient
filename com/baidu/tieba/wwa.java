@@ -1,48 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.List;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface wwa<D> {
-    void a(@NonNull WriteData writeData);
+public class wwa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(WriteData writeData);
-
-    void d();
-
-    void e(@NonNull WriteData writeData);
-
-    boolean g();
-
-    void h(@Nullable String str, @NonNull WriteData writeData);
-
-    void j(@NonNull ywa ywaVar);
-
-    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
-
-    boolean o();
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    void onChangeSkinType(int i);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void q(@NonNull List<wwa<?>> list);
-
-    void r(zi5 zi5Var);
-
-    View s(@NonNull ViewGroup viewGroup);
-
-    boolean t();
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, mh5Var, str) == null) {
+            if ("e1".equals(str)) {
+                exa.h(tbPageContext, editorTools, mh5Var);
+            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
+                exa.j(tbPageContext, editorTools, mh5Var);
+            } else if ("e3".equals(str)) {
+                exa.k(tbPageContext, editorTools, mh5Var);
+            } else if ("e4".equals(str)) {
+                exa.g(tbPageContext, editorTools, mh5Var);
+            } else if ("e5".equals(str)) {
+                exa.d(editorTools, mh5Var);
+            } else if ("e6".equals(str)) {
+                exa.a(tbPageContext, editorTools, mh5Var);
+            } else if ("e7".equals(str)) {
+                exa.l(tbPageContext, editorTools, mh5Var);
+            } else if ("e8".equals(str)) {
+                exa.b(tbPageContext, editorTools, mh5Var);
+            } else if ("e9".equals(str)) {
+                exa.i(tbPageContext, editorTools);
+            } else if ("e10".equals(str)) {
+                exa.c(tbPageContext, editorTools, mh5Var);
+            } else if ("e11".equals(str)) {
+                exa.f(tbPageContext, editorTools, mh5Var);
+            } else if ("e12".equals(str)) {
+                exa.e(tbPageContext, editorTools, mh5Var);
+            }
+        }
+    }
 }

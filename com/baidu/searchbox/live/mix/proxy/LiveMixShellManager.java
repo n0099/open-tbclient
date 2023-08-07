@@ -8,11 +8,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.live.arch.utils.MiniJsonUtils;
 import com.baidu.live.arch.utils.MixUriUtilKt;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.chainlog.NpsLoadChainLog;
+import com.baidu.searchbox.live.data.constant.PwLogConstant;
 import com.baidu.searchbox.live.host2live.video.IVideoInsertLiveService;
 import com.baidu.searchbox.live.interfaces.context.PluginContextUtil;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
@@ -20,7 +20,9 @@ import com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback;
 import com.baidu.searchbox.live.interfaces.player.internal.LivePreStartPlayerService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.searchbox.live.interfaces.service.ILiveKernalService;
+import com.baidu.searchbox.live.interfaces.service.Media2YYService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
 import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
@@ -37,20 +39,25 @@ import com.baidu.searchbox.live.util.LiveActivityUtil;
 import com.baidu.searchbox.live.util.MiniPluginInfoHelper;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidubce.auth.NTLMEngineImpl;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import kotlin.Metadata;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsJVMKt;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b[\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J!\u0010\n\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bJ=\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014JQ\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0013\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\r\u0010\u001b\u001a\u00020\u0004¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u001d\u0010\u001eJ!\u0010\"\u001a\u00020\u00012\b\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010!\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\"\u0010#J\u0017\u0010%\u001a\u00020\u00012\u0006\u0010$\u001a\u00020\u0004H\u0002¢\u0006\u0004\b%\u0010\u0007J\u000f\u0010&\u001a\u00020\u0001H\u0002¢\u0006\u0004\b&\u0010\u0003J#\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00040(2\u0006\u0010'\u001a\u00020\u0004H\u0002¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u00020\u0001H\u0002¢\u0006\u0004\b+\u0010\u0003J\u001f\u0010.\u001a\u00020\u00012\u0006\u0010-\u001a\u00020,2\u0006\u0010\r\u001a\u00020\fH\u0002¢\u0006\u0004\b.\u0010/Ja\u00101\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u00152\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u0004H\u0002¢\u0006\u0004\b1\u00102J]\u00103\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u00152\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u0004H\u0002¢\u0006\u0004\b3\u00104J\u001d\u00105\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\u0006\u0010'\u001a\u00020\u0004¢\u0006\u0004\b5\u00106R\u0016\u00107\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b7\u00108R\u0016\u00109\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b9\u00108R\u0016\u0010:\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b:\u00108R\u0016\u0010;\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b;\u00108R\u001e\u0010>\u001a\n =*\u0004\u0018\u00010<0<8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0018\u0010C\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010BR\u0016\u0010!\u001a\u00020\u00158\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010DR\u0016\u0010E\u001a\u00020\u00158\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010DR6\u0010I\u001a\"\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020G\u0018\u00010Fj\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020G\u0018\u0001`H8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bI\u0010JR\u0016\u0010K\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bK\u00108R\u0018\u0010L\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010BR\u001e\u0010N\u001a\n =*\u0004\u0018\u00010M0M8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bN\u0010OR\u001e\u0010Q\u001a\n =*\u0004\u0018\u00010P0P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bQ\u0010RR$\u0010 \u001a\u0004\u0018\u00010\u001f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010S\u001a\u0004\bT\u0010U\"\u0004\bV\u0010WR\u001e\u0010Y\u001a\n =*\u0004\u0018\u00010X0X8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bY\u0010Z¨\u0006\\"}, d2 = {"Lcom/baidu/searchbox/live/mix/proxy/LiveMixShellManager;", "", "enterFlowEnd", "()V", "", "slot", "enterFlowEndSlot", "(Ljava/lang/String;)V", "Lorg/json/JSONObject;", "jsonObject", "enterFlowStartSlot", "(Ljava/lang/String;Lorg/json/JSONObject;)V", "Landroid/content/Context;", "context", "roomId", "source", "params", "Landroid/net/Uri;", "uri", "enterLiveRoom", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V", "", "isYYMixLive", "preStartPlayer", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;ZZ)V", "entranceSupportPlayerReuse", "()Z", "getCurrentLoadRoomId", "()Ljava/lang/String;", "jumpToOuterWebView", "(Ljava/lang/String;)Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "stat", FlowInfoHelper.KEY_IS_COLDLAUNCH, "logPluginFlowEnd", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;Z)V", "message", "logShell", "npsLoadChainYYMixLive", "url", "", "parseYYLiveParamMap", "(Ljava/lang/String;)Ljava/util/Map;", "preloadMediaPlugin", "Landroid/content/Intent;", "intent", "releaseAndStartLiveActivity", "(Landroid/content/Intent;Landroid/content/Context;)V", "businessPluginStatus", "startLiveActivity", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;ZLjava/lang/String;)V", "startMixLiveActivity", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;ZZLjava/lang/String;)V", LiveYYPluginManager.USE_FROM_START_YY_LIVE_PAGE, "(Landroid/content/Context;Ljava/lang/String;)V", "KEY_ID_AUDIO_ENTER_AUDIO_ROOM_PERF_FLOW", "Ljava/lang/String;", "KEY_ID_AUDIO_RTC_JOIN", "UBC_ID_PLUGIN_PAGE_FLOW", "USE_FROM_START_LIVE_PAGE", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "Lcom/baidu/ubc/Flow;", "audioFlow", "Lcom/baidu/ubc/Flow;", "audioRtcFlow", "Z", "isDebug", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "mLaunchInfo", "Ljava/util/HashMap;", "mRoomId", "pageFlow", "Lcom/baidu/searchbox/live/interfaces/service/ILiveKernalService;", "playerSnapService", "Lcom/baidu/searchbox/live/interfaces/service/ILiveKernalService;", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartService", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "getStat", "()Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "setStat", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;)V", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009c\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\bf\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J!\u0010\n\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bJ=\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014JQ\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0013\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\r\u0010\u001b\u001a\u00020\u0004¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u001d\u0010\u001eJ!\u0010\"\u001a\u00020\u00012\b\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010!\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\"\u0010#J\u0017\u0010%\u001a\u00020\u00012\u0006\u0010$\u001a\u00020\u0004H\u0002¢\u0006\u0004\b%\u0010\u0007J\u000f\u0010&\u001a\u00020\u0001H\u0002¢\u0006\u0004\b&\u0010\u0003J#\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00040(2\u0006\u0010'\u001a\u00020\u0004H\u0002¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u00020\u0001H\u0002¢\u0006\u0004\b+\u0010\u0003J\u001f\u0010.\u001a\u00020\u00012\u0006\u0010-\u001a\u00020,2\u0006\u0010\r\u001a\u00020\fH\u0002¢\u0006\u0004\b.\u0010/Ja\u00101\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u00152\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u0004H\u0002¢\u0006\u0004\b1\u00102J]\u00103\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u00152\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u0004H\u0002¢\u0006\u0004\b3\u00104J\u001d\u00105\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\u0006\u0010'\u001a\u00020\u0004¢\u0006\u0004\b5\u00106R\u0016\u00107\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b7\u00108R\u0016\u00109\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b9\u00108R\u0016\u0010:\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b:\u00108R\u0016\u0010;\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b;\u00108R\u001e\u0010>\u001a\n =*\u0004\u0018\u00010<0<8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b>\u0010?R\u0018\u0010A\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0018\u0010C\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010BR\u001e\u0010E\u001a\n =*\u0004\u0018\u00010D0D8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010FR\u0016\u0010!\u001a\u00020\u00158\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010GR\u0016\u0010H\u001a\u00020\u00158\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bH\u0010GR6\u0010L\u001a\"\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020J\u0018\u00010Ij\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020J\u0018\u0001`K8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010MR\u0016\u0010N\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u00108R!\u0010P\u001a\n =*\u0004\u0018\u00010O0O8\u0006@\u0006¢\u0006\f\n\u0004\bP\u0010Q\u001a\u0004\bR\u0010SR\u0018\u0010T\u001a\u0004\u0018\u00010@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bT\u0010BR\u001e\u0010V\u001a\n =*\u0004\u0018\u00010U0U8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bV\u0010WR\u0016\u0010Y\u001a\u00020X8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bY\u0010ZR\u001e\u0010\\\u001a\n =*\u0004\u0018\u00010[0[8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\\\u0010]R$\u0010 \u001a\u0004\u0018\u00010\u001f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010^\u001a\u0004\b_\u0010`\"\u0004\ba\u0010bR\u001e\u0010d\u001a\n =*\u0004\u0018\u00010c0c8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bd\u0010e¨\u0006g"}, d2 = {"Lcom/baidu/searchbox/live/mix/proxy/LiveMixShellManager;", "", "enterFlowEnd", "()V", "", "slot", "enterFlowEndSlot", "(Ljava/lang/String;)V", "Lorg/json/JSONObject;", "jsonObject", "enterFlowStartSlot", "(Ljava/lang/String;Lorg/json/JSONObject;)V", "Landroid/content/Context;", "context", "roomId", "source", "params", "Landroid/net/Uri;", "uri", "enterLiveRoom", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V", "", "isYYMixLive", "preStartPlayer", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;ZZ)V", "entranceSupportPlayerReuse", "()Z", "getCurrentLoadRoomId", "()Ljava/lang/String;", "jumpToOuterWebView", "(Ljava/lang/String;)Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "stat", FlowInfoHelper.KEY_IS_COLDLAUNCH, "logPluginFlowEnd", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;Z)V", "message", "logShell", "npsLoadChainYYMixLive", "url", "", "parseYYLiveParamMap", "(Ljava/lang/String;)Ljava/util/Map;", "preloadMediaPlugin", "Landroid/content/Intent;", "intent", "releaseAndStartLiveActivity", "(Landroid/content/Intent;Landroid/content/Context;)V", "businessPluginStatus", "startLiveActivity", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;ZLjava/lang/String;)V", "startMixLiveActivity", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;ZZLjava/lang/String;)V", LiveYYPluginManager.USE_FROM_START_YY_LIVE_PAGE, "(Landroid/content/Context;Ljava/lang/String;)V", "KEY_ID_AUDIO_ENTER_AUDIO_ROOM_PERF_FLOW", "Ljava/lang/String;", "KEY_ID_AUDIO_RTC_JOIN", "UBC_ID_PLUGIN_PAGE_FLOW", "USE_FROM_START_LIVE_PAGE", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "Lcom/baidu/ubc/Flow;", "audioFlow", "Lcom/baidu/ubc/Flow;", "audioRtcFlow", "Lcom/baidu/searchbox/live/interfaces/service/EventDispatcherService;", "eventService", "Lcom/baidu/searchbox/live/interfaces/service/EventDispatcherService;", "Z", "isDebug", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "mLaunchInfo", "Ljava/util/HashMap;", "mRoomId", "Lcom/baidu/searchbox/live/interfaces/service/Media2YYService;", "media2YYService", "Lcom/baidu/searchbox/live/interfaces/service/Media2YYService;", "getMedia2YYService", "()Lcom/baidu/searchbox/live/interfaces/service/Media2YYService;", "pageFlow", "Lcom/baidu/searchbox/live/interfaces/service/ILiveKernalService;", "playerSnapService", "Lcom/baidu/searchbox/live/interfaces/service/ILiveKernalService;", "", "pluginLoadStartTime", "J", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartService", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "getStat", "()Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "setStat", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;)V", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class LiveMixShellManager {
     public static final String KEY_ID_AUDIO_ENTER_AUDIO_ROOM_PERF_FLOW = "2408";
@@ -59,12 +66,15 @@ public final class LiveMixShellManager {
     public static final String USE_FROM_START_LIVE_PAGE = "startLiveActivity";
     public static Flow audioFlow;
     public static Flow audioRtcFlow;
+    public static final EventDispatcherService eventService;
     public static boolean isColdLaunch;
     public static final boolean isDebug;
     public static HashMap<String, Object> mLaunchInfo;
     public static String mRoomId;
+    public static final Media2YYService media2YYService;
     public static Flow pageFlow;
     public static final ILiveKernalService playerSnapService;
+    public static long pluginLoadStartTime;
     public static final LivePreStartPlayerService preStartService;
     public static YYStatInfo stat;
     public static final LiveMixShellManager INSTANCE = new LiveMixShellManager();
@@ -82,12 +92,24 @@ public final class LiveMixShellManager {
         isDebug = z;
         preStartService = (LivePreStartPlayerService) ServiceManager.getService(LivePreStartPlayerService.Companion.getSERVICE_REFERENCE());
         playerSnapService = (ILiveKernalService) ServiceManager.getService(ILiveKernalService.Companion.getSERVICE_REFERENCE());
+        media2YYService = (Media2YYService) ServiceManager.getService(Media2YYService.Companion.getSERVICE_REFERENCE());
         mRoomId = "";
         isColdLaunch = true;
+        eventService = (EventDispatcherService) ServiceManager.getService(EventDispatcherService.Companion.getSERVICE_REFERENCE());
+    }
+
+    private final void preloadMediaPlugin() {
+        NpsLoadChainLog.getInstance().dLog("LiveMixShellManager preloadMediaPlugin");
+        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
+        npsLoadChainLog.dLog("LiveMixShellManager 禁止预加载二级实验：true");
     }
 
     public final String getCurrentLoadRoomId() {
         return mRoomId;
+    }
+
+    public final Media2YYService getMedia2YYService() {
+        return media2YYService;
     }
 
     public final YYStatInfo getStat() {
@@ -113,12 +135,10 @@ public final class LiveMixShellManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void releaseAndStartLiveActivity(Intent intent, Context context) {
-        Boolean bool;
         IVideoInsertLiveService iVideoInsertLiveService = (IVideoInsertLiveService) ServiceManager.getService(IVideoInsertLiveService.Companion.getSERVICE_REFERENCE());
+        Boolean bool = null;
         if (iVideoInsertLiveService != null) {
-            bool = Boolean.valueOf(iVideoInsertLiveService.releaseLive());
-        } else {
-            bool = null;
+            bool = Boolean.valueOf(IVideoInsertLiveService.DefaultImpls.releaseLive$default(iVideoInsertLiveService, null, 1, null));
         }
         if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
             intent.putExtra("finish_dispatch_lifecycle", true);
@@ -267,12 +287,20 @@ public final class LiveMixShellManager {
             return;
         }
         NpsLoadChainLog.getInstance().dLog("LiveMixShellManager enterLiveRoom 启动媒体一级插件未加载");
+        pluginLoadStartTime = System.currentTimeMillis();
+        EventDispatcherService eventDispatcherService = eventService;
+        if (eventDispatcherService != null) {
+            eventDispatcherService.onEvent(PwLogConstant.PW_UBC_PLUGIN_START, MapsKt__MapsJVMKt.mapOf(new Pair("obj_type", "com.baidu.searchbox.livenps")));
+        }
         PluginInvokeService pluginInvokeService5 = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
         if (pluginInvokeService5 != null) {
             PluginInvokeService.DefaultImpls.loadPlugin$default(pluginInvokeService5, "com.baidu.searchbox.livenps", "startLiveActivity", new PluginLoadCallback() { // from class: com.baidu.searchbox.live.mix.proxy.LiveMixShellManager$enterLiveRoom$3
                 @Override // com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback
                 public void onResult(boolean z5, int i, String str7) {
+                    EventDispatcherService eventDispatcherService2;
+                    EventDispatcherService eventDispatcherService3;
                     LivePreStartPlayerService livePreStartPlayerService;
+                    EventDispatcherService eventDispatcherService4;
                     boolean z6;
                     String str8;
                     Flow flow;
@@ -284,11 +312,26 @@ public final class LiveMixShellManager {
                     Flow flow5;
                     Flow flow6;
                     String str9;
+                    long j;
                     String str10 = str7;
                     NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
                     npsLoadChainLog2.dLog("LiveMixShellManager onResult 启动媒体一级插件加载结果：isSucc: " + z5 + "  retCode " + i + "  retMsg " + str10);
+                    LiveMixShellManager liveMixShellManager = LiveMixShellManager.INSTANCE;
+                    eventDispatcherService2 = LiveMixShellManager.eventService;
+                    boolean z7 = true;
+                    if (eventDispatcherService2 != null) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        LiveMixShellManager liveMixShellManager2 = LiveMixShellManager.INSTANCE;
+                        j = LiveMixShellManager.pluginLoadStartTime;
+                        eventDispatcherService2.onEvent(PwLogConstant.PW_UBC_PLUGIN_DUR, MapsKt__MapsKt.mapOf(new Pair("obj_type", "com.baidu.searchbox.livenps"), new Pair(TiebaStatic.Params.OBJ_DURATION, Long.valueOf(currentTimeMillis - j))));
+                    }
                     if (z5) {
-                        LiveMixShellManager liveMixShellManager = LiveMixShellManager.INSTANCE;
+                        LiveMixShellManager liveMixShellManager3 = LiveMixShellManager.INSTANCE;
+                        eventDispatcherService4 = LiveMixShellManager.eventService;
+                        if (eventDispatcherService4 != null) {
+                            eventDispatcherService4.onEvent(PwLogConstant.PW_UBC_PLUGIN_SUC, MapsKt__MapsJVMKt.mapOf(new Pair("obj_type", "com.baidu.searchbox.livenps")));
+                        }
+                        LiveMixShellManager liveMixShellManager4 = LiveMixShellManager.INSTANCE;
                         z6 = LiveMixShellManager.isColdLaunch;
                         if (z6) {
                             str8 = "1";
@@ -297,16 +340,15 @@ public final class LiveMixShellManager {
                         }
                         String str11 = str8;
                         try {
-                            LiveMixShellManager liveMixShellManager2 = LiveMixShellManager.INSTANCE;
+                            LiveMixShellManager liveMixShellManager5 = LiveMixShellManager.INSTANCE;
                             flow = LiveMixShellManager.pageFlow;
                             if (flow != null) {
                                 LiveMixShellManager.INSTANCE.setStat(new YYStatInfo());
                                 YYStatInfo stat4 = LiveMixShellManager.INSTANCE.getStat();
-                                boolean z7 = true;
                                 if (stat4 != null) {
                                     stat4.isColdLaunch = true;
                                 }
-                                LiveMixShellManager liveMixShellManager3 = LiveMixShellManager.INSTANCE;
+                                LiveMixShellManager liveMixShellManager6 = LiveMixShellManager.INSTANCE;
                                 LiveMixShellManager.isColdLaunch = false;
                                 YYStatInfo stat5 = LiveMixShellManager.INSTANCE.getStat();
                                 if (stat5 != null) {
@@ -314,52 +356,52 @@ public final class LiveMixShellManager {
                                 }
                                 YYStatInfo stat6 = LiveMixShellManager.INSTANCE.getStat();
                                 if (stat6 != null) {
-                                    LiveMixShellManager liveMixShellManager4 = LiveMixShellManager.INSTANCE;
+                                    LiveMixShellManager liveMixShellManager7 = LiveMixShellManager.INSTANCE;
                                     str9 = LiveMixShellManager.mRoomId;
                                     stat6.roomId = str9;
                                 }
                                 if (!z) {
                                     YYStatInfo stat7 = LiveMixShellManager.INSTANCE.getStat();
                                     if (stat7 != null) {
-                                        LiveMixShellManager liveMixShellManager5 = LiveMixShellManager.INSTANCE;
+                                        LiveMixShellManager liveMixShellManager8 = LiveMixShellManager.INSTANCE;
                                         flow6 = LiveMixShellManager.pageFlow;
                                         stat7.flowObj = flow6;
                                     }
-                                    LiveMixShellManager liveMixShellManager6 = LiveMixShellManager.INSTANCE;
+                                    LiveMixShellManager liveMixShellManager9 = LiveMixShellManager.INSTANCE;
                                     flow2 = LiveMixShellManager.audioRtcFlow;
                                     if (flow2 != null && (stat3 = LiveMixShellManager.INSTANCE.getStat()) != null) {
-                                        LiveMixShellManager liveMixShellManager7 = LiveMixShellManager.INSTANCE;
+                                        LiveMixShellManager liveMixShellManager10 = LiveMixShellManager.INSTANCE;
                                         flow5 = LiveMixShellManager.audioRtcFlow;
                                         stat3.flowAudioRtcObj = flow5;
                                     }
-                                    LiveMixShellManager liveMixShellManager8 = LiveMixShellManager.INSTANCE;
+                                    LiveMixShellManager liveMixShellManager11 = LiveMixShellManager.INSTANCE;
                                     flow3 = LiveMixShellManager.audioFlow;
                                     if (flow3 != null && (stat2 = LiveMixShellManager.INSTANCE.getStat()) != null) {
-                                        LiveMixShellManager liveMixShellManager9 = LiveMixShellManager.INSTANCE;
+                                        LiveMixShellManager liveMixShellManager12 = LiveMixShellManager.INSTANCE;
                                         flow4 = LiveMixShellManager.audioFlow;
                                         stat2.flowAudioObj = flow4;
                                     }
                                 } else {
                                     LiveMixShellManager.INSTANCE.enterFlowEnd();
                                 }
-                                LiveMixShellManager liveMixShellManager10 = LiveMixShellManager.INSTANCE;
+                                LiveMixShellManager liveMixShellManager13 = LiveMixShellManager.INSTANCE;
                                 YYStatInfo stat8 = LiveMixShellManager.INSTANCE.getStat();
                                 YYStatInfo stat9 = LiveMixShellManager.INSTANCE.getStat();
                                 if (stat9 != null) {
                                     z7 = stat9.isColdLaunch;
                                 }
-                                liveMixShellManager10.logPluginFlowEnd(stat8, z7);
+                                liveMixShellManager13.logPluginFlowEnd(stat8, z7);
                                 PluginInvokeService pluginInvokeService6 = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
                                 if (pluginInvokeService6 != null) {
                                     pluginInvokeService6.updateStatInfo(LiveMixShellManager.INSTANCE.getStat());
                                 }
-                                LiveMixShellManager liveMixShellManager11 = LiveMixShellManager.INSTANCE;
-                                LiveMixShellManager.mRoomId = "";
-                                LiveMixShellManager liveMixShellManager12 = LiveMixShellManager.INSTANCE;
-                                LiveMixShellManager.pageFlow = null;
-                                LiveMixShellManager liveMixShellManager13 = LiveMixShellManager.INSTANCE;
-                                LiveMixShellManager.audioRtcFlow = null;
                                 LiveMixShellManager liveMixShellManager14 = LiveMixShellManager.INSTANCE;
+                                LiveMixShellManager.mRoomId = "";
+                                LiveMixShellManager liveMixShellManager15 = LiveMixShellManager.INSTANCE;
+                                LiveMixShellManager.pageFlow = null;
+                                LiveMixShellManager liveMixShellManager16 = LiveMixShellManager.INSTANCE;
+                                LiveMixShellManager.audioRtcFlow = null;
+                                LiveMixShellManager liveMixShellManager17 = LiveMixShellManager.INSTANCE;
                                 LiveMixShellManager.audioFlow = null;
                             }
                         } catch (Throwable th2) {
@@ -389,7 +431,12 @@ public final class LiveMixShellManager {
                     if (toastService != null) {
                         ToastService.DefaultImpls.showNormal$default(toastService, context, "加载失败，请稍后重试", 0, 4, null);
                     }
-                    LiveMixShellManager liveMixShellManager15 = LiveMixShellManager.INSTANCE;
+                    LiveMixShellManager liveMixShellManager18 = LiveMixShellManager.INSTANCE;
+                    eventDispatcherService3 = LiveMixShellManager.eventService;
+                    if (eventDispatcherService3 != null) {
+                        eventDispatcherService3.onEvent(PwLogConstant.PW_UBC_PLUGIN_FAIL, MapsKt__MapsKt.mapOf(new Pair("obj_type", "com.baidu.searchbox.livenps"), new Pair("obj_param1", Integer.valueOf(i))));
+                    }
+                    LiveMixShellManager liveMixShellManager19 = LiveMixShellManager.INSTANCE;
                     livePreStartPlayerService = LiveMixShellManager.preStartService;
                     if (livePreStartPlayerService != null) {
                         livePreStartPlayerService.releasePreStartPlayer();
@@ -547,99 +594,78 @@ public final class LiveMixShellManager {
         return hashMap;
     }
 
-    private final void preloadMediaPlugin() {
-        Boolean bool;
-        PluginInvokeService pluginInvokeService;
-        NpsLoadChainLog.getInstance().dLog("LiveMixShellManager preloadMediaPlugin");
-        AbConfigService abConfigService = abService;
-        int i = 0;
-        if (abConfigService != null) {
-            bool = Boolean.valueOf(abConfigService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false));
-        } else {
-            bool = null;
-        }
-        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
-        npsLoadChainLog.dLog("LiveMixShellManager 禁止预加载二级实验：" + bool);
-        if (!Intrinsics.areEqual(bool, Boolean.TRUE) && (pluginInvokeService = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService()) != null && !pluginInvokeService.isPluginLoaded("com.baidu.live.media.business")) {
-            PluginInvokeService pluginInvokeService2 = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
-            if (pluginInvokeService2 != null) {
-                i = pluginInvokeService2.getPluginVersionCode("com.baidu.searchbox.livenps");
-            }
-            if (i >= 600500000) {
-                MiniPluginManager.INSTANCE.loadMediaPlugin(new PluginLoadCallback() { // from class: com.baidu.searchbox.live.mix.proxy.LiveMixShellManager$preloadMediaPlugin$1
-                    @Override // com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback
-                    public void onResult(boolean z, int i2, String str) {
-                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
-                        npsLoadChainLog2.dLog("LiveMixShellManager preloadMediaPlugin result " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str);
-                    }
-                });
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x023c A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0249 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x028b  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0143  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x014a  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0186  */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0193 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x01b2  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x01c3  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x01d1  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01d8  */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0205  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x020a  */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x026e A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x027b A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x02bd  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0177  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x018f  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01bd  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01ca A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01e9  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01f7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void startLiveActivity(final Context context, String str, String str2, String str3, Uri uri, Boolean bool, boolean z, String str4) {
-        boolean z2;
         int i;
-        boolean z3;
+        boolean z2;
         Boolean bool2;
         int i2;
-        boolean z4;
+        boolean z3;
         Integer num;
         String str5;
-        boolean z5;
+        boolean z4;
         String str6;
         String str7;
         JSONObject jSONObject;
         boolean optBoolean;
         YYStatInfo yYStatInfo;
         Boolean bool3;
-        boolean z6;
+        boolean z5;
         final Intent intent;
         Class cls;
-        boolean z7;
+        boolean z6;
         IVideoInsertLiveService iVideoInsertLiveService;
         Uri uri2;
         NpsLoadChainLog.getInstance().dLog("LiveMixShellManager startLiveActivity，isYYMixLive " + bool);
         if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
             preloadMediaPlugin();
         }
-        AbConfigService abConfigService = abService;
-        boolean z8 = false;
-        if (abConfigService != null) {
-            z2 = abConfigService.getSwitch(MiniPluginManager.LIVE_LEFT_SLIDE_CLOSE_ROOM_SWITCH, false);
-        } else {
-            z2 = false;
+        if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            if (uri != null) {
+                String str8 = (String) linkedHashMap.put("uri", uri.toString());
+            }
+            if (str3 != null) {
+                String str9 = (String) linkedHashMap.put("params", str3);
+            }
+            if (str != null) {
+                String str10 = (String) linkedHashMap.put("roomId", str);
+            }
+            Media2YYService media2YYService2 = media2YYService;
+            if (media2YYService2 != null) {
+                media2YYService2.postOnBeforeMixLiveActivityLaunch(context, Media2YYService.Companion.getMEDIA_2YY_POST_BEFORE_ACTIVITY_CONFIG(), linkedHashMap);
+            }
         }
         PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+        boolean z7 = false;
         if (pluginMgrService != null) {
             i = pluginMgrService.getPluginVersionCode("com.baidu.live.media.business");
         } else {
             i = 0;
         }
-        if (z2 && i >= 604000000) {
-            z3 = true;
+        if (i >= 604000000) {
+            z2 = true;
         } else {
-            z3 = false;
+            z2 = false;
         }
-        AbConfigService abConfigService2 = abService;
-        if (abConfigService2 != null) {
-            bool2 = Boolean.valueOf(abConfigService2.getSwitch(MiniPluginManager.LIVE_MEDIA_KERNAL_REUSE_SWITCH, false));
+        AbConfigService abConfigService = abService;
+        if (abConfigService != null) {
+            bool2 = Boolean.valueOf(abConfigService.getSwitch(MiniPluginManager.LIVE_MEDIA_KERNAL_REUSE_SWITCH, false));
         } else {
             bool2 = null;
         }
@@ -651,9 +677,9 @@ public final class LiveMixShellManager {
             i2 = 0;
         }
         if (i2 >= 601500000 && Intrinsics.areEqual(bool2, Boolean.TRUE)) {
-            z4 = true;
+            z3 = true;
         } else {
-            z4 = false;
+            z3 = false;
         }
         NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
         StringBuilder sb = new StringBuilder();
@@ -668,23 +694,23 @@ public final class LiveMixShellManager {
         npsLoadChainLog.dLog(sb.toString());
         if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
             boolean entranceSupportPlayerReuse = entranceSupportPlayerReuse();
-            if (z4 && entranceSupportPlayerReuse) {
-                z4 = true;
+            if (z3 && entranceSupportPlayerReuse) {
+                z3 = true;
             } else {
-                z4 = false;
+                z3 = false;
             }
         }
-        NpsLoadChainLog.getInstance().dLog("LiveMixShellManager isPluginSupportKernalReuse：" + z4);
-        String str8 = "";
+        NpsLoadChainLog.getInstance().dLog("LiveMixShellManager isPluginSupportKernalReuse：" + z3);
+        String str11 = "";
         if (str3 == null) {
             str5 = "";
         } else {
             str5 = str3;
         }
         if (!StringsKt__StringsKt.contains$default((CharSequence) str5, (CharSequence) "playUrl", false, 2, (Object) null) && !StringsKt__StringsKt.contains$default((CharSequence) str5, (CharSequence) "play_url", false, 2, (Object) null)) {
-            z5 = false;
+            z4 = false;
         } else {
-            z5 = true;
+            z4 = true;
         }
         if (!TextUtils.isEmpty(str5)) {
             try {
@@ -710,14 +736,14 @@ public final class LiveMixShellManager {
                 MediaLivePluginLogger companion = MediaLivePluginLogger.Companion.getInstance();
                 if (str != null) {
                 }
-                companion.updateStartPageInfo(str8, str2, z5, booleanRef.element, str4);
+                companion.updateStartPageInfo(str11, str2, z4, booleanRef.element, str4);
                 MediaLivePluginLogger.Companion.getInstance().logLiveRoomStartPage();
                 MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartPage();
                 LiveComponentLoadLogger.Companion.getInstance().externalLiveLaunchMediaCompLoadFlow(stat);
-                if (!z4) {
+                if (!z3) {
                 }
-                z6 = false;
-                if (z6) {
+                z5 = false;
+                if (z5) {
                 }
                 cls = MixLiveTranslucentActivity.class;
                 intent = new Intent(context, cls);
@@ -732,16 +758,16 @@ public final class LiveMixShellManager {
                 }
                 if (uri != null) {
                 }
-                intent.putExtra("translucent", z6);
+                intent.putExtra("translucent", z5);
                 if (!optBoolean) {
                 }
-                z7 = false;
-                intent.putExtra("transitionSubStatus", z7);
-                if (z3) {
+                z6 = false;
+                intent.putExtra("transitionSubStatus", z6);
+                if (z2) {
                 }
-                intent.putExtra("enterWithAnimation", z8);
+                intent.putExtra("enterWithAnimation", z7);
                 intent.putExtra("preStartPlayer", z);
-                NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z6);
+                NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z5);
                 stat = null;
                 NpsLoadChainLog.getInstance().dLog("LiveMixShellManager 启动混排 Activity");
                 if (!(!Intrinsics.areEqual(Looper.myLooper(), Looper.getMainLooper()))) {
@@ -758,18 +784,18 @@ public final class LiveMixShellManager {
             booleanRef2.element = Intrinsics.areEqual(bool3, Boolean.TRUE);
             MediaLivePluginLogger companion2 = MediaLivePluginLogger.Companion.getInstance();
             if (str != null) {
-                str8 = str;
+                str11 = str;
             }
-            companion2.updateStartPageInfo(str8, str2, z5, booleanRef2.element, str4);
+            companion2.updateStartPageInfo(str11, str2, z4, booleanRef2.element, str4);
             MediaLivePluginLogger.Companion.getInstance().logLiveRoomStartPage();
             MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartPage();
             LiveComponentLoadLogger.Companion.getInstance().externalLiveLaunchMediaCompLoadFlow(stat);
-            if (!z4 && !TextUtils.isEmpty(str7)) {
-                z6 = true;
+            if (!z3 && !TextUtils.isEmpty(str7)) {
+                z5 = true;
             } else {
-                z6 = false;
+                z5 = false;
             }
-            if (z6 && !z3) {
+            if (z5 && !z2) {
                 cls = MixLiveActivity.class;
             } else {
                 cls = MixLiveTranslucentActivity.class;
@@ -788,12 +814,12 @@ public final class LiveMixShellManager {
                 intent.putExtra("params", str5);
             }
             if (uri != null) {
-                if (z6) {
+                if (z5) {
                     Uri.Builder path = new Uri.Builder().scheme(uri.getScheme()).authority(uri.getAuthority()).path(uri.getPath());
                     Set<String> queryParameterNames = uri.getQueryParameterNames();
                     if (queryParameterNames != null) {
-                        for (String str9 : queryParameterNames) {
-                            path.appendQueryParameter(str9, uri.getQueryParameter(str9));
+                        for (String str12 : queryParameterNames) {
+                            path.appendQueryParameter(str12, uri.getQueryParameter(str12));
                         }
                     }
                     uri2 = path.appendQueryParameter(MiniPluginManager.PLAY_AB_SWITCH, YYOption.IsLive.VALUE_TRUE).build();
@@ -803,23 +829,23 @@ public final class LiveMixShellManager {
                 }
                 intent.putExtra("scheme", uri2.toString());
             }
-            intent.putExtra("translucent", z6);
-            if (!optBoolean && z6) {
-                z7 = true;
+            intent.putExtra("translucent", z5);
+            if (!optBoolean && z5) {
+                z6 = true;
             } else {
-                z7 = false;
+                z6 = false;
             }
-            intent.putExtra("transitionSubStatus", z7);
-            if (z3 && !z6) {
-                z8 = true;
+            intent.putExtra("transitionSubStatus", z6);
+            if (z2 && !z5) {
+                z7 = true;
             }
-            intent.putExtra("enterWithAnimation", z8);
+            intent.putExtra("enterWithAnimation", z7);
             intent.putExtra("preStartPlayer", z);
-            NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z6);
+            NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z5);
             stat = null;
             NpsLoadChainLog.getInstance().dLog("LiveMixShellManager 启动混排 Activity");
-            if (!(!Intrinsics.areEqual(Looper.myLooper(), Looper.getMainLooper())) && (iVideoInsertLiveService = (IVideoInsertLiveService) ServiceManager.getService(IVideoInsertLiveService.Companion.getSERVICE_REFERENCE())) != null && iVideoInsertLiveService.needReleaseLive()) {
-                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.searchbox.live.mix.proxy.LiveMixShellManager$startLiveActivity$3
+            if (!(!Intrinsics.areEqual(Looper.myLooper(), Looper.getMainLooper())) && (iVideoInsertLiveService = (IVideoInsertLiveService) ServiceManager.getService(IVideoInsertLiveService.Companion.getSERVICE_REFERENCE())) != null && IVideoInsertLiveService.DefaultImpls.needReleaseLive$default(iVideoInsertLiveService, null, 1, null)) {
+                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.searchbox.live.mix.proxy.LiveMixShellManager$startLiveActivity$6
                     @Override // java.lang.Runnable
                     public final void run() {
                         LiveMixShellManager.INSTANCE.releaseAndStartLiveActivity(intent, context);
@@ -839,14 +865,14 @@ public final class LiveMixShellManager {
         MediaLivePluginLogger companion22 = MediaLivePluginLogger.Companion.getInstance();
         if (str != null) {
         }
-        companion22.updateStartPageInfo(str8, str2, z5, booleanRef22.element, str4);
+        companion22.updateStartPageInfo(str11, str2, z4, booleanRef22.element, str4);
         MediaLivePluginLogger.Companion.getInstance().logLiveRoomStartPage();
         MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartPage();
         LiveComponentLoadLogger.Companion.getInstance().externalLiveLaunchMediaCompLoadFlow(stat);
-        if (!z4) {
+        if (!z3) {
         }
-        z6 = false;
-        if (z6) {
+        z5 = false;
+        if (z5) {
         }
         cls = MixLiveTranslucentActivity.class;
         intent = new Intent(context, cls);
@@ -861,17 +887,17 @@ public final class LiveMixShellManager {
         }
         if (uri != null) {
         }
-        intent.putExtra("translucent", z6);
+        intent.putExtra("translucent", z5);
         if (!optBoolean) {
         }
-        z7 = false;
-        intent.putExtra("transitionSubStatus", z7);
-        if (z3) {
-            z8 = true;
+        z6 = false;
+        intent.putExtra("transitionSubStatus", z6);
+        if (z2) {
+            z7 = true;
         }
-        intent.putExtra("enterWithAnimation", z8);
+        intent.putExtra("enterWithAnimation", z7);
         intent.putExtra("preStartPlayer", z);
-        NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z6);
+        NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z5);
         stat = null;
         NpsLoadChainLog.getInstance().dLog("LiveMixShellManager 启动混排 Activity");
         if (!(!Intrinsics.areEqual(Looper.myLooper(), Looper.getMainLooper()))) {

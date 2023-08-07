@@ -1,52 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.annotation.SuppressLint;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"SwanDebugLog"})
 /* loaded from: classes7.dex */
-public class si2 {
+public class si2 implements V8Engine.V8EngineConsole {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public long B;
-    public long C;
-    public boolean D;
-    public int E;
-    public String F;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public String t;
-    public String u;
-    public String v;
-    public long w;
-    public int x;
-    public int y;
-    public int z;
+    public gi2 a;
+    public boolean b;
 
-    public si2() {
+    public si2(gi2 gi2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gi2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,15 +31,73 @@ public class si2 {
                 return;
             }
         }
-        this.B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
+        this.b = true;
+        this.a = gi2Var;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppDbInfo{appId='" + this.a + "', appKey='" + this.b + "', errorCode=" + this.d + ", errorDetail='" + this.e + "', errorMsg='" + this.f + "', resumeDate='" + this.g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.l0() + str);
+            }
+            gu2.h().e(2, str);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onInfoConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (this.b) {
+                Log.i("V8Console", this.a.l0() + str);
+            }
+            gu2.h().e(3, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onLogConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (this.b) {
+                Log.v("V8Console", this.a.l0() + str);
+            }
+            gu2.h().e(1, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onTraceConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.l0() + str);
+            }
+            gu2.h().e(6, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onErrorConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            gu2.h().e(4, str);
+            Log.e("V8Console", this.a.l0() + str);
+            xv1 p0 = fu2.p0();
+            p0.e("V8Console", this.a.l0() + str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onWarnConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            gu2.h().e(5, str);
+            Log.w("V8Console", this.a.l0() + str);
+            xv1 p0 = fu2.p0();
+            p0.w("V8Console", this.a.l0() + str);
+        }
     }
 }

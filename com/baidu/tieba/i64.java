@@ -1,85 +1,113 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i64 {
+public class i64 extends gi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ii2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
         }
-        return invokeCommon.intValue;
+        return invokeV.intValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805442, "Lcom/baidu/tieba/i64;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements V8Engine.WorkerFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i64 a;
+
+        public a(i64 i64Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i64Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805442, "Lcom/baidu/tieba/i64;");
+            this.a = i64Var;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
+        public V8Engine onCreateWorker() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                j64 j64Var = new j64(this.a.getInitBasePath());
+                j64Var.G0();
+                j64Var.t(new si2(j64Var));
+                j64Var.F0(new ti2(j64Var));
+                return j64Var.k0();
+            }
+            return (V8Engine) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i64(@NonNull String str, @NonNull dj2 dj2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, dj2Var, v8ThreadDelegatePolicy);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, dj2Var, v8ThreadDelegatePolicy};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (dj2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fs1.a;
+        V8Engine v8Engine = this.a;
+        if (v8Engine == null) {
+            return;
+        }
+        v8Engine.setWorkerFactoryDelegate(new a(this));
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    @Override // com.baidu.tieba.gi2
+    public EventTarget C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                g64 a2 = h64.a();
-                codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
-            }
-            if (a) {
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
-            }
-            return codeCacheSetting;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new i54(this);
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        return (EventTarget) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gi2
+    @NonNull
+    public EventTarget z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new f54(this);
+        }
+        return (EventTarget) invokeV.objValue;
     }
 }

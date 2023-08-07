@@ -1,46 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pz3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public xz3 a;
+public interface pz3 {
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
+    void b(String str, JSONObject jSONObject, ResponseCallback<hz3> responseCallback);
 
-    public pz3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(String str, ResponseCallback<qy3> responseCallback);
 
-    public xz3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (xz3) invokeV.objValue;
-    }
+    void d(String str);
+
+    void e(String str);
+
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

@@ -1,55 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.davemorrissey.labs.subscaleview.ImageSource;
 /* loaded from: classes5.dex */
-public class as2 extends pp2<gs2> {
+public class as2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pp2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    public static String a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "unsubscribeRemoteStream" : (String) invokeV.objValue;
-    }
-
-    public as2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str.startsWith(ImageSource.FILE_SCHEME)) {
+                str = str.substring(8);
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gs2 gs2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gs2Var) == null) {
-            String str = command.what;
-            d(gs2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Long) {
-                long longValue = ((Long) obj).longValue();
-                if (es2.a(longValue)) {
-                    gs2Var.j(longValue);
-                }
+            ya3 M = ya3.M();
+            if (gi3.E(str) && M != null) {
+                return gi3.H(str, M);
             }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

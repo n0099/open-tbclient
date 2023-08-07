@@ -1,45 +1,40 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.ParseError;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
 /* loaded from: classes7.dex */
 public class qs0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final double e;
-    public final String f;
-    public final b g;
-    public final a h;
-    public final String i;
-    public final String j;
-    public final boolean k;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static final class a implements et0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+        public final /* synthetic */ Ref.LongRef a;
+        public final /* synthetic */ Ref.ObjectRef b;
+        public final /* synthetic */ Ref.ObjectRef c;
+        public final /* synthetic */ Ref.ObjectRef d;
+        public final /* synthetic */ co0 e;
+        public final /* synthetic */ File f;
+        public final /* synthetic */ Ref.BooleanRef g;
 
-        public a(JSONObject jSONObject) {
+        public a(Ref.LongRef longRef, Ref.ObjectRef objectRef, Ref.ObjectRef objectRef2, Ref.ObjectRef objectRef3, co0 co0Var, File file, Ref.BooleanRef booleanRef) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
+                Object[] objArr = {longRef, objectRef, objectRef2, objectRef3, co0Var, file, booleanRef};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,126 +44,99 @@ public class qs0 {
                     return;
                 }
             }
-            if (jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("desc");
-            this.b = jSONObject.optString("cmd");
+            this.a = longRef;
+            this.b = objectRef;
+            this.c = objectRef2;
+            this.d = objectRef3;
+            this.e = co0Var;
+            this.f = file;
+            this.g = booleanRef;
         }
 
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.et0
+        public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                return new a(jSONObject);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                this.e.accept(new dt0(false, this.a.element, (String) this.b.element, (String) this.c.element, exc));
             }
-            return (a) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(JSONObject jSONObject) {
+        /* JADX WARN: Type inference failed for: r10v2, types: [T, java.lang.String] */
+        /* JADX WARN: Type inference failed for: r11v19, types: [T, java.lang.Exception] */
+        /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.String] */
+        @Override // com.baidu.tieba.et0
+        public void c(Headers headers, InputStream inputStream, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                if (headers != null && inputStream != null) {
+                    this.b.element = headers.d(com.baidubce.http.Headers.ETAG);
+                    this.c.element = headers.d(com.baidubce.http.Headers.LAST_MODIFIED);
+                    if (i != 200) {
+                        if (i != 304) {
+                            this.g.element = false;
+                            Ref.ObjectRef objectRef = this.d;
+                            objectRef.element = new Exception("Unsupport http code:" + i);
+                        }
+                    } else {
+                        FileOutputStream fileOutputStream = new FileOutputStream(this.f);
+                        this.a.element = l61.b(inputStream, fileOutputStream);
+                        sj0.a(inputStream);
+                        sj0.a(fileOutputStream);
+                    }
+                    this.e.accept(new dt0(this.g.element, this.a.element, (String) this.b.element, (String) this.c.element, (Exception) this.d.element));
                     return;
                 }
+                this.e.accept(new dt0(false, this.a.element, (String) this.b.element, (String) this.c.element, (Exception) this.d.element));
             }
-            if (jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("desc");
-            this.b = jSONObject.optString("cmd");
-        }
-
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                return new b(jSONObject);
-            }
-            return (b) invokeL.objValue;
         }
     }
 
-    public qs0(@NonNull JSONObject jSONObject) throws ParseError {
+    public qs0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = jSONObject.optString("strict_mode");
-        this.b = jSONObject.optString("app_icon");
-        this.c = jSONObject.optString("app_name");
-        this.d = jSONObject.optString("developer_name");
-        this.e = jSONObject.optDouble("score", -1.0d);
-        this.f = jSONObject.optString("version");
-        this.g = b.a(jSONObject.optJSONObject("privacy"));
-        this.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-        jSONObject.optDouble("app_icon_scale");
-        this.i = jSONObject.optString("apk_size");
-        this.j = jSONObject.optString("apk_url");
-        this.k = a();
     }
 
-    public static qs0 c(@NonNull JSONObject jSONObject) throws ParseError {
-        InterceptResult invokeL;
+    /* JADX WARN: Type inference failed for: r11v1, types: [T, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r11v2, types: [T, java.lang.String] */
+    public void a(String url, ws0 meta, File toFile, co0<xs0> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new qs0(jSONObject);
-        }
-        return (qs0) invokeL.objValue;
-    }
-
-    public final boolean a() throws ParseError {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.equals("0", this.a)) {
-                return b();
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, url, meta, toFile, callback) == null) {
+            Intrinsics.checkNotNullParameter(url, "url");
+            Intrinsics.checkNotNullParameter(meta, "meta");
+            Intrinsics.checkNotNullParameter(toFile, "toFile");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            ys0 a2 = us0.b().a();
+            Intrinsics.checkNotNullExpressionValue(a2, "HttpFactory.getInstance().getHttp()");
+            nt0 nt0Var = new nt0();
+            nt0Var.l(url);
+            Ref.ObjectRef objectRef = new Ref.ObjectRef();
+            objectRef.element = meta.a;
+            Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
+            objectRef2.element = meta.b;
+            if (!meta.c) {
+                if (!TextUtils.isEmpty((String) objectRef.element)) {
+                    nt0Var.a("If-None-Match", (String) objectRef.element);
+                }
+                if (!TextUtils.isEmpty((String) objectRef2.element)) {
+                    nt0Var.a("If-Modified-Since", (String) objectRef2.element);
+                }
             }
-            if (b()) {
-                return true;
-            }
-            throw ParseError.contentError(8, "");
+            Ref.LongRef longRef = new Ref.LongRef();
+            longRef.element = 0L;
+            Ref.BooleanRef booleanRef = new Ref.BooleanRef();
+            booleanRef.element = true;
+            Ref.ObjectRef objectRef3 = new Ref.ObjectRef();
+            objectRef3.element = null;
+            a2.b(nt0Var, new a(longRef, objectRef, objectRef2, objectRef3, callback, toFile, booleanRef));
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        b bVar;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.f) || (bVar = this.g) == null || TextUtils.isEmpty(bVar.b) || TextUtils.isEmpty(this.g.a) || (aVar = this.h) == null || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(this.h.a)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

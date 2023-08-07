@@ -1,50 +1,31 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.app.Activity;
-import android.util.DisplayMetrics;
-import android.util.Pair;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.ISplashClickEyeListener;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.PxUtils;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.google.android.material.badge.BadgeDrawable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lgb implements FunSplashAd {
+public final class lgb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TTSplashAd a;
-    public final View b;
-    public final Pair<Integer, Integer> c;
-    public final int d;
-    public final int e;
-    public boolean f;
-    public int g;
-    public int h;
-    public FrameLayout i;
-    public FunSplashAdInteractionListener j;
+    public final /* synthetic */ Object a;
 
-    public lgb(TTSplashAd tTSplashAd) {
-        Integer valueOf;
-        int round;
+    public lgb(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTSplashAd};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,224 +35,215 @@ public class lgb implements FunSplashAd {
                 return;
             }
         }
-        this.d = PxUtils.dp2px(16.0f);
-        this.e = PxUtils.dp2px(100.0f);
-        this.i = new FrameLayout(FunAdSdk.getAppContext());
-        tTSplashAd.setSplashClickEyeListener(new a(this));
-        this.a = tTSplashAd;
-        this.b = tTSplashAd.getSplashView();
-        int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
-        if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
-            DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
-            int round2 = Math.round(Math.min(displayMetrics.heightPixels, displayMetrics.widthPixels) * 0.3f);
-            valueOf = Integer.valueOf(round2);
-            round = Math.round((round2 * 16) / 9.0f);
-        } else {
-            valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
-            round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
-        }
-        this.c = Pair.create(valueOf, Integer.valueOf(round));
+        this.a = obj;
     }
 
-    public final void a(ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
+    /* JADX WARN: Code restructure failed: missing block: B:172:0x02d0, code lost:
+        continue;
+     */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        boolean z;
+        Object obj;
+        String str;
+        Field[] fieldArr;
+        Object obj2;
+        String str2;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            ViewUtils.removeFromParent(this.b);
-            this.b.setScaleX(1.0f);
-            this.b.setScaleY(1.0f);
-            this.b.setX(0.0f);
-            this.b.setY(0.0f);
-            int[] iArr2 = new int[2];
-            viewGroup.getLocationOnScreen(iArr2);
-            float f3 = (f2 - iArr2[1]) + iArr[1];
-            this.i.addView(this.b, -1, -1);
-            viewGroup.addView(this.i, new FrameLayout.LayoutParams(i, i2));
-            this.i.setTranslationX((f - iArr2[0]) + iArr[0]);
-            this.i.setTranslationY(f3);
-            this.a.splashClickEyeAnimationFinish();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunSplashAd
-    public void removeMiniWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            FrameLayout frameLayout = this.i;
-            if (frameLayout != null) {
-                ViewUtils.removeFromParent(frameLayout);
-                this.i = null;
-            }
-            this.j = null;
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunSplashAd
-    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
-            if (activity != null) {
-                if (!this.f) {
-                    LogPrinter.d("showMiniWindow failed without support", new Object[0]);
-                    return false;
-                } else if (this.i == null) {
-                    LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
-                    return false;
-                } else {
-                    this.j = funSplashAdInteractionListener;
-                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-                    ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
-                    int[] iArr = new int[2];
-                    this.b.getLocationOnScreen(iArr);
-                    int width = this.b.getWidth();
-                    int height = this.b.getHeight();
-                    int i = this.g;
-                    int i2 = this.h;
-                    if (i == 0 || i2 == 0) {
-                        LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
-                        return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                try {
+                    LogPrinter.d("开始获取ripper路径，开始时间：" + System.currentTimeMillis(), new Object[0]);
+                    ArrayList arrayList = new ArrayList();
+                    new HashMap();
+                    Object obj3 = this.a;
+                    ArrayList arrayList2 = new ArrayList();
+                    ArrayList arrayList3 = new ArrayList();
+                    arrayList3.add(obj3.getClass().getName());
+                    Class<? super Object> superclass = obj3.getClass().getSuperclass();
+                    String name = obj3.getClass().getName();
+                    Class<? super Object> cls = superclass;
+                    while (true) {
+                        z = true;
+                        if (cls == null || !cls.getName().contains("bytedance")) {
+                            break;
+                        }
+                        for (Field field : cls.getDeclaredFields()) {
+                            field.setAccessible(true);
+                            String name2 = field.getType().getName();
+                            if (!arrayList2.contains(name2)) {
+                                try {
+                                    Object obj4 = field.get(obj3);
+                                    if (obj4 != null) {
+                                        arrayList3.add(name + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + obj4.getClass().getName());
+                                        arrayList2.add(name2);
+                                        arrayList.add(obj4);
+                                    }
+                                } catch (IllegalAccessException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                        cls = cls.getSuperclass();
                     }
-                    int intValue = ((Integer) this.c.first).intValue();
-                    int intValue2 = ((Integer) this.c.second).intValue();
-                    float f = intValue / width;
-                    float f2 = intValue2 / height;
-                    float f3 = (i - this.d) - intValue;
-                    float f4 = (i2 - this.e) - intValue2;
-                    ViewUtils.removeFromParent(this.b);
-                    viewGroup.addView(this.b, new FrameLayout.LayoutParams(width, height));
-                    this.b.setPivotX(0.0f);
-                    this.b.setPivotY(0.0f);
-                    if (z) {
-                        this.b.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f3, f4, iArr, intValue, intValue2));
-                        return true;
+                    int i = 0;
+                    while (obj3 != null) {
+                        String str3 = "";
+                        String str4 = "";
+                        for (int i2 = 0; i2 < arrayList3.size(); i2++) {
+                            str4 = (String) arrayList3.get(i2);
+                            if (str4.endsWith(obj3.getClass().getName())) {
+                                break;
+                            }
+                        }
+                        Field[] declaredFields2 = obj3.getClass().getDeclaredFields();
+                        int length = declaredFields2.length;
+                        int i3 = 0;
+                        while (i3 < length) {
+                            Field field2 = declaredFields2[i3];
+                            field2.setAccessible(z);
+                            try {
+                                String name3 = field2.getType().getName();
+                                if (!arrayList2.contains(name3) && name3.contains("bytedance") && (obj2 = field2.get(obj3)) != null) {
+                                    if (str4.equals(str3)) {
+                                        str2 = name3;
+                                    } else {
+                                        str2 = str4 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + name3;
+                                    }
+                                    arrayList3.add(str2);
+                                    arrayList2.add(name3);
+                                    arrayList.add(obj2);
+                                    Class<? super Object> superclass2 = obj2.getClass().getSuperclass();
+                                    String str5 = str2 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX;
+                                    if (superclass2 != null) {
+                                        while (superclass2 != null && superclass2.getName().contains("bytedance")) {
+                                            Field[] declaredFields3 = superclass2.getDeclaredFields();
+                                            obj = obj3;
+                                            try {
+                                                int length2 = declaredFields3.length;
+                                                str = str3;
+                                                int i4 = 0;
+                                                while (i4 < length2) {
+                                                    int i5 = length2;
+                                                    try {
+                                                        Field field3 = declaredFields3[i4];
+                                                        Field[] fieldArr2 = declaredFields3;
+                                                        field3.setAccessible(true);
+                                                        String name4 = field3.getType().getName();
+                                                        Object obj5 = field3.get(obj2);
+                                                        if (obj5 != null && !arrayList2.contains(name4) && name4.contains("bytedance")) {
+                                                            fieldArr = declaredFields2;
+                                                            try {
+                                                                if (name4.contains("java.lang.Object")) {
+                                                                    arrayList3.add(str5 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + name4);
+                                                                    arrayList2.add(name4);
+                                                                    arrayList.add(obj5);
+                                                                }
+                                                                i4++;
+                                                                length2 = i5;
+                                                                declaredFields3 = fieldArr2;
+                                                                declaredFields2 = fieldArr;
+                                                            } catch (Exception unused) {
+                                                            }
+                                                        }
+                                                        fieldArr = declaredFields2;
+                                                        i4++;
+                                                        length2 = i5;
+                                                        declaredFields3 = fieldArr2;
+                                                        declaredFields2 = fieldArr;
+                                                    } catch (Exception unused2) {
+                                                    }
+                                                }
+                                                Field[] fieldArr3 = declaredFields2;
+                                                superclass2 = superclass2.getSuperclass();
+                                                str5 = str5 + "+super+";
+                                                obj3 = obj;
+                                                str3 = str;
+                                                declaredFields2 = fieldArr3;
+                                            } catch (Exception unused3) {
+                                            }
+                                        }
+                                    }
+                                }
+                            } catch (Exception unused4) {
+                            }
+                            obj = obj3;
+                            str = str3;
+                            fieldArr = declaredFields2;
+                            i3++;
+                            obj3 = obj;
+                            str3 = str;
+                            declaredFields2 = fieldArr;
+                            z = true;
+                        }
+                        if (i >= arrayList.size()) {
+                            obj3 = null;
+                        } else {
+                            obj3 = arrayList.get(i);
+                            i++;
+                        }
+                        z = true;
                     }
-                    a(viewGroup2, f3, f4, iArr, intValue, intValue2);
-                    return true;
+                    Iterator it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        Object next = it.next();
+                        boolean z2 = false;
+                        for (Class<?> cls2 = next.getClass(); cls2 != null && cls2.getName().contains("bytedance"); cls2 = cls2.getSuperclass()) {
+                            ArrayList arrayList4 = new ArrayList();
+                            Method[] methods = cls2.getMethods();
+                            int length3 = methods.length;
+                            int i6 = 0;
+                            while (true) {
+                                if (i6 >= length3) {
+                                    break;
+                                }
+                                Method method = methods[i6];
+                                method.setAccessible(true);
+                                if (method.getReturnType() != JSONObject.class && method.getReturnType() != String.class) {
+                                    i6++;
+                                }
+                                arrayList4.add(method.getName());
+                                Object invoke = ReflectionUtils.invoke(next, method.getName(), null, new Object[0]);
+                                if (invoke != null && !TextUtils.isEmpty(invoke.toString()) && invoke.toString().contains("\"target_url\"")) {
+                                    Iterator it2 = arrayList3.iterator();
+                                    while (true) {
+                                        if (!it2.hasNext()) {
+                                            break;
+                                        }
+                                        String str6 = (String) it2.next();
+                                        if (str6.endsWith(cls2.getName())) {
+                                            String str7 = str6.substring(str6.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1) + "+*" + method.getName();
+                                            mgb.a = str7;
+                                            igb.b.putString("key_ad_ripper_path_config", str7).apply();
+                                            break;
+                                        }
+                                    }
+                                    z2 = true;
+                                } else {
+                                    i6++;
+                                }
+                            }
+                            if (z2) {
+                                break;
+                            }
+                        }
+                        continue;
+                        if (z2) {
+                            break;
+                        }
+                    }
+                    LogPrinter.d("获取ripper路径完成，完成时间：" + System.currentTimeMillis(), new Object[0]);
+                } catch (Exception e2) {
+                    e = e2;
+                    LogPrinter.e(e);
                 }
-            }
-            throw new IllegalArgumentException();
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ISplashClickEyeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lgb a;
-
-        public a(lgb lgbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lgbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lgbVar;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
-        public boolean isSupportSplashClickEye(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.a.f = z;
-                LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
-                return false;
-            }
-            return invokeZ.booleanValue;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
-        public void onSplashClickEyeAnimationStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
-        public void onSplashClickEyeAnimationFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                ViewUtils.removeFromParent(this.a.i);
-                this.a.i = null;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ float c;
-        public final /* synthetic */ int[] d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ lgb g;
-
-        public b(lgb lgbVar, ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lgbVar, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = lgbVar;
-            this.a = viewGroup;
-            this.b = f;
-            this.c = f2;
-            this.d = iArr;
-            this.e = i;
-            this.f = i2;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.g.a(this.a, this.b, this.c, this.d, this.e, this.f);
+            } catch (Error e3) {
+                e = e3;
+                LogPrinter.e(e);
             }
         }
     }

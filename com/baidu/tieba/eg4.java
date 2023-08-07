@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class eg4 {
+public class eg4 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
-    public static volatile eg4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<by1, dg4> a;
+    public int a;
+    public ig4 b;
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
+    public boolean onMyLocationClick() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,14 +52,32 @@ public class eg4 {
                 return;
             }
         }
-        b = fs1.a;
-        c = eg4.class.getSimpleName();
+        boolean z = ir1.a;
     }
 
-    public eg4() {
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
+    public void onMapLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            y72.i("map", "onMapLoaded");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
+    public void onMapRenderFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            dg4.d(this.b);
+            y72.i("map", "onMapRenderFinished");
+        }
+    }
+
+    public eg4(@NonNull ig4 ig4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ig4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,208 +87,67 @@ public class eg4 {
                 return;
             }
         }
-        cg4.a();
-        this.a = new HashMap();
+        this.a = 0;
+        this.b = ig4Var;
     }
 
-    public static eg4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (eg4.class) {
-                    if (d == null) {
-                        d = new eg4();
-                    }
-                }
-            }
-            return d;
-        }
-        return (eg4) invokeV.objValue;
-    }
-
-    public static void d(by1 by1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, by1Var) == null) {
-            synchronized (eg4.class) {
-                if (d != null) {
-                    d.c(by1Var).h();
-                }
-            }
-        }
-    }
-
-    public static void e(by1 by1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, by1Var) == null) {
-            synchronized (eg4.class) {
-                if (d != null) {
-                    d.f(by1Var);
-                } else if (b) {
-                    Log.v(c, "未初始化，无需执行release");
-                }
-            }
-        }
-    }
-
-    public static void h(by1 by1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, by1Var) == null) {
-            synchronized (eg4.class) {
-                if (d != null) {
-                    d.c(by1Var).k();
-                }
-            }
-        }
-    }
-
-    public synchronized dg4 c(by1 by1Var) {
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
+    public boolean onMarkerClick(Marker marker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, by1Var)) == null) {
-            synchronized (this) {
-                if (by1Var == null) {
-                    return null;
-                }
-                dg4 dg4Var = this.a.get(by1Var);
-                if (dg4Var == null) {
-                    dg4Var = new dg4();
-                    this.a.put(by1Var, dg4Var);
-                }
-                return dg4Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, marker)) == null) {
+            hg4 H = this.b.H(marker);
+            if (H != null) {
+                dg4.e(marker, this.b);
+                H.b(this.b);
+                y72.i("map", "onMarkerClick marker id " + marker.getId());
+                return true;
             }
-        }
-        return (dg4) invokeL.objValue;
-    }
-
-    public final synchronized void f(by1 by1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, by1Var) == null) {
-            synchronized (this) {
-                if (by1Var == null) {
-                    return;
-                }
-                dg4 remove = this.a.remove(by1Var);
-                if (remove != null) {
-                    remove.i();
-                }
-            }
-        }
-    }
-
-    public boolean a(Context context, hy2 hy2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, hy2Var)) == null) {
-            v82.i("map", "map create start");
-            if (pp3.m(hy2Var.c) != null && hy2Var.isValid()) {
-                dy1 A = ix2.T().A(hy2Var.c);
-                if (!(A instanceof by1)) {
-                    v82.c("map", "WebViewManager is null");
-                    return false;
-                }
-                dg4 c2 = c((by1) A);
-                if (c2.d(hy2Var.b) != null) {
-                    v82.c("map", "map with id " + hy2Var.b + " exist");
-                    return false;
-                }
-                fh4 K = fh4.K(context, hy2Var);
-                if (K == null) {
-                    v82.c("map", "map with id " + hy2Var.b + " model is invalid");
-                    return false;
-                }
-                m72 insert = K.insert();
-                if (!insert.a()) {
-                    v82.c("map", "map with id " + hy2Var.b + " create fail: " + insert.b);
-                    return false;
-                } else if (!c2.insert(K)) {
-                    return false;
-                } else {
-                    v82.i("map", "map with id " + hy2Var.b + " init start");
-                    yg4.a(context, K, hy2Var, c2);
-                    v82.i("map", "map with id " + hy2Var.b + " init end");
-                    v82.i("map", "map create end");
-                    return true;
-                }
-            }
-            v82.c("map", "model data is invalid");
             return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean g(hy2 hy2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hy2Var)) == null) {
-            v82.i("map", "map remove start");
-            if (pp3.m(hy2Var.c) == null) {
-                v82.c("map", "webView is null or mapModel is null");
-                return false;
-            }
-            dy1 A = ix2.T().A(hy2Var.c);
-            if (!(A instanceof by1)) {
-                v82.c("map", "WebViewManager is null");
-                return false;
-            }
-            dg4 c2 = c((by1) A);
-            fh4 d2 = c2.d(hy2Var.b);
-            if (d2 == null) {
-                v82.c("map", "remove map with id " + hy2Var.b + " not exist");
-                return false;
-            } else if (!c2.j(hy2Var.b)) {
-                return false;
-            } else {
-                v82.i("map", "map remove end");
-                if (i82.a(hy2Var) == null) {
-                    o82.a("map", "remove with a null map component");
-                }
-                m72 B = d2.B();
-                boolean a = B.a();
-                if (!a) {
-                    String str = c;
-                    v82.c(str, "map remove fail: " + B.b);
-                }
-                return a;
-            }
         }
         return invokeL.booleanValue;
     }
 
-    public boolean update(Context context, hy2 hy2Var) {
-        InterceptResult invokeLL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, hy2Var)) == null) {
-            v82.i("map", "map update start");
-            if (pp3.m(hy2Var.c) == null) {
-                v82.c("map", "webView is null or mapModel is null");
-                return false;
-            }
-            dy1 A = ix2.T().A(hy2Var.c);
-            if (A != null && (A instanceof by1)) {
-                dg4 c2 = c((by1) A);
-                fh4 d2 = c2.d(hy2Var.b);
-                if (d2 == null) {
-                    v82.c("map", "remove map with id " + hy2Var.b + " not exist");
-                    return false;
-                }
-                d2.F();
-                yg4.b(context, d2, hy2Var, c2, true);
-                v82.i("map", "map update end");
-                if (i82.a(hy2Var) == null) {
-                    o82.a("map", "update with a null map component");
-                }
-                m72 update = d2.update((fh4) hy2Var);
-                boolean a = update.a();
-                if (!a) {
-                    String str = c;
-                    v82.c(str, "map update fail: " + update.b);
-                }
-                return a;
-            }
-            v82.c("map", "WebViewManager is null");
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            dg4.b(view2, this.b);
+            y72.i("map", "Control View click");
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
+    public void onMapClick(LatLng latLng) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
+            dg4.c(this.b, latLng);
+            y72.i("map", "onMapClick LatLng " + latLng);
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChange(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mapStatus) == null) {
+            y72.i("map", "onMapStatusChange");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeFinish(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
+            dg4.f(this.b, mapStatus, this.a);
+            y72.i("map", "onMapStatusChangeFinish");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, mapStatus, i) == null) {
+            this.a = i;
+        }
     }
 }

@@ -1,29 +1,22 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.param.CommonUrlParamManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class e4b implements z3b {
+public final class e4b {
     public static /* synthetic */ Interceptable $ic;
+    public static e4b c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.z3b
-    public String b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? z ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc" : "https://tcbox.baidu.com/ztbox?action=zubc" : (String) invokeZ.objValue;
-    }
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
     public e4b() {
         Interceptable interceptable = $ic;
@@ -35,109 +28,54 @@ public class e4b implements z3b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicInteger();
     }
 
-    @Override // com.baidu.tieba.z3b
-    public int d() {
+    public static synchronized e4b a() {
         InterceptResult invokeV;
+        e4b e4bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (e4b.class) {
+                if (c == null) {
+                    b(z3b.h().getContext());
+                }
+                e4bVar = c;
+            }
+            return e4bVar;
         }
-        return invokeV.intValue;
+        return (e4b) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z3b
-    public Context getAppContext() {
+    public final synchronized SQLiteDatabase c() {
         InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return AppRuntime.getAppContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    a5b.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
+            }
+            return sQLiteDatabase;
         }
-        return (Context) invokeV.objValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z3b
-    public boolean isDebug() {
-        InterceptResult invokeV;
+    public static synchronized void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return AppConfig.isDebug();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return CommonUrlParamManager.getInstance().processUrl(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return CommonUrlParamManager.getInstance().spliceNoPrivacyParams(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
-            return y3b.c().getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) {
-            return y3b.c().getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            y3b.c().putInt(str, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public void putLong(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            y3b.c().putLong(str, j);
-        }
-    }
-
-    @Override // com.baidu.tieba.z3b
-    public void putString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            y3b.c().putString(str, str2);
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (e4b.class) {
+                if (c == null) {
+                    c = new e4b();
+                    d = new c4b(context);
+                }
+            }
         }
     }
 }

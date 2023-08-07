@@ -71,14 +71,14 @@ public final class MediaFastForward extends FrameLayout {
 
     public final void d(Context context) {
         Resources resources = getResources();
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092c, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0936, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ff6);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091449);
-        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091d5b);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091009);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09145c);
+        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091d71);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070877), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070876));
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08148e);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081494);
         this.a.setLayoutParams(layoutParams);
     }
 

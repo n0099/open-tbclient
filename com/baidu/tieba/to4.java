@@ -1,162 +1,355 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.support.v4.app.Fragment;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes8.dex */
-public class to4 {
+public abstract class to4<E> extends ro4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, to4> d;
-    public static Map<String, Map<String, to4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final AbiType c;
+    public final Activity a;
+    public final Context b;
+    public final Handler c;
+    public final int d;
+    public final vo4 e;
+    public kp4<String, yo4> f;
+    public zo4 g;
+    public boolean h;
+    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187920, "Lcom/baidu/tieba/to4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948187920, "Lcom/baidu/tieba/to4;");
-                return;
-            }
+    @Override // com.baidu.tieba.ro4
+    @Nullable
+    public View a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
         }
-        d = new HashMap();
-        e = new HashMap();
+        return (View) invokeI.objValue;
     }
 
-    @NonNull
-    public String toString() {
+    @Override // com.baidu.tieba.ro4
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public to4(@NonNull String str, @NonNull AbiType abiType) {
-        String str2;
+    public void k(Fragment fragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, fragment) == null) {
+        }
+    }
+
+    public void l(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048589, this, str, fileDescriptor, printWriter, strArr) == null) {
+        }
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048593, this, fragment, strArr, i) == null) {
+        }
+    }
+
+    public boolean q(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, fragment)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        }
+    }
+
+    public to4(Activity activity, Context context, Handler handler, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, abiType};
+            Object[] objArr = {activity, context, handler, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new vo4();
+        this.a = activity;
+        this.b = context;
+        this.c = handler;
+        this.d = i;
+    }
+
+    public void f(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, fileDescriptor, printWriter, strArr) == null) {
+            printWriter.print(str);
+            printWriter.print("mLoadersStarted=");
+            printWriter.println(this.i);
+            if (this.g != null) {
+                printWriter.print(str);
+                printWriter.print("Loader Manager ");
+                printWriter.print(Integer.toHexString(System.identityHashCode(this.g)));
+                printWriter.println(":");
+                zo4 zo4Var = this.g;
+                zo4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public to4(FragmentActivity fragmentActivity) {
+        this(fragmentActivity, fragmentActivity, fragmentActivity.a, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentActivity};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (Context) objArr2[1], (Handler) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (TextUtils.isEmpty(str)) {
-            str2 = "";
+    }
+
+    public void c() {
+        zo4 zo4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (zo4Var = this.g) == null) {
+            return;
+        }
+        zo4Var.b();
+    }
+
+    public vo4 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (vo4) invokeV.objValue;
+    }
+
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public Handler h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public LayoutInflater m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return (LayoutInflater) this.b.getSystemService("layout_inflater");
+        }
+        return (LayoutInflater) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.i) {
+            return;
+        }
+        this.i = true;
+        zo4 zo4Var = this.g;
+        if (zo4Var != null) {
+            zo4Var.f();
+        } else if (!this.h) {
+            zo4 i = i("(root)", true, false);
+            this.g = i;
+            if (i != null && !i.d) {
+                i.f();
+            }
+        }
+        this.h = true;
+    }
+
+    public void t() {
+        kp4<String, yo4> kp4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (kp4Var = this.f) != null) {
+            int size = kp4Var.size();
+            zo4[] zo4VarArr = new zo4[size];
+            for (int i = size - 1; i >= 0; i--) {
+                zo4VarArr[i] = (zo4) this.f.k(i);
+            }
+            for (int i2 = 0; i2 < size; i2++) {
+                zo4 zo4Var = zo4VarArr[i2];
+                zo4Var.i();
+                zo4Var.d();
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        zo4 zo4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || (zo4Var = this.g) == null || !this.i) {
+            return;
+        }
+        this.i = false;
+        if (z) {
+            zo4Var.e();
         } else {
-            str2 = str;
+            zo4Var.g();
         }
-        this.a = str2;
-        this.c = abiType;
-        this.b = a(str, abiType);
     }
 
-    @Nullable
-    public static synchronized to4 e(String str, String str2) {
-        InterceptResult invokeLL;
+    public void j(String str) {
+        kp4<String, yo4> kp4Var;
+        zo4 zo4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            synchronized (to4.class) {
-                to4 to4Var = null;
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    c(str);
-                    to4 to4Var2 = d.get(str2);
-                    if (to4Var2 != null) {
-                        if (TextUtils.equals(str, to4Var2.a)) {
-                            to4Var = to4Var2;
-                        }
-                    }
-                    return to4Var;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (kp4Var = this.f) != null && (zo4Var = (zo4) kp4Var.get(str)) != null && !zo4Var.e) {
+            zo4Var.b();
+            this.f.remove(str);
+        }
+    }
+
+    public void u(kp4<String, yo4> kp4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, kp4Var) == null) {
+            this.f = kp4Var;
+        }
+    }
+
+    public zo4 i(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (this.f == null) {
+                this.f = new kp4<>();
+            }
+            zo4 zo4Var = (zo4) this.f.get(str);
+            if (zo4Var == null) {
+                if (z2) {
+                    zo4 zo4Var2 = new zo4(str, this, z);
+                    this.f.put(str, zo4Var2);
+                    return zo4Var2;
                 }
-                return null;
+                return zo4Var;
             }
+            zo4Var.k(this);
+            return zo4Var;
         }
-        return (to4) invokeLL.objValue;
+        return (zo4) invokeCommon.objValue;
     }
 
-    public static String a(String str, AbiType abiType) {
-        InterceptResult invokeLL;
+    public void r(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
-            return "so_" + str + "_" + abiType.id;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static synchronized to4 d(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        to4 e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
-            synchronized (to4.class) {
-                e2 = e(str, a(str, abiType));
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, fragment, intent, i) == null) {
+            if (i == -1) {
+                this.b.startActivity(intent);
+                return;
             }
-            return e2;
+            throw new IllegalStateException("Starting activity with a requestCode requires a FragmentActivity host");
         }
-        return (to4) invokeLL.objValue;
     }
 
-    public static synchronized Map<String, to4> b(@NonNull String str) {
-        InterceptResult invokeL;
-        HashMap hashMap;
+    public kp4<String, yo4> v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (to4.class) {
-                hashMap = new HashMap(c(str));
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static synchronized Map<String, to4> c(@NonNull String str) {
-        InterceptResult invokeL;
-        Map<String, to4> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (to4.class) {
-                map = e.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                    if (!TextUtils.isEmpty(str)) {
-                        for (AbiType abiType : AbiType.values()) {
-                            to4 to4Var = new to4(str, abiType);
-                            map.put(to4Var.b, to4Var);
-                        }
-                        d.putAll(map);
-                        e.put(str, map);
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            kp4<String, yo4> kp4Var = this.f;
+            int i = 0;
+            if (kp4Var != null) {
+                int size = kp4Var.size();
+                zo4[] zo4VarArr = new zo4[size];
+                for (int i2 = size - 1; i2 >= 0; i2--) {
+                    zo4VarArr[i2] = (zo4) this.f.k(i2);
                 }
+                int i3 = 0;
+                while (i < size) {
+                    zo4 zo4Var = zo4VarArr[i];
+                    if (zo4Var.e) {
+                        i3 = 1;
+                    } else {
+                        zo4Var.b();
+                        this.f.remove(zo4Var.c);
+                    }
+                    i++;
+                }
+                i = i3;
             }
-            return map;
+            if (i != 0) {
+                return this.f;
+            }
+            return null;
         }
-        return (Map) invokeL.objValue;
+        return (kp4) invokeV.objValue;
     }
 }

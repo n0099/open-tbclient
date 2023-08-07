@@ -1,152 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.addresslist.relationship.ContactComparator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class s56 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
+    public static s56 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public t56 b;
-    public BaseFragmentActivity c;
+    public List<a> a;
+    public List<we5> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948102453, "Lcom/baidu/tieba/s56;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948102453, "Lcom/baidu/tieba/s56;");
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void x(List<we5> list);
     }
 
-    public s56(BaseFragmentActivity baseFragmentActivity) {
+    public s56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1L;
-        this.c = baseFragmentActivity;
+        this.a = new ArrayList();
     }
 
-    public final void b(Bundle bundle) {
+    public static synchronized s56 d() {
+        InterceptResult invokeV;
+        s56 s56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (d7a.a(this.c.getIntent())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (s56.class) {
+                if (c == null) {
+                    c = new s56();
+                }
+                s56Var = c;
             }
-            if (bundle != null) {
-                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
-            } else {
-                LogoActivityConfig.isFirst = true;
+            return s56Var;
+        }
+        return (s56) invokeV.objValue;
+    }
+
+    public List<we5> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (a aVar : this.a) {
+                aVar.x(this.b);
             }
         }
     }
 
-    public final void a(Intent intent) {
+    public void a(we5 we5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
-            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
-                Intent intent2 = new Intent();
-                intent2.putExtra("class", 2);
-                intent2.putExtra("fname", intent.getStringExtra("fname"));
-                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
-                intent2.putExtra("back_special", true);
-                intent2.putExtra("from", "short_cut");
-                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, we5Var) == null) && this.b != null && we5Var != null) {
+            String a2 = we5Var.a();
+            if (TextUtils.isEmpty(a2)) {
+                a2 = "#";
+                we5Var.j("#");
             }
-            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
-        }
-    }
-
-    public void c(Configuration configuration) {
-        t56 t56Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (t56Var = this.b) != null) {
-            t56Var.d(configuration);
-        }
-    }
-
-    public void d(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            this.a = System.currentTimeMillis();
-            if ("MuMu".equals(aj.g()) && "6.0.1".equals(aj.k())) {
-                this.c.finish();
+            String e = we5Var.e();
+            if (e == null) {
+                e = "";
+            }
+            boolean z = false;
+            boolean z2 = false;
+            for (we5 we5Var2 : this.b) {
+                if (e.equals(we5Var2.e())) {
+                    z = true;
+                }
+                if (a2.equals(we5Var2.a())) {
+                    z2 = true;
+                }
+            }
+            if (z) {
                 return;
             }
-            b(bundle);
-            if (!d7a.a(this.c.getIntent()) && (d7a.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
-                a(this.c.getIntent());
+            if (!z2) {
+                we5 we5Var3 = new we5();
+                we5Var3.j(a2);
+                this.b.add(we5Var3);
             }
-            aba.g().i(this.c.getUniqueId());
-            t56 t56Var = new t56(this.c);
-            this.b = t56Var;
-            t56Var.i(d);
+            this.b.add(we5Var);
+            Collections.sort(this.b, new ContactComparator());
+            e();
         }
     }
 
-    public void e() {
+    public void b(long j) {
+        List<we5> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            aba.g().k(this.c.getUniqueId());
-            d = false;
-            t56 t56Var = this.b;
-            if (t56Var != null) {
-                t56Var.g();
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+            return;
+        }
+        String str = null;
+        Iterator<we5> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
             }
+            we5 next = it.next();
+            if (next.d() == j) {
+                str = next.a();
+                this.b.remove(next);
+                break;
+            }
+        }
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            for (we5 we5Var : this.b) {
+                if (str.equals(we5Var.a())) {
+                    arrayList.add(we5Var);
+                }
+            }
+            if (arrayList.size() <= 1) {
+                this.b.removeAll(arrayList);
+            }
+        }
+        e();
+    }
+
+    public void f(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
+            this.a.add(aVar);
         }
     }
 
-    public void f() {
-        t56 t56Var;
+    public void g(List<we5> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (t56Var = this.b) != null) {
-            t56Var.e();
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                Collections.sort(list, new ContactComparator());
+            }
+            e();
         }
     }
 
-    public void g() {
+    public void h(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (LogoActivityConfig.isFirst && this.a >= 0) {
-                gu5.b().v(System.currentTimeMillis() - this.a);
-            }
-            t56 t56Var = this.b;
-            if (t56Var != null) {
-                t56Var.f();
-            }
+        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
+            this.a.remove(aVar);
         }
     }
 }

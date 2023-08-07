@@ -1,87 +1,141 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes8.dex */
-public class tw extends ContextWrapper {
+public final class tw {
     public static /* synthetic */ Interceptable $ic;
-    public static tw b;
+    public static final String d;
+    public static tw e;
     public transient /* synthetic */ FieldHolder $fh;
-    public zw a;
+    public Context a;
+    public WebView b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318346, "Lcom/baidu/tieba/tw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318346, "Lcom/baidu/tieba/tw;");
+                return;
+            }
+        }
+        d = BdSailor.class.getName();
+    }
+
     public tw() {
-        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static synchronized tw a() {
+    public static tw a() {
         InterceptResult invokeV;
-        tw twVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (tw.class) {
-                if (b == null) {
-                    b = new tw();
-                }
-                twVar = b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            tw twVar = e;
+            if (twVar == null) {
+                e = new tw();
+            } else if (twVar.b != null && (twVar.c ^ BdZeusUtil.isWebkitLoaded())) {
+                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+                e.f();
+                e.e();
             }
-            return twVar;
+            return e;
         }
         return (tw) invokeV.objValue;
     }
 
-    @Override // android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            super.attachBaseContext(context);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            tw a = a();
+            a.f();
+            a.a = null;
+            e = null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.content.ContextWrapper, android.content.Context
-    public zw getResources() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = new zw(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.d(d, "BdWebViewSingleton pauseTimer");
+            try {
+                e();
+                this.b.pauseTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
             }
-            return this.a;
         }
-        return (zw) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        InterceptResult invokeLI;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            if (jx.c(this)) {
-                return vw.a(str, this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Log.d(d, "BdWebViewSingleton resumeTimer");
+            try {
+                e();
+                this.b.resumeTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
             }
-            return super.getSharedPreferences(str, i);
         }
-        return (SharedPreferences) invokeLI.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
+            if (BdZeusUtil.isWebkitLoaded()) {
+                this.c = true;
+            } else {
+                this.c = false;
+                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
+            }
+            this.b = new WebView(this.a);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
+            WebView webView = this.b;
+            if (webView != null) {
+                webView.destroy();
+                this.b = null;
+            }
+        }
     }
 }

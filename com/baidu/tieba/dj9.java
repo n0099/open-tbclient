@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.view.EmotionView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,102 +15,166 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class dj9 {
+public class dj9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
-    public int d;
-    public int e;
-    public a f;
+    public List<EmotionImageData> a;
+    public b b;
+    public EmotionView.c c;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    public interface b {
+        void f(EmotionImageData emotionImageData);
     }
 
-    public dj9(BdTypeListView bdTypeListView) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dj9 a;
+
+        public a(dj9 dj9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dj9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dj9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && (view2 instanceof EmotionView)) {
+                this.a.b.f(((EmotionView) view2).getData());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public EmotionView a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public dj9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
-    }
-
-    public final int a(List<yn> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return -1;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if ((list.get(i2) instanceof yca) && ((yca) list.get(i2)).getType() == yca.X0 && (i = i + 1) == 5) {
-                    return i2;
-                }
-            }
-            if (z) {
-                return -1;
-            }
-            return list.size() - 1;
-        }
-        return invokeLZ.intValue;
-    }
-
-    public void c(int i, int i2) {
-        BdTypeListView bdTypeListView;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || (bdTypeListView = this.b) == null || this.c || this.e < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
-            return;
-        }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.d) {
-                return;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
-            this.c = true;
         }
     }
 
-    public void b(boolean z, int i) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || i == 3) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!ListUtils.isEmpty(this.a)) {
+                return this.a.size();
+            }
+            return 0;
         }
-        this.e = a(this.b.getData(), z);
+        return invokeV.intValue;
     }
 
-    public void d(a aVar) {
+    public void b(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
         }
+    }
+
+    public void c(EmotionView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                cVar = new c();
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b5, (ViewGroup) null);
+                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.emotion_view);
+                cVar.a = emotionView;
+                emotionView.y();
+                cVar.a.setController(this.c);
+                cVar.a.setOnClickListener(new a(this));
+                view3.setTag(cVar);
+            } else {
+                view3 = view2;
+                cVar = (c) view2.getTag();
+            }
+            List<EmotionImageData> list = this.a;
+            if (list != null && i >= 0 && i < list.size()) {
+                cVar.a.A(this.a.get(i));
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
     }
 }

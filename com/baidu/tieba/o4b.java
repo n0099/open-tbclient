@@ -1,70 +1,53 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import com.baidu.tieba.n4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public class o4b {
+public final class o4b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static boolean a;
+    public static n4b.a b;
+    public static n4b.a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983692, "Lcom/baidu/tieba/o4b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947983692, "Lcom/baidu/tieba/o4b;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947983692, "Lcom/baidu/tieba/o4b;")) == null) {
+            return;
         }
-        a = m3b.m();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947983692, "Lcom/baidu/tieba/o4b;");
+        }
     }
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (a) {
-                Log.d("UBCFileUtils", "delete file:" + file);
-            }
-            if (file == null) {
-                return false;
-            }
-            boolean z = true;
-            if (file.exists()) {
-                if (file.isFile()) {
-                    return true & file.delete();
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (o4b.class) {
+                if (!a) {
+                    a5b.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                    b = new p4b();
+                    c = new z4b();
+                    n4b.a().c();
+                    n4b.a().d(c);
+                    n4b.a().d(b);
+                    n4b.a().e(context);
+                    a = true;
+                    return;
                 }
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (File file2 : listFiles) {
-                            z &= a(file2);
-                        }
-                    }
-                    return z & file.delete();
-                } else if (!a) {
-                    return true;
-                } else {
-                    Log.d("UBCFileUtils", "a special file:" + file);
-                    return true;
-                }
-            } else if (!a) {
-                return true;
-            } else {
-                Log.d("UBCFileUtils", "not found the file to delete:" + file);
-                return true;
+                a5b.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
         }
-        return invokeL.booleanValue;
     }
 }

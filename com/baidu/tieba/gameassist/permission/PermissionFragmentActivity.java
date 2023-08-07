@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g81;
-import com.baidu.tieba.sy7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.aw7;
+import com.baidu.tieba.j71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -216,13 +216,13 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             String stringExtra = intent.getStringExtra("request");
             this.c = intent.getStringArrayExtra("permissions");
             int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) sy7.a.get(Integer.valueOf(intExtra));
-            sy7.a.remove(Integer.valueOf(intExtra));
+            this.a = (PermissionService.IGrantCallback) aw7.a.get(Integer.valueOf(intExtra));
+            aw7.a.remove(Integer.valueOf(intExtra));
             if (stringExtra != null) {
                 if (stringExtra.equals("requestFloatPermission")) {
-                    u1();
+                    t1();
                 } else if (stringExtra.equals("requestPermissions")) {
-                    v1();
+                    u1();
                 }
             }
         }
@@ -261,7 +261,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         }
     }
 
-    public void u1() {
+    public void t1() {
         PermissionService.IGrantCallback iGrantCallback;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (iGrantCallback = this.a) == null) {
@@ -283,7 +283,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
                 startActivityForResult(intent, 12016);
                 return;
             } catch (Exception unused) {
-                yi.Q(this, R.string.request_window_permission_default_text_by_yourself);
+                BdUtilHelper.showToast(this, (int) R.string.request_window_permission_default_text_by_yourself);
                 PermissionService.IGrantCallback iGrantCallback3 = this.a;
                 if (iGrantCallback3 != null) {
                     iGrantCallback3.onResult(false);
@@ -297,14 +297,14 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         finish();
     }
 
-    public void v1() {
+    public void u1() {
         String[] strArr;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
             this.b.clear();
             if (Build.VERSION.SDK_INT >= 23) {
                 for (String str : this.c) {
-                    if (g81.a(this, str) != 0) {
+                    if (j71.a(this, str) != 0) {
                         this.b.add(str);
                     }
                 }

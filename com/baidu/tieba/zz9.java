@@ -1,35 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class zz9 {
+public final class zz9 implements y97, k67, w97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public boolean k;
+
+    @Override // com.baidu.tieba.w97
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y97
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a implements b77 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.b77
+        public void a(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                if (!Intrinsics.areEqual(map.get("has_du_xin_xuan_reply"), "1")) {
+                    return;
+                }
+                q48.e("c15196", c1a.a(map), JavaTypesHelper.toInt(map.get("position_from_1"), 0));
+            }
+        }
+    }
 
     public zz9() {
         Interceptable interceptable = $ic;
@@ -41,88 +71,30 @@ public class zz9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = false;
     }
 
-    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
-            return;
-        }
-        int i = advertAppInfo.n;
-        if (i == 3) {
-            this.a = "apk_download";
-            this.f = advertAppInfo.q;
-            this.g = advertAppInfo.p;
-        } else if (i == 1) {
-            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
-        }
-        this.e = adCard.getButtonText();
-        this.b = adCard.userName;
-        this.c = adCard.userImage;
-        this.d = adCard.scheme;
-        this.i = adCard.threadTitle;
-        this.j = adCard.getButtonCmdScheme();
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("style");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optString("scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.h = jSONObject.optInt("close_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
-        if (optJSONObject != null) {
-            this.f = optJSONObject.optString("pkgname");
-            this.g = optJSONObject.optString("download_url");
-        }
-        jSONObject.optString("content");
-        this.k = true;
-        this.j = jSONObject.optString("button_scheme");
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            b(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String d() {
+    @Override // com.baidu.tieba.k67
+    public b77 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.b);
-                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
-                jSONObject.put("scheme", this.d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f);
-                jSONObject2.put("download_url", this.g);
-                jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.h);
-                jSONObject.put("button_scheme", this.j);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a();
         }
-        return (String) invokeV.objValue;
+        return (b77) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.y97
+    public Map<String, String> a(l57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(businessInfo.a());
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

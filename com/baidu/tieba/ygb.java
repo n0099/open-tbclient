@@ -1,84 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.splash.SplashAD;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ygb extends FunNativeAd2Bridger<vgb, View> {
+public class ygb extends aib<SplashAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public final /* synthetic */ tgb c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ygb(tgb tgbVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public ygb(SplashAD splashAD) {
+        super(splashAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tgbVar, reporterPidLoader};
+            Object[] objArr = {splashAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tgbVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, vgb vgbVar, BaseNativeAd2<vgb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.aib
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, vgbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((SplashAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aib
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((SplashAD) this.a).sendLossNotification(map);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(vgb vgbVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aib
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vgbVar)) == null) {
-            return ((TTNativeExpressAd) vgbVar.a).getExpressAdView();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((SplashAD) this.a).sendWinNotification(map);
         }
-        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, vgb vgbVar, BaseNativeAd2<vgb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.aib
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, vgbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            vgb vgbVar2 = vgbVar;
-            expressInflater.inflate();
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.g.get(vgbVar2);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
-            } else {
-                LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
-            }
-            this.c.onShowStart(vgbVar2, this.b);
-            this.b = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((SplashAD) this.a).getECPM();
         }
+        return invokeV.intValue;
     }
 }

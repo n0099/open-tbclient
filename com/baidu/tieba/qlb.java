@@ -1,93 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.ValueAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes7.dex */
-public abstract class qlb {
+public final class qlb implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public long b;
-    public Runnable c;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ int b;
+    public final /* synthetic */ int c;
+    public final /* synthetic */ InstallActivity d;
 
-    public abstract void b();
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qlb a;
-
-        public a(qlb qlbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qlbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qlbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                if (this.a.a.get()) {
-                    ulb.a().postDelayed(this.a.c, this.a.b);
-                }
-            }
-        }
-    }
-
-    public qlb(long j) {
+    public qlb(InstallActivity installActivity, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        this.c = new a(this);
-        this.b = 0 == j ? 300L : j;
+        this.d = installActivity;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public void c() {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.get()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
+            float animatedFraction2 = valueAnimator.getAnimatedFraction();
+            int i = this.b;
+            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
+            this.d.getWindow().getDecorView().refreshDrawableState();
         }
-        this.a.set(true);
-        ulb.a().removeCallbacks(this.c);
-        ulb.a().postDelayed(this.c, slb.e().i());
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.a.get()) {
-            return;
-        }
-        this.a.set(false);
-        ulb.a().removeCallbacks(this.c);
     }
 }

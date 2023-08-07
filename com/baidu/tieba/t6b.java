@@ -1,23 +1,11 @@
 package com.baidu.tieba;
+
+import java.lang.reflect.Type;
 /* loaded from: classes8.dex */
 public interface t6b {
-    boolean available();
+    String a(Object obj);
 
-    int availableBytes();
+    <T> T b(String str, Class<T> cls);
 
-    void clearQueues();
-
-    void close();
-
-    void flush();
-
-    int getBytes(byte[] bArr, int i);
-
-    void initVoiceChanger(int i, int i2, int i3, int i4);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    void setVoiceChangeType(int[] iArr);
-
-    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
+    <T> T c(String str, Type type);
 }

@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.dc2;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
+import com.baidu.tieba.ni2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,24 +17,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class qc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public final dc2 c;
+    public gi2 a;
+    public qi2 b;
 
     /* loaded from: classes7.dex */
-    public class a implements dc2.b {
+    public class a extends cj2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qc2 a;
+        public String a;
+        public String b;
+        public final /* synthetic */ qc2 c;
 
-        public a(qc2 qc2Var) {
+        public a(@NonNull qc2 qc2Var, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qc2Var};
+                Object[] objArr = {qc2Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,51 +45,61 @@ public class qc2 {
                     return;
                 }
             }
-            this.a = qc2Var;
+            this.c = qc2Var;
+            this.a = str;
+            this.b = str2;
+            if (qc2.c) {
+                Log.d("SwanAppV8Daemon", "basePath: " + str + ", jsFile: " + str2);
+            }
         }
 
-        @Override // com.baidu.tieba.dc2.b
-        public void a(NetworkStatus networkStatus) {
+        @Override // com.baidu.tieba.dj2
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                xb2.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                wb2.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
-                this.a.e(networkStatus);
-                if (qc2.d) {
-                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cj2, com.baidu.tieba.dj2
+        @Nullable
+        public V8EngineConfiguration.CodeCacheSetting b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return super.b();
+            }
+            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.dj2
+        public String getInitBasePath() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cj2, com.baidu.tieba.dj2
+        public void c(gi2 gi2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gi2Var) == null) {
+                if (this.c.b != null) {
+                    this.c.b.a(gi2Var);
                 }
+                gi2Var.x0();
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-494198229, "Lcom/baidu/tieba/qc2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-494198229, "Lcom/baidu/tieba/qc2$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+        @Override // com.baidu.tieba.cj2, com.baidu.tieba.dj2
+        public void d(gi2 gi2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, gi2Var) == null) {
+                super.d(gi2Var);
             }
         }
     }
@@ -104,13 +117,48 @@ public class qc2 {
                 return;
             }
         }
-        d = fs1.a;
+        c = ir1.a;
     }
 
-    public qc2() {
+    public final ni2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ni2.b bVar = new ni2.b();
+            bVar.c(3);
+            bVar.b(oc2.b());
+            return bVar.a();
+        }
+        return (ni2) invokeV.objValue;
+    }
+
+    public gi2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (gi2) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            gi2 gi2Var = this.a;
+            if (gi2Var != null) {
+                gi2Var.j0();
+                this.a = null;
+            }
+            this.b = null;
+        }
+    }
+
+    public qc2(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,70 +168,14 @@ public class qc2 {
                 return;
             }
         }
-        this.c = new dc2();
+        this.a = mi2.b(c(), new a(this, str, str2), null);
+        this.a.addJavascriptInterface(new pc2(this.a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public final void c() {
+    public void f(qi2 qi2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.a(new a(this));
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = true;
-            if (ub3.K().k() == 1) {
-                z = false;
-            }
-            this.b = z;
-            this.a = 0L;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
-            return;
-        }
-        if (this.a == 0) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
-            }
-            this.a = System.currentTimeMillis();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.a > 2000) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
-            }
-            c();
-            g();
-        }
-        this.a = currentTimeMillis;
-    }
-
-    public final void e(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                vb2.f(R.string.obfuscated_res_0x7f0f1577);
-            } else {
-                vb2.f(R.string.obfuscated_res_0x7f0f156d);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, qi2Var) == null) {
+            this.b = qi2Var;
         }
     }
 }

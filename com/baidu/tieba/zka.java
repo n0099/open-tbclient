@@ -1,34 +1,69 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zka {
+public abstract class zka<T> extends yka<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zka(String str, T t, String str2) {
+        super(str, t, str2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            b(tbPageContext, str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, t, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
+    @Override // com.baidu.tieba.yka
+    public long e(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) && !StringUtils.isNull(str) && tbPageContext != null) {
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
-                bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            return SharedPrefHelper.getInstance().getLong(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            SharedPrefHelper.getInstance().putLong(str, j);
+        }
+    }
+
+    public int l(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            return SharedPrefHelper.getInstance().getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void m(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            SharedPrefHelper.getInstance().putInt(str, i);
         }
     }
 }

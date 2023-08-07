@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.manage.Download;
-import com.baidu.down.request.task.ProgressInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,178 +10,116 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k24 extends p24 {
+public class k24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861180, "Lcom/baidu/tieba/k24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861180, "Lcom/baidu/tieba/k24;");
-                return;
-            }
-        }
-        d = fs1.a;
-    }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final k24 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k24(int i) {
-        super("onSuccess", 0, f(null, i, false));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-711166113, "Lcom/baidu/tieba/k24$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-711166113, "Lcom/baidu/tieba/k24$a;");
+                    return;
+                }
             }
+            a = new k24();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k24(Download download) {
-        super("onSuccess", 0, f(d(download), -1, false));
+    public k24() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static k24 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (k24) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, r24Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                r24Var.a(new s24(31008, "download is not exist"));
+            } else {
+                p74.c().c(optString);
+            }
+        }
+    }
+
+    public void c(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, r24Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                r24Var.a(new s24(31008, "download is not exist"));
+            } else {
+                p74.c().e(optString);
+            }
+        }
+    }
+
+    public void e(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, r24Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                r24Var.a(new s24(31008, "download is not exist"));
+            } else {
+                p74.c().f(optString);
+            }
+        }
+    }
+
+    public void d(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, r24Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            if (!optBoolean) {
+                r24Var.a(new s24(31008, "download is not exist"));
                 return;
             }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k24(Download download, boolean z) {
-        super("onSuccess", 0, f(e(download, z), -1, false));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+            String optString = jSONObject.optString("packageName");
+            String optString2 = jSONObject.optString("apkId");
+            String optString3 = jSONObject.optString("url");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                if (!p74.c().a(optString3, optString, optString2, optBoolean, new m24(r24Var))) {
+                    r24Var.a(new s24(31006, "is not in main process"));
+                    return;
+                }
                 return;
             }
+            r24Var.a(new s24(31007, "invalid params"));
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k24(boolean z) {
-        super("onSuccess", 0, f(null, -1, z));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static JSONObject d(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
-            return e(download, false);
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject e(Download download, boolean z) {
-        InterceptResult invokeLZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, download, z)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (download == null) {
-                return jSONObject;
-            }
-            try {
-                jSONObject.put("apkId", new d24(download).h());
-                jSONObject.put("downloadId", download.getId());
-                jSONObject.put("packageName", download.getKeyByUser());
-                jSONObject.put("url", download.getUrl());
-                if (z) {
-                    jSONObject.put("status", Download.DownloadState.CANCEL.ordinal());
-                } else {
-                    jSONObject.put("status", download.getState().ordinal());
-                }
-                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
-                jSONObject.put("total", download.getTotalbytes());
-                if (e24.d(download)) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject.put("fileExist", str);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLZ.objValue;
-    }
-
-    public static String f(Object obj, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{obj, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", obj);
-                if (i > -1) {
-                    jSONObject.put("progress", i);
-                }
-                jSONObject.put("installed", z);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeCommon.objValue;
     }
 }

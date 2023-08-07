@@ -1,173 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.data.StatisticInfoField;
-import com.baidu.tieba.fn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hc8 extends BdAsyncTask<String, Integer, String> {
+public class hc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public String b;
-    public String c;
-    public long d;
-    public long e;
-    public String f;
-    public Context g;
-    public boolean h;
-    public HashMap<String, Boolean> i;
 
-    public hc8(@NonNull Context context, @NonNull String str, long j, @Nullable String str2, long j2, boolean z) {
+    public static short b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2, Long.valueOf(j2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
             }
         }
-        this.i = new HashMap<>();
-        this.g = context;
-        this.b = str;
-        this.e = j;
-        this.f = str2;
-        this.d = j2;
-        this.h = z;
+        return invokeI.shortValue;
     }
 
-    public final void b() {
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.i.containsKey(this.c) && this.i.get(this.c).booleanValue()) {
-                yi.Q(TbadkCoreApplication.getInst(), R.string.save_emotion_duplicate);
-            } else if (this.c == null) {
-            } else {
-                if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    fn5.b bVar = new fn5.b();
-                    bVar.c = this.c;
-                    String str = this.b;
-                    bVar.a = str;
-                    bVar.b = str;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
-                    return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.message_text_error_because_network;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b != 4) {
+                        if (b != 5) {
+                            if (b == 6) {
+                                i2 = R.string.message_text_error_because_refuse;
+                            }
+                            i2 = -1;
+                        } else {
+                            i2 = R.string.message_text_error_because_refuse_stranger;
+                        }
+                    } else {
+                        i2 = R.string.message_text_error_because_refuse_friend;
+                    }
                 }
-                Intent intent = new Intent(fn5.a);
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra(fn5.b, this.b);
-                intent.putExtra(fn5.c, this.b);
-                intent.putExtra(fn5.d, this.c);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                this.c = new JSONObject(str).getString("pid");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                netWork.cancelNetConnect();
-            }
-            this.c = null;
-            super.cancel(true);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onPreExecute();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
-            NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
-            this.a = netWork;
-            String str = null;
-            try {
-                netWork.addPostData("pic_url", this.b);
-                str = this.a.postMultiNetData();
-                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    c(str);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            if (i2 != -1) {
+                return TbadkCoreApplication.getInst().getResources().getString(i2);
             }
             return str;
         }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            super.onPostExecute((hc8) str);
-            if (this.h) {
-                b();
-                zb8.a(2, 1, this.e, this.d);
-                return;
-            }
-            PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(this.g, this.b, TbadkCoreApplication.getCurrentAccountId(), "");
-            StatisticInfoField statisticInfoField = new StatisticInfoField();
-            String str2 = this.f;
-            if (str2 != null) {
-                statisticInfoField.setForumName(str2);
-            }
-            statisticInfoField.setForumId(String.valueOf(this.e));
-            statisticInfoField.setChatRoomId(String.valueOf(this.d));
-            personalMsgImageActivityConfig.setStatisticInfoFild(statisticInfoField);
-            personalMsgImageActivityConfig.setFrom(1);
-            personalMsgImageActivityConfig.setPid(this.c);
-            personalMsgImageActivityConfig.isFromGroupChat(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
-            zb8.a(1, 2, this.e, this.d);
-        }
+        return (String) invokeIL.objValue;
     }
 }

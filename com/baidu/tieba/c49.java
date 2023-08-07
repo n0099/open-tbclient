@@ -1,72 +1,75 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
-import com.baidu.searchbox.live.nps.util.PluginUtils;
-import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipUpgrade;
 /* loaded from: classes5.dex */
-public class c49 implements AbConfigService {
+public class c49 implements ym {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public Object getSwitch(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624929, "Lcom/baidu/tieba/c49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624929, "Lcom/baidu/tieba/c49;");
+                return;
+            }
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public String getSwitch(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return null;
-        }
-        return (String) invokeLL.objValue;
+        a = BdUniqueId.gen();
     }
 
     public c49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public boolean getSwitch(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.ym
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            if ("android_live_enable_nps_multi_plugin_online".equals(str)) {
-                return true;
-            }
-            if ("android_live_enable_nps_multi_plugin".equals(str)) {
-                if (PluginUtils.isLivenpsMatchMultiNps()) {
-                    return true;
-                }
-                return false;
-            } else if (!MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH.equals(str) && !"android_live_media_pre_inflate_queue".equals(str) && !"live_android_mixview_pager".equals(str)) {
-                return true;
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
         }
-        return invokeLZ.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(DataRes dataRes) {
+        VipUpgrade vipUpgrade;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) && dataRes != null && (vipUpgrade = dataRes.upgrade) != null) {
+            String str = vipUpgrade.svip;
+            String str2 = vipUpgrade.link;
+            String str3 = vipUpgrade.button;
+            String str4 = vipUpgrade.text;
+            vipUpgrade.pay.intValue();
+            dataRes.upgrade.normal.intValue();
+            VipUpgrade vipUpgrade2 = dataRes.upgrade;
+            String str5 = vipUpgrade2.card_id;
+            String str6 = vipUpgrade2.expire;
+        }
     }
 }

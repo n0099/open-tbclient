@@ -1,45 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tg8 {
+public abstract class tg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+    public abstract int getViewType();
+
+    public tg8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, shareIMCommonCardData, i) == null) {
-            if (ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-                c(shareIMCommonCardData, i);
-            } else if (ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-                b(shareIMCommonCardData, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static void b(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ALBUM_SHARE_TYPE);
-        statisticItem.addParam("obj_type", i);
-        TiebaStatic.log(statisticItem);
-    }
-
-    public static void c(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TOPIC_SHARE_TYPE);
-        statisticItem.addParam("obj_type", i);
-        TiebaStatic.log(statisticItem);
     }
 }

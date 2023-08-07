@@ -1,17 +1,39 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface fo0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
+public class fo0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public gk1<do0> a;
 
-    <T extends eo0> void a(@Nullable T t);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ek1 b = ek1.b();
+            this.a = b;
+            b.a(new eo0());
+        }
+    }
 
-    <T extends eo0> void b(@NonNull Object obj, @NonNull ho0<T> ho0Var);
-
-    <T extends eo0> void c(@NonNull Object obj, int i, @NonNull ho0<T> ho0Var);
-
-    void unregister(@NonNull Object obj);
+    public fo0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+    }
 }

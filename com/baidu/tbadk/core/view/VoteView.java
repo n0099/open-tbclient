@@ -15,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -22,6 +24,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PollData;
 import com.baidu.tbadk.core.data.PollOptionData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -32,12 +35,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.j55;
+import com.baidu.tieba.g45;
 import com.baidu.tieba.model.AddPollPostModel;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class VoteView extends LinearLayout {
     public boolean r;
     public int s;
     public boolean t;
-    public j55 u;
+    public g45 u;
     public AddPollPostModel v;
     public AddPollPostModel.b w;
     public View.OnClickListener x;
@@ -696,19 +696,10 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{eVar, Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
             eVar.e.setVisibility(8);
             if (z2) {
-                d85 d2 = d85.d(eVar.b);
-                d2.e(R.string.A_X07);
-                d2.o(R.string.J_X04);
-                d2.m(R.dimen.L_X01);
-                d2.l(R.color.CAM_X0302);
-                d2.f(i);
-                return;
+                EMManager.from(eVar.b).setAlpha(R.string.A_X07).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0302).setBackGroundColor(i);
+            } else {
+                EMManager.from(eVar.b).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0902).setBackGroundColor(i);
             }
-            d85 d3 = d85.d(eVar.b);
-            d3.o(R.string.J_X04);
-            d3.m(R.dimen.L_X01);
-            d3.l(R.color.CAM_X0902);
-            d3.f(i);
         }
     }
 
@@ -828,7 +819,7 @@ public class VoteView extends LinearLayout {
             return;
         }
         this.t = true;
-        if (C(pollData, str, wg.g(str2, 0L))) {
+        if (C(pollData, str, JavaTypesHelper.toLong(str2, 0L))) {
             List<PollOptionData> options = this.k.getOptions();
             if (!ListUtils.isEmpty(options)) {
                 setViewWithAllData(options);
@@ -840,7 +831,7 @@ public class VoteView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, list) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = yi.g(this.a, R.dimen.tbds25);
+            layoutParams.bottomMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds25);
             this.f.setLayoutParams(layoutParams);
             this.g.setVisibility(8);
             if (this.q && !this.p && !this.o && !this.r) {
@@ -857,9 +848,7 @@ public class VoteView extends LinearLayout {
     public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            d85 d2 = d85.d(this);
-            d2.o(R.string.J_X05);
-            d2.f(this.s);
+            EMManager.from(this).setCorner(R.string.J_X05).setBackGroundColor(this.s);
             if (this.s == R.color.CAM_X0207) {
                 SkinManager.setBackgroundResource(this.g, R.drawable.bg_vote_list_transmit_bottom);
             } else {
@@ -875,12 +864,12 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    public void setupLiveThreadVoteInfo(@Nullable j55 j55Var) {
+    public void setupLiveThreadVoteInfo(@Nullable g45 g45Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, j55Var) == null) {
-            this.u = j55Var;
-            if (j55Var != null && this.h != null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, g45Var) == null) {
+            this.u = g45Var;
+            if (g45Var != null && this.h != null) {
                 J();
                 K();
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_POST_CARD_VOTE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.i).param("fid", this.j);
@@ -926,12 +915,12 @@ public class VoteView extends LinearLayout {
         } else {
             i = R.dimen.tbds0;
         }
-        int g = yi.g(context, i);
-        int g2 = yi.g(getContext(), R.dimen.M_H_X007);
-        int g3 = yi.g(getContext(), R.dimen.M_W_X006);
+        int dimens = BdUtilHelper.getDimens(context, i);
+        int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X007);
+        int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006);
         marginLayoutParams.width = -1;
-        marginLayoutParams.height = yi.g(getContext(), R.dimen.tbds104);
-        marginLayoutParams.setMargins(g3, g, g3, g2);
+        marginLayoutParams.height = BdUtilHelper.getDimens(getContext(), R.dimen.tbds104);
+        marginLayoutParams.setMargins(dimens3, dimens, dimens3, dimens2);
         this.h.setLayoutParams(marginLayoutParams);
     }
 
@@ -985,11 +974,11 @@ public class VoteView extends LinearLayout {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.h.getLayoutParams();
-        int g = yi.g(getContext(), R.dimen.tbds16);
-        int g2 = yi.g(getContext(), R.dimen.tbds54);
-        marginLayoutParams.width = yi.g(getContext(), R.dimen.tbds298);
-        marginLayoutParams.height = yi.g(getContext(), R.dimen.tbds94);
-        marginLayoutParams.setMargins(0, g, 0, g2);
+        int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds16);
+        int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds54);
+        marginLayoutParams.width = BdUtilHelper.getDimens(getContext(), R.dimen.tbds298);
+        marginLayoutParams.height = BdUtilHelper.getDimens(getContext(), R.dimen.tbds94);
+        marginLayoutParams.setMargins(0, dimens, 0, dimens2);
         this.h.setLayoutParams(marginLayoutParams);
     }
 
@@ -998,9 +987,9 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             String A2 = A(this.m);
             if (this.b != null && this.v != null && !StringUtils.isNull(this.i) && this.w != null && !StringUtils.isNull(A2) && this.k != null) {
-                this.v.a0(wg.g(this.i, -1L));
-                this.v.Z(this.w);
-                this.v.X(this.i, A2, this.j);
+                this.v.S(JavaTypesHelper.toLong(this.i, -1L));
+                this.v.R(this.w);
+                this.v.P(this.i, A2, this.j);
             }
         }
     }
@@ -1050,19 +1039,10 @@ public class VoteView extends LinearLayout {
             gradientDrawable2.setColor(SkinManager.getColor(i2));
             eVar.c.setBackgroundDrawable(gradientDrawable2);
             if (z2) {
-                d85 d2 = d85.d(eVar.b);
-                d2.e(R.string.A_X07);
-                d2.o(R.string.J_X04);
-                d2.m(R.dimen.L_X01);
-                d2.l(R.color.CAM_X0302);
-                d2.f(i2);
-                return;
+                EMManager.from(eVar.b).setAlpha(R.string.A_X07).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0302).setBackGroundColor(i2);
+            } else {
+                EMManager.from(eVar.b).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0902).setBackGroundColor(i2);
             }
-            d85 d3 = d85.d(eVar.b);
-            d3.o(R.string.J_X04);
-            d3.m(R.dimen.L_X01);
-            d3.l(R.color.CAM_X0902);
-            d3.f(i2);
         }
     }
 
@@ -1071,9 +1051,7 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             boolean z2 = true;
             if (this.u != null) {
-                d85 d2 = d85.d(this.h);
-                d2.o(R.string.J_X01);
-                d2.i(R.color.CAM_X0302);
+                EMManager.from(this.h).setCorner(R.string.J_X01).setBackGroundSelectorColor(R.color.CAM_X0302);
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
                 if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
                     this.h.setText(this.a.getString(R.string.pb_vote_text));
@@ -1097,14 +1075,14 @@ public class VoteView extends LinearLayout {
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(E);
-            gradientDrawable.setColor(dba.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
+            gradientDrawable.setColor(x9a.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
             this.h.setBackgroundDrawable(gradientDrawable);
             if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
                 this.h.setEnabled(true);
                 return;
             }
-            this.h.setTextColor(dba.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.h.setTextColor(x9a.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.h.setEnabled(false);
         }
     }

@@ -23,7 +23,7 @@ public class a {
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0579a c;
+    public C0580a c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,13 +42,13 @@ public class a {
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0579a {
+    public static class C0580a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0579a() {
+        public C0580a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,17 +103,17 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public C0579a b() {
+    public C0580a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            C0579a c0579a = this.c;
-            if (c0579a == null) {
-                return new C0579a();
+            C0580a c0580a = this.c;
+            if (c0580a == null) {
+                return new C0580a();
             }
-            return c0579a;
+            return c0580a;
         }
-        return (C0579a) invokeV.objValue;
+        return (C0580a) invokeV.objValue;
     }
 
     private void a(Context context) {
@@ -161,19 +161,19 @@ public class a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0084, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0086, code lost:
         if (r11 != null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x008c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x008e, code lost:
         if (r11 == null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x008e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0090, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0091, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0093, code lost:
         com.cmic.sso.sdk.e.c.b("UMCTelephonyManagement", "readSimInfoDbEnd");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0096, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0098, code lost:
         return;
      */
     /*
@@ -221,7 +221,7 @@ public class a {
             if (currentTimeMillis < 5000 && currentTimeMillis > 0) {
                 return;
             }
-            this.c = new C0579a();
+            this.c = new C0580a();
             if (!z) {
                 return;
             }
@@ -230,8 +230,8 @@ public class a {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                 if (this.c.b == 0 || this.c.b == 1) {
                     if (this.c.a == -1) {
-                        C0579a c0579a = this.c;
-                        c0579a.a = c0579a.b;
+                        C0580a c0580a = this.c;
+                        c0580a.a = c0580a.b;
                     }
                     this.c.b = -1;
                 }

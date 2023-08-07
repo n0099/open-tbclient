@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -112,7 +112,7 @@ public class CustomToast2 {
             } else {
                 mText = str;
                 mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
-                mToast.setGravity(17, 0, yi.d(context, 100.0f));
+                mToast.setGravity(17, 0, BdUtilHelper.dip2px(context, 100.0f));
             }
             GreyUtil.grey(mToast);
             mHandler.postDelayed(r, i);

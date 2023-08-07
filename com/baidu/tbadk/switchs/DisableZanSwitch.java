@@ -1,9 +1,9 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.vq5;
+import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ff
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class DisableZanSwitch extends BaseNormalSwitch {
 
     public static boolean getIsOn() {
         InterceptResult invokeV;
-        int d;
+        int f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 return false;
             }
             if (mCachedSwitchValue < 0) {
-                mCachedSwitchValue = da5.p().q(KEY_SWITCH, 0);
-                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (d = vq5.d(KEY_SWITCH, -1)) >= 0) {
-                    mCachedSwitchValue = d;
-                    da5.p().F(KEY_SWITCH, d);
+                mCachedSwitchValue = SharedPrefHelper.getInstance().getInt(KEY_SWITCH, 0);
+                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (f = zo5.f(KEY_SWITCH, -1)) >= 0) {
+                    mCachedSwitchValue = f;
+                    SharedPrefHelper.getInstance().putInt(KEY_SWITCH, f);
                 }
             }
             if (mCachedSwitchValue != 1) {
@@ -83,8 +83,8 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             mCachedSwitchValue = i;
-            da5.p().F(KEY_SWITCH, i);
-            vq5.l(KEY_SWITCH, i);
+            SharedPrefHelper.getInstance().putInt(KEY_SWITCH, i);
+            zo5.n(KEY_SWITCH, i);
         }
     }
 }

@@ -1,35 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 /* loaded from: classes8.dex */
-public class ul implements IWebViewDataDirectoryManager {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
-    public void setDataDirectorySuffix() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public ul() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+public interface ul {
+    static {
+        new ServiceReference(AppBeforeCreateSpeedStats.TITAN_DETAILS, "TitanInfo");
     }
 }

@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class xg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299396, "Lcom/baidu/tieba/xg4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i, i2)) == null) {
+            if (bitmap == null || i <= 0 || i2 <= 0) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948299396, "Lcom/baidu/tieba/xg4;");
-                return;
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            try {
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        a = new Object();
+        return (Bitmap) invokeLII.objValue;
     }
 }

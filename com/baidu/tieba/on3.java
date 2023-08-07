@@ -1,25 +1,68 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.os.Build;
+import android.os.StatFs;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.rk3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.text.DecimalFormat;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class on3 {
+public class on3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public String d;
-    public String e;
-    public final StringBuilder f;
-    public boolean g;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ rp3 c;
+
+        public a(int i, long j, rp3 rp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), rp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = j;
+            this.c = rp3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    on3.f(jSONObject, l23.c(), this.a, this.b);
+                } catch (Exception e) {
+                    yn3.f(jSONObject, "errorMsg", e.getMessage());
+                }
+                this.c.a(jSONObject);
+            }
+        }
+    }
 
     public on3() {
         Interceptable interceptable = $ic;
@@ -31,239 +74,103 @@ public final class on3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 2L;
-        this.d = "";
-        this.e = "";
-        this.f = new StringBuilder();
-        this.g = false;
     }
 
-    public long a() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (o() * 10000000) + (j() * 10000) + (h() * 1);
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public StringBuilder g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (StringBuilder) invokeV.objValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.g = true;
-        }
-    }
-
-    public long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return s(-100);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public on3 b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            p(j / 10000000);
-            long j2 = j % 10000000;
-            k(j2 / 10000);
-            i((j2 % 10000) / 1);
-            return this;
-        }
-        return (on3) invokeJ.objValue;
-    }
-
-    public on3 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.d = str;
-            return this;
-        }
-        return (on3) invokeL.objValue;
-    }
-
-    public on3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            StringBuilder sb = this.f;
-            sb.append(str);
-            sb.append("\n");
-            return this;
-        }
-        return (on3) invokeL.objValue;
-    }
-
-    public on3 i(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.b = m(j, 9999L, "error");
-            return this;
-        }
-        return (on3) invokeJ.objValue;
-    }
-
-    public on3 k(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            this.a = m(j, 999L, "feature");
-            return this;
-        }
-        return (on3) invokeJ.objValue;
-    }
-
-    public on3 p(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-            this.c = m(j, 9L, com.tencent.connect.common.Constants.PARAM_PLATFORM);
-            return this;
-        }
-        return (on3) invokeJ.objValue;
-    }
-
-    public on3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.e = str;
-            return this;
-        }
-        return (on3) invokeL.objValue;
-    }
-
-    public on3 c(pk4 pk4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pk4Var)) == null) {
-            if (pk4Var != null) {
-                i(pk4Var.a);
-                d(pk4Var.b);
-                q(pk4Var.e);
-                if (!TextUtils.isEmpty(pk4Var.d)) {
-                    f(pk4Var.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                synchronized (on3.class) {
+                    a = e();
                 }
             }
-            return this;
+            return a;
         }
-        return (on3) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final long m(long j, long j2, String str) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public static String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            if (j >= 0 && j <= j2) {
-                z = false;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static void d(@NonNull vv2 vv2Var, @NonNull rp3<JSONObject> rp3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, vv2Var, rp3Var) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(vv2Var.h("host_launch_type"), vv2Var.k("box_cold_launch"), rp3Var), "getDeviceInfoAsync", 2);
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        String replace;
+        String replace2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = Build.MODEL;
+            String str2 = "NUL";
+            if (TextUtils.isEmpty(str)) {
+                replace = "NUL";
             } else {
-                z = true;
+                replace = str.replace("_", "-");
             }
-            if (z) {
-                f("illegalFallback " + str + "::" + j);
+            String str3 = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str3)) {
+                replace2 = "0.0";
+            } else {
+                replace2 = str3.replace("_", "-");
             }
-            if (z) {
-                return j2;
+            int i = Build.VERSION.SDK_INT;
+            String str4 = Build.MANUFACTURER;
+            if (!TextUtils.isEmpty(str4)) {
+                str2 = str4.replace("_", "-");
             }
-            return j;
+            return replace + "_" + replace2 + "_" + i + "_" + str2;
         }
-        return invokeCommon.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public String s(int i) {
-        InterceptResult invokeI;
+    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
+        int i3;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(a()), Long.valueOf(o()), Long.valueOf(j()), Long.valueOf(h()), e()));
-            if (i >= -200) {
-                sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(o()), Long.valueOf(j()), Long.valueOf(h())));
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            yn3.f(jSONObject, "model", Build.MODEL);
+            yn3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
+            yn3.f(jSONObject, "netStatus", Integer.valueOf(i));
+            rk3.a a2 = rk3.a(fu2.c());
+            if (a2 == null) {
+                i3 = -1;
+            } else {
+                i3 = a2.a;
             }
-            if (i >= -100) {
-                sb.append(String.format(Locale.getDefault(), "  details(%s) \n", g()));
+            yn3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
+            yn3.f(jSONObject, "appCurVersion", so3.D());
+            yn3.f(jSONObject, "startupType", String.valueOf(i2));
+            yn3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
+            StatFs statFs = new StatFs(ut2.i());
+            yn3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
+            yn3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
+            ActivityManager activityManager = (ActivityManager) xa3.K().getSystemService("activity");
+            if (activityManager != null) {
+                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+                activityManager.getMemoryInfo(memoryInfo);
+                yn3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
+                yn3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
+                if (memoryInfo.lowMemory) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                yn3.f(jSONObject, "lowMemory", str);
             }
-            return sb.toString();
         }
-        return (String) invokeI.objValue;
     }
 }

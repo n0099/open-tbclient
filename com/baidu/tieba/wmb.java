@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public final class wmb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int a = 1;
-    public static final int b = 2;
-    public static final int c = 3;
+public final class wmb<TResult> implements tnb<TResult> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vnb a;
+    public Executor b;
+    public final Object c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948276797, "Lcom/baidu/tieba/wmb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public wmb(Executor executor, vnb vnbVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, vnbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948276797, "Lcom/baidu/tieba/wmb;");
+        this.c = new Object();
+        this.a = vnbVar;
+        this.b = executor;
+    }
+
+    @Override // com.baidu.tieba.tnb
+    public final void a(fnb<TResult> fnbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, fnbVar) == null) && !fnbVar.f()) {
+            fnbVar.e();
+            this.b.execute(new umb(this, fnbVar));
         }
     }
 }

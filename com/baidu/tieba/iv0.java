@@ -1,36 +1,18 @@
 package com.baidu.tieba;
 
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-@JvmName(name = "InteractiveABConfig")
 /* loaded from: classes6.dex */
-public final class iv0 {
+public class iv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a() {
-        InterceptResult invokeV;
+    public static void a(@NonNull vt0 vt0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (jv0.a() != 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(65536, null, vt0Var) == null) && ut0.f() && i21.p()) {
+            vt0Var.c(new jv0(), new FrameLayout.LayoutParams(-1, -2));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (jv0.a() != 0 && jv0.a() != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

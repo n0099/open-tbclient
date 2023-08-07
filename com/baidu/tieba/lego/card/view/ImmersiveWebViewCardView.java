@@ -9,6 +9,7 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,9 +20,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.lda;
+import com.baidu.tieba.eca;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public lda o;
+    public eca o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes6.dex */
@@ -128,9 +128,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        lda ldaVar = new lda();
-        this.o = ldaVar;
-        ldaVar.a(new XiubaTbJsBridge(this.i));
+        eca ecaVar = new eca();
+        this.o = ecaVar;
+        ecaVar.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 
@@ -145,7 +145,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (immersiveWebViewCard.getHeight() > 0) {
             setWebviewHeight(immersiveWebViewCard.getHeight());
         } else {
-            setWebviewHeight(yi.j(getContext()));
+            setWebviewHeight(BdUtilHelper.getEquipmentHeight(getContext()));
         }
         if (!immersiveWebViewCard.mHasShown) {
             if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
@@ -234,7 +234,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e7, (ViewGroup) null);
+            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ea, (ViewGroup) null);
             F();
             return this.m;
         }

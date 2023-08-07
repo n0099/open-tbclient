@@ -6,10 +6,10 @@ import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.AccountStorage;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.d15;
-import com.baidu.tieba.uq5;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CookieHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.util.CookieHelper$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class AnonymousClass1 extends HashMap<String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,16 +61,16 @@ public class CookieHelper {
                 b = currentAccountInfo.getBDUSS();
             } else {
                 if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                    b = uq5.b();
+                    b = yo5.b();
                 }
                 return null;
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                AccountData e = d15.e();
-                if (e == null) {
+                AccountData activeAccountData = AccountStorage.getActiveAccountData();
+                if (activeAccountData == null) {
                     return null;
                 }
-                b = e.getBDUSS();
+                b = activeAccountData.getBDUSS();
             }
             if (!TextUtils.isEmpty(b)) {
                 return Pair.create(HttpRequest.BDUSS, b);

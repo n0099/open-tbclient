@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bs5;
-import com.baidu.tieba.es5;
-import com.baidu.tieba.ky5;
+import com.baidu.tbadk.mvc.data.INetRequestData;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.fq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes5.dex */
-public class FrsDynamicRequestData extends OrmObject implements es5, bs5 {
+public class FrsDynamicRequestData extends OrmObject implements INetRequestData, fq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1102common;
+    public CommonReq f1095common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -28,61 +28,61 @@ public class FrsDynamicRequestData extends OrmObject implements es5, bs5 {
     public int scrH;
     public int scrW;
 
-    @Override // com.baidu.tieba.bs5
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ds5
-    public HashMap<String, Object> P() {
+    @Override // com.baidu.tieba.eq5
+    public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (HashMap) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ds5
-    public HashMap<String, String> T() {
+    @Override // com.baidu.tieba.fq5
+    public String getCacheTableName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (HashMap) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bs5
-    public String U() {
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, String> getHttpHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (String) invokeV.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.as5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bs5
+    @Override // com.baidu.tieba.fq5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, Object> makeHttpParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq5
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -102,11 +102,11 @@ public class FrsDynamicRequestData extends OrmObject implements es5, bs5 {
         }
     }
 
-    @Override // com.baidu.tieba.gs5
-    public Object q(boolean z) {
+    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
+    public Object encodeSocketRequestData(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.forumId);
             builder.scr_w = Integer.valueOf(this.scrW);
@@ -115,7 +115,7 @@ public class FrsDynamicRequestData extends OrmObject implements es5, bs5 {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            ky5.c(builder, true, false, true);
+            NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

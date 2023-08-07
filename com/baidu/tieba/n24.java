@@ -15,7 +15,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.download.util.ApkUtil;
-import com.baidu.swan.game.guide.install.InstallActivity;
+import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,14 +42,14 @@ public class n24 {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return jk3.a().getLong("install_authorize_guide_time_key", 0L);
+            return mj3.a().getLong("install_authorize_guide_time_key", 0L);
         }
         return invokeV.longValue;
     }
@@ -58,7 +58,7 @@ public class n24 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return jk3.a().getLong("install_continue_guide_time_key", 0L);
+            return mj3.a().getLong("install_continue_guide_time_key", 0L);
         }
         return invokeV.longValue;
     }
@@ -79,7 +79,7 @@ public class n24 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return jk3.a().getInt("install_guide_count_key", 0);
+            return mj3.a().getInt("install_guide_count_key", 0);
         }
         return invokeV.intValue;
     }
@@ -88,7 +88,7 @@ public class n24 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return jk3.a().getInt("install_guide_max_count_key", 3);
+            return mj3.a().getInt("install_guide_max_count_key", 3);
         }
         return invokeV.intValue;
     }
@@ -97,36 +97,45 @@ public class n24 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return jk3.a().getBoolean("install_guide_switch_key", false);
+            return mj3.a().getBoolean("install_guide_switch_key", false);
         }
         return invokeV.booleanValue;
     }
 
-    public static void n() {
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            jk3.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return mj3.a().getBoolean("install_result_key", false);
         }
+        return invokeV.booleanValue;
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            jk3.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
+            mj3.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
         }
     }
 
-    public static void q() {
+    public static void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            jk3.a().edit().putInt("install_guide_count_key", jk3.a().getInt("install_guide_count_key", 0) + 1).apply();
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            mj3.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
         }
     }
 
-    public static boolean g(Context context, String str) {
+    public static void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            mj3.a().edit().putInt("install_guide_count_key", mj3.a().getInt("install_guide_count_key", 0) + 1).apply();
+        }
+    }
+
+    public static boolean h(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
             if (context == null) {
                 return false;
             }
@@ -145,11 +154,11 @@ public class n24 {
         return invokeLL.booleanValue;
     }
 
-    public static boolean h(Context context, File file, boolean z) {
+    public static boolean i(Context context, File file, boolean z) {
         InterceptResult invokeLLZ;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, file, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, file, z)) == null) {
             if (context != null && file != null && file.isFile() && file.exists()) {
                 Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 if (a) {
@@ -165,16 +174,16 @@ public class n24 {
                     if (Build.VERSION.SDK_INT < 24) {
                         intent.setComponent(new ComponentName(ApkUtil.PACKAGE_INSTALLER, ApkUtil.PACKAGE_INSTALLER_ACTIVITY));
                     }
-                    m(context, file, intent);
-                    if ((context instanceof Activity) && u14.o.D()) {
+                    n(context, file, intent);
+                    if ((context instanceof Activity) && g()) {
                         intent.setAction("android.intent.action.INSTALL_PACKAGE");
                         intent.setFlags(0);
                         intent.putExtra("android.intent.extra.RETURN_RESULT", true);
                         if (Build.VERSION.SDK_INT >= 24) {
                             intent.addFlags(1);
                         }
-                        if (context instanceof InstallActivity) {
-                            i = 1345431;
+                        if (context instanceof InstallPluginDelegateActivity) {
+                            i = 1245421;
                         } else {
                             i = 0;
                         }
@@ -190,7 +199,7 @@ public class n24 {
                         e.printStackTrace();
                     }
                     intent.setComponent(null);
-                    m(context, file, intent);
+                    n(context, file, intent);
                     try {
                         context.startActivity(intent);
                         if (a) {
@@ -209,10 +218,10 @@ public class n24 {
         return invokeLLZ.booleanValue;
     }
 
-    public static boolean i(Context context, String str, boolean z) {
+    public static boolean j(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, context, str, z)) == null) {
             if (a) {
                 Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
             }
@@ -220,7 +229,7 @@ public class n24 {
                 return false;
             }
             try {
-                return h(context, new File(str), z);
+                return i(context, new File(str), z);
             } catch (Exception e) {
                 if (!a) {
                     return false;
@@ -232,11 +241,11 @@ public class n24 {
         return invokeLLZ.booleanValue;
     }
 
-    public static boolean j(String str) {
+    public static boolean k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f() && l(str) && d() < e()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (f() && m(str) && d() < e()) {
                 return true;
             }
             return false;
@@ -244,17 +253,31 @@ public class n24 {
         return invokeL.booleanValue;
     }
 
-    public static void p(boolean z) {
+    public static void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            jk3.a().edit().putBoolean("install_guide_switch_key", z).apply();
+        if ((interceptable == null || interceptable.invokeI(65553, null, i) == null) && i > 0) {
+            mj3.a().edit().putInt("install_guide_max_count_key", i).apply();
         }
     }
 
-    public static boolean k(Context context, String str) {
+    public static void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            mj3.a().edit().putBoolean("install_guide_switch_key", z).apply();
+        }
+    }
+
+    public static void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65555, null, z) == null) {
+            mj3.a().putBoolean("install_result_key", z);
+        }
+    }
+
+    public static boolean l(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
                 intent.addCategory("android.intent.category.LAUNCHER");
@@ -282,11 +305,11 @@ public class n24 {
         return invokeLL.booleanValue;
     }
 
-    public static boolean l(String str) {
+    public static boolean m(String str) {
         InterceptResult invokeL;
         long b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             if (TextUtils.equals(str, "authorize")) {
                 b = a();
             } else {
@@ -300,12 +323,12 @@ public class n24 {
         return invokeL.booleanValue;
     }
 
-    public static boolean m(Context context, File file, Intent intent) {
+    public static boolean n(Context context, File file, Intent intent) {
         InterceptResult invokeLLL;
         ActivityInfo activityInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, context, file, intent)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, context, file, intent)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
                     Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);

@@ -1,65 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
 /* loaded from: classes8.dex */
-public final class zh1 {
+public class zh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359846, "Lcom/baidu/tieba/zh1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static NetworkInfo a() {
+        InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = bi1.a();
+            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948359846, "Lcom/baidu/tieba/zh1;");
-                return;
-            }
+            return connectivityManager.getActiveNetworkInfo();
         }
-        a = Charset.forName("US-ASCII");
-        Charset.forName("UTF-8");
+        return (NetworkInfo) invokeV.objValue;
     }
 
-    public static void a(Closeable closeable) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (RuntimeException e) {
-                throw e;
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void b(File file) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        b(file2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "1";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "2";
+                case 13:
+                case 18:
+                case 19:
+                    break;
+                default:
+                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
+                        return "unknown";
                     }
-                    if (!file2.delete()) {
-                        throw new IOException("failed to delete file: " + file2);
-                    }
+                    break;
+            }
+            return "3";
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                if (a.getType() == 1) {
+                    return "4";
                 }
-                return;
+                if (a.getType() == 0) {
+                    return b(a.getSubtype(), a.getSubtypeName());
+                }
+                return "unknown";
             }
-            throw new IOException("not a readable directory: " + file);
+            return "0";
         }
+        return (String) invokeV.objValue;
     }
 }

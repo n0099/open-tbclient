@@ -1,810 +1,295 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.url.UrlUtils;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.TbConfig;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.download.unified.SourceConstant;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
-import com.baidu.tieba.p55;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.event.TipEvent;
+import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tx4 {
+public class tx4 implements pk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
-                return;
-            }
-            nx4.k(TbadkCoreApplication.getInst());
-        }
+    @Override // com.baidu.tieba.pk6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        ok6.a(this, webView, str, jSONObject);
     }
 
-    /* loaded from: classes8.dex */
-    public static class b implements UrlManager.UrlWebDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlWebDealListener
-        public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2), bundle}) == null) {
-                if (z2) {
-                    tx4.q(tbPageContext, str2, null, false, bundle);
-                } else {
-                    tx4.s(tbPageContext, str2, str, z, bundle);
-                }
-            }
-        }
+    @Override // com.baidu.tieba.pk6
+    public /* synthetic */ void onDestroy() {
+        ok6.b(this);
     }
 
-    /* loaded from: classes8.dex */
-    public static class c implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            InterceptResult invokeLL;
-            String str;
-            String str2;
-            Uri parse;
-            Bundle bundle;
-            Bundle g;
-            String str3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (tbPageContext == null || strArr == null || strArr.length == 0) {
-                    return 3;
-                }
-                String str4 = strArr[0];
-                if (StringUtils.isNull(str4)) {
-                    return 3;
-                }
-                if (strArr.length > 2) {
-                    str = strArr[2];
-                } else {
-                    str = null;
-                }
-                if (strArr.length > 1) {
-                    str2 = strArr[1];
-                } else {
-                    str2 = null;
-                }
-                if (str4.startsWith("tel:")) {
-                    UtilHelper.callPhone(tbPageContext.getPageActivity(), str4.substring(4));
-                    return 0;
-                } else if (pz5.f(str4) && str4.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
-                    tx4.p(tbPageContext.getPageActivity(), str4);
-                    return 0;
-                } else {
-                    String str5 = "";
-                    if (str4.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC)) {
-                        Uri parse2 = Uri.parse(str4);
-                        String queryParameter = parse2.getQueryParameter("topic_id");
-                        String queryParameter2 = parse2.getQueryParameter("topic_name");
-                        String queryParameter3 = parse2.getQueryParameter("is_video_topic");
-                        if (TextUtils.isEmpty(queryParameter)) {
-                            return 3;
-                        }
-                        if (strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
-                            str5 = strArr[1];
-                        }
-                        if (!StringHelper.equals(queryParameter3, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                            my5.f(tbPageContext, queryParameter, queryParameter2);
-                        } else {
-                            new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter, queryParameter2, queryParameter3, str5).start();
-                        }
-                        return 0;
-                    } else if (str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                        String substring = str4.substring(4);
-                        if (!str4.contains("body=")) {
-                            str3 = "";
-                            str5 = substring;
-                        } else {
-                            str3 = pz5.c(str4, "body=");
-                            int indexOf = substring.indexOf("?");
-                            if (indexOf >= 1 && indexOf <= substring.length()) {
-                                str5 = substring.substring(0, indexOf);
-                            }
-                        }
-                        UtilHelper.smsTo(tbPageContext.getPageActivity(), str5, str3);
-                        return 0;
-                    } else if (str4.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
-                        nx4.o(tbPageContext.getPageActivity(), str4);
-                        return 1;
-                    } else if (UtilHelper.isNativeAdURL(str4)) {
-                        vy9.a(tbPageContext.getPageActivity(), str4, null, null, null);
-                        return 1;
-                    } else if (!str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
-                        if ((str4.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
-                            tbPageContext.getPageActivity().finish();
-                            return 1;
-                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.TBEAN_TOAST) && (tbPageContext instanceof Activity)) {
-                            UtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.buy_sucess);
-                            ((Activity) tbPageContext).finish();
-                            return 0;
-                        } else if (str4.startsWith("tieba://focusforum")) {
-                            TbadkCoreApplication.getInst().setLikeBarChanged(true);
-                            return 0;
-                        } else if (str4.startsWith("baiduxiuba://")) {
-                            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
-                            intent.addCategory("android.intent.category.DEFAULT");
-                            intent.setData(Uri.parse(str4));
-                            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                            tbPageContext.getPageActivity().startActivity(intent);
-                            return 0;
-                        } else if (str4.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_URL) && str4.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_PARAM)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016525, Boolean.TRUE));
-                            tbPageContext.getPageActivity().finish();
-                            return 1;
-                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, pz5.c(str4, "bindid=")));
-                            tbPageContext.getPageActivity().finish();
-                            return 1;
-                        } else if (str4.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str4.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (g = pz5.g(str4)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(g.getString("path"))) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
-                            return 0;
-                        } else if (str4.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
-                            MessageManager.getInstance().runTask(2921329, null, tbPageContext.getPageActivity());
-                            return 0;
-                        } else if (str4.contains(UrlSchemaHelper.FROM_FORUM_SQUARE) && tbPageContext.getPageActivity() != null) {
-                            ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
-                            forumSquareActivityConfig.setUri(Uri.parse(str4));
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-                            return 0;
-                        } else if (str4.contains(UrlSchemaHelper.FROM_ENTER_FORUM) && tbPageContext.getPageActivity() != null) {
-                            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1);
-                            String queryParameter4 = Uri.parse(str4).getQueryParameter(BdUniDispatchSchemeController.PARAM_TAB_NAME);
-                            if (!xi.isEmpty(queryParameter4)) {
-                                createNormalCfg.setSubTab(0, queryParameter4);
-                            }
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, createNormalCfg));
-                            return 0;
-                        } else {
-                            if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE)) {
-                                if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_WEB)) {
-                                    if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
-                                        if (!str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                                            if (str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
-                                                String substring2 = str4.substring(5);
-                                                if (!TextUtils.isEmpty(substring2)) {
-                                                    MessageManager.getInstance().sendMessage(new CustomMessage(2902028, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring2, str)));
-                                                }
-                                            } else if (str4.contains("com.baidu.tieba://unidispatch/tbwebview") && (parse = Uri.parse(str4)) != null) {
-                                                String queryParameter5 = parse.getQueryParameter("url");
-                                                String queryParameter6 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
-                                                String queryParameter7 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_INIT_DATA);
-                                                if (!StringUtils.isNull(queryParameter6)) {
-                                                    bundle = new Bundle();
-                                                    bundle.putString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE, queryParameter6);
-                                                } else {
-                                                    bundle = null;
-                                                }
-                                                if (!StringUtils.isNull(queryParameter7)) {
-                                                    if (bundle == null) {
-                                                        bundle = new Bundle();
-                                                    }
-                                                    bundle.putString(BdUniDispatchSchemeController.PARAM_INIT_DATA, queryParameter7);
-                                                }
-                                                tx4.q(tbPageContext, queryParameter5, null, false, bundle);
-                                                return 0;
-                                            }
-                                        } else {
-                                            tx4.r(tbPageContext, str4.substring(3), tbPageContext.getString(R.string.photo_live_tips), false, true, false, false);
-                                        }
-                                    } else {
-                                        tx4.r(tbPageContext, str2, str4.substring(6), false, true, true, false);
-                                    }
-                                } else {
-                                    tx4.r(tbPageContext, nx4.m(str4.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str), null, false, true, true, true);
-                                }
-                            } else {
-                                tx4.r(tbPageContext, nx4.m(str4.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str), null, false, true, true, true);
-                            }
-                            return 3;
-                        }
-                    } else {
-                        nx4.s(tbPageContext.getPageActivity(), str4);
-                        return 1;
-                    }
-                }
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d implements p55.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ Bundle d;
-
-        public d(TbPageContext tbPageContext, String str, String str2, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, str, str2, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = str;
-            this.c = str2;
-            this.d = bundle;
-        }
-
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
-                p55Var.dismiss();
-                nx4.u(this.a.getPageActivity(), this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class e implements p55.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.p55.e
-        public void onClick(p55 p55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) {
-                p55Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class f implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            InterceptResult invokeLL;
-            PbActivityConfig createNormalCfg;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (strArr != null && strArr[0] != null) {
-                    Uri parse = Uri.parse(strArr[0]);
-                    if ("lego".equalsIgnoreCase(parse.getAuthority())) {
-                        if (!tx4.g(tbPageContext, parse, null, false)) {
-                            return 3;
-                        }
-                        return 0;
-                    } else if ("pb".equalsIgnoreCase(parse.getAuthority())) {
-                        String queryParameter = parse.getQueryParameter("tId");
-                        String queryParameter2 = parse.getQueryParameter("view_type");
-                        if (queryParameter == null || queryParameter.length() <= 0) {
-                            return 3;
-                        }
-                        if (queryParameter2 != null && (queryParameter2.equals("2") || queryParameter2.equals("3"))) {
-                            createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createViewTypeCfg(queryParameter, Boolean.valueOf(queryParameter2.equals("2")).booleanValue(), Boolean.valueOf(!queryParameter2.equals("3")).booleanValue(), "lego");
-                            createNormalCfg.setVideo_source("frs");
-                        } else {
-                            createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter, null, "lego");
-                        }
-                        tbPageContext.sendMessage(new CustomMessage(2004001, createNormalCfg));
-                        return 0;
-                    } else if ("frs".equalsIgnoreCase(parse.getAuthority())) {
-                        String queryParameter3 = parse.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                        if (queryParameter3 == null || queryParameter3.length() <= 0) {
-                            return 3;
-                        }
-                        FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter3, "lego");
-                        createNormalCfg2.setCallFrom(12);
-                        tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg2));
-                        return 0;
-                    } else if ("person".equalsIgnoreCase(parse.getAuthority())) {
-                        String queryParameter4 = parse.getQueryParameter("uid");
-                        String queryParameter5 = parse.getQueryParameter("uname");
-                        String queryParameter6 = parse.getQueryParameter("changeAvatar");
-                        if (queryParameter4 == null || queryParameter4.length() <= 0) {
-                            return 3;
-                        }
-                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(tbPageContext.getPageActivity(), queryParameter4, queryParameter5);
-                        personInfoActivityConfig.setChangeAvatar(queryParameter6);
-                        tbPageContext.sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-                        return 0;
-                    } else if ("topic".equalsIgnoreCase(parse.getAuthority())) {
-                        String queryParameter7 = parse.getQueryParameter("topic_id");
-                        String queryParameter8 = parse.getQueryParameter("topic_name");
-                        String queryParameter9 = parse.getQueryParameter("is_video_topic");
-                        if (queryParameter7 != null && queryParameter8 != null) {
-                            if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                my5.f(tbPageContext, queryParameter7, queryParameter8);
-                            } else {
-                                new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null).start();
-                            }
-                            return 1;
-                        } else if (queryParameter7 != null) {
-                            if (!StringHelper.equals(queryParameter9, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                my5.f(tbPageContext, queryParameter7, null);
-                            } else {
-                                new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, null, queryParameter9, null).start();
-                            }
-                            return 1;
-                        }
-                    }
-                }
-                return 3;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class g implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (strArr != null && strArr[0] != null) {
-                    String str = strArr[0];
-                    String str2 = null;
-                    if (!str.startsWith(tx4.b) && !str.startsWith(tx4.c)) {
-                        if (!str.startsWith(tx4.d) && !str.startsWith(tx4.e)) {
-                            return 3;
-                        }
-                        int indexOf = str.indexOf("page/") + 5;
-                        int indexOf2 = str.indexOf("?");
-                        if (indexOf > 5 && indexOf2 > indexOf) {
-                            str2 = str.substring(indexOf, indexOf2);
-                        }
-                        if (indexOf2 > -1) {
-                            if (tx4.g(tbPageContext, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_LEGO + str.substring(indexOf2 + 1)), str2, true)) {
-                                return 0;
-                            }
-                        }
-                        return 3;
-                    }
-                    int indexOf3 = str.indexOf("page/") + 5;
-                    int indexOf4 = str.indexOf("?");
-                    if (indexOf3 > 5 && indexOf4 > indexOf3) {
-                        str2 = str.substring(indexOf3, indexOf4);
-                    }
-                    if (indexOf4 > -1) {
-                        if (tx4.g(tbPageContext, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_LEGO + str.substring(indexOf4 + 1)), str2, false)) {
-                            return 0;
-                        }
-                    }
-                }
-                return 3;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948196569, "Lcom/baidu/tieba/tx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948196569, "Lcom/baidu/tieba/tx4;");
-                return;
-            }
-        }
-        a = TbConfig.TIEBA_ADDRESS + "mo/q/checkurl?url=";
-        b = TbConfig.TIEBA_ADDRESS + "mo/q/blitz/index#";
-        c = TbConfig.TIEBA_ADDRESS + "mo/q/blitz/index#";
-        d = TbConfig.TIEBA_ADDRESS + "tb/zt/lego/h5/#";
-        e = TbConfig.TIEBA_ADDRESS + "tb/zt/lego/h5/#";
-    }
-
-    public static void m() {
+    public tx4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            UrlManager.getInstance().addListener(new c());
-        }
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            UrlManager.getInstance().addListener(new f());
-        }
-    }
-
-    public static void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            UrlManager.getInstance().addListener(new g());
-        }
-    }
-
-    public static boolean g(TbPageContext<?> tbPageContext, Uri uri, String str, boolean z) {
-        InterceptResult invokeCommon;
-        String queryParameter;
-        int i;
-        int i2;
-        int i3;
-        String str2;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, uri, str, Boolean.valueOf(z)})) == null) {
-            if (tbPageContext != null && uri != null) {
-                if (str != null && str.length() != 0) {
-                    queryParameter = str;
-                } else {
-                    queryParameter = uri.getQueryParameter(LegoListActivityConfig.PAGE_ID);
-                }
-                String queryParameter2 = uri.getQueryParameter("page_type");
-                String queryParameter3 = uri.getQueryParameter("item_id");
-                String queryParameter4 = uri.getQueryParameter("rn");
-                String queryParameter5 = uri.getQueryParameter("params");
-                String queryParameter6 = uri.getQueryParameter(LegoListActivityConfig.PRE_LOAD);
-                String queryParameter7 = uri.getQueryParameter("next_page");
-                String queryParameter8 = uri.getQueryParameter("lego_version");
-                String queryParameter9 = uri.getQueryParameter(LegoListActivityConfig.IS_IMMERSIVE);
-                String queryParameter10 = uri.getQueryParameter(LegoListActivityConfig.HAS_ANIMATION);
-                String queryParameter11 = uri.getQueryParameter(LegoListActivityConfig.IS_LANDINGPAGE);
-                String queryParameter12 = uri.getQueryParameter("source");
-                if (TextUtils.isEmpty(queryParameter12)) {
-                    queryParameter12 = "unknown";
-                }
-                String str3 = queryParameter12;
-                if ((!z || j(queryParameter8)) && queryParameter != null && queryParameter2 != null && queryParameter.length() > 0 && queryParameter2.length() > 0) {
-                    try {
-                        int parseInt = Integer.parseInt(queryParameter2);
-                        long parseLong = Long.parseLong(queryParameter);
-                        try {
-                            i = Integer.parseInt(queryParameter4);
-                        } catch (Exception unused) {
-                            i = 20;
-                        }
-                        try {
-                            i2 = Integer.parseInt(queryParameter9);
-                        } catch (Exception unused2) {
-                            i2 = 0;
-                        }
-                        try {
-                            i3 = Integer.parseInt(queryParameter10);
-                        } catch (Exception unused3) {
-                            i3 = 0;
-                        }
-                        if (i3 == 1) {
-                            str2 = uri.getQueryParameter(LegoListActivityConfig.ANIMATION_INFO);
-                        } else {
-                            str2 = "";
-                        }
-                        try {
-                            i4 = Integer.parseInt(queryParameter11);
-                        } catch (Exception unused4) {
-                            i4 = 0;
-                        }
-                        LegoListActivityConfig createNormalCfg = new LegoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(parseLong, parseInt, queryParameter3, i2, i, queryParameter5);
-                        createNormalCfg.addLandingPageParams(str2, queryParameter6, queryParameter7, i3, i4, str3);
-                        tbPageContext.sendMessage(new CustomMessage(2016447, createNormalCfg));
-                        return true;
-                    } catch (Exception unused5) {
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            MessageManager.getInstance().registerListener(2005016, new a(0));
-            UrlManager.getInstance().setWebListener(new b());
-            SwitchManager.getInstance().addSwitchData(new jf("switch_mbaidu_startup", 1, null));
-            m();
-            n();
-            o();
-        }
-    }
-
-    public static boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return "lego".equalsIgnoreCase(Uri.parse(str).getAuthority());
-            } catch (Throwable unused) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean j(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pk6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "1.0.0";
-            }
-            if (TbConfig.getLegoLibVersion().compareTo(str) >= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                String str2 = new String(str.getBytes(), StandardCharsets.UTF_8);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.TOAST_POPUPVIEW.equals(str2)) {
                 try {
-                    return URLEncoder.encode(str2, "UTF-8");
-                } catch (Exception unused) {
-                    return str2;
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(f(webView, jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject.optInt("ahead_type"), jSONObject.optString("message"), jSONObject.optString("btn_text"), jSONObject.optInt("toast_duration"), jSONObject.optString("schema"), jSONObject.optString("token"), jSONObject.optDouble(NativeConstants.OPACITY), jSONObject.optString(BigdayActivityConfig.IMG_URL), jSONObject.optString("url"), jSONObject.optInt("mission_id"), jSONObject.optString("btn_color"), jSONObject.optString("message_color"), jSONObject.optString("btn_text_color"), jSONObject.optInt("status"), jSONObject.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                } catch (JSONException e) {
+                    BdLog.e(e);
                 }
-            } catch (Exception unused2) {
-                return str;
+            } else if (CommonTbJsBridge.SHOW_TIP_TOAST.equals(str2)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    jsPromptResult.confirm(g(webView, jSONObject2.optString("content"), jSONObject2.optString(GameAssistConstKt.KEY_LINKURL), jSONObject2.optString("key"), jSONObject2.optInt("maxTimes"), jSONObject2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            } else if (CommonTbJsBridge.GET_MODAL_DATA.equals(str2)) {
+                try {
+                    try {
+                        jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("url")).a());
+                        return false;
+                    } catch (JSONException e3) {
+                        e = e3;
+                        BdLog.e(e);
+                        return false;
+                    }
+                } catch (JSONException e4) {
+                    e = e4;
+                }
             }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public static String k(String str) {
+    public final void c(String str) {
+        TbPageContext<?> d;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !bi.isEmpty(str) && (d = d(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+            UrlManager.getInstance().dealOneLink(d, new String[]{str});
+        }
+    }
+
+    public final TbPageContext d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            if (activity instanceof BaseActivity) {
+                return ((BaseActivity) activity).getPageContext();
             }
-            String str2 = a;
-            Matcher matcher = Pattern.compile("^http[s]?:\\/\\/[^\\/\\\\\\\\]*(tieba\\.baidu\\.com\\/)", 2).matcher(str);
-            if (!str.startsWith(str2)) {
-                if (matcher == null || !matcher.find()) {
-                    return str2 + t(str);
-                }
-                return str;
+            if (activity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) activity).getPageContext();
             }
-            return str;
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (TbPageContext) invokeL.objValue;
     }
 
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            String checkUrl = TbadkCoreApplication.getInst().getCheckUrl();
-            if (checkUrl == null) {
-                checkUrl = a;
-            } else if (checkUrl.trim().length() == 0) {
-                return str;
-            }
-            if (str.startsWith(checkUrl)) {
-                return str;
-            }
-            return checkUrl + t(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean p(Context context, String str) {
+    /* JADX WARN: Can't wrap try/catch for region: R(8:3|4|5|(5:7|(1:11)|13|14|15)(5:20|(2:22|23)|13|14|15)|12|13|14|15) */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0058, code lost:
+        r8 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0059, code lost:
+        com.baidu.adp.lib.util.BdLog.e(r8);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public jca e(WebView webView, String str) {
         InterceptResult invokeLL;
+        String signInfo;
+        JSONObject newGodDataJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            jca jcaVar = new jca();
+            JSONObject jSONObject = null;
+            int i = 0;
             try {
-                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
-                if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                    context.startActivity(intent);
-                    return true;
+                signInfo = SignManager.getInstance().getSignInfo();
+                newGodDataJson = TbSingleton.getInstance().getNewGodDataJson();
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            if (!bi.isEmpty(str)) {
+                int indexOf = str.indexOf(WebViewActivityConfig.TAG_NEW_GOD_INVITE);
+                if (newGodDataJson != null && indexOf != -1) {
+                    jSONObject = newGodDataJson;
                 }
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("resultCode", i);
+                jSONObject2.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
+                jcaVar.o(jSONObject2.toString());
+                return jcaVar;
             }
+            if (!TextUtils.isEmpty(signInfo)) {
+                jSONObject = new JSONObject(signInfo);
+            }
+            JSONObject jSONObject22 = new JSONObject();
+            jSONObject22.put("resultCode", i);
+            jSONObject22.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
+            jcaVar.o(jSONObject22.toString());
+            return jcaVar;
+            i = 1;
+            JSONObject jSONObject222 = new JSONObject();
+            jSONObject222.put("resultCode", i);
+            jSONObject222.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
+            jcaVar.o(jSONObject222.toString());
+            return jcaVar;
         }
-        return invokeLL.booleanValue;
+        return (jca) invokeLL.objValue;
     }
 
-    public static void q(TbPageContext<?> tbPageContext, String str, String str2, boolean z, Bundle bundle) {
+    public jca f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), bundle}) == null) {
-            boolean isBaiduDomain = UrlUtils.isBaiduDomain(str);
-            if (bundle != null && !bundle.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) {
-                isBaiduDomain = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            jca jcaVar = new jca();
+            gu4 gu4Var = new gu4();
+            gu4Var.c = i;
+            gu4Var.d = i2;
+            gu4Var.e = str;
+            gu4Var.f = str2;
+            gu4Var.i = i3;
+            gu4Var.l = str3;
+            gu4Var.n = d;
+            gu4Var.j = str5;
+            gu4Var.k = str6;
+            gu4Var.b = i4;
+            gu4Var.o = str7;
+            gu4Var.p = str8;
+            gu4Var.q = str9;
+            if (i == gu4.y) {
+                t45.h(TbadkCoreApplication.getInst().getCurrentActivity(), gu4Var).j();
+            } else if (i == gu4.z) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                m05 m05Var = new m05(currentActivity);
+                if (currentActivity != null) {
+                    m05Var.d(currentActivity, gu4Var);
+                    m05Var.i();
+                }
+            } else if (i == gu4.A) {
+                if (i2 == gu4.E) {
+                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), gu4Var.l) && !bi.isEmpty(gu4Var.k)) {
+                        c(gu4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                    }
+                } else if (i2 == gu4.F && !bi.isEmpty(str6)) {
+                    c(gu4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                }
+            } else if (i == gu4.C) {
+                Activity a = ek6.a(webView.getContext());
+                if (i6 == 1 && a != null) {
+                    a.finish();
+                }
+                MutiProcessManager.publishEvent(new TopToastEvent(i5, str, 1500));
+            } else if (i == gu4.D) {
+                Activity a2 = ek6.a(webView.getContext());
+                if (i6 == 1 && a2 != null) {
+                    a2.finish();
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    BdToastData bdToastData = new BdToastData();
+                    bdToastData.parserJson(str);
+                    BdToastHelper.toast(bdToastData);
+                }
             }
-            if (isBaiduDomain) {
-                str = nx4.c(nx4.f(nx4.d(str)));
-            }
-            String l = l(str);
-            if (z) {
-                vg5.f(tbPageContext, new d(tbPageContext, str2, l, bundle), new e(), l);
-            } else {
-                nx4.u(tbPageContext.getPageActivity(), str2, l, bundle);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                jcaVar.o(jSONObject.toString());
+                return jcaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return jcaVar;
             }
         }
+        return (jca) invokeCommon.objValue;
     }
 
-    public static void r(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+    public jca g(WebView webView, String str, String str2, String str3, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
-            q(tbPageContext, str, str2, z, null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            jca jcaVar = new jca();
+            Activity a = ek6.a(webView.getContext());
+            int i3 = 0;
+            boolean z = false;
+            boolean z2 = false;
+            i3 = 0;
+            if (!TextUtils.isEmpty(str) && a != null) {
+                if (!TextUtils.isEmpty(str3)) {
+                    String str4 = "showToast_" + str3;
+                    int i4 = SharedPrefHelper.getInstance().getInt(str4, 0);
+                    if (i4 < i) {
+                        SharedPrefHelper.getInstance().putInt(str4, i4);
+                        Intent intent = a.getIntent();
+                        if (i2 == 1) {
+                            z = true;
+                        }
+                        MutiProcessManager.publishEvent(new TipEvent(intent, str, str2, z));
+                    }
+                } else {
+                    Intent intent2 = a.getIntent();
+                    if (i2 == 1) {
+                        z2 = true;
+                    }
+                    MutiProcessManager.publishEvent(new TipEvent(intent2, str, str2, z2));
+                }
+                if (i2 == 1) {
+                    a.finish();
+                }
+                i3 = 1;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i3);
+                jcaVar.o(jSONObject.toString());
+                return jcaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return jcaVar;
+            }
         }
-    }
-
-    public static void s(TbPageContext<?> tbPageContext, String str, String str2, boolean z, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), bundle}) == null) {
-            TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
-            q(tbPageContext, str, str2, z, bundle);
-        }
+        return (jca) invokeCommon.objValue;
     }
 }

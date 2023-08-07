@@ -1,135 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b51[] a;
 
-    public static ArrayList<String> a(f51 f51Var) {
-        InterceptResult invokeL;
-        x41[][] e;
+    public c51() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, f51Var)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>(2);
-            for (x41[] x41VarArr : f51Var.e()) {
-                String[] strArr = new String[x41VarArr.length];
-                for (int i = 0; i < x41VarArr.length; i++) {
-                    strArr[i] = x41VarArr[i].b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new b51[4];
+        if (q41.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new b51();
+        }
+    }
+
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!c(0).d()) {
+                return 9999999.0d;
+            }
+            double d = 0.0d;
+            for (int i = 0; i < 4; i++) {
+                d += this.a[i].a() * q41.s[i];
+            }
+            return d / 1000.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public ElasticTask b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
                 }
-                arrayList.add("CREATE INDEX IF NOT EXISTS i_" + f51Var.g() + "_" + TextUtils.join("_", strArr) + " ON " + f51Var.g() + " (" + TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, strArr) + SmallTailInfo.EMOTION_SUFFIX);
             }
-            return arrayList;
+            return null;
         }
-        return (ArrayList) invokeL.objValue;
+        return (ElasticTask) invokeV.objValue;
     }
 
-    public static String b(f51 f51Var) {
-        InterceptResult invokeL;
+    public b51 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f51Var)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + f51Var.g() + " (" + f(f51Var.d()) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(x41[] x41VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, x41VarArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = x41VarArr.length;
-            String str = "";
-            int i = 0;
-            while (i < length) {
-                x41 x41Var = x41VarArr[i];
-                sb.append(str);
-                sb.append(x41Var.b);
-                sb.append(getType(x41Var));
-                sb.append(c(x41Var));
-                i++;
-                str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getType(x41 x41Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x41Var)) == null) {
-            int i = x41Var.a;
-            if (i == 1 || i == 2 || i == 3) {
-                return " INTEGER";
-            }
-            if (i == 4) {
-                return " TEXT";
-            }
-            throw new IllegalArgumentException("Unsupported field type " + x41Var.a);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(x41 x41Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x41Var)) == null) {
-            int i = x41Var.d;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return " PRIMARY KEY AUTOINCREMENT";
-                        }
-                        throw new IllegalArgumentException("Unsupported field attribute " + x41Var.d);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = q41.a;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return this.a[i2];
                     }
-                    return " PRIMARY KEY";
+                    i2++;
+                } else {
+                    b51[] b51VarArr = this.a;
+                    return b51VarArr[b51VarArr.length - 1];
                 }
-                return " DEFAULT 0";
             }
-            return "";
+        } else {
+            return (b51) invokeI.objValue;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String d(x41... x41VarArr) {
-        InterceptResult invokeL;
+    public void e(ElasticTask elasticTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x41VarArr)) == null) {
-            return e(x41VarArr, null);
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            c(elasticTask.b()).e(elasticTask);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(x41[] x41VarArr, String str) {
-        InterceptResult invokeLL;
+    public void d(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, x41VarArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = x41VarArr.length;
-            String str2 = "";
-            int i = 0;
-            while (i < length) {
-                x41 x41Var = x41VarArr[i];
-                sb.append(str2);
-                if (str != null && str.length() != 0) {
-                    sb.append(str);
-                    sb.append(".");
-                }
-                sb.append(x41Var.b);
-                i++;
-                str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR;
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
         }
-        return (String) invokeLL.objValue;
     }
 }

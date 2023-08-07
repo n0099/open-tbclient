@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class BDHttpDnsResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ResolveType a;
-    public final ResolveStatus b;
-    public ArrayList<String> c;
-    public ArrayList<String> d;
+    public ArrayList<String> ipv4List;
+    public ArrayList<String> ipv6List;
+    public final ResolveStatus resolveStatus;
+    public ResolveType resolveType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -177,8 +177,8 @@ public class BDHttpDnsResult {
                 return;
             }
         }
-        this.a = ResolveType.RESOLVE_NONE;
-        this.b = resolveStatus;
+        this.resolveType = ResolveType.RESOLVE_NONE;
+        this.resolveStatus = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
@@ -196,45 +196,45 @@ public class BDHttpDnsResult {
                 return;
             }
         }
-        this.a = ResolveType.RESOLVE_NONE;
-        this.a = resolveType;
-        this.b = resolveStatus;
-        this.c = arrayList;
-        this.d = arrayList2;
+        this.resolveType = ResolveType.RESOLVE_NONE;
+        this.resolveType = resolveType;
+        this.resolveStatus = resolveStatus;
+        this.ipv4List = arrayList;
+        this.ipv6List = arrayList2;
     }
 
-    public ArrayList<String> a() {
+    public ArrayList<String> getIpv4List() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.ipv4List;
         }
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<String> b() {
+    public ArrayList<String> getIpv6List() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.ipv6List;
         }
         return (ArrayList) invokeV.objValue;
     }
 
-    public ResolveStatus c() {
+    public ResolveStatus getResolveStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.resolveStatus;
         }
         return (ResolveStatus) invokeV.objValue;
     }
 
-    public ResolveType d() {
+    public ResolveType getResolveType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            return this.resolveType;
         }
         return (ResolveType) invokeV.objValue;
     }

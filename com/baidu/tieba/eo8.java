@@ -1,30 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class eo8 extends np8 {
+public class eo8 extends po8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mp8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.po8, com.baidu.tieba.eq5
+    public String getCacheKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.po8, com.baidu.tieba.fq5
+    public String getCacheTableName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.po8, com.baidu.tieba.fq5
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 
     public eo8() {
@@ -39,38 +47,5 @@ public class eo8 extends np8 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.np8
-    public List<lp8> j(@NonNull List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof BaseMsg) {
-                    BaseMsg baseMsg = (BaseMsg) obj;
-                    List<AbilityItem> quickOperate = baseMsg.getCommonMsgField().getQuickOperate();
-                    if (ListUtils.isEmpty(quickOperate)) {
-                        break;
-                    }
-                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
-                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
-                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
-                            ko8 ko8Var = new ko8();
-                            ko8Var.e(abilityItem);
-                            ko8Var.f(baseMsg);
-                            if (baseMsg != null && baseMsg.getCommonMsgField() != null) {
-                                ko8Var.g(baseMsg.getCommonMsgField().getUserId());
-                            }
-                            arrayList.add(ko8Var);
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
     }
 }

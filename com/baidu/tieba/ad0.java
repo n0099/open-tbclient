@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.widget.Key;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RequiresApi(21)
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ad0 {
+public class ad0 extends zc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,44 +31,82 @@ public class ad0 {
                 return;
             }
         }
-        a = new int[]{16843848};
+        b = new HashMap<>();
     }
 
-    public static void a(View view2) {
+    public ad0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
-        }
-    }
-
-    public static void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
-            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0013);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f0404bd, -2130969790}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
-            view2.setStateListAnimator(stateListAnimator);
-        }
-    }
-
-    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
-            Context context = view2.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
-            try {
-                if (obtainStyledAttributes.hasValue(0)) {
-                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            obtainStyledAttributes.recycle();
         }
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "#333333", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "#1C1C1C", ""});
+        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "#000000", ""});
+        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "#292929", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "#F63B68", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "#26F63B68", ""});
+        b.put("color_858585", new String[]{"#858585", "", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "", "#80FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "#66FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "#1AFFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "#00FFFFFF", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "#1AFFFFFF", ""});
+        b.put("color_sub_tab_normal", new String[]{"#888888", "", "#CCFFFFFF", ""});
+        b.put("color_main_bg", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white4", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_gradient_1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_gradient_2", new String[]{"#00FFFFFF", "", "#001C1C1C", ""});
+        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
+        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
+    }
+
+    @Override // com.baidu.tieba.zc0
+    @SuppressLint({"Range"})
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (!b.containsKey(str2)) {
+                return -16777216;
+            }
+            String str3 = "";
+            try {
+                str3 = b.get(str2)[0];
+            } catch (Exception e) {
+                LiveFeedPageSdk.liveLog("getColor Exception: " + e.getMessage());
+            }
+            if ("recommend".equals(str)) {
+                return dd0.c().a(context, str, str2);
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                str3 = b.get(str2)[3];
+            } else if ("dark".equals(this.a)) {
+                str3 = b.get(str2)[2];
+            }
+            if (tc0.a(str3)) {
+                return -16777216;
+            }
+            try {
+                return Color.parseColor(str3);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return -16777216;
+            }
+        }
+        return invokeLLL.intValue;
     }
 }

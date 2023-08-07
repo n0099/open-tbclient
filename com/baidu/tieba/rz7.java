@@ -1,60 +1,143 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.yy4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rz7 extends k78 {
+public final class rz7 extends qz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u09 c;
+    public TbWebView b;
+    public final a c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948139002, "Lcom/baidu/tieba/rz7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948139002, "Lcom/baidu/tieba/rz7;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a implements yy4.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rz7 a;
+
+        @Override // com.baidu.tieba.yy4.c
+        public String getKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "home.updateNativeTab" : (String) invokeV.objValue;
+        }
+
+        public a(rz7 rz7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rz7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rz7Var;
+        }
+
+        @Override // com.baidu.tieba.yy4.c
+        public void a(String data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                try {
+                    JSONObject jSONObject = new JSONObject(data);
+                    String tabCode = jSONObject.optString("tab_code");
+                    int optInt = jSONObject.optInt("index");
+                    tr6 b = rr6.b();
+                    Intrinsics.checkNotNullExpressionValue(tabCode, "tabCode");
+                    b.b(new hz7(tabCode, optInt));
+                } catch (JSONException e) {
+                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    throw e;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.yy4.d
+        public TbWebView b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.b;
+            }
+            return (TbWebView) invokeV.objValue;
+        }
+    }
 
     public rz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = new a(this);
     }
 
-    public final void a() {
-        List<Object> list;
+    @Override // com.baidu.tieba.qz7
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null) {
-            xba.e(list, 2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d(0);
+            yy4.b.a().c(this.c);
         }
     }
 
-    private void update() {
-        u09 u09Var;
+    @Override // com.baidu.tieba.qz7
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (u09Var = this.c) != null && u09Var.d()) {
-            List<ICardInfo> c = this.c.c();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(c);
-            this.c.hasMore();
-            this.c.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d(0);
+            yy4.b.a().d(this.c);
         }
     }
 
-    public void b(u09 u09Var) {
+    public final void f(TbWebView tbWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u09Var) == null) {
-            this.c = u09Var;
-            update();
-            a();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbWebView) == null) {
+            this.b = tbWebView;
         }
     }
 }

@@ -1,60 +1,61 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface z41 {
-    a a(g51 g51Var, x41... x41VarArr);
+public class z41 {
+    public static /* synthetic */ Interceptable $ic;
+    public static z41 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public a51 a;
 
-    void beginTransaction();
+    public z41() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new x41();
+        if (!q41.a()) {
+            this.a = new y41();
+        }
+    }
 
-    int delete(g51 g51Var, x41... x41VarArr);
-
-    void endTransaction();
-
-    Cursor query(l51 l51Var);
-
-    void setTransactionSuccessful();
-
-    int update(g51 g51Var, x41... x41VarArr);
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-
-        public a(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static z41 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (z41.class) {
+                    if (b == null) {
+                        b = new z41();
+                    }
                 }
             }
-            this.a = j;
-            this.b = i;
+            return b;
         }
+        return (z41) invokeV.objValue;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
-            }
-            return (String) invokeV.objValue;
+    @NonNull
+    public a51 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (a51) invokeV.objValue;
     }
 }

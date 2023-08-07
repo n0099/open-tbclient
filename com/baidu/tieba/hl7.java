@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hl7 implements tm7 {
+public class hl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tm7
-    public boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
+    public String a;
+    public int b;
+    public int c;
+    public List<ym> d;
+    public boolean e;
+    public int f;
 
     public hl7() {
         Interceptable interceptable = $ic;
@@ -42,52 +34,50 @@ public class hl7 implements tm7 {
         }
     }
 
-    @Override // com.baidu.tieba.tm7
-    public void a(rw7 rw7Var, FrsViewData frsViewData) {
+    public int a(List<ym> list) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, rw7Var, frsViewData) == null) && rw7Var != null && frsViewData != null) {
-            ArrayList<yn> threadList = frsViewData.getThreadList();
-            if (ListUtils.isEmpty(threadList)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return 0;
             }
-            ArrayList arrayList = new ArrayList();
-            Iterator<yn> it = threadList.iterator();
-            while (it.hasNext()) {
-                yn next = it.next();
-                if (next.getType() == ThreadData.TYPE_TOP) {
-                    arrayList.add(next);
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                ym ymVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        ym ymVar2 = this.d.get(i2);
+                        if (ymVar != null && (ymVar instanceof gl7) && ymVar2 != null && (ymVar2 instanceof gl7)) {
+                            ThreadData threadData = ((gl7) ymVar).getThreadData();
+                            ThreadData threadData2 = ((gl7) ymVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, ymVar);
                 }
             }
-            frsViewData.setTopThreadList(arrayList);
-        }
-    }
-
-    @Override // com.baidu.tieba.tm7
-    public void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.tm7
-    public void c(rw7 rw7Var, ei7 ei7Var, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, rw7Var, ei7Var, frsViewData) == null) && rw7Var != null && ei7Var != null && frsViewData != null) {
-            rw7Var.N();
-            if (frsViewData != null && frsViewData.getForum() != null) {
-                ei7Var.h1(frsViewData.getForum().getFrsBannerData());
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
             }
+            return linkedList2.size();
         }
-    }
-
-    @Override // com.baidu.tieba.tm7
-    public int d(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
-            return ew7.e(i, frsRequestData);
-        }
-        return invokeIL.intValue;
+        return invokeL.intValue;
     }
 }

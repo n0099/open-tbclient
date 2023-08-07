@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.content.Context;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class zn3 {
     public static /* synthetic */ Interceptable $ic;
@@ -30,86 +27,34 @@ public class zn3 {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
-    public static JSONObject a(String str, String str2, String str3) throws JSONException {
-        InterceptResult invokeLLL;
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("success", str);
-            jSONObject.put("swan", str2);
-            jSONObject.put("type", "NA");
-            jSONObject.put("error", str3);
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
             try {
-                jSONObject.put("ext", a(str, str2, str3));
-                jSONObject.put("os", "android");
-                jSONObject.put("type", CommonTbJsBridge.GET_APIS);
-                jSONObject.put("from", "swan");
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@Nullable String str) {
-        String str2;
-        SwanCoreVersion e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            try {
-                e = al3.e(0);
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (e != null) {
-                str2 = e.swanCoreVersionName;
-                if (str == null) {
-                    str = "";
-                }
-                ci3.k("1087", b("2", str2, str));
-            }
-            str2 = "";
-            if (str == null) {
-            }
-            ci3.k("1087", b("2", str2, str));
-        }
-    }
-
-    public static void d() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                str = pi2.U().d0().swanCoreVersionName;
+                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
             } catch (Exception e) {
                 if (a) {
                     e.printStackTrace();
                 }
-                str = "";
             }
-            ci3.k("1087", b("1", str, ""));
+        }
+    }
+
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            if (z) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            inputMethodManager.toggleSoftInput(i, 2);
         }
     }
 }

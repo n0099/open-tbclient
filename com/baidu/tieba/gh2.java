@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface gh2 {
-    hh2 a(String str, String str2);
 
-    void b(String str, String str2, boolean z);
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class gh2 implements PullToRefreshBase.h<NgWebView> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

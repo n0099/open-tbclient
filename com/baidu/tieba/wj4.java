@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Objects;
 /* loaded from: classes8.dex */
-public class wj4 {
+public class wj4 extends uj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Class<?>, vj4> a;
-    public ConcurrentHashMap<Class<?>, Uri> b;
+    public String g;
+    public int h;
+    public long i;
+    public String j;
+    public long k;
+    public String l;
+    public String m;
+    public String n;
 
     public wj4() {
         Interceptable interceptable = $ic;
@@ -26,49 +31,62 @@ public class wj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        c();
     }
 
-    public <T> vj4<T> a(Class<T> cls) {
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            return this.a.get(cls);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof wj4)) {
+                return false;
+            }
+            wj4 wj4Var = (wj4) obj;
+            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(wj4Var.j)) {
+                if (this.g.equals(wj4Var.g) && this.i == wj4Var.i) {
+                    return true;
+                }
+                return false;
+            } else if (TextUtils.equals(this.g, wj4Var.g) && this.i == wj4Var.i && TextUtils.equals(this.j, wj4Var.j)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        return (vj4) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public <T> Uri b(Class<T> cls) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            return this.b.get(cls);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
         }
-        return (Uri) invokeL.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = new ConcurrentHashMap<>();
-            this.b = new ConcurrentHashMap<>();
-            this.a.put(uk4.class, new zj4());
-            this.a.put(vk4.class, new ak4());
-            this.a.put(sk4.class, new yj4());
-            this.a.put(qk4.class, new xj4());
-            this.a.put(PMSAppInfo.class, new uj4());
-            this.a.put(wk4.class, new bk4());
-            this.a.put(xk4.class, new ck4());
-            this.b.put(uk4.class, mk4.f);
-            this.b.put(vk4.class, mk4.g);
-            this.b.put(sk4.class, mk4.d);
-            this.b.put(qk4.class, mk4.h);
-            this.b.put(PMSAppInfo.class, mk4.e);
-            this.b.put(wk4.class, mk4.i);
-            this.b.put(xk4.class, mk4.j);
-        }
+        return (String) invokeV.objValue;
     }
 }

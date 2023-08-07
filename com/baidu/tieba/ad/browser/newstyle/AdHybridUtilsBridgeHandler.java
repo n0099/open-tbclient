@@ -2,14 +2,14 @@ package com.baidu.tieba.ad.browser.newstyle;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.i95;
-import com.baidu.tieba.jl0;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.b85;
+import com.baidu.tieba.hk0;
+import com.baidu.tieba.z75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,18 +31,18 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdHybridUtilsBridgeHandler(g95 g95Var) {
-        super(g95Var);
+    public AdHybridUtilsBridgeHandler(z75 z75Var) {
+        super(z75Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g95Var};
+            Object[] objArr = {z75Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((g95) newInitContext.callArgs[0]);
+                super((z75) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,18 +50,18 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @i95(isAsync = false, value = "showDeviceInfo")
+    @b85(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String cuid = TbadkCoreApplication.getInst().getCuid();
-            String h = jl0.c().h(false);
-            String e = jl0.c().e(false);
-            int l = yi.l(getContext());
-            int j = yi.j(getContext());
-            String str = String.valueOf(l) + "," + String.valueOf(j);
+            String h = hk0.c().h(false);
+            String e = hk0.c().e(false);
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(getContext());
+            String str = String.valueOf(equipmentWidth) + "," + String.valueOf(equipmentHeight);
             String versionName = TbadkCoreApplication.getInst().getVersionName();
             try {
                 jSONObject.put("systemName", "android");
@@ -81,7 +81,7 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @i95(isAsync = false, value = "showNetStatus")
+    @b85(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -115,12 +115,12 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @i95(isAsync = false, value = PopItemMethodConstant.showToast)
+    @b85(isAsync = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        BdToast.b(getContext(), jSONObject.optString("message")).q();
+        BdToast.makeText(getContext(), jSONObject.optString("message")).show();
     }
 }

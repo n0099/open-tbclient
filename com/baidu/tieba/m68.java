@@ -1,67 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.uz4;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class m68 implements uz4.c {
+public class m68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.uz4.c
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSearchGlobalHistory" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a extends wy5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.wy5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                xda.o(this.a);
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
+    public final List<ThreadData> a;
 
     public m68() {
         Interceptable interceptable = $ic;
@@ -73,29 +26,60 @@ public final class m68 implements uz4.c {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.uz4.c
-    public void a(String data) {
-        String str;
+    public List<ThreadData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            h29 defaultLog = DefaultLog.getInstance();
-            defaultLog.c("BaseActivity", "收到H5通知，记录搜索历史：" + data);
-            try {
-                str = new JSONObject(data).optString("value", data);
-                Intrinsics.checkNotNullExpressionValue(str, "json.optString(\"value\", data)");
-            } catch (Exception e) {
-                h29 defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.c("BaseActivity", "记录搜索历史失败：" + e);
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str)) {
-                az5.b(new a(str), null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ThreadData> list = this.a;
+            if (list == null) {
+                return false;
+            }
+            return !ListUtils.isEmpty(list);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public k68 a(boolean z, i68 i68Var) {
+        InterceptResult invokeZL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, i68Var)) == null) {
+            k68 k68Var = new k68();
+            k68Var.c = i68Var.i();
+            k68Var.e = i68Var.a();
+            k68Var.f = i68Var.c();
+            ArrayList<ThreadData> h = i68Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
+                }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            h58.e(true, arrayList, i68Var.e());
+            h58.e(true, arrayList, i68Var.f());
+            h58.e(true, arrayList, i68Var.d());
+            h58.e(true, arrayList, i68Var.g());
+            k68Var.a = h58.c(arrayList);
+            return k68Var;
+        }
+        return (k68) invokeZL.objValue;
     }
 }

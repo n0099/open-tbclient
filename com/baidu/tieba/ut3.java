@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ut3 {
     public static /* synthetic */ Interceptable $ic;
@@ -26,25 +28,45 @@ public class ut3 {
                 return;
             }
         }
-        a = fs1.a;
+        a = ir1.a;
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public ut3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            yi3 yi3Var = new yi3();
-            yi3Var.a = "swan";
-            yi3Var.b = str;
-            yi3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                yi3Var.e = str3;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            yi3Var.f = str5;
-            yi3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + yi3Var.f());
-            }
-            oi3.x("1372", yi3Var);
         }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            fu2.g0().getSwitch("game_bdtls_switcher", false);
+            if (a) {
+                y72.i("BDTLS", "isBdtlsSwitch=false");
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,22 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class w1a extends y1a {
+public class w1a extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
-    }
 
     public w1a() {
         Interceptable interceptable = $ic;
@@ -28,6 +22,22 @@ public final class w1a extends y1a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            if (action.equals("android.intent.action.SCREEN_ON")) {
+                v1a.j().e = 1;
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                v1a.j().e = 1;
+                v1a.j().d.d();
+            } else if (action.equals("android.intent.action.USER_PRESENT")) {
+                v1a.j().e = 0;
             }
         }
     }

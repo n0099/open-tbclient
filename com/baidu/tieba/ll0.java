@@ -1,51 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ll0 {
+public class ll0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ll0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946585, "Lcom/baidu/tieba/ll0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947946585, "Lcom/baidu/tieba/ll0;");
-                return;
-            }
-        }
-        a = new ll0();
-    }
+    public int a;
+    public tr0 b;
+    public String c;
 
     public ll0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static ll0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            ll0 ll0Var = new ll0();
+            ll0Var.a = jSONObject.optInt("download_state");
+            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
+            if (optJSONObject != null) {
+                try {
+                    ll0Var.b = tr0.c(optJSONObject);
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                }
+            }
+            ll0Var.c = jSONObject.optString("download_hint");
+            return ll0Var;
+        }
+        return (ll0) invokeL.objValue;
     }
 }

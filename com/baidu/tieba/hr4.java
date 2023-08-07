@@ -1,84 +1,112 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class hr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public long e;
-    public long f;
-    public int g;
-    public String h;
-    public String i;
-    public String j;
-    public JSONArray k;
-    public boolean l;
 
-    public hr4() {
+    @Deprecated
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
         }
-        this.l = false;
+        return (String) invokeLLL.objValue;
     }
 
-    public void a() {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ar4.g().a(this.a)) {
-            this.i = br4.g().h();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int d = zq4.d();
+            int b = zq4.b();
+            int a = zq4.a();
+            String f = zq4.f();
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(d);
+            stringBuffer.append("_");
+            stringBuffer.append(b);
+            stringBuffer.append("_");
+            stringBuffer.append(f);
+            stringBuffer.append("_");
+            stringBuffer.append(str);
+            stringBuffer.append("_");
+            stringBuffer.append(a);
+            return stringBuffer.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public hr4(String str, int i, String str2, int i2, boolean z) {
+    @NonNull
+    public static Map<String, String> c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
+                if (str2 != null && str2.contains("=")) {
+                    int indexOf = str2.indexOf("=");
+                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
+                }
             }
+            return hashMap;
         }
-        this.l = false;
-        this.a = str;
-        this.b = i;
-        this.c = str2;
-        this.g = i2;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
-            try {
-                this.k = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        return (Map) invokeL.objValue;
     }
 }

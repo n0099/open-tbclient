@@ -1,91 +1,134 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public final class sf2 {
+public final class sf2 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public tf2 a;
+    public InputStream a;
+    public qf2 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948149418, "Lcom/baidu/tieba/sf2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948149418, "Lcom/baidu/tieba/sf2;");
-                return;
-            }
-        }
-        b = fs1.a;
-    }
-
-    public sf2() {
+    public sf2(@NonNull InputStream inputStream, @NonNull qf2 qf2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, qf2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tf2.a;
+        this.a = inputStream;
+        this.b = qf2Var;
     }
 
-    public final void a(@NonNull u83 u83Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, u83Var, prefetchEvent, pMSAppInfo) == null) {
-            Bundle bundle = new Bundle();
-            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
-            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
-            if (pMSAppInfo == null) {
-                pMSAppInfo = sj4.i().u(prefetchEvent.appId);
-            }
-            if (pMSAppInfo == null) {
-                return;
-            }
-            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (!this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
-                return;
-            }
-            l83 e = l83.e();
-            n83 n83Var = new n83(120, bundle);
-            n83Var.b(u83Var.b);
-            n83Var.p(false);
-            e.h(n83Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.available();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.close();
+            this.b.c(this.a);
+            this.b.a();
+            cr4.d(this.a);
         }
     }
 
-    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull u83 u83Var, @Nullable PMSAppInfo pMSAppInfo) {
+    @Override // java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, u83Var, pMSAppInfo) == null) {
-            a(u83Var, prefetchEvent, pMSAppInfo);
-            u83Var.j0(prefetchEvent);
-            if (b) {
-                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + u83Var.b.index);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.markSupported();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.read();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a.reset();
             }
         }
+    }
+
+    @Override // java.io.InputStream
+    public void mark(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.mark(i);
+            this.a.mark(i);
+        }
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int read = this.a.read(bArr);
+            this.b.d(bArr, 0, read);
+            return read;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            this.a.skip(j);
+            return super.skip(j);
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            int read = this.a.read(bArr, i, i2);
+            this.b.d(bArr, i, read);
+            return read;
+        }
+        return invokeLII.intValue;
     }
 }

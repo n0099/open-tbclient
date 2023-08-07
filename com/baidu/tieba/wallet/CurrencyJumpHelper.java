@@ -4,8 +4,8 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tieba.pt5;
-import com.baidu.tieba.ut5;
+import com.baidu.tbadk.pay.IyyPayResultCallback;
+import com.baidu.tbadk.pay.YYPayData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,10 +72,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void goYYPay(Context context, @Nullable pt5 pt5Var) {
+    public static void goYYPay(Context context, @Nullable IyyPayResultCallback iyyPayResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, pt5Var) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new ut5(context, 0, null, null, pt5Var));
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, iyyPayResultCallback) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new YYPayData(context, 0, null, null, iyyPayResultCallback));
         }
     }
 
@@ -100,20 +100,20 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void buyGiftGotoBuyTBeanPage(Context context, pt5 pt5Var, String str, Long l, boolean z, int i) {
+    public static void buyGiftGotoBuyTBeanPage(Context context, IyyPayResultCallback iyyPayResultCallback, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, pt5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, pt5Var, str, l, z, i);
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, iyyPayResultCallback, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, iyyPayResultCallback, str, l, z, i);
         }
     }
 
-    public static void goYYPay(Context context, @Nullable pt5 pt5Var, String str, Long l, boolean z, int i) {
+    public static void goYYPay(Context context, @Nullable IyyPayResultCallback iyyPayResultCallback, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, pt5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            ut5 ut5Var = new ut5(context, 0, str, l, pt5Var);
-            ut5Var.g = z;
-            ut5Var.f = i;
-            MessageManager.getInstance().runTask(2921546, String.class, ut5Var);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, iyyPayResultCallback, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            YYPayData yYPayData = new YYPayData(context, 0, str, l, iyyPayResultCallback);
+            yYPayData.closeOnSuccess = z;
+            yYPayData.payScene = i;
+            MessageManager.getInstance().runTask(2921546, String.class, yYPayData);
         }
     }
 
@@ -124,10 +124,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable pt5 pt5Var) {
+    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable IyyPayResultCallback iyyPayResultCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, pt5Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, pt5Var);
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, iyyPayResultCallback}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, iyyPayResultCallback);
         }
     }
 }

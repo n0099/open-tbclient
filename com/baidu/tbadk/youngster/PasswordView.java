@@ -13,13 +13,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +83,7 @@ public class PasswordView extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                yi.P(this.a.getContext(), this.a.e);
+                BdUtilHelper.showSoftKeyPad(this.a.getContext(), this.a.e);
             }
         }
     }
@@ -259,7 +259,7 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    zg.a().post(this.b.p);
+                    SafeHandler.getInst().post(this.b.p);
                     return;
                 }
                 this.a.setVisibility(8);
@@ -426,7 +426,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(yi.g(getContext(), R.dimen.tbds3), dba.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(BdUtilHelper.getDimens(getContext(), R.dimen.tbds3), x9a.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -510,8 +510,8 @@ public class PasswordView extends RelativeLayout {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            zg.a().removeCallbacks(this.o);
-            zg.a().postDelayed(this.o, 300L);
+            SafeHandler.getInst().removeCallbacks(this.o);
+            SafeHandler.getInst().postDelayed(this.o, 300L);
         }
     }
 
@@ -520,8 +520,8 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            zg.a().removeCallbacks(this.o);
-            zg.a().removeCallbacks(this.p);
+            SafeHandler.getInst().removeCallbacks(this.o);
+            SafeHandler.getInst().removeCallbacks(this.p);
             i();
         }
     }

@@ -1,160 +1,88 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class i28 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static HashMap<String, Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<ln> c;
-    public n28 d;
-    public k28 e;
-    public l28 f;
-    public m28 g;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public i28(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801722, "Lcom/baidu/tieba/i28;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947801722, "Lcom/baidu/tieba/i28;");
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
+        b = new HashMap<>();
     }
 
-    public List<yn> a() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b.clear();
+        }
+    }
+
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.size();
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return a;
         }
+        return invokeV.booleanValue;
     }
 
-    public void e() {
-        k28 k28Var;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (k28Var = this.e) != null) {
-            k28Var.onPause();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new n28(this.a, kq6.E0);
-            this.e = new k28(this.a, lq6.U);
-            this.f = new l28(this.a, kq6.N0);
-            this.g = new m28(this.a, kq6.L0);
-            this.d.A(this.b);
-            this.e.C(this.b);
-            this.f.z(this.b);
-            this.g.B(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void f(List<yn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            n28 n28Var = this.d;
-            if (n28Var != null) {
-                n28Var.y(i);
-            }
-            k28 k28Var = this.e;
-            if (k28Var != null) {
-                k28Var.A(i);
-            }
-            l28 l28Var = this.f;
-            if (l28Var != null) {
-                l28Var.x(i);
-            }
-            m28 m28Var = this.g;
-            if (m28Var != null) {
-                m28Var.z(i);
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && !TextUtils.isEmpty(str) && e()) {
+            d(str);
+            if (b() >= 10) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
+                f(false);
             }
         }
     }
 
-    public void h(NEGFeedBackView.b bVar) {
-        m28 m28Var;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && (m28Var = this.g) != null) {
-            m28Var.y(bVar);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        b.put(str, 0);
     }
 
-    public void i(BdUniqueId bdUniqueId) {
+    public static void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            n28 n28Var = this.d;
-            if (n28Var != null) {
-                n28Var.z(bdUniqueId);
-            }
-            k28 k28Var = this.e;
-            if (k28Var != null) {
-                k28Var.B(bdUniqueId);
-            }
-            l28 l28Var = this.f;
-            if (l28Var != null) {
-                l28Var.y(bdUniqueId);
-            }
-            m28 m28Var = this.g;
-            if (m28Var != null) {
-                m28Var.A(bdUniqueId);
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+            if (!z) {
+                b.clear();
             }
         }
     }

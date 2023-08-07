@@ -5,36 +5,36 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.aaa;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.q8a;
 import com.baidu.tieba.stamp.model.msg.GetStampResponseMessage;
-import com.baidu.tieba.w9a;
+import com.baidu.tieba.t8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FetchStampModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public aaa b;
+    public t8a b;
     public int c;
-    public rg<jn> d;
+    public BdResourceCallback<BdImage> d;
     public String e;
     public HttpMessageListener f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,27 +67,27 @@ public class FetchStampModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003522 && (httpResponsedMessage instanceof GetStampResponseMessage)) {
-                List<w9a> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
+                List<q8a> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
                 if (httpResponsedMessage.getError() == 0) {
-                    this.a.Y(stampList);
+                    this.a.Q(stampList);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends rg<jn> {
+    /* loaded from: classes8.dex */
+    public class b extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w9a a;
+        public final /* synthetic */ q8a a;
         public final /* synthetic */ FetchStampModel b;
 
-        public b(FetchStampModel fetchStampModel, w9a w9aVar) {
+        public b(FetchStampModel fetchStampModel, q8a q8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fetchStampModel, w9aVar};
+                Object[] objArr = {fetchStampModel, q8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,28 +98,28 @@ public class FetchStampModel extends BdBaseModel {
                 }
             }
             this.b = fetchStampModel;
-            this.a = w9aVar;
+            this.a = q8aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rg
-        public void onLoaded(jn jnVar, String str, int i) {
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, jnVar, str, i) == null) {
-                super.onLoaded((b) jnVar, str, i);
-                if (jnVar != null && jnVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((b) bdImage, str, i);
+                if (bdImage != null && bdImage.isValidNow()) {
                     this.b.b.a(this.a);
                 }
             }
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, aaa aaaVar) {
+    public FetchStampModel(TbPageContext tbPageContext, t8a t8aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, aaaVar};
+            Object[] objArr = {tbPageContext, t8aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,12 +132,12 @@ public class FetchStampModel extends BdBaseModel {
         this.c = 10;
         this.f = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
         this.a = tbPageContext;
-        this.b = aaaVar;
-        X();
+        this.b = t8aVar;
+        P();
         registerListener();
     }
 
-    public final void X() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FETCH_STAMP, TbConfig.SERVER_ADDRESS + "c/s/getIconToast");
@@ -152,7 +152,7 @@ public class FetchStampModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!StringUtils.isNull(this.e) && this.d != null) {
-                sg.h().d(this.e, this.c, this.d);
+                BdResourceLoader.getInstance().cancelLoad(this.e, this.c, this.d);
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_FETCH_STAMP);
             MessageManager.getInstance().unRegisterListener(this.f);
@@ -161,25 +161,25 @@ public class FetchStampModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void Y(List<w9a> list) {
-        w9a w9aVar;
+    public final void Q(List<q8a> list) {
+        q8a q8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (w9aVar = list.get(0)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (q8aVar = list.get(0)) == null) {
             return;
         }
-        String a2 = w9aVar.a();
+        String a2 = q8aVar.a();
         this.e = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
         if (this.d == null) {
-            this.d = new b(this, w9aVar);
+            this.d = new b(this, q8aVar);
         }
-        jn jnVar = (jn) sg.h().n(this.e, this.c, new Object[0]);
-        if (jnVar != null && jnVar.w()) {
-            this.b.a(w9aVar);
+        BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(this.e, this.c, new Object[0]);
+        if (bdImage != null && bdImage.isValidNow()) {
+            this.b.a(q8aVar);
         } else if (this.a != null) {
-            sg.h().m(this.e, this.c, this.d, this.a.getUniqueId());
+            BdResourceLoader.getInstance().loadResource(this.e, this.c, this.d, this.a.getUniqueId());
         }
     }
 

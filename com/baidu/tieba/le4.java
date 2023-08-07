@@ -1,29 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes6.dex */
 public class le4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public SimpleDraweeView b;
+    public TextView c;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    @SuppressLint({"InflateParams"})
+    public le4(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeF.intValue;
-    }
-
-    public static float b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density;
-        }
-        return invokeF.floatValue;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d093b, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f092323);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092324);
     }
 }

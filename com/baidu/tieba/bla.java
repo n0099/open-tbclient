@@ -1,91 +1,101 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.ImShareCardCommonData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class bla {
+public abstract class bla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
 
-    public static String a(l9 l9Var, String str) {
-        InterceptResult invokeLL;
+    public abstract void e();
+
+    public abstract void h();
+
+    public bla(BaseActivity baseActivity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, l9Var, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
-                }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return l9Var.getString(R.string.pic_str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.b = str;
+        this.c = str2;
+        this.a = baseActivity;
     }
 
-    public static String b(l9 l9Var, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String string;
-        ImShareCardCommonData c;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l9Var, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            String str = "";
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 32) {
-                                if (msgType != 33) {
-                                    if (msgType != 37) {
-                                        if (msgType == 38 && (c = ch8.c(chatMessage)) != null) {
-                                            if (c.getType() == 1) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
-                                            } else if (c.getType() == 2) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
-                                            }
-                                        }
-                                    } else {
-                                        str = l9Var.getString(R.string.last_msg_chatroom_share);
-                                    }
-                                } else {
-                                    str = l9Var.getString(R.string.last_msg_forum_share);
-                                }
-                            } else {
-                                str = l9Var.getString(R.string.last_msg_thread_share);
-                            }
-                        }
-                    } else {
-                        str = l9Var.getString(R.string.voice_str);
-                    }
-                } else {
-                    str = a(l9Var, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = l9Var.getString(R.string.private_message_report_person);
-                    } else {
-                        string = l9Var.getString(R.string.private_message_is_report_name);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + l9Var.getString(R.string.private_message_report_content) + str;
-                }
-                return l9Var.getString(R.string.private_message_is_report_name);
-            }
-            str = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return l9Var.getString(R.string.private_message_is_report_name);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !bi.isEmpty(this.g)) {
+            FileHelper.deleteFile(new File(this.g));
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+        }
+    }
+
+    public void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            a();
+        }
+    }
+
+    public void g(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            a();
+        }
+    }
+
+    public void f(VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
+            a();
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h = z;
+        }
     }
 }

@@ -1,229 +1,153 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.searchbox.player.model.ClarityUrlList;
+import com.baidu.tieba.ju0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import org.apache.http.client.methods.HttpDelete;
+import java.util.List;
+import kotlin.Pair;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+@JvmName(name = "CloudClarityConfig")
 /* loaded from: classes6.dex */
-public class ku0 {
+public final class ku0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public URL a;
-    public String b;
-    public Headers.a c;
-    @Nullable
-    public ju0 d;
-    public Object e;
-    @NonNull
-    public final pt0 f;
-    public boolean g;
-    public boolean h;
 
-    public ku0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925443, "Lcom/baidu/tieba/ku0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947925443, "Lcom/baidu/tieba/ku0;");
                 return;
             }
         }
-        this.g = true;
-        this.h = false;
-        this.b = "GET";
-        this.c = new Headers.a();
-        new Headers.a();
-        this.f = new pt0();
+        a = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"sd", ClarityUrlList.ClarityUrl.KEY_HD, "sc", ClarityUrlList.ClarityUrl.KEY_1080P});
     }
 
-    public ku0 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.c.a(str, str2);
-            return this;
-        }
-        return (ku0) invokeLL.objValue;
-    }
-
-    public ku0 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            this.c.e(str, str2);
-            return this;
-        }
-        return (ku0) invokeLL.objValue;
-    }
-
-    public ku0 e(String str, @Nullable ju0 ju0Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, ju0Var)) == null) {
-            this.b = str;
-            this.d = ju0Var;
-            return this;
-        }
-        return (ku0) invokeLL.objValue;
-    }
-
-    public RequestError b() {
-        InterceptResult invokeV;
-        RequestError requestError;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                requestError = new RequestError("url is null");
-            } else {
-                requestError = null;
-            }
-            if (this.d != null && !gu0.a(this.b)) {
-                requestError = new RequestError("method " + this.b + " must not have a request body.");
-            }
-            if (this.d == null && gu0.b(this.b)) {
-                return new RequestError("method " + this.b + " must have a request body.");
-            }
-            return requestError;
-        }
-        return (RequestError) invokeV.objValue;
-    }
-
-    public ku0 c() {
+    public static final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e("GET", null);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String mobileNetClarity = f21.c();
+            if (a.contains(mobileNetClarity)) {
+                Intrinsics.checkNotNullExpressionValue(mobileNetClarity, "mobileNetClarity");
+                return mobileNetClarity;
+            }
+            return "sd";
         }
-        return (ku0) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ku0 delete() {
+    public static final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return delete(ju0.h);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String wifiClarity = f21.e();
+            if (a.contains(wifiClarity)) {
+                Intrinsics.checkNotNullExpressionValue(wifiClarity, "wifiClarity");
+                return wifiClarity;
+            }
+            return "sc";
         }
-        return (ku0) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ku0 delete(@Nullable ju0 ju0Var) {
+    public static final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (TextUtils.equals("1", f21.d())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final Pair<Integer, Integer> a(com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ju0Var)) == null) {
-            e(HttpDelete.METHOD_NAME, ju0Var);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            String b = b(true);
+            int i = 0;
+            String b2 = b(false);
+            int size = list.size() - 1;
+            int i2 = 0;
+            for (ClarityUrlList.c entity : list) {
+                Intrinsics.checkNotNullExpressionValue(entity, "entity");
+                if (TextUtils.equals(entity.c(), b)) {
+                    i = i2;
+                } else if (TextUtils.equals(entity.c(), b2)) {
+                    size = i2;
+                }
+                i2++;
+            }
+            return new Pair<>(Integer.valueOf(size), Integer.valueOf(i));
         }
-        return (ku0) invokeL.objValue;
+        return (Pair) invokeL.objValue;
     }
 
-    public ku0 f(ju0 ju0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ju0Var)) == null) {
-            e("POST", ju0Var);
-            return this;
-        }
-        return (ku0) invokeL.objValue;
-    }
-
-    public ku0 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.f.a(i);
-            return this;
-        }
-        return (ku0) invokeI.objValue;
-    }
-
-    public ku0 h(fu0 fu0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fu0Var)) == null) {
-            this.f.b(fu0Var);
-            return this;
-        }
-        return (ku0) invokeL.objValue;
-    }
-
-    public ku0 i(boolean z) {
+    public static final String b(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (ku0) invokeZ.objValue;
-    }
-
-    public ku0 j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            this.f.c(i);
-            return this;
-        }
-        return (ku0) invokeI.objValue;
-    }
-
-    public ku0 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.f.d(i);
-            return this;
-        }
-        return (ku0) invokeI.objValue;
-    }
-
-    public ku0 m(URL url) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, url)) == null) {
-            this.a = url;
-            return this;
-        }
-        return (ku0) invokeL.objValue;
-    }
-
-    public ku0 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.a = null;
-                return this;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                return f();
             }
-            if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
-            } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
-            }
-            try {
-                m(new URL(str));
-                return this;
-            } catch (MalformedURLException | Exception unused) {
-                m(null);
-                return this;
-            }
+            return e();
         }
-        return (ku0) invokeL.objValue;
+        return (String) invokeZ.objValue;
+    }
+
+    public static final ju0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String a2 = f21.a();
+            if (a2 != null) {
+                int hashCode = a2.hashCode();
+                if (hashCode != 49) {
+                    if (hashCode == 50 && a2.equals("2")) {
+                        return ju0.a.a;
+                    }
+                } else if (a2.equals("1")) {
+                    return ju0.b.a;
+                }
+            }
+            return ju0.a.a;
+        }
+        return (ju0) invokeV.objValue;
+    }
+
+    public static final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String condition = f21.b();
+            for (String str : a) {
+                Intrinsics.checkNotNullExpressionValue(condition, "condition");
+                if (StringsKt__StringsKt.contains$default((CharSequence) condition, (CharSequence) str, false, 2, (Object) null)) {
+                    return condition;
+                }
+            }
+            return ClarityUrlList.ClarityUrl.KEY_1080P;
+        }
+        return (String) invokeV.objValue;
     }
 }

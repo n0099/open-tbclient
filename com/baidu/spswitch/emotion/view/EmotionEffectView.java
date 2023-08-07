@@ -247,7 +247,7 @@ public final class EmotionEffectView extends FrameLayout {
         });
         this.retriever$delegate = LazyKt__LazyJVMKt.lazy(EmotionEffectView$retriever$2.INSTANCE);
         this.emotionHandler = new Handler(Looper.getMainLooper());
-        this.viewRemoveRunnable = new Runnable() { // from class: com.baidu.tieba.kp1
+        this.viewRemoveRunnable = new Runnable() { // from class: com.baidu.tieba.no1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -359,7 +359,7 @@ public final class EmotionEffectView extends FrameLayout {
                 f = 0.0f;
             }
             alphaVideo.setDarkFilter(f);
-            alphaVideo.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.tieba.ip1
+            alphaVideo.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.tieba.lo1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -371,7 +371,7 @@ public final class EmotionEffectView extends FrameLayout {
                     }
                 }
             });
-            alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.jp1
+            alphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.mo1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -383,7 +383,7 @@ public final class EmotionEffectView extends FrameLayout {
                     }
                 }
             });
-            alphaVideo.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.tieba.lp1
+            alphaVideo.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.tieba.oo1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -527,7 +527,7 @@ public final class EmotionEffectView extends FrameLayout {
             updateLayoutParams(sourcePath);
             setVisibility(0);
             this.emotionHandler.removeCallbacks(this.viewRemoveRunnable);
-            post(new Runnable() { // from class: com.baidu.tieba.mp1
+            post(new Runnable() { // from class: com.baidu.tieba.po1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

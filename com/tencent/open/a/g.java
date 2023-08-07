@@ -793,7 +793,7 @@ public class g {
             for (int i = 0; i < this.c.size(); i++) {
                 b bVar2 = (b) this.c.get(i);
                 bundle.putString(i + SkinManager.nightSufix, bVar2.a.get("apn"));
-                bundle.putString(i + SkinManager.darkSuffix, bVar2.a.get(FetchTimer.FREQUENCY));
+                bundle.putString(i + "_2", bVar2.a.get(FetchTimer.FREQUENCY));
                 bundle.putString(i + "_3", bVar2.a.get("commandid"));
                 bundle.putString(i + "_4", bVar2.a.get("resultCode"));
                 bundle.putString(i + "_5", bVar2.a.get("timeCost"));

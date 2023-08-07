@@ -3,8 +3,7 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.so;
-import com.baidu.tieba.yn;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,21 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes5.dex */
-public abstract class BaseCardInfo implements yn {
+public abstract class BaseCardInfo implements ym {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean forceNoTest;
     public boolean isFirstFloor;
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public so trigger;
 
-    @Override // com.baidu.tieba.yn
+    @Override // com.baidu.tieba.ym
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -37,7 +34,7 @@ public abstract class BaseCardInfo implements yn {
     public boolean isHighLight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -135,19 +132,10 @@ public abstract class BaseCardInfo implements yn {
         this.mSupportType = SupportType.NONE;
     }
 
-    public so getTrigger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.trigger;
-        }
-        return (so) invokeV.objValue;
-    }
-
     public boolean isSupportBottom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mSupportType == SupportType.BOTTOM) {
                 return true;
             }
@@ -159,7 +147,7 @@ public abstract class BaseCardInfo implements yn {
     public boolean isSupportContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.mSupportType == SupportType.CONTENT) {
                 return true;
             }
@@ -171,7 +159,7 @@ public abstract class BaseCardInfo implements yn {
     public boolean isSupportExtend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mSupportType == SupportType.EXTEND) {
                 return true;
             }
@@ -183,7 +171,7 @@ public abstract class BaseCardInfo implements yn {
     public boolean isSupportFull() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.mSupportType == SupportType.FULL) {
                 return true;
             }
@@ -195,7 +183,7 @@ public abstract class BaseCardInfo implements yn {
     public boolean isSupportNone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.mSupportType == SupportType.NONE) {
                 return true;
             }
@@ -207,7 +195,7 @@ public abstract class BaseCardInfo implements yn {
     public boolean isSupportTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.mSupportType == SupportType.TOP) {
                 return true;
             }
@@ -218,15 +206,8 @@ public abstract class BaseCardInfo implements yn {
 
     public void setSupportType(SupportType supportType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, supportType) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, supportType) == null) {
             this.mSupportType = supportType;
-        }
-    }
-
-    public void setTrigger(so soVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, soVar) == null) {
-            this.trigger = soVar;
         }
     }
 }

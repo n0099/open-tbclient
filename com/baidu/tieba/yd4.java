@@ -1,27 +1,82 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yd4 {
+public class yd4 extends vd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xd4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized xd4 a() {
-        InterceptResult invokeV;
-        xd4 xd4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (yd4.class) {
-                if (a == null) {
-                    a = new xd4();
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yd4 a;
+
+        public a(yd4 yd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                xd4Var = a;
             }
-            return xd4Var;
+            this.a = yd4Var;
         }
-        return (xd4) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || sd4.b() == null) {
+                return;
+            }
+            this.a.a = new UserInfoButton(sd4.b(), this.a);
+            this.a.a.setType(this.a.type);
+            this.a.a.setButtonText(this.a.text);
+            this.a.a.setImageUrl(this.a.image);
+            this.a.a.setApiButtonStyle(this.a.style);
+            this.a.x();
+            this.a.I();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yd4(JsObject jsObject, ii2 ii2Var) {
+        super(jsObject, ii2Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject, ii2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((JsObject) objArr2[0], (ii2) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        so3.e0(new a(this));
+    }
+
+    public final void I() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !vb4.d()) {
+            sb4.l("Button shows early.");
+        }
     }
 }

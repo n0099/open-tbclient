@@ -3,6 +3,7 @@ package com.baidu.tieba.videoplay.dispatcher;
 import android.content.Context;
 import android.graphics.Rect;
 import android.text.TextUtils;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
@@ -10,11 +11,10 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.gy5;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.uv5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wg;
-import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class VideoPlayDispatcher implements y2a {
+public class VideoPlayDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class VideoPlayDispatcher implements y2a {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0186  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0196  */
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -72,8 +72,8 @@ public class VideoPlayDispatcher implements y2a {
             videoItemData.video_width = jSONObject.optString("videoWidth");
             videoItemData.video_height = jSONObject.optString("videoHeight");
             boolean z3 = false;
-            videoItemData.video_duration = wg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-            if (wg.g(jSONObject.optString("videoHeight"), 0L) > wg.g(jSONObject.optString("videoWidth"), 0L)) {
+            videoItemData.video_duration = JavaTypesHelper.toInt(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+            if (JavaTypesHelper.toLong(jSONObject.optString("videoHeight"), 0L) > JavaTypesHelper.toLong(jSONObject.optString("videoWidth"), 0L)) {
                 z = true;
             } else {
                 z = false;
@@ -141,7 +141,7 @@ public class VideoPlayDispatcher implements y2a {
                     } else {
                         str = VideoPlayActivityConfig.FROM_H5_SEARCH;
                     }
-                    gy5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", str, "", z2, false, wg.g(videoItemData.forum_id, 0L));
+                    uv5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", str, "", z2, false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L));
                     return;
                 }
             }

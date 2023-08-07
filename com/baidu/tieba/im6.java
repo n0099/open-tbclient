@@ -1,65 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class im6 {
+public class im6 extends dm6<hv6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public String p;
 
-    public static tx9 a(sm6 sm6Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dm6
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sm6Var)) == null) {
-            tx9 tx9Var = new tx9();
-            if (sm6Var != null) {
-                tx9Var.b = sm6Var.c;
-                tx9Var.e = sm6Var.g;
-                tx9Var.f = sm6Var.i;
-                tx9Var.c = sm6Var.d;
-                if (!xn6.a(sm6Var.b)) {
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    tx9Var.a = arrayList;
-                    arrayList.addAll(sm6Var.b);
-                }
-                if (!xn6.a(sm6Var.f)) {
-                    ArrayList<String> arrayList2 = new ArrayList<>();
-                    tx9Var.d = arrayList2;
-                    arrayList2.addAll(sm6Var.f);
-                }
-            }
-            return tx9Var;
-        }
-        return (tx9) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b0 : invokeV.intValue;
     }
 
-    public static void b(nm6 nm6Var, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public im6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, nm6Var, str) == null) {
-            try {
-                if (nm6Var != null) {
-                    rx9.n().z(str, nm6Var.b());
-                    rx9.n().x();
-                    if (!xn6.b(nm6Var.a())) {
-                        HashMap<String, tx9> hashMap = new HashMap<>();
-                        for (Map.Entry<String, sm6> entry : nm6Var.a().entrySet()) {
-                            hashMap.put(entry.getKey(), a(entry.getValue()));
-                        }
-                        sx9.a().l(str, hashMap);
-                    }
-                    sx9.a().h(true, str);
-                    return;
-                }
-                rx9.n().h(str);
-                rx9.n().x();
-                sx9.a().f(str);
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        r(h());
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.p = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.dm6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
+                UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+            }
+        }
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b0);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b1);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b2);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b3);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b4);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090909);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f09090a);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dm6
+    /* renamed from: s */
+    public void i(hv6 hv6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, hv6Var) == null) && hv6Var != null && hv6Var.c() != null) {
+            if (!TextUtils.isEmpty(hv6Var.c().title)) {
+                this.i.setText(hv6Var.c().title);
+            }
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
+            this.l.setVisibility(8);
+            this.m.setVisibility(8);
+            if (hv6Var.c().sub_nodes.size() >= 1) {
+                this.j.setVisibility(0);
+                this.j.setTag(hv6Var.c().sub_nodes.get(0).url);
+                this.j.setText(hv6Var.c().sub_nodes.get(0).title);
+            }
+            if (hv6Var.c().sub_nodes.size() >= 2) {
+                this.k.setVisibility(0);
+                this.k.setTag(hv6Var.c().sub_nodes.get(1).url);
+                this.k.setText(hv6Var.c().sub_nodes.get(1).title);
+            }
+            if (hv6Var.c().sub_nodes.size() >= 3) {
+                this.l.setVisibility(0);
+                this.l.setTag(hv6Var.c().sub_nodes.get(2).url);
+                this.l.setText(hv6Var.c().sub_nodes.get(2).title);
+            }
+            if (hv6Var.c().sub_nodes.size() >= 4) {
+                this.m.setVisibility(0);
+                this.m.setTag(hv6Var.c().sub_nodes.get(3).url);
+                this.m.setText(hv6Var.c().sub_nodes.get(3).title);
             }
         }
     }

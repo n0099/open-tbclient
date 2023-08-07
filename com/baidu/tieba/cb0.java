@@ -1,50 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
 /* loaded from: classes5.dex */
-public abstract class cb0<V> extends FutureTask<V> {
+public class cb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bb0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdAsyncTask<?, ?, ?> a;
 
-    public abstract void a();
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb0(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callable, bdAsyncTask};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Callable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.a = bdAsyncTask;
-    }
-
-    public BdAsyncTask<?, ?, ?> b() {
+    public static synchronized bb0 a() {
         InterceptResult invokeV;
+        bb0 bb0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (cb0.class) {
+                if (a == null) {
+                    a = new bb0();
+                }
+                bb0Var = a;
+            }
+            return bb0Var;
         }
-        return (BdAsyncTask) invokeV.objValue;
+        return (bb0) invokeV.objValue;
     }
 }

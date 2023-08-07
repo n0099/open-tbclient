@@ -12,8 +12,8 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class anim {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int emotion_long_pressed_entry = 0x7f010089;
-        public static final int emotion_long_pressed_exit = 0x7f01008a;
+        public static final int emotion_long_pressed_entry = 0x7f01008b;
+        public static final int emotion_long_pressed_exit = 0x7f01008c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public anim() {
@@ -92,7 +92,7 @@ public final class R {
         public static final int max_softinput_height = 0x7f07058b;
         public static final int min_panel_height = 0x7f07058f;
         public static final int min_softinput_height = 0x7f070590;
-        public static final int window_horizontal_padding = 0x7f070b51;
+        public static final int window_horizontal_padding = 0x7f070b56;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -151,26 +151,26 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int delete_btn = 0x7f090866;
-        public static final int edit_area = 0x7f090961;
-        public static final int emotion_content_root = 0x7f090998;
-        public static final int emotion_title = 0x7f0909d8;
-        public static final int emotion_type_divider = 0x7f0909da;
+        public static final int delete_btn = 0x7f090875;
+        public static final int edit_area = 0x7f090970;
+        public static final int emotion_content_root = 0x7f0909a8;
+        public static final int emotion_title = 0x7f0909e8;
+        public static final int emotion_type_divider = 0x7f0909ea;
         public static final int emotion_type_layout = 0x7f09093d;
-        public static final int emotion_type_tab_layout = 0x7f0909db;
-        public static final int emotion_vip_icon = 0x7f0909e2;
-        public static final int icon = 0x7f090fdd;
-        public static final int icon_list = 0x7f090fea;
-        public static final int img_item = 0x7f0910c9;
-        public static final int item_img = 0x7f091197;
-        public static final int item_text = 0x7f0911c2;
-        public static final int item_text_img = 0x7f0911c3;
-        public static final int panel_root = 0x7f091a16;
-        public static final int preview_content = 0x7f091d09;
-        public static final int recycler_list = 0x7f091e68;
-        public static final int send_btn = 0x7f09214a;
-        public static final int text = 0x7f09243c;
-        public static final int triangle = 0x7f092677;
+        public static final int emotion_type_tab_layout = 0x7f0909eb;
+        public static final int emotion_vip_icon = 0x7f0909f2;
+        public static final int icon = 0x7f090ff0;
+        public static final int icon_list = 0x7f090ffd;
+        public static final int img_item = 0x7f0910df;
+        public static final int item_img = 0x7f0911aa;
+        public static final int item_text = 0x7f0911d5;
+        public static final int item_text_img = 0x7f0911d6;
+        public static final int panel_root = 0x7f091a2a;
+        public static final int preview_content = 0x7f091d1f;
+        public static final int recycler_list = 0x7f091e7f;
+        public static final int send_btn = 0x7f092161;
+        public static final int text = 0x7f092454;
+        public static final int triangle = 0x7f092690;
         public static final int vp_emotion_type = 0x7f091fad;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,17 +193,17 @@ public final class R {
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int bd_emotion_panel = 0x7f0d0155;
-        public static final int emotion_dynamic_panel_title = 0x7f0d0293;
-        public static final int emotion_grid_item = 0x7f0d0296;
-        public static final int emotion_grid_item_emo_text = 0x7f0d0297;
-        public static final int emotion_grid_item_imageview = 0x7f0d0298;
-        public static final int emotion_only_include_panel_linearlayout = 0x7f0d02a3;
-        public static final int emotion_vertical_grid_item = 0x7f0d02ae;
-        public static final int emotion_vertical_long_pressed_layout = 0x7f0d02af;
-        public static final int emotion_vertical_panel_icon = 0x7f0d02b0;
-        public static final int emotion_vertical_panel_page1_root = 0x7f0d02b1;
-        public static final int emotion_vertical_panel_title = 0x7f0d02b2;
-        public static final int im_plugin_emotion_root_layout = 0x7f0d0424;
+        public static final int emotion_dynamic_panel_title = 0x7f0d0296;
+        public static final int emotion_grid_item = 0x7f0d0299;
+        public static final int emotion_grid_item_emo_text = 0x7f0d029a;
+        public static final int emotion_grid_item_imageview = 0x7f0d029b;
+        public static final int emotion_only_include_panel_linearlayout = 0x7f0d02a6;
+        public static final int emotion_vertical_grid_item = 0x7f0d02b1;
+        public static final int emotion_vertical_long_pressed_layout = 0x7f0d02b2;
+        public static final int emotion_vertical_panel_icon = 0x7f0d02b3;
+        public static final int emotion_vertical_panel_page1_root = 0x7f0d02b4;
+        public static final int emotion_vertical_panel_title = 0x7f0d02b5;
+        public static final int im_plugin_emotion_root_layout = 0x7f0d0427;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -230,7 +230,7 @@ public final class R {
         public static final int bdemotion_panel_net_error = 0x7f0f0340;
         public static final int bdemotion_panel_net_reload = 0x7f0f0341;
         public static final int bdemotion_panel_send = 0x7f0f0342;
-        public static final int often_zone_title_default = 0x7f0f0ed0;
+        public static final int often_zone_title_default = 0x7f0f0ed2;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

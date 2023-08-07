@@ -1,40 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q19 {
+public class q19 extends sk1<BrowserProxyService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public q19() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str + "?");
-            Iterator<String> keys = jSONObject.keys();
-            boolean z = true;
-            while (keys.hasNext()) {
-                if (z) {
-                    String next = keys.next();
-                    if (next != null) {
-                        sb.append(next + "=" + jSONObject.optString(next));
-                        z = false;
-                    }
-                } else {
-                    String next2 = keys.next();
-                    if (next2 != null) {
-                        sb.append("&");
-                        sb.append(next2 + "=" + jSONObject.optString(next2));
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk1
+    /* renamed from: a */
+    public BrowserProxyService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new r19();
+        }
+        return (BrowserProxyService) invokeV.objValue;
     }
 }

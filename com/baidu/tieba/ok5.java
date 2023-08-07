@@ -1,49 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class ok5 extends lj5 {
+public class ok5 extends sk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocalInputContainer t;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ok5(Context context, fk5 fk5Var) {
-        super(context, (String) null, 36);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, fk5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035152, "Lcom/baidu/tieba/ok5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948035152, "Lcom/baidu/tieba/ok5;");
                 return;
             }
         }
-        g(context, fk5Var);
-        this.m = this.t;
-        this.o = false;
-        this.n = 3;
-        this.p = new int[]{24, 3};
+        d = sk5.a("acTL");
     }
 
-    public final void g(Context context, fk5 fk5Var) {
+    public ok5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, fk5Var) == null) {
-            LocalInputContainer localInputContainer = new LocalInputContainer(context);
-            this.t = localInputContainer;
-            localInputContainer.e(fk5Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sk5
+    public void b(zk5 zk5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zk5Var) == null) {
+            zk5Var.e();
+            this.c = zk5Var.e();
         }
     }
 }

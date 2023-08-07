@@ -1,111 +1,64 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.os.Build;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.tieba.nu2;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.tieba.vu1;
+import com.baidu.tieba.wv2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e82 extends b72<SwanEditText, f82> {
+public class e82 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static Set<String> f;
+    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppActivity i;
-    public db2 j;
-    public nu2 k;
-    public int l;
+    public ExecutorService c;
+    public int d;
+    public g82 e;
 
     /* loaded from: classes5.dex */
-    public interface g {
-        void a(String str, JSONObject jSONObject);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends so2 {
+    public class a implements vu1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ e82 b;
-
-        public a(e82 e82Var, SwanEditText swanEditText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e82Var, swanEditText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e82Var;
-            this.a = swanEditText;
-        }
-
-        @Override // com.baidu.tieba.so2, com.baidu.tieba.to2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.k != null) {
-                this.b.k.dismiss();
-                this.b.p0(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.so2, com.baidu.tieba.to2
-        public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, keyEvent)) == null) {
-                if (i == 4 && this.b.k != null) {
-                    this.b.k.dismiss();
-                    this.b.p0(this.a);
-                    return true;
-                }
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements nu2.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ f82 b;
-        public final /* synthetic */ so2 c;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
         public final /* synthetic */ e82 d;
 
-        public b(e82 e82Var, SwanEditText swanEditText, f82 f82Var, so2 so2Var) {
+        public a(e82 e82Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e82Var, swanEditText, f82Var, so2Var};
+                Object[] objArr = {e82Var, context, unitedSchemeEntity, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,51 +69,53 @@ public final class e82 extends b72<SwanEditText, f82> {
                 }
             }
             this.d = e82Var;
-            this.a = swanEditText;
-            this.b = f82Var;
-            this.c = so2Var;
+            this.a = context;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
         }
 
-        @Override // com.baidu.tieba.nu2.d
-        public void a() {
+        @Override // com.baidu.tieba.vu1.b
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (k72.h) {
-                    Log.d("Component-Input", "numeric keyboard onKeyboardHide");
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    y72.c("LocalDebugAction", "Authentication Success");
+                    e82.g.add(this.d.o(this.a));
+                    this.d.p(this.a, this.b, this.c);
+                    return;
                 }
-                this.d.y0(this.a);
-                this.d.i.G0(this.c);
+                y72.c("LocalDebugAction", "Authentication Fail : Not developer");
+                this.d.w(this.a, this.b, 401);
             }
         }
 
-        @Override // com.baidu.tieba.nu2.d
-        public void b(int i) {
+        @Override // com.baidu.tieba.vu1.b
+        public void b(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                if (k72.h) {
-                    Log.d("Component-Input", "numeric keyboard onKeyboardShow");
-                }
-                e82 e82Var = this.d;
-                e82Var.z0(e82Var.i, this.a, this.b, i);
-                this.d.i.u0(this.c);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                y72.d("LocalDebugAction", "onFail : Authentication exception :", exc);
+                this.d.w(this.a, this.b, 401);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements TextView.OnEditorActionListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f82 a;
-        public final /* synthetic */ SwanEditText b;
-        public final /* synthetic */ e82 c;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ e82 f;
 
-        public c(e82 e82Var, f82 f82Var, SwanEditText swanEditText) {
+        public b(e82 e82Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e82Var, f82Var, swanEditText};
+                Object[] objArr = {e82Var, context, str, file, unitedSchemeEntity, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -170,515 +125,302 @@ public final class e82 extends b72<SwanEditText, f82> {
                     return;
                 }
             }
-            this.c = e82Var;
-            this.a = f82Var;
-            this.b = swanEditText;
+            this.f = e82Var;
+            this.a = context;
+            this.b = str;
+            this.c = file;
+            this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
         }
 
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                ju2.d(iu2.d().c(), this.c.l);
-                if (this.a.M) {
-                    return true;
-                }
-                this.b.clearFocus();
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ e82 b;
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public d(e82 e82Var, SwanEditText swanEditText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e82Var, swanEditText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e82Var;
-            this.a = swanEditText;
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            char charAt;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) && i2 != i3) {
-                if (i2 > i3) {
-                    charAt = '\b';
-                } else {
-                    charAt = charSequence.charAt((i + i3) - 1);
-                }
-                ju2.c((f82) this.b.n(), this.a, charAt);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f82 a;
-        public final /* synthetic */ SwanEditText b;
-        public final /* synthetic */ e82 c;
-
-        public e(e82 e82Var, f82 f82Var, SwanEditText swanEditText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e82Var, f82Var, swanEditText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = e82Var;
-            this.a = f82Var;
-            this.b = swanEditText;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
-                if (k72.h) {
-                    Log.d("Component-Input", "onFocusChange:" + z);
-                }
-                if (!z) {
-                    v82.i("Component-Input", "send blur callback");
-                    if (!TextUtils.equals("text", this.a.L) && this.c.k != null) {
-                        this.c.k.dismiss();
-                    }
-                    ju2.b(this.b, this.c.l);
-                    this.c.p0(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements in3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ SwanAppActivity b;
-        public final /* synthetic */ f82 c;
-        public final /* synthetic */ View d;
-        public final /* synthetic */ e82 e;
-
-        @Override // com.baidu.tieba.in3
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        public f(e82 e82Var, SwanEditText swanEditText, SwanAppActivity swanAppActivity, f82 f82Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e82Var, swanEditText, swanAppActivity, f82Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = e82Var;
-            this.a = swanEditText;
-            this.b = swanAppActivity;
-            this.c = f82Var;
-            this.d = view2;
-        }
-
-        @Override // com.baidu.tieba.in3
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) {
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.e.y0(this.a);
-            kn3.i().k(this.d);
+            this.f.x(this.a, this.b, this.c, this.d, this.e);
         }
+    }
 
-        @Override // com.baidu.tieba.in3
-        public void b(String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) != null) || !this.a.hasFocus()) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688138, "Lcom/baidu/tieba/e82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947688138, "Lcom/baidu/tieba/e82;");
                 return;
             }
-            this.e.z0(this.b, this.a, this.c, i);
         }
+        g = new HashSet();
+    }
+
+    public final void q() {
+        ya3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b0 = ya3.b0()) == null) {
+            return;
+        }
+        hn3.j(b0.w());
+        System.exit(0);
+    }
+
+    public final boolean t() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            hi4 b2 = ji4.b();
+            if (b2 == null) {
+                str = "1";
+            } else {
+                str = b2.i().getString("enable_local_debug_switch", "1");
+            }
+            return TextUtils.equals(str, "1");
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e82(@Nullable Context context, @NonNull f82 f82Var, @NonNull SwanAppActivity swanAppActivity, @NonNull db2 db2Var, @NonNull g gVar) {
-        super(context, f82Var);
+    public e82(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/localdebuglaunch");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, f82Var, swanAppActivity, db2Var, gVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (c72) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = swanAppActivity;
-        this.j = db2Var;
-        ju2.a(gVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k72
-    @NonNull
-    /* renamed from: r0 */
-    public SwanEditText v(@NonNull Context context) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (!t()) {
+                y72.c("LocalDebugAction", "switch is off");
+                w(context, unitedSchemeEntity, 1003);
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                this.e = g82.c(optParamsAsJo);
+                if (dk3.e(0).swanCoreVersionCode < this.e.h) {
+                    y72.c("LocalDebugAction", "swan js version is low");
+                    w(context, unitedSchemeEntity, 1002);
+                    return false;
+                } else if (!u()) {
+                    y72.c("LocalDebugAction", "debug model invalid");
+                    w(context, unitedSchemeEntity, 202);
+                    return false;
+                } else if (!SwanAppAllianceLoginHelper.d.f() && !s().contains(fu2.h0().h(context)) && !g.contains(o(context))) {
+                    lr1.b(this.e.b, new a(this, context, unitedSchemeEntity, callbackHandler));
+                    return true;
+                } else {
+                    p(context, unitedSchemeEntity, callbackHandler);
+                    return true;
+                }
+            }
+            y72.c("LocalDebugAction", "param is null");
+            w(context, unitedSchemeEntity, 202);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final String o(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) {
-            q0();
-            return iu2.d().a(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return fu2.h0().h(context) + this.e.b;
         }
-        return (SwanEditText) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i72
-    /* renamed from: u0 */
-    public void R(@NonNull SwanEditText swanEditText, @NonNull f82 f82Var) {
+    public final String r(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, swanEditText, f82Var) == null) {
-            if (k72.h) {
-                Log.d("Component-Input", "renderPadding");
-            }
-            swanEditText.setPadding(0, -6, 0, 0);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g72
-    /* renamed from: x0 */
-    public void X(@NonNull SwanEditText swanEditText, @NonNull f82 f82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, swanEditText, f82Var) == null) {
-            Y(swanEditText, f82Var, 16);
-        }
-    }
-
-    public final void q0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            p0(iu2.d().c());
-        }
-    }
-
-    @Override // com.baidu.tieba.k72
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.z();
-        }
-    }
-
-    public final void A0(SwanEditText swanEditText, f82 f82Var, SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanEditText, f82Var, swanAppActivity) == null) {
-            swanEditText.setOnEditorActionListener(new c(this, f82Var, swanEditText));
-            d dVar = new d(this, swanEditText);
-            swanEditText.setOnFocusChangeListener(new e(this, f82Var, swanEditText));
-            if (TextUtils.equals("text", f82Var.L)) {
-                View decorView = swanAppActivity.getWindow().getDecorView();
-                kn3.i().l(decorView, f82Var.b, new f(this, swanEditText, swanAppActivity, f82Var, decorView));
-            }
-            iu2.d().f(dVar);
-            swanEditText.addTextChangedListener(dVar);
-        }
-    }
-
-    public final void B0(SwanEditText swanEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanEditText) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
-                Method method = SwanEditText.class.getMethod("setShowSoftInputOnFocus", Boolean.TYPE);
-                method.setAccessible(true);
-                method.invoke(swanEditText, Boolean.FALSE);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-                if (k72.h) {
-                    e2.printStackTrace();
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                if (vc3.b) {
+                    Log.e("LocalDebugAction", "url encode fail", e);
+                    return str;
                 }
+                return str;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void p0(@Nullable SwanEditText swanEditText) {
+    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, swanEditText) == null) {
-            SwanAppActivity activity = ix2.T().getActivity();
-            if (activity == null) {
-                v82.o("Component-Input", "activity is null when close input");
-                return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
+            File b2 = f82.b();
+            if (b2.exists()) {
+                boolean L = cr4.L(b2);
+                y72.i("LocalDebugAction", "debug bundle delete: " + L);
             }
-            wo3.a(activity, activity.getWindow().getDecorView().getWindowToken());
-            if (swanEditText == null) {
-                return;
+            if (f82.g()) {
+                boolean L2 = cr4.L(f82.d());
+                y72.i("LocalDebugAction", "unzip folder delete: " + L2);
             }
-            swanEditText.setOnFocusChangeListener(null);
-            v82.i("Component-Input", "remove input");
-            if (B().a()) {
-                v82.i("Component-Input", "remove input success");
-            } else {
-                v82.o("Component-Input", "remove input fail");
-            }
-            iu2.d().b();
-        }
-    }
-
-    public final void y0(@NonNull SwanEditText swanEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, swanEditText) == null) {
-            if (k72.h) {
-                Log.d("Component-Input", "scrollBackWhenKeyboardHide, mKeyboardHeight：" + this.l);
-            }
-            if (this.l != 0) {
-                this.l = 0;
-                swanEditText.clearFocus();
-                if (this.j.z3().getScrollY() > 0) {
-                    this.j.z3().setScrollY(0);
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k72
-    /* renamed from: s0 */
-    public void A(@NonNull SwanEditText swanEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, swanEditText) == null) {
-            super.A(swanEditText);
-            f82 f82Var = (f82) n();
-            swanEditText.setText(f82Var.t);
-            int i = 1;
-            swanEditText.setSingleLine(true);
-            swanEditText.setTag(f82Var.e);
-            if (!TextUtils.equals("text", f82Var.L)) {
-                String str = f82Var.L;
-                char c2 = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != -1193508181) {
-                    if (hashCode == 95582509 && str.equals("digit")) {
-                        c2 = 0;
-                    }
-                } else if (str.equals("idcard")) {
-                    c2 = 1;
-                }
-                if (c2 != 0) {
-                    if (c2 != 1) {
-                        i = 0;
+            this.c = Executors.newFixedThreadPool(4);
+            this.d = 0;
+            h82.e().f("downloadstart");
+            for (int i = 0; i < this.e.c.length(); i++) {
+                String a2 = this.e.a(i);
+                if (TextUtils.isEmpty(a2)) {
+                    int i2 = this.d + 1;
+                    this.d = i2;
+                    if (i2 >= this.e.c.length()) {
+                        y72.c("LocalDebugAction", "IPs are invalid");
+                        w(context, unitedSchemeEntity, 202);
+                        h82.e().f("downloadfail");
                     }
                 } else {
-                    i = 2;
+                    this.c.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
                 }
-                this.k = new nu2(this.i, swanEditText, i, f82Var.D);
-                this.k.e(new b(this, swanEditText, f82Var, new a(this, swanEditText)));
-                this.k.f();
-            }
-            if (f82Var.J) {
-                swanEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         }
     }
 
-    @Override // com.baidu.tieba.k72
-    public void x(boolean z) {
+    public final Set<String> s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            super.x(z);
-            if (!z) {
-                o82.a("Component-Input", "attach fail");
-            }
-            SwanEditText swanEditText = (SwanEditText) q();
-            if (swanEditText == null) {
-                o82.a("Component-Input", "onAttached with null editText");
-                swanEditText = iu2.d().c();
-            }
-            swanEditText.setFocusable(true);
-            swanEditText.setFocusableInTouchMode(true);
-            swanEditText.requestFocus();
-            if (TextUtils.equals(((f82) n()).L, "text")) {
-                InputMethodManager inputMethodManager = (InputMethodManager) this.i.getSystemService("input_method");
-                if (inputMethodManager != null) {
-                    inputMethodManager.showSoftInput(swanEditText, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (f == null) {
+                f = new HashSet();
+                hi4 b2 = ji4.b();
+                String str = "";
+                if (b2 != null) {
+                    str = b2.i().getString("auth_white_list", "");
                 }
-            } else if (Build.VERSION.SDK_INT >= 21) {
-                swanEditText.setShowSoftInputOnFocus(false);
-            } else {
-                B0(swanEditText);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b72
-    /* renamed from: t0 */
-    public void a0(@NonNull SwanEditText swanEditText, @NonNull f82 f82Var, @NonNull n82 n82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048591, this, swanEditText, f82Var, n82Var) == null) {
-            boolean t = t();
-            if (t) {
-                swanEditText.removeTextChangedListener(iu2.d().e());
-            }
-            super.T(swanEditText, f82Var, n82Var);
-            if (t) {
-                swanEditText.addTextChangedListener(iu2.d().e());
-            } else {
-                A0(swanEditText, f82Var, this.i);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g72
-    /* renamed from: v0 */
-    public void U(@NonNull SwanEditText swanEditText, @NonNull f82 f82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, swanEditText, f82Var) == null) {
-            if (k72.h) {
-                Log.d("Component-Input", "renderText");
-            }
-            if (t()) {
-                super.U(swanEditText, f82Var);
+                JSONArray jSONArray = null;
                 try {
-                    swanEditText.setSelection(f82Var.t.length());
-                } catch (IndexOutOfBoundsException e2) {
-                    if (k72.h) {
-                        e2.printStackTrace();
+                    jSONArray = new JSONArray(str);
+                } catch (JSONException unused) {
+                    if (vc3.b) {
+                        Log.d("LocalDebugAction", "JSONException: parse cloud white list");
                     }
-                    o82.a("Component-Input", "value is invalid, out of max length");
                 }
-            } else if (!TextUtils.equals(swanEditText.getText(), f82Var.t)) {
-                o82.a("Component-Input", "insert input: set text must before render");
-                super.U(swanEditText, f82Var);
+                if (jSONArray != null) {
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        f.add(jSONArray.optString(i));
+                    }
+                }
             }
+            return f;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final boolean u() {
+        InterceptResult invokeV;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TextUtils.isEmpty(this.e.a) && !TextUtils.isEmpty(this.e.b) && (jSONArray = this.e.c) != null && jSONArray.length() > 0 && !TextUtils.isEmpty(this.e.d)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final wv2.a v(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity != null && unitedSchemeEntity.getUri() != null) {
+                str = unitedSchemeEntity.getUri().toString();
+            } else {
+                str = "";
+            }
+            y72.i("LocalDebugAction", "local debug scheme = " + str);
+            return (wv2.a) ((wv2.a) ((wv2.a) ((wv2.a) ((wv2.a) ((wv2.a) ((wv2.a) new wv2.a().v0(this.e.b)).A0(false)).L0(true)).M0(this.e.e)).N0(this.e.f)).K0(str)).P0(this.e.g);
+        }
+        return (wv2.a) invokeL.objValue;
+    }
+
+    public final void w(Context context, UnitedSchemeEntity unitedSchemeEntity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, unitedSchemeEntity, i) == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+            hi4 b2 = ji4.b();
+            String str = "";
+            if (b2 != null) {
+                str = b2.i().getString("error_url", "");
+            }
+            if (TextUtils.isEmpty(str)) {
+                qa3.g(context, "IPs are invalid ：" + i).G();
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(SchemeConfig.getSchemeHead());
+            sb.append("://v1/easybrowse/open?url=");
+            sb.append(r(str + "?" + i));
+            SchemeRouter.invoke(context, sb.toString());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g72
-    /* renamed from: w0 */
-    public void W(@NonNull SwanEditText swanEditText, @NonNull f82 f82Var) {
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c4, code lost:
+        if (r6 >= r4.e.c.length()) goto L37;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void x(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, swanEditText, f82Var) == null) {
-            if (k72.h) {
-                Log.d("Component-Input", "renderTextStyleFontWeight");
-            }
-            String str = f82Var.A;
-            char c2 = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1178781136) {
-                if (hashCode == -841373419 && str.equals("boldItalic")) {
-                    c2 = 1;
-                }
-            } else if (str.equals("italic")) {
-                c2 = 0;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    super.W(swanEditText, f82Var);
-                    return;
-                } else {
-                    swanEditText.setTypeface(Typeface.SANS_SERIF, 3);
-                    return;
-                }
-            }
-            swanEditText.setTypeface(Typeface.SANS_SERIF, 2);
-        }
-    }
-
-    public final void z0(@NonNull SwanAppActivity swanAppActivity, @NonNull SwanEditText swanEditText, f82 f82Var, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048600, this, swanAppActivity, swanEditText, f82Var, i) == null) {
-            cy1 i3 = ix2.T().i();
-            if (k72.h) {
-                Log.d("Component-Input", "scrollUpWhenKeyboardShow, mKeyboardHeight：" + this.l + "，keyboardHeight : " + i);
-            }
-            if (this.l != i && i3 != null) {
-                this.l = i;
-                ju2.f(swanEditText, i);
-                if (f82Var.N) {
-                    if (f82Var.h == null) {
-                        f82Var.h = new b23();
+        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
+            try {
+                Response executeSync = ci4.g().getRequest().url(this.e.b(str)).connectionTimeout(3000).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
+                    boolean a2 = fr4.a(executeSync.body().byteStream(), file);
+                    y72.i("LocalDebugAction", "save debug bundle: " + a2);
+                    h82.e().f("downloadsuccess");
+                    this.e.e = str;
+                    context.startActivity(wv2.g1(context, v(unitedSchemeEntity)));
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (this.c != null) {
+                        this.c.shutdownNow();
+                        this.c = null;
                     }
-                    int webViewScrollY = i3.getWebViewScrollY();
-                    int height = swanEditText.getHeight();
-                    if (height == 0) {
-                        height = f82Var.h.c();
-                    }
-                    int height2 = ((this.j.z3().getHeight() - f82Var.h.e()) - height) + webViewScrollY + mp3.k(swanAppActivity);
-                    int i4 = f82Var.E;
-                    if (i4 > height2) {
-                        i4 = height2;
-                    }
-                    int i5 = height2 - i;
-                    int scrollY = this.j.z3().getScrollY();
-                    if (i5 < 0) {
-                        i2 = i4 - i5;
-                    } else {
-                        if (i4 > i5) {
-                            scrollY = i4 - i5;
+                    if (!ProcessUtils.isMainProcess()) {
+                        if (vc3.b) {
+                            Log.d("LocalDebugAction", "Suicide for reload.");
                         }
-                        i2 = scrollY;
+                        q();
                     }
-                    this.j.z3().setScrollY(i2);
+                }
+                if (executeSync != null) {
+                    executeSync.close();
+                }
+            } catch (IOException unused) {
+                synchronized (this) {
+                    if (this.e.c != null) {
+                        int i = this.d + 1;
+                        this.d = i;
+                    }
+                    y72.c("LocalDebugAction", "Host IPs are invalid");
+                    w(context, unitedSchemeEntity, 1001);
+                    h82.e().f("downloadfail");
                 }
             }
         }

@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,55 +8,71 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes8.dex */
-public abstract class t4c<E> extends v4c<E> {
+public final class t4c<E> extends v3c<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> consumerNode;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132678, "Lcom/baidu/tieba/t4c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948132678, "Lcom/baidu/tieba/t4c;");
-                return;
-            }
-        }
-        b = x5c.a(t4c.class, "consumerNode");
-    }
 
     public t4c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b(new LinkedQueueNode<>());
+        d(this.producerNode);
+        this.consumerNode.soNext(null);
     }
 
-    public final LinkedQueueNode<E> c() {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                this.producerNode.soNext(linkedQueueNode);
+                this.producerNode = linkedQueueNode;
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) x5c.a.f(this, b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
+            }
+            return null;
         }
-        return (LinkedQueueNode) invokeV.objValue;
+        return (E) invokeV.objValue;
     }
 
-    public final void d(LinkedQueueNode<E> linkedQueueNode) {
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.consumerNode = linkedQueueNode;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                this.consumerNode = lvNext;
+                return andNullValue;
+            }
+            return null;
         }
+        return (E) invokeV.objValue;
     }
 }

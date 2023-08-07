@@ -1,99 +1,276 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.MatchCardInfo;
+import tbclient.FrsPage.MatchPlayerInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public class uqa implements vqa {
+public final class uqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CloudMusicModel a;
-    public final wqa b;
+    public String a;
+    public Integer b;
+    public String c;
+    public long d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public Long j;
+    public Long k;
+    public List<ThreadInfo> l;
+    public String m;
+    public ArrayList<vqa> n;
+    public String o;
+    public String p;
 
-    /* loaded from: classes8.dex */
-    public class a implements cra<CloudMusicData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uqa a;
-
-        public a(uqa uqaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uqaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uqaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cra
-        /* renamed from: b */
-        public void a(CloudMusicData cloudMusicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
-                this.a.b.G0(false);
-                if (cloudMusicData != null) {
-                    this.a.b.o(false);
-                    if (cloudMusicData.tag_list.isEmpty()) {
-                        this.a.b.o(true);
-                        return;
-                    } else {
-                        this.a.b.X(cloudMusicData);
-                        return;
-                    }
-                }
-                this.a.b.o(true);
-            }
-        }
-    }
-
-    public uqa(CloudMusicModel cloudMusicModel, wqa wqaVar) {
+    public uqa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cloudMusicModel, wqaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = cloudMusicModel;
-        this.b = wqaVar;
-        wqaVar.b1(this);
     }
 
-    @Override // com.baidu.tieba.vqa
-    public void a() {
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.cancelLoadData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vqa
-    public void b() {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.G0(true);
-            this.a.W(new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.o;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Integer g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final ArrayList<vqa> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.n;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final Long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public final Long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.k;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public final List<ThreadInfo> o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.l;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final long p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public final void q(MatchCardInfo matchCardInfo) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, matchCardInfo) != null) || matchCardInfo == null) {
+            return;
+        }
+        this.a = matchCardInfo.name;
+        this.b = matchCardInfo.status;
+        this.c = matchCardInfo.card_title;
+        Long l = matchCardInfo.topic_id;
+        Intrinsics.checkNotNullExpressionValue(l, "matchCardInfo.topic_id");
+        this.d = l.longValue();
+        this.e = matchCardInfo.team_name_a;
+        this.f = matchCardInfo.team_name_b;
+        this.g = matchCardInfo.team_icon_a;
+        this.h = matchCardInfo.team_icon_b;
+        this.i = matchCardInfo.start_desc;
+        this.j = matchCardInfo.team_score_a;
+        this.k = matchCardInfo.team_score_b;
+        this.l = matchCardInfo.thread_list;
+        this.m = matchCardInfo.icon_text;
+        List<MatchPlayerInfo> list = matchCardInfo.team_player_list;
+        if (list != null && !list.isEmpty()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (!z) {
+            this.n = new ArrayList<>();
+            for (MatchPlayerInfo matchPlayerInfo : matchCardInfo.team_player_list) {
+                vqa vqaVar = new vqa();
+                vqaVar.r(matchPlayerInfo);
+                ArrayList<vqa> arrayList = this.n;
+                Intrinsics.checkNotNull(arrayList);
+                arrayList.add(vqaVar);
+            }
+        }
+        this.o = matchCardInfo.match_link;
+        this.p = matchCardInfo.schedule_link;
+    }
+
+    public final void r(tbclient.Personalized.MatchCardInfo matchCardInfo) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, matchCardInfo) != null) || matchCardInfo == null) {
+            return;
+        }
+        this.a = matchCardInfo.name;
+        this.b = matchCardInfo.status;
+        this.c = matchCardInfo.card_title;
+        Long l = matchCardInfo.topic_id;
+        Intrinsics.checkNotNullExpressionValue(l, "matchCardInfo.topic_id");
+        this.d = l.longValue();
+        this.e = matchCardInfo.team_name_a;
+        this.f = matchCardInfo.team_name_b;
+        this.g = matchCardInfo.team_icon_a;
+        this.h = matchCardInfo.team_icon_b;
+        this.i = matchCardInfo.start_desc;
+        this.j = matchCardInfo.team_score_a;
+        this.k = matchCardInfo.team_score_b;
+        this.l = matchCardInfo.thread_list;
+        this.m = matchCardInfo.icon_text;
+        List<tbclient.Personalized.MatchPlayerInfo> list = matchCardInfo.team_player_list;
+        if (list != null && !list.isEmpty()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (!z) {
+            this.n = new ArrayList<>();
+            for (tbclient.Personalized.MatchPlayerInfo matchPlayerInfo : matchCardInfo.team_player_list) {
+                vqa vqaVar = new vqa();
+                vqaVar.s(matchPlayerInfo);
+                ArrayList<vqa> arrayList = this.n;
+                Intrinsics.checkNotNull(arrayList);
+                arrayList.add(vqaVar);
+            }
+        }
+        this.o = matchCardInfo.match_link;
+        this.p = matchCardInfo.schedule_link;
     }
 }

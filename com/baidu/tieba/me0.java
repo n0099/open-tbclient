@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
 import android.util.Log;
-import android.view.Surface;
-import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,16 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class me0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String d = "me0";
     public transient /* synthetic */ FieldHolder $fh;
-    public oe0 a;
-    public List<ne0> b;
-    public int c;
+    public MediaMuxer a;
+    public volatile boolean b;
+    public ne0 c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,12 +37,10 @@ public class me0 {
         }
     }
 
-    public me0(Object obj, List<af0> list) {
+    public me0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj, list};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,117 +50,120 @@ public class me0 {
                 return;
             }
         }
-        this.c = 0;
-        b(obj, list);
+        this.b = false;
     }
 
-    public void a(long j) {
-        List<ne0> list;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && this.a != null && (list = this.b) != null && list.size() != 0) {
-            synchronized (this) {
-                for (ne0 ne0Var : this.b) {
-                    this.a.b(ne0Var.c());
-                    ne0Var.b(j);
-                }
-                notifyAll();
-            }
-            this.a.d(j);
-            this.a.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
+            this.a.release();
+            this.a = null;
         }
     }
 
-    public final void b(Object obj, List<af0> list) {
-        ne0 ne0Var;
-        oe0 oe0Var;
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) && list != null && list.size() != 0) {
-            List<ne0> list2 = this.b;
-            if (list2 == null) {
-                this.b = new ArrayList();
-            } else {
-                list2.clear();
-            }
-            for (int i = 0; i < list.size(); i++) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                boolean z = true;
                 try {
-                    this.b.add(new ne0(list.get(i)));
-                    if (list.get(i).k()) {
-                        this.c = i;
+                    this.a.start();
+                    this.b = true;
+                } catch (Exception unused) {
+                    Log.e(d, "startMuxer error!!!");
+                    z = false;
+                }
+                if (this.c != null) {
+                    this.c.a(z);
+                }
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                boolean z = false;
+                try {
+                    this.a.stop();
+                    this.b = false;
+                    z = true;
+                } catch (Exception unused) {
+                    Log.e(d, "stopMuxer error!!!");
+                }
+                if (this.c != null) {
+                    this.c.b(z);
+                }
+            }
+        }
+    }
+
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                try {
+                    int addTrack = this.a.addTrack(mediaFormat);
+                    if (addTrack >= 0) {
+                        return addTrack;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-            int size = this.b.size();
-            int i2 = this.c;
-            if (size > i2) {
-                if (obj != null) {
-                    if (obj instanceof Surface) {
-                        this.a = new oe0(this.b.get(this.c).c(), (Surface) obj, true);
-                    } else if (obj instanceof SurfaceTexture) {
-                        this.a = new oe0(this.b.get(this.c).c(), (SurfaceTexture) obj);
-                    } else if (obj instanceof SurfaceHolder) {
-                        this.a = new oe0(this.b.get(this.c).c(), (SurfaceHolder) obj);
-                    }
-                } else {
-                    List<ne0> list3 = this.b;
-                    if (list3 != null && list3 != null && (ne0Var = list3.get(i2)) != null && (oe0Var = this.a) != null) {
-                        oe0Var.f(ne0Var.c());
-                    }
-                }
-            }
-            for (ne0 ne0Var2 : this.b) {
-                oe0 oe0Var2 = this.a;
-                if (oe0Var2 != null) {
-                    oe0Var2.b(ne0Var2.c());
-                    ne0Var2.f();
-                }
+                Log.e(d, "addMuxerTrack error!!!");
+                return -1;
             }
         }
+        return invokeL.intValue;
     }
 
-    public void c() {
+    public boolean b(String str, int i, ne0 ne0Var) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            oe0 oe0Var = this.a;
-            if (oe0Var != null) {
-                oe0Var.g();
-                this.a = null;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, ne0Var)) == null) {
+            if (!pe0.a(str)) {
+                pe0.b(str);
             }
-            List<ne0> list = this.b;
-            if (list != null) {
-                for (ne0 ne0Var : list) {
-                    ne0Var.e();
-                }
-                this.b.clear();
-                this.b = null;
+            try {
+                this.a = new MediaMuxer(str, i);
+                this.c = ne0Var;
+                this.b = false;
+                return true;
+            } catch (Exception e) {
+                Log.e(d, "initMovieMuxer init error!!!");
+                e.printStackTrace();
+                return false;
             }
         }
+        return invokeLIL.booleanValue;
     }
 
-    public void d(te0 te0Var) {
+    public boolean g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, te0Var) == null) {
-            for (ne0 ne0Var : this.b) {
-                oe0 oe0Var = this.a;
-                if (oe0Var != null) {
-                    oe0Var.b(ne0Var.c());
-                    ne0Var.g(te0Var);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
+                    return true;
+                } catch (Exception unused) {
+                    Log.e(d, "startMuxer error!!!");
+                    return false;
                 }
             }
+            return false;
         }
-    }
-
-    public void e(List<af0> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Log.d(d, "updateSurfaceDrawer !!!");
-            this.a.c();
-            for (ne0 ne0Var : this.b) {
-                ne0Var.e();
-            }
-            this.b.clear();
-            b(null, list);
-        }
+        return invokeILL.booleanValue;
     }
 }

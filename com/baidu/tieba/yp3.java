@@ -1,72 +1,193 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
 /* loaded from: classes8.dex */
 public class yp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Runnable b;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+        public boolean f;
+        public boolean g;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = true;
+            this.d = true;
+            this.e = true;
+            this.f = false;
+            this.g = true;
+        }
+
+        public static b b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new b();
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public yp3 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                yp3 yp3Var = new yp3(null);
+                yp3Var.b = this.b;
+                yp3Var.c = this.c;
+                yp3Var.e = this.e;
+                yp3Var.d = this.d;
+                yp3Var.a = this.a;
+                yp3Var.f = this.f;
+                yp3Var.g = this.g;
+                return yp3Var;
+            }
+            return (yp3) invokeV.objValue;
+        }
+
+        public b c(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.f = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b d(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.g = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.b = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b f(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b g(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.c = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b h(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.e = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.d = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948337805, "Lcom/baidu/tieba/yp3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948337805, "Lcom/baidu/tieba/yp3;");
+                return;
+            }
+        }
+        boolean z = ir1.a;
+    }
 
     public yp3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.b = null;
+        this.g = true;
     }
 
-    public synchronized boolean a(Runnable runnable) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            synchronized (this) {
-                z = true;
-                if (runnable == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!z2) {
-                    this.a.offer(runnable);
-                }
-                if (this.b == null && !this.a.isEmpty()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if (z3) {
-                    while (!this.a.isEmpty()) {
-                        Runnable poll = this.a.poll();
-                        this.b = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.b = null;
-                    }
-                }
-                z = (z2 || !z3) ? false : false;
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
+    public /* synthetic */ yp3(a aVar) {
+        this();
     }
 }

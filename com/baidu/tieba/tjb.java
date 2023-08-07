@@ -1,85 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qjb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.kwad.sdk.api.KsDrawAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public class tjb extends FunNativeAd2Bridger<ojb, View> {
+public class tjb extends xjb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
     public boolean b;
-    public final qjb.b c;
-    public final /* synthetic */ Context d;
-    public final /* synthetic */ qjb e;
+    public final /* synthetic */ djb c;
+    public final /* synthetic */ sjb d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tjb(qjb qjbVar, ReporterPidLoader reporterPidLoader, ojb ojbVar, String str, Context context) {
-        super(reporterPidLoader);
+    public tjb(sjb sjbVar, djb djbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qjbVar, reporterPidLoader, ojbVar, str, context};
+            Object[] objArr = {sjbVar, djbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = qjbVar;
-        this.d = context;
-        this.c = new qjb.b(qjbVar, ojbVar, str);
+        this.d = sjbVar;
+        this.c = djbVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, ojb ojbVar, BaseNativeAd2<ojb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ojbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(ojb ojbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ojbVar)) == null) {
-            return ((KsDrawAd) ojbVar.a).getDrawView(this.d);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ojb ojbVar, BaseNativeAd2<ojb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ojbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            ojb ojbVar2 = ojbVar;
-            this.e.onShowStart(ojbVar2, this.b);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((sjb) this.c, this.b, new String[0]);
             this.b = true;
-            qjb.b bVar = this.c;
-            bVar.e = funAdInteractionListener;
-            ((KsDrawAd) ojbVar2.a).setAdInteractionListener(bVar);
-            expressInflater.inflate();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
+            this.d.onAdError(this.c, i, str);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((sjb) this.c, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
     }
 }

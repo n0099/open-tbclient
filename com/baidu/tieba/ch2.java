@@ -1,109 +1,22 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class ch2 {
+public class ch2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-890388769, "Lcom/baidu/tieba/ch2$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-890388769, "Lcom/baidu/tieba/ch2$a;");
-            }
-        }
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    cv2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
-                }
-                if (b != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (ch2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    cv2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (ch2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                if (a != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    public String a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -118,29 +31,46 @@ public final class ch2 {
                 return;
             }
         }
-        a = fs1.a;
+        c = ir1.a;
+        fu2.g0().getSwitch("swan_sailor_init_delay", false);
+        d = false;
     }
 
-    public static void b(u83 u83Var, Bundle bundle) {
+    public ch2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, u83Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
-            }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            n83 n83Var = new n83(122, bundle2);
-            if (!u83Var.T() && a.c()) {
-                u83Var.f0(n83Var.h());
-            } else {
-                l83 e = l83.e();
-                n83Var.b(u83Var.b);
-                n83Var.p(true);
-                e.h(n83Var);
-            }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c) {
+                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
+            }
+            return d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

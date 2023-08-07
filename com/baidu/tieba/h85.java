@@ -1,7 +1,17 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface h85 {
-    String getPicLinkUrl();
 
-    String getPicUrl();
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: PollingModel.java */
+/* loaded from: classes6.dex */
+public final /* synthetic */ class h85 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(PollingModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, dVar) == null) {
+        }
+    }
 }

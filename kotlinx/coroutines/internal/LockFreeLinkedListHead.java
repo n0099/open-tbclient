@@ -54,7 +54,7 @@ public class LockFreeLinkedListHead extends LockFreeLinkedListNode {
 
     @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode
     /* renamed from: remove  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ boolean mo2340remove() {
+    public /* bridge */ /* synthetic */ boolean mo2341remove() {
         return ((Boolean) remove()).booleanValue();
     }
 }

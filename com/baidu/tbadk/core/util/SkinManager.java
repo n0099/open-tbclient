@@ -27,27 +27,27 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.b85;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.dba;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.qla;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.uka;
+import com.baidu.tieba.w65;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -156,8 +156,8 @@ public class SkinManager {
                 }
             }
         });
-        RESOURCE_ALPHA_PRESS = b85.b(R.string.A_X07);
-        RESOURCE_ALPHA_DISABLE = b85.b(R.string.A_X09);
+        RESOURCE_ALPHA_PRESS = w65.b(R.string.A_X07);
+        RESOURCE_ALPHA_DISABLE = w65.b(R.string.A_X09);
         TYPE_ERROR = "skinType not support";
         TYPE_COLOR = "com.baidu.tieba:color/CAM_X0";
         sPackagename = null;
@@ -239,7 +239,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
             if (i != 0 && i2 != 0 && i3 != 0) {
-                return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), dba.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
+                return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), x9a.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
             }
             return null;
         }
@@ -251,7 +251,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLILL(65587, null, view2, i, orientation, fArr) == null) && view2 != null && i != 0 && orientation != null && fArr.length >= 8) {
             int color = getColor(i);
-            int[] iArr = {dba.c(color), color};
+            int[] iArr = {x9a.c(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
                 gradientDrawable.setOrientation(orientation);
@@ -312,7 +312,7 @@ public class SkinManager {
                 return null;
             }
             int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i);
-            int a = dba.a(color, RESOURCE_ALPHA_PRESS);
+            int a = x9a.a(color, RESOURCE_ALPHA_PRESS);
             return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a, a, color});
         }
         return (ColorStateList) invokeI.objValue;
@@ -339,7 +339,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{dba.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{x9a.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -386,7 +386,7 @@ public class SkinManager {
             if (themeColorInfo == null) {
                 return getColor(i);
             }
-            int b = qla.b(themeColorInfo);
+            int b = uka.b(themeColorInfo);
             if (b == 0 || b == Integer.MAX_VALUE) {
                 return getColor(i);
             }
@@ -716,7 +716,7 @@ public class SkinManager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i)) == null) {
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{dba.a(i, RESOURCE_ALPHA_PRESS), i});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{x9a.a(i, RESOURCE_ALPHA_PRESS), i});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -951,7 +951,7 @@ public class SkinManager {
             } else {
                 color = getColor(i2, view2.getResources(), i);
             }
-            view2.setBackgroundColor(dba.a(color, f));
+            view2.setBackgroundColor(x9a.a(color, f));
             if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
                 view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -1089,7 +1089,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{dba.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), dba.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{x9a.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), x9a.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
         }
         return (ColorStateList) invokeII.objValue;
     }
@@ -1180,7 +1180,7 @@ public class SkinManager {
             try {
                 i2 = sDarkResourceIdMap.get(i, -1);
             } catch (ArrayIndexOutOfBoundsException e) {
-                DefaultLog.getInstance().b(TAG, "catch ArrayIndexOutOfBoundsException : " + e.getMessage());
+                DefaultLog.getInstance().e(TAG, "catch ArrayIndexOutOfBoundsException : " + e.getMessage());
                 if (!TbadkCoreApplication.getInst().isDebugMode()) {
                     i2 = -1;
                 } else {
@@ -1200,10 +1200,10 @@ public class SkinManager {
                     sPackagename = BdBaseApplication.getInst().getPackageName();
                 }
                 Resources resources2 = mPluginRes;
-                i2 = resources2.getIdentifier((sPackagename + str.substring(str.indexOf(":"))) + darkSuffix, null, null);
+                i2 = resources2.getIdentifier((sPackagename + str.substring(str.indexOf(":"))) + "_2", null, null);
                 if (i2 <= 0) {
                     Resources resources3 = mPluginRes;
-                    i2 = resources3.getIdentifier((BdBaseApplication.getInst().getPackageName() + str2.substring(str2.indexOf(":"))) + darkSuffix, null, null);
+                    i2 = resources3.getIdentifier((BdBaseApplication.getInst().getPackageName() + str2.substring(str2.indexOf(":"))) + "_2", null, null);
                 }
             }
             if (i2 != 0) {
@@ -1251,7 +1251,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            s95.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", aj.k(), "model", aj.g(), "brand", Build.BRAND);
+            Logger.addLog("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", DeviceInfoHelper.getOsVersion(), "model", DeviceInfoHelper.getModel(), "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i);
                 if (StringUtils.isNull(resourceName)) {
@@ -1276,14 +1276,14 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65601, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean isCurrentSystemDarkMode = isCurrentSystemDarkMode();
-            Activity b = h9.f().b();
-            if (b == null) {
+            Activity currentActivity = BdActivityStack.getInst().currentActivity();
+            if (currentActivity == null) {
                 return;
             }
             int i = 0;
             if (!isCurrentSystemDarkMode) {
                 if (z) {
-                    UtilHelper.showSkinChangeAnimation(b);
+                    UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
                 if (z2) {
                     TbadkCoreApplication.getInst().setSkinTypeValue(0);
@@ -1291,12 +1291,12 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (da5.p().l("key_is_dark_mode_notify_shown", false)) {
-                boolean l = da5.p().l("key_is_follow_system_mode", false);
+            } else if (SharedPrefHelper.getInstance().getBoolean("key_is_dark_mode_notify_shown", false)) {
+                boolean z3 = SharedPrefHelper.getInstance().getBoolean("key_is_follow_system_mode", false);
                 if (z) {
-                    UtilHelper.showSkinChangeAnimation(b);
+                    UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
-                if (l) {
+                if (z3) {
                     i = 4;
                 }
                 if (z2) {
@@ -1306,8 +1306,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i);
             } else {
-                da5.p().A("key_is_dark_mode_notify_shown", true);
-                da5.p().A("key_is_follow_system_mode", true);
+                SharedPrefHelper.getInstance().putBoolean("key_is_dark_mode_notify_shown", true);
+                SharedPrefHelper.getInstance().putBoolean("key_is_follow_system_mode", true);
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 if (isCurrentSystemDarkMode()) {
                     i = 4;
@@ -1470,7 +1470,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            yi.Q(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
+            BdUtilHelper.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.theme_skin_apk_error);
         } catch (Throwable th) {
             BdLog.e(th);
         }

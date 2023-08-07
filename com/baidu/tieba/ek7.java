@@ -1,58 +1,120 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AchievementActivityConfig;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
+import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
 public class ek7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
+    public View a;
+    public BaseFragment b;
+    public TextView c;
+    public FrsTabSortSwitchButton d;
+    public int e;
     public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
+    public FrsTabSortSwitchButton.e g;
 
-    public final String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public class a implements FrsTabSortSwitchButton.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ek7 a;
+
+        public a(ek7 ek7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ek7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ek7Var;
+        }
+
+        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
+        public boolean a(int i) {
+            InterceptResult invokeI;
+            ki7 a2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                boolean z = false;
+                if (!xe7.f().i() && !we7.h().j()) {
+                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0e21);
+                        return false;
+                    }
+                    if (this.a.b instanceof FrsNewAreaFragment) {
+                        if (((FrsNewAreaFragment) this.a.b).s2() == null || ((FrsNewAreaFragment) this.a.b).o2() == null) {
+                            return false;
+                        }
+                    } else if ((this.a.b instanceof FrsCommonTabFragment) && (a2 = ((FrsCommonTabFragment) this.a.b).a2()) != null && ((FrsCommonTabFragment) this.a.b).Z1() != null) {
+                        if (a2.j()) {
+                            return false;
+                        }
+                    }
+                    z = true;
+                    if (this.a.e == i) {
+                        return true;
+                    }
+                    this.a.e = i;
+                    if (this.a.e != 7) {
+                        fw5.c();
+                        vca.a();
+                    } else {
+                        vca.b();
+                    }
+                    if (this.a.b instanceof FrsNewAreaFragment) {
+                        ((FrsNewAreaFragment) this.a.b).s2().d0(this.a.d.w(this.a.e));
+                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
+                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.e));
+                        }
+                        ((FrsNewAreaFragment) this.a.b).o2().P();
+                    } else {
+                        ((FrsCommonTabFragment) this.a.b).h2(mt7.d(this.a.d.w(this.a.e)));
+                        ((FrsCommonTabFragment) this.a.b).Z1().x(true);
+                    }
+                    this.a.f();
+                }
+                return z;
+            }
+            return invokeI.booleanValue;
+        }
     }
 
-    public ek7(TbPageContext tbPageContext) {
+    public ek7(BaseFragment baseFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseFragment, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,254 +124,63 @@ public class ek7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-    }
-
-    public final SpannableString d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 0, spannableString.length(), 33);
-            return spannableString;
+        this.e = -1;
+        this.g = new a(this);
+        if (baseFragment != null && relativeLayout != null) {
+            this.b = baseFragment;
+            View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d039c, relativeLayout);
+            this.a = inflate;
+            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092235);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092236);
+            this.d = frsTabSortSwitchButton;
+            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
+            this.e = this.d.getState();
+            h();
         }
-        return (SpannableString) invokeL.objValue;
     }
 
-    public final SpannableStringBuilder a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        InterceptResult invokeCommon;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) ("忍不住想告诉你个好消息，" + str + "吧的成员数量突破了"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("人");
-            spannableStringBuilder.append((CharSequence) d(sb.toString()));
-            spannableStringBuilder.append((CharSequence) ("！作为吧主，我邀请你加入" + str + "吧！\n\n"));
-            spannableStringBuilder.append((CharSequence) "在我担任吧主的这");
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) ("，为" + str + "吧创造了良好的社区氛围，近期发现了"));
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇优质贴子，最火热的一篇");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "竟然盖了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
-            spannableStringBuilder.append((CharSequence) "楼。\n\n");
-            spannableStringBuilder.append((CharSequence) "我很喜欢");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
-            return spannableStringBuilder;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.d != null) {
+            this.d.s(mt7.f(i));
+            this.e = this.d.getState();
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder g(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        InterceptResult invokeCommon;
+    public void i(List<FrsTabInfo> list) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) ("恭喜！" + str + "吧成员数突破"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("人");
-            spannableStringBuilder.append((CharSequence) d(sb.toString()));
-            spannableStringBuilder.append((CharSequence) "！\n\n");
-            spannableStringBuilder.append((CharSequence) "感谢你在过去");
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "的辛勤付出，火眼金睛的你最近挑选出了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇精品贴子，处理了大量违规内容。\n\n衷心感谢你为吧友提供了和谐快乐的社区氛围。截止目前");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧共有");
-            spannableStringBuilder.append((CharSequence) d(str5 + "篇"));
-            spannableStringBuilder.append((CharSequence) "贴子，最火热的一篇贴子");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "竟然盖了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
-            spannableStringBuilder.append((CharSequence) "楼。\n\n继续加油吧！期望你能带领");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧走得更远！");
-            return spannableStringBuilder;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.setData(list);
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        InterceptResult invokeCommon;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
-            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "了！\n\n");
-            spannableStringBuilder.append((CharSequence) "我加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，近期发表了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "收到了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
-            spannableStringBuilder.append((CharSequence) "回复、");
-            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
-            spannableStringBuilder.append((CharSequence) "赞！\n\n");
-            spannableStringBuilder.append((CharSequence) "我很喜欢");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
-            return spannableStringBuilder;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f = str;
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder c(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
-            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "了！\n\n");
-            spannableStringBuilder.append((CharSequence) "我加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，近期参与了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "主题贴的讨论，写了");
-            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
-            spannableStringBuilder.append((CharSequence) "评论。\n\n");
-            spannableStringBuilder.append((CharSequence) "我很喜欢");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
-            return spannableStringBuilder;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c11437");
+            statisticItem.param("obj_type", this.d.w(this.e));
+            statisticItem.param("fid", this.f);
+            TiebaStatic.log(statisticItem);
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder f(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，近期参与了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "个主题贴的讨论，写了");
-            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
-            spannableStringBuilder.append((CharSequence) "评论。近一个月累计签到了");
-            spannableStringBuilder.append((CharSequence) (str6 + "天。\n\n"));
-            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public final SpannableStringBuilder e(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，最近发表了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "收到了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
-            spannableStringBuilder.append((CharSequence) "回复、");
-            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
-            spannableStringBuilder.append((CharSequence) "赞！近一个月累计签到了");
-            spannableStringBuilder.append((CharSequence) (str9 + "天"));
-            spannableStringBuilder.append((CharSequence) "。\n\n");
-            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public SpannableStringBuilder h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.m;
-            if (str == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
+            if (frsTabSortSwitchButton != null) {
+                frsTabSortSwitchButton.D();
             }
-            if (str.equals("bazhu")) {
-                return a(this.f, this.g, this.h, this.i, this.j, this.k, this.l);
-            }
-            if (this.m.equals("active-a")) {
-                return b(this.f, this.g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
-            }
-            if (!this.m.equals("active-b")) {
-                return null;
-            }
-            return c(this.f, this.g, this.n, this.s, this.t, this.r);
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public SpannableStringBuilder j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = this.m;
-            if (str == null) {
-                return null;
-            }
-            if (str.equals("bazhu")) {
-                return g(this.f, this.g, this.h, this.i, this.j, this.k, this.l);
-            }
-            if (this.m.equals("active-a")) {
-                return e(this.f, this.g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
-            }
-            if (!this.m.equals("active-b")) {
-                return null;
-            }
-            return f(this.f, this.g, this.n, this.s, this.t, this.r);
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public void k() {
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.getPageActivity() != null && this.a.getPageActivity().getIntent() != null) {
-            this.b = this.a.getPageActivity().getIntent().getStringExtra("key_url");
-            this.c = this.a.getPageActivity().getIntent().getStringExtra(AchievementActivityConfig.KEY_SHARE_URL);
-            if (TextUtils.isEmpty(this.b) || (parse = Uri.parse(this.b)) == null) {
-                return;
-            }
-            this.d = parse.getQueryParameter("nickname");
-            this.e = parse.getQueryParameter("fid");
-            this.f = parse.getQueryParameter("fname");
-            this.g = parse.getQueryParameter("subcribe-num");
-            this.h = parse.getQueryParameter("bazhu-days");
-            this.i = parse.getQueryParameter("goods-num");
-            this.j = parse.getQueryParameter("tid-num");
-            String queryParameter = parse.getQueryParameter("most-hot-name");
-            this.k = queryParameter;
-            this.k = StringHelper.cutStringWithSuffix(queryParameter, 20, "...");
-            this.l = parse.getQueryParameter("most-hot-floors");
-            this.m = parse.getQueryParameter("achievement");
-            this.n = parse.getQueryParameter("join-days");
-            this.o = parse.getQueryParameter("send-tids");
-            this.p = parse.getQueryParameter("reply-num");
-            this.q = parse.getQueryParameter("zan-num");
-            this.r = parse.getQueryParameter("sign-days");
-            this.s = parse.getQueryParameter("join-topicnum");
-            this.t = parse.getQueryParameter("write-num");
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         }
     }
 }

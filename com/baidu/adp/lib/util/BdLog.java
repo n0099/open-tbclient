@@ -1,14 +1,13 @@
 package com.baidu.adp.lib.util;
 
+import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.fi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,11 +26,11 @@ public class BdLog {
     public static String LogFilter_classNameStartsWith;
     public static boolean enableExceptionLog;
     public static ArrayList<String> logPackage;
-    public static dj permissionUtil;
+    public static fi permissionUtil;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends BdAsyncTask<Void, Void, Void> {
+    public static class a extends AsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Exception a;
@@ -61,14 +60,19 @@ public class BdLog {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
         public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             ExceptionHandler exceptionHandler;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (!BdLog.permissionUtil.isBrowseMode() && (exceptionHandler = (ExceptionHandler) ServiceManager.getService(ExceptionHandler.SERVICE_REFERENCE)) != null) {
-                    exceptionHandler.onException(this.a, this.b, this.c, this.d);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                try {
+                    if (BdLog.permissionUtil != null && !BdLog.permissionUtil.isBrowseMode() && (exceptionHandler = (ExceptionHandler) ServiceManager.getService(ExceptionHandler.SERVICE_REFERENCE)) != null) {
+                        exceptionHandler.onException(this.a, this.b, this.c, this.d);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 return null;
             }
@@ -169,10 +173,10 @@ public class BdLog {
         }
     }
 
-    public static void setPermissionUtil(dj djVar) {
+    public static void setPermissionUtil(fi fiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, djVar) == null) {
-            permissionUtil = djVar;
+        if (interceptable == null || interceptable.invokeL(65561, null, fiVar) == null) {
+            permissionUtil = fiVar;
         }
     }
 

@@ -85,7 +85,7 @@ public class go extends gm {
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a */
-    public String mo526a() {
+    public String mo527a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<presence");
         if (p() != null) {
@@ -136,9 +136,9 @@ public class go extends gm {
             sb.append("</show>");
         }
         sb.append(o());
-        gq m527a = m527a();
-        if (m527a != null) {
-            sb.append(m527a.m530a());
+        gq m528a = m528a();
+        if (m528a != null) {
+            sb.append(m528a.m531a());
         }
         sb.append("</presence>");
         return sb.toString();

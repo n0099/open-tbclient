@@ -14,13 +14,13 @@ public class BubbleButtonView extends BubbleTextView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0189;
+        return R.layout.obfuscated_res_0x7f0d018c;
     }
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public boolean initViewIfNeed() {
         if (super.initViewIfNeed()) {
-            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f0904fa);
+            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090507);
             return true;
         }
         return false;

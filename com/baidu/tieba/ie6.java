@@ -1,73 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ie6 extends BaseCardInfo {
+public class ie6 extends lm<ye6, CardViewHolder<wf6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public TbPageContext a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947850671, "Lcom/baidu/tieba/ie6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947850671, "Lcom/baidu/tieba/ie6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public ie6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ie6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ye6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: t */
+    public CardViewHolder<wf6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new wf6(this.a));
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public final void s(ye6 ye6Var, wf6 wf6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ye6Var, wf6Var) == null) {
+            ne6 c = ye6Var.c();
+            if (c != null && c.a() != null && !TextUtils.isEmpty(c.a().a())) {
+                wf6Var.t(c.a().a());
+                wf6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+                notifyDataSetChanged();
+                return;
+            }
+            wf6Var.q(8);
+            notifyDataSetChanged();
         }
-        jSONObject.optString("url");
-        this.a = jSONObject.optString("pic");
-        jSONObject.optLong("start_time", 0L);
-        jSONObject.optLong("end_time", 0L);
-        jSONObject.optString("name");
-        jSONObject.optInt("id");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lm
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ye6 ye6Var, CardViewHolder<wf6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ye6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.b() == null) {
+                return null;
+            }
+            s(ye6Var, cardViewHolder.b());
+            return cardViewHolder.b().h();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

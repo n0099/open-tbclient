@@ -29,9 +29,9 @@ public final class StarProjectionImplKt {
                 @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructorSubstitution
                 public TypeProjection get(TypeConstructor typeConstructor2) {
                     if (arrayList.contains(typeConstructor2)) {
-                        ClassifierDescriptor mo2101getDeclarationDescriptor = typeConstructor2.mo2101getDeclarationDescriptor();
-                        if (mo2101getDeclarationDescriptor != null) {
-                            return TypeUtils.makeStarProjection((TypeParameterDescriptor) mo2101getDeclarationDescriptor);
+                        ClassifierDescriptor mo2102getDeclarationDescriptor = typeConstructor2.mo2102getDeclarationDescriptor();
+                        if (mo2102getDeclarationDescriptor != null) {
+                            return TypeUtils.makeStarProjection((TypeParameterDescriptor) mo2102getDeclarationDescriptor);
                         }
                         throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.TypeParameterDescriptor");
                     }

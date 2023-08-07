@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.sra;
-import com.baidu.tieba.sy;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.wqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes8.dex */
-public class RecommendCollectLayout extends RelativeLayout implements sy {
+public class RecommendCollectLayout extends RelativeLayout implements rx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext a;
@@ -63,14 +63,14 @@ public class RecommendCollectLayout extends RelativeLayout implements sy {
         a();
     }
 
-    public void setData(sra sraVar) {
+    public void setData(wqa wqaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sraVar) == null) && sraVar != null && !ListUtils.isEmpty(sraVar.getDataList())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wqaVar) == null) && wqaVar != null && !ListUtils.isEmpty(wqaVar.getDataList())) {
             this.e.removeAllViews();
             this.f.clear();
-            this.b.t(sraVar.getDataList());
+            this.b.t(wqaVar.getDataList());
             this.b.u(this.c);
-            for (int i = 0; i < sraVar.getDataList().size(); i++) {
+            for (int i = 0; i < wqaVar.getDataList().size(); i++) {
                 ContentCollectListAdapter contentCollectListAdapter = this.b;
                 RecyclerView.ViewHolder onCreateViewHolder = contentCollectListAdapter.onCreateViewHolder(null, contentCollectListAdapter.getItemViewType(i));
                 this.e.addView(onCreateViewHolder.itemView);
@@ -96,13 +96,11 @@ public class RecommendCollectLayout extends RelativeLayout implements sy {
         }
     }
 
-    @Override // com.baidu.tieba.sy
+    @Override // com.baidu.tieba.rx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.d != i) {
-            d85 d = d85.d(this.e);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
+            EMManager.from(this.e).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
             this.d = i;
             for (int i2 = 0; i2 < this.f.size(); i2++) {
                 this.b.onBindViewHolder(this.f.get(i2), i2);

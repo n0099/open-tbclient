@@ -105,10 +105,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (viewGroup == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091325);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091338);
         this.nC = imageView;
         imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06079d));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091326);
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091339);
         this.pV.setOnClickListener(this);
     }
 
@@ -145,8 +145,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public final void aq() {
         super.aq();
         if (this.pV == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09132b);
-            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f09132a));
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09133e);
+            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f09133d));
             initView();
         }
         if (!this.nM.fy()) {

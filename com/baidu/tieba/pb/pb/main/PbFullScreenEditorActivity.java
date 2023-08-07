@@ -22,7 +22,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskResponseData;
@@ -40,6 +42,7 @@ import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -60,32 +63,29 @@ import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj5;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.e47;
-import com.baidu.tieba.ej5;
-import com.baidu.tieba.fc;
-import com.baidu.tieba.gl5;
-import com.baidu.tieba.h29;
-import com.baidu.tieba.hi9;
-import com.baidu.tieba.hj5;
-import com.baidu.tieba.ii9;
+import com.baidu.tieba.ah9;
+import com.baidu.tieba.bh9;
+import com.baidu.tieba.ei9;
+import com.baidu.tieba.fb5;
+import com.baidu.tieba.lh5;
 import com.baidu.tieba.lj5;
-import com.baidu.tieba.lj9;
-import com.baidu.tieba.mj5;
-import com.baidu.tieba.ml5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.m17;
+import com.baidu.tieba.mh5;
+import com.baidu.tieba.nc5;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.qc5;
+import com.baidu.tieba.qh5;
+import com.baidu.tieba.rg9;
+import com.baidu.tieba.sj5;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uz4;
-import com.baidu.tieba.yd5;
-import com.baidu.tieba.yh9;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zg;
-import com.baidu.tieba.zi5;
-import com.baidu.tieba.zk5;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.ub;
+import com.baidu.tieba.xh5;
+import com.baidu.tieba.yh5;
+import com.baidu.tieba.yj5;
+import com.baidu.tieba.yy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,12 +96,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, VoiceManager.j, aj5 {
+public class PbFullScreenEditorActivity extends BaseActivity implements rg9.c, VoiceManager.i, mh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureDetector A;
     public String B;
-    public uz4.c C;
+    public yy4.c C;
     public NavigationBar a;
     public View b;
     public View c;
@@ -111,32 +111,32 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
     public PbFullScreenEditorInputView g;
     public SpanGroupManager h;
     public WholeDisplayGridView i;
-    public yh9 j;
+    public rg9 j;
     public LinearLayout k;
     public PlayVoiceBntNew l;
     public LinearLayout m;
     public ImageView n;
     public LinearLayout o;
     public EditorTools p;
-    public ii9 q;
-    public hi9 r;
+    public bh9 q;
+    public ah9 r;
     public Context s;
     public WriteImagesInfo t;
     public PbEditorData u;
     public PbEditorData.ThreadData v;
     public VoiceManager w;
-    public lj9 x;
+    public ei9 x;
     public PostWriteCallBackData y;
     public View z;
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager.IPlayView g1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, voiceModel)) == null) {
             return null;
         }
-        return (VoiceManager.i) invokeL.objValue;
+        return (VoiceManager.IPlayView) invokeL.objValue;
     }
 
     /* loaded from: classes7.dex */
@@ -147,12 +147,12 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0443a implements gl5.c {
+        public class C0437a implements sj5.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0443a(a aVar) {
+            public C0437a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,16 +170,16 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.gl5.c
+            @Override // com.baidu.tieba.sj5.c
             public void a() {
-                mj5 mj5Var;
+                yh5 yh5Var;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    lj5 p = this.a.a.p.p(8);
-                    if (p != null && (mj5Var = p.m) != null) {
-                        mj5Var.G(new zi5(68, 8, null));
+                    xh5 p = this.a.a.p.p(8);
+                    if (p != null && (yh5Var = p.m) != null) {
+                        yh5Var.F(new lh5(68, 8, null));
                     }
-                    da5.p().A("key_virtual_image_and_state_ying_has_show", false);
+                    SharedPrefHelper.getInstance().putBoolean("key_virtual_image_and_state_ying_has_show", false);
                 }
             }
         }
@@ -207,16 +207,16 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int i = 1;
-                boolean l = da5.p().l("key_virtual_image_and_state_ying_has_show", true);
+                boolean z = SharedPrefHelper.getInstance().getBoolean("key_virtual_image_and_state_ying_has_show", true);
                 ProfileVirtualImageInfo profileVirtualImageInfo = ProfileVirtualImageInfo.getInstance();
                 int i2 = 2;
-                if (l && (profileVirtualImageInfo == null || profileVirtualImageInfo.getIsSetVirtualImage() != 1)) {
+                if (z && (profileVirtualImageInfo == null || profileVirtualImageInfo.getIsSetVirtualImage() != 1)) {
                     StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 21);
                     if (this.a.u != null && this.a.u.getEditorType() == 1) {
                         i = 2;
                     }
                     TiebaStatic.log(param.param("obj_type", i).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
-                    gl5.c(new C0443a(this));
+                    sj5.c(new C0437a(this));
                     return;
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 17).param("obj_type", (this.a.u == null || this.a.u.getEditorType() != 1) ? 1 : 1).param("obj_source", this.a.getPreExtraPageKey()));
@@ -261,12 +261,12 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
     }
 
     /* loaded from: classes7.dex */
-    public class c implements uz4.c {
+    public class c implements yy4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorActivity a;
 
-        @Override // com.baidu.tieba.uz4.c
+        @Override // com.baidu.tieba.yy4.c
         public String getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -291,18 +291,18 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             this.a = pbFullScreenEditorActivity;
         }
 
-        @Override // com.baidu.tieba.uz4.c
+        @Override // com.baidu.tieba.yy4.c
         public void a(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                h29 defaultLog = DefaultLog.getInstance();
-                defaultLog.c("PbFullScreenEditor", "收到H5通知，更新全屏回帖内容：" + str);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("PbFullScreenEditor", "收到H5通知，更新全屏回帖内容：" + str);
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         str = new JSONObject(str).optString("data", str);
                     } catch (Exception e) {
-                        h29 defaultLog2 = DefaultLog.getInstance();
-                        defaultLog2.c("PbFullScreenEditor", "更新全屏回帖内容失败" + e);
+                        TbLog defaultLog2 = DefaultLog.getInstance();
+                        defaultLog2.i("PbFullScreenEditor", "更新全屏回帖内容失败" + e);
                     }
                     if (!TextUtils.isEmpty(str)) {
                         this.a.g.k(str);
@@ -340,7 +340,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.g != null && !this.a.p.x()) {
-                yi.P(TbadkCoreApplication.getInst(), this.a.g);
+                BdUtilHelper.showSoftKeyPad(TbadkCoreApplication.getInst(), this.a.g);
             }
         }
     }
@@ -377,7 +377,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     this.a.p.t();
                     this.a.p.B();
                 }
-                yi.A(this.a.s, this.a.g);
+                BdUtilHelper.hideSoftKeyPad(this.a.s, this.a.g);
             }
         }
     }
@@ -459,8 +459,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 this.a.E1();
-                lj9 lj9Var = this.a.x;
-                if (lj9Var != null && lj9Var.e() != null) {
+                ei9 ei9Var = this.a.x;
+                if (ei9Var != null && ei9Var.e() != null) {
                     if (!this.a.x.e().e()) {
                         this.a.x.a(false);
                     }
@@ -535,7 +535,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                yi.A(TbadkCoreApplication.getInst(), this.b.getCurrentFocus());
+                BdUtilHelper.hideSoftKeyPad(TbadkCoreApplication.getInst(), this.b.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
             }
             return invokeCommon.booleanValue;
@@ -554,7 +554,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
                         this.b.p.t();
                         this.b.p.B();
-                        yi.P(TbadkCoreApplication.getInst(), this.b.g);
+                        BdUtilHelper.showSoftKeyPad(TbadkCoreApplication.getInst(), this.b.g);
                     }
                 }
                 return super.onSingleTapUp(motionEvent);
@@ -595,7 +595,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     this.a.p.t();
                     this.a.p.B();
                 }
-                yi.P(TbadkCoreApplication.getInst(), this.a.g);
+                BdUtilHelper.showSoftKeyPad(TbadkCoreApplication.getInst(), this.a.g);
             }
         }
     }
@@ -652,7 +652,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         this.C = new c(this);
     }
 
-    public final void H1() {
+    public final void G1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.t == null) {
             this.t = new WriteImagesInfo();
@@ -689,7 +689,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.A = new GestureDetector(new i(this));
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920c0);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920d7);
             this.z = findViewById;
             findViewById.setOnClickListener(new j(this));
         }
@@ -720,27 +720,10 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            super.onDestroy();
-            lj9 lj9Var = this.x;
-            if (lj9Var != null) {
-                lj9Var.j();
-            }
-            VoiceManager voiceManager = this.w;
-            if (voiceManager != null) {
-                voiceManager.removeBlackScreen();
-            }
-            uz4.a().d(this.C);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            yi.A(this, getCurrentFocus());
+            BdUtilHelper.hideSoftKeyPad(this, getCurrentFocus());
             super.onPause();
         }
     }
@@ -750,12 +733,12 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             super.onResume();
-            zg.a().postDelayed(new d(this), 500L);
+            SafeHandler.getInst().postDelayed(new d(this), 500L);
         }
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager y0() {
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
@@ -792,14 +775,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.aj5
-    public void B(zi5 zi5Var) {
+    @Override // com.baidu.tieba.mh5
+    public void B(lh5 lh5Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zi5Var) != null) || zi5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lh5Var) != null) || lh5Var == null) {
             return;
         }
-        int i2 = zi5Var.a;
+        int i2 = lh5Var.a;
         if (i2 != 3) {
             if (i2 != 14) {
                 if (i2 != 16) {
@@ -812,9 +795,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                                 }
                                 return;
                             }
-                            Object obj = zi5Var.c;
+                            Object obj = lh5Var.c;
                             if (obj instanceof VoiceData.VoiceModel) {
-                                C1((VoiceData.VoiceModel) obj);
+                                B1((VoiceData.VoiceModel) obj);
                                 return;
                             }
                             return;
@@ -826,13 +809,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                         } else {
                             str = "";
                         }
-                        ej5.e(I1, str);
+                        qh5.e(I1, str);
                         return;
                     }
-                    Object obj2 = zi5Var.c;
-                    if (obj2 instanceof yd5) {
-                        yd5 yd5Var = (yd5) obj2;
-                        if (EmotionGroupType.isSendAsPic(yd5Var.getType())) {
+                    Object obj2 = lh5Var.c;
+                    if (obj2 instanceof nc5) {
+                        nc5 nc5Var = (nc5) obj2;
+                        if (EmotionGroupType.isSendAsPic(nc5Var.getType())) {
                             if (this.mCurrentPermissionJudgePolicy == null) {
                                 this.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
                             }
@@ -847,10 +830,10 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                             }
                             ImageFileInfo imageFileInfo = new ImageFileInfo();
                             imageFileInfo.setImageType(1);
-                            imageFileInfo.setFilePath(yd5Var.d());
-                            imageFileInfo.width = yd5Var.h();
-                            imageFileInfo.height = yd5Var.b();
-                            H1();
+                            imageFileInfo.setFilePath(nc5Var.d());
+                            imageFileInfo.width = nc5Var.h();
+                            imageFileInfo.height = nc5Var.b();
+                            G1();
                             this.t.addChooseFile(imageFileInfo);
                             this.t.updateQuality();
                             this.j.c(this.t.getChosedFiles());
@@ -858,7 +841,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                             E1();
                             return;
                         }
-                        this.g.m(yd5Var);
+                        this.g.m(nc5Var);
                         return;
                     }
                     return;
@@ -887,7 +870,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     return;
                 }
             }
-            H1();
+            G1();
             AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.s, this.t.toJsonString(), true, true);
             albumFloatActivityConfig.getIntent().putExtra("from", "pb");
             PbEditorData.ThreadData threadData4 = this.v;
@@ -895,16 +878,16 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", this.v.getForumId());
             }
             albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            if (zk5.a().b() == 1) {
+            if (lj5.a().b() == 1) {
                 albumFloatActivityConfig.setRequestFrom(2);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
             return;
         }
-        e47.a(this.g);
+        m17.a(this.g);
     }
 
-    public final void C1(VoiceData.VoiceModel voiceModel) {
+    public final void B1(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel) == null) && voiceModel != null && !TextUtils.isEmpty(voiceModel.getVoiceId()) && voiceModel.getDuration() > 0) {
             this.r.i(voiceModel);
@@ -914,7 +897,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         }
     }
 
-    @Override // com.baidu.tieba.yh9.c
+    @Override // com.baidu.tieba.rg9.c
     public void h0(int i2) {
         ImageFileInfo imageInfoAt;
         Interceptable interceptable = $ic;
@@ -950,8 +933,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 z = false;
             }
             boolean z4 = !TextUtils.isEmpty(this.g.getText());
-            hi9 hi9Var = this.r;
-            if (hi9Var != null && hi9Var.c() != null) {
+            ah9 ah9Var = this.r;
+            if (ah9Var != null && ah9Var.c() != null) {
                 z2 = true;
             } else {
                 z2 = false;
@@ -977,18 +960,18 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
     }
 
     public final void F1() {
-        mj5 mj5Var;
+        yh5 yh5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.r.c() != null) {
-                qc5.a(qc5.b(this.r.c().getVoiceId()));
+                fb5.a(fb5.b(this.r.c().getVoiceId()));
             }
             this.r.i(null);
             this.k.setVisibility(8);
             this.l.setVoiceModel(null);
-            lj5 p = this.p.p(6);
-            if (p != null && (mj5Var = p.m) != null) {
-                mj5Var.B(new zi5(52, 0, null));
+            xh5 p = this.p.p(6);
+            if (p != null && (yh5Var = p.m) != null) {
+                yh5Var.B(new lh5(52, 0, null));
             }
             E1();
         }
@@ -998,7 +981,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         String stringExtra;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, z) == null) && intent != null && (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) != null) {
-            H1();
+            G1();
             this.t.parseJson(stringExtra);
             this.t.updateQuality();
         }
@@ -1013,7 +996,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 try {
                     int readPictureDegree = BitmapHelper.readPictureDegree(str);
                     if (readPictureDegree != 0) {
-                        Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, yi.d(this.s, yi.l(this.s)), yi.d(this.s, yi.j(this.s)));
+                        Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, BdUtilHelper.dip2px(this.s, BdUtilHelper.getEquipmentWidth(this.s)), BdUtilHelper.dip2px(this.s, BdUtilHelper.getEquipmentHeight(this.s)));
                         Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
                         if (loadResizedBitmap != rotateBitmapBydegree) {
                             loadResizedBitmap.recycle();
@@ -1027,7 +1010,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath(str);
                 imageFileInfo.setTempFile(true);
-                H1();
+                G1();
                 this.t.addChooseFile(imageFileInfo);
                 this.t.updateQuality();
             }
@@ -1046,11 +1029,11 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             this.u.setWriteImagesInfo(this.t);
             this.u.setVoiceModel(this.r.c());
             int i2 = 1;
-            this.u.setShowCustomFigure(da5.p().l("key_virtual_image_and_state_ying_has_show", true));
+            this.u.setShowCustomFigure(SharedPrefHelper.getInstance().getBoolean("key_virtual_image_and_state_ying_has_show", true));
             intent.putExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA, this.u);
             if (z) {
-                lj9 lj9Var = this.x;
-                if (lj9Var != null && lj9Var.e() != null && this.x.e().d()) {
+                ei9 ei9Var = this.x;
+                if (ei9Var != null && ei9Var.e() != null && this.x.e().d()) {
                     showToast(this.x.e().c());
                     this.x.a(true);
                     StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 13);
@@ -1072,17 +1055,17 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
     public final void O1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09097c);
-            ii9 ii9Var = new ii9();
-            this.q = ii9Var;
-            ii9Var.j(z);
+            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09098b);
+            bh9 bh9Var = new bh9();
+            this.q = bh9Var;
+            bh9Var.j(z);
             PbEditorData pbEditorData = this.u;
             if (pbEditorData != null && pbEditorData.getThreadData() != null) {
                 this.q.i(this.u.getThreadData().isBJH);
             }
-            hi9 hi9Var = (hi9) this.q.a(this.s);
-            this.r = hi9Var;
-            this.p = hi9Var.b();
+            ah9 ah9Var = (ah9) this.q.a(this.s);
+            this.r = ah9Var;
+            this.p = ah9Var.b();
             this.r.g(this);
             this.q.k(this);
             this.o.addView(this.p, new LinearLayout.LayoutParams(-1, -2));
@@ -1106,9 +1089,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             }
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
             E1();
-            lj9 lj9Var = this.x;
-            if (lj9Var != null) {
-                lj9Var.i();
+            ei9 ei9Var = this.x;
+            if (ei9Var != null) {
+                ei9Var.i();
             }
             EditorTools editorTools = this.p;
             if (editorTools != null) {
@@ -1125,7 +1108,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             super.onCreate(bundle);
             this.s = getPageContext().getPageActivity();
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0534);
+            setContentView(R.layout.obfuscated_res_0x7f0d0539);
             VoiceManager voiceManager = new VoiceManager();
             this.w = voiceManager;
             voiceManager.onCreate(getPageContext());
@@ -1135,17 +1118,17 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             if (pbEditorData != null && pbEditorData.getEditorType() == 1 && (pbFullScreenEditorInputView = this.g) != null) {
                 pbFullScreenEditorInputView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(Cea708Decoder.COMMAND_DLW)});
             }
-            lj9 lj9Var = new lj9();
-            this.x = lj9Var;
+            ei9 ei9Var = new ei9();
+            this.x = ei9Var;
             PbFullScreenEditorInputView pbFullScreenEditorInputView2 = this.g;
             if (pbFullScreenEditorInputView2 != null) {
-                lj9Var.m(pbFullScreenEditorInputView2);
+                ei9Var.m(pbFullScreenEditorInputView2);
             }
             PostWriteCallBackData postWriteCallBackData = this.y;
             if (postWriteCallBackData != null) {
                 this.x.k(postWriteCallBackData);
             }
-            uz4.a().c(this.C);
+            yy4.a().c(this.C);
             adjustResizeForSoftInput();
         }
     }
@@ -1158,14 +1141,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             this.a = navigationBar;
             navigationBar.showBottomLine();
             this.c = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0fee));
+            TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0ff1));
             this.e = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
             this.d = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_post));
             ImageView backImageView = this.a.getBackImageView();
             if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams) && (view2 = this.c) != null && this.d != null) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view2.getLayoutParams();
-                layoutParams.leftMargin = yi.g(getActivity(), R.dimen.obfuscated_res_0x7f07037f);
+                layoutParams.leftMargin = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f07037f);
                 backImageView.setLayoutParams(layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
                 layoutParams2.width = -2;
@@ -1176,7 +1159,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 this.c.setOnClickListener(new k(this));
                 LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.d.getLayoutParams();
                 layoutParams3.width = -2;
-                layoutParams3.rightMargin = yi.g(getActivity(), R.dimen.obfuscated_res_0x7f0701b2);
+                layoutParams3.rightMargin = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f0701b2);
                 this.d.setLayoutParams(layoutParams3);
                 this.d.setOnClickListener(new a(this));
             }
@@ -1186,7 +1169,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
     public final void initData() {
         boolean z;
         String forumId;
-        mj5 mj5Var;
+        yh5 yh5Var;
         EditorTools editorTools;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -1205,20 +1188,20 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                 O1(z);
                 String disableVoiceMessage = this.u.getDisableVoiceMessage();
                 if (!TextUtils.isEmpty(disableVoiceMessage) && (editorTools = this.p) != null) {
-                    hj5 o = editorTools.o(6);
+                    th5 o = editorTools.o(6);
                     if (o instanceof View) {
                         ((View) o).setOnClickListener(new b(this, disableVoiceMessage));
                     }
                 }
                 PbEditorData.ThreadData threadData = this.u.getThreadData();
                 this.v = threadData;
-                ii9 ii9Var = this.q;
-                if (ii9Var != null) {
-                    ii9Var.l(threadData);
+                bh9 bh9Var = this.q;
+                if (bh9Var != null) {
+                    bh9Var.l(threadData);
                 }
-                hi9 hi9Var = this.r;
-                if (hi9Var != null) {
-                    hi9Var.h(this.v);
+                ah9 ah9Var = this.r;
+                if (ah9Var != null) {
+                    ah9Var.h(this.v);
                 }
                 String content = this.u.getContent();
                 if (this.u.getEditorType() == 1) {
@@ -1239,14 +1222,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     this.k.setVisibility(0);
                     this.l.setVoiceModel(voiceModel);
                     this.r.i(voiceModel);
-                    lj5 p = this.p.p(6);
-                    if (p != null && (mj5Var = p.m) != null) {
-                        mj5Var.B(new zi5(52, 0, voiceModel));
+                    xh5 p = this.p.p(6);
+                    if (p != null && (yh5Var = p.m) != null) {
+                        yh5Var.B(new lh5(52, 0, voiceModel));
                     }
                     EditorTools editorTools2 = this.p;
                     editorTools2.A((View) editorTools2.o(6));
                 }
-                if (ml5.isOn()) {
+                if (yj5.isOn()) {
                     EditorTools editorTools3 = this.p;
                     PbEditorData.ThreadData threadData2 = this.v;
                     if (threadData2 == null) {
@@ -1254,7 +1237,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     } else {
                         forumId = threadData2.getForumId();
                     }
-                    editorTools3.D(new zi5(76, 8, forumId));
+                    editorTools3.D(new lh5(76, 8, forumId));
                 }
             }
             if (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData) {
@@ -1301,25 +1284,26 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             Q1();
-            this.b = findViewById(R.id.obfuscated_res_0x7f09292c);
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f0920bf);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092946);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f0920d6);
             this.f = editorScrollView;
             editorScrollView.setListener(new e(this));
             P1();
-            PbFullScreenEditorInputView pbFullScreenEditorInputView = (PbFullScreenEditorInputView) findViewById(R.id.obfuscated_res_0x7f090964);
+            PbFullScreenEditorInputView pbFullScreenEditorInputView = (PbFullScreenEditorInputView) findViewById(R.id.obfuscated_res_0x7f090973);
             this.g = pbFullScreenEditorInputView;
             pbFullScreenEditorInputView.setOnClickListener(new f(this));
             this.g.addTextChangedListener(new g(this));
             this.h = this.g.getSpanGroupManager();
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914a5);
-            this.l = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f0904d8);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09147c);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f3);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914b8);
+            this.l = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f0904e5);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091206);
             this.m.setOnClickListener(new h(this));
-            this.i = (WholeDisplayGridView) findViewById(R.id.obfuscated_res_0x7f090e6d);
-            yh9 yh9Var = new yh9(this.s);
-            this.j = yh9Var;
-            yh9Var.b(this);
+            this.i = (WholeDisplayGridView) findViewById(R.id.obfuscated_res_0x7f090e7f);
+            rg9 rg9Var = new rg9(this.s);
+            this.j = rg9Var;
+            rg9Var.b(this);
+            this.j.d(getUniqueId());
             this.i.setAdapter((ListAdapter) this.j);
         }
     }
@@ -1329,9 +1313,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048600, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            hi9 hi9Var = this.r;
-            if (hi9Var != null) {
-                hi9Var.e(i2, i3, intent);
+            ah9 ah9Var = this.r;
+            if (ah9Var != null) {
+                ah9Var.e(i2, i3, intent);
             }
             if (i3 == -1) {
                 if (i2 != 11025) {
@@ -1344,7 +1328,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                                 }
                                 return;
                             }
-                            H1();
+                            G1();
                             N1(intent);
                             this.j.c(this.t.getChosedFiles());
                             this.j.notifyDataSetChanged();
@@ -1361,7 +1345,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                             }
                             this.g.e(parcelableArrayListExtra);
                             if (parcelableArrayListExtra != null && !R1(this.g, parcelableArrayListExtra)) {
-                                yi.Q(this.s, R.string.over_limit_tip);
+                                BdUtilHelper.showToast(this.s, (int) R.string.over_limit_tip);
                                 return;
                             } else if (parcelableArrayListExtra != null && parcelableArrayListExtra.size() > 0) {
                                 this.g.getText().delete(this.g.getSelectionStart(), this.g.getSelectionEnd());
@@ -1376,7 +1360,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
                     } else if (intent == null) {
                         return;
                     } else {
-                        H1();
+                        G1();
                         if (intent.getBooleanExtra(AlbumActivityConfig.CAMERA_RESULT, false)) {
                             M1(intent);
                         } else {
@@ -1411,6 +1395,27 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         }
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            super.onDestroy();
+            ei9 ei9Var = this.x;
+            if (ei9Var != null) {
+                ei9Var.j();
+            }
+            VoiceManager voiceManager = this.w;
+            if (voiceManager != null) {
+                voiceManager.removeBlackScreen();
+            }
+            yy4.a().d(this.C);
+            EditorTools editorTools = this.p;
+            if (editorTools != null) {
+                editorTools.s(8);
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
@@ -1419,7 +1424,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
         }
     }
 
-    @Override // com.baidu.tieba.yh9.c
+    @Override // com.baidu.tieba.rg9.c
     public void t1(int i2) {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
@@ -1427,7 +1432,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements yh9.c, V
             if (i2 >= 0 && i2 < this.t.size()) {
                 ImageFileInfo remove = this.t.getChosedFiles().remove(i2);
                 if (remove.isTempFile()) {
-                    fc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                    ub.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
                 this.j.notifyDataSetChanged();
             }

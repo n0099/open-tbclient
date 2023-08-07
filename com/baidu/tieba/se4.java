@@ -1,106 +1,97 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.swan.games.view.button.base.ApiButton;
-import com.baidu.tieba.re4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class se4 extends EventTargetImpl implements re4.a {
+public final class se4 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ApiButton a;
-    @V8JavascriptField
-    public String image;
-    @V8JavascriptField
-    public re4 style;
-    @V8JavascriptField
-    public String text;
-    @V8JavascriptField
-    public String type;
+    public a a;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ se4 a;
+    public interface a {
+        void a();
 
-        public a(se4 se4Var) {
+        void b();
+
+        void c();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-435033303, "Lcom/baidu/tieba/se4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-435033303, "Lcom/baidu/tieba/se4$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {se4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = se4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            ApiButton apiButton;
+        @Override // android.view.View.OnTouchListener
+        public final boolean onTouch(View v, MotionEvent event) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
-                pe4.d(apiButton);
-                this.a.a = null;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
+                Intrinsics.checkNotNullExpressionValue(event, "event");
+                int action = event.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Intrinsics.checkNotNullExpressionValue(v, "v");
+                        v.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
+                }
+                Intrinsics.checkNotNullExpressionValue(v, "v");
+                v.setAlpha(0.2f);
+                return false;
             }
+            return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ se4 a;
-
-        public b(se4 se4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {se4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = se4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ApiButton apiButton;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
-                apiButton.hide();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
+    public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ se4 a;
@@ -123,29 +114,28 @@ public class se4 extends EventTargetImpl implements re4.a {
             this.a = se4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            ApiButton apiButton;
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (apiButton = this.a.a) != null) {
-                apiButton.show();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.c();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements Runnable {
+    public static final class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ se4 b;
+        public final /* synthetic */ se4 a;
 
-        public d(se4 se4Var, String str) {
+        public d(se4 se4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {se4Var, str};
+                Object[] objArr = {se4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -155,46 +145,21 @@ public class se4 extends EventTargetImpl implements re4.a {
                     return;
                 }
             }
-            this.b = se4Var;
-            this.a = str;
+            this.a = se4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (fs1.a) {
-                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
-                }
-                if (this.b.a == null) {
-                    return;
-                }
-                String str = this.a;
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 3556653) {
-                    if (hashCode == 100313435 && str.equals("image")) {
-                        c = 1;
-                    }
-                } else if (str.equals("text")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        se4 se4Var = this.b;
-                        se4Var.a.setImageUrl(se4Var.image);
-                        return;
-                    }
-                    return;
-                }
-                se4 se4Var2 = this.b;
-                se4Var2.a.setButtonText(se4Var2.text);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.b();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements Runnable {
+    public static final class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ se4 a;
@@ -217,167 +182,76 @@ public class se4 extends EventTargetImpl implements re4.a {
             this.a = se4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                se4 se4Var = this.a;
-                if (se4Var.a != null && !se4Var.B()) {
-                    this.a.a.j();
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.a();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se4(JsObject jsObject, fj2 fj2Var) {
-        super(fj2Var);
+    public se4(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001c2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject, fj2Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.type = "text";
-        this.text = cv2.c().getString(R.string.obfuscated_res_0x7f0f0132);
-        A(jsObject);
+        Intrinsics.checkNotNullParameter(context, "context");
+        c();
     }
 
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
+    public final void e(a onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            pp3.e0(new d(this, str));
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
+            this.a = onClickListener;
         }
     }
 
-    public final void A(JsObject jsObject) {
-        re4 re4Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            c42 F = c42.F(jsObject);
-            if (fs1.a) {
-                if (("parse jsObject = " + F) != null) {
-                    str = F.toString();
-                } else {
-                    str = null;
-                }
-                Log.d("BaseButtonProxy", str);
-            }
-            if (F == null) {
-                return;
-            }
-            this.type = F.C("type", this.type);
-            this.text = F.C("text", this.text);
-            this.image = F.C("image", this.image);
-            c42 x = F.x("style", null);
-            if (x == null) {
-                re4Var = this.style;
-            } else {
-                re4Var = new re4(x);
-            }
-            this.style = re4Var;
-        }
-    }
-
-    public final boolean B() {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final View.OnTouchListener b() {
         InterceptResult invokeV;
-        b23 z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null || this.style == null || (z = z()) == null || !pe4.f(this.a, z)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b.a;
         }
-        return invokeV.booleanValue;
+        return (View.OnTouchListener) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public void destroy() {
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d00c5);
+            setCanceledOnTouchOutside(false);
+            d();
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pp3.e0(new a(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090a8c)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090a8c)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f09107f)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f09107f)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0907df)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0907df)).setOnClickListener(new e(this));
         }
-    }
-
-    @JavascriptInterface
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pp3.e0(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.re4.a
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pp3.e0(new e(this));
-        }
-    }
-
-    @JavascriptInterface
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            pp3.e0(new c(this));
-        }
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        re4 re4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a == null || (re4Var = this.style) == null) {
-                return false;
-            }
-            re4Var.b(this);
-            b23 z = z();
-            if (z == null || !pe4.a(this.a, z)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final b23 z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            re4 re4Var = this.style;
-            if (re4Var == null || this.a == null) {
-                return null;
-            }
-            int g = mp3.g(re4Var.width);
-            int g2 = mp3.g(this.style.height);
-            int g3 = mp3.g(this.style.left);
-            int g4 = mp3.g(this.style.top);
-            int g5 = mp3.g(this.style.borderWidth) * 2;
-            if (g < g5) {
-                g = g5;
-            }
-            if (g2 < g5) {
-                g2 = g5;
-            }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
-            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
-                return null;
-            }
-            return new b23(g3, g4, g, g2);
-        }
-        return (b23) invokeV.objValue;
     }
 }

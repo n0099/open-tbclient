@@ -1,42 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.AudioManager;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.c63;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class nl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static nl3 e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, b> a;
-    public AudioManager b;
-    public boolean c;
-    public BroadcastReceiver d;
+    public long a;
+    public c b;
+    public final c63.a c;
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BroadcastReceiver {
+    public class a implements c63.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl3 this$0;
+        public final /* synthetic */ nl3 a;
 
         public a(nl3 nl3Var) {
             Interceptable interceptable = $ic;
@@ -53,26 +47,133 @@ public class nl3 {
                     return;
                 }
             }
-            this.this$0 = nl3Var;
+            this.a = nl3Var;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int i;
+        @Override // com.baidu.tieba.c63.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                if (this.this$0.b == null) {
-                    this.this$0.b = (AudioManager) cv2.c().getSystemService("audio");
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.b != null) {
+                this.a.b.a(this.a.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final nl3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571744202, "Lcom/baidu/tieba/nl3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                for (Map.Entry entry : this.this$0.a.entrySet()) {
-                    if (this.this$0.b != null) {
-                        i = this.this$0.b.getStreamVolume(3);
-                    } else {
-                        i = 0;
-                    }
-                    ((b) entry.getValue()).a(i);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-571744202, "Lcom/baidu/tieba/nl3$b;");
+                    return;
                 }
             }
+            a = new nl3(null);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Vibrator a;
+
+        public c(@NonNull Vibrator vibrator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vibrator};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vibrator;
+        }
+
+        @SuppressLint({"MissingPermission"})
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                try {
+                    if (fn3.j()) {
+                        this.a.vibrate(VibrationEffect.createOneShot(j, -1));
+                        return;
+                    }
+                    this.a.vibrate(j);
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006260, "Lcom/baidu/tieba/nl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948006260, "Lcom/baidu/tieba/nl3;");
+                return;
+            }
+        }
+        d = ir1.a;
+    }
+
+    public static nl3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
+        }
+        return (nl3) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!fn3.h()) {
+                return true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext != null && ContextCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e(400L);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(15L);
         }
     }
 
@@ -80,131 +181,46 @@ public class nl3 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.d = new a(this);
-    }
-
-    public static nl3 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (nl3.class) {
-                    if (e == null) {
-                        e = new nl3();
-                    }
-                }
-            }
-            return e;
-        }
-        return (nl3) invokeV.objValue;
-    }
-
-    public static void h() {
-        nl3 nl3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (nl3Var = e) != null) {
-            nl3Var.g();
+        this.a = 0L;
+        this.c = new a(this);
+        Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
+        if (vibrator != null) {
+            this.b = new c(vibrator);
         }
     }
 
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            cv2.c().registerReceiver(this.d, intentFilter);
-            this.c = true;
-        }
+    public /* synthetic */ nl3(a aVar) {
+        this();
     }
 
-    private void unregisterReceiver() {
+    @SuppressLint({"BDThrowableCheck"})
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            try {
-                cv2.c().unregisterReceiver(this.d);
-                this.c = false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.a = j;
             if (this.b == null) {
-                this.b = (AudioManager) cv2.c().getSystemService("audio");
-            }
-            AudioManager audioManager = this.b;
-            if (audioManager != null) {
-                return audioManager.getStreamMaxVolume(3);
-            }
-            return 100;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-                this.b = null;
-                this.c = false;
-            }
-            e = null;
-        }
-    }
-
-    public void d(@NonNull String str, @NonNull b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this) {
-            this.a.put(str, bVar);
-            if (!this.c) {
-                registerReceiver();
-            }
-            if (fs1.a) {
-                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
-            }
-        }
-    }
-
-    public boolean i(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            synchronized (this) {
-                b remove = this.a.remove(str);
-                if (this.a.size() == 0 && this.c) {
-                    unregisterReceiver();
+                if (!d) {
+                    return;
                 }
-                if (fs1.a && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
-                }
-                if (remove != null) {
-                    z = true;
+                throw new RuntimeException("not support vibration");
+            } else if (c()) {
+                this.b.a(this.a);
+            } else {
+                String[] strArr = {"android.permission.VIBRATE"};
+                SwanAppActivity w = xa3.K().w();
+                if (w != null) {
+                    w.z(700, strArr, this.c);
                 }
             }
-            return z;
         }
-        return invokeL.booleanValue;
     }
 }

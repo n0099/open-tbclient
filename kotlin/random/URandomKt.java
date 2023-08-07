@@ -16,7 +16,7 @@ import kotlin.ranges.ULongRange;
 /* loaded from: classes10.dex */
 public final class URandomKt {
     /* renamed from: checkUIntRangeBounds-J1ME1BU  reason: not valid java name */
-    public static final void m2042checkUIntRangeBoundsJ1ME1BU(int i, int i2) {
+    public static final void m2043checkUIntRangeBoundsJ1ME1BU(int i, int i2) {
         boolean z;
         if (UnsignedKt.uintCompare(i2, i) > 0) {
             z = true;
@@ -26,11 +26,11 @@ public final class URandomKt {
         if (z) {
             return;
         }
-        throw new IllegalArgumentException(RandomKt.boundsErrorMessage(UInt.m934boximpl(i), UInt.m934boximpl(i2)).toString());
+        throw new IllegalArgumentException(RandomKt.boundsErrorMessage(UInt.m935boximpl(i), UInt.m935boximpl(i2)).toString());
     }
 
     /* renamed from: checkULongRangeBounds-eb3DHEI  reason: not valid java name */
-    public static final void m2043checkULongRangeBoundseb3DHEI(long j, long j2) {
+    public static final void m2044checkULongRangeBoundseb3DHEI(long j, long j2) {
         boolean z;
         if (UnsignedKt.ulongCompare(j2, j) > 0) {
             z = true;
@@ -40,20 +40,20 @@ public final class URandomKt {
         if (z) {
             return;
         }
-        throw new IllegalArgumentException(RandomKt.boundsErrorMessage(ULong.m1012boximpl(j), ULong.m1012boximpl(j2)).toString());
+        throw new IllegalArgumentException(RandomKt.boundsErrorMessage(ULong.m1013boximpl(j), ULong.m1013boximpl(j2)).toString());
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final byte[] nextUBytes(Random random, int i) {
         Intrinsics.checkNotNullParameter(random, "<this>");
-        return UByteArray.m916constructorimpl(random.nextBytes(i));
+        return UByteArray.m917constructorimpl(random.nextBytes(i));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextUBytes-EVgfTAA  reason: not valid java name */
-    public static final byte[] m2044nextUBytesEVgfTAA(Random nextUBytes, byte[] array) {
+    public static final byte[] m2045nextUBytesEVgfTAA(Random nextUBytes, byte[] array) {
         Intrinsics.checkNotNullParameter(nextUBytes, "$this$nextUBytes");
         Intrinsics.checkNotNullParameter(array, "array");
         nextUBytes.nextBytes(array);
@@ -63,23 +63,23 @@ public final class URandomKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextUInt-qCasIEU  reason: not valid java name */
-    public static final int m2048nextUIntqCasIEU(Random nextUInt, int i) {
+    public static final int m2049nextUIntqCasIEU(Random nextUInt, int i) {
         Intrinsics.checkNotNullParameter(nextUInt, "$this$nextUInt");
-        return m2047nextUInta8DCA5k(nextUInt, 0, i);
+        return m2048nextUInta8DCA5k(nextUInt, 0, i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextULong-V1Xi4fY  reason: not valid java name */
-    public static final long m2049nextULongV1Xi4fY(Random nextULong, long j) {
+    public static final long m2050nextULongV1Xi4fY(Random nextULong, long j) {
         Intrinsics.checkNotNullParameter(nextULong, "$this$nextULong");
-        return m2050nextULongjmpaWc(nextULong, 0L, j);
+        return m2051nextULongjmpaWc(nextULong, 0L, j);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: nextUBytes-Wvrt4B4  reason: not valid java name */
-    public static final byte[] m2045nextUBytesWvrt4B4(Random nextUBytes, byte[] array, int i, int i2) {
+    public static final byte[] m2046nextUBytesWvrt4B4(Random nextUBytes, byte[] array, int i, int i2) {
         Intrinsics.checkNotNullParameter(nextUBytes, "$this$nextUBytes");
         Intrinsics.checkNotNullParameter(array, "array");
         nextUBytes.nextBytes(array, i, i2);
@@ -87,28 +87,28 @@ public final class URandomKt {
     }
 
     /* renamed from: nextUBytes-Wvrt4B4$default  reason: not valid java name */
-    public static /* synthetic */ byte[] m2046nextUBytesWvrt4B4$default(Random random, byte[] bArr, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ byte[] m2047nextUBytesWvrt4B4$default(Random random, byte[] bArr, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
-            i2 = UByteArray.m922getSizeimpl(bArr);
+            i2 = UByteArray.m923getSizeimpl(bArr);
         }
-        return m2045nextUBytesWvrt4B4(random, bArr, i, i2);
+        return m2046nextUBytesWvrt4B4(random, bArr, i, i2);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int nextUInt(Random random) {
         Intrinsics.checkNotNullParameter(random, "<this>");
-        return UInt.m940constructorimpl(random.nextInt());
+        return UInt.m941constructorimpl(random.nextInt());
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long nextULong(Random random) {
         Intrinsics.checkNotNullParameter(random, "<this>");
-        return ULong.m1018constructorimpl(random.nextLong());
+        return ULong.m1019constructorimpl(random.nextLong());
     }
 
     @SinceKotlin(version = "1.5")
@@ -117,11 +117,11 @@ public final class URandomKt {
         Intrinsics.checkNotNullParameter(random, "<this>");
         Intrinsics.checkNotNullParameter(range, "range");
         if (!range.isEmpty()) {
-            if (UnsignedKt.uintCompare(range.m2052getLastpVg5ArA(), -1) < 0) {
-                return m2047nextUInta8DCA5k(random, range.m2051getFirstpVg5ArA(), UInt.m940constructorimpl(range.m2052getLastpVg5ArA() + 1));
+            if (UnsignedKt.uintCompare(range.m2053getLastpVg5ArA(), -1) < 0) {
+                return m2048nextUInta8DCA5k(random, range.m2052getFirstpVg5ArA(), UInt.m941constructorimpl(range.m2053getLastpVg5ArA() + 1));
             }
-            if (UnsignedKt.uintCompare(range.m2051getFirstpVg5ArA(), 0) > 0) {
-                return UInt.m940constructorimpl(m2047nextUInta8DCA5k(random, UInt.m940constructorimpl(range.m2051getFirstpVg5ArA() - 1), range.m2052getLastpVg5ArA()) + 1);
+            if (UnsignedKt.uintCompare(range.m2052getFirstpVg5ArA(), 0) > 0) {
+                return UInt.m941constructorimpl(m2048nextUInta8DCA5k(random, UInt.m941constructorimpl(range.m2052getFirstpVg5ArA() - 1), range.m2053getLastpVg5ArA()) + 1);
             }
             return nextUInt(random);
         }
@@ -134,12 +134,12 @@ public final class URandomKt {
         Intrinsics.checkNotNullParameter(random, "<this>");
         Intrinsics.checkNotNullParameter(range, "range");
         if (!range.isEmpty()) {
-            if (UnsignedKt.ulongCompare(range.m2058getLastsVKNKU(), -1L) < 0) {
-                return m2050nextULongjmpaWc(random, range.m2057getFirstsVKNKU(), ULong.m1018constructorimpl(range.m2058getLastsVKNKU() + ULong.m1018constructorimpl(1 & 4294967295L)));
+            if (UnsignedKt.ulongCompare(range.m2059getLastsVKNKU(), -1L) < 0) {
+                return m2051nextULongjmpaWc(random, range.m2058getFirstsVKNKU(), ULong.m1019constructorimpl(range.m2059getLastsVKNKU() + ULong.m1019constructorimpl(1 & 4294967295L)));
             }
-            if (UnsignedKt.ulongCompare(range.m2057getFirstsVKNKU(), 0L) > 0) {
+            if (UnsignedKt.ulongCompare(range.m2058getFirstsVKNKU(), 0L) > 0) {
                 long j = 1 & 4294967295L;
-                return ULong.m1018constructorimpl(m2050nextULongjmpaWc(random, ULong.m1018constructorimpl(range.m2057getFirstsVKNKU() - ULong.m1018constructorimpl(j)), range.m2058getLastsVKNKU()) + ULong.m1018constructorimpl(j));
+                return ULong.m1019constructorimpl(m2051nextULongjmpaWc(random, ULong.m1019constructorimpl(range.m2058getFirstsVKNKU() - ULong.m1019constructorimpl(j)), range.m2059getLastsVKNKU()) + ULong.m1019constructorimpl(j));
             }
             return nextULong(random);
         }
@@ -149,18 +149,18 @@ public final class URandomKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextUInt-a8DCA5k  reason: not valid java name */
-    public static final int m2047nextUInta8DCA5k(Random nextUInt, int i, int i2) {
+    public static final int m2048nextUInta8DCA5k(Random nextUInt, int i, int i2) {
         Intrinsics.checkNotNullParameter(nextUInt, "$this$nextUInt");
-        m2042checkUIntRangeBoundsJ1ME1BU(i, i2);
-        return UInt.m940constructorimpl(nextUInt.nextInt(i ^ Integer.MIN_VALUE, i2 ^ Integer.MIN_VALUE) ^ Integer.MIN_VALUE);
+        m2043checkUIntRangeBoundsJ1ME1BU(i, i2);
+        return UInt.m941constructorimpl(nextUInt.nextInt(i ^ Integer.MIN_VALUE, i2 ^ Integer.MIN_VALUE) ^ Integer.MIN_VALUE);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: nextULong-jmpaW-c  reason: not valid java name */
-    public static final long m2050nextULongjmpaWc(Random nextULong, long j, long j2) {
+    public static final long m2051nextULongjmpaWc(Random nextULong, long j, long j2) {
         Intrinsics.checkNotNullParameter(nextULong, "$this$nextULong");
-        m2043checkULongRangeBoundseb3DHEI(j, j2);
-        return ULong.m1018constructorimpl(nextULong.nextLong(j ^ Long.MIN_VALUE, j2 ^ Long.MIN_VALUE) ^ Long.MIN_VALUE);
+        m2044checkULongRangeBoundseb3DHEI(j, j2);
+        return ULong.m1019constructorimpl(nextULong.nextLong(j ^ Long.MIN_VALUE, j2 ^ Long.MIN_VALUE) ^ Long.MIN_VALUE);
     }
 }

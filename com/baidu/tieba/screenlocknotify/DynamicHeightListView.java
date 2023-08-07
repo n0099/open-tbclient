@@ -3,11 +3,11 @@ package com.baidu.tieba.screenlocknotify;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e7);
+        this.G = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e7);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e7);
+        this.G = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e7);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,7 +81,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e7);
+        this.G = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e7);
     }
 
     public int getMaxHeight() {

@@ -2,155 +2,95 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class um4 extends bn4 {
+public class um4 extends gm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> d;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public long b;
-        public long c;
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 6;
-            }
-            return invokeV.intValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.longValue;
-        }
-
-        public long d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.b;
-            }
-            return invokeV.longValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c));
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                if (super.equals(obj)) {
-                    return true;
-                }
-                if (!(obj instanceof a)) {
-                    return false;
-                }
-                a aVar = (a) obj;
-                if (TextUtils.equals(this.a, aVar.a) && this.b == aVar.b && this.c == aVar.c) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void f(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.b = j;
-                this.c = j2;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public um4(Set<a> set) {
-        super(-1);
+    public um4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = set;
     }
 
-    public Set<a> f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gm4, com.baidu.tieba.jm4
+    public void b(JSONObject jSONObject, ti4 ti4Var, @Nullable ti4 ti4Var2, @Nullable ti4 ti4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, ti4Var, ti4Var2, ti4Var3) != null) || jSONObject == null) {
+            return;
         }
-        return (Set) invokeV.objValue;
+        wm4.b().e(jSONObject.optJSONObject("tipmsgs"));
+        an4.f().k(jSONObject.optJSONObject("page_tips"));
+        sm4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
+        cn4.a().d(jSONObject.optJSONObject("pkg_preload"));
+        kn4.f(jSONObject.optJSONObject("app_inner_preload"));
+        vm4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
+        hn4.b().d(jSONObject.optJSONObject("tts"));
+        dn4.a().e(jSONObject.optJSONObject("simple_control_item"));
+        in4.e(jSONObject.optJSONObject("update_expire_time"));
+        if (en4.a) {
+            c(jSONObject);
+        }
+        gn4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
+        xm4.a().c(jSONObject.optJSONObject("local_debug"));
+        ji4.a().b(jSONObject.optJSONObject(ji4.a().c()));
+        if (fn4.b()) {
+            zm4.a().b(jSONObject.optJSONObject("api_description"));
+        }
+        ym4.a().e(jSONObject.optJSONObject("no_history_apps"));
+    }
+
+    public final void c(@NonNull JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
+            return;
+        }
+        hi4 b = ji4.b();
+        ar4 ar4Var = null;
+        if (b != null) {
+            ar4Var = b.i();
+        }
+        String optString = optJSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString)) {
+            en4.b = optString;
+            if (ar4Var != null) {
+                ar4Var.putString("key_h2_heart_beat_version", optString);
+            }
+        }
+        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            if (optJSONObject2.optInt("switch") > 0) {
+                int optInt = optJSONObject2.optInt("timespan");
+                int optInt2 = optJSONObject2.optInt("timeout");
+                if (ar4Var != null) {
+                    if (optInt > 0) {
+                        ar4Var.putInt("key_h2_heart_beat_timespan", optInt);
+                    }
+                    if (optInt2 > 0) {
+                        ar4Var.putInt("key_h2_heart_beat_timeout", optInt2);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            en4.a = false;
+        }
     }
 }

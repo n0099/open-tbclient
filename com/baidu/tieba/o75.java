@@ -1,37 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o75 implements k75 {
+public class o75 {
     public static /* synthetic */ Interceptable $ic;
+    public static o75 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947985180, "Lcom/baidu/tieba/o75;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ o75 b;
+
+        public a(o75 o75Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o75Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = o75Var;
+            this.a = str;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947985180, "Lcom/baidu/tieba/o75;");
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public b(o75 o75Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o75Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                GrowthFunnelHelper.logFirstPageRenderDone(this.a);
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -39,70 +99,132 @@ public final class o75 implements k75 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = 3;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+    }
+
+    public static o75 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (h == null) {
+                h = new o75();
+            }
+            return h;
+        }
+        return (o75) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Handler c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = new Handler(Looper.getMainLooper());
+            }
+            return this.a;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c) {
+            return;
+        }
+        GrowthFunnelHelper.logFirstPageShow(str);
+        this.e = false;
+        this.c = true;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
         }
     }
 
-    @Override // com.baidu.tieba.k75
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialog_url", dialogData.getDialogUrl());
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.k75
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Object obj = map.get("dialog_url");
-            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
-                Object obj2 = map.get("check_preheat");
-                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !a06.b().e((String) obj)) {
-                    YunDialogLog.getInstance().b("HybridCheckStrategy", "H5弹窗未预热完成");
-                    return false;
-                }
-                try {
-                    Object obj3 = map.get("init_offline_module");
-                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
-                        h29 yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.c("HybridCheckStrategy", "主动初始化离线包:" + obj3);
-                        HashSet hashSet = new HashSet();
-                        hashSet.add(obj3);
-                        wz4.d(hashSet);
-                        h29 yunDialogLog2 = YunDialogLog.getInstance();
-                        yunDialogLog2.c("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
-                    }
-                } catch (Exception e) {
-                    h29 yunDialogLog3 = YunDialogLog.getInstance();
-                    yunDialogLog3.b("HybridCheckStrategy", "离线包手动初始化异常:" + e);
-                }
-                Object obj4 = map.get("check_offline");
-                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !wz4.c((String) obj)) {
-                    YunDialogLog.getInstance().b("HybridCheckStrategy", "离线包不可用");
-                    return false;
-                }
-                return true;
-            }
-            YunDialogLog.getInstance().b("HybridCheckStrategy", "未下发待检测的H5弹窗url");
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d) {
+            return;
+        }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            c().post(new a(this, str));
+            return;
+        }
+        Looper.myQueue().addIdleHandler(new b(this, str));
+        this.f = false;
+        this.d = true;
     }
 }

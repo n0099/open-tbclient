@@ -1,55 +1,178 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import android.media.AudioTrack;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class n6b {
+public class n6b extends h6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m6b B;
+    public Thread C;
 
-    public static void a(String str, r6b r6bVar, q6b q6bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n6b(String str, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, r6bVar, q6bVar) == null) {
-            if (fab.a) {
-                fab.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + q6bVar.toString());
-            }
-            l6b g = i6b.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (q6bVar != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", q6bVar.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", q6bVar.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", q6bVar.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", q6bVar.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", q6bVar.d + ""));
-                }
-                g.a("perf_record_arperf", str, r6bVar.a, r6bVar.b, r6bVar.c, r6bVar.d, r6bVar.e, null, arrayList);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void b(String str, String str2) {
+    @Override // com.baidu.tieba.h6b
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (fab.a) {
-                fab.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            M(j * 1000, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.h6b
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread thread = this.C;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.C = thread2;
+                thread2.start();
             }
-            l6b g = i6b.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", dab.a(i6b.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(dab.b(i6b.c().getContext()))));
+            super.I();
+        }
+    }
+
+    public final void K() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (i() == 1) {
+                i = 4;
+            } else {
+                i();
+                i = 12;
+            }
+            int i2 = this.q;
+            if (i2 != 1 && i2 != 2) {
+                this.q = 2;
+            }
+            this.B = new m6b(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
+        }
+    }
+
+    public boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            m6b m6bVar = this.B;
+            return m6bVar != null && m6bVar.getState() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            if (this.e != null && j > this.e.getDuration()) {
+                j = this.e.getDuration();
+            }
+            if (z) {
+                int playState = L() ? this.B.getPlayState() : 2;
+                if (playState == 2) {
+                    pause();
                 }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+                synchronized (this.b) {
+                    if (L()) {
+                        this.B.flush();
+                    }
+                    this.d = 0L;
+                }
+                e();
+                c();
+                if (playState == 3) {
+                    I();
+                }
+            }
+            synchronized (this.c) {
+                if (this.e != null) {
+                    this.e.seek(j);
+                }
             }
         }
+    }
+
+    public void N(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            synchronized (this.b) {
+                if (L()) {
+                    this.B.setStereoVolume(f, f2);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h6b
+    public l6b p() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            K();
+            return this.B;
+        }
+        return (l6b) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h6b
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 2) {
+                    this.B.pause();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h6b
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 3) {
+                    this.B.play();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h6b
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
+            return;
+        }
+        this.C = null;
     }
 }

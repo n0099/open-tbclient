@@ -1,342 +1,218 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergeUtil;
+import com.baidu.tieba.ul8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class ul8<Adapter extends BaseChatAdapter, Msg extends BaseMsg> {
+public final class ul8 extends v85<List<? extends ChatMsg>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Adapter a;
-    public int b;
+    public final TbPageContext<BaseFragmentActivity> b;
+    public List<? extends ChatMsg> c;
 
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a();
-
-        void b();
-
-        void c(int i);
-    }
-
-    public void i(@NonNull Msg msg, @NonNull e eVar) {
+    @Override // com.baidu.tieba.a95
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, msg, eVar) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    public abstract boolean j(@NonNull Msg msg);
-
-    public abstract void k(BaseMsg baseMsg, int i, int i2);
-
     /* loaded from: classes8.dex */
-    public class b implements lp5 {
+    public static final class a implements nn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseMsg a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ul8 c;
+        public final /* synthetic */ ul8 a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ List<ChatMsg> c;
 
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ChatMsg a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ b c;
+        public a(ul8 ul8Var, long j, List<? extends ChatMsg> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ul8Var, Long.valueOf(j), list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ul8Var;
+            this.b = j;
+            this.c = list;
+        }
 
-            public a(b bVar, ChatMsg chatMsg, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, chatMsg, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.List */
+        /* JADX WARN: Multi-variable type inference failed */
+        public static final void a(ul8 this$0, List oriMsgList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, this$0, oriMsgList) == null) {
+                Intrinsics.checkNotNullParameter(this$0, "this$0");
+                Intrinsics.checkNotNullParameter(oriMsgList, "$oriMsgList");
+                this$0.a = oriMsgList;
+            }
+        }
+
+        @Override // com.baidu.tieba.nn5
+        public void onFailure(int i, String errorMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, errorMsg) == null) {
+                Intrinsics.checkNotNullParameter(errorMsg, "errorMsg");
+                final ul8 ul8Var = this.a;
+                final List<ChatMsg> list = this.c;
+                lg.e(new Runnable() { // from class: com.baidu.tieba.rl8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ul8.a.a(ul8.this, list);
+                        }
                     }
-                }
-                this.c = bVar;
-                this.a = chatMsg;
-                this.b = i;
+                });
             }
+        }
 
-            @Override // java.lang.Runnable
-            public void run() {
-                int i;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ChatMsg chatMsg = this.a;
-                    if (chatMsg != null) {
-                        this.c.a.setSdkMsg(chatMsg);
-                        this.c.a.syncServerMsgId(this.a);
+        /* JADX WARN: Type inference failed for: r5v1, types: [java.util.List, T] */
+        public static final void b(ul8 this$0, long j, MsgContentMergeUtil.Result result, List oriMsgList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{this$0, Long.valueOf(j), result, oriMsgList}) == null) {
+                Intrinsics.checkNotNullParameter(this$0, "this$0");
+                Intrinsics.checkNotNullParameter(result, "$result");
+                Intrinsics.checkNotNullParameter(oriMsgList, "$oriMsgList");
+                this$0.a = MsgContentMergeUtil.a.a(j, result, oriMsgList);
+            }
+        }
+
+        @Override // com.baidu.tieba.nn5
+        public void onSuccess(Map<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> emojiItemMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emojiItemMap) == null) {
+                Intrinsics.checkNotNullParameter(emojiItemMap, "emojiItemMap");
+                Map c = this.a.c(emojiItemMap);
+                ArrayList arrayList = new ArrayList(c.size());
+                for (Iterator it = c.entrySet().iterator(); it.hasNext(); it = it) {
+                    Map.Entry entry = (Map.Entry) it.next();
+                    arrayList.add(Boolean.valueOf(((ArrayList) entry.getValue()).add(new EmojiData("", ((Number) entry.getKey()).longValue(), "", 0, 0L, Boolean.TRUE, 0))));
+                }
+                final MsgContentMergeUtil.Result result = new MsgContentMergeUtil.Result(null, null, c);
+                final ul8 ul8Var = this.a;
+                final long j = this.b;
+                final List<ChatMsg> list = this.c;
+                lg.e(new Runnable() { // from class: com.baidu.tieba.ol8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ul8.a.b(ul8.this, j, result, list);
+                        }
                     }
-                    if (this.b == 0) {
-                        i = 5;
-                    } else {
-                        i = 4;
-                    }
-                    b bVar = this.c;
-                    bVar.c.l(bVar.a, i, bVar.b);
-                    b bVar2 = this.c;
-                    bVar2.c.k(bVar2.a, i, bVar2.b);
-                }
-            }
-        }
-
-        public b(ul8 ul8Var, BaseMsg baseMsg, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul8Var, baseMsg, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ul8Var;
-            this.a = baseMsg;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.lp5
-        public void onSendMessageResult(int i, @Nullable ChatMsg chatMsg) {
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, chatMsg) == null) {
-                a aVar = new a(this, chatMsg, i);
-                if (s05.e()) {
-                    j = this.c.b;
-                } else {
-                    j = 0;
-                }
-                dh.h(aVar, j);
+                });
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseMsg a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ul8 c;
-
-        public a(ul8 ul8Var, BaseMsg baseMsg, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul8Var, baseMsg, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ul8Var;
-            this.a = baseMsg;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.h(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseMsg a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ul8 d;
-
-        public c(ul8 ul8Var, BaseMsg baseMsg, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul8Var, baseMsg, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ul8Var;
-            this.a = baseMsg;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                py5.c(this.d.a, "必须要绑定数据适配器");
-                this.a.setItemStatus(this.b);
-                this.d.a.notifyItemChanged(this.c, 0);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseMsg a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ul8 c;
-
-        @Override // com.baidu.tieba.ul8.e
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            }
-        }
-
-        public d(ul8 ul8Var, BaseMsg baseMsg, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul8Var, baseMsg, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ul8Var;
-            this.a = baseMsg;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.ul8.e
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.g(this.a, this.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.ul8.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            this.c.l(this.a, 2, this.b);
-        }
-    }
-
-    public ul8() {
+    public ul8(TbPageContext<BaseFragmentActivity> pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        this.b = pageContext;
+        this.c = new ArrayList(10);
     }
 
-    public final void l(@NonNull Msg msg, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, msg, i, i2) == null) {
-            dh.c(new c(this, msg, i, i2));
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.an5 */
     /* JADX WARN: Multi-variable type inference failed */
-    public void f(@Nullable BaseChatAdapter baseChatAdapter) {
+    @Override // com.baidu.tieba.a95
+    public void a(Object... args) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, baseChatAdapter) == null) {
-            this.a = baseChatAdapter;
-        }
-    }
-
-    public final void g(@NonNull Msg msg, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msg, i) == null) {
-            dh.e(new a(this, msg, i));
-        }
-    }
-
-    public final void n(@NonNull Msg msg, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, msg, i) == null) {
-            i(msg, new d(this, msg, i));
-        }
-    }
-
-    @WorkerThread
-    public final void h(@NonNull Msg msg, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, msg, i) == null) {
-            l(msg, 3, i);
-            CommonMsgField commonMsgField = msg.getCommonMsgField();
-            msg.clearSdkMsgRedundancyFields();
-            to5.b().n(this.a.getContext(), commonMsgField.getRoomId(), msg.getSdkMsg(), new b(this, msg, i));
-        }
-    }
-
-    public void m(@NonNull Msg msg, int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, msg, i) == null) {
-            py5.c(this.a, "必须要绑定数据适配器");
-            int itemStatus = msg.getItemStatus();
-            if (itemStatus != 0 && itemStatus != 2) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, args) == null) {
+            Intrinsics.checkNotNullParameter(args, "args");
+            Object obj = args[0];
+            if (obj != null) {
+                long longValue = ((Long) obj).longValue();
+                Object obj2 = args[1];
+                if (obj2 != null) {
+                    zm5.b().i(this.b.getPageActivity(), longValue, this.c, new a(this, longValue, (List) obj2));
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.List<com.baidu.android.imsdk.chatmessage.messages.ChatMsg>");
             }
-            if (j(msg) && z) {
-                l(msg, 1, i);
-                n(msg, i);
-            } else if (itemStatus == 0 || itemStatus == 4) {
-                g(msg, i);
-            }
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
         }
+    }
+
+    public final Map<Long, ArrayList<EmojiData>> c(Map<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            HashMap hashMap = new HashMap();
+            Iterator<Map.Entry<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>>> it = map.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> next = it.next();
+                long longValue = next.getKey().longValue();
+                ArrayList arrayList = new ArrayList();
+                Iterator<IMEmojiReplyListListener.IMEmojiItem> it2 = next.getValue().iterator();
+                while (it2.hasNext()) {
+                    IMEmojiReplyListListener.IMEmojiItem next2 = it2.next();
+                    String str = next2.emojiContent;
+                    Intrinsics.checkNotNullExpressionValue(str, "item.emojiContent");
+                    long j = next2.msgId;
+                    String str2 = next2.msgKey;
+                    Intrinsics.checkNotNullExpressionValue(str2, "item.msgKey");
+                    arrayList.add(new EmojiData(str, j, str2, next2.allNum, next2.minSortTimeUs, Boolean.FALSE, Integer.valueOf(next2.hasReacted)));
+                    it = it;
+                }
+                hashMap.put(Long.valueOf(longValue), arrayList);
+                it = it;
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.android.imsdk.chatmessage.messages.ChatMsg>, java.util.List<com.baidu.android.imsdk.chatmessage.messages.ChatMsg> */
+    public final List<ChatMsg> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
     }
 }

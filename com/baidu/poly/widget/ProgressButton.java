@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh1;
+import com.baidu.tieba.eg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -95,10 +95,10 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             this.e = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d018e, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09247e);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4f);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bh1.ProgressButton);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0191, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092496);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d65);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, eg1.ProgressButton);
             this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
             obtainStyledAttributes.recycle();
         }
@@ -108,7 +108,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f0100b2);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f0100b4);
             this.c = loadAnimation;
             this.b.startAnimation(loadAnimation);
             this.a.setVisibility(4);

@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class a67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n97 a;
+    public Map<String, ? extends y97> a;
+    public final l57 b;
+    public final s67 c;
+    public Map<String, String> d;
+    public boolean e;
 
-    public a67(n97 data) {
+    public a67() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +32,78 @@ public final class a67 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        this.a = new HashMap();
+        this.b = new l57();
+        this.c = new s67();
+        this.d = new HashMap();
     }
 
-    public final n97 a() {
+    public final l57 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (l57) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final s67 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (s67) invokeV.objValue;
+    }
+
+    public final Map<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.y97>, java.util.Map<java.lang.String, com.baidu.tieba.y97> */
+    public final Map<String, y97> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return (n97) invokeV.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public final void g(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.d = map;
+        }
+    }
+
+    public final void h(Map<String, ? extends y97> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
+        }
     }
 }

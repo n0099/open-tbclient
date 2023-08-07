@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.async.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t68;
+import com.baidu.tieba.m48;
 /* loaded from: classes4.dex */
 public class InitPersonalizePageDataTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -18,7 +18,7 @@ public class InitPersonalizePageDataTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            t68.c().g();
+            m48.c().g();
         }
     }
 }

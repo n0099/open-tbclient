@@ -5,12 +5,12 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb5;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.r95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,50 +92,46 @@ public class BreatheTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new TextView(context);
             this.b = new TextView(context);
-            int g = yi.g(context, R.dimen.M_W_X007);
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.M_W_X007);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 1;
-            layoutParams.leftMargin = g;
-            layoutParams.rightMargin = g;
+            layoutParams.leftMargin = dimens;
+            layoutParams.rightMargin = dimens;
             this.a.setMaxLines(1);
             addView(this.a, layoutParams);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 1;
-            layoutParams2.leftMargin = g;
-            layoutParams2.rightMargin = g;
+            layoutParams2.leftMargin = dimens;
+            layoutParams2.rightMargin = dimens;
             addView(this.b, layoutParams2);
-            d85 d = d85.d(this.a);
-            d.C(R.dimen.T_X08);
-            d.D(R.string.F_X02);
-            d85 d2 = d85.d(this.b);
-            d2.C(R.dimen.T_X09);
-            d2.D(R.string.F_X01);
+            EMManager.from(this.a).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X02);
+            EMManager.from(this.b).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
         }
     }
 
-    public void setData(bb5 bb5Var) {
+    public void setData(r95 r95Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bb5Var) != null) || bb5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r95Var) != null) || r95Var == null) {
             return;
         }
-        int i = bb5Var.g;
+        int i = r95Var.g;
         int i2 = -2;
         if (i < 0) {
             i = -2;
         }
-        int i3 = bb5Var.h;
+        int i3 = r95Var.h;
         if (i3 >= 0) {
             i2 = i3;
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i2);
-        layoutParams.setMargins(bb5Var.j, bb5Var.k, bb5Var.i, bb5Var.l);
+        layoutParams.setMargins(r95Var.j, r95Var.k, r95Var.i, r95Var.l);
         setLayoutParams(layoutParams);
-        this.a.setText(bb5Var.a);
-        SkinManager.setViewTextColor(this.a, bb5Var.c);
-        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = bb5Var.f;
-        this.b.setText(bb5Var.b);
-        SkinManager.setViewTextColor(this.b, bb5Var.d);
-        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = bb5Var.f + yi.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-        SkinManager.setBackgroundResource(this, bb5Var.e);
+        this.a.setText(r95Var.a);
+        SkinManager.setViewTextColor(this.a, r95Var.c);
+        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = r95Var.f;
+        this.b.setText(r95Var.b);
+        SkinManager.setViewTextColor(this.b, r95Var.d);
+        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = r95Var.f + BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+        SkinManager.setBackgroundResource(this, r95Var.e);
     }
 }

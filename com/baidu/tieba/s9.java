@@ -1,20 +1,41 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface s9 {
+public class s9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onDatabaseCreated(SQLiteDatabase sQLiteDatabase);
+    public s9(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
     }
 
-    boolean dropDatabase(Context context);
-
-    SQLiteDatabase getWritableDatabase();
-
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
-
-    void setOnCreateCallback(a aVar);
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
+    }
 }

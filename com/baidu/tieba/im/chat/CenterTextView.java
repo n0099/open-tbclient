@@ -81,7 +81,7 @@ public class CenterTextView extends AppCompatTextView {
         }
     }
 
-    public final void d() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
@@ -105,7 +105,7 @@ public class CenterTextView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            d();
+            e();
         }
     }
 }

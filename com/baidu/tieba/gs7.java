@@ -4,119 +4,254 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.fs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeColorInfo;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gs7 extends ln<mba, FrsLikeRecommendHolder> {
+public class gs7 implements bs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThemeColorInfo a;
+    public BdListView a;
+    public fs7.e b;
+    public Context c;
+    public List<eh7> d;
+    public fs7 e;
+    public final BaseAdapter f;
+    public AdapterView.OnItemClickListener g;
+
+    @Override // com.baidu.tieba.bs7
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mba a;
-        public final /* synthetic */ ViewGroup b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ gs7 d;
+        public final /* synthetic */ gs7 a;
 
-        public a(gs7 gs7Var, mba mbaVar, ViewGroup viewGroup, int i) {
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+        }
+
+        public a(gs7 gs7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gs7Var, mbaVar, viewGroup, Integer.valueOf(i)};
+                Object[] objArr = {gs7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = gs7Var;
-            this.a = mbaVar;
-            this.b = viewGroup;
-            this.c = i;
+            this.a = gs7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: a */
+        public eh7 getItem(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
-                this.d.getOnAdapterItemClickListener().b(view2, this.a, mba.e, this.b, this.c, view2.getId());
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (this.a.d == null) {
+                    return null;
+                }
+                return (eh7) this.a.d.get(i);
+            }
+            return (eh7) invokeI.objValue;
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.d == null) {
+                    return 0;
+                }
+                return this.a.d.size();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0940, (ViewGroup) null);
+                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
+                    fs7.f fVar = new fs7.f();
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092351);
+                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09234e);
+                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092350);
+                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09234f);
+                    view2.setTag(fVar);
+                }
+                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
+                fs7.f fVar2 = (fs7.f) view2.getTag();
+                eh7 item = getItem(i);
+                if (item == null) {
+                    return view2;
+                }
+                fVar2.a.setText(item.a);
+                if (item.c) {
+                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0302, 1);
+                    SkinManager.setImageResource(fVar2.b, R.drawable.chx_tips_list_ok);
+                    fVar2.b.setVisibility(0);
+                } else {
+                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0108, 1);
+                    fVar2.b.setVisibility(8);
+                }
+                if (i >= 0 && i == getCount() - 1) {
+                    fVar2.d.setVisibility(0);
+                    fVar2.c.setVisibility(8);
+                    SkinManager.setBackgroundColor(fVar2.d, R.color.CAM_X0204);
+                } else {
+                    fVar2.c.setVisibility(0);
+                    fVar2.d.setVisibility(8);
+                    SkinManager.setBackgroundColor(fVar2.c, R.color.CAM_X0204);
+                }
+                return view2;
+            }
+            return (View) invokeILL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gs7 a;
+
+        public b(gs7 gs7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gs7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gs7Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (this.a.e != null) {
+                    this.a.e.c();
+                }
+                if (this.a.f != null && this.a.b != null) {
+                    for (eh7 eh7Var : this.a.d) {
+                        if (eh7Var != null) {
+                            eh7Var.c = false;
+                        }
+                    }
+                    eh7 eh7Var2 = (eh7) this.a.f.getItem(i);
+                    if (eh7Var2 != null) {
+                        eh7Var2.c = true;
+                        this.a.b.a(eh7Var2.b);
+                    }
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gs7(@NonNull Context context) {
-        super(context, mba.e);
+    public gs7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f = new a(this);
+        this.g = new b(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln
-    /* renamed from: s */
-    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bs7
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d037d, viewGroup, false), this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (FrsLikeRecommendHolder) invokeL.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void u(ThemeColorInfo themeColorInfo) {
+    @Override // com.baidu.tieba.bs7
+    public void setData(List<eh7> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, themeColorInfo) == null) {
-            this.a = themeColorInfo;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.d = list;
+            this.f.notifyDataSetChanged();
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ln
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mba mbaVar, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        t(i, view2, viewGroup, mbaVar, frsLikeRecommendHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, mba mbaVar, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.bs7
+    public void a(Context context, fs7 fs7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mbaVar, frsLikeRecommendHolder})) == null) {
-            if (mbaVar != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.b(mbaVar);
-                frsLikeRecommendHolder.d(new a(this, mbaVar, viewGroup, i));
-                frsLikeRecommendHolder.c();
-            }
-            return view2;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, fs7Var) == null) && context != null && fs7Var != null) {
+            this.c = context;
+            this.e = fs7Var;
+            this.b = fs7Var.d();
+            g();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BdListView bdListView = new BdListView(this.c);
+            this.a = bdListView;
+            bdListView.setAlwaysDrawnWithCacheEnabled(false);
+            this.a.setDivider(null);
+            this.a.setDividerHeight(0);
+            this.a.setSelector(17170445);
+            this.a.setCacheColorHint(this.c.getResources().getColor(17170445));
+            this.a.setOnItemClickListener(this.g);
+            this.a.setAdapter((ListAdapter) this.f);
+        }
     }
 }

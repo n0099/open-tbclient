@@ -1,233 +1,343 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbCornersImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nj8 implements oj8 {
+public abstract class nj8<Adapter extends BaseChatAdapter, Msg extends BaseMsg> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int n;
-    public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public FrameLayout b;
-    public FrameLayout c;
-    public HeadImageView d;
-    public TbCornersImageView e;
-    public BarImageView f;
-    public RelativeLayout g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public LinearLayout k;
-    public TextView l;
-    public nj8 m;
+    public Adapter a;
+    public int b;
 
-    @Override // com.baidu.tieba.oj8
-    public void a(@NonNull jk8 jk8Var) {
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a();
+
+        void b();
+
+        void c(int i);
+    }
+
+    public void i(@NonNull Msg msg, @NonNull e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jk8Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, msg, eVar) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948004493, "Lcom/baidu/tieba/nj8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public abstract boolean j(@NonNull Msg msg);
+
+    public abstract void k(BaseMsg baseMsg, int i, int i2);
+
+    /* loaded from: classes7.dex */
+    public class b implements rn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ nj8 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ChatMsg a;
+            public final /* synthetic */ int b;
+            public final /* synthetic */ b c;
+
+            public a(b bVar, ChatMsg chatMsg, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, chatMsg, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = chatMsg;
+                this.b = i;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948004493, "Lcom/baidu/tieba/nj8;");
-                return;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ChatMsg chatMsg = this.a;
+                    if (chatMsg != null) {
+                        this.c.a.setSdkMsg(chatMsg);
+                        this.c.a.syncServerMsgId(this.a);
+                    }
+                    if (this.b == 0) {
+                        i = 5;
+                    } else {
+                        i = 4;
+                    }
+                    b bVar = this.c;
+                    bVar.c.l(bVar.a, i, bVar.b);
+                    b bVar2 = this.c;
+                    bVar2.c.k(bVar2.a, i, bVar2.b);
+                }
             }
         }
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds4);
-        o = yi.g(TbadkApplication.getInst(), R.dimen.tbds450);
+
+        public b(nj8 nj8Var, BaseMsg baseMsg, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj8Var, baseMsg, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nj8Var;
+            this.a = baseMsg;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.rn5
+        public void onSendMessageResult(int i, @Nullable ChatMsg chatMsg) {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, chatMsg) == null) {
+                a aVar = new a(this, chatMsg, i);
+                if (GlobalBuildConfig.isDebug()) {
+                    j = this.c.b;
+                } else {
+                    j = 0;
+                }
+                lg.h(aVar, j);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ nj8 c;
+
+        public a(nj8 nj8Var, BaseMsg baseMsg, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj8Var, baseMsg, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nj8Var;
+            this.a = baseMsg;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.h(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ nj8 d;
+
+        public c(nj8 nj8Var, BaseMsg baseMsg, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj8Var, baseMsg, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = nj8Var;
+            this.a = baseMsg;
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cw5.c(this.d.a, "必须要绑定数据适配器");
+                this.a.setItemStatus(this.b);
+                this.d.a.notifyItemChanged(this.c, 0);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ nj8 c;
+
+        @Override // com.baidu.tieba.nj8.e
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        public d(nj8 nj8Var, BaseMsg baseMsg, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nj8Var, baseMsg, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nj8Var;
+            this.a = baseMsg;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.nj8.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.g(this.a, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.nj8.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.c.l(this.a, 2, this.b);
+        }
     }
 
     public nj8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.oj8
-    public HeadImageView b() {
-        InterceptResult invokeV;
+    public final void l(@NonNull Msg msg, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m.d;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, msg, i, i2) == null) {
+            lg.c(new c(this, msg, i, i2));
         }
-        return (HeadImageView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oj8
-    public TextView c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void f(@Nullable BaseChatAdapter baseChatAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.m.l;
+        if (interceptable == null || interceptable.invokeL(1048576, this, baseChatAdapter) == null) {
+            this.a = baseChatAdapter;
         }
-        return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oj8
-    public TextView d() {
-        InterceptResult invokeV;
+    public final void g(@NonNull Msg msg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m.i;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msg, i) == null) {
+            lg.e(new a(this, msg, i));
         }
-        return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oj8
-    public TextView e() {
-        InterceptResult invokeV;
+    public final void n(@NonNull Msg msg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m.j;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, msg, i) == null) {
+            i(msg, new d(this, msg, i));
         }
-        return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oj8
-    public TextView f() {
-        InterceptResult invokeV;
+    @WorkerThread
+    public final void h(@NonNull Msg msg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m.h;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, msg, i) == null) {
+            l(msg, 3, i);
+            CommonMsgField commonMsgField = msg.getCommonMsgField();
+            msg.clearSdkMsgRedundancyFields();
+            zm5.b().n(this.a.getContext(), commonMsgField.getRoomId(), msg.getSdkMsg(), new b(this, msg, i));
         }
-        return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oj8
-    public FrameLayout g() {
-        InterceptResult invokeV;
+    public void m(@NonNull Msg msg, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.m.c;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oj8
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return o;
-        }
-        return invokeV.intValue;
-    }
-
-    public static nj8 k(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            nj8 nj8Var = new nj8();
-            nj8Var.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e86);
-            nj8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e82);
-            nj8Var.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ea7);
-            nj8Var.d = (HeadImageView) view2.findViewById(R.id.chat_head);
-            nj8Var.e = (TbCornersImageView) view2.findViewById(R.id.svg_head);
-            nj8Var.f = (BarImageView) view2.findViewById(R.id.forum_head);
-            nj8Var.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e73);
-            nj8Var.h = (TextView) view2.findViewById(R.id.chat_name);
-            nj8Var.i = (TextView) view2.findViewById(R.id.last_chat_content);
-            nj8Var.j = (TextView) view2.findViewById(R.id.new_message);
-            nj8Var.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e75);
-            nj8Var.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ab);
-            nj8Var.m = nj8Var;
-            return nj8Var;
-        }
-        return (nj8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oj8
-    public void h(@NonNull jk8 jk8Var) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jk8Var) == null) {
-            d85 d = d85.d(this.m.h);
-            d.C(R.dimen.T_X07);
-            d.D(R.string.F_X01);
-            d.x(R.color.CAM_X0105);
-            if (jk8Var.a() != null && jk8Var.a().isLocationScrolled()) {
-                i = R.color.CAM_X0313;
-                i2 = R.string.A_X03;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, msg, i) == null) {
+            cw5.c(this.a, "必须要绑定数据适配器");
+            int itemStatus = msg.getItemStatus();
+            if (itemStatus != 0 && itemStatus != 2) {
+                z = false;
             } else {
-                i = R.color.CAM_X0201;
-                i2 = R.string.A_X06;
+                z = true;
             }
-            d85 d2 = d85.d(this.m.a);
-            d2.o(R.string.J_X06);
-            d2.e(i2);
-            d2.f(i);
-            d85 d3 = d85.d(this.m.j);
-            d3.C(R.dimen.T_X10);
-            d3.D(R.string.F_X01);
-            d3.x(R.color.CAM_X0108);
-            d85 d4 = d85.d(this.m.i);
-            d4.x(R.color.CAM_X0108);
-            d4.C(R.dimen.T_X08);
-            this.m.d.setBorderWidth(n);
-            this.m.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.m.d.setIsRound(true);
-            this.m.d.setDrawBorder(true);
-            this.m.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.m.d.setPlaceHolder(1);
-            this.m.d.setDrawBorder(true);
-            d85 d5 = d85.d(this.m.l);
-            d5.C(R.dimen.T_X08);
-            d5.D(R.string.F_X01);
-            d5.x(R.color.CAM_X0301);
-        }
-    }
-
-    @Override // com.baidu.tieba.oj8
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.m.i.setMaxLines(1);
-            this.m.i.setEllipsize(TextUtils.TruncateAt.END);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(3, R.id.chat_name);
-            layoutParams.topMargin = yi.g(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.bottomMargin = yi.g(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.rightMargin = yi.g(TbadkApplication.getInst(), R.dimen.tbds162);
-            this.m.k.setLayoutParams(layoutParams);
+            if (j(msg) && z) {
+                l(msg, 1, i);
+                n(msg, i);
+            } else if (itemStatus == 0 || itemStatus == 4) {
+                g(msg, i);
+            }
         }
     }
 }

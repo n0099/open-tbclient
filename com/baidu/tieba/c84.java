@@ -1,69 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.console.DebugConsole;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.o74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+@Service
 /* loaded from: classes5.dex */
-public class c84 implements DebugConsole {
+public class c84 implements gs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628618, "Lcom/baidu/tieba/c84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947628618, "Lcom/baidu/tieba/c84;");
-                return;
-            }
-        }
-        b = fs1.a;
-    }
 
     public c84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
-    public void onReceiveInfo(int i, String str) {
+    @Override // com.baidu.tieba.gs1
+    public File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, str) != null) || !b || sc4.d()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return o74.d();
         }
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
-                    return;
-                }
-                return;
-            }
-            this.a = System.currentTimeMillis();
-            Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
-            return;
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gs1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return o74.d.g().getPath();
         }
-        Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gs1
+    public File a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return o74.d.h(str, str2);
+        }
+        return (File) invokeLL.objValue;
     }
 }

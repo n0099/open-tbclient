@@ -1,190 +1,200 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.collection.SimpleArrayMap;
-import androidx.core.util.Pools;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.LiveFontSizeService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes5.dex */
-public final class bd0<T> {
+public final class bd0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final LiveFontSizeService a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Pools.Pool<ArrayList<T>> a;
-    public final SimpleArrayMap<T, ArrayList<T>> b;
-    public final ArrayList<T> c;
-    public final HashSet<T> d;
 
-    public bd0() {
+    @JvmStatic
+    @JvmOverloads
+    public static final int c(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) ? e(f, 0, 0, 6, null) : invokeF.intValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void f(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            j(view2, f, f2, 0, 0, 12, null);
+        }
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void h(TextView textView, int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{textView, Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            k(textView, i, f, 0, 0, 12, null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947640987, "Lcom/baidu/tieba/bd0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947640987, "Lcom/baidu/tieba/bd0;");
                 return;
             }
         }
-        this.a = new Pools.SimplePool(10);
-        this.b = new SimpleArrayMap<>();
-        this.c = new ArrayList<>();
-        this.d = new HashSet<>();
+        a = (LiveFontSizeService) ServiceManager.getService(LiveFontSizeService.Companion.getSERVICE_REFERENCE());
     }
 
-    @NonNull
-    public ArrayList<T> i() {
-        InterceptResult invokeV;
+    @JvmStatic
+    @JvmOverloads
+    public static final Drawable a(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
+        Drawable scaledDrawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.c.clear();
-            this.d.clear();
-            int size = this.b.size();
-            for (int i = 0; i < size; i++) {
-                e(this.b.keyAt(i), this.c, this.d);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, drawable, i, i2)) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService != null && (scaledDrawable = liveFontSizeService.getScaledDrawable(drawable, i, i2)) != null) {
+                return scaledDrawable;
             }
-            return this.c;
+            return drawable;
         }
-        return (ArrayList) invokeV.objValue;
+        return (Drawable) invokeLII.objValue;
     }
 
-    public void a(@NonNull T t, @NonNull T t2) {
+    public static /* synthetic */ Drawable b(Drawable drawable, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        return a(drawable, i, i2);
+    }
+
+    public static /* synthetic */ int e(float f, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        return d(f, i, i2);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int d(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) && this.b.containsKey(t) && this.b.containsKey(t2)) {
-            ArrayList<T> arrayList = this.b.get(t);
-            if (arrayList == null) {
-                arrayList = f();
-                this.b.put(t, arrayList);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService != null) {
+                return liveFontSizeService.getScaledSize(f, i, i2);
             }
-            arrayList.add(t2);
+            return (int) f;
         }
+        return invokeCommon.intValue;
     }
 
-    public void b(@NonNull T t) {
+    @JvmStatic
+    @JvmOverloads
+    public static final void g(View view2, float f, float f2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && !this.b.containsKey(t)) {
-            this.b.put(t, null);
-        }
-    }
-
-    public boolean d(@NonNull T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-            return this.b.containsKey(t);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public List g(@NonNull T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
-            return this.b.get(t);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean j(@NonNull T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
-            int size = this.b.size();
-            for (int i = 0; i < size; i++) {
-                ArrayList<T> valueAt = this.b.valueAt(i);
-                if (valueAt != null && valueAt.contains(t)) {
-                    return true;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams((int) f, (int) f2));
+                    return;
                 }
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                layoutParams.width = (int) f;
+                layoutParams.height = (int) f2;
+                view2.setLayoutParams(layoutParams);
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void k(@NonNull ArrayList<T> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
-            arrayList.clear();
-            this.a.release(arrayList);
+            liveFontSizeService.setScaledSize(view2, f, f2, i, i2);
         }
     }
 
-    public void c() {
+    @JvmStatic
+    @JvmOverloads
+    public static final void i(TextView textView, int i, float f, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int size = this.b.size();
-            for (int i = 0; i < size; i++) {
-                ArrayList<T> valueAt = this.b.valueAt(i);
-                if (valueAt != null) {
-                    k(valueAt);
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{textView, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                textView.setTextSize(i, f);
+            } else {
+                liveFontSizeService.setScaledSize(textView, i, f, i2, i3);
+            }
+        }
+    }
+
+    public static /* synthetic */ void j(View view2, float f, float f2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 4) != 0) {
+            i = 0;
+        }
+        if ((i3 & 8) != 0) {
+            i2 = 2;
+        }
+        g(view2, f, f2, i, i2);
+    }
+
+    public static /* synthetic */ void k(TextView textView, int i, float f, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 4) != 0) {
+            i2 = 0;
+        }
+        if ((i4 & 8) != 0) {
+            i3 = 2;
+        }
+        i(textView, i, f, i2, i3);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void l(View view2, float f, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{view2, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams((int) f, -2));
+                    return;
                 }
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                layoutParams.width = (int) f;
+                view2.setLayoutParams(layoutParams);
+                return;
             }
-            this.b.clear();
+            liveFontSizeService.setScaledWidth(view2, f, i, i2);
         }
     }
 
-    @NonNull
-    public final ArrayList<T> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<T> acquire = this.a.acquire();
-            if (acquire == null) {
-                return new ArrayList<>();
-            }
-            return acquire;
+    public static /* synthetic */ void m(View view2, float f, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final void e(T t, ArrayList<T> arrayList, HashSet<T> hashSet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048580, this, t, arrayList, hashSet) != null) || arrayList.contains(t) || hashSet.contains(t)) {
-            return;
+        if ((i3 & 4) != 0) {
+            i2 = 2;
         }
-        hashSet.add(t);
-        ArrayList<T> arrayList2 = this.b.get(t);
-        if (arrayList2 != null) {
-            int size = arrayList2.size();
-            for (int i = 0; i < size; i++) {
-                e(arrayList2.get(i), arrayList, hashSet);
-            }
-        }
-        hashSet.remove(t);
-        arrayList.add(t);
-    }
-
-    @Nullable
-    public List<T> h(@NonNull T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
-            int size = this.b.size();
-            ArrayList arrayList = null;
-            for (int i = 0; i < size; i++) {
-                ArrayList<T> valueAt = this.b.valueAt(i);
-                if (valueAt != null && valueAt.contains(t)) {
-                    if (arrayList == null) {
-                        arrayList = new ArrayList();
-                    }
-                    arrayList.add(this.b.keyAt(i));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        l(view2, f, i, i2);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
@@ -10,7 +11,6 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,7 +49,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            yi.R(context, antiData.getForbid_info());
+            BdUtilHelper.showToast(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

@@ -1,44 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActivityPage.DataRes;
-import tbclient.ActivityPage.HotTopic;
-import tbclient.ActivityPage.RecommendForumList;
-import tbclient.ActivityPage.RecommendUserList;
-import tbclient.ActivityPage.SpecialColumnList;
-import tbclient.BannerImage;
-import tbclient.Page;
-import tbclient.ThreadInfo;
+import java.net.URLEncoder;
 /* loaded from: classes7.dex */
 public class o88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public ArrayList<ThreadData> c;
-    public h25 d;
-    public h35 e;
-    public k45 f;
-    public o45 g;
-    public p88 h;
-    public SpecialColumnListData i;
+    public BaseActivity<?> a;
+    public SparseArray<String> b;
 
-    public o88() {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ o88 b;
+
+        public a(o88 o88Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o88Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = o88Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                AndroidUtils.copyToClipboard(this.a.linkUrl);
+                BdUtilHelper.showToast(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    public o88(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,155 +80,86 @@ public class o88 {
                 return;
             }
         }
-        this.a = true;
-        this.b = 1;
+        this.b = null;
+        this.a = baseActivity;
     }
 
-    public h25 a() {
-        InterceptResult invokeV;
+    public final void b(ShareItem shareItem, String str, long j, String str2) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
+                if (str.length() > 20) {
+                    sb.append(str.substring(0, 20));
+                    sb.append("...");
+                } else {
+                    sb.append(str);
+                }
+                sb.append(StringUtils.lineSeparator);
+            }
+            if (j > 0) {
+                sb.append(this.a.getActivity().getString(R.string.topic_temperature));
+                sb.append(StringHelper.numFormatOver10000(j));
+            }
+            shareItem.shareH5CardOptimizeContent = sb.toString();
+            if (StringUtils.isNull(str2)) {
+                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+            } else {
+                parse = Uri.parse(str2);
+            }
+            shareItem.shareH5CardOptimizeImageUri = parse;
         }
-        return (h25) invokeV.objValue;
     }
 
-    public int b() {
+    public final SparseArray<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                SparseArray<String> sparseArray = new SparseArray<>(8);
+                this.b = sparseArray;
+                sparseArray.put(2, "topic_wx_timeline");
+                this.b.put(3, "topic_wx_friend");
+                this.b.put(4, "topic_qq_zone");
+                this.b.put(5, "topic_tencent_weibo");
+                this.b.put(6, "topic_sina_weibo");
+            }
             return this.b;
         }
-        return invokeV.intValue;
+        return (SparseArray) invokeV.objValue;
     }
 
-    public h35 c() {
-        InterceptResult invokeV;
+    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (h35) invokeV.objValue;
-    }
-
-    public p88 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (p88) invokeV.objValue;
-    }
-
-    public k45 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (k45) invokeV.objValue;
-    }
-
-    public o45 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (o45) invokeV.objValue;
-    }
-
-    public SpecialColumnListData g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (SpecialColumnListData) invokeV.objValue;
-    }
-
-    public ArrayList<ThreadData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        Page page = dataRes.page_info;
-        if (page != null) {
-            this.b = page.current_page.intValue();
-            boolean z = true;
-            if (page.has_more.intValue() != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (TextUtils.isEmpty(str) && z) {
+                BaseActivity<?> baseActivity = this.a;
+                baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
+                return;
             }
-            this.a = z;
-        }
-        this.c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
-        for (ThreadInfo threadInfo : dataRes.thread_list) {
-            ThreadData threadData = new ThreadData();
-            threadData.parserProtobuf(threadInfo);
-            threadData.insertItemToTitleOrAbstractText();
-            this.c.add(threadData);
-        }
-        List<BannerImage> list = dataRes.banner_image;
-        if (!ListUtils.isEmpty(list)) {
-            h25 h25Var = new h25();
-            this.d = h25Var;
-            h25Var.parserProtobuf(list);
-        }
-        List<BannerImage> list2 = dataRes.grid;
-        if (ListUtils.getCount(list2) >= 4) {
-            h35 h35Var = new h35();
-            this.e = h35Var;
-            h35Var.parserProtobuf(list2);
-        }
-        RecommendForumList recommendForumList = dataRes.recommend_forum;
-        if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
-            k45 k45Var = new k45();
-            this.f = k45Var;
-            k45Var.f(recommendForumList.forum_list);
-            k45 k45Var2 = this.f;
-            k45Var2.f = recommendForumList.class_name;
-            k45Var2.floorPosition = recommendForumList.floor_position.intValue();
-            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11de);
-            this.f.e = R.color.CAM_X0108;
-        }
-        RecommendUserList recommendUserList = dataRes.recommend_user;
-        if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
-            o45 o45Var = new o45();
-            this.g = o45Var;
-            o45Var.d(recommendUserList.user_list);
-            this.g.floorPosition = recommendUserList.floor_position.intValue();
-            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f5);
-            this.g.b = R.color.CAM_X0108;
-        }
-        HotTopic hotTopic = dataRes.hot_topic;
-        if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
-            p88 p88Var = new p88();
-            this.h = p88Var;
-            p88Var.e(hotTopic);
-        }
-        SpecialColumnList specialColumnList = dataRes.special_column;
-        if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
-            SpecialColumnListData specialColumnListData = new SpecialColumnListData();
-            this.i = specialColumnListData;
-            specialColumnListData.parserProtobuf(specialColumnList);
+            if (StringUtils.isNull(str3)) {
+                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
+            }
+            if (StringUtils.isNull(str4)) {
+                parse = null;
+            } else {
+                parse = Uri.parse(str4);
+            }
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = str2;
+            shareItem.content = str5;
+            shareItem.linkUrl = str3;
+            shareItem.isFromShareFrs = true;
+            shareItem.extData = str;
+            shareItem.imageUri = parse;
+            shareItem.isFromTopicDetail = true;
+            b(shareItem, str5, j, str6);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setIsCopyLink(true);
+            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

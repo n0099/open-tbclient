@@ -1,174 +1,44 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.media.MediaMetadataRetriever;
-import android.media.ThumbnailUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.faceunity.encoder.MediaCodecHelper;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class ksa {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ksa b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b> a;
+    public jsa a;
+    public final BdPageContext b;
+    public final an c;
+    public Runnable d;
+    public boolean e;
+    public Runnable f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ksa a;
 
-    /* loaded from: classes6.dex */
-    public static class b extends MediaMetadataRetriever implements Closeable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile boolean a;
-        public String b;
-        public boolean c;
-        public volatile boolean d;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ tsa a;
-            public final /* synthetic */ ssa b;
-            public final /* synthetic */ b c;
-
-            public a(b bVar, tsa tsaVar, ssa ssaVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, tsaVar, ssaVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = tsaVar;
-                this.b = ssaVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ArrayList<nsa> arrayList = new ArrayList();
-                    ArrayList<nsa> arrayList2 = new ArrayList();
-                    ArrayList arrayList3 = new ArrayList();
-                    for (nsa nsaVar : this.a.e) {
-                        int i = nsaVar.g;
-                        if (i == 0) {
-                            arrayList.add(nsaVar);
-                        } else if (i == 1) {
-                            arrayList2.add(nsaVar);
-                        }
-                    }
-                    if (!kab.e(arrayList)) {
-                        for (nsa nsaVar2 : arrayList) {
-                            Bitmap d = osa.f().d(nsaVar2.a);
-                            if (d == null || d.isRecycled()) {
-                                d = gab.e(nsaVar2.b, nsaVar2.h, nsaVar2.i, nsaVar2.c);
-                                osa.f().g().b(nsaVar2.a, d);
-                                osa.f().e().c(nsaVar2.a, d);
-                            }
-                            nsaVar2.e = d;
-                            nsaVar2.a();
-                        }
-                    }
-                    if (!kab.e(arrayList2)) {
-                        for (nsa nsaVar3 : arrayList2) {
-                            Bitmap d2 = osa.f().d(nsaVar3.a);
-                            if (d2 != null && !d2.isRecycled()) {
-                                nsaVar3.e = d2;
-                                nsaVar3.a();
-                            } else {
-                                arrayList3.add(nsaVar3);
-                            }
-                        }
-                    }
-                    if (!kab.e(arrayList3)) {
-                        this.a.e = arrayList3;
-                        if (!this.c.g()) {
-                            this.c.j(this.a);
-                        } else {
-                            this.c.i(this.a);
-                        }
-                        this.c.k(this.b);
-                        return;
-                    }
-                    this.c.k(this.b);
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ksa$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0371b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ssa a;
-            public final /* synthetic */ b b;
-
-            public RunnableC0371b(b bVar, ssa ssaVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, ssaVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = ssaVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                ssa ssaVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ssaVar = this.a) != null) {
-                    ssaVar.a(this.b);
-                }
-            }
-        }
-
-        public b() {
+        public a(ksa ksaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ksaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -178,378 +48,24 @@ public class ksa {
                     return;
                 }
             }
-            this.c = true;
+            this.a = ksaVar;
         }
 
-        @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
-        public void close() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                release();
-            }
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.c && !zab.a(this.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // android.media.MediaMetadataRetriever
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-                super.release();
-                this.a = true;
-                this.d = false;
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final void i(tsa tsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, tsaVar) == null) {
-                try {
-                    e(tsaVar.a, tsaVar.e, tsaVar.c, tsaVar.d, tsaVar.b);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    j(tsaVar);
-                }
-            }
-        }
-
-        public final void k(ssa ssaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ssaVar) == null) {
-                this.d = false;
-                xab.a().post(new RunnableC0371b(this, ssaVar));
-            }
-        }
-
-        public void l(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-                this.d = z;
-            }
-        }
-
-        public void m(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                this.c = z;
-            }
-        }
-
-        @Override // android.media.MediaMetadataRetriever
-        public void setDataSource(String str) throws IllegalArgumentException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-                try {
-                    super.setDataSource(str);
-                    this.b = str;
-                } catch (Exception e) {
-                    fab.g(e);
-                }
-            }
-        }
-
-        public void h(tsa tsaVar, ssa ssaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, tsaVar, ssaVar) == null) {
-                if (tsaVar != null && !kab.e(tsaVar.e)) {
-                    this.d = true;
-                    ThreadPool.b().e(new a(this, tsaVar, ssaVar));
-                    return;
-                }
-                k(ssaVar);
-            }
-        }
-
-        public final void d(MediaExtractor mediaExtractor, int i, MediaCodec mediaCodec, BaseOutputSurface baseOutputSurface, List<nsa> list) throws IOException {
-            String str;
-            int i2;
-            long j;
-            int i3;
-            boolean z;
-            boolean z2;
-            int dequeueInputBuffer;
-            long j2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaExtractor, Integer.valueOf(i), mediaCodec, baseOutputSurface, list}) == null) {
-                ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                long j3 = 0;
-                int i4 = 0;
-                if (kab.b(list) == 1) {
-                    nsa nsaVar = (nsa) kab.c(list, 0);
-                    if (nsaVar != null) {
-                        j2 = nsaVar.d;
-                    } else {
-                        j2 = 0;
-                    }
-                    if (j2 <= 0) {
-                        j2 = 1;
-                    }
-                    mediaExtractor.getSampleTime();
-                    mediaExtractor.seekTo(j2, 0);
-                    if (mediaExtractor.getSampleTime() > j2) {
-                        mediaExtractor.seekTo(0L, 2);
-                    }
-                }
-                int i5 = 0;
-                boolean z3 = false;
-                boolean z4 = false;
-                while (!z3 && !this.a) {
-                    if (z4 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
-                        str = "VideoFrameMetadataRetriever";
-                        i2 = i5;
-                        j = j3;
-                    } else {
-                        int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], i4);
-                        if (readSampleData < 0) {
-                            str = "VideoFrameMetadataRetriever";
-                            i2 = i5;
-                            j = j3;
-                            mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                            z4 = true;
-                        } else {
-                            str = "VideoFrameMetadataRetriever";
-                            i2 = i5;
-                            j = j3;
-                            if (mediaExtractor.getSampleTrackIndex() != i) {
-                                fab.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
-                            }
-                            mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                            mediaExtractor.advance();
-                        }
-                    }
-                    if (!z3) {
-                        int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
-                        if (dequeueOutputBuffer != -1 && dequeueOutputBuffer != -3) {
-                            if (dequeueOutputBuffer == -2) {
-                                mediaCodec.getOutputFormat();
-                            } else if (dequeueOutputBuffer < 0) {
-                                fab.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                            } else {
-                                if ((bufferInfo.flags & 4) != 0) {
-                                    z = true;
-                                } else {
-                                    z = z3;
-                                }
-                                if (bufferInfo.size != 0) {
-                                    z2 = true;
-                                } else {
-                                    z2 = false;
-                                }
-                                mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                if (z2) {
-                                    i3 = i2;
-                                    nsa nsaVar2 = (nsa) kab.c(list, i3);
-                                    baseOutputSurface.awaitNewImage();
-                                    baseOutputSurface.drawImage((int) (((float) bufferInfo.presentationTimeUs) / 1000.0f));
-                                    if (nsaVar2 != null) {
-                                        long j4 = nsaVar2.d;
-                                        if (j4 <= j) {
-                                            j4 = 1;
-                                        } else if (i3 == list.size() - 1) {
-                                            j4 -= 800000;
-                                        }
-                                        if (bufferInfo.presentationTimeUs >= j4) {
-                                            nsaVar2.e = baseOutputSurface.getFrameBitmap();
-                                            osa.f().g().b(nsaVar2.a, nsaVar2.e);
-                                            nsaVar2.a();
-                                            osa.f().e().c(nsaVar2.a, nsaVar2.e);
-                                            if (i3 == list.size() - 1) {
-                                                z = true;
-                                            }
-                                            i5 = i3 + 1;
-                                            z3 = z;
-                                            j3 = j;
-                                            i4 = 0;
-                                        }
-                                    }
-                                } else {
-                                    i3 = i2;
-                                }
-                                z3 = z;
-                            }
-                        }
-                        i5 = i2;
-                        j3 = j;
-                        i4 = 0;
-                    } else {
-                        i3 = i2;
-                    }
-                    i5 = i3;
-                    j3 = j;
-                    i4 = 0;
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:58:0x00df  */
-        /* JADX WARN: Removed duplicated region for block: B:60:0x00e4  */
-        /* JADX WARN: Removed duplicated region for block: B:62:0x00ec  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final void e(String str, List<nsa> list, int i, int i2, float f) throws IOException {
-            MediaExtractor mediaExtractor;
-            MediaCodec mediaCodec;
-            File file;
-            int andSelectVideoTrackIndex;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, list, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-                isa isaVar = null;
-                try {
-                    file = new File(str);
-                } catch (Exception e) {
-                    e = e;
-                    mediaExtractor = null;
-                    mediaCodec = null;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaExtractor = null;
-                    mediaCodec = null;
-                }
-                if (file.canRead()) {
-                    mediaExtractor = new MediaExtractor();
-                    try {
-                        mediaExtractor.setDataSource(file.toString());
-                        andSelectVideoTrackIndex = MediaCodecHelper.getAndSelectVideoTrackIndex(mediaExtractor);
-                    } catch (Exception e2) {
-                        e = e2;
-                        mediaCodec = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        mediaCodec = null;
-                    }
-                    if (andSelectVideoTrackIndex >= 0) {
-                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(andSelectVideoTrackIndex);
-                        int integer = trackFormat.getInteger("width");
-                        int integer2 = trackFormat.getInteger("height");
-                        if (i == 0 || i2 == 0) {
-                            float f2 = f % 360.0f;
-                            if (f2 != 90.0f && f2 != 270.0f) {
-                                i = integer;
-                                i2 = integer2;
-                            }
-                            i2 = integer;
-                            i = integer2;
-                        }
-                        isa isaVar2 = new isa(i, i2, true, null);
-                        try {
-                            isaVar2.a(integer, integer2, f);
-                            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
-                        } catch (Exception e3) {
-                            e = e3;
-                            mediaCodec = null;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            mediaCodec = null;
-                        }
-                        try {
-                            mediaCodec.configure(trackFormat, isaVar2.getSurface(), (MediaCrypto) null, 0);
-                            mediaCodec.start();
-                            d(mediaExtractor, andSelectVideoTrackIndex, mediaCodec, isaVar2, list);
-                            isaVar2.release();
-                            if (mediaCodec != null) {
-                                mediaCodec.stop();
-                                mediaCodec.release();
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            isaVar = isaVar2;
-                            try {
-                                fab.g(e);
-                                if (isaVar != null) {
-                                    isaVar.release();
-                                }
-                                if (mediaCodec != null) {
-                                    mediaCodec.stop();
-                                    mediaCodec.release();
-                                }
-                                if (mediaExtractor == null) {
-                                    return;
-                                }
-                                mediaExtractor.release();
-                                return;
-                            } catch (Throwable th4) {
-                                th = th4;
-                                if (isaVar != null) {
-                                    isaVar.release();
-                                }
-                                if (mediaCodec != null) {
-                                    mediaCodec.stop();
-                                    mediaCodec.release();
-                                }
-                                if (mediaExtractor != null) {
-                                    mediaExtractor.release();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th5) {
-                            th = th5;
-                            isaVar = isaVar2;
-                            if (isaVar != null) {
-                            }
-                            if (mediaCodec != null) {
-                            }
-                            if (mediaExtractor != null) {
-                            }
-                            throw th;
-                        }
-                        mediaExtractor.release();
-                        return;
-                    }
-                    throw new RuntimeException("No video track found in " + file);
-                }
-                throw new FileNotFoundException("Unable to read " + file);
-            }
-        }
-
-        public final void j(tsa tsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, tsaVar) == null) {
-                try {
-                    for (nsa nsaVar : tsaVar.e) {
-                        Bitmap frameAtTime = getFrameAtTime(nsaVar.d, 2);
-                        if (frameAtTime != null) {
-                            if (tsaVar.c != 0 && tsaVar.d != 0) {
-                                nsaVar.e = ThumbnailUtils.extractThumbnail(frameAtTime, tsaVar.c, tsaVar.d, 2);
-                            }
-                            nsaVar.a();
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.d();
             }
         }
     }
 
-    public ksa() {
+    public ksa(BdPageContext bdPageContext, an anVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext, anVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -559,64 +75,123 @@ public class ksa {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new b(null));
-        this.a.add(new b(null));
+        this.f = new a(this);
+        this.b = bdPageContext;
+        this.c = anVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0020, code lost:
-        r2.l(true);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0024, code lost:
-        r0 = r2;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized b b() {
-        InterceptResult invokeV;
-        b bVar;
+    @NonNull
+    public final Rect b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                bVar = null;
-                Iterator<b> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            Rect rect = new Rect();
+            view2.getGlobalVisibleRect(rect);
+            return rect;
+        }
+        return (Rect) invokeL.objValue;
+    }
+
+    public final boolean c(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
+            float equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+            int i = (int) (0.0f * equipmentHeight);
+            int i2 = (int) (equipmentHeight * 0.66f);
+            if (rect.top >= i && rect.bottom <= i2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (view2.getTag(R.id.virtual_image_user_head) instanceof jsa)) {
+            ((jsa) view2.getTag(R.id.virtual_image_user_head)).e();
+            view2.setTag(R.id.virtual_image_user_head, null);
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.e) {
+            return;
+        }
+        if (this.d == null) {
+            this.d = new Runnable() { // from class: com.baidu.tieba.isa
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ksa.this.f();
                     }
-                    b next = it.next();
-                    if (next != null && !next.f()) {
-                        break;
+                }
+            };
+        }
+        SafeHandler.getInst().postDelayed(this.d, i);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != null) {
+            SafeHandler.getInst().removeCallbacks(this.d);
+        }
+    }
+
+    public final void f() {
+        an anVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null && (anVar = this.c) != null && anVar.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
+            Context context = this.c.getListView().getContext();
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (!activity.isFinishing() && !activity.isDestroyed()) {
+                    int childCount = this.c.getListView().getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        View childAt = this.c.getListView().getChildAt(i);
+                        if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof jsa)) {
+                            jsa jsaVar = (jsa) childAt.getTag(R.id.virtual_image_user_head);
+                            if (c(b(childAt))) {
+                                jsaVar.play();
+                            }
+                        }
                     }
                 }
             }
-            return bVar;
         }
-        return (b) invokeV.objValue;
     }
 
-    public static ksa a() {
-        InterceptResult invokeV;
+    public void g() {
+        an anVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ksa.class) {
-                    if (b == null) {
-                        b = new ksa();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && this.b != null && (anVar = this.c) != null && anVar.getListView() != null && this.c.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
+            int childCount = this.c.getListView().getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.c.getListView().getChildAt(i);
+                if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof jsa)) {
+                    jsa jsaVar = (jsa) childAt.getTag(R.id.virtual_image_user_head);
+                    this.a = jsaVar;
+                    if (jsaVar.c()) {
+                        this.a.b();
+                        SharedPrefHelper.getInstance().putBoolean("key_reaction_guide_show_number", true);
+                        SafeHandler.getInst().postDelayed(this.f, 4000L);
+                        return;
                     }
                 }
             }
-            return b;
-        }
-        return (ksa) invokeV.objValue;
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && bVar != null) {
-            bVar.l(false);
         }
     }
 }

@@ -1,45 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdSdkSwitch;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.FunnySpriteSwitch;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class j7a implements a7a {
+public class j7a implements f65 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7a a;
-    public final c7a b;
-    public hx4 c;
-    public ViewGroup d;
-    public boolean e;
-    public long f;
-    public boolean g;
-    public final Runnable h;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947837589, "Lcom/baidu/tieba/j7a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947837589, "Lcom/baidu/tieba/j7a;");
+        }
+    }
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7a a;
 
         public a(j7a j7aVar) {
             Interceptable interceptable = $ic;
@@ -53,168 +61,117 @@ public class j7a implements a7a {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = j7aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.e && this.a.d != null) {
-                SpeedStatsManager.getInstance().setIsTimeout(true);
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
-                if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
-                    return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !j7a.a) {
+                try {
+                    Class.forName("com.baidu.tieba.homepage.framework.RecommendFrsStatic");
+                } catch (Exception e) {
+                    BdLog.i(e.getMessage());
                 }
-                jfa.a("ThirdPartySplashController mTimeOutRunnable");
-                TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
-                if (this.a.a.h()) {
-                    i = 2;
-                } else {
-                    i = 1;
-                }
-                param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    Log.d("IAdSdkSplash", "兜底time out and jump maintab");
-                }
-                this.a.a.getRootView().removeView(this.a.d);
-                this.a.b.a();
-                BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", YYOption.IsLive.VALUE_TRUE);
+                DefaultLog.getInstance().i("SpriteTip", "展示动画时首次请求");
+                um5.i(1);
+                boolean unused = j7a.a = true;
             }
         }
     }
 
-    public j7a(b7a b7aVar, c7a c7aVar) {
+    public j7a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b7aVar, c7aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.f = -1L;
-        this.g = false;
-        this.h = new a(this);
-        this.a = b7aVar;
-        this.b = c7aVar;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.a7a
-    public void onConfigurationChanged(Configuration configuration) {
-        hx4 hx4Var;
-        fx4 fx4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) && (hx4Var = this.c) != null && (fx4Var = hx4Var.c) != null) {
-            fx4Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.a7a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j();
-            hx4 hx4Var = this.c;
-            if (hx4Var != null) {
-                hx4Var.f(null);
-                this.c.e(null);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.a7a
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f65
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l();
-            return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
-        return invokeV.booleanValue;
+        return (Map) invokeLLL.objValue;
     }
 
-    public long g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f65
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public ViewGroup h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            zg.a().postDelayed(this.h, 500L);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.g = true;
-            zg.a().removeCallbacks(this.h);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
-                this.b.a();
-            } else if (MessageManager.getInstance().findTask(2016555) == null) {
-                this.b.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                YunDialogLog.getInstance().e("SpriteStrategy", "未登录状态");
+                return false;
+            } else if (!FunnySpriteSwitch.isOn()) {
+                YunDialogLog.getInstance().e("SpriteStrategy", "精灵开关未打开");
+                return false;
             } else {
-                m();
+                Object obj = map.get("use_hot");
+                if (obj != null && "1".equals(obj.toString())) {
+                    Object obj2 = map.get("dialog_url");
+                    if (obj2 instanceof String) {
+                        String str = (String) obj2;
+                        if (!TextUtils.isEmpty(str) && !kx5.b().e(str)) {
+                            YunDialogLog.getInstance().e("SpriteStrategy", "H5弹窗未预热完成");
+                            return false;
+                        }
+                    }
+                }
+                if (!FunnySpriteResDownloadUtil.k().invoke().booleanValue()) {
+                    YunDialogLog.getInstance().e("SpriteStrategy", "资源未下载完成");
+                    return false;
+                }
+                Object obj3 = map.get("use_offline");
+                if (obj3 != null && "1".equals(obj3.toString())) {
+                    Object obj4 = map.get("dialog_url");
+                    if (obj4 instanceof String) {
+                        String str2 = (String) obj4;
+                        if (!TextUtils.isEmpty(str2)) {
+                            try {
+                                Object obj5 = map.get("module");
+                                TbLog yunDialogLog = YunDialogLog.getInstance();
+                                yunDialogLog.i("SpriteStrategy", "开始手动初始化离线包:" + obj5);
+                                if ((obj5 instanceof String) && !TextUtils.isEmpty((String) obj5)) {
+                                    HashSet hashSet = new HashSet();
+                                    hashSet.add((String) obj5);
+                                    az4.d(hashSet);
+                                    TbLog yunDialogLog2 = YunDialogLog.getInstance();
+                                    yunDialogLog2.i("SpriteStrategy", "离线包手动初始化完成:" + obj5);
+                                }
+                            } catch (Exception e) {
+                                TbLog yunDialogLog3 = YunDialogLog.getInstance();
+                                yunDialogLog3.e("SpriteStrategy", "离线包手动初始化异常:" + e);
+                            }
+                            boolean c = az4.c(str2);
+                            TbLog yunDialogLog4 = YunDialogLog.getInstance();
+                            yunDialogLog4.e("SpriteStrategy", "离线包是否可用:" + c);
+                            if (!c) {
+                                YunDialogLog.getInstance().e("SpriteStrategy", "离线包未下载完成");
+                                return false;
+                            }
+                        }
+                    }
+                }
+                rr6.b().b(new i6a());
+                TbSingleton.getInstance().isShowSpriteDialog = true;
+                SafeHandler.getInst().post(new a(this));
+                return true;
             }
         }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = false;
-            long currentTimeMillis = System.currentTimeMillis();
-            this.f = System.currentTimeMillis();
-            this.c = new hx4(this.a.h(), this.a.i());
-            this.d = new RelativeLayout(this.a.getActivity());
-            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a.getRootView().addView(this.d);
-            this.c.f(this.d);
-            this.c.e(new i7a(this.a, this.b, this));
-            MessageManager.getInstance().runTask(2016555, Long.class, this.c);
-            if (!this.g) {
-                gu5.b().j(System.currentTimeMillis() - currentTimeMillis);
-                zg.a().postDelayed(this.h, fx5.l() + 500);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

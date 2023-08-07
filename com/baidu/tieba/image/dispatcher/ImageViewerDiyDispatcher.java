@@ -2,14 +2,14 @@ package com.baidu.tieba.image.dispatcher;
 
 import android.util.TypedValue;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.s1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ImageViewerDiyDispatcher implements y2a {
+public class ImageViewerDiyDispatcher implements s1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,30 +42,30 @@ public class ImageViewerDiyDispatcher implements y2a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    @Override // com.baidu.tieba.y2a
+    @Override // com.baidu.tieba.s1a
     public void dispatch(org.json.JSONObject r23, android.content.Context r24) {
         /*
             r22 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.image.dispatcher.ImageViewerDiyDispatcher.$ic
-            if (r0 != 0) goto L23d
+            if (r0 != 0) goto L247
         L4:
             r1 = r22
             r0 = r23
             r2 = r24
-            if (r0 == 0) goto L23c
+            if (r0 == 0) goto L246
             if (r2 != 0) goto L10
-            goto L23c
+            goto L246
         L10:
             java.lang.String r3 = "index"
             java.lang.String r3 = r0.optString(r3)
             r4 = -1
-            int r3 = com.baidu.tieba.wg.e(r3, r4)
+            int r3 = com.baidu.adp.lib.safe.JavaTypesHelper.toInt(r3, r4)
             java.lang.String r4 = "enterType"
             r0.optString(r4)
             java.lang.String r4 = "forbidAd"
             java.lang.String r4 = r0.optString(r4)
             r5 = 1
-            int r4 = com.baidu.tieba.wg.e(r4, r5)
+            int r4 = com.baidu.adp.lib.safe.JavaTypesHelper.toInt(r4, r5)
             if (r4 != r5) goto L2f
             r4 = 1
             goto L30
@@ -84,7 +84,7 @@ public class ImageViewerDiyDispatcher implements y2a {
             r0.optString(r11)
             java.lang.String r11 = "isShowHost"
             java.lang.String r11 = r0.optString(r11)
-            int r11 = com.baidu.tieba.wg.e(r11, r5)
+            int r11 = com.baidu.adp.lib.safe.JavaTypesHelper.toInt(r11, r5)
             if (r11 != r5) goto L5b
             r11 = 1
             goto L5c
@@ -275,10 +275,10 @@ public class ImageViewerDiyDispatcher implements y2a {
             r3.urlThumbType = r8
             r3.imageThumbUrl = r4
             r8 = -1
-            long r10 = com.baidu.tieba.wg.g(r7, r8)
+            long r10 = com.baidu.adp.lib.safe.JavaTypesHelper.toLong(r7, r8)
             r3.threadId = r10
             r4 = r20
-            long r8 = com.baidu.tieba.wg.g(r4, r8)
+            long r8 = com.baidu.adp.lib.safe.JavaTypesHelper.toLong(r4, r8)
             r3.postId = r8
             java.lang.Object r8 = com.baidu.tbadk.core.util.ListUtils.getItem(r15, r6)
             java.lang.String r8 = (java.lang.String) r8
@@ -296,24 +296,24 @@ public class ImageViewerDiyDispatcher implements y2a {
             r4 = r20
             com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r3 = new com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder
             r3.<init>()
-            r3.A(r14)
-            r6 = r19
-            r3.E(r6)
-            r6 = r23
-            r3.C(r6)
-            r6 = r17
-            r3.B(r6)
-            r3.R(r7)
-            r3.y(r2)
-            r2 = 1
-            r3.F(r2)
-            r3.O(r4)
-            r3.I(r2)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r6 = r3.setData(r14)
+            r8 = r19
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r6 = r6.setIndex(r8)
+            r8 = r23
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r6 = r6.setForumName(r8)
+            r8 = r17
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r6 = r6.setForumId(r8)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r6 = r6.setThreadId(r7)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r2 = r6.setAssistUrls(r2)
+            r6 = 1
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r2 = r2.setIsCDN(r6)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r2 = r2.setPostId(r4)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r2 = r2.setIsReserve(r6)
             r6 = r21
-            r3.K(r6)
-            r3.P(r0, r5)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r2 = r2.setIsShowAd(r6)
+            r2.setSrcRectInScreen(r0, r5)
             r2 = r24
-            com.baidu.tbadk.core.atomData.ImageViewerConfig r0 = r3.x(r2)
+            com.baidu.tbadk.core.atomData.ImageViewerConfig r0 = r3.bulid(r2)
             android.content.Intent r2 = r0.getIntent()
             java.lang.String r3 = "is_show_host"
             r5 = r18
@@ -327,9 +327,9 @@ public class ImageViewerDiyDispatcher implements y2a {
             r4 = 2010000(0x1eab90, float:2.81661E-39)
             r3.<init>(r4, r0)
             r2.sendMessage(r3)
-        L23c:
+        L246:
             return
-        L23d:
+        L247:
             r20 = r0
             r21 = 1048576(0x100000, float:1.469368E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r20.invokeLL(r21, r22, r23, r24)

@@ -1,384 +1,138 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class pa5 {
+public class pa5 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public boolean b;
-    public View c;
+    public int b;
+    public int c;
     public int d;
-    public ViewGroup.LayoutParams e;
-    public int f;
-    public Runnable g;
-    public FrameLayout h;
+    public Drawable e;
+    public Drawable f;
+    public int g;
+    public int h;
     public int i;
-    public boolean j;
-    public ViewTreeObserver.OnGlobalLayoutListener k;
+    public int j;
+    public int k;
     public int l;
-    public CustomMessageListener m;
+    public int m;
+    public int n;
+    public boolean o;
 
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pa5 pa5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) {
-                return;
-            }
-            this.a.b = true;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa5 a;
-
-        public b(pa5 pa5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa5Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.m();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa5 a;
-
-        public c(pa5 pa5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.n();
-        }
-    }
-
-    public pa5(Activity activity) {
+    public pa5(int i, int i2, int i3, int i4, int i5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-        this.i = R.color.CAM_X0201;
-        this.j = false;
-        this.k = null;
-        this.l = 0;
-        this.m = new a(this, 2921414);
-        j(activity, R.color.CAM_X0201, true);
+        this.a = R.drawable.icon_pure_evaluation_star24_n;
+        this.b = R.color.CAM_X0112;
+        this.c = R.drawable.icon_pure_evaluation_star24_n;
+        this.d = R.color.CAM_X0305;
+        this.m = 5;
+        this.n = i;
+        this.g = i2;
+        this.h = i3;
+        this.i = i4;
+        this.k = i5;
+        this.o = z;
     }
 
-    public pa5(Activity activity, int i, boolean z) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
+            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        int dimenPixelSize;
+        int i6;
+        int i7;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            a();
+            this.j = (int) paint.getTextSize();
+            int i8 = ((int) f) + this.k;
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i9 = 0;
+            if (z65.b(charSequence)) {
+                z65.a(fontMetricsInt, (int) paint.getTextSize());
+                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+            } else {
+                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
+            }
+            int i10 = dimenPixelSize + fontMetricsInt.ascent + i4;
+            int i11 = (this.j - this.h) / 2;
+            if (this.o) {
+                i6 = (i5 - i4) / 2;
+            } else {
+                i6 = 0;
+            }
+            int max = i10 + Math.max(0, i11 + i6);
+            while (true) {
+                i7 = this.n;
+                if (i9 >= i7) {
+                    break;
+                }
+                Drawable drawable = this.f;
+                if (drawable != null) {
+                    int i12 = this.h;
+                    drawable.setBounds(i8, max, i8 + i12, i12 + max);
+                    this.f.draw(canvas);
+                    i8 += this.g + this.h;
+                }
+                i9++;
+            }
+            while (i7 < this.m) {
+                Drawable drawable2 = this.e;
+                if (drawable2 != null) {
+                    int i13 = this.h;
+                    drawable2.setBounds(i8, max, i8 + i13, i13 + max);
+                    this.e.draw(canvas);
+                    i8 += this.g + this.h;
+                }
+                i7++;
             }
         }
-        this.a = 3;
-        this.i = R.color.CAM_X0201;
-        this.j = false;
-        this.k = null;
-        this.l = 0;
-        this.m = new a(this, 2921414);
-        j(activity, i, z);
     }
 
-    public pa5(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.i = R.color.CAM_X0201;
-        this.j = false;
-        this.k = null;
-        this.l = 0;
-        this.m = new a(this, 2921414);
-        j(activity, R.color.CAM_X0201, z);
-    }
-
-    public static pa5 f(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, activity, z)) == null) {
-            return new pa5(activity, z);
-        }
-        return (pa5) invokeLZ.objValue;
-    }
-
-    public static pa5 d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            return new pa5(activity);
-        }
-        return (pa5) invokeL.objValue;
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.g != null) {
-                zg.a().removeCallbacks(this.g);
-                this.g = null;
-            }
-            this.g = new c(this);
-            zg.a().postDelayed(this.g, i);
-        }
-    }
-
-    public final boolean i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (!this.b || Math.abs(i) <= 150) {
-                return false;
-            }
-            this.b = false;
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void l(int i) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || !this.j) {
-            return;
-        }
-        if (i != this.a && (frameLayout = this.h) != null) {
-            SkinManager.setBackgroundColor(frameLayout, this.i);
-        }
-        this.a = i;
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.l = i;
-        }
-    }
-
-    public static pa5 e(Activity activity, int i, boolean z) {
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return new pa5(activity, i, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int i3 = this.m;
+            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
+            this.l = i4;
+            return i4;
         }
-        return (pa5) invokeCommon.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Rect rect = new Rect();
-            this.c.getWindowVisibleDisplayFrame(rect);
-            return rect.bottom;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.requestLayout();
-        }
-    }
-
-    public final void j(Activity activity, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.i = i;
-            this.j = z;
-            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
-            this.h = frameLayout;
-            if (z) {
-                SkinManager.setBackgroundColor(frameLayout, i);
-            } else {
-                SkinManager.setBackgroundColor(frameLayout, i, 0);
-            }
-            View childAt = this.h.getChildAt(0);
-            this.c = childAt;
-            if (childAt == null) {
-                return;
-            }
-            this.k = new b(this);
-            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.k);
-            this.e = this.c.getLayoutParams();
-            MessageManager.getInstance().registerListener(this.m);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.g != null) {
-                zg.a().removeCallbacks(this.g);
-                this.g = null;
-            }
-            View view2 = this.c;
-            if (view2 != null) {
-                view2.getViewTreeObserver().removeGlobalOnLayoutListener(this.k);
-                this.k = null;
-            }
-            MessageManager.getInstance().unRegisterListener(this.m);
-            this.c = null;
-            this.h = null;
-        }
-    }
-
-    public final void m() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (view2 = this.c) == null) {
-            return;
-        }
-        int height = view2.getHeight();
-        if (height > this.f) {
-            this.f = height;
-        }
-        int g = g();
-        int i = this.l;
-        if (i > 0 && i <= this.e.height) {
-            g -= i;
-        }
-        if (g != this.d) {
-            int i2 = this.f;
-            int i3 = i2 - g;
-            if (i3 == 0) {
-                this.e.height = i2;
-                n();
-            } else if (i3 > 200) {
-                this.e.height = i2 - i3;
-                h(200);
-                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i3) && i3 < (this.f * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i3) {
-                    TbadkCoreApplication.getInst().setKeyboardHeight(i3);
-                }
-            } else if (i(i3)) {
-                this.e.height = i2 - i3;
-                h(200);
-            }
-            this.d = g;
-        }
+        return invokeCommon.intValue;
     }
 }

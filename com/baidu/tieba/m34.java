@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tieba.lg3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,36 +10,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m34 {
+public class m34 extends e34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Download a;
-    public JSONObject b;
-    public d c;
-    public o34 d;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements lg3.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ co2 a;
 
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(String str, String str2) {
+        public a(m34 m34Var, co2 co2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
+                Object[] objArr = {m34Var, co2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,119 +40,20 @@ public class m34 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
+            this.a = co2Var;
         }
 
-        public /* synthetic */ b(String str, String str2, a aVar) {
-            this(str, str2);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.lg3.f
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u24.n().t(this.b);
-                u24.n().l(this.a);
-                u24.n().k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Download a;
-        public JSONObject b;
-        public n34 c;
-
-        public c(@NonNull Download download, JSONObject jSONObject, @NonNull n34 n34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {download, jSONObject, n34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == -1) {
+                    m34.c(this.a, "202");
+                } else if (i == 1) {
+                    m34.c(this.a, BasicPushStatus.SUCCESS_CODE);
+                } else {
+                    this.a.onFail(101, "noPermission");
                 }
-            }
-            this.a = download;
-            this.b = jSONObject;
-            this.c = n34Var;
-        }
-
-        public /* synthetic */ c(Download download, JSONObject jSONObject, n34 n34Var, a aVar) {
-            this(download, jSONObject, n34Var);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u24.n().G(this.b);
-                w34.a(this.a.getKeyByUser(), "installApp", null, null, new u34(this.b));
-                u24.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements n34 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ m34 c;
-
-        public d(m34 m34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = m34Var;
-        }
-
-        @Override // com.baidu.tieba.n34
-        public void setFilePath(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.b = str;
-            }
-        }
-
-        @Override // com.baidu.tieba.n34
-        public void setPackageName(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a = str;
-            }
-        }
-
-        @Override // com.baidu.tieba.o34
-        public void a(q34 q34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, q34Var) == null) {
-                if (m34.e) {
-                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
-                }
-                this.c.setResult(q34Var);
-                x24.d.execute(new b(this.b, this.a, null));
             }
         }
     }
@@ -182,52 +71,63 @@ public class m34 {
                 return;
             }
         }
-        e = fs1.a;
+        c = ir1.a;
     }
 
-    public m34(Download download, JSONObject jSONObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m34() {
+        super("addShortcutToDesktop");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = download;
-        this.b = jSONObject;
-        this.c = new d(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(q34 q34Var) {
+    public static void c(co2 co2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, q34Var) == null) {
-            o34 o34Var = this.d;
-            if (o34Var != null) {
-                o34Var.a(q34Var);
+        if (interceptable == null || interceptable.invokeLL(65539, null, co2Var, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", str);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
             }
-            if (q34Var != null && !q34Var.d()) {
-                w34.a(this.a.getKeyByUser(), "installApp", "fail", String.valueOf(q34Var.c()), new u34(this.b));
-            }
-            if (this.c != null) {
-                u24.n().B(this.a.getKeyByUser(), this.c);
-                this.c = null;
-            }
+            co2Var.onSuccess(jSONObject);
         }
     }
 
-    public void c(o34 o34Var) {
+    @Override // com.baidu.tieba.e34
+    public y22 a(JSONObject jSONObject, co2 co2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o34Var) == null) {
-            this.d = o34Var;
-            x24.d.execute(new c(this.a, this.b, this.c, null));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, co2Var)) == null) {
+            ya3 b0 = ya3.b0();
+            if (b0 != null && b0.w() != null && b0.W() != null) {
+                if (lg3.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
+                    c(co2Var, Info.kBaiduPIDValue);
+                    return null;
+                }
+                lg3.j(b0.w(), b0.W(), 1, new a(this, co2Var));
+                return null;
+            }
+            co2Var.onFail(100, "swan or activity is null");
+            if (c) {
+                Log.d("AddShortcutToDesktop", "swan or activity is null");
+                return null;
+            }
+            return null;
         }
+        return (y22) invokeLL.objValue;
     }
 }

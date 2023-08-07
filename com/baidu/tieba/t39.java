@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t39 extends pl1<LiveRealAuthService> {
+public class t39 extends sk1<ThirdPartWxRechargeService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class t39 extends pl1<LiveRealAuthService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl1
+    @Override // com.baidu.tieba.sk1
     /* renamed from: a */
-    public LiveRealAuthService createService() throws ServiceNotFoundException {
+    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new u39();
         }
-        return (LiveRealAuthService) invokeV.objValue;
+        return (ThirdPartWxRechargeService) invokeV.objValue;
     }
 }

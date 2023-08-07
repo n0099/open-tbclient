@@ -1,96 +1,42 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.ai2;
-import com.baidu.tieba.eb2;
-import com.baidu.tieba.kf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class of3 extends sd3 {
+public class of3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements kf3.e {
+    public class a implements kr1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ix2 b;
-        public final /* synthetic */ eb2 c;
-        public final /* synthetic */ v13 d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ UnitedSchemeEntity f;
-        public final /* synthetic */ Context g;
-        public final /* synthetic */ String h;
-        public final /* synthetic */ of3 i;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Activity d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ of3 g;
 
-        /* renamed from: com.baidu.tieba.of3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0428a implements ai2.f {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ai2.e a;
-            public final /* synthetic */ JSONObject b;
-            public final /* synthetic */ a c;
-
-            public C0428a(a aVar, ai2.e eVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, eVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = eVar;
-                this.b = jSONObject;
-            }
-
-            @Override // com.baidu.tieba.ai2.f
-            public void onReady() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b53.e(this.a, this.c.a);
-                    by1 by1Var = this.a.a;
-                    a aVar = this.c;
-                    ef3.e(by1Var, aVar.d, aVar.a);
-                    b53.c(5, this.c.a);
-                    a aVar2 = this.c;
-                    aVar2.i.n(aVar2.c, aVar2.d, aVar2.a);
-                    a aVar3 = this.c;
-                    UnitedSchemeUtility.callCallback(aVar3.e, aVar3.f, UnitedSchemeUtility.wrapCallbackParams(this.b, 0));
-                }
-            }
-        }
-
-        public a(of3 of3Var, String str, ix2 ix2Var, eb2 eb2Var, v13 v13Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, String str2) {
+        public a(of3 of3Var, boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {of3Var, str, ix2Var, eb2Var, v13Var, callbackHandler, unitedSchemeEntity, context, str2};
+                Object[] objArr = {of3Var, Boolean.valueOf(z), callbackHandler, str, activity, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -100,78 +46,45 @@ public class of3 extends sd3 {
                     return;
                 }
             }
-            this.i = of3Var;
-            this.a = str;
-            this.b = ix2Var;
-            this.c = eb2Var;
-            this.d = v13Var;
-            this.e = callbackHandler;
-            this.f = unitedSchemeEntity;
-            this.g = context;
-            this.h = str2;
+            this.g = of3Var;
+            this.a = z;
+            this.b = callbackHandler;
+            this.c = str;
+            this.d = activity;
+            this.e = str2;
+            this.f = str3;
         }
 
-        @Override // com.baidu.tieba.kf3.e
-        public void a(String str) {
-            String str2;
+        @Override // com.baidu.tieba.kr1
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                b53.d(this.a);
-                this.b.o();
-                db2 l = this.c.l();
-                if (l != null && !TextUtils.isEmpty(l.y3(this.d.d))) {
-                    JSONObject c = ef3.c(l.y3(this.d.d));
-                    b53.c(4, this.a);
-                    this.i.n(this.c, this.d, this.a);
-                    UnitedSchemeUtility.callCallback(this.e, this.f, UnitedSchemeUtility.wrapCallbackParams(c, 0));
-                    return;
-                }
-                ai2.e f = ai2.f(this.b.getActivity(), fi2.c(this.d.d));
-                JSONObject c2 = ef3.c(str);
-                HybridUbcFlow q = a53.q("route", this.a);
-                q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-                if (f.b) {
-                    str2 = "1";
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.g.k(this.a, this.b, this.c, this.d, this.e, "snsapi_userinfo", this.f);
                 } else {
-                    str2 = "0";
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
                 }
-                q.D("preload", str2);
-                ai2.q(f, new C0428a(this, f, c2));
-            }
-        }
-
-        @Override // com.baidu.tieba.kf3.e
-        public void b(int i, on3 on3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, on3Var) == null) {
-                this.b.o();
-                if (sd3.b) {
-                    Context context = this.g;
-                    nb3.g(context, this.g.getString(R.string.obfuscated_res_0x7f0f01d4) + i).G();
-                }
-                if (!TextUtils.isEmpty(this.h)) {
-                    ef3.j(this.f, this.e, this.h);
-                }
-                ji3.j(this.d, on3Var);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public class b implements rp3<kg3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eb2 a;
-        public final /* synthetic */ v13 b;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ boolean b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ of3 d;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ of3 f;
 
-        public b(of3 of3Var, eb2 eb2Var, v13 v13Var, String str) {
+        public b(of3 of3Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {of3Var, eb2Var, v13Var, str};
+                Object[] objArr = {of3Var, activity, Boolean.valueOf(z), str, callbackHandler, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -181,29 +94,51 @@ public class of3 extends sd3 {
                     return;
                 }
             }
-            this.d = of3Var;
-            this.a = eb2Var;
-            this.b = v13Var;
+            this.f = of3Var;
+            this.a = activity;
+            this.b = z;
             this.c = str;
+            this.d = callbackHandler;
+            this.e = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp3
+        /* renamed from: b */
+        public void a(kg3 kg3Var) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.m(this.a, this.b, this.c);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                y72.b("OpenData", "onOpenDataCallback:: ", kg3Var);
+                ya3 c = this.f.c();
+                if (c != null) {
+                    z = c.N().e(this.a);
+                } else {
+                    z = false;
+                }
+                if (!kg3Var.E()) {
+                    if (!z && !this.b) {
+                        rh3.S("fail", 3, this.c);
+                    }
+                    wf3.n(kg3Var, this.d, this.e);
+                    return;
+                }
+                if (z && !this.b) {
+                    rh3.S("success", 3, this.c);
+                }
+                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(kg3Var.g, 0).toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public of3(sc3 sc3Var) {
-        super(sc3Var, "/swanAPI/switchTab");
+    public of3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/getUserInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc3Var};
+            Object[] objArr = {vb3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -217,76 +152,69 @@ public class of3 extends sd3 {
         }
     }
 
-    @Override // com.baidu.tieba.sd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, vb3 vb3Var) {
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
         InterceptResult invokeLLLL;
+        Activity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, vb3Var)) == null) {
-            if (sd3.b) {
-                Log.d("SwitchTabAction", "SwitchTabAction#handle entity: " + unitedSchemeEntity.toString());
-            }
-            String uuid = UUID.randomUUID().toString();
-            b53.b(uuid);
-            String o = ef3.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                v82.c("switchTab", "url is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                gu2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
                 return false;
             }
-            String optString = vo3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            ix2 T2 = ix2.T();
-            eb2 U = T2.U();
-            if (U == null) {
-                v82.c("switchTab", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                gu2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
                 return false;
             }
-            v13 d = v13.d(o, T2.z());
-            d.e = "4";
-            d.f = uuid;
-            ji3.g(d);
-            if (!pp3.c(T2.s(), d)) {
-                v82.c("switchTab", "tab params error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                ji3.i(d);
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                gu2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
                 return false;
             }
-            String n = ef3.n(unitedSchemeEntity, "params", "startTime");
-            if (!TextUtils.isEmpty(n)) {
-                HybridUbcFlow q = a53.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(n).longValue());
-                q.F(ubcFlowEvent);
+            if (context instanceof Activity) {
+                w = (Activity) context;
+            } else {
+                w = ya3Var.w();
             }
-            T2.a();
-            kf3.g(vb3Var, d, "", new a(this, uuid, T2, U, d, callbackHandler, unitedSchemeEntity, context, optString), uuid);
-            v82.i("switchTab", "create and load page");
+            Activity activity = w;
+            if (activity == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                gu2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("invokeFrom");
+            if (!ya3Var.N().e(context)) {
+                rh3.S("show", 3, optString2);
+            }
+            String f = w63.f(optParamsAsJo.optString("__plugin__", null));
+            lr1 N = ya3Var.N();
+            boolean j = wf3.j(optParamsAsJo);
+            if (!N.e(context) && j) {
+                N.f(activity, null, new a(this, j, callbackHandler, optString, activity, f, optString2));
+            } else {
+                k(j, callbackHandler, optString, activity, f, "snsapi_userinfo", optString2);
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void m(eb2 eb2Var, v13 v13Var, String str) {
+    public final void k(boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, String str4) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eb2Var, v13Var, str) == null) {
-            db2.U3(pp3.n());
-            eb2.b i = eb2Var.i("switchTab");
-            i.n(0, 0);
-            i.i();
-            i.q(v13Var).b();
-            a53.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
-            b53.a(str, v13Var);
-        }
-    }
-
-    public final void n(eb2 eb2Var, v13 v13Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, eb2Var, v13Var, str) == null) {
-            if (pp3.O()) {
-                m(eb2Var, v13Var, str);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), callbackHandler, str, activity, str2, str3, str4}) == null) {
+            ya3 b0 = ya3.b0();
+            if (b0 != null) {
+                z2 = b0.N().e(activity);
             } else {
-                pp3.a0(new b(this, eb2Var, v13Var, str));
+                z2 = false;
             }
+            kg3.B(activity, str3, str2, z, "getUserInfoApi", new b(this, activity, z2, str4, callbackHandler, str));
         }
     }
 }

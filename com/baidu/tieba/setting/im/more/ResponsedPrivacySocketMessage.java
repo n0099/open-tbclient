@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.im.more;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q3a;
+import com.baidu.tieba.k2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.SimpleUser;
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q3a privacyData;
+    public k2a privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacySocketMessage() {
@@ -36,7 +36,7 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new q3a();
+        this.privacyData = new k2a();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -100,12 +100,12 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public q3a getPrivacyData() {
+    public k2a getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.privacyData;
         }
-        return (q3a) invokeV.objValue;
+        return (k2a) invokeV.objValue;
     }
 }

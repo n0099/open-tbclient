@@ -212,8 +212,8 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         com.kwad.components.ad.reward.k kVar = this.nM;
         hVar2.a(frameLayout, kVar.mRootContainer, this.mAdTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
         com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "startPreloadWebView");
-        this.mp.a(new b.InterfaceC0608b() { // from class: com.kwad.components.ad.reward.presenter.o.2
-            @Override // com.kwad.components.ad.i.b.InterfaceC0608b
+        this.mp.a(new b.InterfaceC0609b() { // from class: com.kwad.components.ad.reward.presenter.o.2
+            @Override // com.kwad.components.ad.i.b.InterfaceC0609b
             public final void hk() {
                 com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "onPreloadSuccess");
                 o.this.nM.mJ = true;
@@ -324,12 +324,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.qA = findViewById(R.id.obfuscated_res_0x7f0912f9);
-        this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091421);
-        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0913ee);
-        this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126a);
-        this.qD = findViewById(R.id.obfuscated_res_0x7f091319);
-        this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912fa);
+        this.qA = findViewById(R.id.obfuscated_res_0x7f09130c);
+        this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091434);
+        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091401);
+        this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f09127d);
+        this.qD = findViewById(R.id.obfuscated_res_0x7f09132c);
+        this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09130d);
     }
 
     @Override // com.kwad.components.ad.reward.e.a

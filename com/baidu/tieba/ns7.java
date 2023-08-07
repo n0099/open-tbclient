@@ -1,128 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ns7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public boolean c;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    public ns7(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void b(Context context, eca ecaVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, ecaVar) != null) || ecaVar == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        fca fcaVar = ecaVar.f;
-        if (fcaVar != null) {
-            ba6.b(fcaVar.b, fcaVar.c, "1191003700000000", fcaVar.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(ecaVar.d)) {
-                str = ecaVar.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = ecaVar.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        xv7.a(tbPageContext, ecaVar.e);
-    }
-
-    public static void c(eca ecaVar) {
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, ecaVar) != null) || ecaVar == null) {
+        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
+            this.a = str.substring(0, 1).contains("1");
+            this.b = str.substring(2, 3).contains("1");
+            if (str.length() >= 5) {
+                this.c = str.substring(4, 5).contains("1");
+                return;
+            }
             return;
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", ecaVar.g);
-        if (ecaVar.f == null) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", ecaVar.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        fca fcaVar = ecaVar.f;
-        if (fcaVar != null) {
-            str = fcaVar.c;
-        } else {
-            str = ecaVar.d;
-        }
-        fca fcaVar2 = ecaVar.f;
-        if (fcaVar2 != null) {
-            String str2 = fcaVar2.a;
-        } else {
-            String str3 = ecaVar.c;
-        }
-        statisticItem.param("obj_name", ecaVar.c);
-        statisticItem.param("obj_param1", ecaVar.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(ecaVar.i, 1));
+        this.a = false;
+        this.b = true;
     }
 
-    public static void d(eca ecaVar) {
-        int i;
-        String str;
+    public ns7(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, ecaVar) != null) || ecaVar == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", ecaVar.g);
-        if (ecaVar.f == null) {
-            i = 1;
-        } else {
-            i = 2;
+        this.a = z;
+        this.b = z2;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", ecaVar.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        fca fcaVar = ecaVar.f;
-        if (fcaVar != null) {
-            str = fcaVar.c;
-        } else {
-            str = ecaVar.d;
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        fca fcaVar2 = ecaVar.f;
-        if (fcaVar2 != null) {
-            String str2 = fcaVar2.a;
-        } else {
-            String str3 = ecaVar.c;
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        statisticItem.param("obj_name", ecaVar.c);
-        statisticItem.param("obj_param1", ecaVar.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(ecaVar.i, 0));
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.b ? 1 : 0), Integer.valueOf(this.c ? 1 : 0));
+        }
+        return (String) invokeV.objValue;
     }
 }

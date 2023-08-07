@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ik {
+public class ik extends ck {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -20,6 +22,15 @@ public class ik {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.ck, com.baidu.tieba.ak
+    public void h(Canvas canvas, dk dkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dkVar, imageView) == null) {
+            this.c.setColorFilter(null);
+            super.h(canvas, dkVar, imageView);
         }
     }
 }

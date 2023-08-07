@@ -73,6 +73,7 @@ public class CommonStatisticKey {
     public static final String KEY_FORUM_REC_THREAD_CLICK = "c19001";
     public static final String KEY_FORUM_REC_THREAD_SHOW = "c19000";
     public static final String KEY_FRIEND_BOT_BUTTON_VIEW_SHOW = "c15302";
+    public static final String KEY_FRIEND_BOT_SKILL_MENU_SHOW = "c15361";
     public static final String KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5 = "c14197";
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
@@ -160,6 +161,8 @@ public class CommonStatisticKey {
     public static final String KEY_MULTI_DEL_BUTTON_CLICK = "c13122";
     public static final String KEY_MY_TAB_GENERAL_DRESS_CLICK = "c15003";
     public static final String KEY_NAMEPLATE_OF_USER_LEVEL_STATIC = "c14927";
+    public static final String KEY_NEW_MSG_TAB_CLICK = "c15393";
+    public static final String KEY_NEW_MSG_TAB_EXPLORE = "c15392";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
     public static final String KEY_ONE_KEY_READ = "c14662";
     public static final String KEY_PB_CONTENT_COLLECTION_VIEW_CLICK = "c15141";

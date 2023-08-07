@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
@@ -25,7 +24,7 @@ public class FindEmulator {
     public static boolean isCheck;
     public static boolean isEmulator;
     public static final String[] known_numbers = {"15555215554", "15555215556", "15555215558", "15555215560", "15555215562", "15555215564", "15555215566", "15555215568", "15555215570", "15555215572", "15555215574", "15555215576", "15555215578", "15555215580", "15555215582", "15555215584"};
-    public static final String[] known_device_ids = {Config.NULL_DEVICE_ID, "e21833235b6eef10", "012345678912345"};
+    public static final String[] known_device_ids = {"000000000000000", "e21833235b6eef10", "012345678912345"};
     public static final String[] known_imsi_ids = {"310260000000000"};
     public static final String[] known_pipes = {"/dev/socket/qemud", "/dev/qemu_pipe"};
     public static final String[] known_files = {"/system/lib/libc_malloc_debug_qemu.so", "/sys/qemu_trace", "/init.nox.rc", "/ueventd.nox.rc", "/etc/init.nox.sh"};

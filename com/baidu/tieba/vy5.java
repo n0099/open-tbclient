@@ -1,97 +1,47 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.fresco.animation.backend.AnimationBackend;
+import com.facebook.fresco.animation.backend.AnimationBackendDelegate;
 /* loaded from: classes8.dex */
-public class vy5 {
+public class vy5 extends AnimationBackendDelegate {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948257143, "Lcom/baidu/tieba/vy5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948257143, "Lcom/baidu/tieba/vy5;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vy5(@Nullable AnimationBackend animationBackend, int i) {
+        super(animationBackend);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animationBackend, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((AnimationBackend) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
+        this.a = i;
     }
 
-    public static boolean a() {
+    @Override // com.facebook.fresco.animation.backend.AnimationBackendDelegate, com.facebook.fresco.animation.backend.AnimationInformation
+    public int getLoopCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Date date = new Date(da5.p().r("show_login_dialog_strategy_key", 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date2 = new Date(currentTimeMillis);
-            da5.p().H("show_login_dialog_strategy_key", currentTimeMillis);
-            return !TimeHelper.isSameDay(date, date2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return false;
-            }
-            return a.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return false;
-            }
-            return b.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (xi.isEmpty(str)) {
-                return false;
-            }
-            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!b(str) && !c(str) && !d(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 }

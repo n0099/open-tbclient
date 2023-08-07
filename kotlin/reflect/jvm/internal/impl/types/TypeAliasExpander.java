@@ -151,7 +151,7 @@ public final class TypeAliasExpander {
         SimpleType asSimpleType = TypeSubstitutionKt.asSimpleType(unwrap);
         if (!KotlinTypeKt.isError(asSimpleType) && TypeUtilsKt.requiresTypeAliasExpansion(asSimpleType)) {
             TypeConstructor constructor = asSimpleType.getConstructor();
-            ClassifierDescriptor mo2101getDeclarationDescriptor = constructor.mo2101getDeclarationDescriptor();
+            ClassifierDescriptor mo2102getDeclarationDescriptor = constructor.mo2102getDeclarationDescriptor();
             int i2 = 0;
             if (constructor.getParameters().size() == asSimpleType.getArguments().size()) {
                 z = true;
@@ -160,9 +160,9 @@ public final class TypeAliasExpander {
             }
             if (_Assertions.ENABLED && !z) {
                 throw new AssertionError("Unexpected malformed type: " + asSimpleType);
-            } else if (!(mo2101getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-                if (mo2101getDeclarationDescriptor instanceof TypeAliasDescriptor) {
-                    TypeAliasDescriptor typeAliasDescriptor = (TypeAliasDescriptor) mo2101getDeclarationDescriptor;
+            } else if (!(mo2102getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+                if (mo2102getDeclarationDescriptor instanceof TypeAliasDescriptor) {
+                    TypeAliasDescriptor typeAliasDescriptor = (TypeAliasDescriptor) mo2102getDeclarationDescriptor;
                     if (typeAliasExpansion.isRecursion(typeAliasDescriptor)) {
                         this.reportStrategy.recursiveTypeAlias(typeAliasDescriptor);
                         Variance variance = Variance.INVARIANT;

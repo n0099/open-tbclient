@@ -1,37 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog;
-import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class vt3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
-        InterceptResult invokeCommon;
-        SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), quickLoginInfo, str2, str3})) == null) {
-            Bundle bundle = new Bundle();
-            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
-                swanAppPhoneLoginDialog = new SwanAppQuickLoginDialog();
-            } else {
-                swanAppPhoneLoginDialog = new SwanAppPhoneLoginDialog();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252276, "Lcom/baidu/tieba/vt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            bundle.putString("auth_tip", str);
-            bundle.putBoolean("is_night", z);
-            bundle.putParcelable("quick_login_info", quickLoginInfo);
-            bundle.putString("app_id", str3);
-            bundle.putString("launch_from", str2);
-            swanAppPhoneLoginDialog.setArguments(bundle);
-            return swanAppPhoneLoginDialog;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252276, "Lcom/baidu/tieba/vt3;");
+                return;
+            }
         }
-        return (SwanAppLoginAndGetMobileDialog) invokeCommon.objValue;
+        a = fu2.o().t();
+        b = a + "/bdtls";
+        c = new byte[]{0, -98};
     }
 }

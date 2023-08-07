@@ -30,10 +30,10 @@ public class dg extends am.b {
 
     @Override // com.xiaomi.push.am.b
     /* renamed from: c */
-    public void mo356c() {
+    public void mo357c() {
         am.b bVar = this.a;
         if (bVar != null) {
-            bVar.mo356c();
+            bVar.mo357c();
         }
     }
 }

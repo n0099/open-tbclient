@@ -1,39 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.j37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class up6<T extends BaseCardInfo> {
+public final class up6 implements j37.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-
-    public void a(View view2, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, t) == null) {
-        }
-    }
-
-    public void b(View view2, T t, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t, obj) == null) {
-        }
-    }
-
-    public boolean c(View view2, T t, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, t, str)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
 
     public up6() {
         Interceptable interceptable = $ic;
@@ -46,6 +27,34 @@ public class up6<T extends BaseCardInfo> {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.j37.p
+    public j37.q a(Context context, ViewGroup rootView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, rootView)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(rootView, "rootView");
+            if (context instanceof TbadkCoreApplication) {
+                TbadkCoreApplication tbadkCoreApplication = (TbadkCoreApplication) context;
+                if ((tbadkCoreApplication.getCurrentActivity() instanceof Context) && (context = tbadkCoreApplication.getCurrentActivity()) == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.Context");
+                }
+            }
+            return new tp6(context, rootView);
+        }
+        return (j37.q) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j37.p
+    public void update(j37.q holder, w47 state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, holder, state) == null) {
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            Intrinsics.checkNotNullParameter(state, "state");
+            holder.update(state);
         }
     }
 }

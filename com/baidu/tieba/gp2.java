@@ -1,5 +1,20 @@
 package com.baidu.tieba;
+
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface gp2 {
-    void onResult(boolean z);
+public interface gp2 extends vo2 {
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(Bundle bundle);
+
+        void onRelease();
+    }
+
+    void k(String str, Map<String, String> map);
+
+    void release();
+
+    void w(a aVar);
 }

@@ -1,68 +1,78 @@
 package com.baidu.tieba;
 
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class ze2 extends qj4 implements pl2 {
+public class ze2 extends bz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
 
-    public int K() {
+    @Override // com.baidu.tieba.bz1
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
     }
 
-    public ze2() {
+    @Override // com.baidu.tieba.bz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ze2(@NonNull zy1 zy1Var) {
+        super(zy1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zy1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int K = K();
-        this.a = K;
-        this.b = K;
     }
 
-    public int J() {
-        InterceptResult invokeV;
+    public y22 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            if (i == 0) {
-                return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#prefetchResources params=" + str, false);
+            Pair<y22, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (jSONObject == null) {
+                return (y22) s.first;
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public ze2 L(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = this.b;
-            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
-                this.b = i;
+            if (!SwanAppNetworkUtils.i(fu2.c())) {
+                return new y22(1001, "network disconnected");
             }
-            return this;
+            JSONArray c = yn3.c(jSONObject, "video");
+            if (c != null && c.length() > 0) {
+                fu2.U().a(c);
+            }
+            JSONArray c2 = yn3.c(jSONObject, "image");
+            if (c2 != null && c2.length() > 0) {
+                fu2.U().c(c2);
+            }
+            return y22.f();
         }
-        return (ze2) invokeI.objValue;
+        return (y22) invokeL.objValue;
     }
 }

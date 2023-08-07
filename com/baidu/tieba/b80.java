@@ -1,9 +1,123 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public interface b80 {
-    HttpURLConnection openHttpURLConnection(URL url) throws IOException;
+public class b80 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile b80 c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, a80> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598703, "Lcom/baidu/tieba/b80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947598703, "Lcom/baidu/tieba/b80;");
+                return;
+            }
+        }
+        b = AppConfig.isDebug();
+        c = null;
+    }
+
+    public b80() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap(10);
+    }
+
+    public static b80 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (b80.class) {
+                    if (c == null) {
+                        c = new b80();
+                    }
+                }
+            }
+            return c;
+        }
+        return (b80) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(str, System.currentTimeMillis());
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str, System.currentTimeMillis());
+        }
+    }
+
+    public void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            if (!y70.a()) {
+                if (b) {
+                    Log.e("PlainEventMonitor", "keyevent is disable!");
+                    return;
+                }
+                return;
+            }
+            a80 remove = this.a.remove(str);
+            if (remove != null) {
+                remove.d = j;
+                z70.c().d(remove);
+                return;
+            }
+            Log.e("PlainEventMonitor", "plain end event do not start:" + str);
+        }
+    }
+
+    public void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            if (!y70.a()) {
+                if (b) {
+                    Log.e("PlainEventMonitor", "keyevent is disable!");
+                }
+            } else if (!TextUtils.isEmpty(str) && j > 0) {
+                a80 a80Var = new a80(str);
+                a80Var.c = j;
+                this.a.put(str, a80Var);
+            } else {
+                Log.e("PlainEventMonitor", "name and timestamps error!");
+            }
+        }
+    }
 }

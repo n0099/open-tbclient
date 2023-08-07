@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ll8;
-import com.baidu.tieba.ml8;
-import com.baidu.tieba.np8;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.ej8;
+import com.baidu.tieba.fj8;
+import com.baidu.tieba.hn8;
+import com.baidu.tieba.in8;
+import com.baidu.tieba.jn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final op8 a;
-    public final np8 b;
+    public final in8 a;
+    public final hn8 b;
     public final Context c;
     public RecyclerView d;
 
@@ -90,7 +90,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements pp8 {
+    public class b implements jn8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TagAdapter a;
@@ -117,7 +117,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             this(tagAdapter);
         }
 
-        @Override // com.baidu.tieba.pp8
+        @Override // com.baidu.tieba.jn8
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -125,7 +125,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.pp8
+        @Override // com.baidu.tieba.jn8
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -133,7 +133,7 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.pp8
+        @Override // com.baidu.tieba.jn8
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -142,12 +142,12 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         }
     }
 
-    public TagAdapter(op8 op8Var, np8 np8Var, Context context) {
+    public TagAdapter(in8 in8Var, hn8 hn8Var, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {op8Var, np8Var, context};
+            Object[] objArr = {in8Var, hn8Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,9 +157,9 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
                 return;
             }
         }
-        this.a = op8Var;
+        this.a = in8Var;
         this.c = context;
-        this.b = np8Var;
+        this.b = hn8Var;
         this.b.l(new b(this, null));
         this.a.a(this.b);
     }
@@ -261,12 +261,12 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         return (BaseTagItemViewHolder) invokeLI.objValue;
     }
 
-    public void q(ml8 ml8Var, ll8 ll8Var) {
-        op8 op8Var;
+    public void q(fj8 fj8Var, ej8 ej8Var) {
+        in8 in8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, ml8Var, ll8Var) == null) && (op8Var = this.a) != null) {
-            op8Var.d(ml8Var);
-            this.a.c(ll8Var);
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, fj8Var, ej8Var) == null) && (in8Var = this.a) != null) {
+            in8Var.d(fj8Var);
+            this.a.c(ej8Var);
         }
     }
 }

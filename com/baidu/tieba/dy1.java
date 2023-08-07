@@ -1,45 +1,74 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.cy1;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface dy1<T extends cy1> extends TypedCallbackHandler {
-    @UiThread
-    void M();
+public class dy1 extends ay1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void S(id2 id2Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dy1(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/cloudRequest");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vb3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    String Z();
+    @Override // com.baidu.tieba.ay1, com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            return super.d(context, unitedSchemeEntity, callbackHandler, ya3Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
 
-    String a();
-
-    void attachActivity(Activity activity);
-
-    void b(ja2 ja2Var);
-
-    void c0();
-
-    void destroy();
-
-    SwanAppWebViewManager.d getConfig();
-
-    String getUserAgent();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void p();
-
-    T r();
-
-    void s(id2 id2Var);
+    @Override // com.baidu.tieba.ay1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
+        String header;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("statusCode", response.code());
+                jSONObject.put("header", a23.s(response.headers()));
+                jSONObject.put("body", response.body().string());
+                JSONObject jSONObject2 = new JSONObject(jSONObject.optString("body"));
+                String optString = jSONObject2.optString("errno", String.valueOf(0));
+                String optString2 = jSONObject2.optString("errmsg");
+                if (response.isSuccessful() && !yx1.o(optString)) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
+                    return;
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(yx1.j(optString), yx1.k(optString2)).toString());
+            } catch (Exception e) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
+            }
+        }
+    }
 }

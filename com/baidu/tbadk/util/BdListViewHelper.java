@@ -5,12 +5,12 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class HeadType {
         public static final /* synthetic */ HeadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -94,7 +94,7 @@ public class BdListViewHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -147,7 +147,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703bc);
+        a = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703bc);
     }
 
     public static int a(HeadType headType) {
@@ -160,15 +160,15 @@ public class BdListViewHelper {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + yi.g(context, R.dimen.obfuscated_res_0x7f070420);
+                            return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420);
                         }
-                        return yi.g(context, R.dimen.obfuscated_res_0x7f0703f7);
+                        return BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703f7);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + yi.g(context, R.dimen.obfuscated_res_0x7f07037e);
+                    return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f07037e);
                 }
-                return UtilHelper.getLightStatusBarHeight() + yi.g(context, R.dimen.obfuscated_res_0x7f070383);
+                return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070383);
             }
-            return UtilHelper.getLightStatusBarHeight() + yi.g(context, R.dimen.obfuscated_res_0x7f070420);
+            return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420);
         }
         return invokeL.intValue;
     }
@@ -176,7 +176,7 @@ public class BdListViewHelper {
     public static int b(HeadType headType, boolean z) {
         InterceptResult invokeLZ;
         int lightStatusBarHeight;
-        int g;
+        int dimens;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, headType, z)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
@@ -185,12 +185,12 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                g = yi.g(context, R.dimen.obfuscated_res_0x7f070380);
+                dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070380);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                g = yi.g(context, R.dimen.obfuscated_res_0x7f0703a1);
+                dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a1);
             }
-            return lightStatusBarHeight + g;
+            return lightStatusBarHeight + dimens;
         }
         return invokeLZ.intValue;
     }
@@ -204,9 +204,9 @@ public class BdListViewHelper {
                 if (z) {
                     layoutParams.height = a(headType);
                 } else if (HeadType.DEFAULT == headType) {
-                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + yi.g(context, R.dimen.obfuscated_res_0x7f070380);
+                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070380);
                 } else {
-                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + yi.g(context, R.dimen.obfuscated_res_0x7f0703a1);
+                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a1);
                 }
                 view2.setLayoutParams(layoutParams);
             }

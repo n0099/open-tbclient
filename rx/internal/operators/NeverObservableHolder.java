@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.a2c;
-import com.baidu.tieba.u1c;
+import com.baidu.tieba.d1c;
+import com.baidu.tieba.x0c;
 /* loaded from: classes2.dex */
-public enum NeverObservableHolder implements u1c.a<Object> {
+public enum NeverObservableHolder implements x0c.a<Object> {
     INSTANCE;
     
-    public static final u1c<Object> NEVER = u1c.d(INSTANCE);
+    public static final x0c<Object> NEVER = x0c.d(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u1c.a, com.baidu.tieba.i2c
-    public void call(a2c<? super Object> a2cVar) {
+    @Override // com.baidu.tieba.x0c.a, com.baidu.tieba.l1c
+    public void call(d1c<? super Object> d1cVar) {
     }
 
-    public static <T> u1c<T> instance() {
-        return (u1c<T>) NEVER;
+    public static <T> x0c<T> instance() {
+        return (x0c<T>) NEVER;
     }
 }

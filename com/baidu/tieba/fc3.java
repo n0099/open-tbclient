@@ -1,126 +1,93 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
-import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class fc3 {
+public class fc3 extends vc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, kc3> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947759283, "Lcom/baidu/tieba/fc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947759283, "Lcom/baidu/tieba/fc3;");
-                return;
-            }
-        }
-        b = fs1.a;
-    }
-
-    public fc3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fc3(vb3 vb3Var) {
+        super(vb3Var, "/swanAPI/getLocalImgData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vb3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.vc3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            File d = c73.d(str2);
-            if (d == null || !d.exists()) {
-                if (str.endsWith(File.separator)) {
-                    d = new File(str + str2 + ".json");
-                } else {
-                    d = new File(str + File.separator + str2 + ".json");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
+            if (ya3Var == null) {
+                y72.c("GetLocalImgDataAction", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                y72.c("SwanAppAction", "illegal params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("filePath");
+            if (TextUtils.isEmpty(optString)) {
+                y72.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (gi3.s(optString) != PathType.BD_FILE) {
+                y72.c("GetLocalImgDataAction", "invalid path : " + optString);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, sb3.a(2006));
+                return false;
+            } else {
+                String M = gi3.M(optString, ya3Var.b);
+                if (TextUtils.isEmpty(M)) {
+                    y72.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("filePath", M);
+                    y72.i("GetLocalImgDataAction", "getLocalImgData success");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    y72.c("GetLocalImgDataAction", "getLocalImgData failed");
+                    if (vc3.b) {
+                        e.printStackTrace();
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
                 }
             }
-            if (b) {
-                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
-            }
-            if (!d.exists()) {
-                return null;
-            }
-            return ru2.m(d);
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public kc3 a(String str, @NonNull String str2, @NonNull kc3 kc3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, kc3Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                kc3 d = d(str, str2, kc3Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return kc3Var;
-        }
-        return (kc3) invokeLLL.objValue;
-    }
-
-    public final kc3 d(String str, String str2, @NonNull kc3 kc3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, kc3Var)) == null) {
-            String c = c(str, str2);
-            if (TextUtils.isEmpty(c)) {
-                return kc3Var;
-            }
-            return kc3.b(c, kc3Var);
-        }
-        return (kc3) invokeLLL.objValue;
-    }
-
-    public kc3 b(String str, String str2, @NonNull kc3 kc3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, kc3Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.a == null) {
-                    this.a = new TreeMap();
-                }
-                kc3 kc3Var2 = this.a.get(str2);
-                if (kc3Var2 != null) {
-                    return kc3Var2;
-                }
-                kc3 d = d(str, str2, kc3Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return kc3Var;
-        }
-        return (kc3) invokeLLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

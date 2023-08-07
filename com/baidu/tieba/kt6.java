@@ -1,62 +1,86 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collection;
+import java.util.Set;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class kt6 implements qc7 {
+public final class kt6 extends qt6<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<Long, Boolean> e;
 
-    @Override // com.baidu.tieba.qc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
-    }
-
-    public kt6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kt6(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {selfPredicate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
     }
 
-    @Override // com.baidu.tieba.qc7
-    public Map<String, String> a(d87 businessInfo) {
+    @Override // com.baidu.tieba.qt6, com.baidu.tieba.lt6
+    public boolean b(us6 item, xu6 timer, os6 config) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            vs6 e = item.e();
+            if (!this.e.invoke(e.p()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (z) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qt6
+    /* renamed from: e */
+    public String c(vs6 data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", ft6.a.a(businessInfo));
-            hashMap.put("obj_locate", "3");
-            hashMap.put(TiebaStatic.Params.OBJ_TO, "2");
-            hashMap.put("obj_source", "1");
-            hashMap.put("obj_param1", "1");
-            String str = a.get("live_type");
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

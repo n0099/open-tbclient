@@ -1,233 +1,163 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdStatsItem a;
+    public String b;
+    public boolean c;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public xba(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                if (TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3) {
-                    return true;
-                }
-                return false;
-            } else if (s46.a().i() && BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
-                return true;
-            } else {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.booleanValue;
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        boolean z;
+    public void a() {
+        aca c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ed5 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (adAdSense != null && adAdSense.f()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                if (BdNetTypeUtil.isWifiNet()) {
-                    return true;
-                }
-                return false;
-            } else if (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
-                return true;
-            } else {
-                if (BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3) {
-                    return true;
-                }
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
+            long timeCost = this.a.getTimeCost();
+            if (timeCost > 3000) {
+                zba zbaVar = c.f;
+                zbaVar.a += timeCost;
+                zbaVar.b++;
+                yba.b(c, 10);
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public static int c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        aca c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext == null || TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.startsWith("tieba://deeplink?")) {
-                Uri parse = Uri.parse(str);
-                if (vy9.j(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT))) != 1000) {
-                    if (!d(tbPageContext, parse.getQueryParameter("wap"))) {
-                        return 0;
-                    }
-                    return 2;
-                }
-                return 1;
-            } else if (!d(tbPageContext, str)) {
-                return 0;
-            } else {
-                return 3;
-            }
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
+            return;
         }
-        return invokeLL.intValue;
-    }
-
-    public static boolean d(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
-            String[] strArr = {str};
-            if (UrlManager.getInstance().UrlValidated(str)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, strArr, true);
-                return true;
+        if (z) {
+            zba zbaVar = c.d;
+            if (zbaVar == null) {
+                return;
             }
-            return UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0075  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x007b A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void e(List<Object> list, int i) {
-        boolean z;
-        int i2;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i) == null) && list != null && list.size() != 0) {
-            if (MessageManager.getInstance().findTask(2016447) != null) {
-                z = true;
+            zbaVar.b++;
+            if (z2) {
+                zbaVar.a += j2;
+                zbaVar.d += j;
             } else {
-                z = false;
+                zbaVar.c++;
             }
-            int i3 = 0;
-            while (i3 < list.size()) {
-                if (list.get(i3) instanceof ICardInfo) {
-                    if (z) {
-                        ICardInfo iCardInfo = (ICardInfo) list.get(i3);
-                        int viewCount = iCardInfo.getViewCount();
-                        ArrayList arrayList = new ArrayList();
-                        for (int i4 = 0; i4 < viewCount; i4++) {
-                            ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
-                            if (viewItem != null) {
-                                viewItem.setBdUniqueId(wz8.b.get(viewItem.getCardType()));
-                                arrayList.add(viewItem);
-                            }
-                        }
-                        if (arrayList.size() != 0) {
-                            list.remove(i3);
-                            list.addAll(i3, arrayList);
-                            i2 = arrayList.size();
-                            z2 = false;
-                            if (!z2) {
-                                list.remove(i3);
-                                i2 = 0;
-                            }
-                        }
-                    }
-                    i2 = 1;
-                    z2 = true;
-                    if (!z2) {
-                    }
+        } else {
+            zba zbaVar2 = c.e;
+            if (zbaVar2 == null) {
+                return;
+            }
+            zbaVar2.b++;
+            if (z2) {
+                zbaVar2.a += j3;
+                zbaVar2.d += j;
+            } else {
+                zbaVar2.c++;
+            }
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            yba.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
+                bdStatsItem.append("act", "frs");
+                String str3 = "0";
+                if (z2) {
+                    str2 = "0";
                 } else {
-                    i2 = 1;
+                    str2 = "1";
                 }
-                i3 += i2;
+                bdStatsItem.append("result", str2);
+                if (z) {
+                    str3 = "1";
+                }
+                bdStatsItem.append("isHttp", str3);
+                bdStatsItem.append("timeCost", String.valueOf(j2));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_MSG, str);
+                bdStatsItem.append("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x009b  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00a1 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void f(List<yn> list, int i) {
-        boolean z;
-        int i2;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, list, i) == null) && list != null && list.size() != 0) {
-            if (MessageManager.getInstance().findTask(2016447) != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            int i3 = 0;
-            while (i3 < list.size()) {
-                if (list.get(i3) instanceof l35) {
-                    if (z) {
-                        if (!((l35) list.get(i3)).isValid()) {
-                            ((l35) list.get(i3)).d();
-                        }
-                        if (((l35) list.get(i3)).isValid()) {
-                            ICardInfo c = ((l35) list.get(i3)).c();
-                            int viewCount = c.getViewCount();
-                            ArrayList arrayList = new ArrayList();
-                            for (int i4 = 0; i4 < viewCount; i4++) {
-                                ICardInfo viewItem = c.getViewItem(i4, i);
-                                if (viewItem != null) {
-                                    viewItem.setBdUniqueId(wz8.b.get(viewItem.getCardType()));
-                                    arrayList.add(viewItem);
-                                }
-                            }
-                            if (arrayList.size() != 0) {
-                                list.remove(i3);
-                                list.addAll(i3, arrayList);
-                                i2 = arrayList.size();
-                                z2 = false;
-                                if (!z2) {
-                                    list.remove(i3);
-                                    i2 = 0;
-                                }
-                            }
-                        }
-                    }
-                    i2 = 1;
-                    z2 = true;
-                    if (!z2) {
-                    }
-                } else {
-                    i2 = 1;
-                }
-                i3 += i2;
-            }
-        }
-    }
-
-    public static ArrayList<BdUniqueId> g() {
+    public final aca c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int size = wz8.b.size();
-            ArrayList<BdUniqueId> arrayList = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                arrayList.add(wz8.b.valueAt(i));
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return yba.e(this.b, d(), this.c);
         }
-        return (ArrayList) invokeV.objValue;
+        return (aca) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType == 0) {
+                return "N";
+            }
+            if (netType == 1) {
+                return "WIFI";
+            }
+            if (netType == 3) {
+                return "3G";
+            }
+            if (netType != 2) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.startTimer();
+        }
+    }
+
+    public void e(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new BdStatsItem("dbg");
+            yba.c(str, d(), z);
+        }
     }
 }
